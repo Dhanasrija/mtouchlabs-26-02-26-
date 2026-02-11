@@ -1,10 +1,15 @@
 /**
  * Shared FAQ accordion — works on any page with ._faq_item elements
- * Also works with homepage .faq-item elements
  */
-document.addEventListener("DOMContentLoaded", function () {
-  // New-style FAQ (services, contact, portfolio)
+(function initFaq() {
   var faqItems = document.querySelectorAll("._faq_item");
+  if (!faqItems.length) {
+    // DOM may not be ready in Next.js — retry
+    if (document.readyState !== 'complete') {
+      setTimeout(initFaq, 150);
+    }
+    return;
+  }
   faqItems.forEach(function (item) {
     var question = item.querySelector("._faq_question");
     if (question) {
@@ -22,4 +27,4 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   });
-});
+})();
