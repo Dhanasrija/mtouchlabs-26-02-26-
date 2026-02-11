@@ -1,0 +1,1996 @@
+/* Hero section for Company Overview page */
+
+.hero-section_company_overview.company_overview {
+    background-image: url("../images/company-hero.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: #ffffff;
+    padding: 80px 15px;
+    /* Fallback color in case image is missing */
+    background-color: #071020;
+    padding: 10rem 1rem 6rem 1rem;
+}
+
+.hero-section_company_overview.company_overview * {
+    font-family: "Inter", sans-serif !important;
+}
+
+/* Ensure Inter is used for the whole about page sections */
+.about-section_company_overview.company_overview,
+.company_overview,
+.hero-section_company_overview.company_overview {
+    font-family: "Inter", Arial, sans-serif !important;
+}
+
+.hero-section_company_overview.company_overview::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(3, 17, 35, 0.55);
+    z-index: 1;
+}
+
+.hero-section_company_overview.company_overview>* {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1100px;
+    text-align: center;
+    display: grid;
+    gap: 1rem;
+}
+
+.hero-section_company_overview.company_overview .hero-breadcrumb small a {
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 13px;
+}
+
+.hero-section_company_overview.company_overview .hero-breadcrumb a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+}
+
+.hero-section_company_overview.company_overview .hero-breadcrumb small span {
+    color: rgba(62, 140, 251, 1) !important;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.hero-section_company_overview.company_overview .hero-title {
+    font-size: 52px;
+    line-height: 1.04;
+    margin: 6px 0 12px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+}
+
+.hero-section_company_overview.company_overview .hero-subtitle {
+    font-size: 35px;
+    line-height: 1.4;
+    margin: 0 0 18px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.95);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-section_company_overview.company_overview .hero-note {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 1);
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .hero-section_company_overview.company_overview {
+        min-height: 370px;
+        padding: 48px 15px;
+    }
+
+    .hero-section_company_overview.company_overview .hero-title {
+        font-size: 30px;
+    }
+
+    .hero-section_company_overview.company_overview .hero-subtitle {
+        font-size: 16px;
+    }
+
+    .hero-section_company_overview.company_overview .hero-note {
+        font-size: 12px;
+    }
+}
+
+/* About two-column section */
+.about-section_company_overview.company_overview {
+    padding: 70px 15px;
+    background-color: #fff;
+    color: #0b1b2b;
+}
+
+.about-section_company_overview .about-row {
+    gap: 30px;
+}
+
+.about-section_company_overview .about-text h2 {
+    font-size: 34px;
+    font-weight: 800;
+    margin-bottom: 18px;
+    color: #0b1b2b;
+}
+
+.about-section_company_overview .about-text p {
+    font-size: 16px;
+    color: #374151;
+    line-height: 1.7;
+}
+
+.about-section_company_overview .about-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 6px;
+    object-fit: contain;
+}
+
+.company_overview_container .overview_content h2 {
+    font-size: 50px;
+    color: black;
+}
+
+.nascom_membership {
+    display: grid;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem 9rem;
+}
+
+.nascom_membership h3 {
+    font-size: 45px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    /* margin-left: 4rem; */
+    color: black;
+}
+
+.nascom_membership_card h4 {
+    color: black;
+    font-size: 22px;
+    max-width: 300px;
+}
+
+.nascom_membership_card p {
+    color: #1a2d47;
+    font-size: 16px;
+    width: 300px;
+}
+
+.nascom_membership_cards {
+    /* display: grid; */
+    /* grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); */
+    align-items: center;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    justify-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+}
+
+.nascom_membership_card {
+    display: grid;
+    gap: 1rem;
+}
+
+.company_overview_container .overview_content p {
+    font-size: 20px;
+    color: #2e2f2f;
+}
+
+/* High-impact section */
+.company_overview {
+    padding: 70px 15px;
+    background-color: #ffffff;
+    color: #0b1b2b;
+}
+
+high-impact-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+.high-impact-text h2 {
+    font-size: 45px;
+    font-weight: 600;
+    line-height: 58px;
+    margin-bottom: 12px;
+    color: black;
+}
+
+.track_record_h2 {
+    /* font-size: 50px; */
+    width: 100%;
+    max-width: 500px;
+}
+
+.high-impact-text p {
+    font-size: 20px;
+    color: #2e2f2f;
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+.impact-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    gap: 1rem;
+}
+
+.impact-list li {
+    font-size: 16px;
+    position: relative;
+    color: #2e2f2f;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.company_overview_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 3rem;
+    margin-top: 3rem;
+    gap: 2rem;
+    align-items: center;
+}
+
+.overview-two-column_left {
+    gap: 14rem;
+}
+
+.core_grid {
+    display: grid;
+    grid-template-columns: 80% 1fr;
+    gap: 2rem;
+}
+
+.awards-revognition-section {
+    /* align-items: start !important; */
+    margin-bottom: 3rem;
+}
+
+.awards-revognition-section h2 {
+    line-height: 67px;
+}
+
+.awards-revognition-section .overview_content {
+    margin-top: 2rem;
+}
+
+.nasscom-member {
+    padding: 0 6rem !important;
+}
+
+.company_overview_container .overview_content {
+    display: grid;
+    gap: 1rem;
+}
+
+.overview_content .high_impact_span,
+.high_impact_span {
+    margin-bottom: 1rem;
+}
+
+.overview_content span,
+.high-impact-text .high_impact_span,
+.high_impact_span {
+    color: #3e8cfb;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+@media (max-width: 767px) {
+
+    .about-section_company_overview.company_overview,
+    .company_overview {
+        padding: 32px 15px;
+    }
+
+    .high-impact-image {
+        margin-bottom: 18px;
+    }
+
+    .hero-section_company_overview.company_overview .hero-title {
+        font-size: 28px;
+    }
+
+    .hero-section_company_overview.company_overview .hero-subtitle {
+        font-size: 15px;
+    }
+}
+
+/* Utility: allow overriding image path per-page if needed */
+.hero-section_company_overview.company_overview.has-custom-image {
+    background-image: none;
+    /* use inline style or additional class to set background-image */
+}
+
+/* Core Expertise section styles (plain CSS) */
+.core-expertise_company_overview.company_overview {
+    padding: 60px 15px;
+    background: #ffffff;
+    color: #0b1b2b;
+}
+
+.core-expertise_company_overview .core-header h3 {
+    font-size: 50px;
+    margin: 0 0 50px;
+    font-weight: 800;
+    font-family: "Inter", sans-serif;
+}
+
+.core-expertise_company_overview .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.core-expertise_company_overview .core-card {
+    position: relative;
+    display: block;
+    background: #f8fafc;
+    /* light card background, no border */
+    border: none;
+    border-radius: 8px;
+    padding: 22px 22px 18px 28px;
+    /* extra left padding so content clears the badge */
+    box-shadow: none;
+}
+
+.core-expertise_company_overview .core-badge {
+    position: absolute;
+    top: -18px;
+    left: -4px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #2b9cf0;
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.core-expertise_company_overview .core-card-body {
+    margin-top: 8px;
+}
+
+.core-expertise_company_overview .core-card-body h4 {
+    margin: 6px 0 8px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.core-expertise_company_overview .core-card-body p {
+    margin: 0;
+    font-size: 15px;
+    color: black;
+    line-height: 1.6;
+}
+
+.core-expertise_company_overview .core-media {
+    padding-left: 22px;
+}
+
+.core-image-wrap {
+    position: relative;
+}
+
+.core-image-wrap img {
+    width: 100%;
+    border-radius: 6px;
+    display: block;
+    /* height: 500px; */
+}
+
+.core-quote {
+    position: absolute;
+    /* align the quote box to the section edge — section uses 4rem side padding in HTML */
+    right: calc(-1 * 4rem);
+    bottom: 0;
+    width: 600px;
+    max-width: 46%;
+}
+
+.core-quote-inner {
+    background: #011d80;
+    color: #fff;
+    padding: 26px;
+    border-radius: 6px;
+    box-shadow: 0 10px 26px rgba(3, 9, 24, 0.12);
+    clip-path: polygon(23% 0, 100% 0%, 100% 100%, 0 100%, 0 53%);
+
+    padding-bottom: 2rem;
+    /* transform: skewX(-6deg); */
+}
+
+.core-quote-inner .core-quote-mark {
+    padding-top: 1rem;
+    display: block;
+    font-size: 50px;
+    color: #ffd24d;
+    font-weight: 700;
+    margin-left: 7rem;
+}
+
+.core-quote-inner p {
+    margin: 0;
+    font-size: 25px;
+    font-weight: 550;
+    line-height: 2.5rem;
+    max-width: 300px;
+    margin-left: 6rem;
+    /* transform: skewX(6deg); */
+}
+
+.core-quote::before {
+    content: "";
+    position: absolute;
+    right: 100%;
+    bottom: 0;
+    width: 36px;
+    height: 36px;
+    border: 6px solid rgba(3, 19, 39, 0.12);
+    border-right: 0;
+    border-bottom: 0;
+    transform: translateX(8px) translateY(8px) rotate(-45deg);
+}
+
+.core_expert {
+    padding: 0 4rem !important;
+}
+
+.our_vision_mission_section {
+    padding: 4rem 5rem;
+    margin-top: 2rem;
+    display: grid;
+    gap: 3rem;
+}
+
+.our_vision_mission_section img {
+    width: 100%;
+}
+
+.vision_section_head {
+    display: grid;
+    /* grid-template-columns: 0.4fr 1fr; */
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.vision_section_head h3 {
+    font-size: 54px;
+    text-align: center;
+}
+
+.vision_section_head p {
+    font-size: 18px;
+}
+
+.leadership-section {
+    background-color: #fff;
+    padding: 60px 5rem 0 5rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.leadership-hero {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+}
+
+.leadership-image {
+    flex: 1;
+    min-width: 300px;
+}
+
+.leadership-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.leadership-content {
+    flex: 1;
+    min-width: 300px;
+    padding: 20px;
+    /* border: 2px dotted #3498db; */
+    border-radius: 8px;
+    /* background-color: #fafafa; */
+}
+
+.leadership-content h2 {
+    font-size: 38px;
+    font-weight: 700;
+    color: black;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.leadership-content p {
+    font-size: 1rem;
+    color: rgba(46, 47, 47, 1);
+    line-height: 1.8;
+    margin: 0.5rem 0;
+}
+
+.leadership-defines {
+    margin-top: 60px;
+}
+
+.leadership-defines h3 {
+    font-size: 38px;
+    font-weight: 600;
+    color: rgba(46, 47, 47, 1);
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.leadership-cards {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 30px;
+}
+
+.lead-card {
+    max-width: 400px;
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lead-card img {
+    width: 50px;
+    margin-bottom: 1rem;
+}
+
+.lead-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.lead-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    padding: 18px;
+}
+
+.lead-card:nth-child(1) .lead-icon {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.lead-card:nth-child(2) .lead-icon {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.lead-card:nth-child(3) .lead-icon {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.lead-icon svg,
+.lead-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.lead-card h4 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: rgba(46, 47, 47, 1);
+    margin-bottom: 15px;
+}
+
+.lead-card p {
+    font-size: 0.95rem;
+    color: rgba(46, 47, 47, 1);
+    line-height: 1.6;
+}
+
+.footer-quote {
+    text-align: center;
+    font-style: italic;
+    color: rgba(46, 47, 47, 1);
+    margin-top: 50px;
+    padding: 30px 50px;
+    /* background: #f8f9fa; */
+    border-radius: 8px;
+    font-size: 1rem;
+    line-height: 1.8;
+    justify-self: center;
+    width: 100%;
+    max-width: 950px;
+}
+
+.awards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 28px;
+    align-items: stretch;
+    margin: 2rem 5rem;
+}
+
+.award-card {
+    background: #fff;
+    padding: 26px 18px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 12px 30px rgba(3, 9, 24, 0.06);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.award-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 45px rgba(3, 9, 24, 0.1);
+}
+
+.award-media {
+    width: 100%;
+    max-width: 40px;
+    margin: 0 auto 14px;
+}
+
+.award-media img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.award-caption {
+    font-size: 17px;
+    color: rgba(38, 37, 86, 1);
+    font-weight: 600;
+    margin: 0;
+}
+
+.award-media {
+    max-width: 140px;
+    margin-bottom: 10px;
+}
+
+.awards-section {
+    background: url("../images/about/awards_bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 5rem 0;
+}
+
+.awards-title {
+    padding: 2rem 0;
+}
+
+/* NASSCOM membership section (stacked large cards) */
+.nasscom-empower-section {
+    padding: 60px 15px 80px;
+    background: #fff;
+}
+
+.nasscom-section-title {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 28px;
+    color: #0b1b2b;
+}
+
+.nasscom-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 36px;
+    align-items: stretch;
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 0;
+    background-size: contain;
+    background: url("../images/about/nasscom_bg.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.nasscom-grid::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 12px;
+    bottom: 12px;
+    background: linear-gradient(90deg,
+            rgba(99, 255, 199, 0.06),
+            rgba(255, 209, 220, 0.06),
+            rgba(162, 178, 255, 0.06));
+    border-radius: 18px;
+    filter: blur(8px);
+    z-index: 0;
+}
+
+.nasscom-card {
+    background: transparent;
+    z-index: 2;
+    /* increased card height for a bit more presence */
+}
+
+.nasscom-card-inner {
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 22px 50px rgba(3, 9, 24, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-height: 230px;
+}
+
+.nasscom-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.nasscom-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.nasscom-copy {
+    color: #1f2d3d;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.nasscom-caption {
+    margin-top: 34px;
+    color: #0b243a;
+    font-weight: 600;
+}
+
+.story_of_growth {
+    padding: 2rem 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.story_of_growth p {
+    font-size: 1rem;
+    /* text-align: center; */
+    max-width: 1100px;
+}
+
+.key_milestones {
+    max-width: 950px;
+    margin: 0 auto;
+    background: white;
+    padding: 50px 30px;
+    min-height: 100vh;
+}
+
+.key_milestones h1 {
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 60px;
+    color: #333;
+    font-weight: 600;
+}
+
+.timeline {
+    position: relative;
+    padding: 20px 0;
+}
+
+/* Dotted vertical line */
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background-image: repeating-linear-gradient(to bottom,
+            #d0d0d0,
+            #d0d0d0 8px,
+            transparent 8px,
+            transparent 16px);
+    top: 0;
+}
+
+.milestone {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    margin-bottom: 80px;
+    gap: 0;
+    position: relative;
+}
+
+.milestone:last-child {
+    margin-bottom: 0;
+}
+
+/* Left side content */
+.left-content {
+    text-align: right;
+    padding-right: 40px;
+    position: relative;
+}
+
+/* Right side content */
+.right-content {
+    text-align: left;
+    padding-left: 40px;
+    position: relative;
+}
+
+/* Dotted line connecting dot to left IMAGE only */
+.left-content .image::after {
+    content: "";
+    position: absolute;
+    right: -71px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 68px;
+    height: 2px;
+    background-image: repeating-linear-gradient(to right,
+            #4dd0e1,
+            #4dd0e1 6px,
+            transparent 6px,
+            transparent 12px);
+}
+
+/* Arrow pointing left for left IMAGE only */
+/* .left-content .image::before { */
+/* content: ""; */
+/* position: absolute; */
+/* right: 0; */
+/* top: 50%; */
+/* transform: translateY(-50%); */
+/* width: 0; */
+/* height: 0; */
+/* border-style: solid; */
+/* border-width: 5px 7px 5px 0; */
+/* border-color: transparent #4dd0e1 transparent transparent; */
+/* } */
+
+/* Dotted line connecting dot to right IMAGE only */
+.right-content .image::after {
+    content: "";
+    position: absolute;
+    left: -78px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 80px;
+    height: 2px;
+    background-image: repeating-linear-gradient(to right,
+            #4dd0e1,
+            #4dd0e1 6px,
+            transparent 6px,
+            transparent 12px);
+}
+
+@media screen and (max-width: 1300px) {
+    .cor_expect_colomn_2 {
+        flex: 0 0 100% !important;
+        /* make it full width */
+        max-width: 100% !important;
+    }
+}
+
+/* Arrow pointing right for right IMAGE only */
+/* .right-content .image::before { */
+/* content: ""; */
+/* position: absolute; */
+/* left: 0; */
+/* top: 50%; */
+/* transform: translateY(-50%); */
+/* width: 0; */
+/* height: 0; */
+/* border-style: solid; */
+/* border-width: 5px 0 5px 7px; */
+/* border-color: transparent transparent transparent #4dd0e1; */
+/* } */
+
+/* Center year section */
+.year-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    width: 80px;
+}
+
+.year {
+    /* position: absolute; */
+    /* left: -60px; */
+    /* top: 50%; */
+    /* transform: translateY(-50%); */
+    background: white;
+    color: #4dd0e1;
+    font-weight: bold;
+    font-size: 1.3em;
+    white-space: nowrap;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: #4dd0e1;
+    border-radius: 50%;
+}
+
+.image {
+    max-width: 450px;
+    position: relative;
+}
+
+.left-content .image {
+    margin-left: auto;
+}
+
+.right-content .image {
+    margin-right: auto;
+}
+
+.image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.text-content {
+    max-width: 400px;
+}
+
+.left-content .text-content {
+    margin-left: auto;
+}
+
+.right-content .text-content {
+    margin-right: auto;
+}
+
+.milestone-title {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: black;
+    margin-bottom: 10px;
+    margin-top: 1rem;
+}
+
+.milestone-desc {
+    color: #666;
+    line-height: 1.5;
+    font-size: 0.85em;
+}
+
+@media (max-width: 768px) {
+    .key_milestones {
+        padding: 10px;
+    }
+
+    .key_milestones .timeline {
+        display: grid !important;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .left-content {
+        padding-right: 0;
+    }
+
+    .right-content {
+        padding-left: 0;
+    }
+
+    .key_milestones {
+        padding: 40px 20px;
+    }
+}
+
+/* 
+@media (max-width: 768px) {
+    .key_milestones .timeline {
+        display: grid !important;
+        align-items: center;
+        justify-items: center;
+    }
+    .left-content .image,
+    .right-content .image {
+        display: none;
+    }
+    .key_milestones {
+        padding: 40px 20px;
+    }
+    .right-content .image,
+    .left-content .image {
+        max-width: 400px;
+    }
+    .right-content .key_milestones h1 {
+        font-size: 1.5em;
+        margin-bottom: 50px;
+    }
+
+    .timeline::before {
+        left: 40px;
+    }
+
+    .milestone {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 80px;
+        margin-bottom: 60px;
+    }
+
+    .year-section {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: auto;
+    }
+
+    .dot {
+        position: absolute;
+        left: 34px;
+        top: 8px;
+    }
+
+    .left-content::after,
+    .left-content::before,
+    .right-content::after,
+    .right-content::before,
+    .left-content .image::after,
+    .left-content .image::before,
+    .right-content .image::after,
+    .right-content .image::before {
+        display: none;
+    }
+
+    .left-content,
+    .right-content {
+        text-align: left;
+        padding: 0;
+        margin-bottom: 15px;
+    }
+
+    .text-content {
+        max-width: 100%;
+        margin: 0 !important;
+    }
+
+    .image {
+        max-width: 100%;
+        margin: 0 !important;
+    }
+
+    .milestone-desc {
+        font-size: 0.9em;
+        max-width: 240px;
+    }
+}
+
+*/
+.nascom_driving_digital {
+    padding: 0 15px;
+    background: #ffffff;
+    margin-top: 4rem;
+}
+
+.nascom_driving_digital_wrapper {
+    display: grid;
+    grid-template-columns: 0.8fr 1fr;
+    gap: 60px;
+    align-items: flex-start;
+    /* align-items: center; */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 20px;
+}
+
+.nascom_driving_digital_image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nascom_driving_digital_img {
+    width: 100%;
+    /* square image to match design */
+    border-radius: 6px;
+    object-fit: cover;
+    box-shadow: 0 28px 60px rgba(3, 9, 24, 0.16);
+    border: 1px solid rgba(3, 9, 24, 0.06);
+}
+
+.nascom_driving_digital_image img {
+    width: 100%;
+}
+
+.nascom_driving_digital_content {
+    padding-right: 20px;
+    display: grid;
+    gap: 1rem;
+}
+
+.nascom_driving_digital_title {
+    font-size: 45px;
+    font-weight: 800;
+    color: #222222;
+    margin-bottom: 6px;
+    line-height: 1.08;
+    max-width: 550px;
+}
+
+.nascom_driving_digital_intro {
+    color: #2e2f2f;
+    font-size: 20px;
+    margin-bottom: 18px;
+    max-width: 380px;
+    width: 100%;
+}
+
+.nascom_driving_digital_list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.nascom_driving_digital_item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    color: #1f2d3d;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.nascom_driving_digital_bullet {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid #ff6b6b;
+    color: #ff6b6b;
+    font-size: 10px;
+    margin-top: 6px;
+    flex-shrink: 0;
+}
+
+.nascom_driving_digital_item_text {
+    font-size: 16px;
+    color: #243142;
+}
+
+@media (max-width: 480px) {
+    .story_of_growth {
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .timeline {
+        padding: 0;
+    }
+
+    .key_milestones {
+        padding: 30px 15px;
+    }
+
+    .key_milestones h1 {
+        font-size: 1.3em;
+    }
+
+    /* .milestone { */
+    /* padding-left: 70px; */
+    /* } */
+
+    .year {
+        font-size: 1.1em;
+    }
+
+    .year-section {
+        left: -5px;
+    }
+
+    .dot {
+        left: 29px;
+    }
+}
+
+/* Keep stacked layout for medium screens as well */
+@media (max-width: 1200px) {
+
+    /* 2 columns on medium-large screens */
+    .nasscom-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 960px;
+    }
+
+    .story_of_growth {
+        padding: 2rem 3rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .nasscom-grid {
+        grid-template-columns: 1fr;
+        margin: 0 12px;
+    }
+
+    .nasscom-card-inner {
+        padding: 20px;
+        gap: 14px;
+        min-height: auto;
+        flex-direction: column;
+        /* stack icon above copy on mobile */
+        align-items: center;
+        text-align: center;
+    }
+
+    .nasscom-section-title {
+        font-size: 22px;
+    }
+
+    .nasscom-icon {
+        width: 72px;
+        height: 72px;
+        flex: 0 0 72px;
+    }
+
+    .nasscom-copy {
+        font-size: 16px;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .leadership-section {
+        padding: 40px 1rem;
+    }
+
+    .leadership-hero {
+        gap: 30px;
+        margin-bottom: 40px;
+    }
+
+    /* Awards section responsive tweaks */
+    .awards-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Awards / Recognition section */
+    .awards-section {
+        padding: 60px 15px 80px;
+    }
+
+    .awards-title {
+        font-size: 30px;
+        font-weight: 700;
+        margin-bottom: 24px;
+        color: #0b1b2b;
+    }
+
+    /* NASSCOM membership section (responsive overrides moved to global) */
+
+    @media (max-width: 1200px) {
+        .awards-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .awards-section {
+            padding: 36px 12px;
+        }
+
+        .awards-title {
+            font-size: 22px;
+        }
+
+        .award-card {
+            padding: 16px;
+        }
+
+        .award-media {
+            max-width: 140px;
+            margin-bottom: 10px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .awards-grid {
+            grid-template-columns: 1fr;
+            margin: 1rem;
+        }
+
+        .award-caption {
+            font-size: 13px;
+        }
+    }
+
+    .leadership-content h2 {
+        font-size: 1.7rem;
+    }
+
+    .leadership-content p {
+        font-size: 0.95rem;
+    }
+
+    .leadership-defines h3 {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+    }
+
+    .leadership-cards {
+        gap: 20px;
+    }
+
+    .lead-card {
+        padding: 30px 20px;
+    }
+
+    .lead-icon {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 20px;
+    }
+
+    .lead-card h4 {
+        font-size: 1.1rem;
+    }
+
+    .lead-card p {
+        font-size: 0.9rem;
+    }
+
+    .footer-quote {
+        font-size: 0.9rem;
+        padding: 20px 15px;
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .leadership-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .leadership-defines h3 {
+        font-size: 1.3rem;
+    }
+
+    .leadership-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 1199px) {
+    .core-quote {
+        right: calc(-1 * 3rem);
+        width: 340px;
+    }
+}
+
+@media (max-width: 991px) {
+    .core-expertise_company_overview .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .core-quote {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        width: 100%;
+        max-width: none;
+        margin-top: 18px;
+    }
+
+    .core-quote-inner {
+        transform: none;
+    }
+}
+
+/* Responsive adjustments for entire about/company-overview pages */
+@media (max-width: 1200px) {
+    .company_overview_container {
+        padding: 0 2rem;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .company_overview_container .overview_content h2,
+    .high-impact-text h2 {
+        font-size: 26px;
+    }
+
+    .company_overview_container .overview_content p,
+    .high-impact-text p,
+    .track_record_h2 {
+        font-size: 16px;
+    }
+
+    .core-media,
+    .core-quote {
+        display: none;
+    }
+
+    .overview-two-column_left {
+        gap: 3rem !important;
+    }
+
+    .about-section_company_overview .about-image img,
+    .core-image-wrap img,
+    .about-image img,
+    .high-impact-image img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .nascom_membership {
+        padding: 0rem;
+    }
+
+    .nascom_membership_card h4 {
+        font-size: 18px;
+        max-width: 90%;
+    }
+
+    .nascom_membership_card p {
+        max-width: 90%;
+        font-size: 14px;
+    }
+
+    .nasscom-grid::before {
+        background: inherit;
+    }
+
+    .nascom_membership h3 {
+        font-size: 24px;
+        margin-left: 0;
+        text-align: center;
+        line-height: unset;
+    }
+
+    .nascom_membership_cards {
+        max-width: 100%;
+        gap: 1rem;
+    }
+
+    .nascom_membership_card {
+        width: unset;
+    }
+}
+
+@media (max-width: 992px) {
+
+    /* Reduce paddings and stack columns */
+    .company_overview_container:nth-child(odd) .about-image {
+        grid-row: 1/2;
+    }
+
+    .company_overview_container {
+        grid-template-columns: 1fr;
+        padding: 0 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .company_overview_container>div {
+        width: 100%;
+    }
+
+    .core-expertise_company_overview .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .core-expertise_company_overview .core-media {
+        padding-left: 0;
+    }
+
+    .core-quote {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        width: 100%;
+        margin-top: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nasscom-member {
+        padding: 1rem !important;
+    }
+
+    .our_vision_mission_section {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .vision_section_head {
+        grid-template-columns: 1fr;
+        padding: 0.5rem;
+        gap: 1rem;
+    }
+
+    .hero-section_company_overview.company_overview {
+        padding: 36px 16px;
+    }
+
+    .hero-section_company_overview.company_overview .hero-title {
+        font-size: 24px;
+    }
+
+    .hero-section_company_overview.company_overview .hero-subtitle {
+        font-size: 14px;
+    }
+
+    .overview_content h2,
+    .high-impact-text h2,
+    .core-header h3 {
+        font-size: 20px;
+    }
+
+    .core-expertise_company_overview .cards-grid {
+        gap: 12px;
+    }
+
+    .core-expertise_company_overview .core-card {
+        padding: 18px 14px 14px 56px;
+    }
+
+    .core-expertise_company_overview .core-badge {
+        left: 14px;
+        top: -14px;
+        width: 36px;
+        height: 36px;
+        line-height: 36px;
+    }
+
+    .core-quote-inner {
+        padding: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .company_overview_container,
+    .our_vision_mission_section {
+        padding: 0;
+    }
+
+    .hero-section_company_overview.company_overview {
+        padding: 40px 12px 28px 12px;
+    }
+
+    .core-expertise_company_overview .core-card {
+        padding-left: 18px;
+    }
+
+    .core-expertise_company_overview .core-badge {
+        position: relative;
+        left: 0;
+        top: 0;
+        margin-bottom: 8px;
+    }
+
+    .core-img {
+        display: none;
+    }
+
+    .core-expertise_company_overview .core-card {
+        padding-top: 12px;
+    }
+
+    .core-quote {
+        transform: none;
+    }
+
+    /* On very small screens, hide Core Expertise section and make images appear above text */
+    .core_expert {
+        padding: 0 1rem !important;
+    }
+
+    .company_overview_container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Ensure images appear above text in About, Mission and High-Impact sections */
+    .about-section .about-image,
+    .mission-section .about-image,
+    .high-impact-section .high-impact-image {
+        order: -1;
+    }
+
+    .overview_content h2,
+    .high-impact-text h2,
+    .core-header h3 {
+        font-size: 26px !important;
+        line-height: initial;
+    }
+
+    .overview_content p,
+    .high-impact-text p,
+    .core-header p {
+        text-align: justify;
+    }
+
+    .impact-list li {
+        font-size: 1rem;
+    }
+
+    .hero-section_company_overview.company_overview .hero-title {
+        font-size: 22px;
+    }
+
+    p {
+        font-size: 15px;
+    }
+}
+
+/* ============================================
+   NASSCOM Membership - What It Means Section
+   ============================================ */
+
+.nascom_what_it_means {
+    padding: 60px 15px;
+    background-color: #f1f9ff;
+    margin-top: 5rem;
+}
+
+.nascom_what_it_means_wrapper {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 50px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nascom_what_it_means_content {
+    padding-right: 20px;
+}
+
+.nascom_what_it_means_title {
+    font-size: 45px;
+    font-weight: 700;
+    color: #071020;
+    margin-bottom: 30px;
+    line-height: 1.3;
+    font-family: "Inter", sans-serif;
+    text-align: center;
+}
+
+.nascom_what_it_means_intro {
+    margin-bottom: 25px;
+}
+
+.nascom_what_it_means_text {
+    font-size: 35px;
+    font-weight: 600;
+    color: #333333;
+    margin: 0;
+    line-height: 1.5;
+    font-family: "Inter", sans-serif;
+}
+
+.nascom_what_it_means_list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nascom_what_it_means_item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #333333;
+    font-family: "Inter", sans-serif;
+}
+
+.nascom_what_it_means_bullet {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    background-color: #1c274c;
+    border-radius: 50%;
+    margin-right: 15px;
+    margin-top: 4px;
+    flex-shrink: 0;
+    color: white;
+    font-size: 12px;
+}
+
+.nascom_what_it_means_item_text {
+    color: #333333;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.nascom_what_it_means_image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nascom_what_it_means_img {
+    width: 100%;
+    height: auto;
+    /* max-width: 450px; */
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.nascom_notes {
+    background-color: #cbe9fe45;
+    padding: 5rem 10rem;
+    margin: 5rem 0;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    gap: 2rem;
+    margin-top: 7rem;
+    position: relative;
+    z-index: 10;
+}
+
+.nascom_notes_wrapper {
+    position: relative;
+    display: grid;
+    gap: 1rem;
+    justify-items: center;
+    gap: 2rem;
+    z-index: 100;
+}
+
+.nascom_left {
+    position: absolute;
+    left: -40px;
+}
+
+.nascom_right {
+    position: absolute;
+    /* right: 0; */
+    bottom: 0;
+    right: -40px;
+}
+
+/* .nascom_bg_1 { */
+/* height: 100%; */
+/* background: url("../images/nascom_1_bg.png"); */
+/* position: absolute; */
+/* height: 100%; */
+/* width: 200px; */
+/* top: 10px; */
+/* z-index: 1; */
+/* } */
+.nascom_notes p {
+    font-size: 19px;
+    color: #222222;
+    text-align: center;
+    font-weight: 550;
+    line-height: 1.7;
+    max-width: 860px;
+}
+
+.nascom_notes img {
+    width: 2rem;
+}
+
+/* ============================================
+   Responsive Design for What It Means Section
+   ============================================ */
+
+@media (max-width: 992px) {
+    .nascom_what_it_means_wrapper {
+        /* grid-template-columns: 1fr; */
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 40px;
+    }
+
+    .nascom_what_it_means_content {
+        padding-right: 0;
+    }
+
+    .nascom_what_it_means_title {
+        font-size: 28px;
+    }
+
+    .nasscom-grid {
+        padding: 0;
+    }
+
+    .nascom_what_it_means_text {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nascom_what_it_means {
+        padding: 40px 15px;
+    }
+
+    .nascom_what_it_means_wrapper {
+        gap: 30px;
+    }
+
+    .nascom_what_it_means_title {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .nascom_what_it_means_text {
+        font-size: 14px;
+    }
+
+    .nascom_what_it_means_item {
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
+
+    .nascom_what_it_means_bullet {
+        width: 7px;
+        height: 7px;
+        margin-right: 12px;
+        margin-top: 6px;
+    }
+}
+
+@media (max-width: 576px) {
+    .nascom_what_it_means {
+        padding: 30px 12px;
+    }
+
+    .nascom_what_it_means_wrapper {
+        gap: 25px;
+    }
+
+    .nascom_what_it_means_title {
+        font-size: 20px;
+        margin-bottom: 16px;
+    }
+
+    .nascom_what_it_means_text {
+        font-size: 13px;
+    }
+
+    .nascom_what_it_means_item {
+        font-size: 13px;
+        margin-bottom: 14px;
+    }
+
+    .nascom_what_it_means_item_text {
+        font-size: 13px;
+    }
+
+    .nascom_what_it_means_img {
+        max-width: 100%;
+    }
+
+    @media (max-width: 1100px) {
+        .nascom_driving_digital_wrapper {
+            grid-template-columns: 320px 1fr;
+            gap: 40px;
+        }
+
+        .nascom_driving_digital_img {
+            height: 320px;
+        }
+    }
+
+    @media (max-width: 992px) {
+        .nascom_driving_digital_wrapper {
+            grid-template-columns: 1fr;
+            gap: 28px;
+        }
+
+        .nascom_driving_digital_image {
+            order: -1;
+            /* show image above content on narrow screens */
+        }
+
+        .nascom_driving_digital_title {
+            font-size: 24px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .nascom_driving_digital {
+            padding: 0;
+        }
+
+        .nascom_driving_digital_intro {
+            font-size: 15px;
+        }
+
+        .nascom_driving_digital_title {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .nascom_driving_digital_content {
+            gap: 0.4rem;
+        }
+
+        .nascom_driving_digital_list {
+            gap: 0.7rem;
+        }
+
+        .nascom_driving_digital_item {
+            font-size: 14px;
+        }
+
+        .nascom_driving_digital_item_text {
+            font-size: 14px;
+        }
+
+        .nascom_driving_digital_bullet {
+            width: 14px;
+            height: 14px;
+            font-size: 9px;
+            margin-top: 6px;
+            border-width: 1.5px;
+        }
+    }
+}

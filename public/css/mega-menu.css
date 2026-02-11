@@ -1,0 +1,650 @@
+/* Global styles for Home/Services/Products mega menu and variants */
+.home-mega,
+.services-mega,
+.products-mega {
+    --card: #ffffff;
+    --stroke: #eef2f6;
+    --muted: #6b7280;
+    --ink: #111827;
+    --accent: #2563eb;
+    --bg: #f8fafc;
+}
+.icon-bubble_img {
+    display: flex;
+    background-color: #f2f6ff;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+.icon-bubble_img img {
+    width: 20px;
+}
+/* Layout and cards */
+.home-mega .menu-block-a,
+.services-mega .menu-block-a,
+.products-mega .menu-block-a {
+    display: flex;
+    gap: 24px;
+    align-items: stretch;
+}
+.home-mega .card,
+.services-mega .card,
+.products-mega .card {
+    background: var(--card);
+    border: 1px solid var(--stroke);
+    border-radius: 12px;
+    /* box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(2, 6, 23, 0.06); */
+}
+.home-mega .shadow,
+.services-mega .shadow,
+.products-mega .shadow {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(2, 6, 23, 0.06);
+}
+.home-mega .grid,
+.services-mega .grid,
+.products-mega .grid {
+    flex: 1;
+    padding: 28px 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.5fr;
+    gap: 0 56px;
+}
+.home-mega .section-title,
+.services-mega .section-title,
+.products-mega .section-title {
+    font-weight: 700;
+    color: #0f3ea3;
+    margin: 0 0 22px;
+    font-size: 24px;
+}
+.home-mega .grid > .cols,
+.services-mega .grid > .cols,
+.products-mega .grid > .cols {
+    grid-column: 1 / span 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px 90px;
+}
+.home-mega .cols ul,
+.services-mega .cols ul,
+.products-mega .cols ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 18px;
+}
+.home-mega .cols a,
+.services-mega .cols a,
+.products-mega .cols a {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    color: #777777;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+.home-mega .cols a:before,
+.services-mega .cols a:before,
+.products-mega .cols a:before {
+    display: none;
+    content: "";
+}
+.home-mega .cols a:hover,
+.services-mega .cols a:hover,
+.products-mega .cols a:hover {
+    color: #3b82f6;
+}
+.home-mega .cols a.is-current,
+.services-mega .cols a.is-current,
+.products-mega .cols a.is-current {
+    color: #3b82f6;
+    font-weight: 700;
+}
+.home-mega .cta,
+.services-mega .cta,
+.products-mega .cta {
+    grid-column: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 14px;
+    padding: 20px;
+    background: var(--card);
+    /* border: 1px solid var(--stroke); */
+    border-radius: 12px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(2, 6, 23, 0.06);
+}
+.home-mega .quote,
+.services-mega .quote,
+.products-mega .quote {
+    /* font-size: 30px; */
+    color: #93a3b8;
+    font-size: 70px;
+    line-height: 2rem;
+}
+.row-link p {
+    margin: 6px 0 0;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+    /* display: none; */
+}
+.quick-links li a span p {
+    /* Keep the descriptive subtext visible for all quick-links (About / Blog / Case Studies)
+       to match the About styling. */
+    display: block;
+}
+.row-link span p {
+    display: none !important;
+}
+.row-link.is-current span p {
+    display: block !important;
+}
+
+.home-mega .sidebar,
+.services-mega .sidebar,
+.products-mega .sidebar {
+    flex: 0 0 320px;
+    max-width: 100%;
+    margin: 10px 0;
+}
+.home-mega .card.sidebar,
+.services-mega .card.sidebar,
+.products-mega .card.sidebar {
+    border: none;
+}
+/* Ensure every sidebar item fills the sidebar width */
+.home-mega .sidebar .feature-card,
+.home-mega .sidebar .row-link,
+.services-mega .sidebar .feature-card,
+.services-mega .sidebar .row-link,
+.products-mega .sidebar .feature-card,
+.products-mega .sidebar .row-link {
+    width: 100%;
+}
+.home-mega .home-title,
+.services-mega .home-title,
+.products-mega .home-title {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+    color: var(--ink);
+    margin: 4px 6px 10px;
+}
+.home-mega .icon-bubble,
+.services-mega .icon-bubble,
+.products-mega .icon-bubble {
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f2f6ff;
+    border: 1px solid #e5edff;
+    color: #3b82f6;
+    box-shadow: 0 3px 10px rgba(2, 6, 23, 0.06);
+}
+.home-mega .quick-links,
+.services-mega .quick-links,
+.products-mega .quick-links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.home-mega .row-link,
+.services-mega .row-link,
+.products-mega .row-link {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid transparent; /* prevent layout shift on hover */
+    color: var(--ink);
+    transition: background 0.2s, transform 0.2s;
+    min-height: 52px; /* keep height stable on hover */
+}
+.home-mega .row-link:hover,
+.services-mega .row-link:hover,
+.products-mega .row-link:hover {
+    background: #f0f6ff; /* same as active */
+    border-color: #c7dbff;
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12);
+    transform: translateY(-1px);
+}
+.home-mega .row-link.is-current,
+.services-mega .row-link.is-current,
+.products-mega .row-link.is-current {
+    background: #f0f6ff;
+    border: 1px solid #c7dbff;
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12);
+    color: #0f3ea3;
+    font-weight: 700;
+}
+.home-mega .feature-card,
+.services-mega .feature-card,
+.products-mega .feature-card {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    border-radius: 14px;
+    padding: 14px 14px 16px;
+    background: var(--card);
+    border: 1px solid transparent; /* avoid shift; becomes colored on hover/active */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(2, 6, 23, 0.06);
+    min-height: 84px; /* keep height stable on hover */
+}
+.home-mega .feature-card {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+}
+.home-mega .feature-card.is-current,
+.services-mega .feature-card.is-current,
+.products-mega .feature-card.is-current {
+    background: #ffffff;
+    border-color: #dbe7ff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04),
+        0 12px 30px rgba(37, 99, 235, 0.14);
+}
+.home-mega .feature-card h6,
+.services-mega .feature-card h6,
+.products-mega .feature-card h6 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 800;
+}
+.home-mega .feature-card p,
+.services-mega .feature-card p,
+.products-mega .feature-card p {
+    margin: 6px 0 0;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+    display: none;
+}
+.home-mega .feature-card.is-current p,
+.home-mega .feature-card:hover p,
+.services-mega .feature-card.is-current p,
+.services-mega .feature-card:hover p,
+.products-mega .feature-card.is-current p,
+.products-mega .feature-card:hover p {
+    display: block;
+}
+/* hover mirrors active */
+.home-mega .feature-card:hover,
+.services-mega .feature-card:hover,
+.products-mega .feature-card:hover {
+    background: #ffffff;
+    border-color: #dbe7ff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04),
+        0 12px 30px rgba(37, 99, 235, 0.14);
+}
+
+/* Active/hover typography and icon accent */
+.home-mega .feature-card.is-current h6,
+.home-mega .feature-card:hover h6,
+.services-mega .feature-card.is-current h6,
+.services-mega .feature-card:hover h6,
+.products-mega .feature-card.is-current h6,
+.products-mega .feature-card:hover h6 {
+    color: #0f3ea3;
+}
+.home-mega .feature-card.is-current .icon-bubble,
+.home-mega .feature-card:hover .icon-bubble,
+.services-mega .feature-card.is-current .icon-bubble,
+.services-mega .feature-card:hover .icon-bubble,
+.products-mega .feature-card.is-current .icon-bubble,
+.products-mega .feature-card:hover .icon-bubble {
+    background: #eef3ff;
+    border-color: #d6e5ff;
+    color: #3b82f6;
+}
+
+/* CTA inside sidebar */
+
+/* Services/Products content switching */
+.services-mega .service-content,
+.products-mega .product-content {
+    display: none !important;
+}
+.services-mega .service-content.active,
+.products-mega .product-content.active {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px 60px;
+}
+.home-mega .home-cta,
+.services-mega .home-cta,
+.products-mega .home-cta {
+    margin-top: 18px;
+    padding: 18px 16px;
+    border: 1px solid var(--stroke);
+    border-radius: 16px;
+    background: var(--card);
+    box-shadow: 0 6px 18px rgba(2, 6, 23, 0.06), 0 2px 6px rgba(2, 6, 23, 0.04);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.home-mega .home-cta:hover,
+.services-mega .home-cta:hover,
+.products-mega .home-cta:hover {
+    box-shadow: 0 12px 30px rgba(2, 6, 23, 0.12),
+        0 4px 10px rgba(2, 6, 23, 0.08);
+    transform: translateY(-1px);
+}
+.home-mega .home-cta .kicker,
+.services-mega .home-cta .kicker,
+.products-mega .home-cta .kicker {
+    font-size: 14px;
+    color: var(--muted);
+    margin: 0 0 8px;
+}
+.home-mega .home-cta h4,
+.services-mega .home-cta h4,
+.products-mega .home-cta h4 {
+    margin: 0 0 12px;
+    color: var(--ink);
+}
+.home-mega .home-cta .outline-btn,
+.services-mega .home-cta .outline-btn,
+.products-mega .home-cta .outline-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border: 2px solid #3b82f6;
+    color: #1e40af;
+    border-radius: 999px;
+    font-weight: 700;
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.15);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.home-mega .home-cta .outline-btn:hover,
+.services-mega .home-cta .outline-btn:hover,
+.products-mega .home-cta .outline-btn:hover {
+    background: #eff6ff;
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
+    transform: translateY(-1px);
+}
+
+/* Utility: hide grid/cta when only sidebar is needed */
+.home-mega.only-left .grid,
+.home-mega.only-left .cta,
+.services-mega.only-left .grid,
+.services-mega.only-left .cta,
+.products-mega.only-left .grid,
+.products-mega.only-left .cta {
+    display: none;
+}
+.home-mega.only-left .menu-block-a,
+.services-mega.only-left .menu-block-a,
+.products-mega.only-left .menu-block-a {
+    justify-content: flex-start;
+}
+.megamenu * {
+    font-style: "Inter", sans-serif !important;
+}
+/* Services/Products specific: keep sidebar scrollable within viewport */
+.services-mega .sidebar,
+.products-mega .sidebar {
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+}
+.view_all_blogs_headee {
+    display: flex !important;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    grid-column: 1/-1;
+    padding-bottom: 2rem;
+}
+.view_all_blogs {
+    background-color: #0f3ea3;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    /* width: 4rem; */
+    height: 2.5rem;
+    padding: 0 1rem;
+    font-size: 15px;
+}
+.row-link span p {
+    font-weight: normal !important;
+    color: black !important;
+}
+
+/* About/Home: keep sidebar scrollable within viewport */
+.home-mega .sidebar {
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+}
+
+/* Services/Products right section: use full space with comfortable padding */
+.services-mega .menu-block-a > .card:not(.sidebar),
+.products-mega .menu-block-a > .card:not(.sidebar) {
+    flex: 1 1 auto;
+    padding: 24px 28px;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+/* Blogs: full-width header + larger cards to match design */
+.mega-menu-blocks.card .menu-block-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+.mega-menu-blocks.card .menu-block-header .section-title {
+    margin: 0;
+}
+.mega-menu-blocks.card .view-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    background: #0f3ea3;
+    color: #fff;
+    border-radius: 22px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 13px;
+}
+.blog-nav-cards.full-width {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    width: 100%;
+}
+.blog-nav-cards.full-width .blog-nav-card {
+    flex: 1 1 0;
+    max-width: 360px;
+    display: block;
+    background: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    color: inherit;
+    padding: 12px;
+    box-shadow: 0 6px 18px rgba(2, 6, 23, 0.04);
+}
+.blog-nav-cards.full-width .blog-nav-card.is-current {
+    border: 2px solid #3e8cfb;
+}
+.blog-nav-card .blog-thumb {
+    height: 180px;
+    overflow: hidden;
+    border-radius: 6px;
+}
+.blog-nav-card .blog-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.blog-nav-card h6 {
+    margin: 8px 0 6px;
+    font-size: 15px;
+}
+.blog-nav-card p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--muted);
+}
+.home-mega .menu-block-a > .card:not(.sidebar) {
+    flex: 1 1 auto;
+    padding: 24px 28px;
+    max-height: calc(100vh - 400px);
+    overflow-y: auto;
+    padding-bottom: 8rem;
+}
+.services-mega
+    .menu-block-a
+    > .card:not(.sidebar)
+    .menu-inner-block-a.service-content.active,
+.products-mega
+    .menu-block-a
+    > .card:not(.sidebar)
+    .menu-inner-block-a.product-content.active {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px 60px;
+}
+.services-mega
+    .menu-block-a
+    > .card:not(.sidebar)
+    .menu-inner-block-a:not(.service-content),
+.products-mega
+    .menu-block-a
+    > .card:not(.sidebar)
+    .menu-inner-block-a:not(.product-content) {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px 60px;
+}
+.services-mega .menu-block-a > .card:not(.sidebar) .menu-li-link,
+.products-mega .menu-block-a > .card:not(.sidebar) .menu-li-link {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 12px;
+}
+
+/* -------------------0 */
+.services-mega .menu-block-a,
+.products-mega .menu-block-a {
+    display: flex;
+    gap: 24px;
+    align-items: stretch;
+}
+
+.services-mega .sidebar,
+.products-mega .sidebar {
+    flex: 0 0 280px;
+    max-height: calc(100% - 300px);
+    /* max-height: 30vh; */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.services-mega #services-content,
+.products-mega #products-content,
+.services-mega .mega-menu-blocks.card:not(.sidebar),
+.products-mega .mega-menu-blocks.card:not(.sidebar) {
+    flex: 1 1 auto;
+    max-height: calc(100vh - 300px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-left: 16px;
+}
+
+.services-mega .menu-inner-block-a,
+.products-mega .menu-inner-block-a {
+    padding-right: 18px;
+}
+
+.services-mega .menu-inner-block-a .inner-blockss,
+.products-mega .menu-inner-block-a .inner-blockss {
+    margin-bottom: 16px;
+}
+
+@media (max-width: 991px) {
+    .services-mega .sidebar,
+    .services-mega #services-content,
+    .products-mega .sidebar,
+    .products-mega #products-content {
+        max-height: none;
+        overflow: visible;
+    }
+}
+
+/* Mobile slide-in subnav used on small screens when tapping top-level items */
+.mobile-subnav {
+    position: fixed;
+    top: 0;
+    left: -110%;
+    width: 86%;
+    max-width: 380px;
+    height: 100%;
+    background: #fff;
+    z-index: 99999;
+    box-shadow: 2px 0 18px rgba(0, 0, 0, 0.12);
+    transition: left 0.28s ease;
+    overflow-y: auto;
+}
+
+.mobile-subnav.open {
+    left: 0;
+}
+
+.mobile-subnav-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border-bottom: 1px solid #eef2f6;
+}
+
+.mobile-subnav .mobile-back {
+    background: none;
+    border: 0;
+    font-size: 16px;
+    color: #111827;
+    cursor: pointer;
+}
+
+.mobile-subnav .mobile-subnav-title {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.mobile-subnav-body {
+    padding: 12px 16px;
+}
+
+.mobile-subnav-body ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.mobile-subnav-body li {
+    margin-bottom: 8px;
+}
+
+.mobile-subnav-body a {
+    color: #111827;
+    text-decoration: none;
+}
+
+/* prevent background scroll while subnav is open */
+html.no-scroll,
+.no-scroll {
+    overflow: hidden !important;
+}

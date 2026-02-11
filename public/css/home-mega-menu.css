@@ -1,0 +1,181 @@
+/* ===== HOME MEGA MENU — sidebar hover layout ===== */
+.home-mega-layout {
+  display: flex !important;
+  gap: 0;
+  flex-direction: row !important;
+}
+
+.home-mega-sidebar {
+  min-width: 280px;
+  max-width: 300px;
+  border-right: 1px solid #e8ecf1;
+  padding: 25px 20px;
+  flex-shrink: 0;
+}
+
+.home-mega-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 20px;
+}
+
+.home-mega-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-bottom: 4px;
+}
+
+.home-mega-item:hover,
+.home-mega-item.active {
+  background: #e8f0fe;
+}
+
+.home-mega-item-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #dbeafe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #3b82f6;
+  font-size: 16px;
+}
+
+.home-mega-item.active .home-mega-item-icon {
+  background: #3b82f6;
+  color: #fff;
+}
+
+.home-mega-item-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.home-mega-item-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+.home-mega-item-desc {
+  font-size: 12px;
+  color: #6b7280;
+  line-height: 1.4;
+  display: none;
+}
+
+.home-mega-item.active .home-mega-item-desc {
+  display: block;
+}
+
+/* Content panels */
+.home-mega-content {
+  flex: 1;
+  padding: 25px 30px;
+  min-width: 0;
+  border-right: 1px solid #e8ecf1;
+}
+
+.home-mega-panel {
+  display: none;
+}
+
+.home-mega-panel.active {
+  display: block;
+}
+
+.home-mega-panel-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #3b82f6;
+  margin-bottom: 15px;
+}
+
+.home-mega-panel .menu-inner-block-a {
+  display: flex;
+  gap: 40px;
+}
+
+.home-mega-readmore {
+  display: inline-block;
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a2e;
+  text-decoration: underline;
+}
+
+.home-mega-readmore:hover {
+  color: #3b82f6;
+}
+
+/* CTA sidebar */
+.home-mega-cta {
+  min-width: 240px;
+  max-width: 260px;
+  padding: 25px 20px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.home-mega-cta-inner {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 25px 20px;
+  text-align: left;
+}
+
+.home-mega-cta-quote {
+  font-size: 48px;
+  font-weight: 700;
+  color: #9ca3af;
+  line-height: 1;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.home-mega-cta-inner h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a2e;
+  line-height: 1.4;
+  margin-bottom: 15px;
+}
+
+.home-mega-cta-inner .ree-btn {
+  font-size: 13px;
+  padding: 8px 18px;
+}
+
+/* ===== Navbar: Logo left | Nav center | Request Quote right ===== */
+.menu-header {
+  display: flex !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+.menu-logo {
+  flex: 0 0 auto !important;
+}
+
+.ree-nav {
+  flex: 1 1 auto !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.nav-right-btn {
+  flex: 0 0 auto !important;
+  display: flex !important;
+  align-items: center !important;
+}
