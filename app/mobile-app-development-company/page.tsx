@@ -2,13 +2,23 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Mobile App Development Company | mTouch Labs",
-  description: "mTouch Labs is a leading Mobile App developers in Hyderabad providing end-to-end mobile application development services.",
+  description: "mTouch Labs is a custom software development company delivering software solutions, scalable architecture, innovative technology services",
 };
 
 export default function Page() {
   return (
     <>
-<section className="AIservices-banner" data-bg="images/new_services/mobilebg.webp">
+
+	
+	
+	
+
+
+	
+	
+
+	
+	<section className="AIservices-banner" data-bg="images/new_services/mobilebg.webp">
 		<div className="AIservices-banner-container">
 
 			
@@ -16,20 +26,21 @@ export default function Page() {
 
 				
 				<div className="AIservices-breadcrumb">
-					&nbsp;<a href="/">Home &nbsp;</a>
+					 <a href="/">Home  </a>
 					<span className="AIservices-separator">/</span>
-					&nbsp; <a href="/services">Services &nbsp;</a>
+					  <a href="/services">Services  </a>
 					<span className="AIservices-separator">/</span>
-					&nbsp; <a href="/services/mobile-app-development-company" className="active">Mobile
+					  <a href="/services/mobile-app-development-company" className="active">Mobile
 						App Development Company</a>
 				</div>
 
-				<p className="AIservices-description" id="mobile-AIservices-description"> Top <span className="ai-highlight-amber">
+
+				<p className="AIservices-description" id="mobile-AIservices-description"> Top <span style={{color: "#ffbd5c"}}>
 						Mobile App</span> Development Company In
 					Hyderabad</p>
 				<h1 className="AIservices-title" id="mobile-AIservices-title">
 					
-					<span className="ai-highlight-amber"> Mobile App</span> Development <br /> Company in
+					<span style={{color: "#ffbd5c"}}> Mobile App</span> Development <br /> Company in
 					Hyderabad
 				</h1>
 				<p className="AIservices-description" id="mobile-AIservices-description">
@@ -47,6 +58,7 @@ export default function Page() {
 		</div>
 	</section>
 
+
 	<section className="AIservices-info-section">
 		<div className="AIservices-info-card">
 			<div className="AIservices-info-card-height">
@@ -55,8 +67,7 @@ export default function Page() {
 					applications by utilizing platform-specific tools and technologies.</p>
 			</div>
 			<a href="/contact-us" target="_blank"><button className="AIservices-btn"> Let’s
-					Discuss</button></a>
-		</div>
+					Discuss</button></a></div>
 
 		<div className="AIservices-info-card">
 			<div className="AIservices-info-card-height">
@@ -65,8 +76,7 @@ export default function Page() {
 					Kotlin, Android Studio, and Apple’s/Xamarin’s platform guidelines.</p>
 			</div>
 			<a href="/contact-us" target="_blank"><button className="AIservices-btn"> Book a
-					Consultation</button></a>
-		</div>
+					Consultation</button></a></div>
 	</section>
 
 	<section className="AIservices-process-section">
@@ -81,7 +91,7 @@ export default function Page() {
 						define the app architecture, and build the roadmap.</p>
 				</div>
 				<div className="AIservices-process-image1">
-					<img src="/images/new_services/planning.png" alt="Discovery & Planning" />
+					<img src="/./images/new_services/planning.png" alt="Discovery & Planning" />
 				</div>
 			</div>
 
@@ -94,7 +104,7 @@ export default function Page() {
 						Guidelines for iOS) to create intuitive and engaging experiences.</p>
 				</div>
 				<div className="AIservices-process-image">
-					<img src="/images/new_services/ui-ux.png" alt="UI/UX Design" />
+					<img src="/./images/new_services/ui-ux.png" alt="UI/UX Design" />
 				</div>
 			</div>
 
@@ -106,7 +116,7 @@ export default function Page() {
 						robust, scalable apps tailored to each OS.</p>
 				</div>
 				<div className="AIservices-process-image1">
-					<img src="/images/new_services/development.png" alt="Development" />
+					<img src="/./images/new_services/development.png" alt="Development" />
 				</div>
 			</div>
 
@@ -119,7 +129,7 @@ export default function Page() {
 						compatibility across multiple devices.</p>
 				</div>
 				<div className="AIservices-process-image">
-					<img src="/images/new_services/testing.png" alt="Testing" />
+					<img src="/./images/new_services/testing.png" alt="Testing" />
 				</div>
 			</div>
 
@@ -132,7 +142,7 @@ export default function Page() {
 						respective submission and review guidelines.</p>
 				</div>
 				<div className="AIservices-process-image1">
-					<img src="/images/new_services/launch.png" alt="Launch" />
+					<img src="/./images/new_services/launch.png" alt="Launch" />
 				</div>
 			</div>
 
@@ -145,11 +155,12 @@ export default function Page() {
 						relevant and optimized.</p>
 				</div>
 				<div className="AIservices-process-image">
-					<img src="/images/new_services/post-launch.png" alt="Post-Launch Support" />
+					<img src="/./images/new_services/post-launch.png" alt="Post-Launch Support" />
 				</div>
 			</div>
 		</div>
 	</section>
+
 
 	
 	<section className="Aiservices-testimonials">
@@ -173,7 +184,7 @@ export default function Page() {
 						</p>
 						<span className="Aiservices-testimonial-quote">- Raja, CTO</span>
 						<div className="Aiservices-testimonial-author">
-							<span><a href="custom-matrimonial-mobile-app-development" target="_blank">Explore
+							<span><a href="/custom-matrimonial-mobile-app-development" target="_blank">Explore
 									→</a></span>
 						</div>
 					</div>
@@ -182,13 +193,14 @@ export default function Page() {
 		</div>
 	</section>
 
+
 	<section className="r-bg-x sec-pad">
 		<div className="container">
 			<div className="row justify-content-center">
 				<div className="col-lg-7 text-center">
 					<div className="page-headings">
 						<h3>Frequently Asked Questions</h3>
-						&nbsp;
+						 
 						<div className="accordion">
 
 							
@@ -217,7 +229,7 @@ export default function Page() {
 								<div className="accordion-content">
 									<p>
 										Today’s successful apps focus on AI-driven personalization, secure payment
-										integrations, real-time analytics, cloud scalability, and
+										integrations, real-time analytics, cloud scalability, and seamless
 										cross-platform performance for better user engagement.
 									</p>
 								</div>
@@ -278,6 +290,8 @@ export default function Page() {
 		</div>
 	</section>
 
+
+
 	
 	<section className="sec-pad r-bg-a">
 		<div className="container">
@@ -306,6 +320,24 @@ export default function Page() {
 			</div>
 		</div>
 	</section>
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+
+	
+
     </>
   );
 }

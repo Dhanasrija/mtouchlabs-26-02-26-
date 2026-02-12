@@ -1,20 +1,29 @@
 /* ===== MEGA MENU — clean reference design ===== */
+
+/* Container inside menu-block-set scrolls, contact bar stays pinned */
+.menu-block-set > .container {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  min-height: 0;
+}
+
 .home-mega-layout {
   display: flex !important;
   gap: 0;
   flex-direction: row !important;
-  min-height: 380px;
+  min-height: 340px;
   align-items: stretch;
 }
 
 /* Left sidebar */
 .home-mega-sidebar {
-  min-width: 260px;
-  max-width: 280px;
+  min-width: 290px;
+  max-width: 310px;
   border-right: 1px solid #e5e7eb;
-  padding: 28px 0;
+  padding: 16px 0;
   flex-shrink: 0;
   background: #fff;
+  overflow-y: auto;
 }
 
 .home-mega-title {
@@ -24,22 +33,23 @@
 .home-mega-item {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 14px 28px;
+  gap: 10px;
+  padding: 8px 14px;
   cursor: pointer;
   transition: all 0.15s ease;
-  margin-bottom: 0;
-  border-radius: 0;
-  border-left: 3px solid transparent;
+  margin: 1px 8px;
+  border-radius: 10px;
+  border: 2px solid transparent;
 }
 
 .home-mega-item:hover {
   background: #f0f7ff;
+  border-color: #e0eaff;
 }
 
 .home-mega-item.active {
   background: #e8f1fd;
-  border-left-color: #2563eb;
+  border-color: #bfd4f7;
 }
 
 /* Icon */
@@ -75,9 +85,9 @@
 }
 
 .home-mega-item-label {
-  font-size: 14px;
-  font-weight: 400;
-  color: #6b7280;
+  font-size: 15px;
+  font-weight: 500;
+  color: #374151;
   transition: all 0.15s;
 }
 
@@ -87,12 +97,21 @@
 }
 
 .home-mega-item:hover .home-mega-item-label {
-  color: #374151;
+  color: #2563eb;
 }
 
-/* Hide description in sidebar */
+/* Description visible on all items */
 .home-mega-item-desc {
-  display: none !important;
+  font-size: 11.5px;
+  font-weight: 400;
+  color: #9ca3af;
+  margin-top: 2px;
+  display: block !important;
+  line-height: 1.4;
+}
+
+.home-mega-item.active .home-mega-item-desc {
+  color: #6b7280;
 }
 
 /* ===== Content panels ===== */
@@ -101,7 +120,7 @@
   padding: 28px 35px;
   min-width: 0;
   background: #fff;
-  overflow: hidden;
+  overflow-y: auto;
 }
 
 .home-mega-panel {
@@ -149,7 +168,7 @@
 }
 
 .home-mega-panel .menu-li-link li {
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .home-mega-panel .menu-li-link li a {
@@ -160,7 +179,7 @@
   display: block;
   transition: all 0.15s ease;
   line-height: 1.5;
-  padding: 10px 30px 10px 14px;
+  padding: 12px 30px 12px 14px;
   border-radius: 8px;
   position: relative;
 }
@@ -178,8 +197,10 @@
   font-weight: 400;
   color: #9ca3af;
   display: block;
-  line-height: 1.4;
-  margin-top: 2px;
+  line-height: 1.5;
+  margin-top: 3px;
+  white-space: normal;
+  max-width: 260px;
 }
 
 .home-mega-panel .menu-li-link li a:hover .mega-link-title {
@@ -236,10 +257,10 @@
   color: #1d4ed8;
 }
 
-/* ===== CTA sidebar — dark panel ===== */
+/* ===== CTA sidebar — blue panel ===== */
 .home-mega-cta {
-  min-width: 270px;
-  max-width: 290px;
+  min-width: 310px;
+  max-width: 340px;
   padding: 0;
   display: flex;
   flex-shrink: 0;
@@ -247,9 +268,9 @@
 }
 
 .home-mega-cta-inner {
-  background: #111827;
+  background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
   border-radius: 0;
-  padding: 28px 24px;
+  padding: 32px 28px;
   text-align: left;
   width: 100%;
   display: flex;
@@ -262,13 +283,13 @@
 }
 
 .home-mega-cta-inner h4 {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 700;
   color: #fff;
   line-height: 1.5;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.8px;
 }
 
 .home-mega-cta-list {
@@ -280,12 +301,12 @@
 .home-mega-cta-list li {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
-  margin-bottom: 14px;
-  font-size: 13.5px;
+  gap: 12px;
+  margin-bottom: 34px;
+  font-size: 16.5px;
   font-weight: 400;
   color: #e5e7eb;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 .home-mega-cta-list li .cta-check-icon {
@@ -361,7 +382,10 @@
 /* Bottom contact bar inside mega menu */
 .menu-dropdown .menu-extra-info {
   display: block;
-  border-radius: 0;
+  border-radius: 0 0 14px 14px;
+  background: #f0f5ff;
+  border-top: 1px solid #e5e7eb;
+  flex-shrink: 0;
 }
 
 .menu-extra-info-inner ul {
@@ -377,12 +401,24 @@
 .menu-extra-info-inner ul li {
   display: inline-flex;
   align-items: center;
+  gap: 6px;
   width: auto;
 }
 
-.menu-extra-info-inner ul li a {
+.menu-extra-info-inner ul li .menu-icon-ree {
+  width: auto;
+}
+
+.menu-extra-info-inner ul li .webiocon {
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
   font-size: 14px;
+}
+
+.menu-extra-info-inner ul li a {
+  font-size: 13px;
   color: #050748;
-  padding-left: 10px;
+  padding-left: 0;
   white-space: nowrap;
 }

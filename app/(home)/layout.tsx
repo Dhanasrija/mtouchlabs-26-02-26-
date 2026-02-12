@@ -16,6 +16,7 @@ export default function HomeLayout({
         }}
       />
       {children}
+
       <Script src="/js/homepage.js" strategy="afterInteractive" />
     </>
   );

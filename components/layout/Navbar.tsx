@@ -4,7 +4,7 @@ function HomeCTA() {
   return (
     <div className="home-mega-cta">
       <div className="home-mega-cta-inner">
-        <h4>ABOUT mTOUCH LABS</h4>
+        <h4>ABOUT MTOUCH LABS</h4>
         <ul className="home-mega-cta-list">
           <li><span className="cta-check-icon"></span> ISO-Certified Enterprise IT Company</li>
           <li><span className="cta-check-icon"></span> 14+ Years of Industry Experience</li>
@@ -12,7 +12,7 @@ function HomeCTA() {
           <li><span className="cta-check-icon"></span> 1500+ Apps Delivered Worldwide</li>
           <li><span className="cta-check-icon"></span> Offices in Hyderabad, Bangalore &amp; USA</li>
         </ul>
-        <a className="mega-cta-btn js-open-modal">Get in Touch</a>
+        <a href="/contact-us" className="mega-cta-btn">Get in Touch</a>
       </div>
     </div>
   );
@@ -22,15 +22,15 @@ function ServicesCTA() {
   return (
     <div className="home-mega-cta">
       <div className="home-mega-cta-inner">
-        <h4>WHY mTOUCH LABS?</h4>
+        <h4>WHY MTOUCH LABS?</h4>
         <ul className="home-mega-cta-list">
-          <li><span className="cta-check-icon"></span> 200+ Projects Delivered Globally</li>
-          <li><span className="cta-check-icon"></span> Offices in Hyderabad, Bangalore &amp; USA</li>
-          <li><span className="cta-check-icon"></span> Agile &amp; DevOps-First Approach</li>
-          <li><span className="cta-check-icon"></span> Dedicated Account Managers</li>
-          <li><span className="cta-check-icon"></span> Transparent &amp; On-Time Delivery</li>
+          <li><span className="cta-check-icon"></span> Client-Centric, Result-Driven Approach</li>
+          <li><span className="cta-check-icon"></span> End-to-End IT &amp; Digital Transformation Solutions</li>
+          <li><span className="cta-check-icon"></span> Efficient Development with Speed &amp; Quality</li>
+          <li><span className="cta-check-icon"></span> Dedicated In-House Expert Team</li>
+          <li><span className="cta-check-icon"></span> Proven Track Record Across 20+ Industries</li>
         </ul>
-        <a className="mega-cta-btn js-open-modal">Talk to Our Experts</a>
+        <a href="/services" className="mega-cta-btn">Explore Services</a>
       </div>
     </div>
   );
@@ -42,13 +42,13 @@ function ProductsCTA() {
       <div className="home-mega-cta-inner">
         <h4>OUR PRODUCT EDGE</h4>
         <ul className="home-mega-cta-list">
-          <li><span className="cta-check-icon"></span> Scalable &amp; High-Performance Apps</li>
-          <li><span className="cta-check-icon"></span> White-Label Ready Solutions</li>
-          <li><span className="cta-check-icon"></span> Quick Deployment in 2-4 Weeks</li>
-          <li><span className="cta-check-icon"></span> Full Source Code Ownership</li>
-          <li><span className="cta-check-icon"></span> Post-Launch Support &amp; Maintenance</li>
+          <li><span className="cta-check-icon"></span> Scalable &amp; Future-Ready Architecture</li>
+          <li><span className="cta-check-icon"></span> AI-Enabled &amp; Data-Driven Solutions</li>
+          <li><span className="cta-check-icon"></span> User-Centric UI/UX Design Excellence</li>
+          <li><span className="cta-check-icon"></span> High-Performance &amp; Secure Platforms</li>
+          <li><span className="cta-check-icon"></span> Continuous Innovation &amp; Product Optimization</li>
         </ul>
-        <a className="mega-cta-btn js-open-modal">Request a Demo</a>
+        <a href="/portfolio" className="mega-cta-btn">View Our Work</a>
       </div>
     </div>
   );
@@ -60,13 +60,13 @@ function ResourcesCTA() {
       <div className="home-mega-cta-inner">
         <h4>HIRING MADE EASY</h4>
         <ul className="home-mega-cta-list">
-          <li><span className="cta-check-icon"></span> Pre-Vetted Senior Developers</li>
-          <li><span className="cta-check-icon"></span> Flexible Engagement Models</li>
-          <li><span className="cta-check-icon"></span> Timezone-Aligned Teams</li>
-          <li><span className="cta-check-icon"></span> Start Within 48 Hours</li>
-          <li><span className="cta-check-icon"></span> Dedicated Project Managers</li>
+          <li><span className="cta-check-icon"></span> Pre-Vetted &amp; Skilled IT Professionals</li>
+          <li><span className="cta-check-icon"></span> Flexible Hiring Models (Hourly, Dedicated, Project-Based)</li>
+          <li><span className="cta-check-icon"></span> Quick Onboarding &amp; Seamless Integration</li>
+          <li><span className="cta-check-icon"></span> Cost-Effective Resource Engagement</li>
+          <li><span className="cta-check-icon"></span> Transparent Communication &amp; Full Control</li>
         </ul>
-        <a className="mega-cta-btn js-open-modal">Hire Developers</a>
+        <a href="/hire-dedicated-developers-in-india" className="mega-cta-btn">Start Hiring</a>
       </div>
     </div>
   );
@@ -115,17 +115,17 @@ export default function Navbar() {
                           <div className="menu-inner-block-a">
                             <div className="inner-blockss">
                               <ul className="menu-li-link">
-                                <li><a href="/company-overview"><span className="mega-link-title">Company Overview</span><span className="mega-link-desc">Our story, values, and global presence</span></a></li>
-                                <li><a href="/our-vision"><span className="mega-link-title">Vision &amp; Mission</span><span className="mega-link-desc">Driving innovation with purpose</span></a></li>
-                                <li><a href="/leadership-team"><span className="mega-link-title">Leadership Team</span><span className="mega-link-desc">Meet the minds behind mTouch Labs</span></a></li>
-                                <li><a href="/our-journey"><span className="mega-link-title">Our Journey</span><span className="mega-link-desc">14+ years of building digital excellence</span></a></li>
+                                <li><a href="/company-overview"><span className="mega-link-title">Company Overview</span><span className="mega-link-desc">mTouch Labs delivers innovative mobile and web app solutions for modern businesses</span></a></li>
+                                <li><a href="/our-vision"><span className="mega-link-title">Vision &amp; Mission</span><span className="mega-link-desc">Driving digital innovation with purpose and empowering businesses globally</span></a></li>
+                                <li><a href="/leadership-team"><span className="mega-link-title">Leadership Team</span><span className="mega-link-desc">Meet the experienced minds leading mTouch Labs to digital excellence</span></a></li>
+                                <li><a href="/our-journey"><span className="mega-link-title">Our Journey</span><span className="mega-link-desc">14+ years of building world-class digital products across 20+ industries</span></a></li>
                               </ul>
                             </div>
                             <div className="inner-blockss">
                               <ul className="menu-li-link">
-                                <li><a href="/awards-recognition"><span className="mega-link-title">Awards &amp; Recognition</span><span className="mega-link-desc">Industry accolades and achievements</span></a></li>
-                                <li><a href="/nasscom-membership"><span className="mega-link-title">NASSCOM Membership</span><span className="mega-link-desc">Proud member of India&apos;s top IT body</span></a></li>
-                                <li><a href="/about"><span className="mega-link-title">Life at mTouch Labs</span><span className="mega-link-desc">Culture, people, and work environment</span></a></li>
+                                <li><a href="/awards-recognition"><span className="mega-link-title">Awards &amp; Recognition</span><span className="mega-link-desc">Industry accolades celebrating our commitment to quality and innovation</span></a></li>
+                                <li><a href="/nasscom-membership"><span className="mega-link-title">NASSCOM Membership</span><span className="mega-link-desc">Proud member of India&apos;s premier IT industry association</span></a></li>
+                                <li><a href="/about"><span className="mega-link-title">Life at mTouch Labs</span><span className="mega-link-desc">Explore our vibrant culture, talented people, and collaborative work environment</span></a></li>
                               </ul>
                             </div>
                           </div>
@@ -135,15 +135,15 @@ export default function Navbar() {
                           <div className="menu-inner-block-a">
                             <div className="inner-blockss">
                               <ul className="menu-li-link">
-                                <li><a href="/ai-role-in-business-automation"><span className="mega-link-title">AI &amp; Automation in Business</span><span className="mega-link-desc">How AI is reshaping enterprise workflows</span></a></li>
-                                <li><a href="/top-10-free-ai-tools-for-software-developers"><span className="mega-link-title">Top 10 Free AI Tools</span><span className="mega-link-desc">Best AI tools for software developers in 2025</span></a></li>
-                                <li><a href="/mobile-app-development-bangalore-tech-startups"><span className="mega-link-title">Mobile App Dev in Bangalore</span><span className="mega-link-desc">Scalable solutions for tech startups</span></a></li>
+                                <li><a href="/ai-role-in-business-automation"><span className="mega-link-title">AI &amp; Automation in Business</span><span className="mega-link-desc">Discover how AI is transforming enterprise workflows and driving operational efficiency</span></a></li>
+                                <li><a href="/top-10-free-ai-tools-for-software-developers"><span className="mega-link-title">Top 10 Free AI Tools</span><span className="mega-link-desc">Essential AI-powered tools every software developer should use in 2025</span></a></li>
+                                <li><a href="/mobile-app-development-bangalore-tech-startups"><span className="mega-link-title">Mobile App Dev in Bangalore</span><span className="mega-link-desc">Building scalable mobile solutions for fast-growing Bangalore tech startups</span></a></li>
                               </ul>
                             </div>
                             <div className="inner-blockss">
                               <ul className="menu-li-link">
-                                <li><a href="/top-ecommerce-niches-us"><span className="mega-link-title">Top eCommerce Niches (2025)</span><span className="mega-link-desc">Profitable niches in the US market</span></a></li>
-                                <li><a href="/hyderabad-startups-app-development-mtouch-labs"><span className="mega-link-title">Why Startups Choose mTouch</span><span className="mega-link-desc">Hyderabad&apos;s trusted app development partner</span></a></li>
+                                <li><a href="/top-ecommerce-niches-us"><span className="mega-link-title">Top eCommerce Niches (2025)</span><span className="mega-link-desc">Most profitable eCommerce niches to explore in the US market this year</span></a></li>
+                                <li><a href="/hyderabad-startups-app-development-mtouch-labs"><span className="mega-link-title">Why Startups Choose mTouch</span><span className="mega-link-desc">Hyderabad&apos;s trusted app development partner for growing startups</span></a></li>
                               </ul>
                               <a href="/blog" className="home-mega-readmore">Read more</a>
                             </div>
@@ -176,27 +176,27 @@ export default function Navbar() {
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="svc-cloud">
                           <div className="home-mega-item-icon"><img src="/images/nav/cloud_devops.png" alt="" width="28" height="28" /></div>
-                          <div className="home-mega-item-text"><span className="home-mega-item-label">Cloud &amp; DevOps</span></div>
+                          <div className="home-mega-item-text"><span className="home-mega-item-label">Cloud &amp; DevOps</span><span className="home-mega-item-desc">Scalable cloud infrastructure and CI/CD automation</span></div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="svc-ai">
                           <div className="home-mega-item-icon"><img src="/images/nav/ai_data_intelligence.png" alt="" width="28" height="28" /></div>
-                          <div className="home-mega-item-text"><span className="home-mega-item-label">AI &amp; Data Intelligence</span></div>
+                          <div className="home-mega-item-text"><span className="home-mega-item-label">AI &amp; Data Intelligence</span><span className="home-mega-item-desc">AI-powered insights that transform raw data into impact</span></div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="svc-salesforce">
                           <div className="home-mega-item-icon"><img src="/images/nav/sales_force.png" alt="" width="28" height="28" /></div>
-                          <div className="home-mega-item-text"><span className="home-mega-item-label">Salesforce</span></div>
+                          <div className="home-mega-item-text"><span className="home-mega-item-label">Salesforce</span><span className="home-mega-item-desc">CRM customization, integration and consulting</span></div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="svc-design">
                           <div className="home-mega-item-icon"><img src="/images/nav/design_experience.png" alt="" width="28" height="28" /></div>
-                          <div className="home-mega-item-text"><span className="home-mega-item-label">Design &amp; Experience</span></div>
+                          <div className="home-mega-item-text"><span className="home-mega-item-label">Design &amp; Experience</span><span className="home-mega-item-desc">User-centric UI/UX design that drives engagement</span></div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="svc-marketing">
                           <div className="home-mega-item-icon"><img src="/images/nav/digital-marketing-services.png" alt="" width="28" height="28" /></div>
-                          <div className="home-mega-item-text"><span className="home-mega-item-label">Digital Marketing Solutions</span></div>
+                          <div className="home-mega-item-text"><span className="home-mega-item-label">Digital Marketing Solutions</span><span className="home-mega-item-desc">SEO, PPC and social media strategies that grow revenue</span></div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="svc-business">
                           <div className="home-mega-item-icon"><img src="/images/nav/business_solution.png" alt="" width="28" height="28" /></div>
-                          <div className="home-mega-item-text"><span className="home-mega-item-label">Business Solutions</span></div>
+                          <div className="home-mega-item-text"><span className="home-mega-item-label">Business Solutions</span><span className="home-mega-item-desc">End-to-end enterprise solutions for digital growth</span></div>
                         </div>
                       </div>
                       <div className="home-mega-content">
@@ -289,23 +289,23 @@ export default function Navbar() {
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="prod-booking">
                           <div className="home-mega-item-icon"><img src="/images/nav/booking.png" alt="" width="28" height="28" /></div>
-                          <div className="home-mega-item-text"><span className="home-mega-item-label">Booking and service Platforms</span></div>
+                          <div className="home-mega-item-text"><span className="home-mega-item-label">Booking and Service Platforms</span><span className="home-mega-item-desc">Seamless scheduling and appointment management apps</span></div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="prod-ecommerce">
                           <div className="home-mega-item-icon"><img src="/images/nav/ecommerce.png" alt="" width="28" height="28" /></div>
-                          <div className="home-mega-item-text"><span className="home-mega-item-label">E-Commerce &amp; Marketplace Solutions</span></div>
+                          <div className="home-mega-item-text"><span className="home-mega-item-label">E-Commerce &amp; Marketplace Solutions</span><span className="home-mega-item-desc">Multi-vendor stores and online shopping platforms</span></div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="prod-education">
                           <div className="home-mega-item-icon"><img src="/images/nav/education.png" alt="" width="28" height="28" /></div>
-                          <div className="home-mega-item-text"><span className="home-mega-item-label">Education &amp; Entertainment</span></div>
+                          <div className="home-mega-item-text"><span className="home-mega-item-label">Education &amp; Entertainment</span><span className="home-mega-item-desc">eLearning platforms and interactive media solutions</span></div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="prod-healthcare">
                           <div className="home-mega-item-icon"><img src="/images/nav/healthcare.png" alt="" width="28" height="28" /></div>
-                          <div className="home-mega-item-text"><span className="home-mega-item-label">Healthcare &amp; wellness</span></div>
+                          <div className="home-mega-item-text"><span className="home-mega-item-label">Healthcare &amp; Wellness</span><span className="home-mega-item-desc">Patient management and telemedicine applications</span></div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="prod-social">
                           <div className="home-mega-item-icon"><img src="/images/nav/socialmedia.png" alt="" width="28" height="28" /></div>
-                          <div className="home-mega-item-text"><span className="home-mega-item-label">Social &amp; Media Apps</span></div>
+                          <div className="home-mega-item-text"><span className="home-mega-item-label">Social &amp; Media Apps</span><span className="home-mega-item-desc">Community building and content sharing platforms</span></div>
                         </div>
                       </div>
                       <div className="home-mega-content">
@@ -388,15 +388,15 @@ export default function Navbar() {
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="res-web">
                           <div className="home-mega-item-icon"><img src="/images/nav/web.png" alt="" width="28" height="28" /></div>
-                          <div className="home-mega-item-text"><span className="home-mega-item-label">Web App Developers</span></div>
+                          <div className="home-mega-item-text"><span className="home-mega-item-label">Web App Developers</span><span className="home-mega-item-desc">Full-stack developers for scalable web applications</span></div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="res-enterprise">
                           <div className="home-mega-item-icon"><img src="/images/nav/entr.png" alt="" width="28" height="28" /></div>
-                          <div className="home-mega-item-text"><span className="home-mega-item-label">Enterprise &amp; Cloud Solutions</span></div>
+                          <div className="home-mega-item-text"><span className="home-mega-item-label">Enterprise &amp; Cloud Solutions</span><span className="home-mega-item-desc">AWS, DevOps and cloud infrastructure specialists</span></div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="res-design">
                           <div className="home-mega-item-icon"><img src="/images/nav/design_experience.png" alt="" width="28" height="28" /></div>
-                          <div className="home-mega-item-text"><span className="home-mega-item-label">Design &amp; Creative Experts</span></div>
+                          <div className="home-mega-item-text"><span className="home-mega-item-label">Design &amp; Creative Experts</span><span className="home-mega-item-desc">UI/UX designers and creative professionals on demand</span></div>
                         </div>
                       </div>
                       <div className="home-mega-content">

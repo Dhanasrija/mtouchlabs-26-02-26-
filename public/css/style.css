@@ -4594,13 +4594,17 @@ span.price-title {
     border-top: none;
     width: 100%;
     padding: 0;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
     background-color: #fff;
     margin-top: 0;
     border-radius: 14px;
     overflow: hidden;
     border: 1px solid #e5e7eb;
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1), 0 4px 20px rgba(0, 0, 0, 0.06);
+    max-height: calc(100vh - 180px);
+    display: flex;
+    flex-direction: column;
 }
 
 .menu-dropdown p {
@@ -29055,27 +29059,27 @@ select.new_contact_input {
     border-radius: 12px;
     cursor: pointer;
     transition: all 0.3s ease;
-    opacity: 0.5;
+     opacity: 1;;
 }
 
 .design_service_item .design_text_box h4 {
-    color: #9ca3af;
+    color: #1f2937;
     transition: color 0.3s ease;
 }
 
 .design_service_item .design_text_box p {
-    color: #b0b5be;
+    color: #6b7280;
     transition: color 0.3s ease;
 }
 
 .design_service_item .design_icon_box {
-    opacity: 0.4;
+    opacity: 1;
     transition: opacity 0.3s ease;
 }
 
 .design_service_item.ds-active {
-    background: #e8f1fd;
-    border-color: #93b8f5;
+    background: #f0f5ff;
+    border-color: #c7d9f5;
     box-shadow: 0 2px 12px rgba(37, 99, 235, 0.08);
     opacity: 1;
 }
@@ -29454,13 +29458,14 @@ select.new_contact_input {
     overflow: hidden;
 }
 
-/* ===== WhatsApp Hero Button - Bottom Left of Video ===== */
+/* ===== WhatsApp Hero Button - Right Middle of Hero ===== */
 .whatsapp-hero-btn {
-    position: fixed;
+    position: absolute;
     right: 30px;
-    bottom: 50%;
-    transform: translateY(50%);
+    top: 50%;
+    transform: translateY(-50%);
     z-index: 10;
+    transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -29506,7 +29511,7 @@ select.new_contact_input {
         0 0 25px rgba(37, 211, 102, 0.7),
         0 0 50px rgba(37, 211, 102, 0.4),
         0 0 80px rgba(37, 211, 102, 0.2);
-    transform: translateY(50%) scale(1.15);
+    transform: translateY(-50%) scale(1.15);
 }
 
 .whatsapp-hero-btn:hover::before,
@@ -29560,10 +29565,10 @@ select.new_contact_input {
 
 /* Floating up and down gently */
 @keyframes wa-float {
-    0%, 100% { transform: translateY(50%); }
-    25% { transform: translateY(calc(50% - 8px)); }
-    50% { transform: translateY(50%); }
-    75% { transform: translateY(calc(50% + 5px)); }
+    0%, 100% { transform: translateY(-50%); }
+    25% { transform: translateY(calc(-50% - 8px)); }
+    50% { transform: translateY(-50%); }
+    75% { transform: translateY(calc(-50% + 5px)); }
 }
 
 /* Pulsing glow */
@@ -29611,7 +29616,8 @@ select.new_contact_input {
 @media (max-width: 768px) {
     .whatsapp-hero-btn {
         right: 12px;
-        bottom: 100px;
+        top: auto;
+        bottom: 20px;
         transform: none;
         width: 50px;
         height: 50px;

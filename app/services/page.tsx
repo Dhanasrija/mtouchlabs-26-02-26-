@@ -169,7 +169,7 @@ export default function ServicesPage() {
             <div className="process-steps-new">
               {processSteps.map((step, i) => (
                 <div className={`process-step-new${i === 0 ? " ps-active" : ""}`} key={i}>
-                  <div className="ps-card"><h4 dangerouslySetInnerHTML={{ __html: step.replace("\n", "<br/>") }} /></div>
+                  <div className="ps-card"><span className="ps-number">{i + 1}</span><h4 dangerouslySetInnerHTML={{ __html: step.replace("\n", "<br/>") }} /></div>
                 </div>
               ))}
             </div>
