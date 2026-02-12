@@ -16,10 +16,10 @@ export default function ThankYouPage() {
         </h3>
         <div className="thank-you-buttons">
           <a href="/">
-            <button>Go Back</button>
+            <button className="thank-you-btn thank-you-btn-back">Go Back</button>
           </a>
-          <a href="/files/mTouchLabs_Brochure.pdf" target="_blank">
-            <button>View Brochure</button>
+          <a href="/files/mTouchLabs_Brochure.pdf" target="_blank" rel="noopener noreferrer">
+            <button className="thank-you-btn thank-you-btn-brochure">View Brochure</button>
           </a>
         </div>
       </div>

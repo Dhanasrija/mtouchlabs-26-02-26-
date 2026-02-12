@@ -1,5 +1,6 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import ChatWidget from "@/components/layout/ChatWidget";
 import Script from "next/script";
 
 export const metadata = {
@@ -37,6 +38,7 @@ export default function RootLayout({
         <link href="/css/about.css" rel="stylesheet" />
         <link href="/css/blog.css" rel="stylesheet" />
         <link href="/css/home-mega-menu.css" rel="stylesheet" />
+        <link href="/css/chat-widget.css" rel="stylesheet" />
         {/* AOS animations */}
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
         {/* Owl Carousel */}
@@ -57,58 +59,33 @@ export default function RootLayout({
 
         {/* Brochure Modal Overlay */}
         <div className="modal-overlay hide" id="brochureModal">
-          <div style={{
-            display: "flex",
-            maxWidth: "850px",
-            margin: "60px auto",
-            background: "#fff",
-            borderRadius: "12px",
-            overflow: "hidden",
-            boxShadow: "0 20px 60px rgba(0,0,0,0.3)",
-            position: "relative"
-          }}>
+          <div className="brochure-modal-box">
             {/* Left — Brochure Image */}
-            <div style={{
-              flex: "0 0 45%",
-              background: "linear-gradient(135deg, #e8e0f5 0%, #d4e4f7 100%)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              padding: "30px"
-            }}>
-              <img src="/images/brochure-preview.png" alt="Brochure Preview"
-                style={{ maxWidth: "100%", maxHeight: "400px", objectFit: "contain" }} />
+            <div className="brochure-modal-left">
+              <div className="brochure-modal-circle">
+                <img src="/images/sliders/mobile_app_development.png" alt="Web and Mobile App Development" />
+              </div>
             </div>
             {/* Right — Form */}
-            <div style={{ flex: "1", padding: "35px 40px", position: "relative" }}>
-              <button id="closeBrochureModal" style={{
-                position: "absolute", top: "12px", right: "16px",
-                background: "none", border: "none", fontSize: "24px",
-                cursor: "pointer", color: "#999", lineHeight: "1"
-              }}>✕</button>
-              <h3 style={{ fontSize: "20px", fontWeight: "700", color: "#1a1a2e", marginBottom: "25px", textTransform: "uppercase", letterSpacing: "0.5px" }}>Request Brochure</h3>
+            <div className="brochure-modal-right">
+              <button id="closeBrochureModal" className="brochure-close-btn">✕</button>
+              <h3 className="brochure-modal-title">Request Brochure</h3>
 
               <div id="brochureForm">
-                <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: "#333", marginBottom: "6px" }}>Full Name</label>
-                <div style={{ display: "flex", alignItems: "center", border: "1px solid #ddd", borderRadius: "6px", marginBottom: "18px", padding: "0 12px" }}>
-                  <span style={{ color: "#3b82f6", marginRight: "10px" }}>👤</span>
-                  <input type="text" id="brochure_name" placeholder="Full Name"
-                    style={{ width: "100%", padding: "11px 0", border: "none", outline: "none", fontSize: "14px" }} />
+                <label className="brochure-form-label">Full Name</label>
+                <div className="brochure-input-group">
+                  <span className="brochure-input-icon">👤</span>
+                  <input type="text" id="brochure_name" placeholder="Full Name" />
                 </div>
 
-                <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: "#333", marginBottom: "6px" }}>Your Email</label>
-                <div style={{ display: "flex", alignItems: "center", border: "1px solid #ddd", borderRadius: "6px", marginBottom: "18px", padding: "0 12px" }}>
-                  <span style={{ color: "#3b82f6", marginRight: "10px" }}>✉️</span>
-                  <input type="email" id="brochure_email" placeholder="Email Id"
-                    style={{ width: "100%", padding: "11px 0", border: "none", outline: "none", fontSize: "14px" }} />
+                <label className="brochure-form-label">Your Email</label>
+                <div className="brochure-input-group">
+                  <span className="brochure-input-icon">✉️</span>
+                  <input type="email" id="brochure_email" placeholder="Email Id" />
                 </div>
 
-                <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: "#333", marginBottom: "6px" }}>Country Code</label>
-                <select id="brochure_country" style={{
-                  width: "100%", padding: "11px 12px", border: "1px solid #ddd",
-                  borderRadius: "6px", marginBottom: "18px", fontSize: "14px",
-                  outline: "none", color: "#333", background: "#fff"
-                }}>
+                <label className="brochure-form-label">Country Code</label>
+                <select id="brochure_country" className="brochure-form-select">
                   <option value="+91">India (+91)</option>
                   <option value="+1">USA (+1)</option>
                   <option value="+44">UK (+44)</option>
@@ -125,20 +102,13 @@ export default function RootLayout({
                   <option value="+1">Canada (+1)</option>
                 </select>
 
-                <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: "#333", marginBottom: "6px" }}>Your Mobile</label>
-                <div style={{ display: "flex", alignItems: "center", border: "1px solid #ddd", borderRadius: "6px", marginBottom: "25px", padding: "0 12px" }}>
-                  <span style={{ color: "#3b82f6", marginRight: "10px" }}>📱</span>
-                  <input type="tel" id="brochure_phone" placeholder="Contact Number"
-                    style={{ width: "100%", padding: "11px 0", border: "none", outline: "none", fontSize: "14px" }} />
+                <label className="brochure-form-label">Your Mobile</label>
+                <div className="brochure-input-group">
+                  <span className="brochure-input-icon">📱</span>
+                  <input type="tel" id="brochure_phone" placeholder="Contact Number" />
                 </div>
 
-                <button id="brochureSubmitBtn" style={{
-                  width: "auto", padding: "12px 40px",
-                  background: "linear-gradient(135deg, #3b82f6, #1d4ed8)",
-                  color: "#fff", border: "none", borderRadius: "6px",
-                  fontSize: "14px", fontWeight: "700", cursor: "pointer",
-                  textTransform: "uppercase", letterSpacing: "1px"
-                }}>Submit Now</button>
+                <button id="brochureSubmitBtn" className="brochure-submit-btn">Submit Now</button>
               </div>
             </div>
           </div>
@@ -147,6 +117,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <ChatWidget />
 
         {/* ========== SHARED SCRIPTS ========== */}
         <Script

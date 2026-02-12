@@ -1385,18 +1385,23 @@ window.onload = function () {
 
 
 
-/* ===== HOME MEGA MENU — sidebar hover switching (global) ===== */
+/* ===== HOME MEGA MENU — sidebar hover switching (scoped per menu) ===== */
 (function () {
-  var items = document.querySelectorAll('.js-home-mega-item');
-  if (!items.length) return;
+  var layouts = document.querySelectorAll('.home-mega-layout');
+  if (!layouts.length) return;
 
-  items.forEach(function (item) {
-    item.addEventListener('mouseenter', function () {
-      items.forEach(function (i) { i.classList.remove('active'); });
-      document.querySelectorAll('.home-mega-panel').forEach(function (p) { p.classList.remove('active'); });
-      item.classList.add('active');
-      var target = document.getElementById(item.getAttribute('data-target'));
-      if (target) target.classList.add('active');
+  layouts.forEach(function (layout) {
+    var items = layout.querySelectorAll('.js-home-mega-item');
+    var panels = layout.querySelectorAll('.home-mega-panel');
+
+    items.forEach(function (item) {
+      item.addEventListener('mouseenter', function () {
+        items.forEach(function (i) { i.classList.remove('active'); });
+        panels.forEach(function (p) { p.classList.remove('active'); });
+        item.classList.add('active');
+        var target = document.getElementById(item.getAttribute('data-target'));
+        if (target) target.classList.add('active');
+      });
     });
   });
 })();

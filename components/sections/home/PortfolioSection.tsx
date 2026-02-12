@@ -1,42 +1,42 @@
 const portfolioItems = [
   {
-    href: "telangana-ecommerce-mobile-app-development",
+    href: "/telangana-ecommerce-mobile-app-development",
     img: "/images/portfolio/golkonda.jpg",
     tags: "UX, UI, Website, Android and iOS",
     title: "Telangana State Government E-commerce online",
   },
   {
-    href: "abu-dhabi-judicial-department-mobile-app-development",
+    href: "/abu-dhabi-judicial-department-mobile-app-development",
     img: "/images/portfolio/abudhabi government app.jpg",
     tags: "UX, UI, Android",
     title: "ADJD :- Abu Dhabi Judicial Department App",
   },
   {
-    href: "on-demand-chef-management-web-development",
+    href: "/on-demand-chef-management-web-development",
     img: "/images/portfolio/cook a doodle.jpg",
     tags: "UX, UI, Website",
     title: "UK's On-Demand Chef Management Website",
   },
   {
-    href: "multi-vendor-ecommerce-mobile-app-development",
+    href: "/multi-vendor-ecommerce-mobile-app-development",
     img: "/images/portfolio/khidkee.jpg",
     tags: "UX, UI, Android and iOS",
     title: "Khidkee :- An E-Commerce Retail Store Mobile App",
   },
   {
-    href: "bikers-community-social-networking-app-development",
+    href: "/bikers-community-social-networking-app-development",
     img: "/images/portfolio/Rev your soul.jpg",
     tags: "UX, UI, Android and iOS",
     title: "Rev your soul :- Bikers Community App",
   },
   {
-    href: "staff-and-student-management-enterprise-mobile-app-development",
+    href: "/staff-and-student-management-enterprise-mobile-app-development",
     img: "/images/portfolio/InstiServe.jpg",
     tags: "UX, UI, Android and iOS",
     title: "Instiserve :- Staff And Student Management App",
   },
   {
-    href: "online-astrology-consultation-mobile-app-development",
+    href: "/online-astrology-consultation-mobile-app-development",
     img: "/images/portfolio/astrograha.jpg",
     tags: "UX, UI, Website, Android and iOS",
     title: "AstroGraha - Online Astrology Consultation App",
@@ -86,6 +86,20 @@ export default function PortfolioSection() {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+        </div>
+
+        {/* CTA Bar */}
+        <div className="row mt60">
+          <div className="col-lg-12">
+            <div className="cta-block-2 text-center">
+              <h3 className="w-txt mb0 portfolio-cta-text">
+                Take a look of our quality work
+              </h3>
+              <a href="/portfolio" className="ree-btn ree-btn-grdt2">
+                View All Work <i className="fas fa-arrow-right fa-btn"></i>
+              </a>
             </div>
           </div>
         </div>

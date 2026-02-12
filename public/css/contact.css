@@ -15,3 +15,26 @@ html {
   color: inherit;
   text-decoration: none;
 }
+
+.new_contact_input_icon {
+  font-size: 1.2rem;
+}
+
+.new_contact_interest_select {
+  color: #999;
+}
+
+.new_contact_interest_select.new_contact_select_active {
+  color: #333;
+}
+
+.new_contact_dropdown_icon {
+  position: absolute;
+  right: 16px;
+  pointer-events: none;
+}
+
+.contact_faq_wrapper {
+  padding: 6rem 0;
+  background-color: rgba(243, 246, 253, 1);
+}

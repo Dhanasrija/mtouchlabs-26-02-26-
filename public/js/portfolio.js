@@ -1,5 +1,13 @@
-  
-    const blogCards = [
+(function initPortfolio() {
+  var blogContainer = document.getElementById("blog-cards-container");
+  if (!blogContainer) {
+    if (document.readyState !== "complete") {
+      setTimeout(initPortfolio, 200);
+    }
+    return;
+  }
+
+const blogCards = [
       {
         image: "/images/portfolio/otloffers.png",
         link: "otloffers-mobile-app-development",
@@ -396,7 +404,7 @@
 
     ];
 
-    const blogContainer = document.getElementById("blog-cards-container");
+    // blogContainer already declared at top
 
     const perPage = 30;
     let currentPage = 1;
@@ -529,80 +537,4 @@
 
     // Initial render
     renderCards(1);
-  
-
-  <script src="js/navbar-init.js">
-
-  <script src="js/mega-menu.js">
-  <script src="js/main.js">
-
-  
-    console.log('Starting navbar load process...');
-
-    function loadNavbarAndInitialize() {
-      console.log('Loading navbar HTML...');
-
-      fetch("newnav.html")
-        .then(res => {
-          if (!res.ok) throw new Error('Failed to load navbar');
-          return res.text();
-        })
-        .then(html => {
-          console.log('Navbar HTML loaded, injecting into DOM...');
-          document.getElementById("navbar-placeholder").innerHTML = html;
-
-          // Wait for DOM to settle
-          setTimeout(() => {
-            console.log('Initializing navbar and mega menu...');
-
-            // Initialize navbar dropdowns
-            if (typeof window.initNavbar === 'function') {
-              window.initNavbar();
-            } else {
-              console.error('initNavbar function not found!');
-            }
-
-            // Initialize mega menu
-            if (typeof window.initMegaMenu === 'function') {
-              window.initMegaMenu();
-            } else {
-              console.error('initMegaMenu function not found!');
-            }
-          }, 150);
-        })
-        .catch(err => {
-          console.error('Error loading navbar:', err);
-        });
-    }
-
-    // Execute when DOM is ready
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', loadNavbarAndInitialize);
-    } else {
-      loadNavbarAndInitialize();
-    }
-  
-  
-    const faqItems = document.querySelectorAll('._faq_item');
-
-    faqItems.forEach(item => {
-      const question = item.querySelector('._faq_question');
-
-      question.addEventListener('click', () => {
-        const isActive = item.classList.contains('active');
-
-        // Close all items
-        faqItems.forEach(otherItem => {
-          otherItem.classList.remove('active');
-        });
-
-        // Open clicked item if it wasn't active
-        if (!isActive) {
-          item.classList.add('active');
-        }
-      });
-    });
-  
-  <!--End of Tawk.to Script-->
-
-
+})();

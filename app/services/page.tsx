@@ -168,8 +168,7 @@ export default function ServicesPage() {
             <button className="process-scroll-btn process-scroll-left" id="scrollLeft"><i className="fas fa-chevron-left"></i></button>
             <div className="process-steps-new">
               {processSteps.map((step, i) => (
-                <div className="process-step-new" key={i}>
-                  <div className="ps-num-new">{String(i + 1).padStart(2, "0")}</div>
+                <div className={`process-step-new${i === 0 ? " ps-active" : ""}`} key={i}>
                   <div className="ps-card"><h4 dangerouslySetInnerHTML={{ __html: step.replace("\n", "<br/>") }} /></div>
                 </div>
               ))}
@@ -235,6 +234,36 @@ export default function ServicesPage() {
           </div>
         </div>
       </div>
+    <script dangerouslySetInnerHTML={{ __html: `
+      (function() {
+        function initProcessLoop() {
+          var steps = document.querySelectorAll('.process-step-new');
+          if (!steps.length) return setTimeout(initProcessLoop, 300);
+          var idx = 0;
+          function loop() {
+            steps.forEach(function(s) { s.classList.remove('ps-active'); });
+            steps[idx].classList.add('ps-active');
+            idx = (idx + 1) % steps.length;
+          }
+          loop();
+          setInterval(loop, 2000);
+        }
+        initProcessLoop();
+
+        function initDesignHover() {
+          var items = document.querySelectorAll('.design_service_item');
+          if (!items.length) return setTimeout(initDesignHover, 300);
+          items[0].classList.add('ds-active');
+          items.forEach(function(item) {
+            item.addEventListener('mouseenter', function() {
+              items.forEach(function(i) { i.classList.remove('ds-active'); });
+              item.classList.add('ds-active');
+            });
+          });
+        }
+        initDesignHover();
+      })();
+    `}} />
     </>
   );
 }

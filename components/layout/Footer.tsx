@@ -181,10 +181,10 @@ export default function Footer() {
           </div>
           <span className="transforming-certificates-one-span">
             <p>
-              Copyright © <span id="currentYear"></span>
-              <a href="/" style={{ color: "#ADB7C5" }}>
-                mtouchLabs
-              </a>{" "}
+              Copyright © <span id="currentYear"></span>{" "}
+              <a href="/" className="footer-copyright-link">
+                mTouch Labs
+              </a>.{" "}
               All rights reserved.
             </p>
           </span>

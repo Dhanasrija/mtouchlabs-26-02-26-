@@ -53,7 +53,7 @@ const sections = [
 
 export default function WhatMakesDifferentSection() {
   return (
-    <div style={{ backgroundColor: "rgba(243, 246, 253, 1)" }}>
+    <div className="whatmakes-bg">
       <section className="whatmakes-wrapper">
         <h3 className="whatmakes-wrapper-h3">What Makes Us Different</h3>
 
@@ -61,19 +61,14 @@ export default function WhatMakesDifferentSection() {
           <div className={`whatmakes-row${item.reverse ? " reverse" : ""}`} key={i}>
             <div className="whatmakes-text" data-aos="zoom-in">
               <h2 dangerouslySetInnerHTML={{ __html: item.title }} />
-              <p style={{ color: "rgba(88, 89, 90, 1)" }}>
+              <p className="whatmakes-desc">
                 {item.text}
                 <br />
                 <br />
                 <a
-                  href={item.link}
+                  href={`/${item.link}`}
                   target="_blank"
-                  style={{
-                    textDecoration: "underline",
-                    color: "rgba(255, 90, 90, 1)",
-                    fontWeight: 500,
-                    fontSize: "20px",
-                  }}
+                  className="whatmakes-explore-link"
                 >
                   Explore
                 </a>

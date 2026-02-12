@@ -1,7 +1,6 @@
 export default function HeroSection() {
   return (
-    <div className="hero-wrapper" style={{ position: "relative", width: "100%", overflow: "hidden" }}>
-      {/* Use dangerouslySetInnerHTML to avoid Next.js JSX issues with video/source */}
+    <div className="hero-wrapper">
       <div
         dangerouslySetInnerHTML={{
           __html: `
@@ -14,40 +13,20 @@ export default function HeroSection() {
         }}
       />
 
-      {/* Bottom-LEFT CTA over the video */}
-      <div
-        style={{
-          position: "absolute",
-          left: "40px",
-          bottom: "28px",
-          zIndex: 3,
-        }}
+      <a
+        href="https://wa.me/message/H5VADFWLMPYIM1"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="whatsapp-hero-btn"
+        title="Chat with us on WhatsApp"
       >
-        <a
-          href="https://wa.me/message/H5VADFWLMPYIM1"
-          target="_blank"
-          rel="noreferrer"
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "12px",
-            padding: "12px 22px",
-            background: "linear-gradient(90deg,#2f91f8 0%, #2fb86a 100%)",
-            color: "#ffffff",
-            borderRadius: "30px",
-            boxShadow: "0 10px 30px rgba(16,24,40,0.35)",
-            textDecoration: "none",
-            fontWeight: 700,
-          }}
-        >
-          <img
-            src="/images/new_home/ai-product-pages/cybersecurity/whatsapp.png"
-            alt="WhatsApp"
-            style={{ width: "28px", height: "28px", objectFit: "contain", display: "block" }}
-          />
-          <span style={{ whiteSpace: "nowrap" }}>Get a Free Quote &nbsp; &gt;</span>
-        </a>
-      </div>
+        <img
+          src="/images/new_home/ai-product-pages/cybersecurity/whatsapp.png"
+          alt="WhatsApp"
+          className="whatsapp-hero-img"
+        />
+        <span className="wa-tooltip">Chat with us!</span>
+      </a>
     </div>
   );
 }
