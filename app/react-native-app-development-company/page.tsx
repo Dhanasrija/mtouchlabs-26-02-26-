@@ -317,7 +317,7 @@ export default function ReactNativeAppDevelopment() {
           <div className="rn-tech__grid">
             <div className="rn-animate--left">
               <h2 className="rn-tech__heading">
-                Technologies We <span className="rn-text-accent">Work With</span>
+                 React Native <span className="rn-text-accent">Development Stack</span>
               </h2>
               <p className="rn-tech__text">
                 We leverage the React Native ecosystem and modern tooling to deliver high-performance cross-platform applications with secure, scalable backends.

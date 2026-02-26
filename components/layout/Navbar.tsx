@@ -125,7 +125,7 @@ export default function Navbar() {
                               <ul className="menu-li-link">
                                 <li><a href="/awards-recognition"><span className="mega-link-title">Awards &amp; Recognition</span><span className="mega-link-desc">Industry accolades celebrating our commitment to quality and innovation</span></a></li>
                                 <li><a href="/nasscom-membership"><span className="mega-link-title">NASSCOM Membership</span><span className="mega-link-desc">Proud member of India&apos;s premier IT industry association</span></a></li>
-                                <li><a href="/about"><span className="mega-link-title">Life at mTouch Labs</span><span className="mega-link-desc">Explore our vibrant culture, talented people, and collaborative work environment</span></a></li>
+                                <li><a href="/life-at-mtouch"><span className="mega-link-title">Life at mTouch Labs</span><span className="mega-link-desc">Explore our vibrant culture, talented people, and collaborative work environment</span></a></li>
                               </ul>
                             </div>
                           </div>
@@ -308,6 +308,18 @@ export default function Navbar() {
     </span>
   </a>
 </li>
+
+
+<li>
+  <a href="/aws-cloud-services">
+    <span className="mega-link-title">AWS Cloud Services</span>
+    <span className="mega-link-desc">
+      Scalable cloud solutions on AWS including deployment, migration, DevOps, and secure infrastructure management
+    </span>
+  </a>
+</li>
+
+
       </ul>
     </div>
   </div>
@@ -575,7 +587,7 @@ export default function Navbar() {
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="res-enterprise">
                           <div className="home-mega-item-icon"><img src="/images/nav/entr.png" alt="" width="28" height="28" /></div>
-                          <div className="home-mega-item-text"><span className="home-mega-item-label">Enterprise &amp; Cloud Solutions</span><span className="home-mega-item-desc">AWS, DevOps and cloud infrastructure specialists</span></div>
+                          <div className="home-mega-item-text"><span className="home-mega-item-label">Enterprise &amp; Cloud Developers</span><span className="home-mega-item-desc">AWS, DevOps and cloud infrastructure specialists</span></div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="res-design">
                           <div className="home-mega-item-icon"><img src="/images/nav/design_experience.png" alt="" width="28" height="28" /></div>
@@ -686,29 +698,28 @@ export default function Navbar() {
           </ul>
           <ul className="bottom-nav">
   
+<ul className="bottom-nav">
   <li className="ree-hc">
     <a href="tel:+919390683154" target="_blank" rel="noreferrer">
-      <img src="/images/nav-icon/phone-call.png" alt="Phone" />
+      <img src="/images/nav-icon/phone-call.png" alt="Phone" width="24" height="24" />
     </a>
   </li>
-
   <li className="ree-hc">
     <a href="mailto:contact@mtouchlabs.com" target="_blank">
-      <img src="/images/nav-icon/gmail.png" alt="Email" />
+      <img src="/images/nav-icon/gmail.png" alt="Email" width="24" height="24" />
     </a>
   </li>
-
   <li className="ree-hc">
     <a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noreferrer">
-      <img src="/images/nav-icon/whatsapp.png" alt="WhatsApp" />
+      <img src="/images/nav-icon/whatsapp.png" alt="WhatsApp" width="24" height="24" />
     </a>
   </li>
-
   <li className="ree-hc">
-    <a href="#" target="_blank">
-      <img src="/images/nav-icon/who.png" alt="Who Icon" />
+    <a href="/about">
+      <img src="/images/nav-icon/who.png" alt="About" width="24" height="24" />
     </a>
   </li>
+</ul>
 
 </ul>
         </nav>

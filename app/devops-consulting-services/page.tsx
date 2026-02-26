@@ -107,7 +107,7 @@ export default function DevOpsConsultingServices() {
 
       <section className="dc-tech"><div className="dc-container"><div className="dc-tech__grid">
         <div className="dc-animate--left">
-          <h2 className="dc-tech__heading">Technologies We <span className="dc-text-accent">Advise On</span></h2>
+          <h2 className="dc-tech__heading">Devops Consulting <span className="dc-text-accent">Technologies Services</span></h2>
           <p className="dc-tech__text">Industry-standard DevOps tools and cloud-native platforms we consult on.</p>
           <div className="dc-tech__tags">
             {["Docker","Kubernetes","Terraform","Ansible","Jenkins","GitHub Actions","GitLab CI","AWS CodePipeline","Azure DevOps","ArgoCD","Helm","Prometheus","Grafana","Datadog","ELK Stack","SonarQube","Vault","CI/CD"].map((t)=>(<span key={t} className="dc-tag">{t}</span>))}

@@ -107,7 +107,7 @@ export default function DataScienceSolutions() {
 
       <section className="ds-tech"><div className="ds-container"><div className="ds-tech__grid">
         <div className="ds-animate--left">
-          <h2 className="ds-tech__heading">Technologies We <span className="ds-text-accent">Work With</span></h2>
+          <h2 className="ds-tech__heading">Data Science<span className="ds-text-accent">Development Technologies</span></h2>
           <p className="ds-tech__text">Enterprise data platforms and analytical frameworks for scalable intelligence.</p>
           <div className="ds-tech__tags">
             {["Python","R","SQL","Pandas","NumPy","Scikit-learn","TensorFlow","PyTorch","Apache Spark","Hadoop","Airflow","dbt","Snowflake","BigQuery","Redshift","Tableau","Power BI","Looker","AWS","Azure"].map((t)=>(<span key={t} className="ds-tag">{t}</span>))}

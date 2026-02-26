@@ -106,7 +106,7 @@ export default function CloudMigrationServices() {
 
       <section className="mi-tech"><div className="mi-container"><div className="mi-tech__grid">
         <div className="mi-animate--left">
-          <h2 className="mi-tech__heading">Technologies We <span className="mi-text-accent">Work With</span></h2>
+          <h2 className="mi-tech__heading">Cloud <span className="mi-text-accent">Migration Technologies</span></h2>
           <p className="mi-tech__text">Enterprise migration tools and cloud platforms for secure transitions.</p>
           <div className="mi-tech__tags">
             {["AWS Migration Hub","Azure Migrate","Google Cloud Migrate","Terraform","Docker","Kubernetes","AWS DMS","CloudEndure","Velero","Ansible","CloudFormation","RDS","S3","VPC","IAM","CloudWatch","Datadog","CI/CD"].map((t)=>(<span key={t} className="mi-tag">{t}</span>))}

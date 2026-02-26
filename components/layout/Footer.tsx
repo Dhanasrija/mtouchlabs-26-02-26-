@@ -31,18 +31,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Services Column */}
-          <div className="transforming-column">
-            <h3>Services</h3>
-            <ul>
-              <li><a href="/hire-dedicated-developers-in-india" target="_blank">Hire Dedicated Developers</a></li>
-              <li><a href="/web-development-company" target="_blank">Web App Development</a></li>
-              <li><a href="/mobile-app-development-company" target="_blank">Mobile App Development</a></li>
-              <li><a href="/seo-services-company" target="_blank">Search Engine Optimization</a></li>
-              <li><a href="/ppc-management-services-company" target="_blank">Pay-Per-Click</a></li>
-              <li><a href="/social-media-marketing-company-in-india" target="_blank">Social Media Marketing</a></li>
-            </ul>
-          </div>
+        
 
           {/* Get In Touch Column */}
           <div className="transforming-column">
@@ -193,7 +182,7 @@ export default function Footer() {
 
         <div className="transforming-certificates-icons">
           <a href="#">
-            <img src="/images/logo-white.png" alt="mTouch Labs" className="img" />
+            <img src="/images/logo-white.svg" alt="mTouch Labs" className="img" />
           </a>
         </div>
 

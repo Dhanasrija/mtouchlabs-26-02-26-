@@ -58,8 +58,6 @@ const nextConfig = {
       // ===========================
       // CLOUD / AWS REDIRECTS (old → new)
       // ===========================
-      { source: "/amazon-web-services-company", destination: "/aws-cloud-services", permanent: true },
-      { source: "/amazon-web-services", destination: "/aws-cloud-services", permanent: true },
 
       // ===========================
       // DATA SCIENCE REDIRECT (old → new)

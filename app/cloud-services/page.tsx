@@ -107,7 +107,7 @@ export default function CloudServices() {
 
       <section className="cs-tech"><div className="cs-container"><div className="cs-tech__grid">
         <div className="cs-animate--left">
-          <h2 className="cs-tech__heading">Technologies We <span className="cs-text-accent">Work With</span></h2>
+          <h2 className="cs-tech__heading">Cloud <span className="cs-text-accent">Services Technologies</span></h2>
           <p className="cs-tech__text">Enterprise-grade cloud platforms and DevOps tools for scalable infrastructure.</p>
           <div className="cs-tech__tags">
             {["AWS","Azure","Google Cloud","Terraform","Docker","Kubernetes","Ansible","Jenkins","CloudFormation","Lambda","EC2","S3","RDS","VPC","IAM","CloudWatch","Datadog","Prometheus","Grafana","CI/CD"].map((t)=>(<span key={t} className="cs-tag">{t}</span>))}

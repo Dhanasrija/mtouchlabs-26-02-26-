@@ -321,7 +321,7 @@ export default function WebDevelopment() {
           <div className="wd-tech__grid">
             <div className="wd-animate--left">
               <h2 className="wd-tech__heading">
-                Technologies We <span className="wd-text-accent">Work With</span>
+                Web Development  <span className="wd-text-accent">Tools & Frameworks</span>
               </h2>
               <p className="wd-tech__text">
                 We leverage modern web technologies and frameworks to deliver high-performance, scalable websites and web applications.

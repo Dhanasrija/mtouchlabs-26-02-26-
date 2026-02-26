@@ -319,7 +319,7 @@ export default function IPadAppDevelopment() {
           <div className="ip-tech__grid">
             <div className="ip-animate--left">
               <h2 className="ip-tech__heading">
-                Technologies We <span className="ip-text-accent">Work With</span>
+                Development <span className="ip-text-accent">Technologies</span>
               </h2>
               <p className="ip-tech__text">
                 We leverage Apple&apos;s latest frameworks and enterprise-grade tools to build high-performance iPad applications optimized for productivity and scalability.

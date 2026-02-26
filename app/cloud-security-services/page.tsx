@@ -106,7 +106,7 @@ export default function CloudSecurityServices() {
 
       <section className="se-tech"><div className="se-container"><div className="se-tech__grid">
         <div className="se-animate--left">
-          <h2 className="se-tech__heading">Technologies We <span className="se-text-accent">Work With</span></h2>
+          <h2 className="se-tech__heading">Cloud <span className="se-text-accent">Security Technologies</span></h2>
           <p className="se-tech__text">Enterprise security tools and cloud-native protection platforms.</p>
           <div className="se-tech__tags">
             {["AWS IAM","Azure AD","GCP IAM","AWS GuardDuty","Azure Sentinel","CloudTrail","AWS KMS","Vault","SonarQube","Trivy","Snyk","OWASP","Terraform","Ansible","Prometheus","Grafana","Splunk","ELK Stack"].map((t)=>(<span key={t} className="se-tag">{t}</span>))}

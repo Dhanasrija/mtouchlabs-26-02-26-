@@ -107,7 +107,7 @@ export default function IoTDevelopmentIndia() {
 
       <section className="ii-tech"><div className="ii-container"><div className="ii-tech__grid">
         <div className="ii-animate--left">
-          <h2 className="ii-tech__heading">Technologies We <span className="ii-text-accent">Work With</span></h2>
+          <h2 className="ii-tech__heading">Iot Development <span className="ii-text-accent">Technology Stack</span></h2>
           <p className="ii-tech__text">Enterprise IoT platforms and connectivity frameworks.</p>
           <div className="ii-tech__tags">
             {["AWS IoT Core","Azure IoT Hub","Google Cloud IoT","MQTT","CoAP","Raspberry Pi","Arduino","ESP32","Node-RED","Kafka","InfluxDB","Grafana","Docker","Kubernetes","Python","Node.js","REST APIs","BLE","Zigbee","LoRaWAN"].map((t)=>(<span key={t} className="ii-tag">{t}</span>))}

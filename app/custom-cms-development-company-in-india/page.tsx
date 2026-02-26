@@ -201,7 +201,7 @@ export default function CustomCMSDevelopment() {
         <div className="cm-container">
           <div className="cm-tech__grid">
             <div className="cm-animate--left">
-              <h2 className="cm-tech__heading">Technologies We <span className="cm-text-accent">Work With</span></h2>
+              <h2 className="cm-tech__heading">Custom CMS  <span className="cm-text-accent"> Development Technologies</span></h2>
               <p className="cm-tech__text">We leverage modern CMS frameworks and cloud platforms to deliver secure, scalable content management solutions.</p>
               <div className="cm-tech__tags">
                 {[

@@ -527,9 +527,41 @@ const contactCards = [
 ];
 
 const offices = [
-  { hq: true, location: "India - Hyderabad Office", company: "mTouch Labs Private Limited", address: "#514, Manjeera Trinity Corporate, JNTU - Hitech City Road, Kukatpally, Hyderabad - 500072", landmark: "Landmark: Beside Manjeera Mall", mapUrl: "https://www.google.com/maps/place/mTouch+Labs+%E2%80%93+Software+Development+Company+in+Hyderabad/@17.489222,78.3927245,946m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3bcb90cec63e97d9:0xb045c9dc22129055!8m2!3d17.489222!4d78.3927245!16s%2Fg%2F11b8zhlwcv" },
-  { location: "India - Bangalore Office", company: "mTouch Labs Private Limited", address: "101, 4th Main Rd, Gayathri Layout, Vijaya Bank Layout, Bilekahalli, Bengaluru, Karnataka 560076", mapUrl: "https://www.google.com/maps/place/mTouch+Labs+Pvt+Ltd/@12.8905936,77.6054813,966m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3bae159f6a3c1bd1:0xb1454d20e410b70e!8m2!3d12.8905936!4d77.6054813!16s%2Fg%2F11vbldn91x" },
-  { location: "USA - USA Office", company: "mTouch Labs", address: "1111b South Governors Avenue, Suite 48193, Dover, Delaware (DE)-19904, United States", mapUrl: "https://www.google.com/maps/place/mTouch+AI+Labs+%E2%80%93+Software+Development+Company+in+USA/@39.1395519,-75.5254408,675m/data=!3m2!1e3!4b1!4m6!3m5!1s0x89c763817472e2c3:0x102e4f6c800dacbd!8m2!3d39.1395519!4d-75.5254408!16s%2Fg%2F11ymhl_km1" },
+  {
+    hq: true,
+    location: "India - Hyderabad Office",
+    company: "mTouch Labs Private Limited",
+    address:
+      "#514, Manjeera Trinity Corporate, JNTU - Hitech City Road, Kukatpally, Hyderabad - 500072",
+    landmark: "Landmark: Beside Manjeera Mall",
+    mapUrl:
+      "https://www.google.com/maps/place/mTouch+Labs+%E2%80%93+Software+Development+Company+in+Hyderabad/@17.489222,78.3927245,946m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3bcb90cec63e97d9:0xb045c9dc22129055!8m2!3d17.489222!4d78.3927245!16s%2Fg%2F11b8zhlwcv",
+    email: "contact@mtouchlabs.com",
+    phone: "+91 9390683154",
+    flag: "/images/flags/india.png"
+  },
+  {
+    location: "India - Bangalore Office",
+    company: "mTouch Labs Private Limited",
+    address:
+      "101, 4th Main Rd, Gayathri Layout, Vijaya Bank Layout, Bilekahalli, Bengaluru, Karnataka 560076",
+    mapUrl:
+      "https://www.google.com/maps/place/mTouch+Labs+Pvt+Ltd/@12.8905936,77.6054813,966m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3bae159f6a3c1bd1:0xb1454d20e410b70e!8m2!3d12.8905936!4d77.6054813!16s%2Fg%2F11vbldn91x",
+    email: "contact@mtouchlabs.com",
+    phone: "+91 9390683154",
+    flag: "/images/flags/india.png"
+  },
+  {
+    location: "USA - USA Office",
+    company: "mTouch Labs",
+    address:
+      "1111b South Governors Avenue, Suite 48193, Dover, Delaware (DE)-19904, United States",
+    mapUrl:
+      "https://www.google.com/maps/place/mTouch+AI+Labs+%E2%80%93+Software+Development+Company+in+USA/@39.1395519,-75.5254408,675m/data=!3m2!1e3!4b1!4m6!3m5!1s0x89c763817472e2c3:0x102e4f6c800dacbd!8m2!3d39.1395519!4d-75.5254408!16s%2Fg%2F11ymhl_km1",
+    email: "contact@mtouchlabs.com",
+    phone: "+1 (551) 222-0070",
+    flag: "/images/flags/usa.png"
+  }
 ];
 
 const faqs = [
@@ -648,8 +680,14 @@ export default function ContactUsPage() {
                 <p className="new_contact_office_company">{o.company}</p>
                 <p className="new_contact_office_address">{o.address}</p>
                 {o.landmark && <p className="new_contact_office_landmark">{o.landmark}</p>}
-                <a href={o.mapUrl} target="_blank" rel="noopener noreferrer" className="new_contact_directions_btn"><LocationIcon />Get Directions</a>
-              </div>
+<div className="new_contact_office_contact_info">
+  <p className="new_contact_office_phone">
+    <i className="fas fa-phone-alt"></i>&nbsp;
+    <a href={`tel:${o.phone.replace(/\s/g, '')}`} style={{ color: '#3E8CFB', textDecoration: 'none' }}>{o.phone}</a>
+  </p>
+  
+</div>
+<a href={o.mapUrl} target="_blank" rel="noopener noreferrer" className="new_contact_directions_btn"><LocationIcon />Get Directions</a>              </div>
             ))}
           </div>
         </div>

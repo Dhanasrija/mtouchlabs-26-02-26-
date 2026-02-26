@@ -37,7 +37,8 @@ export default function iOSDevelopment() {
           <div className="io-about__grid">
             <div className="io-about__content io-animate--left">
               <h2 className="io-about__heading">
-                What Does an <span className="io-text-accent">iOS App Development</span> Company Do?
+                {/* /*How an iOS App Development Company Builds and Delivers Mobile Apps */}
+                How is an <span className="io-text-accent">iOS App Development</span> and Company Builds and Delivers Mobile Apps?
               </h2>
               <p className="io-about__text">
                 An iOS app development company specializes in designing, developing, testing, and deploying applications for Apple devices using Swift and native iOS frameworks.
@@ -258,7 +259,7 @@ export default function iOSDevelopment() {
           <div className="io-tech__grid">
             <div className="io-animate--left">
               <h2 className="io-tech__heading">
-                Technologies We <span className="io-text-accent">Work With</span>
+                Our <span className="io-text-accent">Technology Stack</span>
               </h2>
               <p className="io-tech__text">
                 We leverage Apple&apos;s latest frameworks and modern development tools to build high-performance, future-ready iOS applications.

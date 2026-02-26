@@ -106,7 +106,7 @@ export default function DevOpsServices() {
 
       <section className="do-tech"><div className="do-container"><div className="do-tech__grid">
         <div className="do-animate--left">
-          <h2 className="do-tech__heading">Technologies We <span className="do-text-accent">Work With</span></h2>
+          <h2 className="do-tech__heading">Devops <span className="do-text-accent">Services Technologies</span></h2>
           <p className="do-tech__text">Industry-standard DevOps tools and cloud-native platforms.</p>
           <div className="do-tech__tags">
             {["Docker","Kubernetes","Terraform","Ansible","Jenkins","GitHub Actions","GitLab CI","AWS CodePipeline","Azure DevOps","ArgoCD","Helm","Prometheus","Grafana","Datadog","ELK Stack","SonarQube","Trivy","Vault","Nginx","CI/CD"].map((t)=>(<span key={t} className="do-tag">{t}</span>))}

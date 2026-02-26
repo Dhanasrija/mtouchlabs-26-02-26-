@@ -106,7 +106,7 @@ export default function CloudManagedServices() {
 
       <section className="ms-tech"><div className="ms-container"><div className="ms-tech__grid">
         <div className="ms-animate--left">
-          <h2 className="ms-tech__heading">Technologies We <span className="ms-text-accent">Work With</span></h2>
+          <h2 className="ms-tech__heading">Cloud  <span className="ms-text-accent">Managed Technologies</span></h2>
           <p className="ms-tech__text">Enterprise monitoring, automation, and cloud management tools.</p>
           <div className="ms-tech__tags">
             {["AWS","Azure","Google Cloud","CloudWatch","Datadog","Prometheus","Grafana","PagerDuty","Terraform","Ansible","Docker","Kubernetes","ELK Stack","New Relic","Splunk","Nagios","Jenkins","CI/CD"].map((t)=>(<span key={t} className="ms-tag">{t}</span>))}

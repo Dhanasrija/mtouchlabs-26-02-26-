@@ -112,7 +112,7 @@ export default function EnterpriseApplicationDevelopment() {
 
       <section className="ea-tech"><div className="ea-container"><div className="ea-tech__grid">
         <div className="ea-tech__content ea-animate--left">
-          <h2 className="ea-tech__heading">Technologies <span className="ea-text-accent">We Use</span></h2>
+          <h2 className="ea-tech__heading">Enterprise Software <span className="ea-text-accent">Development Stack</span></h2>
           <p className="ea-tech__text">Modern frameworks and cloud platforms for enterprise-grade solutions.</p>
           <div className="ea-tech__tags">
             {[

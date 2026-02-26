@@ -164,7 +164,7 @@ export default function AIMLServices() {
         <div className="ml-container">
           <div className="ml-tech__grid">
             <div className="ml-tech__content ml-animate--left">
-              <h2 className="ml-tech__heading">Technologies <span className="ml-text-accent">We Work With</span></h2>
+              <h2 className="ml-tech__heading">Machine Learning <span className="ml-text-accent">Development Technologies</span></h2>
               <p className="ml-tech__text">Our ML solutions are built on scalable cloud infrastructure to ensure high availability and performance.</p>
               <div className="ml-tech__tags">
                 {["Python","TensorFlow","PyTorch","Scikit-learn","OpenAI & LLMs","AWS SageMaker","Azure ML","Google AI Platform","Keras","MLflow","Hugging Face","LangChain","NumPy","Pandas","Spark MLlib","Kubeflow","Docker","Kubernetes","CI/CD","Git"].map((t)=>(<span key={t} className="ml-tag">{t}</span>))}

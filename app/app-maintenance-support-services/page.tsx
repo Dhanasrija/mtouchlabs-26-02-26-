@@ -314,7 +314,7 @@ export default function AppMaintenanceSupport() {
           <div className="am-tech__grid">
             <div className="am-tech__content am-animate--left">
               <h2 className="am-tech__heading">
-                Technologies <span className="am-text-accent">We Support</span>
+                App Maintenance  <span className="am-text-accent"> Support Technologies</span>
               </h2>
               <p className="am-tech__text">
                 We maintain applications built on all modern frameworks and cloud platforms.

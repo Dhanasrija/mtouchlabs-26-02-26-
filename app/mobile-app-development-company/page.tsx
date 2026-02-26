@@ -321,7 +321,7 @@ export default function MobileAppDevelopment() {
           <div className="ma-tech__grid">
             <div className="ma-animate--left">
               <h2 className="ma-tech__heading">
-                Technologies We <span className="ma-text-accent">Work With</span>
+                Technologies Powering <span className="ma-text-accent">Our Solutions</span>
               </h2>
               <p className="ma-tech__text">
                 We leverage the latest mobile technologies and frameworks to deliver high-performance, scalable applications across all platforms.

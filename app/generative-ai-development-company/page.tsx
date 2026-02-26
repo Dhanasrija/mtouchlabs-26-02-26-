@@ -107,7 +107,7 @@ export default function GenerativeAIDevelopment() {
 
       <section className="ga-tech"><div className="ga-container"><div className="ga-tech__grid">
         <div className="ga-animate--left">
-          <h2 className="ga-tech__heading">Technologies We <span className="ga-text-accent">Work With</span></h2>
+          <h2 className="ga-tech__heading">Generative AI <span className="ga-text-accent">Development Technologies</span></h2>
           <p className="ga-tech__text">Cutting-edge AI frameworks and cloud platforms for generative intelligence.</p>
           <div className="ga-tech__tags">
             {["OpenAI GPT","Claude API","LangChain","LlamaIndex","Hugging Face","Python","TensorFlow","PyTorch","AWS Bedrock","Azure OpenAI","Google Vertex AI","RAG Architecture","Vector Databases","Pinecone","ChromaDB","Docker","Kubernetes","REST APIs","GraphQL","CI/CD"].map((t)=>(<span key={t} className="ga-tag">{t}</span>))}
