@@ -26,7 +26,7 @@ export default function Page() {
 			<div className="hotel-delivery-content">
 				<h1 className="hotel-development-h1">End-to-End <br /><span className="hotel-development-heading">Hotel
 						Booking</span> <br />
-					Platform <br />Development</span>
+					Platform <br />Development
 				</h1>
 				<a href="https://youtu.be/JkyhaT9n4vM?si=hXa1aL0CVvSlxFtY" target="_blank"><button
 						className="hotel-delivery-button">View Demo</button></a><img src="/images/products/hotel/Hotelbanner.gif" className="hotel-banner-bookinggif"
@@ -46,7 +46,7 @@ export default function Page() {
 						<div className="tax-box1-content">
 							<div><img src="/images/products/hotel/service1.png" alt="Real-Time Updates"
 									className="tax1-icons" loading="lazy" /></div>
-							<p>Best Offers & Discounts</p>
+							<p>Best Offers &amp; Discounts</p>
 						</div>
 						<div className="tax-box1-content">
 							<div><img src="/images/products/hotel/service2.png" alt="Real-Time Updates"
@@ -56,7 +56,7 @@ export default function Page() {
 						<div className="tax-box1-content">
 							<div><img src="/images/products/hotel/service3.png" alt="Real-Time Updates"
 									className="tax3-icons" loading="lazy" /></div>
-							<p>Reviewing & Rating</p>
+							<p>Reviewing &amp; Rating</p>
 						</div>
 						<div className="tax-box1-content">
 							<div><img src="/images/products/hotel/service4.png" alt="Real-Time Updates"
@@ -76,7 +76,7 @@ export default function Page() {
 			</div>
 			<div className="realstate-container-text">
 				<h3>On - Demand Hotel Booking App Development </h3>
-				<p><a href="https://mtouchlabs.com/hotel-booking-ios-app-development" target="_blank">Hotel booking
+				<p><a href="https://www.mtouchlabs.com/hotel-booking-ios-app-development" target="_blank">Hotel booking
 						applications</a> are an essential tools in the modern hospitality business, benefiting both
 					travellers and hotel operators. By providing a seamless, user friendly experience and combining
 					modern
@@ -103,7 +103,7 @@ export default function Page() {
 				<h3>Hotel Booking App Development Agency</h3>
 				<p>
 					Welcome to mtouch labs, your premier destination for <a
-						href="https://mtouchlabs.com/abu-dhabi-judicial-department-mobile-app-development"
+						href="https://www.mtouchlabs.com/abu-dhabi-judicial-department-mobile-app-development"
 						target="_blank">hotel booking app development</a> solutions. We
 					specialise in developing apps that revolutionise the way travellers book their accommodations. We
 					craft
@@ -125,23 +125,23 @@ export default function Page() {
 			<div className="service-grid">
 				<div className="service-card-main">
 					<div className="service-card service-card-1">
-						<img src="/images/products/service1.png" alt="Hotel Listings & Search" />
+						<img src="/images/products/service1.png" alt="Hotel Listings &amp; Search" />
 					</div>
-					<h6>Hotel Listings & Search</h6>
-					<p> Filter Hotels by Location, Price, Reviews & Amenities.</p>
+					<h6>Hotel Listings &amp; Search</h6>
+					<p> Filter Hotels by Location, Price, Reviews &amp; Amenities.</p>
 				</div>
 				<div className="service-card-main">
 					<div className="service-card service-card-2">
-						<img src="/images/products/service2.png" alt="Room Booking & Reservations" />
+						<img src="/images/products/service2.png" alt="Room Booking &amp; Reservations" />
 					</div>
-					<h6>Room Booking & Reservations</h6>
-					<p>Instant Room Booking with Secure Pay & Live Availability.</p>
+					<h6>Room Booking &amp; Reservations</h6>
+					<p>Instant Room Booking with Secure Pay &amp; Live Availability.</p>
 				</div>
 				<div className="service-card-main">
 					<div className="service-card service-card-3">
-						<img src="/images/products/service3.png" alt="User Profiles & Reviews" />
+						<img src="/images/products/service3.png" alt="User Profiles &amp; Reviews" />
 					</div>
-					<h6>User Profiles & Reviews </h6>
+					<h6>User Profiles &amp; Reviews </h6>
 					<p> Permit users to read reviews, rate, and create profiles.</p>
 				</div>
 				<div className="service-card-main">
@@ -149,35 +149,35 @@ export default function Page() {
 						<img src="/images/products/service4.png" alt="Multiple Payment Options" />
 					</div>
 					<h6>Multiple Payment Options </h6>
-					<p> Accept Wallets, UPI, Net Banking & Credit/Debit Cards.</p>
+					<p> Accept Wallets, UPI, Net Banking &amp; Credit/Debit Cards.</p>
 				</div>
 				<div className="service-card-main">
 					<div className="service-card service-card-5">
 						<img src="/images/products/service5.png" alt="AI-Powered Recommendations" />
 					</div>
 					<h6>AI-Based Recommendations</h6>
-					<p>Hotel Suggestions Based on Bookings & User Preferences.</p>
+					<p>Hotel Suggestions Based on Bookings &amp; User Preferences.</p>
 				</div>
 				<div className="service-card-main">
 					<div className="service-card service-card-6">
-						<img src="/images/products/service7.png" alt="Deals & Discounts" />
+						<img src="/images/products/service7.png" alt="Deals &amp; Discounts" />
 					</div>
-					<h6>Deals & Discounts </h6>
-					<p>Exclusive Discounts, Coupons & Perks for Members.</p>
+					<h6>Deals &amp; Discounts </h6>
+					<p>Exclusive Discounts, Coupons &amp; Perks for Members.</p>
 				</div>
 				<div className="service-card-main">
 					<div className="service-card service-card-7">
-						<img src="/images/products/service6.png" alt="Customer Support & Chatbot" />
+						<img src="/images/products/service6.png" alt="Customer Support &amp; Chatbot" />
 					</div>
-					<h6>Customer Support & Chatbot</h6>
-					<p>24/7 Support via Phone, Email & Chat for Assistance.</p>
+					<h6>Customer Support &amp; Chatbot</h6>
+					<p>24/7 Support via Phone, Email &amp; Chat for Assistance.</p>
 				</div>
 				<div className="service-card-main">
 					<div className="service-card service-card-8">
-						<img src="/images/products/service8.png" alt="Multi-Language & Currency Support" />
+						<img src="/images/products/service8.png" alt="Multi-Language &amp; Currency Support" />
 					</div>
 					<h6>Multi-Language Support </h6>
-					<p>Multi-Language & Currency Support for Global Travelers.</p>
+					<p>Multi-Language &amp; Currency Support for Global Travelers.</p>
 				</div>
 			</div>
 		</div>
@@ -302,7 +302,7 @@ export default function Page() {
 
 
 		<div className="food-faq-section">
-			<h3 className="food-faq-section-heading">FAQ’s</h3>
+			<h3 className="food-faq-section-heading">FAQ's</h3>
 			<div className="food-faq">
 				<div className="food-faq-item">
 					<div className="food-faq-question">
@@ -330,7 +330,7 @@ export default function Page() {
 				</div>
 				<div className="food-faq-item">
 					<div className="food-faq-question">
-						Can I customize the app to match my hotel’s branding?
+						Can I customize the app to match my hotel's branding?
 						<span className="food-faq-toggle">+</span>
 					</div>
 					<div className="food-faq-answer">

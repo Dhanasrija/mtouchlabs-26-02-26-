@@ -36,7 +36,7 @@ export default function Page() {
 						<p className="mt20 h-light" data-aos="fade-up" data-aos-delay="400">Hire NodeJS Developers who are
 							experienced with a blend of the latest technologies and trends</p>
 						<a href="/contact-us" className="ree-btn  ree-btn-grdt1 mt40" data-aos="fade-up"
-							data-aos-delay="800">Let’s discuss <i className="fas fa-arrow-right fa-btn"></i></a>
+							data-aos-delay="800">Let's discuss <i className="fas fa-arrow-right fa-btn"></i></a>
 					</div>
 				</div>
 				<div className="col-lg-6">
@@ -117,7 +117,7 @@ export default function Page() {
 								NodeJS Programmers have the skills and experience to deliver results.
 							</p>
 							 
-							<p>Hire NodeJS Programmers to guide today’s tech landscape with your business goals. Our
+							<p>Hire NodeJS Programmers to guide today's tech landscape with your business goals. Our
 								team of dedicated Node JS developersfrom India executes new ways to deliver flexible,
 								lightweight, robust, and highly performant applications.
 							</p>
@@ -153,8 +153,8 @@ export default function Page() {
 			<div className="row justify-content-center">
 				<div className="col-lg-7 text-center">
 					<div className="page-headings">
-						<h3>How Hiring Our Dedicated NodeJs Developers Will Impact Your Business ? </h3>
-						<p className="mt15">Hire our dedicated NodeJS Developers & Programmers to speed up the process of
+						<h3>How Hiring Our Dedicated NodeJs Developers Will Impact Your Business  </h3>
+						<p className="mt15">Hire our dedicated NodeJS Developers &amp; Programmers to speed up the process of
 							developing world-class applications.</p>
 
 					</div>
@@ -186,7 +186,7 @@ export default function Page() {
 				</div>
 				<div className="col-lg-4 col-sm-6">
 					<div className="ree-card  mt60">
-						<div className="ree-card-img"><img src="/images/icons/Support-&-Maintenance-hire-vue.svg"
+						<div className="ree-card-img"><img src="/images/icons/Support-&amp;-Maintenance-hire-vue.svg"
 								alt="services" /> </div>
 						<div className="ree-card-content mt40">
 							<h3 className="mb15">Outcome-Based Approach</h3>
@@ -256,7 +256,7 @@ export default function Page() {
 							<h3 className="mb15">Hire Our Professional<span className="ree-text rt40"> NodeJS </span> <span
 									className="ree-text rt40"> Developers</span> From mTouch Labs for your Project</h3>
 							<p>Our dedicated Node.JS developers harness the powerful technology to build real-time
-								cross-platform, responsive & native mobile apps</p>
+								cross-platform, responsive &amp; native mobile apps</p>
 							<div className="mult-btns">
 								<a href="/contact-us" className="ree-btn  ree-btn-grdt1 mt40">Talk to our experts <i
 										className="fas fa-arrow-right fa-btn"></i></a>
@@ -302,7 +302,7 @@ export default function Page() {
 							<div className="accordion-item">
 								<button id="accordion-button-1" aria-expanded="false">
 									<span className="accordion-title"> What does it mean to hire Node.js developers in India
-?
+
 
 
 
@@ -313,6 +313,7 @@ export default function Page() {
 								<div className="accordion-content">
 									<p>
 It means engaging skilled backend developers in India who specialize in building scalable applications using Node.js.
+</p>
 								</div>
 							</div>
 
@@ -320,7 +321,7 @@ It means engaging skilled backend developers in India who specialize in building
 							<div className="accordion-item">
 								<button id="accordion-button-2" aria-expanded="false">
 									<span className="accordion-title">Why should I hire Node.js developers from mTouch Labs
- ?
+ 
 
 
 
@@ -338,7 +339,7 @@ Our Node.js developers deliver high-performance backend solutions with scalable 
 							
 							<div className="accordion-item">
 								<button id="accordion-button-3" aria-expanded="false">
-									<span className="accordion-title"> What skills should a Node.js developer have ?
+									<span className="accordion-title"> What skills should a Node.js developer have 
 
 
 
@@ -356,7 +357,7 @@ Proficiency in Node.js, Express.js, REST APIs, database integration, asynchronou
 							
 							<div className="accordion-item">
 								<button id="accordion-button-4" aria-expanded="false">
-									<span className="accordion-title">How long does Node.js application development take ?
+									<span className="accordion-title">How long does Node.js application development take 
 
 
 </span>
@@ -364,7 +365,7 @@ Proficiency in Node.js, Express.js, REST APIs, database integration, asynchronou
 								</button>
 								<div className="accordion-content">
 									<p>
-Timelines vary by project complexity, but most backend solutions take 6–14 weeks depending on requirements.
+Timelines vary by project complexity, but most backend solutions take 6-14 weeks depending on requirements.
 
 									</p>
 								</div>
@@ -373,14 +374,14 @@ Timelines vary by project complexity, but most backend solutions take 6–14 wee
 							
 							<div className="accordion-item">
 								<button id="accordion-button-5" aria-expanded="false">
-									<span className="accordion-title"> Can I hire dedicated Node.js developers long term ?
+									<span className="accordion-title"> Can I hire dedicated Node.js developers long term 
 
 </span>
 									<span className="icon" aria-hidden="true"></span>
 								</button>
 								<div className="accordion-content">
 									<p>
-Yes — you can hire dedicated Node.js developers on full-time, part-time, or long-term contracts.
+Yes - you can hire dedicated Node.js developers on full-time, part-time, or long-term contracts.
 
 									</p>
 								</div>
@@ -407,7 +408,7 @@ Yes — you can hire dedicated Node.js developers on full-time, part-time, or lo
 					<div className="col-lg-6 vcenter">
 						<div className="cta-heading">
 							<span className="sub-heading mb15">Contact Us</span>
-							<h3>Need any <span className="ree-text rt40"> NodeJS </span> website Developers ? Let's get to
+							<h3>Need any <span className="ree-text rt40"> NodeJS </span> website Developers  Let's get to
 								chat.</h3>
 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 									className="fas fa-user fb-bigon"></i> Contact </a>

@@ -1,410 +1,428 @@
 import type { Metadata } from "next";
+import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Top ipad App Developers in India - mTouch Labs",
-  description: "mTouch Labs is a Top ipad App Development company in India, providing custom ios app services for Business globally.Top iPad app development services",
+  title: "iPad App Development Company | mTouch Labs",
+  description:
+    "mTouch Labs is an iPad app development company delivering enterprise-ready, large-screen optimized applications built for productivity and performance.",
+  keywords: [
+    "iPad app development company",
+    "custom iPad app development",
+    "iPadOS app development",
+    "enterprise iPad applications",
+    "iPad app development services",
+    "iPad app developers India",
+  ],
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/ipad-app-development-company",
+  },
+  openGraph: {
+    title: "iPad App Development Company | mTouch Labs",
+    description:
+      "Custom iPad application development services focused on enterprise productivity and large-screen optimization.",
+    url: "https://www.mtouchlabs.com/ipad-app-development-company",
+    siteName: "mTouch Labs",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "iPad App Development Company | mTouch Labs",
+    description:
+      "Enterprise-focused iPad app development built for performance and usability.",
+  },
 };
 
-export default function Page() {
+export default function IPadAppDevelopment() {
   return (
     <>
+      {/* ===== HERO ===== */}
+      <section className="ip-hero">
+        <div className="ip-hero__inner">
+          <Breadcrumb pagePath="/ipad-app-development-company" />
+          <h1 className="ip-hero__title">
+            iPad <span className="ip-hero__title-accent">App Development</span> Company
+          </h1>
+          <p className="ip-hero__subtitle">
+            Enterprise-Ready iPad Applications Built for Productivity
+          </p>
+          <p className="ip-hero__desc">
+            mTouch Labs is a specialized iPad app development company delivering high-performance, large-screen optimized applications designed for productivity, enterprise operations, and immersive digital experiences. Unlike standard mobile apps, iPad applications require structured layout engineering, advanced interaction models, and optimized performance for multitasking environments.
+          </p>
+        </div>
+      </section>
 
-	
-	
-	
-	
+      {/* ===== ABOUT ===== */}
+      <section className="ip-about">
+        <div className="ip-container">
+          <div className="ip-about__grid">
+            <div className="ip-about__content ip-animate--left">
+              <h2 className="ip-about__heading">
+                Why iPad App Development Requires{" "}
+                <span className="ip-text-accent">Specialized Expertise</span>
+              </h2>
+              <p className="ip-about__text">
+                The iPad is not just a bigger screen — it&apos;s a productivity platform. iPad app development differs significantly from standard smartphone development and requires a dedicated approach to design, architecture, and interaction.
+              </p>
+              <p className="ip-about__text">
+                At mTouch Labs, we develop iPad solutions that leverage the full potential of iPadOS to deliver seamless, large-format user experiences. Our{" "}
+                <a href="/ui-ux-design-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>UI/UX design team</a>{" "}
+                ensures every interface feels native and intuitive on iPad devices.
+              </p>
+              <p className="ip-about__text">
+                Whether you need enterprise workflow systems, field service tools, or data dashboards, our{" "}
+                <a href="/mobile-app-development-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>mobile app development expertise</a>{" "}
+                ensures your iPad application is built for real-world productivity.
+              </p>
+            </div>
+            <div className="ip-stats ip-animate--right">
+              <div className="ip-stat">
+                <span className="ip-stat__icon">🖥️</span>
+                <span className="ip-stat__label">Large-Screen Architecture</span>
+              </div>
+              <div className="ip-stat">
+                <span className="ip-stat__icon">✏️</span>
+                <span className="ip-stat__label">Apple Pencil Integration</span>
+              </div>
+              <div className="ip-stat">
+                <span className="ip-stat__icon">🪟</span>
+                <span className="ip-stat__label">Multi-Window Support</span>
+              </div>
+              <div className="ip-stat">
+                <span className="ip-stat__icon">🔒</span>
+                <span className="ip-stat__label">Enterprise-Grade Security</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
+      {/* ===== EXPERTISE ===== */}
+      <section className="ip-whoweare">
+        <div className="ip-container">
+          <div className="ip-whoweare__grid">
+            <div className="ip-whoweare__stats ip-animate--left">
+              <div className="ip-stat ip-stat--dark">
+                <span className="ip-stat__number">500+</span>
+                <span className="ip-stat__label">iPad Apps Delivered</span>
+              </div>
+              <div className="ip-stat ip-stat--dark">
+                <span className="ip-stat__number">14+</span>
+                <span className="ip-stat__label">Years Experience</span>
+              </div>
+              <div className="ip-stat ip-stat--dark">
+                <span className="ip-stat__number">99%</span>
+                <span className="ip-stat__label">App Store Approval</span>
+              </div>
+              <div className="ip-stat ip-stat--dark">
+                <span className="ip-stat__number">60+</span>
+                <span className="ip-stat__label">Enterprise Clients</span>
+              </div>
+            </div>
+            <div className="ip-whoweare__content ip-animate--right">
+              <h2 className="ip-whoweare__heading">
+                Our iPad App <span className="ip-text-accent">Development Expertise</span>
+              </h2>
+              <p className="ip-whoweare__text">
+                We deliver end-to-end iPad solutions optimized for productivity and enterprise operations:
+              </p>
+              <ul className="ip-checklist">
+                <li className="ip-checklist__item">
+                  <span className="ip-checklist__icon">✓</span>
+                  <span>Custom iPad Application Development — tailored to your workflows</span>
+                </li>
+                <li className="ip-checklist__item">
+                  <span className="ip-checklist__icon">✓</span>
+                  <span>iPadOS Interface Engineering — multi-column layouts &amp; adaptive UI</span>
+                </li>
+                <li className="ip-checklist__item">
+                  <span className="ip-checklist__icon">✓</span>
+                  <span>
+                    <a href="/enterprise-application-development-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>Enterprise iPad Solutions</a>{" "}
+                    — workforce mobility &amp; secure communication
+                  </span>
+                </li>
+                <li className="ip-checklist__item">
+                  <span className="ip-checklist__icon">✓</span>
+                  <span>iPad App Integration — CRM, ERP, cloud &amp; real-time analytics</span>
+                </li>
+                <li className="ip-checklist__item">
+                  <span className="ip-checklist__icon">✓</span>
+                  <span>
+                    <a href="/app-maintenance-support-services" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>Performance Optimization &amp; Testing</a>{" "}
+                    — multitasking, memory &amp; security validation
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
-	
-	
+      {/* ===== SERVICES ===== */}
+      <section className="ip-services">
+        <div className="ip-container">
+          <div className="ip-services__header ip-animate">
+            <h2 className="ip-services__title">
+              Our iPad App <span className="ip-text-accent">Development Services</span>
+            </h2>
+            <p className="ip-services__subtitle">
+              Large-screen solutions engineered for productivity
+            </p>
+          </div>
 
-	
-	<section className="AIservices-banner" data-bg="images/new_services/ipadbg.webp">
-		<div className="AIservices-banner-container">
+          <div className="ip-services__grid ip-stagger">
+            <div className="ip-service-card ip-animate--scale">
+              <span className="ip-service-card__badge">01</span>
+              <h4 className="ip-service-card__title">Custom iPad Applications</h4>
+              <p className="ip-service-card__text">
+                Tailored iPad apps including enterprise workflow systems, field service management apps, healthcare reporting platforms, real-time data dashboards, and education &amp; training applications — each engineered for large-screen usability.
+              </p>
+            </div>
+            <div className="ip-service-card ip-animate--scale">
+              <span className="ip-service-card__badge">02</span>
+              <h4 className="ip-service-card__title">iPadOS Interface Engineering</h4>
+              <p className="ip-service-card__text">
+                Multi-column layout architecture, adaptive UI frameworks, drag-and-drop interaction models, Apple Pencil support integration, and optimized landscape &amp; portrait performance for native iPad experiences.
+              </p>
+            </div>
+            <div className="ip-service-card ip-animate--scale">
+              <span className="ip-service-card__badge">03</span>
+              <h4 className="ip-service-card__title">Enterprise iPad Solutions</h4>
+              <p className="ip-service-card__text">
+                Workforce mobility apps, sales enablement platforms, inventory &amp; logistics control systems, executive reporting dashboards, and secure internal communication tools with role-based access control.
+              </p>
+            </div>
+            <div className="ip-service-card ip-animate--scale">
+              <span className="ip-service-card__badge">04</span>
+              <h4 className="ip-service-card__title">iPad App Integration</h4>
+              <p className="ip-service-card__text">
+                Seamless integration with enterprise backend systems, CRM &amp; ERP platforms, cloud storage services, real-time analytics tools, and API-based data systems for unified data synchronization.
+              </p>
+            </div>
+            <div className="ip-service-card ip-service-card--wide ip-animate--scale">
+              <span className="ip-service-card__badge">05</span>
+              <h4 className="ip-service-card__title">Performance Optimization &amp; Testing</h4>
+              <p className="ip-service-card__text">
+                Comprehensive multi-device compatibility testing, memory optimization, performance benchmarking, security validation, and iPadOS compliance testing to ensure stability across multiple usage scenarios and multitasking environments.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-			
-			<div className="AIservices-banner-content">
+      {/* ===== DELIVERY ===== */}
+      <section className="ip-delivery">
+        <div className="ip-container">
+          <h2 className="ip-delivery__heading ip-animate">
+            Our iPad Development <span className="ip-text-accent">Process</span>
+          </h2>
+          <p className="ip-delivery__text">
+            A structured lifecycle built specifically for iPad productivity environments.
+          </p>
+          <div className="ip-delivery__steps">
+            <div className="ip-step"><span className="ip-step__circle">Business Analysis</span></div>
+            <span className="ip-step__arrow">→</span>
+            <div className="ip-step"><span className="ip-step__circle">Interface Architecture</span></div>
+            <span className="ip-step__arrow">→</span>
+            <div className="ip-step"><span className="ip-step__circle">iPadOS Design</span></div>
+            <span className="ip-step__arrow">→</span>
+            <div className="ip-step"><span className="ip-step__circle">Native Development</span></div>
+            <span className="ip-step__arrow">→</span>
+            <div className="ip-step"><span className="ip-step__circle">Device Testing</span></div>
+            <span className="ip-step__arrow">→</span>
+            <div className="ip-step"><span className="ip-step__circle">Deployment</span></div>
+            <span className="ip-step__arrow">→</span>
+            <div className="ip-step"><span className="ip-step__circle">Continuous Optimization</span></div>
+          </div>
+        </div>
+      </section>
 
+      {/* ===== RELIABLE ===== */}
+      <section className="ip-reliable">
+        <div className="ip-container">
+          <div className="ip-reliable__inner ip-animate">
+            <h2 className="ip-reliable__heading">
+              Why Choose mTouch Labs as Your{" "}
+              <span className="ip-text-accent">iPad App Development Company</span>?
+            </h2>
+            <p className="ip-reliable__text">
+              We build iPad applications that enhance business efficiency and deliver measurable productivity gains.
+            </p>
+            <div className="ip-reliable__pillars">
+              <div className="ip-pillar">
+                <span className="ip-pillar__dot"></span>
+                <span className="ip-pillar__label">Large-screen UI expertise</span>
+              </div>
+              <div className="ip-pillar">
+                <span className="ip-pillar__dot"></span>
+                <span className="ip-pillar__label">iPadOS optimization knowledge</span>
+              </div>
+              <div className="ip-pillar">
+                <span className="ip-pillar__dot"></span>
+                <span className="ip-pillar__label">Enterprise-grade security</span>
+              </div>
+              <div className="ip-pillar">
+                <span className="ip-pillar__dot"></span>
+                <span className="ip-pillar__label">Cloud-connected architecture</span>
+              </div>
+              <div className="ip-pillar">
+                <span className="ip-pillar__dot"></span>
+                <span className="ip-pillar__label">Productivity-focused engineering</span>
+              </div>
+              <div className="ip-pillar">
+                <span className="ip-pillar__dot"></span>
+                <span className="ip-pillar__label">Ongoing performance enhancements</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-				
-				<div className="AIservices-breadcrumb">
-					 <a href="/">Home  </a>
-					<span className="AIservices-separator">/</span>
-					  <a href="/services">Services  </a>
-					<span className="AIservices-separator">/</span>
-					  <a href="/services/mobile-app-development-company" className="active"> iPad
-						App Development Company</a>
-				</div>
+      {/* ===== INDUSTRIES ===== */}
+      <section className="ip-industries">
+        <div className="ip-container">
+          <h2 className="ip-industries__title ip-animate">
+            Industries We <span className="ip-text-accent">Serve</span>
+          </h2>
+          <div className="ip-industries__grid ip-stagger">
+            <div className="ip-industry ip-animate--scale">
+              <span className="ip-industry__icon">🩺</span>
+              <h4 className="ip-industry__title">Healthcare &amp; Clinical Systems</h4>
+            </div>
+            <div className="ip-industry ip-animate--scale">
+              <span className="ip-industry__icon">🔧</span>
+              <h4 className="ip-industry__title">Field Service Operations</h4>
+            </div>
+            <div className="ip-industry ip-animate--scale">
+              <span className="ip-industry__icon">🎓</span>
+              <h4 className="ip-industry__title">Education &amp; E-Learning</h4>
+            </div>
+            <div className="ip-industry ip-animate--scale">
+              <span className="ip-industry__icon">🛒</span>
+              <h4 className="ip-industry__title">Retail &amp; Inventory Management</h4>
+            </div>
+            <div className="ip-industry ip-animate--scale">
+              <span className="ip-industry__icon">🚚</span>
+              <h4 className="ip-industry__title">Logistics &amp; Transportation</h4>
+            </div>
+            <div className="ip-industry ip-animate--scale">
+              <span className="ip-industry__icon">🏢</span>
+              <h4 className="ip-industry__title">Enterprise Corporate Teams</h4>
+            </div>
+          </div>
+        </div>
+      </section>
 
-				<p className="AIservices-description" id="mobile-AIservices-description"> Top <span style={{color: "#77cdff"}}>
-						iPad App </span> Development Company In India</p>
+      {/* ===== TECHNOLOGIES ===== */}
+      <section className="ip-tech">
+        <div className="ip-container">
+          <div className="ip-tech__grid">
+            <div className="ip-animate--left">
+              <h2 className="ip-tech__heading">
+                Technologies We <span className="ip-text-accent">Work With</span>
+              </h2>
+              <p className="ip-tech__text">
+                We leverage Apple&apos;s latest frameworks and enterprise-grade tools to build high-performance iPad applications optimized for productivity and scalability.
+              </p>
+              <div className="ip-tech__tags">
+                {[
+                  "Swift", "SwiftUI", "UIKit", "iPadOS SDK", "Xcode",
+                  "Core Data", "CloudKit", "ARKit", "PencilKit",
+                  "Combine", "REST APIs", "GraphQL", "Firebase",
+                  "AWS", "TestFlight", "CI/CD"
+                ].map((tech) => (
+                  <span key={tech} className="ip-tag">{tech}</span>
+                ))}
+              </div>
+            </div>
+            <div className="ip-tech__stats ip-animate--right">
+              <div className="ip-stat ip-stat--dark">
+                <span className="ip-stat__number">16+</span>
+                <span className="ip-stat__label">Frameworks &amp; Tools</span>
+              </div>
+              <div className="ip-stat ip-stat--dark">
+                <span className="ip-stat__number">100%</span>
+                <span className="ip-stat__label">iPadOS Native</span>
+              </div>
+              <div className="ip-stat ip-stat--dark">
+                <span className="ip-stat__number">40+</span>
+                <span className="ip-stat__label">Enterprise Integrations</span>
+              </div>
+              <div className="ip-stat ip-stat--dark">
+                <span className="ip-stat__number">4.8★</span>
+                <span className="ip-stat__label">Avg App Store Rating</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-				<h1 className="AIservices-title" id="mobile-AIservices-title">
+      {/* ===== FAQ ===== */}
+      <section className="ip-faq">
+        <div className="ip-container">
+          <div className="ip-faq__wrapper">
+            <h3 className="ip-faq__heading ip-animate">
+              Frequently Asked <span className="ip-text-accent">Questions</span>
+            </h3>
+            <p className="ip-faq__subtext">Everything you need to know about our iPad app development services</p>
+            <div className="ip-faq__list">
+              <details className="ip-faq__item">
+                <summary className="ip-faq__question">
+                  <span>What is iPad app development?</span>
+                  <span className="ip-faq__chevron"></span>
+                </summary>
+                <div className="ip-faq__answer">
+                  <p>iPad app development involves designing and building applications optimized specifically for iPadOS, focusing on large-screen usability, multitasking features, Apple Pencil support, and productivity-focused interaction models.</p>
+                </div>
+              </details>
+              <details className="ip-faq__item">
+                <summary className="ip-faq__question">
+                  <span>How is iPad development different from iPhone development?</span>
+                  <span className="ip-faq__chevron"></span>
+                </summary>
+                <div className="ip-faq__answer">
+                  <p>iPad development requires larger interface layouts, multi-window and split-view support, Apple Pencil compatibility, keyboard &amp; external device integration, and productivity-focused interaction models that differ significantly from iPhone design patterns.</p>
+                </div>
+              </details>
+              <details className="ip-faq__item">
+                <summary className="ip-faq__question">
+                  <span>Are iPad apps suitable for enterprise use?</span>
+                  <span className="ip-faq__chevron"></span>
+                </summary>
+                <div className="ip-faq__answer">
+                  <p>Yes. iPad apps are widely used in healthcare, logistics, field service, education, and enterprise productivity environments. They offer large-screen data visualization, secure role-based access, and seamless multitasking capabilities ideal for professional workflows.</p>
+                </div>
+              </details>
+              <details className="ip-faq__item">
+                <summary className="ip-faq__question">
+                  <span>Do you provide post-deployment support?</span>
+                  <span className="ip-faq__chevron"></span>
+                </summary>
+                <div className="ip-faq__answer">
+                  <p>Absolutely. We offer structured maintenance, iPadOS compatibility updates, performance optimization, security patching, and feature enhancements to ensure your iPad application evolves with your business needs.</p>
+                </div>
+              </details>
+            </div>
+          </div>
+        </div>
+      </section>
 
-					<span style={{color: "#77cdff"}}> iPad App </span> <br /> Development Company
-					
-				</h1>
-				<p className="AIservices-description" id="mobile-AIservices-description">
-					mTouch Labs is a leading iPad app development company in India, building scalable, visually stunning
-					apps for business, education, healthcare, and more.
-
-				</p>
-			</div>
-
-			
-			
-
-		</div>
-	</section>
-	
-	<section className="AIservices-info-section">
-		<div className="AIservices-info-card">
-			<div className="AIservices-info-card-height">
-				<h2>Built for Bigger Screens, Engineered for Impact</h2>
-				<p>
-					Our iPad development approach focuses on creating immersive, feature-rich apps
-					that take full advantage of the iPad’s display, multitasking, and hardware
-					capabilities.
-
-				</p>
-			</div>
-			<a href="/contact-us" target="_blank"><button className="AIservices-btn">Sign up today</button></a></div>
-		<div className="AIservices-info-card">
-			<div className="AIservices-info-card-height">
-				<h2>iPad App Planning Workshop</h2>
-				<p>
-					Discover our in-depth design and development process—optimizing UI/UX for iPads
-					and using Apple Pencil, Split View, and custom gestures to enhance
-					functionality.
-
-				</p>
-			</div>
-			<a href="/contact-us" target="_blank"><button className="AIservices-btn">Register for the workshop
-					series</button></a></div>
-	</section>
-	
-	<section className="AIservices-process-section">
-		<h2 className="AIservices-process-title">
-			Complete Guide to the <br /> iPad App Development Process
-		</h2>
-
-		<div className="AIservices-process-container">
-			
-			<div className="AIservices-process-item">
-				<div className="AIservices-process-text">
-					<h3>Discovery & Planning</h3>
-					<p>
-						We begin with an in-depth understanding of your goals, users, and use
-						cases—then plan for screen layouts,
-						multitasking behavior, and user flow specific to iPad.
-					</p>
-					
-				</div>
-				<div className="AIservices-process-image1">
-					<img src="/./images/new_services/planning.png" alt="Discovery & Planning" />
-				</div>
-			</div>
-
-			
-			<div className="AIservices-process-item reverse">
-				<div className="AIservices-process-text">
-					<h3>UI/UX Design</h3>
-					<p>
-						Our designers craft beautiful, intuitive interfaces tailored for the
-						iPad's larger screen using Apple’s Human Interface Guidelines and custom
-						component libraries.
-					</p>
-					
-				</div>
-				<div className="AIservices-process-image">
-					<img src="/./images/new_services/ui-ux.png" alt="UI/UX Design" />
-				</div>
-			</div>
-
-			
-			<div className="AIservices-process-item">
-				<div className="AIservices-process-text">
-					<h3>Development</h3>
-					<p>
-						Using Swift and SwiftUI, our developers create responsive,
-						high-performance iPad apps optimized for speed, touch interactions, and
-						native device features.
-					</p>
-					
-				</div>
-				<div className="AIservices-process-image1">
-					<img src="/./images/new_services/development.png" alt="Development" />
-				</div>
-			</div>
-
-			
-			<div className="AIservices-process-item reverse">
-				<div className="AIservices-process-text">
-					<h3>Testing</h3>
-					<p>
-						We test extensively across different iPad models to ensure flawless
-						landscape and portrait experiences,
-						smooth multitasking, and no crashes.
-					</p>
-					
-				</div>
-				<div className="AIservices-process-image">
-					<img src="/./images/new_services/testing.png" alt="Testing" />
-				</div>
-			</div>
-
-			
-			<div className="AIservices-process-item">
-				<div className="AIservices-process-text">
-					<h3>App Store Launch</h3>
-					<p>
-						We assist in packaging your app for App Store approval, including
-						preparing screenshots, metadata, and ensuring Apple compliance.
-					</p>
-					
-				</div>
-				<div className="AIservices-process-image1">
-					<img src="/./images/new_services/launch.png" alt="App Store Launch" />
-				</div>
-			</div>
-
-			
-			<div className="AIservices-process-item reverse">
-				<div className="AIservices-process-text">
-					<h3>Maintenance & Support</h3>
-					<p>
-						We provide post-launch support with updates, performance monitoring, and
-						feature expansion tailored to the evolving iPadOS environment.
-					</p>
-					
-				</div>
-				<div className="AIservices-process-image">
-					<img src="/./images/new_services/post-launch.png" alt="Maintenance & Support" />
-				</div>
-			</div>
-		</div>
-	</section>
-
-	
-	<section className="Aiservices-testimonials">
-		<div className="Aiservices-container">
-			<h2 className="Aiservices-testimonials-title">Customer Success Story</h2>
-
-			<div className="Aiservices-testimonial-card">
-				<div className="Aiservices-testimonial-content">
-					<div className="Aiservices-company-logo-container">
-						<div className="Aiservices-company-logo-div">
-							<img src="/images/home/tech/l2r.png" />
-						</div>
-					</div>
-					<div className="Aiservices-testimonial-text">
-						<div className="Aiservices-rating">
-							<img src="/images/new_services/doublequotes.png" className="doublequotes_img" />
-						</div>
-						<p className="Aiservices-testimonial-quote">
-							"The custom iPad app delivered a truly immersive learning
-							experience. Exceptional UI and performance!"- Nithin
-						</p>
-						<div className="Aiservices-testimonial-author">
-							<span><a href="/web-and-app-development-for-education-services" target="_blank">Explore
-									→</a></span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	
-	<section className="Aiservices-blogs">
-		<div className="Aiservices-container">
-			<h2 className="Aiservices-blogs-title">Blogs</h2>
-
-			<div className="Aiservices-blogs-grid">
-				<article className="Aiservices-blog-card">
-					<div className="Aiservices-blog-image">
-						<img src="/images/blogs/swiftui.jpg" alt="Why Swift is Ideal for High-Performance iOS Apps" />
-					</div>
-					<div className="Aiservices-blog-content">
-						<h3 className="Aiservices-blog-title">Why Swift is Ideal for
-							High-Performance iOS Apps</h3>
-						<div className="Aiservices-blog-meta">
-							<a href="/swiftui-is-shaping-the-future-of-ios-app-development" target="_blank"
-								className="Aiservices-read-more">Read More
-								→</a>
-						</div>
-					</div>
-				</article>
-
-				<article className="Aiservices-blog-card">
-					<div className="Aiservices-blog-image">
-						<img src="/images/blogs/ios-app-development-vs-android-app-development-2.jpg"
-							alt="The Role of UI Consistency in iOS App Design" />
-					</div>
-					<div className="Aiservices-blog-content">
-						<h3 className="Aiservices-blog-title">The Role of UI Consistency in iOS App
-							Design</h3>
-						<div className="Aiservices-blog-meta">
-							<a href="/ios-mobile-app-development-vs-android-mobile-app-development" target="_blank"
-								className="Aiservices-read-more">Read More
-								→</a>
-						</div>
-					</div>
-				</article>
-
-				<article className="Aiservices-blog-card">
-					<div className="Aiservices-blog-image">
-						<img src="/images/blogs/MOBILE APP DEVELOPMENT GUIDE- The Definitive Guide For 2020 copy.jpg"
-							alt="iOS App Optimization for the App Store in 2025" />
-					</div>
-					<div className="Aiservices-blog-content">
-						<h3 className="Aiservices-blog-title">iOS App Optimization for the App Store
-							in 2025</h3>
-						<div className="Aiservices-blog-meta">
-							<a href="/mobile-app-development-guide-the-definitive-guide-for-2020" target="_blank"
-								className="Aiservices-read-more">Read More
-								→</a>
-						</div>
-					</div>
-				</article>
-			</div>
-
-		</div>
-	</section>
-
-
-	<section className="r-bg-x sec-pad">
-		<div className="container">
-			<div className="row justify-content-center">
-				<div className="col-lg-7 text-center">
-					<div className="page-headings">
-						<h3>Frequently Asked Questions</h3>
-						 
-						<div className="accordion">
-							<div className="accordion-item">
-								<button id="accordion-button-1" aria-expanded="false">
-									<span className="accordion-title">What is the average cost of developing an iPad
-										application?</span>
-									<span className="icon" aria-hidden="true"></span>
-								</button>
-								<div className="accordion-content">
-									<p>
-										The pricing depends on design requirements, features, integrations, and overall
-										complexity. Simple applications require less investment, while advanced business
-										apps with custom functionality and cloud connectivity may involve a higher
-										development cost.
-									</p>
-								</div>
-							</div>
-							<div className="accordion-item">
-								<button id="accordion-button-2" aria-expanded="false">
-									<span className="accordion-title">What is the typical timeline to launch a custom iPad
-										app?</span>
-									<span className="icon" aria-hidden="true"></span>
-								</button>
-								<div className="accordion-content">
-									<p>
-										Timelines vary based on project scope and features. A basic application can be
-										completed within a few weeks, whereas a fully customized and scalable solution
-										with advanced integrations may take several months.
-									</p>
-								</div>
-							</div>
-							<div className="accordion-item">
-								<button id="accordion-button-3" aria-expanded="false">
-									<span className="accordion-title">Which features are important for a successful iPad
-										application?</span>
-									<span className="icon" aria-hidden="true"></span>
-								</button>
-								<div className="accordion-content">
-									<p>
-										A successful application should include a user-friendly interface, strong data
-										security, smooth performance, real-time updates, cloud support, and seamless
-										compatibility across Apple devices to enhance user experience.
-									</p>
-								</div>
-							</div>
-							<div className="accordion-item">
-								<button id="accordion-button-4" aria-expanded="false">
-									<span className="accordion-title">How does mTouch support businesses in building iPad
-										applications?</span>
-									<span className="icon" aria-hidden="true"></span>
-								</button>
-								<div className="accordion-content">
-									<p>
-										mTouch delivers tailored iPad solutions designed to match specific business
-										goals. With a focus on performance, scalability, and modern technologies,
-										businesses receive reliable applications that support growth and efficiency.
-									</p>
-								</div>
-							</div>
-							<div className="accordion-item">
-								<button id="accordion-button-5" aria-expanded="false">
-									<span className="accordion-title">Can businesses get customized iPad apps based on their
-										industry needs?</span>
-									<span className="icon" aria-hidden="true"></span>
-								</button>
-								<div className="accordion-content">
-									<p>
-										Yes, applications can be fully customized for industries such as healthcare,
-										education, logistics, e-commerce, and enterprise services, ensuring the platform
-										aligns with operational and customer requirements.
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				
-			</div>
-		</div>
-	</section>
-
-	<section className="sec-pad r-bg-a">
-		<div className="container">
-			<div className="ree">
-				<div className="row">
-					<div className="col-lg-6 vcenter">
-						<div className="cta-heading">
-							<span className="sub-heading mb15">Contact Us</span>
-							<h3>Have a <span className="ree-text rt40">Project</span> in mind?
-								Let's get to chat.</h3>
-							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
-									className="fas fa-user fb-bigon"></i> Contact </a>
-							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
-								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
-								Whatsapp </a>
-
-						</div>
-					</div>
-					<div className="col-lg-6 vcenter text-center">
-						<div className="sol-img-png">
-							<img src="/images/cta/project-in-mind-Let's-get-to-chat-ipad.svg"
-								alt="Custom iOS App Development Services" className="img-fluid" />
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-	
-	
-
-	
-
+      {/* ===== CTA ===== */}
+      <section className="ip-cta">
+        <div className="ip-container">
+          <div className="ip-cta__inner ip-animate--scale">
+            <h2 className="ip-cta__heading">
+              Ready to Build Your <span className="ip-text-accent">iPad Application</span>?
+            </h2>
+            <p className="ip-cta__text">
+              Let&apos;s discuss how we can engineer an iPad solution that enhances your team&apos;s productivity and operational efficiency.
+            </p>
+            <button type="button" className="ip-cta__button js-open-modal">
+              Start Your Project
+            </button>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

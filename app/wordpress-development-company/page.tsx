@@ -31,7 +31,9 @@ export default function Page() {
 						Development Company</a>
 				</div>
 
-				<p className="AIservices-description" id="mobile-AIservices-description"> Top <span style={{color: "#61dfea"}}>
+				<p className="AIservices-description" id="mobile-AIservices-description">
+
+					Top <span style={{color: "#61dfea"}}>
 						WordPress </span> Development Company In India
 				</p>
 
@@ -39,7 +41,7 @@ export default function Page() {
 				<h1 className="AIservices-title" id="mobile-AIservices-title"> <span style={{color: "#61dfea"}}>Top-Rated
 						WordPress </span> Development Company
 				</h1>
-				<p className="AIservices-description" id="mobile-AIservices-description" id="mobile-AIservices-description">
+				<p className="AIservices-description" id="mobile-AIservices-description">
 					mTouch Labs is a top WordPress development company in Hyderabad, delivering
 					fast, scalable, SEO-friendly websites with custom themes and plugin
 					integrations.
@@ -54,13 +56,13 @@ export default function Page() {
 			<h2>Custom WordPress Solutions for Your Business</h2>
 			<p>Our team specializes in crafting fully customized WordPress websites, ensuring they reflect
 				your brand and engage your target audience.</p>
-			<a href="/contact-us"><button className="AIservices-btn">👉 Let’s Discuss</button></a></div>
+			<a href="/contact-us"><button className="AIservices-btn"> Let's Discuss</button></a></div>
 
 		<div className="AIservices-info-card">
 			<h2>Your Trusted WordPress Development Experts</h2>
 			<p>With over 13 years of experience, we deliver exceptional WordPress solutions, including
 				custom plugins, theme development, and more.</p>
-			<a href="/contact-us"><button className="AIservices-btn">👉 Book a Free Consultation</button></a></div>
+			<a href="/contact-us"><button className="AIservices-btn"> Book a Free Consultation</button></a></div>
 	</section>
 	<section className="AIservices-process-section">
 		<h2 className="AIservices-process-title">Your Complete Guide to WordPress Website Development</h2>
@@ -69,13 +71,13 @@ export default function Page() {
 			
 			<div className="AIservices-process-item">
 				<div className="AIservices-process-text">
-					<h3>Discovery & Requirement Analysis</h3>
+					<h3>Discovery &amp; Requirement Analysis</h3>
 					<p>We begin by understanding your business goals, target audience, and project
 						requirements to define a strategy that ensures optimal website
 						performance.</p>
 				</div>
 				<div className="AIservices-process-image1">
-					<img src="/./images/new_services/planning.png" alt="Discovery & Planning" />
+					<img src="/./images/new_services/planning.png" alt="Discovery &amp; Planning" />
 				</div>
 			</div>
 
@@ -119,24 +121,24 @@ export default function Page() {
 			
 			<div className="AIservices-process-item">
 				<div className="AIservices-process-text">
-					<h3>Testing & QA</h3>
+					<h3>Testing &amp; QA</h3>
 					<p>Before launch, we conduct rigorous testing across devices and browsers to
 						ensure your site performs seamlessly and is fully optimized.</p>
 				</div>
 				<div className="AIservices-process-image1">
-					<img src="/./images/new_services/testing.png" alt="Testing & QA" />
+					<img src="/./images/new_services/testing.png" alt="Testing &amp; QA" />
 				</div>
 			</div>
 
 			
 			<div className="AIservices-process-item reverse">
 				<div className="AIservices-process-text">
-					<h3>Launch & Deployment</h3>
+					<h3>Launch &amp; Deployment</h3>
 					<p>We take care of everything, from server setup to DNS configuration, ensuring
 						a smooth, successful website launch.</p>
 				</div>
 				<div className="AIservices-process-image">
-					<img src="/./images/new_services/launch.png" alt="Launch & Deployment" />
+					<img src="/./images/new_services/launch.png" alt="Launch &amp; Deployment" />
 				</div>
 			</div>
 
@@ -176,7 +178,7 @@ export default function Page() {
 						</p>
 						<div className="Aiservices-testimonial-author">
 							<span><a href="/app-solutions-for-medical-device-companies" target="_blank">Explore
-									→</a></span>
+									</a></span>
 						</div>
 					</div>
 				</div>
@@ -203,7 +205,7 @@ export default function Page() {
 							<div className="accordion-item">
 								<button id="accordion-button-1" aria-expanded="false">
 									<span className="accordion-title">What is WordPress
-										Development?</span>
+										Development</span>
 									<span className="icon" aria-hidden="true"></span>
 								</button>
 								<div className="accordion-content">
@@ -228,7 +230,7 @@ export default function Page() {
 							<div className="accordion-item">
 								<button id="accordion-button-2" aria-expanded="false">
 									<span className="accordion-title">Does WordPress
-										need coding?</span>
+										need coding</span>
 									<span className="icon" aria-hidden="true"></span>
 								</button>
 								<div className="accordion-content">
@@ -255,7 +257,7 @@ export default function Page() {
 							<div className="accordion-item">
 								<button id="accordion-button-3" aria-expanded="false">
 									<span className="accordion-title">Is WordPress
-										free?</span>
+										free</span>
 									<span className="icon" aria-hidden="true"></span>
 								</button>
 								<div className="accordion-content">
@@ -308,7 +310,7 @@ export default function Page() {
 							<div className="accordion-item">
 								<button id="accordion-button-5" aria-expanded="false">
 									<span className="accordion-title">Which is better:
-										Blogger or WordPress?</span>
+										Blogger or WordPress</span>
 									<span className="icon" aria-hidden="true"></span>
 								</button>
 								<div className="accordion-content">
@@ -351,7 +353,7 @@ export default function Page() {
 					<div className="col-lg-6 vcenter">
 						<div className="cta-heading">
 							<span className="sub-heading mb15">Contact Us</span>
-							<h3>Have a <span className="ree-text rt40">Project</span> in mind?
+							<h3>Have a <span className="ree-text rt40">Project</span> in mind
 								Let's get to chat.</h3>
 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 									className="fas fa-user fb-bigon"></i> Contact </a>

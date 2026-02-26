@@ -1,3 +1,4 @@
+//import "../location-pages.css";
 export default function Footer() {
   return (
     <footer className="transforming-footer">
@@ -67,7 +68,7 @@ export default function Footer() {
             </p>
             <p>
               <i className="fas fa-envelope"></i>&nbsp;
-              <a href="mailto:hr@mtouchlabs.com">hr@mtouchlabs.com</a>
+              <a href="mailto:hr@mtouchlabs.com">career@mtouchlabs.com</a>
             </p>
             {/* Brochure — opens brochure form modal */}
             <button

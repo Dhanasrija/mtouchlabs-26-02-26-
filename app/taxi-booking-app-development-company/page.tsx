@@ -59,7 +59,7 @@ export default function Page() {
                   <div className="tax-box1-content">
                      <div><img src="/images/products/tax/real3.png" alt="Real-Time Updates" className="tax3-icons"
                            loading="lazy" /></div>
-                     <p>Reviewing & Rating</p>
+                     <p>Reviewing &amp; Rating</p>
                   </div>
                   <div className="tax-box1-content">
                      <div><img src="/images/products/tax/real4.png" alt="Real-Time Updates" className="tax4-icons"
@@ -85,7 +85,7 @@ export default function Page() {
                   businesses in today's competitive landscape. That's why we've crafted
                   a comprehensive taxi booking app solution that will transform the way you operate and serve your
                   customers</p>
-               <p>Our <a href="https://mtouchlabs.com/cabs-booking-app-development-company" target="_blank">taxi booking
+               <p>Our <a href="https://www.mtouchlabs.com/cabs-booking-app-development-company" target="_blank">taxi booking
                      app development</a> solutions are designed to provide a seamless, user-friendly
                   experience for your customers. With features like real-time vehicle
                   tracking, on-demand booking, and hassle-free payment options, your customers will enjoy a
@@ -97,7 +97,7 @@ export default function Page() {
       <div className="tax-booking-customizable-section">
          <div>
             <h2>
-               Smart Taxi & Driver Booking Apps
+               Smart Taxi &amp; Driver Booking Apps
             </h2>
          </div>
          <div>
@@ -110,7 +110,7 @@ export default function Page() {
             <h3>Taxi Booking App Development Agency</h3>
             <p>
                At mtouch Labs, we use latest technology like GPS, AI, and machine learning to make your <a
-                  href="https://mtouchlabs.com/make-your-taxi-business-smart-with-our-uber-clone-app-development"
+                  href="https://www.mtouchlabs.com/make-your-taxi-business-smart-with-our-uber-clone-app-development"
                   target="_blank"> taxi
                   booking software</a> efficient, reliable, and adaptable to your
                client needs. Our creative strategy will provide you a competitive advantage in the market and keep
@@ -145,20 +145,20 @@ export default function Page() {
                      <img src="/images/products/service2.png" alt="Ride Scheduling" />
                   </div>
                   <h6>Ride Scheduling </h6>
-                  <p>Schedule Rides in Advance for Any Day & Time.</p>
+                  <p>Schedule Rides in Advance for Any Day &amp; Time.</p>
                </div>
                <div className="service-card-main">
                   <div className="service-card service-card-3">
-                     <img src="/images/products/service3.png" alt="Driver & User Management" />
+                     <img src="/images/products/service3.png" alt="Driver &amp; User Management" />
                   </div>
-                  <h6>Driver & User Management</h6>
-                  <p>Secure Profile Management & Verification for All.</p>
+                  <h6>Driver &amp; User Management</h6>
+                  <p>Secure Profile Management &amp; Verification for All.</p>
                </div>
                <div className="service-card-main">
                   <div className="service-card service-card-4">
-                     <img src="/images/products/service4.png" alt="Fare Estimation & Payment" />
+                     <img src="/images/products/service4.png" alt="Fare Estimation &amp; Payment" />
                   </div>
-                  <h6>Fare Estimation & Payment</h6>
+                  <h6>Fare Estimation &amp; Payment</h6>
                   <p>Automatic fare calculations and several ways to pay.</p>
                </div>
                <div className="service-card-main">
@@ -187,7 +187,7 @@ export default function Page() {
                      <img src="/images/products/service8.png" alt="Admin Dashboard" />
                   </div>
                   <h6>Admin Dashboard </h6>
-                  <p> Management & Analytics Tools for Business Optimization.</p>
+                  <p> Management &amp; Analytics Tools for Business Optimization.</p>
                </div>
             </div>
          </div>
@@ -228,6 +228,7 @@ export default function Page() {
                      </div>
                   </div>
                </div>
+            </div>
          </section>
       </div>
       
@@ -313,7 +314,7 @@ export default function Page() {
 
 
       <div className="food-faq-section">
-         <h3 className="food-faq-section-heading">FAQ’s</h3>
+         <h3 className="food-faq-section-heading">FAQ's</h3>
          <div className="food-faq">
             <div className="food-faq-item">
                <div className="food-faq-question">
@@ -370,7 +371,6 @@ export default function Page() {
          </div>
       </div>
 
-   </div>
    </div>
    
    

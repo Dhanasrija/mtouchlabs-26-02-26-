@@ -30,7 +30,7 @@ export default function Page() {
 						<p className="mt20 h-light" data-aos="fade-up" data-aos-delay="400">Hire Salesforce Commerce
 							Developers India to work on your projects and IT support tasks</p>
 						<a href="/contact-us" className="ree-btn  ree-btn-grdt1 mt40" data-aos="fade-up"
-							data-aos-delay="800">Let’s discuss <i className="fas fa-arrow-right fa-btn"></i></a>
+							data-aos-delay="800">Let's discuss <i className="fas fa-arrow-right fa-btn"></i></a>
 					</div>
 				</div>
 				<div className="col-lg-6">
@@ -54,7 +54,7 @@ export default function Page() {
 							
 							<h2 className="mb15">Certified Salesforce Devs in India</h2>
 							<p>mTouch Labs is a leading <a
-									href="https://mtouchlabs.com/role-of-ai-in-ecommerce-development"
+									href="https://www.mtouchlabs.com/role-of-ai-in-ecommerce-development"
 									target="_blank">Salesforce commerce development</a> company in India helping
 								businesses to incorporate rich SaaS platforms for a highly cultivated customer
 								experience to ensure consistent business conversion. We know how to incorporate and
@@ -295,7 +295,7 @@ export default function Page() {
 							<div className="accordion-item">
 								<button id="accordion-button-1" aria-expanded="false">
 									<span className="accordion-title">What does it mean to hire Salesforce developers in India
-  ?
+  
 
 
 
@@ -306,6 +306,7 @@ export default function Page() {
 								<div className="accordion-content">
 									<p>
 It means engaging experienced Salesforce professionals in India to build and customize Salesforce CRM solutions for your business.
+</p>
 								</div>
 							</div>
 
@@ -314,7 +315,7 @@ It means engaging experienced Salesforce professionals in India to build and cus
 								<button id="accordion-button-2" aria-expanded="false">
 									<span className="accordion-title"> Why should I hire Salesforce developers from mTouch Labs
 
- ?
+ 
 
 
 
@@ -333,7 +334,7 @@ Our Salesforce developers optimize your CRM, automate workflows, build custom ap
 							<div className="accordion-item">
 								<button id="accordion-button-3" aria-expanded="false">
 									<span className="accordion-title">  What skills should Salesforce developers have
- ?
+ 
 
 
 
@@ -353,7 +354,7 @@ Proficiency in Salesforce platform, Apex, Visualforce, Lightning, APIs, and inte
 								<button id="accordion-button-4" aria-expanded="false">
 									<span className="accordion-title">How long does Salesforce development take
 
- ?
+ 
 
 
 </span>
@@ -361,7 +362,7 @@ Proficiency in Salesforce platform, Apex, Visualforce, Lightning, APIs, and inte
 								</button>
 								<div className="accordion-content">
 									<p>
-Timelines vary by project scope, but most Salesforce implementations take 8–16 weeks depending on customizations.
+Timelines vary by project scope, but most Salesforce implementations take 8-16 weeks depending on customizations.
 
 									</p>
 								</div>
@@ -372,7 +373,7 @@ Timelines vary by project scope, but most Salesforce implementations take 8–16
 								<button id="accordion-button-5" aria-expanded="false">
 									<span className="accordion-title"> Can I hire dedicated Salesforce developers long term
 
- ?
+ 
 
 </span>
 									<span className="icon" aria-hidden="true"></span>
@@ -407,7 +408,7 @@ Yes you can hire dedicated Salesforce developers for full-time, part-time, or on
 					<div className="col-lg-6 vcenter">
 						<div className="cta-heading">
 							<span className="sub-heading mb15">Contact Us</span>
-							<h3>Need any <span className="ree-text rt40"> Salesforce </span> Developers? Let's get to chat.
+							<h3>Need any <span className="ree-text rt40"> Salesforce </span> Developers Let's get to chat.
 							</h3>
 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 									className="fas fa-user fb-bigon"></i> Contact </a>

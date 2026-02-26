@@ -1226,9 +1226,9 @@ export default function Page() {
 							<li className="ree-hc">
 								<a href="tel:+91 9390683154" rel="noreferrer" target="_blank">
 									<svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-										xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-										viewBox="0 0 25.625 25.625" style={{enableBackground: "new 0 0 25.625 25.625"}}
-										xml:space="preserve">
+										xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+										viewBox="0 0 25.625 25.625" style={{"enableBackground": "new 0 0 25.625 25.625"} as any}
+										xmlSpace="preserve">
 										<g>
 											<path
 												d="M22.079,17.835c-1.548-1.324-3.119-2.126-4.648-0.804l-0.913,0.799 c-0.668,0.58-1.91,3.29-6.712-2.234C5.005,10.079,7.862,9.22,8.531,8.645l0.918-0.8c1.521-1.325,0.947-2.993-0.15-4.71l-0.662-1.04  C7.535,0.382,6.335-0.743,4.81,0.58L3.986,1.3C3.312,1.791,1.428,3.387,0.971,6.419c-0.55,3.638,1.185,7.804,5.16,12.375
@@ -1250,8 +1250,8 @@ export default function Page() {
 							<li className="ree-hc">
 								<a href="https://wa.me/message/H5VADFWLMPYIM1" rel="noreferrer" target="_blank">
 									<svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-										xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
-										style={{enableBackground: "new 0 0 512 512"}} xml:space="preserve">
+										xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
+										style={{"enableBackground": "new 0 0 512 512"} as any} xmlSpace="preserve">
 										<g>
 											<path
 												d="M256.064,0h-0.128C114.784,0,0,114.816,0,256c0,56,18.048,107.904,48.736,150.048l-31.904,95.104l98.4-31.456 C155.712,496.512,204,512,256.064,512C397.216,512,512,397.152,512,256S397.216,0,256.064,0z M405.024,361.504 c-6.176,17.44-30.688,31.904-50.24,36.128c-13.376,2.848-30.848,5.12-89.664-19.264C189.888,347.2,141.44,270.752,137.664,265.792
@@ -1323,7 +1323,7 @@ export default function Page() {
 				</p>
 
 			</div>
-			 <button className="AIservices-btn">👉 Request a
+			 <button className="AIservices-btn"> Request a
 					Demo</button>
 		</div>
 		<div className="AIservices-info-card">
@@ -1333,7 +1333,7 @@ export default function Page() {
 					responsive apps ensuring faster time-to-market and reduced development costs.
 				</p>
 			</div>
-			<a href="/contact-us" target="_blank"><button className="AIservices-btn">👉 Talk to
+			<a href="/contact-us" target="_blank"><button className="AIservices-btn"> Talk to
 					Experts</button></a></div>
 	</section>
 
@@ -1347,14 +1347,14 @@ export default function Page() {
 			
 			<div className="AIservices-process-item">
 				<div className="AIservices-process-text">
-					<h3>Discovery & Planning</h3>
+					<h3>Discovery &amp; Planning</h3>
 					<p>
 						We analyze your goals, target users, and technical needs to define a
 						scalable hybrid strategy.
 					</p>
 				</div>
 				<div className="AIservices-process-image1">
-					<img src="/./images/new_services/planning.png" alt="Discovery & Planning" />
+					<img src="/./images/new_services/planning.png" alt="Discovery &amp; Planning" />
 				</div>
 			</div>
 
@@ -1453,7 +1453,7 @@ export default function Page() {
 						</p>
 						<div className="Aiservices-testimonial-author">
 							<span><a href="/real-estate-lead-app" target="_blank">Explore
-									→</a></span>
+									-</a></span>
 						</div>
 					</div>
 				</div>
@@ -1464,7 +1464,7 @@ export default function Page() {
 	
 	<section className="whychoose-section">
 		<div className="whychoose-container">
-			<h2 className="whychoose-title">🔹 Why Choose mTouch Labs?</h2>
+			<h2 className="whychoose-title"> Why Choose mTouch Labs?</h2>
 
 			<div className="whychoose-grid">
 				
@@ -1479,17 +1479,17 @@ export default function Page() {
 
 				
 				<div className="whychoose-card">
-					<h3 className="whychoose-feature">Multi-Platform Expertise: Android, iOS & Web</h3>
+					<h3 className="whychoose-feature">Multi-Platform Expertise: Android, iOS &amp; Web</h3>
 				</div>
 
 				
 				<div className="whychoose-card">
-					<h3 className="whychoose-feature">24x7 Support with Maintenance & Bug Fixes</h3>
+					<h3 className="whychoose-feature">24x7 Support with Maintenance &amp; Bug Fixes</h3>
 				</div>
 
 				
 				<div className="whychoose-card">
-					<h3 className="whychoose-feature">Cost-Effective & Scalable App Solutions</h3>
+					<h3 className="whychoose-feature">Cost-Effective &amp; Scalable App Solutions</h3>
 				</div>
 			</div>
 		</div>
@@ -1550,7 +1550,7 @@ export default function Page() {
 									<p>Hybrid apps offer faster development, cost
 										savings, and the advantage of reaching
 										both iOS and Android users
-										simultaneously — ideal for startups and
+										simultaneously - ideal for startups and
 										growing businesses.</p>
 								</div>
 							</div>

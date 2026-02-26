@@ -1,415 +1,350 @@
 import type { Metadata } from "next";
 
+
 export const metadata: Metadata = {
   title: "iOS App Development Company | mTouch Labs",
-  description: "mTouch Labs is a trusted iOS app development company delivering secure, scalable, and high-performance iPhone and iPad applications.",
+  description: "mTouch Labs is an iOS app development company delivering secure, scalable, and high-performance iPhone applications tailored to business needs.",
+  alternates: { canonical: "https://www.mtouchlabs.com/ios-app-development-company" },
+  openGraph: { title: "iOS App Development Company | mTouch Labs", description: "Custom iPhone app development services focused on performance, security, and scalability.", url: "https://www.mtouchlabs.com/ios-app-development-company", siteName: "mTouch Labs", type: "website" },
+  twitter: { card: "summary_large_image", title: "iOS App Development Company | mTouch Labs", description: "Professional iOS mobile app development services engineered for growth and performance." },
 };
 
-export default function Page() {
+export default function iOSDevelopment() {
   return (
     <>
+      {/* ===== HERO ===== */}
+      <section className="io-hero">
+        <div className="io-hero__inner">
+          <p className="io-hero__breadcrumb">
+            Home / Services /{" "}
+            <span className="io-hero__breadcrumb-active">iOS App Development</span>
+          </p>
+          <h1 className="io-hero__title">
+            iOS <span className="io-hero__title-accent">App Development</span> Company
+          </h1>
+          <p className="io-hero__subtitle">
+            Secure, Scalable &amp; High-Performance iPhone Applications
+          </p>
+          <p className="io-hero__desc">
+            mTouch Labs is a professional iOS app development company delivering custom iPhone and iPad applications engineered for performance, security, and seamless user experience — from startup MVPs to enterprise-grade applications.
+          </p>
+        </div>
+      </section>
 
-	
+      {/* ===== ABOUT ===== */}
+      <section className="io-about">
+        <div className="io-container">
+          <div className="io-about__grid">
+            <div className="io-about__content io-animate--left">
+              <h2 className="io-about__heading">
+                What Does an <span className="io-text-accent">iOS App Development</span> Company Do?
+              </h2>
+              <p className="io-about__text">
+                An iOS app development company specializes in designing, developing, testing, and deploying applications for Apple devices using Swift and native iOS frameworks.
+              </p>
+              <p className="io-about__text">
+                Professional iOS development ensures optimized performance on Apple devices, secure data handling, smooth UI animations, App Store compliance, and long-term scalability. Our{" "}
+                <a href="/ui-ux-design-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>UI/UX design team</a>{" "}
+                ensures every interface follows Apple Human Interface Guidelines while delivering engaging user experiences.
+              </p>
+              <p className="io-about__text">
+                We combine intuitive interface design, optimized backend architecture, and App Store-compliant engineering standards to deliver solutions built to scale. Whether you need a consumer app, an{" "}
+                <a href="/enterprise-application-development-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>enterprise mobility solution</a>, or a{" "}
+                <a href="/cross-platform-app-development-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>cross-platform application</a>, our iOS expertise covers it all.
+              </p>
+            </div>
+            <div className="io-stats io-animate--right">
+              <div className="io-stat">
+                <span className="io-stat__icon">🍎</span>
+                <span className="io-stat__label">Swift Native</span>
+              </div>
+              <div className="io-stat">
+                <span className="io-stat__icon">📱</span>
+                <span className="io-stat__label">iPhone &amp; iPad</span>
+              </div>
+              <div className="io-stat">
+                <span className="io-stat__icon">🔒</span>
+                <span className="io-stat__label">App Store Compliant</span>
+              </div>
+              <div className="io-stat">
+                <span className="io-stat__icon">⚡</span>
+                <span className="io-stat__label">High Performance</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-	
-	
-	
+      {/* ===== EXPERTISE ===== */}
+      <section className="io-whoweare">
+        <div className="io-container">
+          <div className="io-whoweare__grid">
+            <div className="io-whoweare__stats io-animate--left">
+              <div className="io-stat io-stat--dark">
+                <span className="io-stat__number">735+</span>
+                <span className="io-stat__label">iOS Apps Delivered</span>
+              </div>
+              <div className="io-stat io-stat--dark">
+                <span className="io-stat__number">Swift</span>
+                <span className="io-stat__label">Native Development</span>
+              </div>
+              <div className="io-stat io-stat--dark">
+                <span className="io-stat__number">99%</span>
+                <span className="io-stat__label">App Store Approval</span>
+              </div>
+              <div className="io-stat io-stat--dark">
+                <span className="io-stat__number">14+</span>
+                <span className="io-stat__label">Years Experience</span>
+              </div>
+            </div>
+            <div className="io-whoweare__content io-animate--right">
+              <h2 className="io-whoweare__heading">
+                Security &amp; <span className="io-text-accent">Performance</span> Standards
+              </h2>
+              <p className="io-whoweare__text">
+                Our iOS applications include enterprise-grade security:
+              </p>
+              <ul className="io-checklist">
+                <li className="io-checklist__item">
+                  <span className="io-checklist__icon">✓</span>
+                  <span>Data encryption &amp; secure API communication</span>
+                </li>
+                <li className="io-checklist__item">
+                  <span className="io-checklist__icon">✓</span>
+                  <span>Role-based access control</span>
+                </li>
+                <li className="io-checklist__item">
+                  <span className="io-checklist__icon">✓</span>
+                  <span>High-performance memory management</span>
+                </li>
+                <li className="io-checklist__item">
+                  <span className="io-checklist__icon">✓</span>
+                  <span>Battery efficiency optimization</span>
+                </li>
+                <li className="io-checklist__item">
+                  <span className="io-checklist__icon">✓</span>
+                  <span>Apple Human Interface Guidelines compliance</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
-	
-	
+      {/* ===== SERVICES ===== */}
+      <section className="io-services">
+        <div className="io-container">
+          <div className="io-services__header io-animate">
+            <h2 className="io-services__title">
+              Our iOS <span className="io-text-accent">Development Services</span>
+            </h2>
+            <p className="io-services__subtitle">
+              From consumer apps to enterprise mobility
+            </p>
+          </div>
+          <div className="io-services__grid io-stagger">
+            <div className="io-service-card io-animate--scale">
+              <span className="io-service-card__badge">01</span>
+              <h4 className="io-service-card__title">Custom iOS Apps</h4>
+              <p className="io-service-card__text">
+                Consumer apps, enterprise mobility, on-demand services, marketplace platforms, and subscription applications using Swift.
+              </p>
+            </div>
+            <div className="io-service-card io-animate--scale">
+              <span className="io-service-card__badge">02</span>
+              <h4 className="io-service-card__title">UI/UX Design for iOS</h4>
+              <p className="io-service-card__text">
+                Apple HIG compliance, intuitive navigation, accessibility optimization, responsive layouts, and engagement-driven design.
+              </p>
+            </div>
+            <div className="io-service-card io-animate--scale">
+              <span className="io-service-card__badge">03</span>
+              <h4 className="io-service-card__title">Architecture &amp; Engineering</h4>
+              <p className="io-service-card__text">
+                Swift-based native development, modular code, API-driven backends, secure authentication, and performance optimization.
+              </p>
+            </div>
+            <div className="io-service-card io-animate--scale">
+              <span className="io-service-card__badge">04</span>
+              <h4 className="io-service-card__title">App Store Deployment</h4>
+              <p className="io-service-card__text">
+                Submission, compliance review, performance testing, metadata optimization, and version updates &amp; enhancements.
+              </p>
+            </div>
+            <div className="io-service-card io-service-card--wide io-animate--scale">
+              <span className="io-service-card__badge">05</span>
+              <h4 className="io-service-card__title">Enterprise iOS Solutions</h4>
+              <p className="io-service-card__text">
+                Secure internal business apps, field workforce mobility, real-time reporting, cloud-integrated platforms, and multi-role access. Explore our full{" "}
+                <a href="/mobile-app-development-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>mobile app development services</a>{" "}
+                for multi-platform needs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-	
-	<section className="AIservices-banner" data-bg="images/new_services/iosbg.webp">
-		<div className="AIservices-banner-container">
+      {/* ===== DELIVERY ===== */}
+      <section className="io-delivery">
+        <div className="io-container">
+          <h2 className="io-delivery__heading io-animate">
+            Our iOS <span className="io-text-accent">Development Process</span>
+          </h2>
+          <p className="io-delivery__text">
+            We follow a structured lifecycle for reliable and predictable delivery.
+          </p>
+          <div className="io-delivery__steps">
+            <div className="io-step"><span className="io-step__circle">Requirements</span></div>
+            <span className="io-step__arrow">→</span>
+            <div className="io-step"><span className="io-step__circle">Wireframing</span></div>
+            <span className="io-step__arrow">→</span>
+            <div className="io-step"><span className="io-step__circle">UI Design</span></div>
+            <span className="io-step__arrow">→</span>
+            <div className="io-step"><span className="io-step__circle">Development</span></div>
+            <span className="io-step__arrow">→</span>
+            <div className="io-step"><span className="io-step__circle">QA Testing</span></div>
+            <span className="io-step__arrow">→</span>
+            <div className="io-step"><span className="io-step__circle">Optimization</span></div>
+            <span className="io-step__arrow">→</span>
+            <div className="io-step"><span className="io-step__circle">App Store</span></div>
+          </div>
+        </div>
+      </section>
 
-			
-			<div className="AIservices-banner-content">
+      {/* ===== WHY CHOOSE US ===== */}
+      <section className="io-reliable">
+        <div className="io-container">
+          <div className="io-reliable__inner io-animate">
+            <h2 className="io-reliable__heading">
+              Why Choose <span className="io-text-accent">mTouch Labs</span>?
+            </h2>
+            <p className="io-reliable__text">
+              We build iOS apps that align with business goals and user expectations.
+            </p>
+            <div className="io-reliable__pillars">
+              <div className="io-pillar"><span className="io-pillar__dot"></span><span className="io-pillar__label">Swift-native expertise</span></div>
+              <div className="io-pillar"><span className="io-pillar__dot"></span><span className="io-pillar__label">App Store compliance knowledge</span></div>
+              <div className="io-pillar"><span className="io-pillar__dot"></span><span className="io-pillar__label">Performance-first engineering</span></div>
+              <div className="io-pillar"><span className="io-pillar__dot"></span><span className="io-pillar__label">Scalable backend integration</span></div>
+              <div className="io-pillar"><span className="io-pillar__dot"></span><span className="io-pillar__label">Secure development standards</span></div>
+              <div className="io-pillar"><span className="io-pillar__dot"></span><span className="io-pillar__label">Long-term{" "}
+                <a href="/app-maintenance-support-services" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>maintenance support</a>
+              </span></div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-				
-				<div className="AIservices-breadcrumb">
-					 <a href="/">Home  </a>
-					<span className="AIservices-separator">/</span>
-					  <a href="/services">Services  </a>
-					<span className="AIservices-separator">/</span>
-					  <a href="/services/mobile-app-development-company" className="active"> iOS
-						App Development Company</a>
-				</div>
+      {/* ===== INDUSTRIES ===== */}
+      <section className="io-industries">
+        <div className="io-container">
+          <h2 className="io-industries__title io-animate">
+            Industries We <span className="io-text-accent">Serve</span>
+          </h2>
+          <div className="io-industries__grid io-stagger">
+            <div className="io-industry io-animate--scale"><span className="io-industry__icon">🛒</span><h4 className="io-industry__title">eCommerce &amp; Retail</h4></div>
+            <div className="io-industry io-animate--scale"><span className="io-industry__icon">🏥</span><h4 className="io-industry__title">Healthcare &amp; HealthTech</h4></div>
+            <div className="io-industry io-animate--scale"><span className="io-industry__icon">💰</span><h4 className="io-industry__title">FinTech &amp; Banking</h4></div>
+            <div className="io-industry io-animate--scale"><span className="io-industry__icon">🏠</span><h4 className="io-industry__title">Real Estate</h4></div>
+            <div className="io-industry io-animate--scale"><span className="io-industry__icon">🚚</span><h4 className="io-industry__title">Logistics &amp; Transport</h4></div>
+            <div className="io-industry io-animate--scale"><span className="io-industry__icon">🚀</span><h4 className="io-industry__title">SaaS &amp; Technology</h4></div>
+          </div>
+        </div>
+      </section>
 
-				<p className="AIservices-description" id="mobile-AIservices-description"> Best <span style={{color: "#77cdff"}}>
-						iOS App </span> Development Company In India</p>
+      {/* ===== TECHNOLOGIES ===== */}
+      <section className="io-tech">
+        <div className="io-container">
+          <div className="io-tech__grid">
+            <div className="io-animate--left">
+              <h2 className="io-tech__heading">
+                Technologies We <span className="io-text-accent">Work With</span>
+              </h2>
+              <p className="io-tech__text">
+                We leverage Apple&apos;s latest frameworks and modern development tools to build high-performance, future-ready iOS applications.
+              </p>
+              <div className="io-tech__tags">
+                {[
+                  "Swift", "SwiftUI", "UIKit", "Xcode", "Objective-C",
+                  "Core Data", "CloudKit", "ARKit", "CoreML", "Firebase",
+                  "REST APIs", "GraphQL", "TestFlight", "Fastlane", "CocoaPods",
+                  "SPM", "Combine", "MVVM"
+                ].map((tech) => (
+                  <span key={tech} className="io-tag">{tech}</span>
+                ))}
+              </div>
+            </div>
+            <div className="io-tech__stats io-animate--right">
+              <div className="io-stat io-stat--dark">
+                <span className="io-stat__number">18+</span>
+                <span className="io-stat__label">Frameworks &amp; Tools</span>
+              </div>
+              <div className="io-stat io-stat--dark">
+                <span className="io-stat__number">iOS 15+</span>
+                <span className="io-stat__label">Version Support</span>
+              </div>
+              <div className="io-stat io-stat--dark">
+                <span className="io-stat__number">4.8★</span>
+                <span className="io-stat__label">Avg App Rating</span>
+              </div>
+              <div className="io-stat io-stat--dark">
+                <span className="io-stat__number">99%</span>
+                <span className="io-stat__label">Crash-Free Rate</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-				<h1 className="AIservices-title" id="mobile-AIservices-title">
-					<span style={{color: "#77cdff"}}>iOS App </span><br /> Development Company
-				</h1>
-				<p className="AIservices-description" id="mobile-AIservices-description">
-					mTouch Labs is a Best iOS app development company in India, creating dynamic, scalable, and visually
-					stunning iPhone apps for various industries.
+      {/* ===== FAQ ===== */}
+      <section className="io-faq">
+        <div className="io-container">
+          <div className="io-faq__wrapper">
+            <h3 className="io-faq__heading io-animate">
+              Frequently Asked <span className="io-text-accent">Questions</span>
+            </h3>
+            <p className="io-faq__subtext">Everything about iOS app development</p>
+            <div className="io-faq__list">
+              <details className="io-faq__item">
+                <summary className="io-faq__question"><span>What is iOS app development?</span><span className="io-faq__chevron"></span></summary>
+                <div className="io-faq__answer"><p>iOS app development involves creating mobile applications specifically for Apple devices using native programming languages such as Swift and frameworks like SwiftUI and UIKit.</p></div>
+              </details>
+              <details className="io-faq__item">
+                <summary className="io-faq__question"><span>How long does iPhone app development take?</span><span className="io-faq__chevron"></span></summary>
+                <div className="io-faq__answer"><p>Project timelines typically range from 8 to 16 weeks depending on complexity, feature requirements, and integration needs.</p></div>
+              </details>
+              <details className="io-faq__item">
+                <summary className="io-faq__question"><span>Do you develop apps for both iPhone and iPad?</span><span className="io-faq__chevron"></span></summary>
+                <div className="io-faq__answer"><p>Yes. We develop optimized applications compatible with iPhone, iPad, and multiple iOS versions. We also offer dedicated{" "}
+                  <a href="/ipad-app-development-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>iPad app development</a>{" "}
+                  for tablet-specific experiences.</p></div>
+              </details>
+              <details className="io-faq__item">
+                <summary className="io-faq__question"><span>Do you provide post-launch support?</span><span className="io-faq__chevron"></span></summary>
+                <div className="io-faq__answer"><p>Yes. We offer continuous monitoring, updates, feature enhancements, and performance optimization through our{" "}
+                  <a href="/app-maintenance-support-services" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>app maintenance services</a>.</p></div>
+              </details>
+            </div>
+          </div>
+        </div>
+      </section>
 
-				</p>
-			</div>
-
-			
-			
-
-		</div>
-	</section>
-
-	
-	<section className="AIservices-info-section">
-		<div className="AIservices-info-card">
-			<div className="AIservices-info-card-height">
-				<h2>Built for Excellence, Designed for Growth</h2>
-				<p>
-					Our iOS development strategy empowers startups and enterprises with seamless,
-					scalable, and secure Apple ecosystem experiences.
-				</p>
-			</div>
-			<a href="/contact-us" target="_blank"><button className="AIservices-btn">Let’s Discuss</button></a></div>
-		<div className="AIservices-info-card">
-			<div className="AIservices-info-card-height">
-				<h2>Workshop Series: Plan, Build, Succeed</h2>
-				<p>
-					Discover our structured approach to crafting iOS apps combining strategy, design
-					precision, and engineering excellence using Swift, Xcode, and Apple's Human
-					Interface Guidelines.
-				</p>
-			</div>
-			<a href="/contact-us" target="_blank"><button className="AIservices-btn">Book a Consultation</button></a></div>
-	</section>
-
-	
-	<section className="AIservices-process-section">
-		<h2 className="AIservices-process-title">
-			Complete Guide to the <br /> iOS App Development Process
-		</h2>
-
-		<div className="AIservices-process-container">
-			
-			<div className="AIservices-process-item">
-				<div className="AIservices-process-text">
-					<h3>Discovery & Planning</h3>
-					<p>
-						We define goals, study user personas, evaluate competitors, and map out
-						an MVP strategy for your iOS application.
-					</p>
-					
-				</div>
-				<div className="AIservices-process-image1">
-					<img src="/./images/new_services/planning.png" alt="Discovery & Planning" />
-				</div>
-			</div>
-
-			
-			<div className="AIservices-process-item reverse">
-				<div className="AIservices-process-text">
-					<h3>UI/UX Design</h3>
-					<p>
-						We design elegant, responsive interfaces that conform to Apple’s design
-						system while delivering unique brand expression.
-					</p>
-					
-				</div>
-				<div className="AIservices-process-image">
-					<img src="/./images/new_services/ui-ux.png" alt="UI/UX Design" />
-				</div>
-			</div>
-
-			
-			<div className="AIservices-process-item">
-				<div className="AIservices-process-text">
-					<h3>Development</h3>
-					<p>
-						Leveraging Swift, SwiftUI, and Xcode, our developers build secure,
-						scalable, and smooth-performing iOS apps.
-					</p>
-					
-				</div>
-				<div className="AIservices-process-image1">
-					<img src="/./images/new_services/development.png" alt="Development" />
-				</div>
-			</div>
-
-			
-			<div className="AIservices-process-item reverse">
-				<div className="AIservices-process-text">
-					<h3>Testing</h3>
-					<p>
-						We perform rigorous testing on real Apple devices to ensure speed,
-						usability, and crash-free performance.
-					</p>
-					
-				</div>
-				<div className="AIservices-process-image">
-					<img src="/./images/new_services/testing.png" alt="Testing" />
-				</div>
-			</div>
-
-			
-			<div className="AIservices-process-item">
-				<div className="AIservices-process-text">
-					<h3>Launch</h3>
-					<p>
-						We guide you through App Store submission, ensuring compliance with
-						Apple’s guidelines and performance standards.
-					</p>
-					
-				</div>
-				<div className="AIservices-process-image1">
-					<img src="/./images/new_services/launch.png" alt="Launch" />
-				</div>
-			</div>
-
-			
-			<div className="AIservices-process-item reverse">
-				<div className="AIservices-process-text">
-					<h3>Post-Launch Support</h3>
-					<p>
-						From bug fixes to performance optimization, we maintain and enhance your
-						iOS app for long-term success.
-					</p>
-					
-				</div>
-				<div className="AIservices-process-image">
-					<img src="/./images/new_services/post-launch.png" alt="Post-Launch Support" />
-				</div>
-			</div>
-		</div>
-
-	</section>
-
-	
-	<section className="Aiservices-testimonials">
-		<div className="Aiservices-container">
-			<h2 className="Aiservices-testimonials-title">Customer Success Story</h2>
-
-			<div className="Aiservices-testimonial-card">
-				<div className="Aiservices-testimonial-content">
-					<div className="Aiservices-company-logo-container">
-						<div className="Aiservices-company-logo-div">
-							<img src="/images/brand-logo/rahel.png" alt="Stanford Medical Research Logo" />
-						</div>
-					</div>
-					<div className="Aiservices-testimonial-text">
-						<div className="Aiservices-rating">
-							<img src="/images/new_services/doublequotes.png" className="doublequotes_img" alt="Quote Icon" />
-						</div>
-						<p className="Aiservices-testimonial-quote">
-							"Excellent service! Our Android app looks great and works perfectly- Jasim"
-						</p>
-						<div className="Aiservices-testimonial-author">
-							<span><a href="/rahayel-parking-lot-management-system" target="_blank">Read
-									Full Story →</a></span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	
-	<section className="Aiservices-blogs">
-		<div className="Aiservices-container">
-			<h2 className="Aiservices-blogs-title">Blogs</h2>
-
-			<div className="Aiservices-blogs-grid">
-				<article className="Aiservices-blog-card">
-					<div className="Aiservices-blog-image">
-						<img src="/images/blogs/swiftui.jpg" alt="Why Swift is Ideal for High-Performance iOS Apps" />
-					</div>
-					<div className="Aiservices-blog-content">
-						<h3 className="Aiservices-blog-title">Why Swift is Ideal for
-							High-Performance iOS Apps</h3>
-						<div className="Aiservices-blog-meta">
-							<a href="/swiftui-is-shaping-the-future-of-ios-app-development" target="_blank"
-								className="Aiservices-read-more">Read More
-								→</a>
-						</div>
-					</div>
-				</article>
-
-				<article className="Aiservices-blog-card">
-					<div className="Aiservices-blog-image">
-						<img src="/images/blogs/ios-app-development-vs-android-app-development-2.jpg"
-							alt="The Role of UI Consistency in iOS App Design" />
-					</div>
-					<div className="Aiservices-blog-content">
-						<h3 className="Aiservices-blog-title">The Role of UI Consistency in iOS App
-							Design</h3>
-						<div className="Aiservices-blog-meta">
-							<a href="/ios-mobile-app-development-vs-android-mobile-app-development" target="_blank"
-								className="Aiservices-read-more">Read More
-								→</a>
-						</div>
-					</div>
-				</article>
-
-				<article className="Aiservices-blog-card">
-					<div className="Aiservices-blog-image">
-						<img src="/images/blogs/MOBILE APP DEVELOPMENT GUIDE- The Definitive Guide For 2020 copy.jpg"
-							alt="iOS App Optimization for the App Store in 2025" />
-					</div>
-					<div className="Aiservices-blog-content">
-						<h3 className="Aiservices-blog-title">iOS App Optimization for the App Store
-							in 2025</h3>
-						<div className="Aiservices-blog-meta">
-							<a href="/mobile-app-development-guide-the-definitive-guide-for-2020" target="_blank"
-								className="Aiservices-read-more">Read More
-								→</a>
-						</div>
-					</div>
-				</article>
-			</div>
-
-		</div>
-	</section>
-
-	<section className="r-bg-x sec-pad">
-		<div className="container">
-			<div className="row justify-content-center">
-				<div className="col-lg-7 text-center">
-					<div className="page-headings">
-						<h3>Frequently Asked Questions</h3>
-						 
-						<div className="accordion">
-
-							
-							<div className="accordion-item">
-								<button id="accordion-button-1" aria-expanded="false">
-									<span className="accordion-title">How much does it cost to develop an iOS app for a
-										business?</span>
-									<span className="icon" aria-hidden="true"></span>
-								</button>
-								<div className="accordion-content">
-									<p>
-										The cost depends on app features, design complexity, integrations, and
-										development timeline. Basic applications require a smaller budget, while
-										advanced apps with custom UI, APIs, and cloud integration may require higher
-										investment.
-									</p>
-								</div>
-							</div>
-
-							
-							<div className="accordion-item">
-								<button id="accordion-button-2" aria-expanded="false">
-									<span className="accordion-title">How long does it take to build a custom iOS
-										application?</span>
-									<span className="icon" aria-hidden="true"></span>
-								</button>
-								<div className="accordion-content">
-									<p>
-										The development timeline varies based on features and complexity. A basic app
-										can take a few weeks, while a fully customized and scalable application with
-										advanced functionality may take a few months.
-									</p>
-								</div>
-							</div>
-
-							
-							<div className="accordion-item">
-								<button id="accordion-button-3" aria-expanded="false">
-									<span className="accordion-title">What features should a modern iOS application
-										include?</span>
-									<span className="icon" aria-hidden="true"></span>
-								</button>
-								<div className="accordion-content">
-									<p>
-										A modern iOS app should include user-friendly design, strong security, real-time
-										analytics, push notifications, cloud integration, and seamless performance
-										across Apple devices to improve user engagement.
-									</p>
-								</div>
-							</div>
-
-							
-							<div className="accordion-item">
-								<button id="accordion-button-4" aria-expanded="false">
-									<span className="accordion-title">Why choose mTouch Labs for iOS app development?</span>
-									<span className="icon" aria-hidden="true"></span>
-								</button>
-								<div className="accordion-content">
-									<p>
-										mTouch focuses on building secure, scalable, and high-performance iOS
-										applications tailored to business needs. With modern technologies and a
-										user-centric approach, businesses can launch reliable and future-ready mobile
-										solutions.
-									</p>
-								</div>
-							</div>
-
-							
-							<div className="accordion-item">
-								<button id="accordion-button-5" aria-expanded="false">
-									<span className="accordion-title">Does mTouch Labs provide custom iOS solutions for
-										startups and enterprises?</span>
-									<span className="icon" aria-hidden="true"></span>
-								</button>
-								<div className="accordion-content">
-									<p>
-										Yes, mTouch delivers tailored iOS solutions for startups, SMEs, and enterprises.
-										From MVP development to full-scale applications, solutions are designed to
-										support scalability, performance, and long-term business growth.
-									</p>
-								</div>
-							</div>
-
-						</div>
-					</div>
-				</div>
-
-
-			</div>
-		</div>
-	</section>
-
-
-	
-	<section className="sec-pad r-bg-a">
-		<div className="container">
-			<div className="ree">
-				<div className="row">
-					<div className="col-lg-6 vcenter">
-						<div className="cta-heading">
-							<span className="sub-heading mb15">Contact Us</span>
-							<h3>Have a <span className="ree-text rt40">Project</span> in mind?
-								Let's get to chat.</h3>
-							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
-									className="fas fa-user fb-bigon"></i> Contact </a>
-							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
-								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
-								Whatsapp </a>
-
-						</div>
-					</div>
-					<div className="col-lg-6 vcenter text-center">
-						<div className="sol-img-png">
-							<img src="/images/cta/project-in-mind-Let's-get-to-chat-ipad.svg"
-								alt="Custom iOS App Development Services" className="img-fluid" />
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	
-
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-	
-	
-
-	
-
+      {/* ===== CTA ===== */}
+      <section className="io-cta">
+        <div className="io-container">
+          <div className="io-cta__inner io-animate--scale">
+            <h2 className="io-cta__heading">
+              Build Your <span className="io-text-accent">iOS App</span> Today
+            </h2>
+            <p className="io-cta__text">
+              Let&apos;s discuss how we can build a high-performance iPhone app for your business.
+            </p>
+            <button type="button" className="io-cta__button js-open-modal">
+              Start Your iOS Project
+            </button>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

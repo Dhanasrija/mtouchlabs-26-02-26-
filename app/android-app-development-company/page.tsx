@@ -1,398 +1,245 @@
 import type { Metadata } from "next";
+import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Top Android App Development Company in India - mTouch Labs",
-  description: "mTouch Labs, top Android app development company in India, delivers scalable and user-friendly mobile solutions tailored to your business.",
+  title: "Android App Development Company | mTouch Labs",
+  description:
+    "mTouch Labs is an Android app development company delivering secure, scalable native mobile apps built with Kotlin and optimized for performance.",
+  keywords: [
+    "Android app development",
+    "Android development company",
+    "Kotlin app development",
+    "native Android apps",
+    "Android mobile apps",
+  ],
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/android-app-development-company",
+  },
+  openGraph: {
+    title: "Android App Development Company | mTouch Labs",
+    description: "Professional native Android app development services for scalable and high-performance mobile solutions.",
+    url: "https://www.mtouchlabs.com/android-app-development-company",
+    siteName: "mTouch Labs",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Android App Development Company | mTouch Labs",
+    description: "Custom Android app development services engineered for growth and reliability.",
+  },
 };
 
-export default function Page() {
+export default function AndroidAppDevelopment() {
   return (
     <>
+      <section className="ad-hero">
+        <div className="ad-hero__inner">
+          <Breadcrumb pagePath="/android-app-development-company" />
+          <h1 className="ad-hero__title">
+            Native <span className="ad-hero__title-accent">Android App</span> Development Company
+          </h1>
+          <p className="ad-hero__subtitle">Secure, Scalable &amp; Performance-Optimized Android Applications</p>
+          <p className="ad-hero__desc">mTouch Labs is a trusted Android app development company delivering secure, scalable, and performance-optimized mobile applications tailored for the Android ecosystem.</p>
+        </div>
+      </section>
 
-	
-	
-	
+      <section className="ad-about">
+        <div className="ad-container">
+          <div className="ad-about__grid">
+            <div className="ad-about__content ad-animate--left">
+              <h2 className="ad-about__heading">What Does an <span className="ad-text-accent">Android App Development</span> Company Do?</h2>
+              <p className="ad-about__text">An Android app development company designs, develops, tests, and deploys mobile applications specifically for Android devices using native technologies such as Kotlin and Android SDK.</p>
+              <p className="ad-about__text">Professional Android development ensures compatibility across diverse devices, optimized performance and memory usage, secure data handling, Google Play Store compliance, and long-term scalability.</p>
+              <p className="ad-about__text">As a full-service <a href="/mobile-app-development-company" style={{color: "#e8a025", textDecoration: "none"}}>mobile app development company</a>, we build native Android apps engineered for high performance and seamless integration within the Google ecosystem.</p>
+            </div>
+            <div className="ad-stats ad-animate--right">
+              <div className="ad-stat"><span className="ad-stat__icon">🤖</span><span className="ad-stat__label">Native Android</span></div>
+              <div className="ad-stat"><span className="ad-stat__icon">🔧</span><span className="ad-stat__label">Kotlin-Powered</span></div>
+              <div className="ad-stat"><span className="ad-stat__icon">🔒</span><span className="ad-stat__label">Secure Architecture</span></div>
+              <div className="ad-stat"><span className="ad-stat__icon">📲</span><span className="ad-stat__label">Play Store Ready</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-	
+      <section className="ad-whoweare">
+        <div className="ad-container">
+          <div className="ad-whoweare__grid">
+            <div className="ad-whoweare__stats ad-animate--left">
+              <div className="ad-stat ad-stat--dark"><span className="ad-stat__number">14+</span><span className="ad-stat__label">Years of Experience</span></div>
+              <div className="ad-stat ad-stat--dark"><span className="ad-stat__number">120+</span><span className="ad-stat__label">Android Apps Delivered</span></div>
+              <div className="ad-stat ad-stat--dark"><span className="ad-stat__number">200+</span><span className="ad-stat__label">Global Clients</span></div>
+              <div className="ad-stat ad-stat--dark"><span className="ad-stat__number">4.7★</span><span className="ad-stat__label">Avg. Play Store Rating</span></div>
+            </div>
+            <div className="ad-whoweare__content ad-animate--right">
+              <h2 className="ad-whoweare__heading">Our <span className="ad-text-accent">Android Expertise</span></h2>
+              <p className="ad-whoweare__text">We deliver end-to-end native Android development with structured engineering:</p>
+              <ul className="ad-checklist">
+                <li className="ad-checklist__item"><span className="ad-checklist__icon">✓</span><span>Custom Android Apps — consumer, enterprise &amp; on-demand platforms</span></li>
+                <li className="ad-checklist__item"><span className="ad-checklist__icon">✓</span><span>Kotlin Development — modern architecture, clean code &amp; enhanced security</span></li>
+                <li className="ad-checklist__item"><span className="ad-checklist__icon">✓</span><span>Android UI/UX — Material Design, responsive layouts &amp; accessibility</span></li>
+                <li className="ad-checklist__item"><span className="ad-checklist__icon">✓</span><span>Integration Services — REST, GraphQL, Firebase &amp; payment gateways</span></li>
+                <li className="ad-checklist__item"><span className="ad-checklist__icon">✓</span><span>Enterprise Solutions — workforce mobility, analytics &amp; device management</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
-	
-	
+      <section className="ad-services">
+        <div className="ad-container">
+          <div className="ad-services__header ad-animate">
+            <h2 className="ad-services__title">End-to-End <span className="ad-text-accent">Android Development Services</span></h2>
+            <p className="ad-services__subtitle">From concept to Play Store launch, we cover every stage of Android app delivery</p>
+          </div>
+          <div className="ad-services__grid ad-stagger">
+            <div className="ad-service-card ad-animate--scale">
+              <span className="ad-service-card__badge">01</span>
+              <h4 className="ad-service-card__title">Custom Android App Development</h4>
+              <p className="ad-service-card__text">Consumer-facing mobile apps, enterprise mobility solutions, on-demand service platforms, eCommerce applications, and subscription-based products built with native best practices.</p>
+            </div>
+            <div className="ad-service-card ad-animate--scale">
+              <span className="ad-service-card__badge">02</span>
+              <h4 className="ad-service-card__title">Kotlin-Based Development</h4>
+              <p className="ad-service-card__text">Modern Android architecture with clean, maintainable code, improved performance, enhanced security features, and reduced development errors using Kotlin.</p>
+            </div>
+            <div className="ad-service-card ad-animate--scale">
+              <span className="ad-service-card__badge">03</span>
+              <h4 className="ad-service-card__title">Android UI/UX Optimization</h4>
+              <p className="ad-service-card__text">Material Design principles, responsive layouts, adaptive screen support, and gesture-friendly navigation. Our <a href="/ui-ux-design-company" style={{color: "#e8a025", textDecoration: "none"}}>UI/UX design experts</a> ensure seamless experiences across devices.</p>
+            </div>
+            <div className="ad-service-card ad-animate--scale">
+              <span className="ad-service-card__badge">04</span>
+              <h4 className="ad-service-card__title">Android App Integration</h4>
+              <p className="ad-service-card__text">REST &amp; GraphQL APIs, cloud-based infrastructure, payment gateways, Firebase services, and third-party SDKs — ensuring backend scalability and real-time functionality.</p>
+            </div>
+            <div className="ad-service-card ad-service-card--wide ad-animate--scale">
+              <span className="ad-service-card__badge">05</span>
+              <h4 className="ad-service-card__title">Enterprise Android Solutions</h4>
+              <p className="ad-service-card__text">Secure workforce mobility apps, internal process management, real-time analytics dashboards, device management integrations, and cloud-connected <a href="/enterprise-application-development-company" style={{color: "#e8a025", textDecoration: "none"}}>enterprise systems</a>.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-	
-	<section className="AIservices-banner" data-bg="images/new_services/androidbg.webp">
-		<div className="AIservices-banner-container">
-			
-			<div className="AIservices-banner-content">
-				
-				<div className="AIservices-breadcrumb">
-					 <a href="/">Home  </a>
-					<span className="AIservices-separator">/</span>
-					  <a href="/services">Services  </a>
-					<span className="AIservices-separator">/</span>
-					  <a href="/services/mobile-app-development-company" className="active"> Android
-						App Development Company</a>
-				</div>
+      <section className="ad-delivery">
+        <div className="ad-container">
+          <h2 className="ad-delivery__heading ad-animate">Our Android <span className="ad-text-accent">Development Lifecycle</span></h2>
+          <p className="ad-delivery__text">A structured process ensures predictable results and scalable architecture.</p>
+          <div className="ad-delivery__steps">
+            <div className="ad-step"><span className="ad-step__circle">Requirements</span></div>
+            <span className="ad-step__arrow">→</span>
+            <div className="ad-step"><span className="ad-step__circle">Architecture</span></div>
+            <span className="ad-step__arrow">→</span>
+            <div className="ad-step"><span className="ad-step__circle">UI/UX Design</span></div>
+            <span className="ad-step__arrow">→</span>
+            <div className="ad-step"><span className="ad-step__circle">Development</span></div>
+            <span className="ad-step__arrow">→</span>
+            <div className="ad-step"><span className="ad-step__circle">Device Testing</span></div>
+            <span className="ad-step__arrow">→</span>
+            <div className="ad-step"><span className="ad-step__circle">Optimization</span></div>
+            <span className="ad-step__arrow">→</span>
+            <div className="ad-step"><span className="ad-step__circle">Play Store Launch</span></div>
+          </div>
+        </div>
+      </section>
 
-				<p className="AIservices-description" id="mobile-AIservices-description"> Top <span style={{color: "#55ee3a"}}>
-						Android App </span> Development Company In India
-				</p>
+      <section className="ad-reliable">
+        <div className="ad-container">
+          <div className="ad-reliable__inner ad-animate">
+            <h2 className="ad-reliable__heading">Why Choose <span className="ad-text-accent">mTouch Labs</span> for Android?</h2>
+            <p className="ad-reliable__text">We build Android applications that are reliable, scalable, and future-ready.</p>
+            <div className="ad-reliable__pillars">
+              <div className="ad-pillar"><span className="ad-pillar__dot"></span><span className="ad-pillar__label">Native Android engineering expertise</span></div>
+              <div className="ad-pillar"><span className="ad-pillar__dot"></span><span className="ad-pillar__label">Kotlin-based architecture</span></div>
+              <div className="ad-pillar"><span className="ad-pillar__dot"></span><span className="ad-pillar__label">Device compatibility optimization</span></div>
+              <div className="ad-pillar"><span className="ad-pillar__dot"></span><span className="ad-pillar__label">Secure integration capabilities</span></div>
+              <div className="ad-pillar"><span className="ad-pillar__dot"></span><span className="ad-pillar__label">Performance-focused development</span></div>
+              <div className="ad-pillar"><span className="ad-pillar__dot"></span><span className="ad-pillar__label">Ongoing maintenance &amp; upgrades</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-				<h1 className="AIservices-title" id="mobile-AIservices-title"> <span style={{color: "#55ee3a"}}>Android App
-					</span> <br />Development Company </h1>
-				<p className="AIservices-description" id="mobile-AIservices-description">
-					mTouch Labs is a leading Android App Development Company in India. From design
-					to deployment, we deliver end-to-end, custom Android applications tailored to
-					your business goals.
-				</p>
-			</div>
+      <section className="ad-industries">
+        <div className="ad-container">
+          <h2 className="ad-industries__title ad-animate">Industries We <span className="ad-text-accent">Serve</span></h2>
+          <div className="ad-industries__grid ad-stagger">
+            <div className="ad-industry ad-animate--scale"><span className="ad-industry__icon">🛒</span><h4 className="ad-industry__title">eCommerce &amp; Retail</h4></div>
+            <div className="ad-industry ad-animate--scale"><span className="ad-industry__icon">💳</span><h4 className="ad-industry__title">FinTech &amp; Digital Payments</h4></div>
+            <div className="ad-industry ad-animate--scale"><span className="ad-industry__icon">🩺</span><h4 className="ad-industry__title">Healthcare &amp; Telemedicine</h4></div>
+            <div className="ad-industry ad-animate--scale"><span className="ad-industry__icon">🚚</span><h4 className="ad-industry__title">Logistics &amp; Transportation</h4></div>
+            <div className="ad-industry ad-animate--scale"><span className="ad-industry__icon">🎓</span><h4 className="ad-industry__title">Education &amp; EdTech</h4></div>
+            <div className="ad-industry ad-animate--scale"><span className="ad-industry__icon">💻</span><h4 className="ad-industry__title">SaaS &amp; Technology Startups</h4></div>
+          </div>
+        </div>
+      </section>
 
-			
-			
-		</div>
-	</section>
-	
-	<section className="AIservices-info-section">
-		<div className="AIservices-info-card">
-			<div className="AIservices-info-card-height">
-				<h2>Designed for change, built to scale</h2>
-				<p>
-					Our Android mobile app development approach supports startups to enterprises
-					with scalable, secure
-					solutions.
-				</p>
-			</div>
-			<a href="/contact-us" target="_blank"><button className="AIservices-btn">Let’s Discuss</button></a></div>
-		<div className="AIservices-info-card">
-			<div className="AIservices-info-card-height">
-				<h2>Workshop Series: Strategy Meets Execution</h2>
-				<p>
-					Execution
-					Understand how we plan, design, develop, and test Android apps across industries
-					using best-in-class
-					tools and methods.
+      <section className="ad-tech">
+        <div className="ad-container">
+          <div className="ad-tech__grid">
+            <div className="ad-tech__content ad-animate--left">
+              <h2 className="ad-tech__heading">Technologies <span className="ad-text-accent">We Work With</span></h2>
+              <p className="ad-tech__text">Our Android apps are built on modern, scalable technology stacks. For cross-platform needs, explore our <a href="/cross-platform-app-development-company" style={{color: "#e8a025", textDecoration: "none"}}>cross-platform development services</a>.</p>
+              <div className="ad-tech__tags">
+                <span className="ad-tag">Kotlin</span>
+                <span className="ad-tag">Android SDK</span>
+                <span className="ad-tag">Jetpack Compose</span>
+                <span className="ad-tag">Firebase</span>
+                <span className="ad-tag">Room DB</span>
+                <span className="ad-tag">Retrofit</span>
+                <span className="ad-tag">Dagger/Hilt</span>
+                <span className="ad-tag">Coroutines</span>
+                <span className="ad-tag">MVVM</span>
+                <span className="ad-tag">CI/CD</span>
+              </div>
+            </div>
+            <div className="ad-tech__stats ad-animate--right">
+              <div className="ad-stat ad-stat--dark"><span className="ad-stat__number">10K+</span><span className="ad-stat__label">Android Devices Supported</span></div>
+              <div className="ad-stat ad-stat--dark"><span className="ad-stat__number">120+</span><span className="ad-stat__label">Apps Delivered</span></div>
+              <div className="ad-stat ad-stat--dark"><span className="ad-stat__number">50+</span><span className="ad-stat__label">Android Engineers</span></div>
+              <div className="ad-stat ad-stat--dark"><span className="ad-stat__number">24/7</span><span className="ad-stat__label">App Monitoring</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-				</p>
-			</div>
-			<a href="/contact-us" target="_blank"><button className="AIservices-btn"> Book a
-					Consultation</button></a></div>
-	</section>
-	
-	<section className="AIservices-process-section">
-		<h2 className="AIservices-process-title">
-			Complete Guide to the <br /> Android App Development Process
-		</h2>
+      <section className="ad-faq">
+        <div className="ad-container">
+          <div className="ad-faq__wrapper">
+            <h3 className="ad-faq__heading ad-animate">Frequently Asked <span className="ad-text-accent">Questions</span></h3>
+            <p className="ad-faq__subtext">Everything you need to know about Android app development</p>
+            <div className="ad-faq__list">
+              <details className="ad-faq__item">
+                <summary className="ad-faq__question"><span>What is Android app development?</span><span className="ad-faq__chevron"></span></summary>
+                <div className="ad-faq__answer"><p>Android app development involves creating mobile applications specifically for devices running the Android operating system using native technologies like Kotlin and Android SDK.</p></div>
+              </details>
+              <details className="ad-faq__item">
+                <summary className="ad-faq__question"><span>Why choose native Android development?</span><span className="ad-faq__chevron"></span></summary>
+                <div className="ad-faq__answer"><p>Native development ensures better performance, device compatibility, and deeper integration with Android-specific features compared to hybrid approaches.</p></div>
+              </details>
+              <details className="ad-faq__item">
+                <summary className="ad-faq__question"><span>How long does Android app development take?</span><span className="ad-faq__chevron"></span></summary>
+                <div className="ad-faq__answer"><p>Timelines vary depending on features and complexity, typically ranging from several weeks to a few months for a fully tested and deployed application.</p></div>
+              </details>
+              <details className="ad-faq__item">
+                <summary className="ad-faq__question"><span>Do you provide post-launch support?</span><span className="ad-faq__chevron"></span></summary>
+                <div className="ad-faq__answer"><p>Yes. We offer ongoing <a href="/app-maintenance-support-services" style={{color: "#e8a025", textDecoration: "none"}}>app maintenance and support</a> including updates, performance optimization, and scalability enhancements.</p></div>
+              </details>
+            </div>
+          </div>
+        </div>
+      </section>
 
-		<div className="AIservices-process-container">
-			
-			<div className="AIservices-process-item">
-				<div className="AIservices-process-text">
-					<h3>Discovery & Planning</h3>
-					<p>
-						We begin by defining your app's core objectives, analyzing competitors,
-						and outlining key features
-						laying a solid foundation with a focused strategy.
-					</p>
-					
-				</div>
-				<div className="AIservices-process-image1">
-					<img src="/./images/new_services/planning.png" alt="Discovery & Planning" />
-				</div>
-			</div>
-
-			
-			<div className="AIservices-process-item reverse">
-				<div className="AIservices-process-text">
-					<h3>UI/UX Design</h3>
-					<p>
-						Great design drives engagement. Our team crafts intuitive user
-						experiences and clean interfaces that
-						are both functional and delightful.
-					</p>
-					
-				</div>
-				<div className="AIservices-process-image">
-					<img src="/./images/new_services/ui-ux.png" alt="UI/UX Design" />
-				</div>
-			</div>
-
-			
-			<div className="AIservices-process-item">
-				<div className="AIservices-process-text">
-					<h3>Development</h3>
-					<p>
-						We use modern tools like Android Studio, Kotlin, and Firebase to build
-						scalable, high-performance apps
-						with clean, maintainable code.
-					</p>
-					
-				</div>
-				<div className="AIservices-process-image1">
-					<img src="/./images/new_services/development.png" alt="Development" />
-				</div>
-			</div>
-
-			
-			<div className="AIservices-process-item reverse">
-				<div className="AIservices-process-text">
-					<h3>Testing</h3>
-					<p>
-						From functionality and performance to device compatibility, we run
-						rigorous tests to ensure your app
-						is smooth, stable, and ready to launch.
-					</p>
-					
-				</div>
-				<div className="AIservices-process-image">
-					<img src="/./images/new_services/testing.png" alt="Testing" />
-				</div>
-			</div>
-
-			
-			<div className="AIservices-process-item">
-				<div className="AIservices-process-text">
-					<h3>Launch</h3>
-					<p>
-						We guide your app through the publishing process on the Play Store,
-						ensuring it meets all requirements
-						and is optimized for visibility and success.
-					</p>
-					
-				</div>
-				<div className="AIservices-process-image1">
-					<img src="/./images/new_services/launch.png" alt="Launch" />
-				</div>
-			</div>
-
-			
-			<div className="AIservices-process-item reverse">
-				<div className="AIservices-process-text">
-					<h3>Post-Launch Support</h3>
-					<p>
-						After launch, we continue supporting your app with regular updates,
-						performance monitoring, and
-						ongoing improvements to keep it running at its best.
-					</p>
-					
-				</div>
-				<div className="AIservices-process-image">
-					<img src="/./images/new_services/post-launch.png" alt="Post-Launch Support" />
-				</div>
-			</div>
-		</div>
-
-	</section>
-	
-	<section className="Aiservices-testimonials">
-		<div className="Aiservices-container">
-			<h2 className="Aiservices-testimonials-title">Customer Success Story</h2>
-
-			<div className="Aiservices-testimonial-card">
-				<div className="Aiservices-testimonial-content">
-					<div className="Aiservices-company-logo-container">
-						<div className="Aiservices-company-logo-div">
-							<img className="Aiservices-company-logo" src="/images/brand-logo/sacchi.png" />
-						</div>
-					</div>
-					<div className="Aiservices-testimonial-text">
-						<div className="Aiservices-rating">
-							<img src="/images/new_services/doublequotes.png" className="doublequotes_img" />
-						</div>
-						<p className="Aiservices-testimonial-quote">
-
-							Thanks to m Touch Labs, our business is now mobile-first! The
-							Android app they developed is beautiful, functional, and easy to
-							manage. Our online orders have increased significantly."
-							— Pavan
-						</p>
-						<div className="Aiservices-testimonial-author">
-							<span><a href="/retailer-management-system-mobile-web-app" target="_blank">Explore
-									→</a></span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	
-	<section className="Aiservices-blogs">
-		<div className="Aiservices-container">
-			<h2 className="Aiservices-blogs-title">Blogs</h2>
-
-			<div className="Aiservices-blogs-grid">
-				<article className="Aiservices-blog-card">
-					<div className="Aiservices-blog-image">
-						<img src="/images/blogs/5 Ways To Convert Your Website Into A Mobile App copy.jpg"
-							alt="Bill Walsh leadership lessons" />
-					</div>
-					<div className="Aiservices-blog-content">
-						<h3 className="Aiservices-blog-title">5 Ways To Convert Your Website Into A
-							Mobile App</h3>
-						
-						<div className="Aiservices-blog-meta">
-							
-							<a href="/5-ways-to-convert-your-website-into-a-mobile-app" target="_blank"
-								className="Aiservices-read-more">Read More
-								→</a>
-						</div>
-					</div>
-				</article>
-
-				<article className="Aiservices-blog-card">
-					<div className="Aiservices-blog-image">
-						<img src="/images/blogs/guide-to-create-an-on-demand-mobile-app-development.jpg"
-							alt="PM mental models" />
-					</div>
-					<div className="Aiservices-blog-content">
-						<h3 className="Aiservices-blog-title">Guide
-							To Create An
-							On-Demand Mobile App Development</h3>
-						
-						<div className="Aiservices-blog-meta">
-							
-							<a href="/guide-to-create-an-on-demand-mobile-app-development" target="_blank"
-								className="Aiservices-read-more">Read More
-								→</a>
-						</div>
-					</div>
-				</article>
-
-				<article className="Aiservices-blog-card">
-					<div className="Aiservices-blog-image">
-						<img src="/images/blogs/android-app-development-company-in-india.jpg"
-							alt="What is Wireframing?" />
-					</div>
-					<div className="Aiservices-blog-content">
-						<div>
-							<h3 className="Aiservices-blog-title">Android App
-								Development Company in India</h3>
-							
-						</div>
-						<div className="Aiservices-blog-meta">
-							
-							<a href="/android-app-development-company-in-india" target="_blank"
-								className="Aiservices-read-more">Read More
-								→</a>
-						</div>
-					</div>
-				</article>
-			</div>
-
-		</div>
-	</section>
-	<section className="r-bg-x sec-pad">
-		<div className="container">
-			<div className="row justify-content-center">
-				<div className="col-lg-7 text-center">
-					<div className="page-headings">
-						<h3>Frequently Asked Questions</h3>
-						 
-						<div className="accordion">
-							<div className="accordion-item">
-								<button id="accordion-button-android-1" aria-expanded="false">
-									<span className="accordion-title">How do I choose the right features for an Android
-										application?</span>
-									<span className="icon" aria-hidden="true"></span>
-								</button>
-								<div className="accordion-content">
-									<p>
-										Start by identifying target users, business goals, and the core problem the app
-										will solve. Essential features like user-friendly design, secure login, payment
-										integration, and scalable architecture help ensure long-term success and better
-										user engagement.
-									</p>
-								</div>
-							</div>
-
-							<div className="accordion-item">
-								<button id="accordion-button-android-2" aria-expanded="false">
-									<span className="accordion-title">Why choose mTouch Labs for Android app
-										development?</span>
-									<span className="icon" aria-hidden="true"></span>
-								</button>
-								<div className="accordion-content">
-									<p>
-										mTouch Labs focuses on building secure, scalable, and high-performance Android
-										applications tailored to business needs. With modern technologies and
-										experienced developers, businesses can launch reliable apps that support
-										long-term growth and digital expansion.
-									</p>
-								</div>
-							</div>
-
-							<div className="accordion-item">
-								<button id="accordion-button-android-3" aria-expanded="false">
-									<span className="accordion-title">How long does it take to build a custom Android
-										application?</span>
-									<span className="icon" aria-hidden="true"></span>
-								</button>
-								<div className="accordion-content">
-									<p>
-										The development timeline depends on features, integrations, and complexity. A
-										basic Android application may take a few weeks, while advanced apps with custom
-										functionality and integrations can take several months.
-									</p>
-								</div>
-							</div>
-
-							<div className="accordion-item">
-								<button id="accordion-button-android-4" aria-expanded="false">
-									<span className="accordion-title">Does mTouch Labs offer custom Android solutions for
-										startups and enterprises?</span>
-									<span className="icon" aria-hidden="true"></span>
-								</button>
-								<div className="accordion-content">
-									<p>
-										Yes, mTouch Labs delivers customized Android solutions for startups, SMEs, and
-										enterprises. From MVP development to full-scale applications, each solution is
-										designed for scalability, performance, and future growth.
-									</p>
-								</div>
-							</div>
-
-							<div className="accordion-item">
-								<button id="accordion-button-android-5" aria-expanded="false">
-									<span className="accordion-title">What features should a modern Android application
-										include?</span>
-									<span className="icon" aria-hidden="true"></span>
-								</button>
-								<div className="accordion-content">
-									<p>
-										A modern Android application should include intuitive UI/UX, strong security,
-										real-time analytics, cloud integration, push notifications, and seamless
-										performance to improve customer experience and business efficiency.
-									</p>
-								</div>
-							</div>
-
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</section>
-	
-	
-	
-	
-
-
-	
-	
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-	
-
+      <section className="ad-cta">
+        <div className="ad-container">
+          <div className="ad-cta__inner ad-animate--scale">
+            <h2 className="ad-cta__heading">Ready to Build <span className="ad-text-accent">Powerful Android Apps</span>?</h2>
+            <p className="ad-cta__text">Let&apos;s discuss how native Android development can deliver a scalable, high-performance mobile experience for your business.</p>
+            <a className="ad-cta__button js-open-modal" style={{cursor: "pointer"}}>Get a Free Consultation</a>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

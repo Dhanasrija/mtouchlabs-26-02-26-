@@ -177,15 +177,18 @@ if (typeof AOS !== 'undefined') {
 
 
 /* ===== FAQ ACCORDION ===== */
-(function () {
-  var faqItems = document.querySelectorAll('._faq_item');
-  faqItems.forEach(function (item) {
-    var question = item.querySelector('._faq_question');
-    if (!question) return;
-    question.addEventListener('click', function () {
+/* ===== FAQ ACCORDION ===== */
+(function initFaq() {
+  var items = document.querySelectorAll('._faq_item');
+  if (!items.length) return setTimeout(initFaq, 300);
+  items.forEach(function(item) {
+    var btn = item.querySelector('._faq_question');
+    if (!btn || btn.dataset.faqBound) return;
+    btn.dataset.faqBound = '1';
+    btn.addEventListener('click', function() {
       var isActive = item.classList.contains('active');
-      faqItems.forEach(function (other) { other.classList.remove('active'); });
-      if (!isActive) item.classList.add('active');
+      items.forEach(function(i) { i.classList.remove('active'); i.classList.remove('glow'); });
+      if (!isActive) { item.classList.add('active'); item.classList.add('glow'); }
     });
   });
 })();

@@ -1,0 +1,54 @@
+
+/* Admin Dashboard */
+.admin-dashboard-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.admin-dashboard-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 20px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #fff;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-align: center;
+  cursor: pointer;
+}
+
+.admin-dashboard-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.admin-dashboard-card * {
+  pointer-events: none;
+}
+
+.admin-dashboard-card--blogs {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.admin-dashboard-card--portfolios {
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+}
+
+.admin-dashboard-card-icon {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.admin-dashboard-card-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.admin-dashboard-card-count {
+  font-size: 14px;
+  opacity: 0.85;
+}

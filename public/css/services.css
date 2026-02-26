@@ -866,6 +866,7 @@
 			flex: 0 0 40%;
 			max-width: 40%;
 			padding-top: 40px;
+			margin-left:-80px
 		}
 
 		.industries-text-col .section-title {
@@ -1022,7 +1023,7 @@
 
 		.cta-new-content p {
 			font-size: 1.1rem;
-			color: #666;
+			color: #000000;
 			margin-bottom: 32px;
 			line-height: 1.6;
 			max-width: 500px;
@@ -1524,3 +1525,5 @@
 			opacity: 1;
 			transform: translateX(0)
 		}
+
+		

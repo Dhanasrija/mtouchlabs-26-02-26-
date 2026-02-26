@@ -293,7 +293,7 @@ export default function Page() {
 									<span className="icon" aria-hidden="true"></span>
 								</button>
 								<div className="accordion-content">
-									<p>
+									
 It means hiring developers skilled in cross-platform frameworks like Flutter or React Native to build apps for both iOS and Android.
 								</div>
 							</div>

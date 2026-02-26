@@ -47,11 +47,11 @@ export default function Page() {
                      <div className="realestate-container2-inside1">
                         <div className="realestate-feature">
                            <img src="/images/products/realstate/service1.png" className="realestate-service" />
-                           <p>Property Search & Filters</p>
+                           <p>Property Search &amp; Filters</p>
                         </div>
                         <div className="realestate-feature">
                            <img src="/images/products/realstate/service2.png" className="realestate-service" />
-                           <p>Virtual Tours & Photos</p>
+                           <p>Virtual Tours &amp; Photos</p>
                         </div>
                      </div>
                      <div className="realestate-container2-inside2">
@@ -98,7 +98,7 @@ export default function Page() {
             <div className="realstate-container-text">
                <h3>Real Estate Apps for Buyers and Sellers</h3>
                <p> At mTouch Labs, we specialize in creating custom mobile apps for the real estate industry. As a <a
-                     href="https://mtouchlabs.com/web-and-app-development-for-real-estate-services"
+                     href="https://www.mtouchlabs.com/web-and-app-development-for-real-estate-services"
                      target="_blank">custom
                      real estate app development company</a>, our team of experienced developers
                   and designers works closely with clients to understand their unique needs and deliver tailored
@@ -124,41 +124,41 @@ export default function Page() {
                      <img src="/images/products/service1.png" alt="Easy to Use" />
                   </div>
                   <h6>Real Estate App</h6>
-                  <p>Custom Online & Mobile App Solutions for Real Estate</p>
+                  <p>Custom Online &amp; Mobile App Solutions for Real Estate</p>
                </div>
                <div className="service-card-main">
                   <div className="service-card service-card-2">
                      <img src="/images/products/realstate/icon1.png" alt="Multi-Payment System" />
                   </div>
                   <h6>Property Management</h6>
-                  <p>Digital Tools for Rent, Payments & Property Listings</p>
+                  <p>Digital Tools for Rent, Payments &amp; Property Listings</p>
                </div>
                <div className="service-card-main">
                   <div className="service-card service-card-3">
                      <img src="/images/products/realstate/icon2.png" alt="Cost-Efficient" />
                   </div>
                   <h6>Real Estate Marketplace</h6>
-                  <p>Seamless Platform for Buyers, Sellers & Agents</p>
+                  <p>Seamless Platform for Buyers, Sellers &amp; Agents</p>
                </div>
                <div className="service-card-main">
                   <div className="service-card service-card-4">
                      <img src="/images/products/realstate/icon3.png" alt="Cost-Efficient" />
                   </div>
-                  <h6>MLS & IDX Integration</h6>
-                  <p>Integrate IDX & MLS for Real-Time Property Listings</p>
+                  <h6>MLS &amp; IDX Integration</h6>
+                  <p>Integrate IDX &amp; MLS for Real-Time Property Listings</p>
                </div>
                <div className="service-card-main">
                   <div className="service-card service-card-5">
                      <img src="/images/products/realstate/icon4.png" alt="Customisable" />
                   </div>
                   <h6>Real Estate CRM</h6>
-                  <p> CRM Solutions for Realtors to Manage Leads & Sales</p>
+                  <p> CRM Solutions for Realtors to Manage Leads &amp; Sales</p>
                </div>
                <div className="service-card-main">
                   <div className="service-card service-card-6">
                      <img src="/images/products/realstate/icon5.png" alt="Secured" />
                   </div>
-                  <h6>Auction & Bidding Platform </h6>
+                  <h6>Auction &amp; Bidding Platform </h6>
                   <p>Auction solutions for real estate purchases and sales</p>
                </div>
                <div className="service-card-main">
@@ -172,8 +172,8 @@ export default function Page() {
                   <div className="service-card service-card-8">
                      <img src="/images/products/realstate/icon7.png" alt="Attractive Designs" />
                   </div>
-                  <h6>Rental & Lease Admin</h6>
-                  <p>Apps for Payments, Leases & Tenant Communication</p>
+                  <h6>Rental &amp; Lease Admin</h6>
+                  <p>Apps for Payments, Leases &amp; Tenant Communication</p>
                </div>
             </div>
          </div>
@@ -214,6 +214,7 @@ export default function Page() {
                               className="img-fluid" /></div>
                      </div>
                   </div>
+               </div>
             </section>
          </div>
          
@@ -305,7 +306,7 @@ export default function Page() {
          </div>
 
          <div className="food-faq-section">
-            <h3 className="food-faq-section-heading">FAQ’s</h3>
+            <h3 className="food-faq-section-heading">FAQ's</h3>
             <div className="food-faq">
                <div className="food-faq-item">
 
@@ -395,7 +396,6 @@ export default function Page() {
             </div>
          </div>
       </div>
-   </div>
    </div>
    
    

@@ -1,304 +1,431 @@
 import type { Metadata } from "next";
+import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Web Development Company Hyderabad, India | mTouch Labs",
-  description: "mTouch Labs is a leading web development company delivering scalable, secure, and high-performance web solutions.",
+  title: "Web Development Company | Custom Website & Web Application Experts | mTouch Labs",
+  description:
+    "mTouch Labs is a professional web development company delivering custom websites, web applications, and scalable enterprise web solutions optimized for performance and growth.",
+  keywords: [
+    "web development company",
+    "custom web development company",
+    "website development services",
+    "enterprise web development company",
+    "web application development company",
+    "professional web development services India",
+  ],
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/web-development-company",
+  },
+  openGraph: {
+    title: "Web Development Company | mTouch Labs",
+    description:
+      "Custom website and enterprise web application development services designed for scalability and performance.",
+    url: "https://www.mtouchlabs.com/web-development-company",
+    siteName: "mTouch Labs",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Web Development Company | mTouch Labs",
+    description:
+      "Professional web development services including custom websites and enterprise web applications.",
+  },
 };
 
-export default function Page() {
+export default function WebDevelopment() {
   return (
     <>
-<section className="AIservices-banner" data-bg="images/new_services/webbg.webp">
-		<div className="AIservices-banner-container">
-			<div className="AIservices-banner-content">
+      {/* ===== HERO ===== */}
+      <section className="wd-hero">
+        <div className="wd-hero__inner">
+          <Breadcrumb pagePath="/web-development-company" />
+          <h1 className="wd-hero__title">
+            Web <span className="wd-hero__title-accent">Development</span> Company
+          </h1>
+          <p className="wd-hero__subtitle">
+            Engineering High-Performance Websites That Drive Business Growth
+          </p>
+          <p className="wd-hero__desc">
+            mTouch Labs is a results-driven Web Development Company delivering fast, secure, and scalable websites built to convert visitors into customers. We design and develop performance-optimized digital platforms that combine modern architecture, search-friendly structure, and user-focused design. Your website should work as a growth engine — not just an online brochure.
+          </p>
+        </div>
+      </section>
 
-				
-				<div className="AIservices-breadcrumb">
-					&nbsp;<a href="/">Home &nbsp;</a>
-					<span className="AIservices-separator">/</span>
-					&nbsp; <a href="/services">Services &nbsp;</a>
-					<span className="AIservices-separator">/</span>
-					&nbsp; <a className="active"> Web
-						Development Company</a>
-				</div>
+      {/* ===== ABOUT ===== */}
+      <section className="wd-about">
+        <div className="wd-container">
+          <div className="wd-about__grid">
+            <div className="wd-about__content wd-animate--left">
+              <h2 className="wd-about__heading">
+                What Defines a Professional{" "}
+                <span className="wd-text-accent">Web Development Company</span>?
+              </h2>
+              <p className="wd-about__text">
+                A modern business website must deliver speed optimized for Core Web Vitals, SEO-ready architecture, mobile-first responsiveness, secure backend infrastructure, seamless integrations, and scalable performance.
+              </p>
+              <p className="wd-about__text">
+                At mTouch Labs, we approach web development as a strategic investment — aligning design, engineering, and performance metrics from day one. Our{" "}
+                <a href="/ui-ux-design-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>UI/UX design expertise</a>{" "}
+                ensures every website delivers intuitive, engaging user experiences that drive conversions.
+              </p>
+              <p className="wd-about__text">
+                Combined with our{" "}
+                <a href="/enterprise-application-development-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>enterprise application capabilities</a>, we build web platforms that scale seamlessly as your business grows.
+              </p>
+            </div>
+            <div className="wd-stats wd-animate--right">
+              <div className="wd-stat">
+                <span className="wd-stat__icon">🌐</span>
+                <span className="wd-stat__label">SEO-Ready Architecture</span>
+              </div>
+              <div className="wd-stat">
+                <span className="wd-stat__icon">⚡</span>
+                <span className="wd-stat__label">Core Web Vitals Optimized</span>
+              </div>
+              <div className="wd-stat">
+                <span className="wd-stat__icon">📱</span>
+                <span className="wd-stat__label">Mobile-First Responsive</span>
+              </div>
+              <div className="wd-stat">
+                <span className="wd-stat__icon">🔒</span>
+                <span className="wd-stat__label">Secure Infrastructure</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-				<p className="AIservices-description" id="mobile-AIservices-description"> Best
-					<span className="ai-highlight-cyan"> Web </span> Development Company In Hyderabad
-				</p>
-				<h1 className="AIservices-title" id="mobile-AIservices-title">Best<span className="ai-highlight-cyan"> Web
-						Development</span> Company in
-					Hyderabad</h1>
-				<p className="AIservices-description" id="mobile-AIservices-description">
-					mTouch Labs is a top-rated web development company in Hyderabad, offering custom
-					web solutions that provide fast, scalable, and user-friendly websites for
-					businesses.
-				</p>
-			</div>
-			
-		</div>
-	</section>
+      {/* ===== EXPERTISE ===== */}
+      <section className="wd-whoweare">
+        <div className="wd-container">
+          <div className="wd-whoweare__grid">
+            <div className="wd-whoweare__stats wd-animate--left">
+              <div className="wd-stat wd-stat--dark">
+                <span className="wd-stat__number">2000+</span>
+                <span className="wd-stat__label">Websites Delivered</span>
+              </div>
+              <div className="wd-stat wd-stat--dark">
+                <span className="wd-stat__number">14+</span>
+                <span className="wd-stat__label">Years Experience</span>
+              </div>
+              <div className="wd-stat wd-stat--dark">
+                <span className="wd-stat__number">98%</span>
+                <span className="wd-stat__label">Client Satisfaction</span>
+              </div>
+              <div className="wd-stat wd-stat--dark">
+                <span className="wd-stat__number">150+</span>
+                <span className="wd-stat__label">Expert Engineers</span>
+              </div>
+            </div>
+            <div className="wd-whoweare__content wd-animate--right">
+              <h2 className="wd-whoweare__heading">
+                Our Web <span className="wd-text-accent">Development Expertise</span>
+              </h2>
+              <p className="wd-whoweare__text">
+                We deliver end-to-end web solutions from corporate sites to complex web applications:
+              </p>
+              <ul className="wd-checklist">
+                <li className="wd-checklist__item">
+                  <span className="wd-checklist__icon">✓</span>
+                  <span>Custom Website Development — corporate, service &amp; marketing sites</span>
+                </li>
+                <li className="wd-checklist__item">
+                  <span className="wd-checklist__icon">✓</span>
+                  <span>Web Application Development — SaaS, dashboards &amp; portals</span>
+                </li>
+                <li className="wd-checklist__item">
+                  <span className="wd-checklist__icon">✓</span>
+                  <span>
+                    <a href="/ecommerce-development-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>E-Commerce Development</a>{" "}
+                    — secure stores with payment &amp; inventory systems
+                  </span>
+                </li>
+                <li className="wd-checklist__item">
+                  <span className="wd-checklist__icon">✓</span>
+                  <span>
+                    <a href="/custom-cms-development-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>CMS-Powered Platforms</a>{" "}
+                    — flexible content management solutions
+                  </span>
+                </li>
+                <li className="wd-checklist__item">
+                  <span className="wd-checklist__icon">✓</span>
+                  <span>
+                    <a href="/app-maintenance-support-services" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>Performance &amp; SEO Optimization</a>{" "}
+                    — structured data, crawlability &amp; speed
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
-	<section className="AIservices-info-section">
-		<div className="AIservices-info-card">
-			<h2>Custom Solutions for Your Business</h2>
-			<p>We provide 100% tailor-made web development services designed to fit your unique business
-				needs.</p>
-			<a href="/contact-us"><button className="AIservices-btn">👉 Let’s Discuss</button></a>
-		</div>
+      {/* ===== SERVICES ===== */}
+      <section className="wd-services">
+        <div className="wd-container">
+          <div className="wd-services__header wd-animate">
+            <h2 className="wd-services__title">
+              Our Web <span className="wd-text-accent">Development Services</span>
+            </h2>
+            <p className="wd-services__subtitle">
+              From corporate websites to complex web applications
+            </p>
+          </div>
 
-		<div className="AIservices-info-card">
-			<h2>Trusted Experts in Web Development</h2>
-			<p>From CMS to e-commerce, our expert team crafts high-quality, intuitive web experiences that
-				help you succeed online.</p>
-			<a href="/contact-us"><button className="AIservices-btn">👉 Book a Free Consultation</button></a>
-		</div>
-	</section>
+          <div className="wd-services__grid wd-stagger">
+            <div className="wd-service-card wd-animate--scale">
+              <span className="wd-service-card__badge">01</span>
+              <h4 className="wd-service-card__title">Custom Website Development</h4>
+              <p className="wd-service-card__text">
+                Tailored websites built around your brand positioning and conversion goals — corporate websites, service-driven business sites, CMS-powered platforms, marketing landing pages, and multi-location business websites with SEO-structured code.
+              </p>
+            </div>
+            <div className="wd-service-card wd-animate--scale">
+              <span className="wd-service-card__badge">02</span>
+              <h4 className="wd-service-card__title">Web Application Development</h4>
+              <p className="wd-service-card__text">
+                Performance-focused SaaS platforms, admin dashboards, customer portals, marketplace systems, and subscription-based platforms using modern frameworks like React, Next.js, and Node.js for scalability and speed.
+              </p>
+            </div>
+            <div className="wd-service-card wd-animate--scale">
+              <span className="wd-service-card__badge">03</span>
+              <h4 className="wd-service-card__title">E-Commerce Web Development</h4>
+              <p className="wd-service-card__text">
+                Secure and scalable online stores with payment gateway integration, inventory management, order automation, secure checkout flows, and performance-optimized product architecture built for conversion and growth.
+              </p>
+            </div>
+            <div className="wd-service-card wd-animate--scale">
+              <span className="wd-service-card__badge">04</span>
+              <h4 className="wd-service-card__title">Performance &amp; SEO Development</h4>
+              <p className="wd-service-card__text">
+                Clean semantic HTML, search engine crawlability optimization, fast server response times, structured data integration, and secure hosting standards ensuring long-term visibility and scalability.
+              </p>
+            </div>
+            <div className="wd-service-card wd-service-card--wide wd-animate--scale">
+              <span className="wd-service-card__badge">05</span>
+              <h4 className="wd-service-card__title">API &amp; Third-Party Integration</h4>
+              <p className="wd-service-card__text">
+                Seamless integration with CRM, ERP, payment gateways, analytics tools, marketing automation platforms, and cloud services — ensuring your website connects with your entire business ecosystem for unified data flow and automation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-	<section className="AIservices-process-section">
-		<h2 className="AIservices-process-title">Your Complete Guide to Web Development Services</h2>
+      {/* ===== DELIVERY ===== */}
+      <section className="wd-delivery">
+        <div className="wd-container">
+          <h2 className="wd-delivery__heading wd-animate">
+            Our Development <span className="wd-text-accent">Methodology</span>
+          </h2>
+          <p className="wd-delivery__text">
+            A structured process that reduces risk and ensures predictable outcomes.
+          </p>
+          <div className="wd-delivery__steps">
+            <div className="wd-step"><span className="wd-step__circle">Strategy</span></div>
+            <span className="wd-step__arrow">→</span>
+            <div className="wd-step"><span className="wd-step__circle">Information Architecture</span></div>
+            <span className="wd-step__arrow">→</span>
+            <div className="wd-step"><span className="wd-step__circle">UI/UX Design</span></div>
+            <span className="wd-step__arrow">→</span>
+            <div className="wd-step"><span className="wd-step__circle">Development</span></div>
+            <span className="wd-step__arrow">→</span>
+            <div className="wd-step"><span className="wd-step__circle">Performance Tuning</span></div>
+            <span className="wd-step__arrow">→</span>
+            <div className="wd-step"><span className="wd-step__circle">Deployment</span></div>
+            <span className="wd-step__arrow">→</span>
+            <div className="wd-step"><span className="wd-step__circle">Ongoing Enhancement</span></div>
+          </div>
+        </div>
+      </section>
 
-		<div className="AIservices-process-container">
-			
-			<div className="AIservices-process-item">
-				<div className="AIservices-process-text">
-					<h3>Discovery & Planning</h3>
-					<p>We analyze your brand goals, target audience, and competition to craft a
-						strategy for your website’s structure, design, and performance.</p>
+      {/* ===== RELIABLE ===== */}
+      <section className="wd-reliable">
+        <div className="wd-container">
+          <div className="wd-reliable__inner wd-animate">
+            <h2 className="wd-reliable__heading">
+              Why Choose mTouch Labs as Your{" "}
+              <span className="wd-text-accent">Web Development Company</span>?
+            </h2>
+            <p className="wd-reliable__text">
+              We build websites that support digital marketing, automation, analytics, and long-term growth.
+            </p>
+            <div className="wd-reliable__pillars">
+              <div className="wd-pillar">
+                <span className="wd-pillar__dot"></span>
+                <span className="wd-pillar__label">Business-aligned development strategy</span>
+              </div>
+              <div className="wd-pillar">
+                <span className="wd-pillar__dot"></span>
+                <span className="wd-pillar__label">SEO-ready code structure</span>
+              </div>
+              <div className="wd-pillar">
+                <span className="wd-pillar__dot"></span>
+                <span className="wd-pillar__label">Cloud-scalable infrastructure</span>
+              </div>
+              <div className="wd-pillar">
+                <span className="wd-pillar__dot"></span>
+                <span className="wd-pillar__label">API &amp; third-party integration expertise</span>
+              </div>
+              <div className="wd-pillar">
+                <span className="wd-pillar__dot"></span>
+                <span className="wd-pillar__label">Long-term maintenance support</span>
+              </div>
+              <div className="wd-pillar">
+                <span className="wd-pillar__dot"></span>
+                <span className="wd-pillar__label">Transparent project execution</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-				</div>
-				<div className="AIservices-process-image1">
-					<img src="/images/new_services/planning.png" alt="Discovery & Planning" />
-				</div>
-			</div>
+      {/* ===== INDUSTRIES ===== */}
+      <section className="wd-industries">
+        <div className="wd-container">
+          <h2 className="wd-industries__title wd-animate">
+            Industries We <span className="wd-text-accent">Serve</span>
+          </h2>
+          <div className="wd-industries__grid wd-stagger">
+            <div className="wd-industry wd-animate--scale">
+              <span className="wd-industry__icon">🛒</span>
+              <h4 className="wd-industry__title">eCommerce &amp; Retail</h4>
+            </div>
+            <div className="wd-industry wd-animate--scale">
+              <span className="wd-industry__icon">🏥</span>
+              <h4 className="wd-industry__title">Healthcare &amp; HealthTech</h4>
+            </div>
+            <div className="wd-industry wd-animate--scale">
+              <span className="wd-industry__icon">💳</span>
+              <h4 className="wd-industry__title">FinTech &amp; Financial Services</h4>
+            </div>
+            <div className="wd-industry wd-animate--scale">
+              <span className="wd-industry__icon">🏠</span>
+              <h4 className="wd-industry__title">Real Estate &amp; Construction</h4>
+            </div>
+            <div className="wd-industry wd-animate--scale">
+              <span className="wd-industry__icon">💻</span>
+              <h4 className="wd-industry__title">SaaS &amp; Technology Startups</h4>
+            </div>
+            <div className="wd-industry wd-animate--scale">
+              <span className="wd-industry__icon">🎓</span>
+              <h4 className="wd-industry__title">Education &amp; EdTech</h4>
+            </div>
+          </div>
+        </div>
+      </section>
 
-			
-			<div className="AIservices-process-item reverse">
-				<div className="AIservices-process-text">
-					<h3>UI/UX Design</h3>
-					<p>Our designers create visually stunning and intuitive layouts, focusing on
-						responsive design and optimized user journeys.</p>
+      {/* ===== TECHNOLOGIES ===== */}
+      <section className="wd-tech">
+        <div className="wd-container">
+          <div className="wd-tech__grid">
+            <div className="wd-animate--left">
+              <h2 className="wd-tech__heading">
+                Technologies We <span className="wd-text-accent">Work With</span>
+              </h2>
+              <p className="wd-tech__text">
+                We leverage modern web technologies and frameworks to deliver high-performance, scalable websites and web applications.
+              </p>
+              <div className="wd-tech__tags">
+                {[
+                  "React", "Next.js", "Node.js", "TypeScript",
+                  "HTML5", "CSS3", "Tailwind CSS", "WordPress",
+                  "Shopify", "PostgreSQL", "MongoDB", "AWS",
+                  "Vercel", "GraphQL", "REST APIs", "Docker",
+                  "Cloudflare", "Google Analytics", "CI/CD", "Git"
+                ].map((tech) => (
+                  <span key={tech} className="wd-tag">{tech}</span>
+                ))}
+              </div>
+            </div>
+            <div className="wd-tech__stats wd-animate--right">
+              <div className="wd-stat wd-stat--dark">
+                <span className="wd-stat__number">20+</span>
+                <span className="wd-stat__label">Frameworks &amp; Tools</span>
+              </div>
+              <div className="wd-stat wd-stat--dark">
+                <span className="wd-stat__number">99.9%</span>
+                <span className="wd-stat__label">Uptime Guarantee</span>
+              </div>
+              <div className="wd-stat wd-stat--dark">
+                <span className="wd-stat__number">&lt;1s</span>
+                <span className="wd-stat__label">Avg Load Time</span>
+              </div>
+              <div className="wd-stat wd-stat--dark">
+                <span className="wd-stat__number">90+</span>
+                <span className="wd-stat__label">Lighthouse Score</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-				</div>
-				<div className="AIservices-process-image">
-					<img src="/images/new_services/ui-ux.png" alt="UI/UX Design" />
-				</div>
-			</div>
+      {/* ===== FAQ ===== */}
+      <section className="wd-faq">
+        <div className="wd-container">
+          <div className="wd-faq__wrapper">
+            <h3 className="wd-faq__heading wd-animate">
+              Frequently Asked <span className="wd-text-accent">Questions</span>
+            </h3>
+            <p className="wd-faq__subtext">Everything you need to know about our web development services</p>
+            <div className="wd-faq__list">
+              <details className="wd-faq__item">
+                <summary className="wd-faq__question">
+                  <span>What does a web development company do?</span>
+                  <span className="wd-faq__chevron"></span>
+                </summary>
+                <div className="wd-faq__answer">
+                  <p>A web development company designs, builds, and maintains websites and web applications optimized for performance, security, and search visibility. We handle everything from strategy and design to development, deployment, and ongoing support.</p>
+                </div>
+              </details>
+              <details className="wd-faq__item">
+                <summary className="wd-faq__question">
+                  <span>How long does website development take?</span>
+                  <span className="wd-faq__chevron"></span>
+                </summary>
+                <div className="wd-faq__answer">
+                  <p>Business websites typically take 4–8 weeks, while complex web applications may take longer depending on requirements, integrations, and custom functionality needed.</p>
+                </div>
+              </details>
+              <details className="wd-faq__item">
+                <summary className="wd-faq__question">
+                  <span>Do you build SEO-friendly websites?</span>
+                  <span className="wd-faq__chevron"></span>
+                </summary>
+                <div className="wd-faq__answer">
+                  <p>Yes. All websites are built with SEO-ready structure, clean semantic HTML, performance optimization, structured data integration, and search engine crawlability to ensure long-term visibility.</p>
+                </div>
+              </details>
+              <details className="wd-faq__item">
+                <summary className="wd-faq__question">
+                  <span>Do you provide ongoing website support?</span>
+                  <span className="wd-faq__chevron"></span>
+                </summary>
+                <div className="wd-faq__answer">
+                  <p>Absolutely. We offer structured maintenance, security updates, performance monitoring, content updates, and feature enhancements to keep your website running at peak performance.</p>
+                </div>
+              </details>
+            </div>
+          </div>
+        </div>
+      </section>
 
-			
-			<div className="AIservices-process-item">
-				<div className="AIservices-process-text">
-					<h3>Website Development</h3>
-					<p>We develop fast, secure, and scalable websites using the latest tech
-						stacks—from static sites to complex web applications.</p>
-
-				</div>
-				<div className="AIservices-process-image1">
-					<img src="/images/new_services/development.png" alt="Website Development" />
-				</div>
-			</div>
-
-			
-			<div className="AIservices-process-item reverse">
-				<div className="AIservices-process-text">
-					<h3>Content Management Integration</h3>
-					<p>We implement powerful CMS solutions like WordPress or custom solutions for
-						easy content updates and site management.</p>
-
-				</div>
-				<div className="AIservices-process-image">
-					<img src="/images/new_services/planning.png" alt="Content Management Integration" />
-				</div>
-			</div>
-
-			
-			<div className="AIservices-process-item">
-				<div className="AIservices-process-text">
-					<h3>Testing & QA</h3>
-					<p>Before launch, your website undergoes rigorous testing across devices and
-						browsers to ensure top performance and usability.</p>
-
-				</div>
-				<div className="AIservices-process-image1">
-					<img src="/images/new_services/testing.png" alt="Testing & QA" />
-				</div>
-			</div>
-
-			
-			<div className="AIservices-process-item reverse">
-				<div className="AIservices-process-text">
-					<h3>Launch & Deployment</h3>
-					<p>We handle end-to-end deployment with SEO, analytics, and performance
-						optimization, making your website ready to scale.</p>
-
-				</div>
-				<div className="AIservices-process-image">
-					<img src="/images/new_services/launch.png" alt="Launch & Deployment" />
-				</div>
-			</div>
-
-			
-			<div className="AIservices-process-item">
-				<div className="AIservices-process-text">
-					<h3>Post-Launch Maintenance</h3>
-					<p>Our team offers continuous monitoring, content updates, and feature
-						enhancements to keep your site fresh and functional.</p>
-
-				</div>
-				<div className="AIservices-process-image1">
-					<img src="/images/new_services/post-launch.png" alt="Post-Launch Maintenance" />
-				</div>
-			</div>
-
-		</div>
-	</section>
-
-	
-	<section className="Aiservices-testimonials">
-		<div className="Aiservices-container">
-			<h2 className="Aiservices-testimonials-title">Customer Success Story</h2>
-			<div className="Aiservices-testimonial-card">
-				<div className="Aiservices-testimonial-content">
-					<div className="Aiservices-company-logo-container">
-						<div className="Aiservices-company-logo-div">
-							<img src="/images/home/tech/zefsci.png" alt="mTouch Labs" />
-						</div>
-					</div>
-					<div className="Aiservices-testimonial-text">
-						<div className="Aiservices-rating">
-							<img src="/images/new_services/doublequotes.png" className="doublequotes_img" alt="Quotes" />
-						</div>
-						<p className="Aiservices-testimonial-quote">
-							"Highly impressed with mTouch Labs. They built a scalable and
-							user-friendly app that meets all our business requirements.
-							Excellent support too!" - Shaik Mahmood
-						</p>
-						<div className="Aiservices-testimonial-author">
-							<span><a href="app-solutions-for-medical-device-companies" target="_blank">Explore
-									→</a></span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section className="r-bg-x sec-pad">
-		<div className="container">
-			<div className="row justify-content-center">
-				<div className="col-lg-7 text-center">
-					<div className="page-headings">
-						<h3>Frequently Asked Questions</h3>
-						&nbsp;
-						<div className="accordion">
-							<div className="accordion-item">
-								<button id="accordion-button-1" aria-expanded="false">
-									<span className="accordion-title">What services does a modern web development company
-										offer?</span>
-									<span className="icon" aria-hidden="true"></span>
-								</button>
-								<div className="accordion-content">
-									<p>
-										A modern web development company provides custom website development, web
-										applications, e-commerce solutions, CMS development, UI/UX design, and
-										maintenance services to help businesses build scalable and high-performance
-										digital platforms.
-									</p>
-								</div>
-							</div>
-							<div className="accordion-item">
-								<button id="accordion-button-2" aria-expanded="false">
-									<span className="accordion-title">How does mTouch Labs ensure scalable and secure web
-										development?</span>
-									<span className="icon" aria-hidden="true"></span>
-								</button>
-								<div className="accordion-content">
-									<p>
-										mTouch Labs follows a structured development process including planning, design,
-										development, testing, and deployment. This ensures fast, secure, and scalable
-										websites that align with business goals and deliver user experience.
-									</p>
-								</div>
-							</div>
-							<div className="accordion-item">
-								<button id="accordion-button-3" aria-expanded="false">
-									<span className="accordion-title">How long does it take to develop a custom business
-										website?</span>
-									<span className="icon" aria-hidden="true"></span>
-								</button>
-								<div className="accordion-content">
-									<p>
-										The development timeline depends on project complexity, features, and
-										integrations. A basic website may take a few weeks, while advanced web
-										applications with custom functionalities can take several months.
-									</p>
-								</div>
-							</div>
-							<div className="accordion-item">
-								<button id="accordion-button-4" aria-expanded="false">
-									<span className="accordion-title">Does mTouch Labs provide custom web solutions for
-										different industries?</span>
-									<span className="icon" aria-hidden="true"></span>
-								</button>
-								<div className="accordion-content">
-									<p>
-										Yes, mTouch Labs develops tailored web solutions for industries like healthcare,
-										e-commerce, education, logistics, and enterprise services, ensuring each
-										platform meets specific business and user requirements.
-									</p>
-								</div>
-							</div>
-							<div className="accordion-item">
-								<button id="accordion-button-5" aria-expanded="false">
-									<span className="accordion-title">What features should a high-performing business
-										website include?</span>
-									<span className="icon" aria-hidden="true"></span>
-								</button>
-								<div className="accordion-content">
-									<p>
-										A high-performing website should include responsive design, fast loading speed,
-										strong security, SEO-friendly structure, easy navigation, and scalable
-										architecture to improve user engagement and business growth.
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				
-			</div>
-		</div>
-		
-	</section>
-
-	
-	<section className="sec-pad r-bg-a">
-		<div className="container">
-			<div className="ree">
-				<div className="row">
-					<div className="col-lg-6 vcenter">
-						<div className="cta-heading">
-							<span className="sub-heading mb15">Contact Us</span>
-							<h3>Have a <span className="ree-text rt40">Project</span> in mind?
-								Let's get to chat.</h3>
-							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
-									className="fas fa-user fb-bigon"></i> Contact </a>
-							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
-								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
-								Whatsapp </a>
-
-						</div>
-					</div>
-					<div className="col-lg-6 vcenter text-center">
-						<div className="sol-img-png">
-							<img src="/images/cta/project-in-mind-Let's-get-to-chat-custom.svg"
-								alt="Web app development agency" className="img-fluid" />
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+      {/* ===== CTA ===== */}
+      <section className="wd-cta">
+        <div className="wd-container">
+          <div className="wd-cta__inner wd-animate--scale">
+            <h2 className="wd-cta__heading">
+              Ready to Build Your <span className="wd-text-accent">Website</span>?
+            </h2>
+            <p className="wd-cta__text">
+              Let&apos;s discuss how we can engineer a web platform that drives real business growth and converts visitors into customers.
+            </p>
+            <button type="button" className="wd-cta__button js-open-modal">
+              Start Your Project
+            </button>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

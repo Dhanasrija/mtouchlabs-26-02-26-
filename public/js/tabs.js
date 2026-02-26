@@ -11,13 +11,11 @@ document.addEventListener("DOMContentLoaded", function () {
     tab.addEventListener("click", function (e) {
       e.preventDefault();
 
-      // Deactivate all tabs
       pillTabs.forEach(function (t) {
         t.classList.remove("active");
         t.setAttribute("aria-selected", "false");
       });
 
-      // Deactivate all panes
       var tabContent = document.querySelector(".tab-content");
       if (tabContent) {
         var panes = tabContent.querySelectorAll(".tab-pane");
@@ -26,11 +24,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       }
 
-      // Activate clicked tab
       tab.classList.add("active");
       tab.setAttribute("aria-selected", "true");
 
-      // Activate target pane
       var targetId = tab.getAttribute("href");
       if (targetId) {
         var targetPane = document.querySelector(targetId);
@@ -41,3 +37,34 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+// Product page tab switching
+(function initProductTabs() {
+  var tablinks = document.querySelectorAll('.tablink[data-tab]');
+  if (!tablinks.length) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initProductTabs);
+    }
+    return;
+  }
+
+  tablinks.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      var targetId = this.getAttribute('data-tab');
+
+      document.querySelectorAll('.product-container-four-tabcontent').forEach(function (content) {
+        content.classList.remove('active');
+      });
+
+      tablinks.forEach(function (t) {
+        t.classList.remove('active');
+      });
+
+      var target = document.getElementById(targetId);
+      if (target) {
+        target.classList.add('active');
+      }
+      this.classList.add('active');
+    });
+  });
+})();

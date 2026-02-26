@@ -20,11 +20,11 @@ export default function Page() {
                alt="Diagnostic App Development" />
             <div className="diagnostic-delivery-content">
                <h1 className="diagnostic-heading-h1">Build Scalable <span
-                     className="diagnostic-development-heading">Diagnostic</span><br /> with End-to-End<br /> Web & App
+                     className="diagnostic-development-heading">Diagnostic</span><br /> with End-to-End<br /> Web &amp; App
                   Development <br />
                </h1>
                
-               <a href="https://youtu.be/NtkXvVPIFyU?si=DJeDV-QpQysw_Psd" target="_blank"><button
+               <a href="https://youtu.be/NtkXvVPIFyUsi=DJeDV-QpQysw_Psd" target="_blank"><button
                      className="diagnostic-delivery-button">View Demo</button></a></div>
          </section>
       </div>
@@ -37,7 +37,7 @@ export default function Page() {
          <span className="AIservices-separator">/</span>
            <a className="active" style={{color: "#000"}}>Build Scalable Diagnostic
             with End-to-End
-            Web & App Development</a>
+            Web &amp; App Development</a>
       </div>
 
       <section className="diagnostic-delivery-features">
@@ -45,19 +45,19 @@ export default function Page() {
          <div className="diagnostic-delivery-feature">
             <div className="diagnostic-food-delivery-feature1">
                <img src="/images/products/diagnostic/service1.png" alt="Real-Time Updates" />
-               <p className="diagnostic-food-delivery-feature-p">Appointment Booking </p>
+               <p className="diagnostic-food-delivery-feature-p">Appointment Booking </p>
             </div>
             <div className="diagnostic-food-delivery-feature2">
                <img src="/images/products/diagnostic/service2.png" alt="Seamless Payments" />
-               <p className="diagnostic-food-delivery-feature-p">Test Reports & History </p>
+               <p className="diagnostic-food-delivery-feature-p">Test Reports &amp; History </p>
             </div>
             <div className="diagnostic-food-delivery-feature1">
-               <img src="/images/products/diagnostic/service3.png" alt="Reviewing & Rating" />
-               <p className="diagnostic-food-delivery-feature-p">Home Sample Collection </p>
+               <img src="/images/products/diagnostic/service3.png" alt="Reviewing &amp; Rating" />
+               <p className="diagnostic-food-delivery-feature-p">Home Sample Collection </p>
             </div>
             <div className="diagnostic-food-delivery-feature2">
                <img src="/images/products/diagnostic/service4.png" alt="SOS Alert" />
-               <p className="diagnostic-food-delivery-feature-p">Secure Payment & Insurance Integration</p>
+               <p className="diagnostic-food-delivery-feature-p">Secure Payment &amp; Insurance Integration</p>
             </div>
          </div>
       </section>
@@ -73,7 +73,7 @@ export default function Page() {
                <p>In the realm of healthcare, precision and speed in diagnostics can make all the difference. At mTouch
                   Labs, we are dedicated to crafting state-of-the-art diagnostic apps that elevate the capabilities of
                   healthcare providers. As the <a
-                     href="https://mtouchlabs.com/online-generic-medicine-mobile-app-development-and-web-development"
+                     href="https://www.mtouchlabs.com/online-generic-medicine-mobile-app-development-and-web-development"
                      target="_blank">Best Diagnostic App Development Company</a>, we design apps to deliver accurate
                   results swiftly, enhance patient management, and optimize clinical workflows. By integrating advanced
                   technology and user-friendly interfaces, we ensure your practice meets the challenges of modern
@@ -117,7 +117,7 @@ export default function Page() {
             <p>Diagnosis applications are revolutionary tools designed to streamline the diagnostic process and increase
                overall healthcare efficiency. These apps utilize advanced technologies, such as AI and machine learning,
                to provide precise and rapid diagnostic results.</p>
-            <p>As the <a href="https://mtouchlabs.com/online-generic-medicine-delivery-mobile-app-development"
+            <p>As the <a href="https://www.mtouchlabs.com/online-generic-medicine-delivery-mobile-app-development"
                   target="_blank">Best Diagnostic App Development Services</a>, we create apps that enable users to
                easily schedule health tests and checkup visits, minimizing wait times and improving access to healthcare
                services. Additionally, our diagnostic applications support remote monitoring, allowing healthcare
@@ -144,7 +144,7 @@ export default function Page() {
                      <img src="/images/products/service1.png" alt="Custom Diagnostic App" />
                   </div>
                   <h6>Custom Diagnostic App </h6>
-                  <p> Apps Designed for Labs & Healthcare Professionals</p>
+                  <p> Apps Designed for Labs &amp; Healthcare Professionals</p>
                </div>
                <div className="service-card-main">
                   <div className="service-card service-card-2">
@@ -158,7 +158,7 @@ export default function Page() {
                      <img src="/images/products/service3.png" alt="Multi-Platform App Development" />
                   </div>
                   <h6>Multi-Platform App Development</h6>
-                  <p>Native & Cross-Platform Apps for iOS, Android & Web</p>
+                  <p>Native &amp; Cross-Platform Apps for iOS, Android &amp; Web</p>
                </div>
                <div className="service-card-main">
                   <div className="service-card service-card-4">
@@ -172,28 +172,28 @@ export default function Page() {
                      <img src="/images/products/service5.png" alt="Cloud-Based Data Management" />
                   </div>
                   <h6>Cloud-Based Data</h6>
-                  <p> Secure Cloud Storage for Reports & Diagnostic Data</p>
+                  <p> Secure Cloud Storage for Reports &amp; Diagnostic Data</p>
                </div>
                <div className="service-card-main">
                   <div className="service-card service-card-6">
-                     <img src="/images/products/service7.png" alt="Telemedicine & Consultation App" />
+                     <img src="/images/products/service7.png" alt="Telemedicine &amp; Consultation App" />
                   </div>
                   <h6>Telemedicine App </h6>
-                  <p> Online Diagnostic & Doctor Consultation Solutions</p>
+                  <p> Online Diagnostic &amp; Doctor Consultation Solutions</p>
                </div>
                <div className="service-card-main">
                   <div className="service-card service-card-7">
-                     <img src="/images/products/service6.png" alt="AI & ML-Powered Diagnostic" />
+                     <img src="/images/products/service6.png" alt="AI &amp; ML-Powered Diagnostic" />
                   </div>
-                  <h6>AI & ML-Powered Diagnostic </h6>
-                  <p> Smart Automation for Predictive Analysis & Diagnosis</p>
+                  <h6>AI &amp; ML-Powered Diagnostic </h6>
+                  <p> Smart Automation for Predictive Analysis &amp; Diagnosis</p>
                </div>
                <div className="service-card-main">
                   <div className="service-card service-card-8">
-                     <img src="/images/products/service8.png" alt="Compliance & Security Assurance" />
+                     <img src="/images/products/service8.png" alt="Compliance &amp; Security Assurance" />
                   </div>
                   <h6>Compliance Assurance </h6>
-                  <p>Healthcare Data Security with GDPR & HIPAA Compliance</p>
+                  <p>Healthcare Data Security with GDPR &amp; HIPAA Compliance</p>
                </div>
             </div>
          </div>
@@ -233,6 +233,7 @@ export default function Page() {
                            className="img-fluid" /></div>
                   </div>
                </div>
+            </div>
          </section>
       </div>
 
@@ -324,11 +325,11 @@ export default function Page() {
 
 
       <div className="food-faq-section">
-         <h3 className="food-faq-section-heading">FAQ’s</h3>
+         <h3 className="food-faq-section-heading">FAQ's</h3>
          <div className="food-faq">
             <div className="food-faq-item">
                <div className="food-faq-question">
-                  How is a diagnostic app developed?
+                  How is a diagnostic app developed
                   <span className="food-faq-toggle">+</span>
                </div>
                <div className="food-faq-answer">
@@ -341,7 +342,7 @@ export default function Page() {
             </div>
             <div className="food-faq-item">
                <div className="food-faq-question">
-                  What features should a diagnostic app have?
+                  What features should a diagnostic app have
                   <span className="food-faq-toggle">+</span>
                </div>
                <div className="food-faq-answer">
@@ -352,7 +353,7 @@ export default function Page() {
             </div>
             <div className="food-faq-item">
                <div className="food-faq-question">
-                  What technologies are used in diagnostic app development?
+                  What technologies are used in diagnostic app development
                   <span className="food-faq-toggle">+</span>
                </div>
                <div className="food-faq-answer">
@@ -363,7 +364,7 @@ export default function Page() {
             </div>
             <div className="food-faq-item">
                <div className="food-faq-question">
-                  Is it possible to integrate this app with existing healthcare systems?
+                  Is it possible to integrate this app with existing healthcare systems
                   <span className="food-faq-toggle">+</span>
                </div>
                <div className="food-faq-answer">
@@ -374,7 +375,7 @@ export default function Page() {
             </div>
             <div className="food-faq-item">
                <div className="food-faq-question">
-                  How secure is the data stored in a diagnostic app?
+                  How secure is the data stored in a diagnostic app
                   <span className="food-faq-toggle">+</span>
                </div>
                <div className="food-faq-answer">
@@ -389,30 +390,8 @@ export default function Page() {
       </div>
 
    </div>
-   </div>
    
-   
-   
-
-   
-
-
-   
-   
-   
-   
-   
-   
-   
-   
-   
-
-   
-   
-
-   
-   
-
-    </>
+ 
+   </>
   );
 }

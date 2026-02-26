@@ -1,383 +1,123 @@
 import type { Metadata } from "next";
+import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
   title: "Custom Software Development Company | mTouch Labs",
-  description: "mTouch Labs is a custom software development company delivering software solutions, scalable architecture, innovative technology services",
+  description: "mTouch Labs is a custom software development company delivering secure, scalable, and cloud-native software solutions tailored to business needs.",
+  keywords: ["custom software development company","bespoke software development services","enterprise software solutions","custom application development","SaaS product development company"],
+  alternates: { canonical: "https://www.mtouchlabs.com/custom-software-development-company" },
+  openGraph: { title: "Custom Software Development Company | mTouch Labs", description: "Secure and scalable custom software solutions designed for enterprises and growth-focused businesses.", url: "https://www.mtouchlabs.com/custom-software-development-company", siteName: "mTouch Labs", type: "website" },
+  twitter: { card: "summary_large_image", title: "Custom Software Development Company | mTouch Labs", description: "Tailored custom software solutions built for scalability, automation, and long-term business growth." },
 };
 
-export default function Page() {
+export default function CustomSoftwareDevelopment() {
   return (
     <>
+      <section className="sd-hero"><div className="sd-hero__inner">
+        <Breadcrumb pagePath="/custom-software-development-company" />
+        <h1 className="sd-hero__title">Custom <span className="sd-hero__title-accent">Software</span> Development</h1>
+        <p className="sd-hero__subtitle">Tailored Software Solutions Engineered for Growth</p>
+        <p className="sd-hero__desc">mTouch Labs is a professional custom software development company specializing in designing and building scalable, secure, and business-aligned software systems that automate operations and support long-term digital transformation.</p>
+      </div></section>
 
-	
-	
-	
-	
+      <section className="sd-about"><div className="sd-container"><div className="sd-about__grid">
+        <div className="sd-about__content sd-animate--left">
+          <h2 className="sd-about__heading">What Is <span className="sd-text-accent">Custom Software</span> Development?</h2>
+          <p className="sd-about__text">Custom software development involves designing and building applications tailored to an organization&apos;s unique processes, operational challenges, and growth plans.</p>
+          <p className="sd-about__text">Unlike off-the-shelf tools, custom software adapts to your workflows, integrates with existing systems, scales with business growth, enhances data control, and supports automation. Our{" "}
+            <a href="/enterprise-application-development-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>enterprise application development</a>{" "}
+            expertise ensures every solution is built for mission-critical reliability.
+          </p>
+          <p className="sd-about__text">It becomes a strategic asset rather than a temporary solution — engineered specifically around your requirements and performance objectives. Combined with our{" "}
+            <a href="/ui-ux-design-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>UI/UX design capabilities</a>, we deliver software that is both powerful and intuitive.
+          </p>
+        </div>
+        <div className="sd-stats sd-animate--right">
+          <div className="sd-stat"><span className="sd-stat__icon">⚙️</span><span className="sd-stat__label">Process Automation</span></div>
+          <div className="sd-stat"><span className="sd-stat__icon">☁️</span><span className="sd-stat__label">Cloud-Native Apps</span></div>
+          <div className="sd-stat"><span className="sd-stat__icon">🔗</span><span className="sd-stat__label">System Integration</span></div>
+          <div className="sd-stat"><span className="sd-stat__icon">🔒</span><span className="sd-stat__label">Security-First</span></div>
+        </div>
+      </div></div></section>
 
-	
-	
+      <section className="sd-whoweare"><div className="sd-container"><div className="sd-whoweare__grid">
+        <div className="sd-whoweare__stats sd-animate--left">
+          <div className="sd-stat sd-stat--dark"><span className="sd-stat__number">1500+</span><span className="sd-stat__label">Projects Delivered</span></div>
+          <div className="sd-stat sd-stat--dark"><span className="sd-stat__number">14+</span><span className="sd-stat__label">Years Experience</span></div>
+          <div className="sd-stat sd-stat--dark"><span className="sd-stat__number">3</span><span className="sd-stat__label">Cloud Platforms</span></div>
+          <div className="sd-stat sd-stat--dark"><span className="sd-stat__number">GDPR</span><span className="sd-stat__label">Compliance Ready</span></div>
+        </div>
+        <div className="sd-whoweare__content sd-animate--right">
+          <h2 className="sd-whoweare__heading">Security-First <span className="sd-text-accent">Engineering</span></h2>
+          <p className="sd-whoweare__text">Security is embedded throughout the lifecycle:</p>
+          <ul className="sd-checklist">
+            <li className="sd-checklist__item"><span className="sd-checklist__icon">✓</span><span>Role-based access control &amp; secure authentication</span></li>
+            <li className="sd-checklist__item"><span className="sd-checklist__icon">✓</span><span>Data encryption at rest &amp; in transit</span></li>
+            <li className="sd-checklist__item"><span className="sd-checklist__icon">✓</span><span>API security standards &amp; compliance-aware infrastructure</span></li>
+            <li className="sd-checklist__item"><span className="sd-checklist__icon">✓</span><span>Microservices &amp; auto-scaling{" "}
+              <a href="/amazon-web-services" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>cloud architecture</a>
+            </span></li>
+            <li className="sd-checklist__item"><span className="sd-checklist__icon">✓</span><span>Disaster recovery readiness on AWS, Azure &amp; GCP</span></li>
+          </ul>
+        </div>
+      </div></div></section>
 
-	
-	<section className="AIservices-banner" data-bg="images/new_services/csdbg.webp">
-		<div className="AIservices-banner-container">
+      <section className="sd-services"><div className="sd-container">
+        <div className="sd-services__header sd-animate"><h2 className="sd-services__title">Our Custom <span className="sd-text-accent">Software Services</span></h2><p className="sd-services__subtitle">From automation to enterprise platforms</p></div>
+        <div className="sd-services__grid sd-stagger">
+          <div className="sd-service-card sd-animate--scale"><span className="sd-service-card__badge">01</span><h4 className="sd-service-card__title">Business Process Automation</h4><p className="sd-service-card__text">Automate manual workflows, reduce inefficiencies, improve cross-department collaboration, and enhance data accuracy.</p></div>
+          <div className="sd-service-card sd-animate--scale"><span className="sd-service-card__badge">02</span><h4 className="sd-service-card__title">SaaS Application Development</h4><p className="sd-service-card__text">Multi-tenant architectures, subscription systems, admin dashboards, and API-first products for reliability and monetization.</p></div>
+          <div className="sd-service-card sd-animate--scale"><span className="sd-service-card__badge">03</span><h4 className="sd-service-card__title">Enterprise Software Solutions</h4><p className="sd-service-card__text">ERP platforms, internal management systems, compliance-ready applications, and multi-user secure platforms.</p></div>
+          <div className="sd-service-card sd-animate--scale"><span className="sd-service-card__badge">04</span><h4 className="sd-service-card__title">System Integration</h4><p className="sd-service-card__text">Integrate with CRM, ERP, payment gateways, third-party APIs, and cloud services for seamless data flow.</p></div>
+          <div className="sd-service-card sd-service-card--wide sd-animate--scale"><span className="sd-service-card__badge">05</span><h4 className="sd-service-card__title">Cloud-Native Architecture</h4><p className="sd-service-card__text">AWS, Azure &amp; GCP deployment with microservices, auto-scaling, secure API management, and disaster recovery.</p></div>
+        </div>
+      </div></section>
 
-			
-			<div className="AIservices-banner-content">
+      <section className="sd-delivery"><div className="sd-container">
+        <h2 className="sd-delivery__heading sd-animate">Our Development <span className="sd-text-accent">Process</span></h2>
+        <p className="sd-delivery__text">We follow a structured methodology to ensure predictable outcomes and long-term maintainability.</p>
+        <div className="sd-delivery__steps">
+          <div className="sd-step"><span className="sd-step__circle">Business Analysis</span></div><span className="sd-step__arrow">→</span>
+          <div className="sd-step"><span className="sd-step__circle">Architecture</span></div><span className="sd-step__arrow">→</span>
+          <div className="sd-step"><span className="sd-step__circle">UI/UX Planning</span></div><span className="sd-step__arrow">→</span>
+          <div className="sd-step"><span className="sd-step__circle">Agile Dev</span></div><span className="sd-step__arrow">→</span>
+          <div className="sd-step"><span className="sd-step__circle">QA Testing</span></div><span className="sd-step__arrow">→</span>
+          <div className="sd-step"><span className="sd-step__circle">Deployment</span></div><span className="sd-step__arrow">→</span>
+          <div className="sd-step"><span className="sd-step__circle">Optimization</span></div>
+        </div>
+      </div></section>
 
-				
-				<div className="AIservices-breadcrumb">
-					 <a href="/">Home  </a>
-					<span className="AIservices-separator">/</span>
-					  <a href="/services">Services  </a>
-					<span className="AIservices-separator">/</span>
-					  <a href="/services/mobile-app-development-company" className="active"> Custom Software
-						Development Company</a>
-				</div>
+      <section className="sd-reliable"><div className="sd-container"><div className="sd-reliable__inner sd-animate">
+        <h2 className="sd-reliable__heading">Why Choose <span className="sd-text-accent">mTouch Labs</span>?</h2>
+        <p className="sd-reliable__text">We don&apos;t just develop applications — we build sustainable digital systems.</p>
+        <div className="sd-reliable__pillars">
+          <div className="sd-pillar"><span className="sd-pillar__dot"></span><span className="sd-pillar__label">Business-focused engineering</span></div>
+          <div className="sd-pillar"><span className="sd-pillar__dot"></span><span className="sd-pillar__label">Scalable software architecture</span></div>
+          <div className="sd-pillar"><span className="sd-pillar__dot"></span><span className="sd-pillar__label">Secure development practices</span></div>
+          <div className="sd-pillar"><span className="sd-pillar__dot"></span><span className="sd-pillar__label">Transparent project management</span></div>
+          <div className="sd-pillar"><span className="sd-pillar__dot"></span><span className="sd-pillar__label">Long-term support partnership</span></div>
+          <div className="sd-pillar"><span className="sd-pillar__dot"></span><span className="sd-pillar__label">Cloud-native deployment expertise</span></div>
+        </div>
+      </div></div></section>
 
-				<p className="AIservices-description" id="mobile-AIservices-description"> Top <span style={{color: "#77cdff"}}>
-						Custom Software </span> Development Company In India</p>
+      <section className="sd-faq"><div className="sd-container"><div className="sd-faq__wrapper">
+        <h3 className="sd-faq__heading sd-animate">Frequently Asked <span className="sd-text-accent">Questions</span></h3>
+        <p className="sd-faq__subtext">Everything about custom software development</p>
+        <div className="sd-faq__list">
+          <details className="sd-faq__item"><summary className="sd-faq__question"><span>What does a custom software development company do?</span><span className="sd-faq__chevron"></span></summary><div className="sd-faq__answer"><p>A custom software development company builds tailored software applications designed around specific business processes and operational requirements.</p></div></details>
+          <details className="sd-faq__item"><summary className="sd-faq__question"><span>How long does custom software development take?</span><span className="sd-faq__chevron"></span></summary><div className="sd-faq__answer"><p>Project timelines vary based on complexity, typically ranging from several weeks to a few months.</p></div></details>
+          <details className="sd-faq__item"><summary className="sd-faq__question"><span>Is custom software scalable?</span><span className="sd-faq__chevron"></span></summary><div className="sd-faq__answer"><p>Yes. Custom software is designed with scalability in mind, allowing systems to grow with your business.</p></div></details>
+          <details className="sd-faq__item"><summary className="sd-faq__question"><span>Do you provide post-launch support?</span><span className="sd-faq__chevron"></span></summary><div className="sd-faq__answer"><p>Yes. We offer ongoing{" "}
+            <a href="/app-maintenance-support-services" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>maintenance, performance optimization, and scalability upgrades</a>.
+          </p></div></details>
+        </div>
+      </div></div></section>
 
-				<h1 className="AIservices-title" id="mobile-AIservices-title">
-					<span style={{color: "#77cdff"}}> Custom Software </span> Development Company
-				</h1>
-				<p className="AIservices-description" id="mobile-AIservices-description">
-					Custom Software Development Services Tailored for Your Business Success
-				</p>
-			</div>
-
-			
-			
-
-		</div>
-	</section>
-
-	
-	<section className="AIservices-info-section">
-		<div className="AIservices-info-card">
-			<div className="AIservices-info-card-height">
-				<h2>Tailored Technology for Transformational Growth</h2>
-				<p>
-					We deliver custom software built to solve real business problems, improve efficiency,
-					and create unique digital experiences.
-				</p>
-			</div>
-			<a href="/contact-us" target="_blank"><button className="AIservices-btn">👉 Let’s Discuss Your
-					Project</button></a></div>
-		<div className="AIservices-info-card">
-			<div className="AIservices-info-card-height">
-				<h2>Discovery-to-Delivery: Proven Software Lifecycle</h2>
-				<p>
-					From ideation to deployment, we follow a structured process to ensure on-time, on-budget
-					custom software development.
-				</p>
-			</div>
-			<a href="/contact-us" target="_blank"><button className="AIservices-btn">👉 Book a Free
-					Consultation</button></a></div>
-	</section>
-
-	
-	<section className="AIservices-process-section">
-		<h2 className="AIservices-process-title">
-			Complete Guide to the <br /> Custom Software Development Process
-		</h2>
-
-		<div className="AIservices-process-container">
-			
-			<div className="AIservices-process-item">
-				<div className="AIservices-process-text">
-					<h3>Discovery & Planning</h3>
-					<p>
-						Our process begins by identifying your business goals, user needs, and technology requirements.
-						We conduct stakeholder interviews, market analysis, and feasibility studies to ensure clarity
-						and alignment.
-					</p>
-				</div>
-				<div className="AIservices-process-image1">
-					<img src="/./images/new_services/planning.png" alt="Discovery & Planning" />
-				</div>
-			</div>
-
-			
-			<div className="AIservices-process-item reverse">
-				<div className="AIservices-process-text">
-					<h3>UI/UX Design</h3>
-					<p>
-						We create intuitive, user-friendly designs that enhance experience across platforms.
-						From wireframes to high-fidelity prototypes, we ensure your software is both functional and
-						delightful.
-					</p>
-				</div>
-				<div className="AIservices-process-image">
-					<img src="/./images/new_services/ui-ux.png" alt="UI/UX Design" />
-				</div>
-			</div>
-
-			
-			<div className="AIservices-process-item">
-				<div className="AIservices-process-text">
-					<h3>Development</h3>
-					<p>
-						Our skilled developers use Agile and DevOps methodologies to build scalable,
-						high-performance applications tailored to your specific requirements.
-					</p>
-				</div>
-				<div className="AIservices-process-image1">
-					<img src="/./images/new_services/development.png" alt="Development" />
-				</div>
-			</div>
-
-			
-			<div className="AIservices-process-item reverse">
-				<div className="AIservices-process-text">
-					<h3>Testing</h3>
-					<p>
-						We perform comprehensive manual and automated testing to ensure your software is bug-free,
-						secure, and ready for real-world use.
-					</p>
-				</div>
-				<div className="AIservices-process-image">
-					<img src="/./images/new_services/testing.png" alt="Testing" />
-				</div>
-			</div>
-
-			
-			<div className="AIservices-process-item">
-				<div className="AIservices-process-text">
-					<h3>Launch</h3>
-					<p>
-						We deploy your software seamlessly, making sure it’s production-ready, optimized for
-						performance,
-						and fully compliant with all standards.
-					</p>
-				</div>
-				<div className="AIservices-process-image1">
-					<img src="/./images/new_services/launch.png" alt="Launch" />
-				</div>
-			</div>
-
-			
-			<div className="AIservices-process-item reverse">
-				<div className="AIservices-process-text">
-					<h3>Post-Launch Support</h3>
-					<p>
-						We offer continuous monitoring, updates, and technical support to keep your software secure,
-						up-to-date, and aligned with evolving business goals.
-					</p>
-				</div>
-				<div className="AIservices-process-image">
-					<img src="/./images/new_services/post-launch.png" alt="Post-Launch Support" />
-				</div>
-			</div>
-		</div>
-	</section>
-
-	
-	<section className="Aiservices-testimonials">
-		<div className="Aiservices-container">
-			<h2 className="Aiservices-testimonials-title">Client Success Story</h2>
-
-			<div className="Aiservices-testimonial-card">
-				<div className="Aiservices-testimonial-content">
-					<div className="Aiservices-company-logo-container">
-						<div className="Aiservices-company-logo-div">
-							<img src="/images/home/tech/aduri.png" alt="Client Logo" />
-						</div>
-					</div>
-					<div className="Aiservices-testimonial-text">
-						<div className="Aiservices-rating">
-							<img src="/images/new_services/doublequotes.png" className="doublequotes_img" alt="Quotes" />
-						</div>
-						<p className="Aiservices-testimonial-quote">
-							“We wanted to scale quickly and needed a mobile app that could support our growing customer
-							base.
-							mTouch Labs gave us just that. Great team, great service!”
-						</p>
-						<div className="Aiservices-testimonial-author">
-							<span><a href="/web-and-app-development-for-education-services" target="_blank">Explore
-									→</a></span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	
-	<section className="whychoose-section">
-		<div className="whychoose-container">
-			<h2 className="whychoose-title">🔹 Why Choose mTouch Labs?</h2>
-
-			<div className="whychoose-grid">
-				
-				<div className="whychoose-card">
-					<h3 className="whychoose-feature">Tailor-Made Solutions</h3>
-					<p className="whychoose-promise">100% Custom-Fit to Your Needs</p>
-				</div>
-
-				
-				<div className="whychoose-card">
-					<h3 className="whychoose-feature">Scalable Architecture</h3>
-					<p className="whychoose-promise">Future-Ready Tech Stack</p>
-				</div>
-
-				
-				<div className="whychoose-card">
-					<h3 className="whychoose-feature">Budget-Friendly</h3>
-					<p className="whychoose-promise">Premium Value at Competitive Pricing</p>
-				</div>
-
-				
-				<div className="whychoose-card">
-					<h3 className="whychoose-feature">Agile Development</h3>
-					<p className="whychoose-promise">Faster Time-to-Market with Iterative Delivery</p>
-				</div>
-
-				
-				<div className="whychoose-card">
-					<h3 className="whychoose-feature">Post-Launch Support</h3>
-					<p className="whychoose-promise">Continuous Upgrades, Maintenance & Optimization</p>
-				</div>
-			</div>
-		</div>
-	</section>
-
-
-
-	<section className="r-bg-x sec-pad">
-		<div className="container">
-			<div className="row justify-content-center">
-				<div className="col-lg-7 text-center">
-					<div className="page-headings">
-						<h3>Frequently Asked Questions</h3>
-						 
-						<div className="accordion">
-							<div className="accordion-item">
-								<button id="accordion-button-1" aria-expanded="false">
-									<span className="accordion-title">What services does mTouch Labs offer as a custom
-										software development company?</span>
-									<span className="icon" aria-hidden="true"></span>
-								</button>
-								<div className="accordion-content">
-									<p>
-										mTouch Labs provides end-to-end custom software development services including
-										web applications, enterprise software, CRM solutions, automation tools, and
-										cloud-based platforms. Each solution is tailored to specific business
-										requirements to improve efficiency and scalability.
-									</p>
-								</div>
-							</div>
-							<div className="accordion-item">
-								<button id="accordion-button-2" aria-expanded="false">
-									<span className="accordion-title">How much does custom software development cost?</span>
-									<span className="icon" aria-hidden="true"></span>
-								</button>
-								<div className="accordion-content">
-									<p>
-										The cost depends on project complexity, features, integrations, and development
-										timeline. Basic business software requires less investment, while advanced
-										enterprise solutions with automation, analytics, and cloud integration may
-										require a higher budget.
-									</p>
-								</div>
-							</div>
-							<div className="accordion-item">
-								<button id="accordion-button-3" aria-expanded="false">
-									<span className="accordion-title">Why choose mTouch Labs for custom software
-										development?</span>
-									<span className="icon" aria-hidden="true"></span>
-								</button>
-								<div className="accordion-content">
-									<p>
-										mTouch Labs focuses on building scalable, secure, and high-performance software
-										using modern technologies. With a user-centric approach and end-to-end
-										development support, businesses receive reliable digital solutions designed for
-										long-term growth.
-									</p>
-								</div>
-							</div>
-							<div className="accordion-item">
-								<button id="accordion-button-4" aria-expanded="false">
-									<span className="accordion-title">What technologies are used for custom software
-										development?</span>
-									<span className="icon" aria-hidden="true"></span>
-								</button>
-								<div className="accordion-content">
-									<p>
-										Modern technologies such as React, Angular, Node.js, Python, cloud platforms,
-										and scalable databases are used to build secure and high-performance software.
-										These technologies ensure seamless integration, flexibility, and future-ready
-										digital solutions.
-									</p>
-								</div>
-							</div>
-							<div className="accordion-item">
-								<button id="accordion-button-5" aria-expanded="false">
-									<span className="accordion-title">Do you provide support and maintenance after software
-										deployment?</span>
-									<span className="icon" aria-hidden="true"></span>
-								</button>
-								<div className="accordion-content">
-									<p>
-										Yes, continuous support, performance monitoring, updates, and feature
-										enhancements are provided after deployment to ensure smooth functionality,
-										security, and long-term scalability of the software.
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				
-			</div>
-		</div>
-	</section>
-
-	<section className="sec-pad r-bg-a">
-		<div className="container">
-			<div className="ree">
-				<div className="row">
-					<div className="col-lg-6 vcenter">
-						<div className="cta-heading">
-							<span className="sub-heading mb15">Contact Us</span>
-							<h3>Have a <span className="ree-text rt40">Project</span> in mind? Let's get to chat.</h3>
-							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
-									className="fas fa-user fb-bigon"></i> Contact </a>
-							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
-								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
-								Whatsapp </a>
-
-						</div>
-					</div>
-					<div className="col-lg-6 vcenter text-center">
-						<div className="sol-img-png">
-							<img src="/images/cta/project-in-mind-Let's-get-to-chat-custom.svg"
-								alt="Custom Software Development Agency" className="img-fluid" />
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	
-
-	
-	
-	
-
-	
-	
-	
-	
-	
-	
-	
-
-	
-	
-
-	
-
+      <section className="sd-cta"><div className="sd-container"><div className="sd-cta__inner sd-animate--scale">
+        <h2 className="sd-cta__heading">Build Your Custom <span className="sd-text-accent">Software Solution</span></h2>
+        <p className="sd-cta__text">Let&apos;s discuss how tailored software can automate your operations and accelerate growth.</p>
+        <button type="button" className="sd-cta__button js-open-modal">Start Your Project</button>
+      </div></div></section>
     </>
   );
 }

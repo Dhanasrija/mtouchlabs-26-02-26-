@@ -22,7 +22,7 @@ export default function Page() {
          <span className="AIservices-separator">/</span>
            <a href="/on-demand-products-development-company-hyderabad" style={{color: "black"}}>Products  </a>
          <span className="AIservices-separator">/</span>
-           <a className="active" style={{color: "black"}}>Grow Your Food Delivery with Web & App Solutions</a>
+           <a className="active" style={{color: "black"}}>Grow Your Food Delivery with Web &amp; App Solutions</a>
       </div>
 
       <section className="food-delivery-main">
@@ -30,10 +30,10 @@ export default function Page() {
             <img src="/images/products/FoodDelivery.gif" className="foodelivery-gif" alt="Food Delivery App Development" />
 
             <h1 className="foodelivery-heading-h1">Grow Your <br />
-               <span className="food-development-heading">Food Delivery</span> with <br />Web & App Solutions
+               <span className="food-development-heading">Food Delivery</span> with <br />Web &amp; App Solutions
             </h1>
 
-            <a href="https://youtu.be/Zvae5N9p3Gc?si=ok-KlYDubki5hAE-" target="_blank"><button className="foodelivery-delivery-button">View Demo</button></a></div>
+            <a href="https://youtu.be/Zvae5N9p3Gcsi=ok-KlYDubki5hAE-" target="_blank"><button className="foodelivery-delivery-button">View Demo</button></a></div>
       </section>
 
 
@@ -52,7 +52,7 @@ export default function Page() {
          </div>
          <div className="food-delivery-mobile-text-section">
             <h3>On-Demand Food Delivery App Development</h3>
-            <p><a href="https://mtouchlabs.com/online-food-ordering-mobile-app-development" target="_blank">Food
+            <p><a href="https://www.mtouchlabs.com/online-food-ordering-mobile-app-development" target="_blank">Food
                   delivery app development services</a> have transformed the way people order food and get delivered.
                These
                applications have become an essential part due to the growing desire for speed and convenience.</p>
@@ -77,7 +77,7 @@ export default function Page() {
          <div className="food-delivery-mobile-text-section">
             <h3>Online Food Delivery Applications</h3>
             <p>At mTouch Labs, we specialise in creating unique <a
-                  href="https://mtouchlabs.com/on-demand-service-providers-web-and-mobile-app-development"
+                  href="https://www.mtouchlabs.com/on-demand-service-providers-web-and-mobile-app-development"
                   target="_blank">food delivery apps</a> that transform how restaurants and
                food
                businesses interact with their customers. Our expertise in app development and deep understanding of the
@@ -130,7 +130,7 @@ export default function Page() {
                      <img src="/images/products/service4.png" alt="Delivery Partner App" />
                   </div>
                   <h6>Delivery Partner App</h6>
-                  <p>Delivery Acceptance & Tracking Software for Drivers.
+                  <p>Delivery Acceptance &amp; Tracking Software for Drivers.
                   </p>
                </div>
                <div className="service-card-main">
@@ -157,9 +157,9 @@ export default function Page() {
                </div>
                <div className="service-card-main">
                   <div className="service-card service-card-8">
-                     <img src="/images/products/service8.png" alt="API & Payment Integration" />
+                     <img src="/images/products/service8.png" alt="API &amp; Payment Integration" />
                   </div>
-                  <h6>API & Payment Integration</h6>
+                  <h6>API &amp; Payment Integration</h6>
                   <p>Incorporate third-party APIs, GPS, and payment gateways.</p>
                </div>
             </div>
@@ -200,6 +200,8 @@ export default function Page() {
                <div className="appscreen">
                   <div className="itme-img"><img src="/images/products/silder5.png" alt="mockup" className="img-fluid" /></div>
                </div>
+            </div>
+         </div>
       </section>
    </div>
    
@@ -269,12 +271,11 @@ export default function Page() {
          </div>
       </div>
    </div>
-   </div>
 
    <div className="food-teach-container">
       <div className="food-teach-container-heading">
          <h3>Technology We Use</h3>
-         <p>Advanced Tools & Frameworks for Food Delivery App Development </p>
+         <p>Advanced Tools &amp; Frameworks for Food Delivery App Development </p>
       </div>
       <div className="food-tech-grid">
          <div className="food-tech-item"><img src="/images/products/html.png" width="65px" alt="HTML5" /></div>
@@ -295,11 +296,11 @@ export default function Page() {
 
 
    <div className="food-faq-section">
-      <h2 className="food-faq-section-heading">FAQ’s</h2>
+      <h2 className="food-faq-section-heading">FAQ's</h2>
       <div className="food-faq">
          <div className="food-faq-item">
             <div className="food-faq-question ">
-               What features should a food delivery app have?
+               What features should a food delivery app have
                <span className="food-faq-toggle">+</span>
             </div>
             <div className="food-faq-answer">
@@ -310,7 +311,7 @@ export default function Page() {
          </div>
          <div className="food-faq-item">
             <div className="food-faq-question">
-               How long does it take to develop a food delivery app?
+               How long does it take to develop a food delivery app
                <span className="food-faq-toggle">+</span>
             </div>
             <div className="food-faq-answer">
@@ -320,7 +321,7 @@ export default function Page() {
          </div>
          <div className="food-faq-item">
             <div className="food-faq-question">
-               What technologies are used in developing a food delivery app?
+               What technologies are used in developing a food delivery app
                <span className="food-faq-toggle">+</span>
             </div>
             <div className="food-faq-answer">
@@ -331,7 +332,7 @@ export default function Page() {
          </div>
          <div className="food-faq-item">
             <div className="food-faq-question">
-               Can you integrate third-party services into the app?
+               Can you integrate third-party services into the app
 
                <span className="food-faq-toggle">+</span>
             </div>
@@ -345,7 +346,7 @@ export default function Page() {
          </div>
          <div className="food-faq-item">
             <div className="food-faq-question">
-               How do you ensure the security of the app?
+               How do you ensure the security of the app
                <span className="food-faq-toggle">+</span>
             </div>
             <div className="food-faq-answer">
@@ -369,7 +370,6 @@ export default function Page() {
          <a className="food-cta-button" target="_blank">Let's Bring Your Idea to Life
             <i className='fas fa-arrow-right' id="food-button-icon"></i></a>
       </div>
-   </div>
    </div>
    
    

@@ -35,3 +35,17 @@
     }
   });
 })();
+document.addEventListener('click', function(e) {
+  var btn = e.target.closest('._faq_question');
+  if (!btn) return;
+  var item = btn.closest('._faq_item');
+  var wasActive = item.classList.contains('active');
+  // Close all
+  document.querySelectorAll('._faq_item').forEach(function(el) {
+    el.classList.remove('active', 'glow');
+  });
+  // Toggle clicked
+  if (!wasActive) {
+    item.classList.add('active', 'glow');
+  }
+});

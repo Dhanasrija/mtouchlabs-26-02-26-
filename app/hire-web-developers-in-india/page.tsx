@@ -36,7 +36,7 @@ export default function Page() {
 							avail of our incredible web applications services to serve your
 							business utility.</p>
 						<a href="/contact-us" className="ree-btn  ree-btn-grdt1 mt40" data-aos="fade-up"
-							data-aos-delay="800">Let’s discuss <i className="fas fa-arrow-right fa-btn"></i></a>
+							data-aos-delay="800">Let's discuss <i className="fas fa-arrow-right fa-btn"></i></a>
 					</div>
 				</div>
 				<div className="col-lg-6">
@@ -67,7 +67,7 @@ export default function Page() {
 								<a href="https://www.mtouchlabs.com/web-development-company" target="_blank">Hire
 									Website Developers in
 									India</a>
-								and save 80% work as per the client’s requirement for a
+								and save 80% work as per the client's requirement for a
 								time period defined by the
 								client. You can hire Web Developers on an hourly basis,
 								full time or at a fixed cost.
@@ -86,7 +86,7 @@ export default function Page() {
 							<p>Since we are a leading and experienced web development
 								company in India known for
 								offshore <a
-									href="https://mtouchlabs.com/tips-and-trends-to-improve-your-web-design-in-2023"
+									href="https://www.mtouchlabs.com/tips-and-trends-to-improve-your-web-design-in-2023"
 									target="_blank">web application development
 									services</a>, you can hire our Website
 								developers for
@@ -135,7 +135,7 @@ export default function Page() {
 							<h2 className="mb15">Why Hire <span className="ree-text rt40"> Website
 								</span> <span className="ree-text rt40"> Developers from
 								</span> <span className="ree-text rt40"> mTouch
-									Labs ?</span></h2>
+									Labs </span></h2>
 							<p>Hire Website Builders from mTouchlabs with a guarantee of
 								steady communication, secure
 								collaboration, and real-time app progress updates
@@ -159,8 +159,8 @@ export default function Page() {
 								development frameworks. With a
 								hassle-free website development process and flexible
 								hiring model, you get connected to
-								the industry’s most brilliant Website Programmers. We
-								implement the <a href="https://mtouchlabs.com/best-web-development-company-in-hyderabad"
+								the industry's most brilliant Website Programmers. We
+								implement the <a href="https://www.mtouchlabs.com/best-web-development-company-in-hyderabad"
 									target="_blank"> best website
 									development</a> practices and creative
 								strategies to help you reach your business goals and
@@ -268,10 +268,10 @@ export default function Page() {
 				</div>
 				<div className="col-lg-4 col-sm-6">
 					<div className="ree-card  mt60">
-						<div className="ree-card-img"><img src="/images/icons/Support-&-Maintenance-web-dev.svg"
+						<div className="ree-card-img"><img src="/images/icons/Support-&amp;-Maintenance-web-dev.svg"
 								alt="services" /> </div>
 						<div className="ree-card-content mt40">
-							<h3 className="mb15">Support & Maintenance</h3>
+							<h3 className="mb15">Support &amp; Maintenance</h3>
 							<p>Our offshore web app programmers assist you in complete
 								support and maintenance of your
 								current website and keep it updated.
@@ -340,7 +340,7 @@ export default function Page() {
 							
 							<div className="accordion-item">
 								<button id="accordion-button-1" aria-expanded="false">
-									<span className="accordion-title"> What does it mean to hire web developers in India?
+									<span className="accordion-title"> What does it mean to hire web developers in India
 
 
 
@@ -351,13 +351,14 @@ export default function Page() {
 								<div className="accordion-content">
 									<p>
 It means hiring skilled professionals in India to build custom, scalable, and secure web solutions.
+						</p>
 								</div>
 							</div>
 
 							
 							<div className="accordion-item">
 								<button id="accordion-button-2" aria-expanded="false">
-									<span className="accordion-title">Why should I hire web developers from mTouch Labs?
+									<span className="accordion-title">Why should I hire web developers from mTouch Labs
 
 
 
@@ -375,9 +376,9 @@ mTouch Labs offers experienced developers, flexible hiring models, and cost-effe
 							
 							<div className="accordion-item">
 								<button id="accordion-button-3" aria-expanded="false">
-									<span className="accordion-title"> What technologies do your web developers use?
+									<span className="accordion-title"> What technologies do your web developers use
 
-?
+
 
 </span>
 									<span className="icon" aria-hidden="true"></span>
@@ -392,16 +393,16 @@ Our developers work with modern frameworks, cloud platforms, and scalable web te
 							
 							<div className="accordion-item">
 								<button id="accordion-button-4" aria-expanded="false">
-									<span className="accordion-title">How long does web application development take?
+									<span className="accordion-title">How long does web application development take
 
-?
+
 
 </span>
 									<span className="icon" aria-hidden="true"></span>
 								</button>
 								<div className="accordion-content">
 									<p>
-Project timelines vary, but most web applications take 6–14 weeks depending on complexity.
+Project timelines vary, but most web applications take 6-14 weeks depending on complexity.
 
 									</p>
 								</div>
@@ -410,8 +411,8 @@ Project timelines vary, but most web applications take 6–14 weeks depending on
 							
 							<div className="accordion-item">
 								<button id="accordion-button-5" aria-expanded="false">
-									<span className="accordion-title"> Can I hire dedicated web developers for long-term projects?
- ?
+									<span className="accordion-title"> Can I hire dedicated web developers for long-term projects
+ 
 
 </span>
 									<span className="icon" aria-hidden="true"></span>
@@ -447,7 +448,7 @@ Yes, you can hire dedicated web developers on full-time or long-term engagement 
 						<div className="cta-heading">
 							<span className="sub-heading mb15">Contact Us</span>
 							<h3>Need any <span className="ree-text rt40"> Website </span>
-								Developers? Let's get to chat.
+								Developers Let's get to chat.
 							</h3>
 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 									className="fas fa-user fb-bigon"></i> Contact </a>

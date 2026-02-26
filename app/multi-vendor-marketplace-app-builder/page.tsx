@@ -20,13 +20,12 @@ export default function Page() {
 
       <div className="multi-vendor-container">
          <div className="multi-vendor-text-content">
-            <h1>Transform Your eCommerce Vision with a <span>Multi-Vendor Marketplace</span> </h1>
+            <h1>Transform Your eCommerce Vision with a <span>Multi-Vendor Marketplace</span> </h1>
             <button className="multi-vendor-text-content-button"><a href="https://www.youtube.com/watch?v=qm9JS1xsvRg"
                   target="_blank">VIEW DEMO</a></button>
          </div>
       </div>
       <img className="Multi_vendorgif" src="/images/products/multivendor/Multivendorgif.gif" alt="E-commerce illustration" />
-      </div>
 
       
       <div className="AIproduct-breadcrumb" style={{color: "#000"}}>
@@ -46,7 +45,7 @@ export default function Page() {
             Welcome to the future of eCommerce! At mTouch Labs, we specialize in creating innovative, scalable
             multi-vendor marketplace solutions that empower businesses to thrive in the digital marketplace. Whether
             you're looking to build a new online marketplace or scale an existing one, our expert team delivers <a
-               href="https://mtouchlabs.com/multi-vendor-ecommerce-mobile-app-development" target="_blank">custom
+               href="https://www.mtouchlabs.com/multi-vendor-ecommerce-mobile-app-development" target="_blank">custom
                eCommerce app development</a> tailored to your unique needs. With our comprehensive vendor management
             system and
             cloud-based infrastructure, we ensure a seamless experience for both vendors and customers alike.
@@ -104,7 +103,6 @@ export default function Page() {
       </div>
    </section>
 
-   </div>
 
    <section className="multi-vendor-section6-features-section">
       <div className="multi-vendor-section6-container">
@@ -134,7 +132,7 @@ export default function Page() {
                <div className="multi-vendor-section6-feature-icon">
                   <img src="/images/products/multivendor/Layer_3.svg" alt="Advanced Search Icon" />
                </div>
-               <h3 className="multi-vendor-section6-feature-title">Advanced Search & Filter Options</h3>
+               <h3 className="multi-vendor-section6-feature-title">Advanced Search &amp; Filter Options</h3>
                <p className="multi-vendor-section6-feature-description">
                   Enhance user engagement with customizable search and filtering options, making it easy for customers
                   to find exactly what they need.
@@ -154,7 +152,7 @@ export default function Page() {
                <div className="multi-vendor-section6-feature-icon">
                   <img src="/images/products/multivendor/Layer_5.svg" alt="Customizable UI Icon" />
                </div>
-               <h3 className="multi-vendor-section6-feature-title">Ratings & Reviews</h3>
+               <h3 className="multi-vendor-section6-feature-title">Ratings &amp; Reviews</h3>
                <p className="multi-vendor-section6-feature-description">
                   Boost trust and credibility with our integrated ratings and reviews system, enabling customer feedback
                   to guide vendors and inform future buyers.
@@ -164,7 +162,7 @@ export default function Page() {
                <div className="multi-vendor-section6-feature-icon">
                   <img src="/images/products/multivendor/Layer_6.svg" alt="Customizable UI Icon" />
                </div>
-               <h3 className="multi-vendor-section6-feature-title">Analytics & Reporting for eCommerce</h3>
+               <h3 className="multi-vendor-section6-feature-title">Analytics &amp; Reporting for eCommerce</h3>
                <p className="multi-vendor-section6-feature-description">
                   Boost trust and credibility with our integrated ratings and reviews system, enabling customer feedback
                   to guide vendors and inform future buyers.
@@ -245,7 +243,6 @@ export default function Page() {
       </button>
 
    </div>
-   </div>
 
 
    <div className="multi-vendor-container-questions">
@@ -308,28 +305,9 @@ export default function Page() {
                   feature updates, and technical support to ensure your app runs smoothly.
                </div>
             </div>
-
-
-   
-   
-   
-
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-
-   
-   
-
-   
-   
+         </div>
+      </div>
+   </div>
 
     </>
   );

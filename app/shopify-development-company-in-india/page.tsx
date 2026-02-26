@@ -65,7 +65,7 @@ export default function Page() {
 					business goals, optimized for performance, scalability, and user experience.
 				</p>
 			</div>
-			<a href="/contact-us" target="_blank"><button className="AIservices-btn">Let’s Discuss</button></a></div>
+			<a href="/contact-us" target="_blank"><button className="AIservices-btn">Let's Discuss</button></a></div>
 		<div className="AIservices-info-card">
 			<div className="AIservices-info-card-height">
 				<h2>End-to-End Shopify Expertise</h2>
@@ -87,7 +87,7 @@ export default function Page() {
 			
 			<div className="AIservices-process-item">
 				<div className="AIservices-process-text">
-					<h3>Discovery & Requirement Analysis</h3>
+					<h3>Discovery &amp; Requirement Analysis</h3>
 					<p>
 						We begin with an in-depth consultation to understand your business,
 						target audience, and goals before crafting a Shopify development
@@ -102,7 +102,7 @@ export default function Page() {
 			
 			<div className="AIservices-process-item reverse">
 				<div className="AIservices-process-text">
-					<h3>UI/UX & Responsive Design</h3>
+					<h3>UI/UX &amp; Responsive Design</h3>
 					<p>
 						Our team designs stunning and mobile-friendly Shopify themes that boost
 						engagement and conversions.
@@ -116,7 +116,7 @@ export default function Page() {
 			
 			<div className="AIservices-process-item">
 				<div className="AIservices-process-text">
-					<h3>Development & Customization</h3>
+					<h3>Development &amp; Customization</h3>
 					<p>
 						Using best coding practices, our experts develop your Shopify store with
 						all essential functionalities, custom themes, apps, modules, and
@@ -145,7 +145,7 @@ export default function Page() {
 			
 			<div className="AIservices-process-item">
 				<div className="AIservices-process-text">
-					<h3>Testing & Quality Assurance</h3>
+					<h3>Testing &amp; Quality Assurance</h3>
 					<p>
 						Before launch, we conduct rigorous testing to ensure performance,
 						cross-device compatibility, fast loading, and secure checkouts.
@@ -159,7 +159,7 @@ export default function Page() {
 			
 			<div className="AIservices-process-item reverse">
 				<div className="AIservices-process-text">
-					<h3>Launch & Go-Live</h3>
+					<h3>Launch &amp; Go-Live</h3>
 					<p>
 						Our team handles complete deployment from domain and hosting setup to
 						final launch ensuring a smooth go-live experience.
@@ -209,10 +209,10 @@ export default function Page() {
 							out in the market."
 
 
-							<span style={{color: "blue"}}> — Priya Mehta,</span>
+							<span style={{color: "blue"}}> - Priya Mehta,</span>
 						</p>
 						<div className="Aiservices-testimonial-author">
-							<span><a href="/shopify-case-study-styleverse" target="_blank">Explore →</a></span>
+							<span><a href="/shopify-case-study-styleverse" target="_blank">Explore</a></span>
 						</div>
 					</div>
 				</div>
@@ -268,7 +268,6 @@ export default function Page() {
 										development include:
 									</p>
 									 
-									<p>
 									<p>Liquid</p>
 									<li>Purpose: Liquid is Shopify's templating
 										language used for building dynamic
@@ -277,7 +276,7 @@ export default function Page() {
 										templates, managing data output, and
 										implementing logic within Shopify
 										themes.</li>
-									</p>
+
 									 
 									<p>HTML (HyperText Markup Language)</p>
 									<li>Purpose: HTML is used for structuring the
@@ -287,7 +286,7 @@ export default function Page() {
 										basic structure of web pages, including
 										headings, paragraphs, images, and links.
 									</li>
-									</p>
+
 									 
 									<p>CSS (Cascading Style Sheets)</p>
 									<li>Purpose: CSS is used for styling and
@@ -297,7 +296,7 @@ export default function Page() {
 										the design, layout, and responsiveness
 										of the store across different devices.
 									</li>
-									</p>
+
 									 
 									<p>JavaScript</p>
 									<li>Purpose: JavaScript is used for adding
@@ -308,7 +307,7 @@ export default function Page() {
 										such as
 										animations, form validations, and other
 										interactive elements.</li>
-									</p>
+
 								</div>
 							</div>
 							<div className="accordion-item">

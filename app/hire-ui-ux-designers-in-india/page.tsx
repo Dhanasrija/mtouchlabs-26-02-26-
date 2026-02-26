@@ -30,7 +30,7 @@ export default function Page() {
 						<p className="mt20 h-light" data-aos="fade-up" data-aos-delay="400">Our UI/UX designers create
 							visually stunning and user-friendly designs</p>
 						<a href="/contact-us" className="ree-btn  ree-btn-grdt1 mt40" data-aos="fade-up"
-							data-aos-delay="800">Let’s discuss <i className="fas fa-arrow-right fa-btn"></i></a>
+							data-aos-delay="800">Let's discuss <i className="fas fa-arrow-right fa-btn"></i></a>
 					</div>
 				</div>
 				<div className="col-lg-6">
@@ -111,7 +111,7 @@ export default function Page() {
 									className="ree-text rt40"> Designers </span> <span className="ree-text rt40"> and Web
 									Designers </span></h2>
 							<p>A good Mobile App Design and Web Design creates effective and satisfactory user
-								interactions among customers and a company’s products. The success of any Mobile app
+								interactions among customers and a company's products. The success of any Mobile app
 								design or Web design company in the market entirely depends on how one describes the UI
 								/ UX design outlook and functionalities to the customer. </p>
 							 
@@ -283,7 +283,7 @@ export default function Page() {
 							<div className="accordion-item">
 								<button id="accordion-button-1" aria-expanded="false">
 									<span className="accordion-title">What does it mean to hire UI/UX designers in India
- ?
+ 
 
 
 
@@ -294,6 +294,7 @@ export default function Page() {
 								<div className="accordion-content">
 									<p>
 It means engaging skilled professionals to design user-friendly interfaces that enhance usability and engagement for mobile and web apps.
+							</p>
 								</div>
 							</div>
 
@@ -302,7 +303,7 @@ It means engaging skilled professionals to design user-friendly interfaces that 
 								<button id="accordion-button-2" aria-expanded="false">
 									<span className="accordion-title"> Why should I hire UI/UX designers instead of doing design in-house
 
- ?
+ 
 
 
 
@@ -322,7 +323,7 @@ Dedicated UI/UX designers bring expertise in usability, design trends, and best 
 								<button id="accordion-button-3" aria-expanded="false">
 									<span className="accordion-title">  What skills should UI/UX designers have
 
- ?
+ 
 
 
 
@@ -342,7 +343,7 @@ They should be proficient in wireframing, prototyping, interaction design, visua
 								<button id="accordion-button-4" aria-expanded="false">
 									<span className="accordion-title">How long does UI/UX design take for a project
 
- ?
+ 
 
 
 </span>
@@ -350,7 +351,7 @@ They should be proficient in wireframing, prototyping, interaction design, visua
 								</button>
 								<div className="accordion-content">
 									<p>
-Typical design timelines vary, often 2–6 weeks depending on complexity, number of screens, and revisions.
+Typical design timelines vary, often 2-6 weeks depending on complexity, number of screens, and revisions.
 
 									</p>
 								</div>
@@ -362,14 +363,14 @@ Typical design timelines vary, often 2–6 weeks depending on complexity, number
 									<span className="accordion-title"> Can UI/UX designers work with developers for full project delivery
 
 
- ?
+ 
 
 </span>
 									<span className="icon" aria-hidden="true"></span>
 								</button>
 								<div className="accordion-content">
 									<p>
-Yes — UI/UX designers collaborate with developers to ensure design intent translates into seamless user experiences.
+Yes - UI/UX designers collaborate with developers to ensure design intent translates into seamless user experiences.
 
 									</p>
 								</div>
@@ -397,7 +398,7 @@ Yes — UI/UX designers collaborate with developers to ensure design intent tran
 					<div className="col-lg-6 vcenter">
 						<div className="cta-heading">
 							<span className="sub-heading mb15">Contact Us</span>
-							<h3>Need UI/UX <span className="ree-text rt40">Designers</span> ? Let's get to chat.</h3>
+							<h3>Need UI/UX <span className="ree-text rt40">Designers</span>  Let's get to chat.</h3>
 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 									className="fas fa-user fb-bigon"></i> Contact </a>
 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"

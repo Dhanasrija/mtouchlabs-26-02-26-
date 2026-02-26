@@ -1,228 +1,321 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Top AWS Cloud Service Providers in Hyderabad",
-  description: "mTouchlab leading top Amazon web services include Aws cloud service, cloud migration services, and cloud migration services for various enterprises at low cost",
+  title: "Amazon Web Services Company | mTouch Labs",
+  description:
+    "mTouch Labs is an Amazon Web Services company delivering scalable, resilient, and performance-driven cloud infrastructure solutions.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/amazon-web-services-company",
+  },
+  openGraph: {
+    title: "Amazon Web Services Company | mTouch Labs",
+    description:
+      "Enterprise-grade AWS cloud modernization and infrastructure engineering solutions.",
+    url: "https://www.mtouchlabs.com/amazon-web-services-company",
+    siteName: "mTouch Labs",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Amazon Web Services Company | mTouch Labs",
+    description:
+      "Scalable AWS infrastructure and cloud transformation services.",
+  },
 };
 
-export default function Page() {
+export default function AmazonWebServicesCompany() {
   return (
     <>
-      <section className="AIservices-banner aws-banner-bg">
-        <div className="AIservices-banner-container">
-          <div className="AIservices-banner-content">
-            <div className="AIservices-breadcrumb">
-              {"\u00a0"}<a href="/">Home {"\u00a0"}</a>
-              <span className="AIservices-separator">/</span>
-              {"\u00a0"} <a href="/services">Services {"\u00a0"}</a>
-              <span className="AIservices-separator">/</span>
-              {"\u00a0"} <a className="active"> AWS Cloud Development Company</a>
+      {/* ===== HERO ===== */}
+      <section className="awc-hero">
+        <div className="awc-hero__inner">
+          <p className="awc-hero__breadcrumb">
+            Home / Services /{" "}
+            <span className="awc-hero__breadcrumb-active">Amazon Web Services</span>
+          </p>
+          <h1 className="awc-hero__title">
+            Strategic <span className="awc-hero__title-accent">AWS Infrastructure</span> &amp; Cloud Modernization Partner
+          </h1>
+          <p className="awc-hero__subtitle">
+            Resilient Cloud Foundations for Scalability, Availability &amp; Performance
+          </p>
+          <p className="awc-hero__desc">
+            mTouch Labs is an experienced Amazon Web Services company helping businesses modernize infrastructure, strengthen system reliability, and accelerate digital transformation through AWS-powered ecosystems.
+          </p>
+        </div>
+      </section>
+
+      {/* ===== ABOUT ===== */}
+      <section className="awc-about">
+        <div className="awc-container">
+          <div className="awc-about__grid">
+            <div className="awc-about__content awc-animate--left">
+              <h2 className="awc-about__heading">
+                Why Businesses Choose an <span className="awc-text-accent">AWS Company</span>
+              </h2>
+              <p className="awc-about__text">
+                Organizations move to AWS to achieve flexible infrastructure scaling, reduced capital expenditure, faster deployment cycles, improved uptime and resilience, and global accessibility.
+              </p>
+              <p className="awc-about__text">
+                However, without strategic architecture and governance, cloud adoption can increase complexity. That&apos;s where a structured AWS partner becomes essential.
+              </p>
+              <p className="awc-about__text">
+                As a trusted <a href="/enterprise-application-development-company" style={{color: "#e8a025", textDecoration: "none"}}>enterprise technology partner</a>, we engineer resilient cloud foundations that support application scalability and operational efficiency.
+              </p>
             </div>
-            <p className="AIservices-description"> Top <span className="svc-highlight-lime">AWS Cloud </span> Development Company In India</p>
-            <h1 className="AIservices-title"><span className="svc-highlight-lime">AWS Cloud </span> Services Company</h1>
-            <p className="AIservices-description">
-              mTouch Labs offers secure, scalable, and cost-effective AWS Cloud Services from migration to
-              management as your trusted cloud consulting partner in India.
+            <div className="awc-stats awc-animate--right">
+              <div className="awc-stat">
+                <span className="awc-stat__icon">🏗️</span>
+                <span className="awc-stat__label">Cloud Modernization</span>
+              </div>
+              <div className="awc-stat">
+                <span className="awc-stat__icon">🔄</span>
+                <span className="awc-stat__label">High Availability</span>
+              </div>
+              <div className="awc-stat">
+                <span className="awc-stat__icon">📈</span>
+                <span className="awc-stat__label">Scalable Infrastructure</span>
+              </div>
+              <div className="awc-stat">
+                <span className="awc-stat__icon">🛡️</span>
+                <span className="awc-stat__label">Disaster Recovery</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== EXPERTISE ===== */}
+      <section className="awc-whoweare">
+        <div className="awc-container">
+          <div className="awc-whoweare__grid">
+            <div className="awc-whoweare__stats awc-animate--left">
+              <div className="awc-stat awc-stat--dark">
+                <span className="awc-stat__number">14+</span>
+                <span className="awc-stat__label">Years of Experience</span>
+              </div>
+              <div className="awc-stat awc-stat--dark">
+                <span className="awc-stat__number">120+</span>
+                <span className="awc-stat__label">AWS Deployments</span>
+              </div>
+              <div className="awc-stat awc-stat--dark">
+                <span className="awc-stat__number">200+</span>
+                <span className="awc-stat__label">Global Clients</span>
+              </div>
+              <div className="awc-stat awc-stat--dark">
+                <span className="awc-stat__number">99.9%</span>
+                <span className="awc-stat__label">Uptime SLA</span>
+              </div>
+            </div>
+            <div className="awc-whoweare__content awc-animate--right">
+              <h2 className="awc-whoweare__heading">
+                Our <span className="awc-text-accent">AWS Expertise</span>
+              </h2>
+              <p className="awc-whoweare__text">
+                We provide end-to-end AWS infrastructure engineering, including:
+              </p>
+              <ul className="awc-checklist">
+                <li className="awc-checklist__item">
+                  <span className="awc-checklist__icon">✓</span>
+                  <span>Cloud Modernization — legacy evaluation, re-architecture &amp; redesign</span>
+                </li>
+                <li className="awc-checklist__item">
+                  <span className="awc-checklist__icon">✓</span>
+                  <span>High-Availability Environments — fault-tolerant, distributed workloads</span>
+                </li>
+                <li className="awc-checklist__item">
+                  <span className="awc-checklist__icon">✓</span>
+                  <span>Scalable Infrastructure — multi-region, API-driven ecosystems</span>
+                </li>
+                <li className="awc-checklist__item">
+                  <span className="awc-checklist__icon">✓</span>
+                  <span>Cloud Governance — resource tracking, monitoring &amp; access control</span>
+                </li>
+                <li className="awc-checklist__item">
+                  <span className="awc-checklist__icon">✓</span>
+                  <span>Disaster Recovery — backup automation, failover &amp; data redundancy</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== SERVICES ===== */}
+      <section className="awc-services">
+        <div className="awc-container">
+          <div className="awc-services__header awc-animate">
+            <h2 className="awc-services__title">
+              End-to-End <span className="awc-text-accent">AWS Services</span>
+            </h2>
+            <p className="awc-services__subtitle">
+              From infrastructure assessment to continuous optimization
             </p>
           </div>
-        </div>
-      </section>
-
-      <section className="AIservices-info-section">
-        <div className="AIservices-info-card">
-          <div className="AIservices-info-card-height">
-            <h2>Best AWS Cloud Services in Hyderabad</h2>
-            <p>We deliver customized AWS cloud solutions to startups, enterprises, and public sector organizations.</p>
-          </div>
-          <a href="/contact-us" target="_blank">
-            <button className="AIservices-btn">Let&apos;s Discuss</button>
-          </a>
-        </div>
-        <div className="AIservices-info-card">
-          <div className="AIservices-info-card-height">
-            <h2>AWS-Certified Cloud Experts</h2>
-            <p>With years of cloud experience, our engineers ensure seamless transitions and 24/7 operational support.</p>
-          </div>
-          <a href="/contact-us" target="_blank">
-            <button className="AIservices-btn">Talk to a Cloud Specialist</button>
-          </a>
-        </div>
-      </section>
-
-      <section className="AIservices-process-section">
-        <h2 className="AIservices-process-title">Seamless &amp; Secure Cloud Transformation with AWS</h2>
-        <div className="AIservices-process-container">
-          <div className="AIservices-process-item">
-            <div className="AIservices-process-text">
-              <h3>Cloud Consulting &amp; Planning</h3>
-              <p>We assess your infrastructure, identify workloads, and build the best-fit AWS cloud roadmap.</p>
+          <div className="awc-services__grid awc-stagger">
+            <div className="awc-service-card awc-animate--scale">
+              <span className="awc-service-card__badge">01</span>
+              <h4 className="awc-service-card__title">Cloud Modernization Strategy</h4>
+              <p className="awc-service-card__text">
+                Legacy system evaluation, application re-architecture, performance bottleneck identification, infrastructure redesign, and cloud readiness assessment.
+              </p>
             </div>
-            <div className="AIservices-process-image1">
-              <img src="/images/new_services/post-launch.png" alt="Cloud Consulting and Planning" />
+            <div className="awc-service-card awc-animate--scale">
+              <span className="awc-service-card__badge">02</span>
+              <h4 className="awc-service-card__title">High-Availability Environments</h4>
+              <p className="awc-service-card__text">
+                Fault-tolerant systems designed to minimize downtime, distribute workloads efficiently, support traffic spikes, and maintain business continuity.
+              </p>
             </div>
-          </div>
-          <div className="AIservices-process-item reverse">
-            <div className="AIservices-process-text">
-              <h3>AWS Cloud Migration</h3>
-              <p>Whether it&apos;s public, private, or hybrid cloud, we provide secure, zero-downtime migration strategies.</p>
+            <div className="awc-service-card awc-animate--scale">
+              <span className="awc-service-card__badge">03</span>
+              <h4 className="awc-service-card__title">Scalable Application Infrastructure</h4>
+              <p className="awc-service-card__text">
+                Supporting rapid user growth, multi-region expansion, API-driven ecosystems, and real-time application environments designed to evolve with your business.
+              </p>
             </div>
-            <div className="AIservices-process-image">
-              <img src="/images/new_services/planning.png" alt="AWS Cloud Migration" />
+            <div className="awc-service-card awc-animate--scale">
+              <span className="awc-service-card__badge">04</span>
+              <h4 className="awc-service-card__title">Cloud Governance &amp; Control</h4>
+              <p className="awc-service-card__text">
+                Resource usage tracking, performance benchmarking, infrastructure monitoring, access control frameworks, and operational visibility dashboards.
+              </p>
             </div>
-          </div>
-          <div className="AIservices-process-item">
-            <div className="AIservices-process-text">
-              <h3>Infrastructure Setup &amp; Deployment</h3>
-              <p>From virtual servers to storage and networking — we configure cloud-native environments on AWS.</p>
-            </div>
-            <div className="AIservices-process-image1">
-              <img src="/images/new_services/development.png" alt="Infrastructure Setup and Deployment" />
-            </div>
-          </div>
-          <div className="AIservices-process-item reverse">
-            <div className="AIservices-process-text">
-              <h3>Security &amp; Compliance</h3>
-              <p>Ensure encrypted, multi-layered data protection aligned with international compliance standards.</p>
-            </div>
-            <div className="AIservices-process-image">
-              <img src="/images/new_services/testing.png" alt="Security and Compliance" />
-            </div>
-          </div>
-          <div className="AIservices-process-item">
-            <div className="AIservices-process-text">
-              <h3>Cost Optimization &amp; Auto Scaling</h3>
-              <p>We implement AWS best practices to reduce costs and dynamically scale your services.</p>
-            </div>
-            <div className="AIservices-process-image1">
-              <img src="/images/new_services/launch.png" alt="Cost Optimization and Auto Scaling" />
-            </div>
-          </div>
-          <div className="AIservices-process-item reverse">
-            <div className="AIservices-process-text">
-              <h3>Ongoing Support &amp; Maintenance</h3>
-              <p>Enjoy uninterrupted business operations with 24/7 monitoring, incident resolution, and updates.</p>
-            </div>
-            <div className="AIservices-process-image">
-              <img src="/images/new_services/post-launch.png" alt="Ongoing Support and Maintenance" />
+            <div className="awc-service-card awc-service-card--wide awc-animate--scale">
+              <span className="awc-service-card__badge">05</span>
+              <h4 className="awc-service-card__title">Disaster Recovery &amp; Business Continuity</h4>
+              <p className="awc-service-card__text">
+                Backup automation, failover configuration, recovery time optimization, and data redundancy strategies embedded in architecture. Integrated with our <a href="/cyber-security-services-company" style={{color: "#e8a025", textDecoration: "none"}}>security practices</a>.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="Aiservices-testimonials">
-        <div className="Aiservices-container">
-          <h2 className="Aiservices-testimonials-title">Client Testimonial</h2>
-          <div className="Aiservices-testimonial-card">
-            <div className="Aiservices-testimonial-content">
-              <div className="Aiservices-company-logo-container">
-                <div className="Aiservices-company-logo-div">
-                  <img src="/images/home/tech/medbuz.png" alt="MedCore Logo" />
-                </div>
-              </div>
-              <div className="Aiservices-testimonial-text">
-                <div className="Aiservices-rating">
-                  <img src="/images/new_services/doublequotes.png" className="doublequotes_img" alt="Quotes" />
-                </div>
-                <p className="Aiservices-testimonial-quote">
-                  &quot;mTouch Labs helped us migrate our hospital management system from on-prem to AWS. Their
-                  AWS-certified engineers made the transition smooth, secure, and 40% more cost-efficient.&quot;
-                  — Srikanth D., CTO
-                </p>
-                <div className="Aiservices-testimonial-author">
-                  <span><a href="/aws-cloud-services" target="_blank">Explore →</a></span>
-                </div>
-              </div>
+      {/* ===== PROCESS ===== */}
+      <section className="awc-delivery">
+        <div className="awc-container">
+          <h2 className="awc-delivery__heading awc-animate">
+            Our <span className="awc-text-accent">Engagement Framework</span>
+          </h2>
+          <p className="awc-delivery__text">
+            We focus on long-term cloud maturity rather than short-term setup.
+          </p>
+          <div className="awc-delivery__steps">
+            <div className="awc-step"><span className="awc-step__circle">Assessment</span></div>
+            <span className="awc-step__arrow">→</span>
+            <div className="awc-step"><span className="awc-step__circle">Blueprint Design</span></div>
+            <span className="awc-step__arrow">→</span>
+            <div className="awc-step"><span className="awc-step__circle">Deployment</span></div>
+            <span className="awc-step__arrow">→</span>
+            <div className="awc-step"><span className="awc-step__circle">Validation</span></div>
+            <span className="awc-step__arrow">→</span>
+            <div className="awc-step"><span className="awc-step__circle">Governance</span></div>
+            <span className="awc-step__arrow">→</span>
+            <div className="awc-step"><span className="awc-step__circle">Optimization</span></div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== WHY CHOOSE US ===== */}
+      <section className="awc-reliable">
+        <div className="awc-container">
+          <div className="awc-reliable__inner awc-animate">
+            <h2 className="awc-reliable__heading">
+              Why <span className="awc-text-accent">mTouch Labs</span> as Your AWS Partner?
+            </h2>
+            <p className="awc-reliable__text">
+              We build AWS environments that support sustainable digital growth.
+            </p>
+            <div className="awc-reliable__pillars">
+              <div className="awc-pillar"><span className="awc-pillar__dot"></span><span className="awc-pillar__label">Infrastructure-first engineering approach</span></div>
+              <div className="awc-pillar"><span className="awc-pillar__dot"></span><span className="awc-pillar__label">Scalable cloud architecture expertise</span></div>
+              <div className="awc-pillar"><span className="awc-pillar__dot"></span><span className="awc-pillar__label">Performance monitoring frameworks</span></div>
+              <div className="awc-pillar"><span className="awc-pillar__dot"></span><span className="awc-pillar__label">Governance-driven cloud management</span></div>
+              <div className="awc-pillar"><span className="awc-pillar__dot"></span><span className="awc-pillar__label">Enterprise reliability standards</span></div>
+              <div className="awc-pillar"><span className="awc-pillar__dot"></span><span className="awc-pillar__label">Long-term cloud partnership model</span></div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="r-bg-x sec-pad">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-lg-7 text-center">
-              <div className="page-headings">
-                <h3>Frequently Asked Questions</h3>
-                <div className="accordion">
-                  <div className="accordion-item">
-                    <button id="accordion-button-1" aria-expanded="false">
-                      <span className="accordion-title">What are Amazon AWS Cloud Services?</span>
-                      <span className="icon" aria-hidden="true"></span>
-                    </button>
-                    <div className="accordion-content">
-                      <p>Amazon provides a full range of cloud-based infrastructure services under the AWS Cloud Service brand. It offers companies an adaptable, scalable, and safe platform for developing, implementing, and overseeing services and applications. With AWS, organizations can easily access a wide range of computing resources, including servers, databases, networking tools and much more.</p>
-                    </div>
-                  </div>
-                  <div className="accordion-item">
-                    <button id="accordion-button-2" aria-expanded="false">
-                      <span className="accordion-title">What are the 3 types of cloud services AWS has?</span>
-                      <span className="icon" aria-hidden="true"></span>
-                    </button>
-                    <div className="accordion-content">
-                      <p>AWS offers three main types of cloud services</p>
-                      <p>Infrastructure as a Service (IaaS): Provides virtualized computing resources over the internet. Users can rent virtual servers, storage, and networking infrastructure from AWS without managing physical hardware.</p>
-                      <p>Platform as a Service (PaaS): Offers a platform allowing developers to build, deploy, and manage applications without dealing with underlying infrastructure. AWS Elastic Beanstalk and AWS Lambda are examples of PaaS offerings.</p>
-                      <p>Software as a Service (SaaS): Delivers fully functional applications over the internet on a subscription basis. Examples include Amazon WorkMail, Amazon Chime, and Amazon Connect.</p>
-                    </div>
-                  </div>
-                  <div className="accordion-item">
-                    <button id="accordion-button-3" aria-expanded="false">
-                      <span className="accordion-title">What are the top 3 Cloud Providers?</span>
-                      <span className="icon" aria-hidden="true"></span>
-                    </button>
-                    <div className="accordion-content">
-                      <p>AWS, also known as Amazon Cloud Services stands out as the cloud platform that provides a suite of services encompassing compute power, storage options and databases. Its global infrastructure and scalability features enable businesses to swiftly and securely deploy applications.</p>
-                      <p>Another major player in the cloud market is Google Cloud Services (GCP) which offers an array of tools for application development and data analytics pipeline management.</p>
-                      <p>Microsoft Azure offers a range of services including virtual machines, storage solutions, AI tools and more. Azure empowers businesses with flexibility in terms of deployment models.</p>
-                    </div>
-                  </div>
-                  <div className="accordion-item">
-                    <button id="accordion-button-4" aria-expanded="false">
-                      <span className="accordion-title">What are AWS tools?</span>
-                      <span className="icon" aria-hidden="true"></span>
-                    </button>
-                    <div className="accordion-content">
-                      <p>To assist users in managing and optimising their cloud infrastructure, AWS offers many tools and services. AWS Management Console, AWS Elastic Load Balancing (ELB), AWS Auto Scaling, AWS CloudWatch for monitoring, AWS Software Development Kits (SDKs), and many more.</p>
-                    </div>
-                  </div>
-                  <div className="accordion-item">
-                    <button id="accordion-button-5" aria-expanded="false">
-                      <span className="accordion-title">What is the difference between AWS and other cloud service providers?</span>
-                      <span className="icon" aria-hidden="true"></span>
-                    </button>
-                    <div className="accordion-content">
-                      <p>AWS is unique among cloud service providers due to its wide range of services, global infrastructure, market domination, and maturity. Other notable providers include Microsoft Azure and Google Cloud Platform. AWS serves millions of clients globally and provides the most features and services.</p>
-                    </div>
-                  </div>
-                </div>
+      {/* ===== INDUSTRIES ===== */}
+      <section className="awc-industries">
+        <div className="awc-container">
+          <h2 className="awc-industries__title awc-animate">
+            Industries Leveraging Our <span className="awc-text-accent">AWS Expertise</span>
+          </h2>
+          <div className="awc-industries__grid awc-stagger">
+            <div className="awc-industry awc-animate--scale"><span className="awc-industry__icon">💻</span><h4 className="awc-industry__title">SaaS &amp; Product Companies</h4></div>
+            <div className="awc-industry awc-animate--scale"><span className="awc-industry__icon">🛒</span><h4 className="awc-industry__title">Digital Commerce</h4></div>
+            <div className="awc-industry awc-animate--scale"><span className="awc-industry__icon">💳</span><h4 className="awc-industry__title">Financial Technology</h4></div>
+            <div className="awc-industry awc-animate--scale"><span className="awc-industry__icon">🏢</span><h4 className="awc-industry__title">Enterprise Systems</h4></div>
+            <div className="awc-industry awc-animate--scale"><span className="awc-industry__icon">🏥</span><h4 className="awc-industry__title">Healthcare Technology</h4></div>
+            <div className="awc-industry awc-animate--scale"><span className="awc-industry__icon">🚀</span><h4 className="awc-industry__title">Startups &amp; Scale-ups</h4></div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== TECH ===== */}
+      <section className="awc-tech">
+        <div className="awc-container">
+          <div className="awc-tech__grid">
+            <div className="awc-tech__content awc-animate--left">
+              <h2 className="awc-tech__heading">
+                AWS <span className="awc-text-accent">Technology Stack</span>
+              </h2>
+              <p className="awc-tech__text">
+                Our engineers work across the complete AWS ecosystem. We also integrate with <a href="/best-iot-development-company-in-india" style={{color: "#e8a025", textDecoration: "none"}}>IoT platforms</a> and <a href="/machine-learning-development-company" style={{color: "#e8a025", textDecoration: "none"}}>ML services</a>.
+              </p>
+              <div className="awc-tech__tags">
+                <span className="awc-tag">EC2</span>
+                <span className="awc-tag">S3</span>
+                <span className="awc-tag">RDS</span>
+                <span className="awc-tag">Lambda</span>
+                <span className="awc-tag">CloudFront</span>
+                <span className="awc-tag">ECS / EKS</span>
+                <span className="awc-tag">VPC</span>
+                <span className="awc-tag">IAM</span>
+                <span className="awc-tag">Route 53</span>
+                <span className="awc-tag">SageMaker</span>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="sec-pad r-bg-a">
-        <div className="container">
-          <div className="ree">
-            <div className="row">
-              <div className="col-lg-6 vcenter">
-                <div className="cta-heading">
-                  <span className="sub-heading mb15">Contact Us</span>
-                  <h3>Have a <span className="ree-text rt40">project</span> in mind? Let&apos;s get to chat.</h3>
-                  <a href="/contact-us" className="ree-btn ree-btn-grdt1 mt40 mr20"><i className="fas fa-user fb-bigon"></i> Contact </a>
-                  <a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" className="ree-btn whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i> Whatsapp </a>
-                </div>
-              </div>
-              <div className="col-lg-6 vcenter text-center">
-                <div className="sol-img-png">
-                  <img src="/images/cta/let's-get-to-chat-aws.svg" alt="Best Cloud Service providers in Hyderabad" className="img-fluid" />
-                </div>
-              </div>
+            <div className="awc-tech__stats awc-animate--right">
+              <div className="awc-stat awc-stat--dark"><span className="awc-stat__number">50+</span><span className="awc-stat__label">AWS Services</span></div>
+              <div className="awc-stat awc-stat--dark"><span className="awc-stat__number">120+</span><span className="awc-stat__label">Deployments</span></div>
+              <div className="awc-stat awc-stat--dark"><span className="awc-stat__number">99.9%</span><span className="awc-stat__label">Uptime</span></div>
+              <div className="awc-stat awc-stat--dark"><span className="awc-stat__number">24/7</span><span className="awc-stat__label">Monitoring</span></div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* ===== FAQ ===== */}
+      <section className="awc-faq">
+        <div className="awc-container">
+          <div className="awc-faq__wrapper">
+            <h3 className="awc-faq__heading awc-animate">Frequently Asked <span className="awc-text-accent">Questions</span></h3>
+            <p className="awc-faq__subtext">Everything you need to know about our AWS services</p>
+            <div className="awc-faq__list">
+              <details className="awc-faq__item"><summary className="awc-faq__question"><span>What does an Amazon Web Services company provide?</span><span className="awc-faq__chevron"></span></summary><div className="awc-faq__answer"><p>An AWS company designs and manages scalable, secure, and resilient infrastructure using AWS cloud technologies.</p></div></details>
+              <details className="awc-faq__item"><summary className="awc-faq__question"><span>How is AWS different from traditional hosting?</span><span className="awc-faq__chevron"></span></summary><div className="awc-faq__answer"><p>AWS offers on-demand scalability, global infrastructure, managed services, and high availability compared to traditional hosting models.</p></div></details>
+              <details className="awc-faq__item"><summary className="awc-faq__question"><span>Can AWS support enterprise applications?</span><span className="awc-faq__chevron"></span></summary><div className="awc-faq__answer"><p>Yes. AWS supports enterprise-grade applications with distributed infrastructure, compliance controls, and global deployment capability.</p></div></details>
+              <details className="awc-faq__item"><summary className="awc-faq__question"><span>Do you provide cloud governance and optimization?</span><span className="awc-faq__chevron"></span></summary><div className="awc-faq__answer"><p>Yes. We implement monitoring, governance frameworks, and performance optimization strategies for continuous improvement.</p></div></details>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== CTA ===== */}
+      <section className="awc-cta">
+        <div className="awc-container">
+          <div className="awc-cta__inner awc-animate--scale">
+            <h2 className="awc-cta__heading">Ready to <span className="awc-text-accent">Modernize Your Infrastructure</span>?</h2>
+            <p className="awc-cta__text">Let&apos;s discuss how AWS can transform your infrastructure into a competitive advantage.</p>
+            <a className="awc-cta__button js-open-modal" style={{cursor: "pointer"}}>Get a Free Consultation</a>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

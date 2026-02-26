@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- ============================= -->
+  <!-- CORE PAGES                    -->
+  <!-- ============================= -->
+  <url><loc>https://www.mtouchlabs.com</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.mtouchlabs.com/about</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/services</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.mtouchlabs.com/portfolio</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/careers</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/contact-us</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.mtouchlabs.com/blog</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/case-studies</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- ============================= -->
+  <!-- COMPANY PAGES                 -->
+  <!-- ============================= -->
+  <url><loc>https://www.mtouchlabs.com/company-overview</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/vision-mission</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/our-journey</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/leadership-team</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/awards-recognition</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/nasscom-membership</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- ============================= -->
+  <!-- LEGAL PAGES                   -->
+  <!-- ============================= -->
+  <url><loc>https://www.mtouchlabs.com/privacy-policy</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/terms-and-conditions</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/refundpolicy</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- ============================= -->
+  <!-- IT SERVICES & DIGITAL TRANSFORMATION -->
+  <!-- ============================= -->
+  <url><loc>https://www.mtouchlabs.com/it-services-digital-transformation-company</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- ============================= -->
+  <!-- MOBILE APP DEVELOPMENT        -->
+  <!-- ============================= -->
+  <url><loc>https://www.mtouchlabs.com/mobile-app-development-company</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.mtouchlabs.com/android-app-development-company</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/ios-app-development-company</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/ipad-app-development-company</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/hybrid-app-development-company</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/native-app-development-company</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/flutter-app-development-company</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/react-native-app-development-company</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/cross-platform-app-development-company</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/progressive-web-app-development-company-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- ============================= -->
+  <!-- WEB DEVELOPMENT               -->
+  <!-- ============================= -->
+  <url><loc>https://www.mtouchlabs.com/web-development-company</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.mtouchlabs.com/web-design-company</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- ============================= -->
+  <!-- SOFTWARE DEVELOPMENT          -->
+  <!-- ============================= -->
+  <url><loc>https://www.mtouchlabs.com/custom-software-development-company</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.mtouchlabs.com/custom-cms-development-company-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/enterprise-application-development-company</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- ============================= -->
+  <!-- PHP / CMS / ECOMMERCE         -->
+  <!-- ============================= -->
+  <url><loc>https://www.mtouchlabs.com/php-development-company</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/wordpress-development-company</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/shopify-development-company-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/woocommerce-development-company-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/magento-development-company-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/ecommerce-app-development-company</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- ============================= -->
+  <!-- UI/UX DESIGN SERVICES         -->
+  <!-- ============================= -->
+  <url><loc>https://www.mtouchlabs.com/ui-ux-design-company</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.mtouchlabs.com/mobile-app-design-company</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/product-design-services</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/ux-research-services</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/design-system-development</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- ============================= -->
+  <!-- DIGITAL MARKETING SERVICES    -->
+  <!-- ============================= -->
+  <url><loc>https://www.mtouchlabs.com/digital-marketing-solutions</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.mtouchlabs.com/seo-services</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/ppc-advertising-services</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/app-store-optimization-services</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/conversion-rate-optimization-services</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/content-marketing-services</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/email-marketing-services</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/social-media-marketing-services</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/performance-marketing-services</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <!-- Old marketing URLs (keep for redirect coverage) -->
+  <url><loc>https://www.mtouchlabs.com/digital-marketing-company</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.mtouchlabs.com/seo-services-company</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.mtouchlabs.com/ppc-management-services-company</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.mtouchlabs.com/social-media-marketing-company-in-india</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.mtouchlabs.com/app-store-optimization-services-company</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+
+  <!-- ============================= -->
+  <!-- AI / ML / DATA SCIENCE        -->
+  <!-- ============================= -->
+  <url><loc>https://www.mtouchlabs.com/machine-learning-development-company</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.mtouchlabs.com/generative-ai-development-company</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.mtouchlabs.com/data-science-solutions</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <!-- Old data science URL (keep for redirect coverage) -->
+  <url><loc>https://www.mtouchlabs.com/empowering-businesses-with-data-science</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+
+  <!-- ============================= -->
+  <!-- CLOUD SERVICES                -->
+  <!-- ============================= -->
+  <url><loc>https://www.mtouchlabs.com/cloud-services</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.mtouchlabs.com/cloud-migration-services</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/cloud-managed-services</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/cloud-security-services</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/aws-cloud-services</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <!-- Old AWS URLs (redirect to /aws-cloud-services) -->
+  <url><loc>https://www.mtouchlabs.com/amazon-web-services-company</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+
+  <!-- ============================= -->
+  <!-- DEVOPS SERVICES               -->
+  <!-- ============================= -->
+  <url><loc>https://www.mtouchlabs.com/devops-services</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/devops-consulting-services</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- ============================= -->
+  <!-- CYBERSECURITY                 -->
+  <!-- ============================= -->
+  <url><loc>https://www.mtouchlabs.com/cyber-security-services-company</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- ============================= -->
+  <!-- IOT DEVELOPMENT               -->
+  <!-- ============================= -->
+  <url><loc>https://www.mtouchlabs.com/best-iot-development-company-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- ============================= -->
+  <!-- SALESFORCE SERVICES           -->
+  <!-- ============================= -->
+  <url><loc>https://www.mtouchlabs.com/salesforce-consulting-services-company</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/salesforce-implementation-services</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/salesforce-lightning-migration-development</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/salesforce-integration-services</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/salesforce-sales-cloud-services</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- ============================= -->
+  <!-- APP MAINTENANCE & SUPPORT     -->
+  <!-- ============================= -->
+  <url><loc>https://www.mtouchlabs.com/app-maintenance-support-services</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- ============================= -->
+  <!-- 360 PHOTOGRAPHY               -->
+  <!-- ============================= -->
+  <url><loc>https://www.mtouchlabs.com/360-degree-photography-services-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- ============================= -->
+  <!-- ON-DEMAND / INDUSTRY APPS     -->
+  <!-- ============================= -->
+  <url><loc>https://www.mtouchlabs.com/on-demand-products-development-company-hyderabad</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/food-delivery-app-development-service</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/grocery-delivery-app-development-company</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/taxi-booking-app-development-company</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/car-wash-app-development-company</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/hotel-booking-app-development-company</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/real-estate-app-development-company</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/tickets-booking-app-development-company</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/e-learning-app-development-company</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/online-shopping-app-development-company</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/ott-app-development-company</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/social-media-app-development-company</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/sports-and-fitness-app-development-company</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/gaming-apps-development-company</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/diagnostic-app-development-company</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/multi-vendor-marketplace-app-builder</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- ============================= -->
+  <!-- HIRE DEVELOPERS               -->
+  <!-- ============================= -->
+  <url><loc>https://www.mtouchlabs.com/hire-developers-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/hire-dedicated-developers-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/hire-android-app-developers-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/hire-ios-app-developers-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/hire-ipad-developers-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/hire-flutter-app-developers-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/hire-react-native-app-developers-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/hire-hybrid-app-developers-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/hire-native-app-developers-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/hire-mobile-app-developers-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/hire-mobile-app-designers-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/hire-pwa-developers-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/hire-web-developers-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/hire-fullstack-developers-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/hire-react-developers-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/hire-angular-developers-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/hire-vue-js-developers-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/hire-node-js-developers-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/hire-javascript-developers-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/hire-php-developers-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/hire-laravel-developers-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/hire-mean-stack-developers-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/hire-mern-stack-developers-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/hire-swift-developers-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/hire-wordpress-developers-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/hire-shopify-developers-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/hire-woocommerce-developers-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/hire-magento-developers-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/hire-custom-cms-developers-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/hire-custom-software-developers-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/hire-aws-developers-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/hire-salesforce-developers-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/hire-ui-ux-designers-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/hire-quality-analyst-developers-in-india</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- ============================= -->
+  <!-- LOCATION PAGES                -->
+  <!-- ============================= -->
+  <url><loc>https://www.mtouchlabs.com/best-mobile-app-development-company-in-usa</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/best-mobile-app-development-company-in-canada</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/top-mobile-app-development-company-in-hyderabad</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/top-mobile-app-development-company-in-bangalore</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/top-mobile-app-development-company-in-chennai</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/top-mobile-app-development-company-in-coimbatore</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/top-mobile-app-development-company-in-kochi</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/top-mobile-app-development-company-in-dubai</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/top-mobile-app-development-company-in-kuwait</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/top-mobile-app-development-company-in-qatar</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/top-mobile-app-development-company-in-australia</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mtouchlabs.com/top-mobile-app-development-company-in-uk</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+</urlset>

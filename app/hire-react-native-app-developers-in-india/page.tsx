@@ -34,7 +34,7 @@ export default function Page() {
 							React Native developers from mTouchlabs to create top-notch
 							cross-platform mobile apps for startups and enterprises</p>
 						<a href="/contact-us" className="ree-btn  ree-btn-grdt1 mt40" data-aos="fade-up"
-							data-aos-delay="800">Let’s discuss <i className="fas fa-arrow-right fa-btn"></i></a>
+							data-aos-delay="800">Let's discuss <i className="fas fa-arrow-right fa-btn"></i></a>
 					</div>
 				</div>
 				<div className="col-lg-6">
@@ -126,7 +126,7 @@ export default function Page() {
 								Native
 								<span className="ree-text rt40"> Developers from </span>
 								<span className="ree-text rt40"> mTouch Labs Provide
-									?</span>
+									</span>
 							</h2>
 							<p>mTouchlabs offers a variety of mobile app development
 								services, with accurate and adorable results. Hire React
@@ -322,7 +322,7 @@ export default function Page() {
 							
 							<div className="accordion-item">
 								<button id="accordion-button-1" aria-expanded="false">
-									<span className="accordion-title"> What does it mean to hire React Native app developers in India?
+									<span className="accordion-title"> What does it mean to hire React Native app developers in India
 
 
  
@@ -332,13 +332,14 @@ export default function Page() {
 								<div className="accordion-content">
 									<p>
 It means hiring specialists skilled in React Native to build cross-platform mobile apps for both iOS and Android.
+</p>
 								</div>
 							</div>
 
 							
 							<div className="accordion-item">
 								<button id="accordion-button-2" aria-expanded="false">
-									<span className="accordion-title">Why should I hire React Native developers instead of native developers?
+									<span className="accordion-title">Why should I hire React Native developers instead of native developers
 
 
 </span>
@@ -357,7 +358,7 @@ React Native developers can build apps for multiple platforms using a single cod
 								<button id="accordion-button-3" aria-expanded="false">
 									<span className="accordion-title"> What skills should a React Native app developer have
 
-?
+
 
 </span>
 									<span className="icon" aria-hidden="true"></span>
@@ -374,14 +375,14 @@ They should be proficient in React Native, JavaScript, mobile UI/UX, API integra
 								<button id="accordion-button-4" aria-expanded="false">
 									<span className="accordion-title">How long does React Native app development usually take
 
-?
+
 
 </span>
 									<span className="icon" aria-hidden="true"></span>
 								</button>
 								<div className="accordion-content">
 									<p>
-Typically 8–16 weeks, depending on app features and complexity.
+Typically 8-16 weeks, depending on app features and complexity.
 
 									</p>
 								</div>
@@ -390,7 +391,7 @@ Typically 8–16 weeks, depending on app features and complexity.
 							
 							<div className="accordion-item">
 								<button id="accordion-button-5" aria-expanded="false">
-									<span className="accordion-title"> Can I hire React Native developers for long-term projects ?
+									<span className="accordion-title"> Can I hire React Native developers for long-term projects 
 
 </span>
 									<span className="icon" aria-hidden="true"></span>
@@ -427,7 +428,7 @@ Yes, mTouch Labs offers flexible full-time and long-term hiring models.
 						<div className="cta-heading">
 							<span className="sub-heading mb15">Contact Us</span>
 							<h3>Need any <span className="ree-text rt40"> React Native App
-								</span> Developers? Let's get to chat.</h3>
+								</span> Developers Let's get to chat.</h3>
 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 									className="fas fa-user fb-bigon"></i> Contact </a>
 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"

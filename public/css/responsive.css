@@ -6176,3 +6176,1285 @@ File Description: Responsive css of template*/
         transform: rotateX(-90deg) translateZ(30px);
     }
 }
+
+/* ============================================================
+   RESPONSIVE FIXES — mTouch Labs Next.js Project
+   ============================================================
+   Add this file AFTER your existing responsive.css in layout.tsx:
+   
+   import "../responsive.css";
+   import "../responsive-fixes.css";  // <-- add this line
+   
+   Then check in browser:
+   1. Open Chrome DevTools (F12 or Ctrl+Shift+I)
+   2. Click the "Toggle device toolbar" icon (Ctrl+Shift+M)
+   3. Test at these widths: 375px, 480px, 768px, 1024px, 1150px
+   ============================================================ */
+
+
+/* ==============================================
+   1. TOP BAR — Hide on tablets, compact on small desktop
+   ============================================== */
+
+/* Compact the top bar on medium screens */
+@media (max-width: 1200px) {
+  .top-header {
+    font-size: 12px;
+  }
+
+  .top-header .left_header_nav span {
+    font-size: 11px;
+  }
+}
+
+/* Hide on tablets and below — not needed on mobile */
+
+
+/* ==============================================
+   2. HEADER / NAVBAR — Sticky + mobile fixes
+   ============================================== */
+
+/* 
+   CRITICAL FIX: home-mega-menu.css sets .ree-nav { display: flex !important }
+   which overrides the responsive hide. We need !important to win back.
+*/
+@media (max-width: 1150px) {
+  .ree-nav {
+    display: none !important;
+  }
+
+  .ree-header {
+    padding: 0;
+  }
+
+  .menu-header {
+    padding: 8px 15px;
+  }
+
+  /* Make logo smaller on mobile */
+  .menu-logo .nav-brand img {
+    max-height: 40px;
+    width: auto;
+  }
+
+  /* Hide desktop "Request Quote" button */
+  .nav-right-btn {
+    display: none !important;
+  }
+
+  /* Show mobile menu button */
+  .mobile-menu2 {
+    display: flex !important;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+/* Make sure mobile nav is full screen and scrollable */
+@media (max-width: 1150px) {
+  #main-nav {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #main-nav ul li a {
+    padding: 12px 16px;
+    font-size: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+}
+
+
+/* ==============================================
+   2b. HERO SECTION — Full width on mobile
+   ============================================== */
+
+/* Hero section — full width on ALL screens */
+.hero-wrapper {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.hero-wrapper > div {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.hero-wrapper video,
+.hero-wrapper img {
+  width: 100% !important;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+/* Force body and main wrappers to not restrict hero */
+body.home-page {
+  overflow-x: hidden;
+}
+
+/* Remove any container padding that clips the hero */
+.hero-wrapper .container,
+.hero-wrapper .container-fluid {
+  max-width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+@media (max-width: 768px) {
+  .hero-wrapper {
+    min-height: 250px;
+  }
+
+  .hero-wrapper video {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  object-fit: cover !important;
+  object-position: center 70% !important;
+  display: block !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+
+  /* Hero content — center on mobile */
+  .hero-content,
+  .hero-content-a,
+  .hero-content-pp,
+  .Newhome_page_herosection {
+    text-align: center;
+    padding: 0 16px;
+  }
+
+  /* Hero text sizing */
+  .hero-wrapper h1,
+  .Newhome_page_herosection h1 {
+    font-size: 28px;
+    line-height: 38px;
+  }
+
+  .hero-wrapper p,
+  .Newhome_page_herosection p {
+    font-size: 15px;
+    line-height: 24px;
+  }
+
+  /* Slide hero — full width */
+  .slide-hero {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-wrapper h1,
+  .Newhome_page_herosection h1 {
+    font-size: 24px;
+    line-height: 34px;
+  }
+
+  .hero-wrapper {
+    min-height: 200px;
+  }
+}
+
+/* TopBar — compact on mobile */
+@media (max-width: 768px) {
+  .top-header {
+    display: flex !important;
+    flex-wrap: wrap;
+    padding: 5px 10px;
+    font-size: 11px;
+    gap: 0;
+  }
+
+  .left_header_nav {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    font-size: 11px;
+  }
+
+  .left_header_nav span {
+    font-size: 11px;
+  }
+
+  .right_header_nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    font-size: 11px;
+    padding: 3px 0;
+  }
+
+  .right_header_nav p {
+    margin: 0;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .left_header_nav span {
+    font-size: 10px;
+  }
+
+  .right_header_nav {
+    font-size: 10px;
+  }
+
+  .flag-icon {
+    width: 14px;
+    height: 10px;
+  }
+}
+/* ==============================================
+   3. FOOTER — Responsive grid + locations + certs
+   ============================================== */
+
+/* Footer main grid — 2 columns on tablet */
+@media (max-width: 992px) and (min-width: 769px) {
+  .transforming-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+}
+
+/* Footer — single column on mobile (already exists, reinforcing) */
+@media (max-width: 768px) {
+  .transforming-grid {
+    grid-template-columns: 1fr !important;
+    gap: 30px;
+  }
+
+  .transforming-column {
+    text-align: center;
+  }
+
+  .transforming-column ul {
+    padding: 0;
+    list-style: none;
+  }
+
+  .transforming-column h3 {
+    margin-bottom: 12px;
+  }
+
+  /* Map iframe responsive */
+  .iframe-container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .iframe-container iframe {
+    width: 100% !important;
+    height: 200px !important;
+  }
+}
+
+/* Locations grid — responsive */
+@media (max-width: 992px) {
+  .transforming-locations .locations-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .location-item {
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .transforming-locations .locations-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .location-item {
+    width: 100%;
+  }
+
+  .location-item-div {
+    justify-content: center;
+  }
+
+  /* Remove inline marginTop hacks on mobile */
+  .location-item[style],
+  .location-item-div[style] {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+}
+
+/* Footer certificates — stack on mobile */
+@media (max-width: 768px) {
+  .transforming-certificates {
+    flex-direction: column !important;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .transforming-certificates-one {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .transforming-certificates-img {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .transforming-certificates-img .img {
+    max-height: 50px;
+    width: auto;
+  }
+
+  .transforming-certificates-icons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .transforming-certificates-icons .social-linkz {
+    justify-content: center;
+    gap: 12px;
+  }
+}
+
+/* Footer brochure button — full width on mobile */
+@media (max-width: 576px) {
+  .transforming-brochure {
+    width: 100%;
+    text-align: center;
+  }
+
+  .transforming-content .newsletter-text-section h2 {
+    font-size: 22px;
+    line-height: 1.3;
+  }
+}
+
+
+/* ==============================================
+   4. MEGA MENU — Desktop refinements
+   ============================================== */
+
+/* On screens where mega menu shows but is tight */
+@media (max-width: 1400px) and (min-width: 1151px) {
+  .home-mega-sidebar {
+    min-width: 280px;
+    max-width: 300px;
+  }
+
+  .home-mega-cta {
+    min-width: 230px;
+    max-width: 250px;
+  }
+
+  .home-mega-content {
+    padding: 20px 24px;
+  }
+
+  .home-mega-item-desc {
+    font-size: 11px;
+  }
+
+  .home-mega-panel .menu-li-link li a .mega-link-desc {
+    font-size: 11px;
+  }
+}
+
+
+/* ==============================================
+   5. GLOBAL — Common responsive utilities
+   ============================================== */
+
+/* Prevent horizontal overflow everywhere */
+html, body {
+  overflow-x: hidden;
+}
+/* Images responsive only on mobile */
+@media (max-width: 768px) {
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Fluid containers */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* Reduce section padding on mobile */
+  .sec-pad {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  /* Stack all 2-column layouts */
+  .row {
+    margin-left: -8px;
+    margin-right: -8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  /* Smaller section padding on small phones */
+  .sec-pad {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
+
+/* ==============================================
+   6. COMMON SECTION PATTERNS — Reusable fixes
+   ============================================== */
+
+/* Any 2-column grid section → stack on tablet */
+@media (max-width: 992px) {
+  .col-lg-6,
+  .col-lg-7,
+  .col-lg-5 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  /* Center text on stacked layouts */
+  .m-order1 { order: 1; }
+  .m-order2 { order: 2; }
+}
+
+/* Buttons — full width on small mobile */
+@media (max-width: 480px) {
+  .ree-btn,
+  .ree-btn-grdt1,
+  .ree-btn-grdt2 {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* Button groups stack */
+  .btn-sets,
+  .btn-sets2,
+  .cta-btns,
+  .cta-new-btns {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .cta-btns .btn,
+  .cta-new-btns .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
+/* ==============================================
+   7. HOMEPAGE-SPECIFIC FIXES
+   ============================================== */
+
+/* Hero section padding on mobile */
+@media (max-width: 768px) {
+  .slide-hero,
+  .Newhome_page_herosection {
+    padding: 80px 16px 60px;
+    min-height: auto;
+  }
+}
+
+/* Logo scroll — prevent overflow */
+@media (max-width: 768px) {
+  .Home-new-logo-scroll-container {
+    overflow: hidden;
+    width: 100%;
+  }
+}
+
+
+/* ==============================================
+   8. CONTACT PAGE FIXES
+   ============================================== */
+
+@media (max-width: 768px) {
+  .new_contact_form_section {
+    padding: 20px 16px;
+  }
+
+  .contact_faq_wrapper {
+    padding: 3rem 16px;
+  }
+}
+
+
+/* ==============================================
+   9. SERVICES / ABOUT / BLOG PAGE FIXES
+   ============================================== */
+
+/* Service cards — stack on tablet */
+@media (max-width: 992px) {
+  .service-card-grid,
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* Blog cards — 2 columns on tablet, 1 on mobile */
+@media (max-width: 992px) {
+  .blog-block .col-lg-4 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 576px) {
+  .blog-block .col-lg-4,
+  .blog-block .col-sm-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+
+/* ==============================================
+   10. CHAT WIDGET — Already responsive, minor fix
+   ============================================== */
+
+@media (max-width: 360px) {
+  .cw-panel {
+    right: 5px;
+    left: 5px;
+    max-height: 420px;
+  }
+
+  .cw-wrapper {
+    right: 10px;
+    bottom: 10px;
+  }
+
+  .cw-bubble {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+
+/* ==============================================
+   11. CASE STUDY PAGE FIXES
+   ============================================== */
+
+@media (max-width: 768px) {
+  .case-study-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .case-study-hero {
+    padding: 80px 16px 40px;
+    min-height: auto;
+  }
+}
+
+
+/* ==============================================
+   12. PRINT STYLES (bonus)
+   ============================================== */
+
+@media print {
+  .ree-header,
+  .top-header,
+  .cw-wrapper,
+  .transforming-footer {
+    display: none !important;
+  }
+}
+
+/* ===== HERO VIDEO RESPONSIVE ===== */
+.hero-wrapper video {
+  object-fit: cover !important;
+  width: 100% !important;
+}
+
+@media (max-width: 768px) {
+  .hero-wrapper {
+    height: auto !important;
+    top: 0px !important;
+  }
+  .hero-wrapper video {
+    height: auto !important;
+    object-fit: cover !important;
+  }
+}
+
+/* ===== SERVICES PAGE — Mobile Fixes ===== */
+@media (max-width: 1024px) {
+  .services_hero_content,
+  .services_leading_content,
+  .services_design_header,
+  .services_design_image_col,
+  .services_dev_header,
+  .dev_tabs_container,
+  .services_mkt_text_col {
+    margin-left: 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .services_new_hero {
+    padding: 60px 20px !important;
+    background-size: cover !important;
+    background-position: center !important;
+  }
+  .services_hero_content {
+    max-width: 100% !important;
+    padding-left: 0 !important;
+  }
+  .services_hero_title {
+    font-size: 1.8rem !important;
+    line-height: 1.3 !important;
+  }
+  .services_hero_description {
+    font-size: 0.95rem !important;
+  }
+  .services_leading_wrapper {
+    flex-direction: column !important;
+    gap: 30px !important;
+  }
+  .services_leading_content,
+  .services_leading_image {
+    max-width: 100% !important;
+  }
+  .services_leading_title {
+    font-size: 1.6rem !important;
+  }
+  .services_stats_grid {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .services_stat_card {
+    width: 100%;
+  }
+  .services_design_header {
+    flex-direction: column !important;
+    gap: 15px;
+  }
+  .services_design_grid {
+    flex-direction: column !important;
+    gap: 30px !important;
+  }
+  .services_design_image_col,
+  .services_design_list_col {
+    max-width: 100% !important;
+  }
+  .services_design_title {
+    font-size: 1.6rem !important;
+  }
+  .design_service_main_img {
+    width: 100% !important;
+    border-radius: 20px 0 20px 0 !important;
+  }
+  .services_dev_header {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+  }
+  .services_dev_title {
+    font-size: 1.6rem !important;
+  }
+  .dev_tabs_container {
+    justify-content: center;
+    gap: 10px !important;
+  }
+  .dev_tab_btn {
+    padding: 8px 18px !important;
+    font-size: 0.85rem !important;
+  }
+  .dev_content_wrapper {
+    flex-direction: column-reverse !important;
+    gap: 30px !important;
+  }
+  .dev_text_content,
+  .dev_image_content {
+    max-width: 100% !important;
+  }
+  .services_mkt_main_grid {
+    flex-direction: column !important;
+    gap: 30px !important;
+  }
+  .services_mkt_text_col {
+    max-width: 100% !important;
+    padding-right: 0 !important;
+    text-align: center;
+  }
+  .services_mkt_title {
+    font-size: 1.6rem !important;
+  }
+  .services_mkt_subtitle {
+    font-size: 1rem !important;
+  }
+  .services_mkt_cards_grid {
+    grid-template-columns: 1fr !important;
+  }
+  .mkt_service_card h3 {
+    font-size: 1.1rem !important;
+    line-height: 1.5 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .services_hero_title {
+    font-size: 1.5rem !important;
+  }
+  .services_leading_title,
+  .services_design_title,
+  .services_dev_title,
+  .services_mkt_title {
+    font-size: 1.4rem !important;
+  }
+}
+
+/* Industries section — fix left clipping */
+@media (max-width: 1024px) {
+  .industries-container,
+  .industries-text-col,
+  .industries-grid-col,
+  .industries .container {
+    margin-left: 0 !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .industries-container {
+    flex-direction: column !important;
+    gap: 30px !important;
+  }
+  .industries-text-col,
+  .industries-grid-col {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  .industries .section-title {
+    font-size: 1.5rem !important;
+  }
+  .industries-description p {
+    font-size: 0.9rem !important;
+  }
+}
+
+/* ===== PRODUCTS PAGE — Mobile Fixes ===== */
+@media (max-width: 1024px) {
+  .product-hero-text {
+    margin-left: 0 !important;
+  }
+  .product-hero-highlight {
+    transform: translateX(0) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-header {
+    height: auto !important;
+    min-height: 350px;
+    padding: 20px !important;
+    background-size: cover !important;
+    background-position: center !important;
+    text-align: center;
+  }
+  .product-hero-title {
+    font-size: 24px !important;
+    letter-spacing: 1px !important;
+  }
+  .product-hero-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .product-hero-highlight {
+    font-size: 32px !important;
+    color: #facc15 !important;
+  }
+  .product-arrow-gif {
+    width: 100px !important;
+    height: auto !important;
+  }
+  .product-container-one {
+    flex-direction: column !important;
+    padding: 20px !important;
+    gap: 20px !important;
+  }
+  .product-container-one-content,
+  .product-container-one-img {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  .phases-container {
+    flex-direction: column !important;
+  }
+  .phases-nav {
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    gap: 8px !important;
+  }
+  .product-container-four-container {
+    flex-direction: column !important;
+  }
+  .product-container-five-cards {
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-hero-title {
+    font-size: 20px !important;
+  }
+  .product-hero-highlight {
+    font-size: 26px !important;
+  }
+}
+
+/* ===== CAREERS PAGE — Mobile Fixes ===== */
+@media (max-width: 768px) {
+  .career-hero-content-wrapper {
+    flex-direction: column !important;
+    text-align: center !important;
+    padding: 60px 20px 50px !important;
+  }
+  .career-hero-text {
+    max-width: 100% !important;
+    text-align: center !important;
+  }
+  .career-hero-desc {
+    max-width: 100% !important;
+    margin: 0 auto !important;
+  }
+  .career-hero-img-space {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .career-hero-text h1 {
+    font-size: 24px !important;
+    line-height: 34px !important;
+  }
+  .career-hero-desc {
+    font-size: 14px !important;
+    line-height: 24px !important;
+  }
+}
+
+/* ===== GLOBAL NAVBAR BACKGROUND ===== */
+header.ree-header,
+header.ree-header.fixed-top,
+header.ree-header.sticky,
+header.ree-header.sticky1 {
+  background: #000 !important;
+  backdrop-filter: none !important;
+}
+
+/* ===== FIX NAVBAR HEIGHT ON MOBILE ===== */
+@media (max-width: 768px) {
+  header.ree-header {
+    min-height: auto !important;
+    height: auto !important;
+  }
+  .menu-header {
+    padding: 8px 15px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-header {
+    padding: 6px 12px !important;
+  }
+}
+
+/* ===== GLOBAL HEADER SPACER ===== */
+/* Desktop: no spacer needed — heroes are designed to go behind fixed navbar */
+.header-spacer {
+  height: 0px;
+}
+
+/* Mobile: spacer pushes content below compact navbar */
+@media (max-width: 1150px) {
+  .header-spacer {
+    height: 110px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-spacer {
+    height: 105px;
+  }
+}
+
+/* ===== CONTACT HERO — pull up to sit behind navbar on mobile ===== */
+@media (max-width: 1150px) {
+  .contact-hero {
+    margin-top: -110px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-hero {
+    margin-top: -105px !important;
+  }
+}
+
+/* ===== PRODUCTS HERO — pull up slightly less on mobile ===== */
+@media (max-width: 1150px) {
+  .product-header {
+    margin-top: -80px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-header {
+    margin-top: -75px !important;
+  }
+}
+
+/* ===== HOMEPAGE HERO — small gap below navbar on mobile ===== */
+@media (max-width: 1150px) {
+  .hero-wrapper {
+    margin-top: 30px !important;
+  }
+}
+/* ============================================================
+   RESPONSIVE.CSS — All responsive / media queries
+   Import in layout.tsx: import "./css/responsive.css";
+   ============================================================ */
+
+
+/* ============================================================
+   COMPANY OVERVIEW PAGE — Responsive
+   ============================================================ */
+
+/* ---------- Tablet (max-width: 1024px) ---------- */
+@media (max-width: 1024px) {
+  .co-hero__title {
+    font-size: 2.4rem;
+  }
+
+  .co-about__grid,
+  .co-whoweare__grid,
+  .co-why__grid {
+    gap: 36px;
+  }
+
+  .co-industries__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .co-delivery__steps {
+    gap: 6px;
+  }
+
+  .co-step__circle {
+    width: 85px;
+    height: 85px;
+    font-size: 0.65rem;
+  }
+}
+
+/* ---------- Small Tablet (max-width: 768px) ---------- */
+@media (max-width: 768px) {
+  .co-hero {
+    padding: 100px 20px 80px;
+  }
+
+  .co-hero__title {
+    font-size: 2rem;
+  }
+
+  .co-hero__subtitle {
+    font-size: 1.05rem;
+  }
+
+  .co-about,
+  .co-whoweare,
+  .co-services,
+  .co-delivery,
+  .co-why,
+  .co-industries,
+  .co-reliable,
+  .co-faq,
+  .co-cta {
+    padding: 50px 0;
+  }
+
+  .co-about__grid,
+  .co-whoweare__grid,
+  .co-why__grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .co-stats,
+  .co-whoweare__stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .co-about__content { order: 1; }
+  .co-about__image { order: 2; }
+  .co-stats { order: 2; }
+  .co-whoweare__stats { order: 2; }
+  .co-whoweare__content { order: 1; }
+  .co-why__content { order: 1; }
+  .co-why__image { order: 2; }
+
+  .co-about__heading,
+  .co-whoweare__heading {
+    font-size: 1.75rem;
+  }
+
+  .co-services__title,
+  .co-delivery__heading,
+  .co-why__heading,
+  .co-industries__heading,
+  .co-reliable__heading,
+  .co-commitment__heading,
+  .co-cta__heading {
+    font-size: 1.6rem;
+  }
+
+  .co-services__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .co-service-card--wide {
+    grid-column: auto;
+  }
+
+  .co-service-card__list--horizontal {
+    flex-direction: column;
+  }
+
+  .co-industries__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .co-delivery__steps {
+    gap: 12px;
+  }
+
+  .co-step__arrow {
+    display: none;
+  }
+
+  .co-reliable__pillars {
+    gap: 10px;
+  }
+
+  .co-faq__heading {
+    font-size: 1.5rem;
+  }
+
+  /* Disable scroll animations on tablet for performance */
+  .co-animate,
+  .co-animate--left,
+  .co-animate--right,
+  .co-animate--scale {
+    animation-timeline: auto;
+    animation-range: normal;
+  }
+}
+
+/* ---------- Mobile (max-width: 480px) ---------- */
+@media (max-width: 480px) {
+  .co-hero {
+    padding: 80px 16px 60px;
+  }
+
+  .co-hero__title {
+    font-size: 1.6rem;
+  }
+
+  .co-hero__subtitle {
+    font-size: 0.95rem;
+  }
+
+  .co-hero__desc {
+    font-size: 0.82rem;
+  }
+
+  .co-container {
+    padding: 0 16px;
+  }
+
+  .co-about,
+  .co-whoweare,
+  .co-services,
+  .co-delivery,
+  .co-why,
+  .co-industries,
+  .co-reliable,
+  .co-faq,
+  .co-commitment,
+  .co-cta {
+    padding: 36px 0;
+  }
+
+  .co-about__heading,
+  .co-whoweare__heading {
+    font-size: 1.5rem;
+  }
+
+  .co-services__title,
+  .co-delivery__heading,
+  .co-why__heading,
+  .co-industries__heading,
+  .co-reliable__heading,
+  .co-commitment__heading,
+  .co-cta__heading {
+    font-size: 1.35rem;
+  }
+
+  .co-service-card {
+    padding: 20px;
+  }
+
+  .co-stats,
+  .co-whoweare__stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .co-stat {
+    padding: 20px 14px;
+  }
+
+  .co-stat__number {
+    font-size: 1.8rem;
+  }
+
+  .co-stat__label {
+    font-size: 0.75rem;
+  }
+
+  .co-industries__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .co-industry {
+    padding: 24px 14px;
+  }
+
+  .co-industry__icon {
+    font-size: 1.8rem;
+  }
+
+  .co-industry__title {
+    font-size: 0.82rem;
+  }
+
+  .co-step__circle {
+    width: 70px;
+    height: 70px;
+    font-size: 0.6rem;
+    padding: 6px;
+  }
+
+  .co-pillar {
+    padding: 8px 14px;
+  }
+
+  .co-pillar__label {
+    font-size: 0.78rem;
+  }
+
+  .co-faq__heading {
+    font-size: 1.3rem;
+    margin-bottom: 24px;
+  }
+
+  .accordion-item button {
+    font-size: 0.88rem;
+    padding: 14px 0;
+  }
+
+  .co-cta__button {
+    padding: 12px 28px;
+    font-size: 0.9rem;
+  }
+
+  /* Disable all scroll animations on mobile */
+  .co-animate,
+  .co-animate--left,
+  .co-animate--right,
+  .co-animate--scale {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+
+
+/* ============================================================
+   NAVBAR DROPDOWN — Responsive
+   (Add your navbar responsive styles here)
+   ============================================================ */
+
+/* @media (max-width: 1024px) { */
+/*   .navbar-dropdown { ... } */
+/* } */
+
+/* @media (max-width: 768px) { */
+/*   .navbar-dropdown { ... } */
+/* } */
+
+
+/* ============================================================
+   HOME PAGE — Responsive
+   (Add home page responsive styles here)
+   ============================================================ */
+
+/* @media (max-width: 1024px) { */
+/*   .home-hero { ... } */
+/* } */
+
+
+/* ============================================================
+   SERVICES PAGE — Responsive
+   (Add services page responsive styles here)
+   ============================================================ */
+
+/* @media (max-width: 1024px) { */
+/*   .services-section { ... } */
+/* } */

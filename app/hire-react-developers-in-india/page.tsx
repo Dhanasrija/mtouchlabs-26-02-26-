@@ -39,7 +39,7 @@ export default function Page() {
 							create interactive user interfaces using the JavaScript library.
 						</p>
 						<a href="/contact-us" className="ree-btn  ree-btn-grdt1 mt40" data-aos="fade-up"
-							data-aos-delay="800">Let’s discuss <i className="fas fa-arrow-right fa-btn"></i></a>
+							data-aos-delay="800">Let's discuss <i className="fas fa-arrow-right fa-btn"></i></a>
 					</div>
 				</div>
 				<div className="col-lg-6">
@@ -75,7 +75,7 @@ export default function Page() {
 								interfaces.</p>
 							 
 							<p> We offer services to Hire ReactJS developers at decreased
-								costs & quick turnaround time.
+								costs &amp; quick turnaround time.
 								Our dedicated React developers effortlessly understand
 								your project and how you want
 								them to work. Hire React developers in India from us who
@@ -183,7 +183,7 @@ export default function Page() {
 			<div className="row justify-content-center">
 				<div className="col-lg-7 text-center">
 					<div className="page-headings">
-						<h3>Why Hire Our Dedicated React JS Developers team ?</h3>
+						<h3>Why Hire Our Dedicated React JS Developers team </h3>
 						<p className="mt15">Hire our Dedicated React Developers who worked on some
 							of the most complex
 							projects with the capacity to create value for our clients.</p>
@@ -327,7 +327,7 @@ export default function Page() {
 							
 							<div className="accordion-item">
 								<button id="accordion-button-1" aria-expanded="false">
-									<span className="accordion-title">What does it mean to hire React developers in India?
+									<span className="accordion-title">What does it mean to hire React developers in India
 
 
 
@@ -338,6 +338,7 @@ export default function Page() {
 								<div className="accordion-content">
 									<p>
 It means bringing onboard skilled React professionals in India to build modern web and UI applications.
+</p>
 								</div>
 							</div>
 
@@ -346,7 +347,7 @@ It means bringing onboard skilled React professionals in India to build modern w
 								<button id="accordion-button-2" aria-expanded="false">
 									<span className="accordion-title"> Why should I hire React developers from mTouch Labs
 
- ?
+ 
 
 
 
@@ -364,7 +365,7 @@ Our React developers deliver scalable, responsive, and high-performance interfac
 							
 							<div className="accordion-item">
 								<button id="accordion-button-3" aria-expanded="false">
-									<span className="accordion-title">  What skills should a React developer have ?
+									<span className="accordion-title">  What skills should a React developer have 
 
 
 
@@ -382,7 +383,7 @@ Proficiency in React.js, Redux, component architecture, hooks, API integration, 
 							
 							<div className="accordion-item">
 								<button id="accordion-button-4" aria-expanded="false">
-									<span className="accordion-title">How long does React development take ?
+									<span className="accordion-title">How long does React development take 
 
 
 </span>
@@ -390,7 +391,7 @@ Proficiency in React.js, Redux, component architecture, hooks, API integration, 
 								</button>
 								<div className="accordion-content">
 									<p>
-Development timelines vary, but most React projects complete within 6–14 weeks depending on features and complexity.
+Development timelines vary, but most React projects complete within 6-14 weeks depending on features and complexity.
 
 									</p>
 								</div>
@@ -400,14 +401,14 @@ Development timelines vary, but most React projects complete within 6–14 weeks
 							<div className="accordion-item">
 								<button id="accordion-button-5" aria-expanded="false">
 									<span className="accordion-title"> Can I hire dedicated React developers long term
- ?
+ 
 
 </span>
 									<span className="icon" aria-hidden="true"></span>
 								</button>
 								<div className="accordion-content">
 									<p>
-Yes — you can hire dedicated React developers for full-time, part-time, or ongoing project support.
+Yes - you can hire dedicated React developers for full-time, part-time, or ongoing project support.
 
 									</p>
 								</div>
@@ -438,7 +439,7 @@ Yes — you can hire dedicated React developers for full-time, part-time, or ong
 						<div className="cta-heading">
 							<span className="sub-heading mb15">Contact Us</span>
 							<h2>Need any <span className="ree-text rt40"> React </span> website
-								Developers? Let's get to
+								Developers Let's get to
 								chat.</h2>
 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 									className="fas fa-user fb-bigon"></i> Contact </a>

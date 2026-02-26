@@ -18,7 +18,7 @@ export default function Page() {
       <section className="realstate-delivery-main" style={{minHeight: "100vh"}}>
          <div className="ott-delivery-content">
             <h1 className="ott-development-heading">Streamlined <br /><span className="ott-heading-h1">OTT Development </span><br />
-               Services for Web & App<br /> Platforms<br />
+               Services for Web &amp; App<br /> Platforms<br />
             </h1>
             <a href="https://www.youtube.com/watch?v=RldcEasvr_4" target="_blank"><button
                   className="ott-delivery-button">View Demo</button></a></div>
@@ -30,7 +30,7 @@ export default function Page() {
          <span className="AIservices-separator">/</span>
            <a href="/on-demand-products-development-company-hyderabad" style={{color: "#fff"}}>Products  </a>
          <span className="AIservices-separator">/</span>
-           <a className="active" style={{color: "#fff"}}>Streamlined OTT Development Services for Web & App Platforms</a>
+           <a className="active" style={{color: "#fff"}}>Streamlined OTT Development Services for Web &amp; App Platforms</a>
       </div>
 
       <div>
@@ -67,7 +67,7 @@ export default function Page() {
          <div className="realstate-container-text">
             <h3>On - Demand OTT App Development</h3>
             <p>As the demand for on-demand content continues to surge, the need for robust <a
-                  href="https://mtouchlabs.com/short-video-sharing-mobile-app-development" style={{color: "#fff"}} ;
+                  href="https://www.mtouchlabs.com/short-video-sharing-mobile-app-development" style={{color: "#fff"}}
                   target="_blank"> OTT app development services</a> has become paramount. OTT, or Over-the-Top,
                platforms have revolutionized the way we consume media, providing users with unparalleled access to a
                vast array of content at their fingertips.</p>
@@ -112,14 +112,14 @@ export default function Page() {
                      <img src="/images/products/ott/icon1.png" alt="Easy to Use" />
                   </div>
                   <h6>Custom OTT App Development </h6>
-                  <p>On-Demand, Live & Streaming Platform Solutions</p>
+                  <p>On-Demand, Live &amp; Streaming Platform Solutions</p>
                </div>
                <div className="service-card-main">
                   <div className="service-card service-card-2">
                      <img src="/images/products/ott/icon2.png" alt="Multi-Payment System" />
                   </div>
                   <h6>Multi-Platform Streaming Solutions </h6>
-                  <p> Apps for Smart TVs, Consoles, Web & Mobile
+                  <p> Apps for Smart TVs, Consoles, Web &amp; Mobile
                   </p>
                </div>
                <div className="service-card-main">
@@ -133,40 +133,40 @@ export default function Page() {
                   <div className="service-card service-card-4">
                      <img src="/images/products/ott/icon4.png" alt="Cost-Efficient" />
                   </div>
-                  <h6> Encryption & Anti-Piracy for Content Protection </h6>
-                  <p>Security & DRM Integration
+                  <h6> Encryption &amp; Anti-Piracy for Content Protection </h6>
+                  <p>Security &amp; DRM Integration
                   </p>
                </div>
                <div className="service-card-main">
                   <div className="service-card service-card-5">
                      <img src="/images/products/ott/icon5.png" alt="Customisable" />
                   </div>
-                  <h6>Video Hosting & Content Management </h6>
-                  <p>Secure Hosting & Smart Content Classification</p>
+                  <h6>Video Hosting &amp; Content Management </h6>
+                  <p>Secure Hosting &amp; Smart Content Classification</p>
 
                </div>
                <div className="service-card-main">
                   <div className="service-card service-card-6">
                      <img src="/images/products/ott/icon6.png" alt="Secured" />
                   </div>
-                  <h6>Live Streaming & VOD Services </h6>
-                  <p>Real-Time & On-Demand Video Streaming
+                  <h6>Live Streaming &amp; VOD Services </h6>
+                  <p>Real-Time &amp; On-Demand Video Streaming
                   </p>
                </div>
                <div className="service-card-main">
                   <div className="service-card service-card-7">
                      <img src="/images/products/ott/icon7.png" alt="Diverse Features" />
                   </div>
-                  <h6> SVOD, AVOD, TVOD & Pay-Per-View Solutions </h6>
-                  <p> Subscription & Monetization Models
+                  <h6> SVOD, AVOD, TVOD &amp; Pay-Per-View Solutions </h6>
+                  <p> Subscription &amp; Monetization Models
                   </p>
                </div>
                <div className="service-card-main">
                   <div className="service-card service-card-8">
                      <img src="/images/products/ott/icon8.png" alt="Attractive Designs" />
                   </div>
-                  <h6> AI-Driven Suggestions & Real-Time Metrics </h6>
-                  <p> Advanced Analytics & User Insights
+                  <h6> AI-Driven Suggestions &amp; Real-Time Metrics </h6>
+                  <p> Advanced Analytics &amp; User Insights
                   </p>
                </div>
             </div>
@@ -216,7 +216,7 @@ export default function Page() {
       <div className="food-application-features">
          <div className="food-application-features-heading">
             <h3>Application Features</h3>
-            <h6>Powerful & Innovative Features for an Exceptional App Experience</h6>
+            <h6>Powerful &amp; Innovative Features for an Exceptional App Experience</h6>
          </div>
          <div className="food-application-container">
             <div className="food-application-panel-selector">
@@ -295,7 +295,7 @@ export default function Page() {
       </div>
       <div className="food-faq-section-main">
          <div className="food-faq-section">
-            <h3 className="food-faq-section-heading">FAQ’s</h3>
+            <h3 className="food-faq-section-heading">FAQ's</h3>
             <div className="food-faq">
                <div className="food-faq-item">
                   <div className="food-faq-question">

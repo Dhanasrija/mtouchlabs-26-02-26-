@@ -79,7 +79,7 @@ export default function Navbar() {
         <div className="menu-logo">
           <div className="dskt-logo" style={{ lineHeight: 0 }}>
             <a className="nav-brand" href="/" aria-label="mTouch Labs">
-              <img src="/images/logo-white.png" alt="Logo" />
+              <img src="/images/logo-white.svg" alt="Logo" />
             </a>
           </div>
         </div>
@@ -115,8 +115,8 @@ export default function Navbar() {
                           <div className="menu-inner-block-a">
                             <div className="inner-blockss">
                               <ul className="menu-li-link">
-                                <li><a href="/company-overview"><span className="mega-link-title">Company Overview</span><span className="mega-link-desc">mTouch Labs delivers innovative mobile and web app solutions for modern businesses</span></a></li>
-                                <li><a href="/our-vision"><span className="mega-link-title">Vision &amp; Mission</span><span className="mega-link-desc">Driving digital innovation with purpose and empowering businesses globally</span></a></li>
+                                <li><a href="/it-services-digital-transformation-company"><span className="mega-link-title">Company Overview</span><span className="mega-link-desc">mTouch Labs delivers innovative mobile and web app solutions for modern businesses</span></a></li>
+                                <li><a href="/vision-mission"><span className="mega-link-title">Vision &amp; Mission</span><span className="mega-link-desc">Driving digital innovation with purpose and empowering businesses globally</span></a></li>
                                 <li><a href="/leadership-team"><span className="mega-link-title">Leadership Team</span><span className="mega-link-desc">Meet the experienced minds leading mTouch Labs to digital excellence</span></a></li>
                                 <li><a href="/our-journey"><span className="mega-link-title">Our Journey</span><span className="mega-link-desc">14+ years of building world-class digital products across 20+ industries</span></a></li>
                               </ul>
@@ -145,7 +145,7 @@ export default function Navbar() {
                                 <li><a href="/top-ecommerce-niches-us"><span className="mega-link-title">Top eCommerce Niches (2025)</span><span className="mega-link-desc">Most profitable eCommerce niches to explore in the US market this year</span></a></li>
                                 <li><a href="/hyderabad-startups-app-development-mtouch-labs"><span className="mega-link-title">Why Startups Choose mTouch</span><span className="mega-link-desc">Hyderabad&apos;s trusted app development partner for growing startups</span></a></li>
                               </ul>
-                              <a href="/blog" className="home-mega-readmore">Read more</a>
+                              <a href="/blog" className="home-mega-readmore">&#x2192;&#x2192;</a>
                             </div>
                           </div>
                         </div>
@@ -170,7 +170,7 @@ export default function Navbar() {
                         <div className="home-mega-item js-home-mega-item active" data-target="svc-software">
                           <div className="home-mega-item-icon"><img src="/images/nav/custom_software-dev.png" alt="" width="28" height="28" /></div>
                           <div className="home-mega-item-text">
-                            <span className="home-mega-item-label">Custom Software Development</span>
+                            <span className="home-mega-item-label">Software Development</span>
                             <span className="home-mega-item-desc">Delivering seamless digital experiences with expert software development.</span>
                           </div>
                         </div>
@@ -194,68 +194,251 @@ export default function Navbar() {
                           <div className="home-mega-item-icon"><img src="/images/nav/digital-marketing-services.png" alt="" width="28" height="28" /></div>
                           <div className="home-mega-item-text"><span className="home-mega-item-label">Digital Marketing Solutions</span><span className="home-mega-item-desc">SEO, PPC and social media strategies that grow revenue</span></div>
                         </div>
-                        <div className="home-mega-item js-home-mega-item" data-target="svc-business">
-                          <div className="home-mega-item-icon"><img src="/images/nav/business_solution.png" alt="" width="28" height="28" /></div>
-                          <div className="home-mega-item-text"><span className="home-mega-item-label">Business Solutions</span><span className="home-mega-item-desc">End-to-end enterprise solutions for digital growth</span></div>
-                        </div>
                       </div>
                       <div className="home-mega-content">
+                        {/* ========== SOFTWARE DEVELOPMENT — UPDATED ========== */}
                         <div className="home-mega-panel active" id="svc-software">
                           <div className="menu-inner-block-a">
+                            {/* COLUMN 1 — Mobile (7 items) */}
                             <div className="inner-blockss">
-                              <label className="menu-headings">MOBILE APP DEVELOPMENT</label>
+                             {/* <a href="/mobile-app-development-company" className="menu-headings menu-headings-link">MOBILE APP DEVELOPMENT</a>*/}
                               <ul className="menu-li-link">
-                                <li><a href="/custom-software-development-company"><span className="mega-link-title">Custom Software Development</span><span className="mega-link-desc">Tailored solutions for your unique business needs</span></a></li>
+                                <li><a href="/mobile-app-development-company"><span className="mega-link-title">Mobile App Development</span><span className="mega-link-desc">Custom iOS, Android &amp; cross-platform solutions</span></a></li>
                                 <li><a href="/ios-app-development-company"><span className="mega-link-title">iOS App Development</span><span className="mega-link-desc">Native iPhone apps with seamless UX</span></a></li>
-                                <li><a href="/ipad-app-development-company"><span className="mega-link-title">iPad App Development</span><span className="mega-link-desc">Optimized tablet experiences for enterprise</span></a></li>
                                 <li><a href="/android-app-development-company"><span className="mega-link-title">Android App Development</span><span className="mega-link-desc">Robust apps for the Android ecosystem</span></a></li>
+                                <li><a href="/ipad-app-development-company"><span className="mega-link-title">iPad App Development</span><span className="mega-link-desc">Optimized tablet experiences for enterprise</span></a></li>
                                 <li><a href="/flutter-app-development-company"><span className="mega-link-title">Flutter App Development</span><span className="mega-link-desc">Cross-platform apps from a single codebase</span></a></li>
                                 <li><a href="/react-native-app-development-company"><span className="mega-link-title">React Native App Development</span><span className="mega-link-desc">High-performance hybrid mobile apps</span></a></li>
+                                <li><a href="/cross-platform-app-development-company"><span className="mega-link-title">Cross-Platform Development</span><span className="mega-link-desc">Build once, deploy everywhere</span></a></li>
                               </ul>
                             </div>
+                            {/* COLUMN 2 — Web (4) + Enterprise (3) */}
                             <div className="inner-blockss">
-                              <label className="menu-headings">WEB DEVELOPMENT</label>
+                             {/*} <a href="/web-development-company" className="menu-headings menu-headings-link">WEB DEVELOPMENT</a>*/}
                               <ul className="menu-li-link">
-                                <li><a href="/web-development-company"><span className="mega-link-title">Custom Web Applications</span><span className="mega-link-desc">Scalable web apps built for your business</span></a></li>
+                                <li><a href="/web-development-company"><span className="mega-link-title">Web Application Development</span><span className="mega-link-desc">Scalable web apps built for your business</span></a></li>
+                                <li><a href="/custom-software-development-company"><span className="mega-link-title">Custom Software Development</span><span className="mega-link-desc">Tailored solutions for unique business needs</span></a></li>
                                 <li><a href="/custom-cms-development-company-in-india"><span className="mega-link-title">CMS &amp; Portal Development</span><span className="mega-link-desc">Content management systems for easy updates</span></a></li>
                                 <li><a href="/360-degree-photography-services-in-india"><span className="mega-link-title">360° Photography Services</span><span className="mega-link-desc">Immersive virtual tours and product views</span></a></li>
+                              </ul>
+                              {/*<label className="menu-headings" style={{ marginTop: '16px' }}>ENTERPRISE &amp; DIGITAL TRANSFORMATION</label>*/}
+                              <ul className="menu-li-link">
+                                <li><a href="/enterprise-application-development-company"><span className="mega-link-title">Enterprise Application Development</span><span className="mega-link-desc">Scalable, secure &amp; cloud-native enterprise software</span></a></li>
+                                <li><a href="/app-maintenance-support-services"><span className="mega-link-title">App Maintenance &amp; Support</span><span className="mega-link-desc">Ongoing updates, bug fixes &amp; performance optimization</span></a></li>
+                              { /* <li><a href="/it-services-digital-transformation-company"><span className="mega-link-title">Digital Transformation</span><span className="mega-link-desc">End-to-end IT modernization &amp; business automation</span></a></li>*/}
                               </ul>
                             </div>
                           </div>
                         </div>
-                        <div className="home-mega-panel" id="svc-cloud">
-                          <div className="menu-inner-block-a"><div className="inner-blockss"><label className="menu-headings">CLOUD SERVICES</label><ul className="menu-li-link">
-                            <li><a href="/amazon-web-services-company"><span className="mega-link-title">Amazon Web Services</span><span className="mega-link-desc">Cloud infrastructure, deployment &amp; scaling on AWS</span></a></li>
-                            <li><a href="/progressive-web-app-development-company-in-india"><span className="mega-link-title">Progressive Web Apps</span><span className="mega-link-desc">Fast, reliable apps that work offline</span></a></li>
-                          </ul></div></div>
-                        </div>
+
+ {/* CLOUD & DEVOPS ----->
+ /cloud-services
+
+/devops-services
+
+/cloud-migration-services
+
+/devops-consulting-services
+
+/cloud-managed-services*/}
+                       <div className="home-mega-panel" id="svc-cloud">
+  <div className="menu-inner-block-a">
+    <div className="inner-blockss">
+      <label className="menu-headings">CLOUD SERVICES</label>
+      <ul className="menu-li-link">
+
+        <li>
+          <a href="/cloud-services">
+            <span className="mega-link-title">Cloud Services</span>
+            <span className="mega-link-desc">
+              Secure, scalable cloud infrastructure and deployment solutions
+            </span>
+          </a>
+        </li>
+
+        <li>
+          <a href="/devops-services">
+            <span className="mega-link-title">DevOps Services</span>
+            <span className="mega-link-desc">
+              CI/CD automation, infrastructure as code, and faster release cycles
+            </span>
+          </a>
+        </li>
+
+        <li>
+          <a href="/cloud-migration-services">
+            <span className="mega-link-title">Cloud Migration Services</span>
+            <span className="mega-link-desc">
+              Seamless migration of applications and data to modern cloud platforms
+            </span>
+          </a>
+        </li>
+
+        <li>
+          <a href="/devops-consulting-services">
+            <span className="mega-link-title">DevOps Consulting Services</span>
+            <span className="mega-link-desc">
+              Strategic DevOps advisory to improve performance and scalability
+            </span>
+          </a>
+        </li>
+
+        <li>
+  <a href="/cloud-security-services">
+    <span className="mega-link-title">Cloud Security Services</span>
+    <span className="mega-link-desc">
+      Advanced cloud security, compliance, and threat protection for your infrastructure
+    </span>
+  </a>
+</li>
+
+        <li>
+          <a href="/cloud-managed-services">
+            <span className="mega-link-title">Cloud Managed Services</span>
+            <span className="mega-link-desc">
+              24/7 monitoring, optimization, and ongoing cloud management support
+            </span>
+          </a>
+        </li>
+<li>
+  <a href="/best-iot-development-company-in-india">
+    <span className="mega-link-title">IoT Development</span>
+    <span className="mega-link-desc">
+      Custom IoT solutions with device integration, cloud connectivity, and real-time analytics
+    </span>
+  </a>
+</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+                        {/* AI & DATA */}
                         <div className="home-mega-panel" id="svc-ai">
                           <div className="menu-inner-block-a"><div className="inner-blockss"><label className="menu-headings">AI &amp; DATA</label><ul className="menu-li-link">
                             <li><a href="/generative-ai-development-company"><span className="mega-link-title">Generative AI</span><span className="mega-link-desc">AI-powered content, chatbots &amp; automation</span></a></li>
-                            <li><a href="/empowering-businesses-with-data-science"><span className="mega-link-title">Data Science</span><span className="mega-link-desc">Turn raw data into actionable business insights</span></a></li>
-                            <li><a href="/cybersecurity-development-company"><span className="mega-link-title">Cyber Security</span><span className="mega-link-desc">Protect your digital assets from threats</span></a></li>
+                            <li><a href="/machine-learning-development-company"><span className="mega-link-title">Machine Learning</span><span className="mega-link-desc">Intelligent ML models, predictive analytics &amp; automation</span></a></li>
+                            <li><a href="/data-science-solutions"><span className="mega-link-title">Data Science</span><span className="mega-link-desc">Turn raw data into actionable business insights</span></a></li>
+                            <li><a href="/cyber-security-services-company"><span className="mega-link-title">Cyber Security</span><span className="mega-link-desc">Protect your digital assets from threats</span></a></li>
                           </ul></div></div>
                         </div>
+
+                        {/* SALESFORCE */}
                         <div className="home-mega-panel" id="svc-salesforce">
-                          <div className="menu-inner-block-a"><div className="inner-blockss"><label className="menu-headings">SALESFORCE SOLUTIONS</label><ul className="menu-li-link">
-                            <li><a href="/salesforce-consulting-services"><span className="mega-link-title">Salesforce Consulting</span><span className="mega-link-desc">CRM implementation, customization &amp; integration</span></a></li>
-                          </ul></div></div>
+                          <div className="menu-inner-block-a">
+                            <div className="inner-blockss">
+                              <label className="menu-headings">SALESFORCE SERVICES</label>
+                              <ul className="menu-li-link">
+                                <li><a href="/salesforce-consulting-services-company"><span className="mega-link-title">Salesforce Consulting</span><span className="mega-link-desc">CRM implementation, customization &amp; integration</span></a></li>
+                                <li><a href="/salesforce-implementation-services"><span className="mega-link-title">Salesforce Implementation</span><span className="mega-link-desc">End-to-end CRM setup, migration &amp; deployment</span></a></li>
+                                <li><a href="/salesforce-lightning-migration-development"><span className="mega-link-title">Lightning Migration &amp; Development</span><span className="mega-link-desc">Classic to Lightning upgrade &amp; LWC development</span></a></li>
+                                <li><a href="/salesforce-integration-services"><span className="mega-link-title">Salesforce Integration</span><span className="mega-link-desc">Connect Salesforce with ERP, marketing &amp; APIs</span></a></li>
+                              </ul>
+                            </div>
+                            <div className="inner-blockss">
+                              <label className="menu-headings">SALESFORCE CLOUD SOLUTIONS</label>
+                              <ul className="menu-li-link">
+                                <li><a href="/salesforce-sales-cloud-services"><span className="mega-link-title">Sales Cloud</span><span className="mega-link-desc">Pipeline automation &amp; revenue forecasting</span></a></li>
+                              </ul>
+                            </div>
+                          </div>
                         </div>
-                        <div className="home-mega-panel" id="svc-design">
-                          <div className="menu-inner-block-a"><div className="inner-blockss"><label className="menu-headings">DESIGN SERVICES</label><ul className="menu-li-link">
-                            <li><a href="/ui-ux-design-company"><span className="mega-link-title">UI/UX Design Services</span><span className="mega-link-desc">User-centered interfaces that convert</span></a></li>
-                            <li><a href="/mobile-app-design-company"><span className="mega-link-title">Mobile App Design</span><span className="mega-link-desc">Beautiful, intuitive mobile experiences</span></a></li>
-                            <li><a href="/web-design-company"><span className="mega-link-title">Web Design</span><span className="mega-link-desc">Responsive websites that engage visitors</span></a></li>
-                          </ul></div></div>
-                        </div>
+
+                        {/* DESIGN ------->design- /ui-ux-design-company
+
+/mobile-app-design-company
+
+/product-design-services
+
+/ux-research-services
+
+/website-design-services
+
+/design-system-development*/}
+                      <div className="home-mega-panel" id="svc-design">
+  <div className="menu-inner-block-a">
+    <div className="inner-blockss">
+      <label className="menu-headings">DESIGN SERVICES</label>
+      <ul className="menu-li-link">
+
+        <li>
+          <a href="/ui-ux-design-company">
+            <span className="mega-link-title">UI/UX Design Company</span>
+            <span className="mega-link-desc">
+              User-centered interfaces that enhance usability and drive conversions
+            </span>
+          </a>
+        </li>
+
+        <li>
+          <a href="/mobile-app-design-company">
+            <span className="mega-link-title">Mobile App Design</span>
+            <span className="mega-link-desc">
+              Engaging mobile app experiences built for performance and clarity
+            </span>
+          </a>
+        </li>
+
+        <li>
+          <a href="/product-design-services">
+            <span className="mega-link-title">Product Design Services</span>
+            <span className="mega-link-desc">
+              End-to-end product design from concept to scalable digital solutions
+            </span>
+          </a>
+        </li>
+
+        <li>
+          <a href="/ux-research-services">
+            <span className="mega-link-title">UX Research Services</span>
+            <span className="mega-link-desc">
+              Responsive, conversion-focused websites tailored to your brand
+            </span>
+          </a>
+        </li>
+
+        <li>
+          <a href="/design-system-development">
+            <span className="mega-link-title">Design System Development</span>
+            <span className="mega-link-desc">
+              Consistent, scalable UI systems for faster and unified product development
+            </span>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</div>
+
+                        {/* MARKETING ----1.⁠ ⁠/seo-services
+2.⁠ ⁠/ppc-advertising-services
+3.⁠ ⁠/app-store-optimization-services
+4.⁠ ⁠/conversion-rate-optimization-services
+5.⁠ ⁠/content-marketing-services
+6.⁠ ⁠/email-marketing-services
+7.⁠ ⁠/social-media-marketing-services
+/digital-marketing-solutions*/}
+
                         <div className="home-mega-panel" id="svc-marketing">
                           <div className="menu-inner-block-a"><div className="inner-blockss"><label className="menu-headings">MARKETING SERVICES</label><ul className="menu-li-link">
-                            <li><a href="/digital-marketing-company"><span className="mega-link-title">Digital Marketing</span><span className="mega-link-desc">Full-funnel strategies to grow your brand</span></a></li>
-                            <li><a href="/seo-services-company"><span className="mega-link-title">SEO Services</span><span className="mega-link-desc">Rank higher and drive organic traffic</span></a></li>
-                            <li><a href="/ppc-management-services-company"><span className="mega-link-title">PPC Management</span><span className="mega-link-desc">Targeted paid campaigns with high ROI</span></a></li>
-                            <li><a href="/app-store-optimization-services-company"><span className="mega-link-title">ASO Services</span><span className="mega-link-desc">Boost app visibility and downloads</span></a></li>
+                            <li><a href="/digital-marketing-solutions"><span className="mega-link-title">Digital Marketing</span><span className="mega-link-desc">Full-funnel strategies to grow your brand</span></a></li>
+                            <li><a href="/seo-services"><span className="mega-link-title">SEO Services</span><span className="mega-link-desc">Rank higher and drive organic traffic</span></a></li>
+                            <li><a href="/ppc-advertising-services"><span className="mega-link-title">PPC Advertising</span><span className="mega-link-desc">Targeted paid campaigns with high ROI</span></a></li>
+                            <li><a href="/app-store-optimization-services"><span className="mega-link-title">ASO Services</span><span className="mega-link-desc">Boost app visibility and downloads</span></a></li>
+                            <li><a href="social-media-marketing-services"><span className="mega-link-title">Social Media Marketing</span><span className="mega-link-desc">Boost app visibility and downloads</span></a></li>
+
+                            <li><a href="/conversion-rate-optimization-services"><span className="mega-link-title">Conversion Rate Optimization</span><span className="mega-link-desc">Boost app visibility and downloads</span></a></li>
+
+                            <li><a href="/content-marketing-services"><span className="mega-link-title">Content marketing Services</span><span className="mega-link-desc">Boost app visibility and downloads</span></a></li>
+
+                            <li><a href="/email-marketing-services"><span className="mega-link-title">Email MarketingServices</span><span className="mega-link-desc">Boost app visibility and downloads</span></a></li>
+
+
                           </ul></div></div>
                         </div>
+
+                        {/* BUSINESS (hidden) */}
                         <div className="home-mega-panel" id="svc-business">
                           <div className="menu-inner-block-a"><div className="inner-blockss"><label className="menu-headings">BUSINESS SOLUTIONS</label><ul className="menu-li-link">
                             <li><a href="/mobile-app-development-company"><span className="mega-link-title">Mobile App Development</span><span className="mega-link-desc">End-to-end mobile solutions for enterprises</span></a></li>
@@ -273,7 +456,7 @@ export default function Navbar() {
 
             {/* PRODUCTS */}
             <li className="megamenu">
-              <a href="/on-demand-products-development-company-hyderabad" className="menu-links">Products<i id="menu-linkicon" className="fas fa-angle-down"></i></a>
+            <a href="/on-demand-products-development-company-hyderabad" className="menu-links">Products<i id="menu-linkicon" className="fas fa-angle-down"></i></a>
               <div className="menu-dropdown">
                 <div className="menu-block-set">
                   <div className="container">
@@ -477,7 +660,13 @@ export default function Navbar() {
             <li className="megamenu1 mega-small"><a href="/portfolio" className="menu-links">Portfolio</a></li>
             <li className="megamenu1 mega-small"><a href="/careers" className="menu-links">Careers</a></li>
             <li className="megamenu1 mega-small"><a href="/contact-us" className="menu-links">Contact Us</a></li>
+            
           </ul>
+        </div>
+        <div className="nav-right-btn">
+          <a className="ree-btn ree-btn-grdt2 nav-quote-btn js-open-modal">
+            Request Quote <i className="fas fa-arrow-right fa-btn"></i>
+          </a>
         </div>
         <div className="mobile-menu2">
           <ul className="mob-nav2">
@@ -488,17 +677,40 @@ export default function Navbar() {
         <nav id="main-nav">
           <ul>
             <li><a href="/">Home</a><ul className="menu-li-link"><li><a href="/about">About Us</a></li><li><a href="/blog">Blogs</a></li><li><a href="/case-studies">Case Studies</a></li><li><a href="/careers">Careers</a></li></ul></li>
-            <li><a href="/services">Services</a><ul className="menu-li-link"><li><a href="#">MOBILE APP DEVELOPMENT</a><ul><li><a href="/mobile-app-development-company">Mobile App Development</a></li><li><a href="/android-app-development-company">Android App Development</a></li><li><a href="/ios-app-development-company">iOS App Development</a></li><li><a href="/ipad-app-development-company">iPad App Development</a></li><li><a href="/custom-software-development-company">Custom Software Development</a></li><li><a href="/native-app-development-company">Native App Development</a></li><li><a href="/hybrid-app-development-company">Hybrid App Development</a></li><li><a href="/flutter-app-development-company">Flutter App development</a></li><li><a href="/react-native-app-development-company">React Native App Development</a></li></ul></li><li><a href="#">WEB DEVELOPMENT</a><ul><li><a href="/web-development-company">Web Application Development</a></li><li><a href="/wordpress-development-company">Wordpress Development</a></li><li><a href="/php-development-company">PHP Web Development</a></li><li><a href="/custom-cms-development-company-in-india">Custom CMS Development</a></li><li><a href="/woocommerce-development-company-in-india">Woo Commerce Development</a></li><li><a href="/magento-development-company-in-india">Magento Development</a></li><li><a href="/shopify-development-company-in-india">Shopify Development</a></li><li><a href="/web-design-company">Web Design</a></li></ul></li><li><a href="#">OTHER SERVICES</a><ul><li><a href="/ui-ux-design-company">UI / UX Design Services</a></li><li><a href="/seo-services-company">SEO Services</a></li><li><a href="/ppc-management-services-company">PPC Management Services</a></li><li><a href="/amazon-web-services-company">Amazon Web Services</a></li><li><a href="/app-store-optimization-services-company">ASO Services</a></li><li><a href="/progressive-web-app-development-company-in-india">Progressive Web App Development</a></li><li><a href="/360-degree-photography-services-in-india">360 Degree Photography Services</a></li><li><a href="/generative-ai-development-company" target="_blank">Generative AI</a></li><li><a href="/empowering-businesses-with-data-science" target="_blank">Data Science</a></li><li><a href="/cybersecurity-development-company" target="_blank">Cyber Security</a></li></ul></li></ul></li>
-            <li><a href="/on-demand-products-development-company-hyderabad">Products</a><ul className="menu-li-link"><li><a href="/food-delivery-app-development-service">Food Delivery App Development</a></li><li><a href="/grocery-delivery-app-development-company">Grocery Delivery App Development</a></li><li><a href="/taxi-booking-app-development-company">Taxi Booking App Development</a></li><li><a href="/hotel-booking-app-development-company">Hotel Booking App Development</a></li><li><a href="/e-learning-app-development-company">E-Learning App Development</a></li><li><a href="/real-estate-app-development-company">Real Estate App Development</a></li><li><a href="/social-media-app-development-company">Social Media App Development</a></li><li><a href="/diagnostic-app-development-company">Diagnostic App Development</a></li><li><a href="/ott-app-development-company">OTT App Development</a></li><li><a href="/ecommerce-app-development-company">ecommerce App Development</a></li><li><a href="/online-shopping-app-development-company">Online Shopping App Development</a></li><li><a href="/tickets-booking-app-development-company">Ticket Booking App Development</a></li><li><a href="/sports-and-fitness-app-development-company">Sports and Fitness App Development</a></li><li><a href="/gaming-apps-development-company">Gaming App Development</a></li><li><a href="/multi-vendor-marketplace-app-builder">Multi Vendor Ecommerce App Development</a></li><li><a href="/car-wash-app-development-company">Car Wash App Development</a></li></ul></li>
+            <li><a href="/services">Services</a><ul className="menu-li-link"><li><a href="#">MOBILE APP DEVELOPMENT</a><ul><li><a href="/mobile-app-development-company">Mobile App Development</a></li><li><a href="/android-app-development-company">Android App Development</a></li><li><a href="/ios-app-development-company">iOS App Development</a></li><li><a href="/ipad-app-development-company">iPad App Development</a></li><li><a href="/custom-software-development-company">Custom Software Development</a></li><li><a href="/flutter-app-development-company">Flutter App Development</a></li><li><a href="/react-native-app-development-company">React Native App Development</a></li><li><a href="/cross-platform-app-development-company">Cross-Platform Development</a></li></ul></li><li><a href="#">WEB DEVELOPMENT</a><ul><li><a href="/web-development-company">Web Application Development</a></li><li><a href="/custom-cms-development-company-in-india">Custom CMS Development</a></li><li><a href="/360-degree-photography-services-in-india">360° Photography Services</a></li></ul></li><li><a href="#">ENTERPRISE &amp; TRANSFORMATION</a><ul><li><a href="/enterprise-application-development-company">Enterprise Application Development</a></li><li><a href="/app-maintenance-support-services">App Maintenance &amp; Support</a></li><li><a href="/it-services-digital-transformation-company">Digital Transformation</a></li></ul></li><li><a href="#">AI &amp; DATA</a><ul><li><a href="/generative-ai-development-company">Generative AI</a></li><li><a href="/machine-learning-development-company">Machine Learning</a></li><li><a href="/empowering-businesses-with-data-science">Data Science</a></li><li><a href="/cyber-security-services-company">Cyber Security</a></li></ul></li><li><a href="#">SALESFORCE</a><ul><li><a href="/salesforce-consulting-services-company">Salesforce Consulting</a></li><li><a href="/salesforce-implementation-services">Salesforce Implementation</a></li><li><a href="/salesforce-lightning-migration-development">Lightning Migration</a></li><li><a href="/salesforce-integration-services">Salesforce Integration</a></li><li><a href="/salesforce-sales-cloud-services">Sales Cloud</a></li></ul></li><li><a href="#">OTHER SERVICES</a><ul><li><a href="/ui-ux-design-company">UI/UX Design</a></li><li><a href="/web-design-company">Web Design</a></li><li><a href="/seo-services-company">SEO Services</a></li><li><a href="/ppc-management-services-company">PPC Management</a></li><li><a href="/amazon-web-services-company">Amazon Web Services</a></li><li><a href="/app-store-optimization-services-company">ASO Services</a></li><li><a href="/progressive-web-app-development-company-in-india">Progressive Web Apps</a></li></ul></li></ul></li>
+            <li><a href="/on-demand-products-development-company-hyderabad">Products</a><ul className="menu-li-link"><li><a href="/food-delivery-app-development-service">Food Delivery App Development</a></li><li><a href="/grocery-delivery-app-development-company">Grocery Delivery App Development</a></li><li><a href="/taxi-booking-app-development-company">Taxi Booking App Development</a></li><li><a href="/hotel-booking-app-development-company">Hotel Booking App Development</a></li><li><a href="/e-learning-app-development-company">E-Learning App Development</a></li><li><a href="/real-estate-app-development-company">Real Estate App Development</a></li><li><a href="/social-media-app-development-company">Social Media App Development</a></li><li><a href="/diagnostic-app-development-company">Diagnostic App Development</a></li><li><a href="/ott-app-development-company">OTT App Development</a></li><li><a href="/ecommerce-app-development-company">ecommerce App Development</a></li><li><a href="/online-shopping-app-development-company">Online Shopping App Development</a></li><li><a href="/tickets-booking-app-development-company">Ticket Booking App Development</a></li><li><a href="/sports-and-fitness-app-development-company">Sports and Fitness App Development</a></li><li><a href="/gaming-apps-development-company">Gaming App Development</a></li><li><a href="/multi-vendor-marketplace-app-builder">Multi Vendor Ecommerce App Development</a></li><li><a href="/car-wash-app-development-company">Car Wash App Development</a></li><li><a href="/milk-delivery-app-development-company">Milk Delivery App Development</a></li><li><a href="/on-demand-chef-app-development-company">Chef Management App Development</a></li></ul></li>
             <li><a href="/hire-developers-in-india">Resources</a><ul className="menu-li-link"><li><a href="#">Hire Mobile App Developers</a><ul><li><a href="/hire-mobile-app-developers-in-india">Hire Mobile App Developers</a></li><li><a href="/hire-android-app-developers-in-india">Hire Android App Developers</a></li><li><a href="/hire-ios-app-developers-in-india">Hire iOS App Developers</a></li><li><a href="/hire-ipad-developers-in-india">Hire iPad App Developers</a></li><li><a href="/hire-custom-software-developers-in-india">Hire Custom Software Developers</a></li><li><a href="/hire-native-app-developers-in-india">Hire Native App Developers</a></li><li><a href="/hire-hybrid-app-developers-in-india">Hire Hybrid App Developers</a></li><li><a href="/hire-flutter-app-developers-in-india">Hire Flutter App Developers</a></li><li><a href="/hire-react-native-app-developers-in-india">Hire React Native App Developers</a></li></ul></li><li><a href="#">Hire Web Developers</a><ul><li><a href="/hire-web-developers-in-india">Hire Web Developers</a></li><li><a href="/hire-wordpress-developers-in-india">Hire Wordpress Developers</a></li><li><a href="/hire-php-developers-in-india">Hire PHP Developers</a></li><li><a href="/hire-custom-cms-developers-in-india">Hire Custom CMS Developers</a></li><li><a href="/hire-angular-developers-in-india">Hire Angular Developers</a></li><li><a href="/hire-react-developers-in-india">Hire React Developers</a></li><li><a href="/hire-swift-developers-in-india">Hire Swift Developers</a></li><li><a href="/hire-laravel-developers-in-india">Hire Laravel Developers</a></li><li><a href="/hire-magento-developers-in-india">Hire Magento Developers</a></li><li><a href="/hire-woocommerce-developers-in-india">Hire WooCommerce Developers</a></li></ul></li><li><a href="#">Hire Java Script Developers</a><ul><li><a href="/hire-javascript-developers-in-india">Hire JS Developers</a></li><li><a href="/hire-fullstack-developers-in-india">Hire Full Stack Developers</a></li><li><a href="/hire-mean-stack-developers-in-india">Hire Mean Stack Developers</a></li><li><a href="/hire-mern-stack-developers-in-india">Hire Mern Stack Developers</a></li><li><a href="/hire-vue-js-developers-in-india">Hire Vue.JS Developers</a></li><li><a href="/hire-node-js-developers-in-india">Hire NodeJS Developers</a></li></ul></li><li><a href="#">Hire Other Developers</a><ul><li><a href="/hire-dedicated-developers-in-india">Hire Dedicated Developers</a></li><li><a href="/hire-quality-analyst-developers-in-india">Hire Quality Analyst</a></li><li><a href="/hire-ui-ux-designers-in-india">Hire Ui/UX Designers</a></li><li><a href="/hire-mobile-app-designers-in-india">Hire Mobile App Designers</a></li><li><a href="/hire-aws-developers-in-india">Hire AWS Developers</a></li><li><a href="/hire-pwa-developers-in-india">Hire PWA Developers</a></li><li><a href="/hire-shopify-developers-in-india">Hire Shopify Developers</a></li><li><a href="/hire-salesforce-developers-in-india">Hire Salesforce Developers</a></li></ul></li></ul></li>
             <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/careers">Careers</a></li>
             <li><a href="/contact-us">Contact Us</a></li>
           </ul>
           <ul className="bottom-nav">
-            <li className="ree-hc"><a href="tel:+919390683154" rel="noreferrer" target="_blank"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.625 25.625"><g><path d="M22.079,17.835c-1.548-1.324-3.119-2.126-4.648-0.804l-0.913,0.799c-0.668,0.58-1.91,3.29-6.712-2.234C5.005,10.079,7.862,9.22,8.531,8.645l0.918-0.8c1.521-1.325,0.947-2.993-0.15-4.71l-0.662-1.04C7.535,0.382,6.335-0.743,4.81,0.58L3.986,1.3C3.312,1.791,1.428,3.387,0.971,6.419c-0.55,3.638,1.185,7.804,5.16,12.375c3.97,4.573,7.857,6.87,11.539,6.83c3.06-0.033,4.908-1.675,5.486-2.272l0.827-0.721c1.521-1.322,0.576-2.668-0.973-3.995L22.079,17.835z"/></g></svg></a></li>
-            <li className="ree-hc"><a href="mailto:contact@mtouchlabs.com" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/><path d="M0 0h24v24H0z" fill="none"/></svg></a></li>
-            <li className="ree-hc"><a href="https://wa.me/message/H5VADFWLMPYIM1" rel="noreferrer" target="_blank"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><g><path d="M256.064,0h-0.128C114.784,0,0,114.816,0,256c0,56,18.048,107.904,48.736,150.048l-31.904,95.104l98.4-31.456C155.712,496.512,204,512,256.064,512C397.216,512,512,397.152,512,256S397.216,0,256.064,0z M405.024,361.504c-6.176,17.44-30.688,31.904-50.24,36.128c-13.376,2.848-30.848,5.12-89.664-19.264C189.888,347.2,141.44,270.752,137.664,265.792c-3.616-4.96-30.4-40.48-30.4-77.216s18.656-54.624,26.176-62.304c6.176-6.304,16.384-9.184,26.176-9.184c3.168,0,6.016,0.16,8.576,0.288c7.52,0.32,11.296,0.768,16.256,12.64c6.176,14.88,21.216,51.616,23.008,55.392c1.824,3.776,3.648,8.896,1.088,13.856c-2.4,5.12-4.512,7.392-8.288,11.744c-3.776,4.352-7.36,7.68-11.136,12.352c-3.456,4.064-7.36,8.416-3.008,15.936c4.352,7.36,19.392,31.904,41.536,51.616c28.576,25.44,51.744,33.568,60.032,37.024c6.176,2.56,13.536,1.952,18.048-2.848c5.728-6.176,12.8-16.416,20-26.496c5.12-7.232,11.584-8.128,18.368-5.568c6.912,2.4,43.488,20.48,51.008,24.224c7.52,3.776,12.48,5.568,14.304,8.736C411.2,329.152,411.2,344.032,405.024,361.504z"/></g></svg></a></li>
-          </ul>
+  
+  <li className="ree-hc">
+    <a href="tel:+919390683154" target="_blank" rel="noreferrer">
+      <img src="/images/nav-icon/phone-call.png" alt="Phone" />
+    </a>
+  </li>
+
+  <li className="ree-hc">
+    <a href="mailto:contact@mtouchlabs.com" target="_blank">
+      <img src="/images/nav-icon/gmail.png" alt="Email" />
+    </a>
+  </li>
+
+  <li className="ree-hc">
+    <a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noreferrer">
+      <img src="/images/nav-icon/whatsapp.png" alt="WhatsApp" />
+    </a>
+  </li>
+
+  <li className="ree-hc">
+    <a href="#" target="_blank">
+      <img src="/images/nav-icon/who.png" alt="Who Icon" />
+    </a>
+  </li>
+
+</ul>
         </nav>
       </div>
     </div>
