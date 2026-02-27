@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Hire React Developers in India | mTouch Labs",
   description: "Hire React developers in India from mTouch Labs to build scalable, high-performance web and mobile interfaces using modern React and React-based frameworks.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/hire-react-developers-in-india",
+  },
+
+  openGraph: {
+    title: "Hire React Developers in India | mTouch Labs",
+    description: "Hire React developers in India from mTouch Labs to build scalable, high-performance web and mobile interfaces using modern React and React-based frameworks.",
+    url: "https://www.mtouchlabs.com/hire-react-developers-in-india",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire React Developers in India | mTouch Labs" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hire React Developers in India | mTouch Labs",
+    description: "Hire React developers in India from mTouch Labs to build scalable, high-performance web and mobile interfaces using modern React and React-based frameworks.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

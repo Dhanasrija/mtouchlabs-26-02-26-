@@ -320,6 +320,17 @@ export default function Navbar() {
 </li>
 
 
+<li>
+  <a href="/amazon-web-services-company">
+    <span className="mega-link-title">Amazon Web services Company</span>
+    <span className="mega-link-desc">
+AWS cloud migration, deployment, DevOps automation, and secure scalable infrastructure solutions.    </span>
+  </a>
+</li>
+
+
+
+
       </ul>
     </div>
   </div>
@@ -332,6 +343,10 @@ export default function Navbar() {
                             <li><a href="/machine-learning-development-company"><span className="mega-link-title">Machine Learning</span><span className="mega-link-desc">Intelligent ML models, predictive analytics &amp; automation</span></a></li>
                             <li><a href="/data-science-solutions"><span className="mega-link-title">Data Science</span><span className="mega-link-desc">Turn raw data into actionable business insights</span></a></li>
                             <li><a href="/cyber-security-services-company"><span className="mega-link-title">Cyber Security</span><span className="mega-link-desc">Protect your digital assets from threats</span></a></li>
+                           
+                            
+                                                        <li><a href="/saas-development-services"><span className="mega-link-title">SAAS Development Services</span><span className="mega-link-desc">best saas development performance</span></a></li>
+
                           </ul></div></div>
                         </div>
 
@@ -510,11 +525,12 @@ export default function Navbar() {
                             <div className="inner-blockss"><ul className="menu-li-link">
                               <li><a href="/food-delivery-app-development-service"><span className="mega-link-title">Food Delivery App</span><span className="mega-link-desc">Multi-restaurant ordering with real-time tracking</span></a></li>
                               <li><a href="/grocery-delivery-app-development-company"><span className="mega-link-title">Grocery Delivery App</span><span className="mega-link-desc">Quick commerce for daily essentials</span></a></li>
-                              <li><a href="/milk-delivery-app-development-company"><span className="mega-link-title">Milk Delivery App</span><span className="mega-link-desc">Subscription-based daily delivery management</span></a></li>
+                              <li><a href="/milk-delivery-app-development-service"><span className="mega-link-title">Milk Delivery App</span><span className="mega-link-desc">Subscription-based daily delivery management</span></a></li>
                               <li><a href="/car-wash-app-development-company"><span className="mega-link-title">Car Wash App</span><span className="mega-link-desc">On-demand vehicle care at your doorstep</span></a></li>
+                              <li><a href="/chef-management-app-solutions"><span className="mega-link-title">Chef Management App</span><span className="mega-link-desc">On-demand vehicle care at your doorstep</span></a></li>
+
                             </ul></div>
                             <div className="inner-blockss"><ul className="menu-li-link">
-                              <li><a href="/on-demand-chef-app-development-company"><span className="mega-link-title">Chef Management App</span><span className="mega-link-desc">Book professional chefs for home dining</span></a></li>
                             </ul></div>
                           </div>
                         </div>

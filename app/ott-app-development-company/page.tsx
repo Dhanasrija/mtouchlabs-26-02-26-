@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "OTT App Development Company | mTouch Labs",
   description: "mTouch Labs is an OTT app development company creating custom, scalable over-the-top streaming apps with engaging UX, high performance, and seamless media delivery.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/ott-app-development-company",
+  },
+
+  openGraph: {
+    title: "OTT App Development Company | mTouch Labs",
+    description: "mTouch Labs is an OTT app development company creating custom, scalable over-the-top streaming apps with engaging UX, high performance, and seamless media delivery.",
+    url: "https://www.mtouchlabs.com/ott-app-development-company",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "OTT App Development Company | mTouch Labs" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "OTT App Development Company | mTouch Labs",
+    description: "mTouch Labs is an OTT app development company creating custom, scalable over-the-top streaming apps with engaging UX, high performance, and seamless media delivery.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

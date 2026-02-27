@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Hire Flutter App Developers in India | mTouch Labs",
   description: "Hire Flutter app developers in India from mTouch Labs to build high-performance, cross-platform mobile apps with a single codebase for iOS and Android.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/hire-flutter-app-developers-in-india",
+  },
+
+  openGraph: {
+    title: "Hire Flutter App Developers in India | mTouch Labs",
+    description: "Hire Flutter app developers in India from mTouch Labs to build high-performance, cross-platform mobile apps with a single codebase for iOS and Android.",
+    url: "https://www.mtouchlabs.com/hire-flutter-app-developers-in-india",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire Flutter App Developers in India | mTouch Labs" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hire Flutter App Developers in India | mTouch Labs",
+    description: "Hire Flutter app developers in India from mTouch Labs to build high-performance, cross-platform mobile apps with a single codebase for iOS and Android.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

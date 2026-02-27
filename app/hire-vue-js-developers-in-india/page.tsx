@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Hire Vue.js developers in India | Dedicated Vue JS developers",
   description: "Hire dedicated Vue.js developers from mTouch Labs to create high-quality single-page apps with modern frameworks.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/hire-vue-js-developers-in-india",
+  },
+
+  openGraph: {
+    title: "Hire Vue.js developers in India | Dedicated Vue JS developers",
+    description: "Hire dedicated Vue.js developers from mTouch Labs to create high-quality single-page apps with modern frameworks.",
+    url: "https://www.mtouchlabs.com/hire-vue-js-developers-in-india",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire Vue.js developers in India | Dedicated Vue JS developers" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hire Vue.js developers in India | Dedicated Vue JS developers",
+    description: "Hire dedicated Vue.js developers from mTouch Labs to create high-quality single-page apps with modern frameworks.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

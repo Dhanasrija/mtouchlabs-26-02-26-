@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Car Wash App Development Company | mTouch Labs",
   description: "mTouch Labs is a car wash app development company delivering custom mobile solutions to manage bookings, scheduling, and car wash services efficiently.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/car-wash-app-development-company",
+  },
+
+  openGraph: {
+    title: "Car Wash App Development Company | mTouch Labs",
+    description: "mTouch Labs is a car wash app development company delivering custom mobile solutions to manage bookings, scheduling, and car wash services efficiently.",
+    url: "https://www.mtouchlabs.com/car-wash-app-development-company",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Car Wash App Development Company | mTouch Labs" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Car Wash App Development Company | mTouch Labs",
+    description: "mTouch Labs is a car wash app development company delivering custom mobile solutions to manage bookings, scheduling, and car wash services efficiently.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Hire CMS developers | dedicated CMS web developers",
   description: "Hire CMS developers and dedicated CMs web developers who are experienced in providing CMS website services for all kinds of mid-large scale industries",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/hire-custom-cms-developers-in-india",
+  },
+
+  openGraph: {
+    title: "Hire CMS developers | dedicated CMS web developers",
+    description: "Hire CMS developers and dedicated CMs web developers who are experienced in providing CMS website services for all kinds of mid-large scale industries",
+    url: "https://www.mtouchlabs.com/hire-custom-cms-developers-in-india",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire CMS developers | dedicated CMS web developers" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hire CMS developers | dedicated CMS web developers",
+    description: "Hire CMS developers and dedicated CMs web developers who are experienced in providing CMS website services for all kinds of mid-large scale industries",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

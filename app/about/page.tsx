@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
@@ -15,6 +16,13 @@ export const metadata: Metadata = {
     url: "https://www.mtouchlabs.com/about",
     siteName: "mTouch Labs",
     type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "About Us | mTouch Labs – Leading Software Development Company in India",
+    description: "mTouch Labs is a top-rated software development company in India with 14+ years of experience delivering mobile apps, web platforms, and enterprise solutions across 12+ countries.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
   },
 };
 

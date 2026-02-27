@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Blog - Insights & Ideas | mTouch Labs",
   description: "Explore articles and trends shaping the future of technology, design, and innovation.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/blog",
+  },
+
+  openGraph: {
+    title: "Blog - Insights & Ideas | mTouch Labs",
+    description: "Explore articles and trends shaping the future of technology, design, and innovation.",
+    url: "https://www.mtouchlabs.com/blog",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Blog - Insights & Ideas | mTouch Labs" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog - Insights & Ideas | mTouch Labs",
+    description: "Explore articles and trends shaping the future of technology, design, and innovation.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function BlogPage() {

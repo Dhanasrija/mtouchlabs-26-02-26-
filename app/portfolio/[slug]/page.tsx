@@ -1,12 +1,10 @@
- // app/portfolio/[slug]/page.tsx
-// Portfolio Case Study — Fixed TOC + 18 Sections
-// All images from DB | Store links from DB
+import { sql } from "@/lib/db";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import Script from "next/script";
 
-import { sql } from '@/lib/db';
-import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-import Link from 'next/link';
-import Script from 'next/script';
+export const dynamic = "force-dynamic";
 
 // ─── DB ──────────────────────────────────────────────
 async function getProject(slug: string) {
@@ -16,6 +14,36 @@ async function getProject(slug: string) {
   project.faq_schema = project.faq_schema_text ? JSON.parse(project.faq_schema_text) : [];
   return project;
 }
+// async function getRelatedProjects(category: string, excludeId: number) {
+//   const rows = await sql`
+//     SELECT id, slug, title, subtitle, category, image, tech_stack, tags
+//     FROM portfolios WHERE category = ${category} AND id != ${excludeId} AND published = true
+//     ORDER BY created_at DESC LIMIT 3`;
+//   return rows;
+// }
+
+// // ─── HELPERS ─────────────────────────────────────────
+// function parseJSON(val: string | null, fb: any = []) { if (!val) return fb; try { return JSON.parse(val) || fb; } catch { return fb; } }
+// function cleanTitle(t: string) { const words = t.split(" "); const half = Math.floor(words.length / 2); if (words.length >= 4 && words.slice(0, half).join(" ") === words.slice(half).join(" ")) return words.slice(0, half).join(" "); const suffixes = ["Mobile App Development", "Web Development", "App Development"]; for (const s of suffixes) { if (t.endsWith(s + " " + s)) return t.replace(s + " " + s, s); } return t; }
+// function slash(p: string) { return !p ? '' : p.startsWith('/') ? p : `/${p}`; }
+// function full(p: string) { return !p ? '' : p.startsWith('http') ? p : `https://www.mtouchlabs.com${slash(p)}`; }
+
+// // ─── SEO ─────────────────────────────────────────────
+// export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+//   const { slug } = await params;
+//   const p = await getProject(slug);
+//   if (!p) return { title: 'Project Not Found | mTouch Labs' };
+//   const tags = p.tags ? p.tags.split(',').map((t: string) => t.trim().toLowerCase()) : [];
+//   return {
+//     title: p.meta_title || `${p.title.replace(/(Mobile App Development|Web Development|App Development) \1/g, '$1')} | mTouch Labs Portfolio`,
+//     description: p.meta_description || p.subtitle || `${p.title} — a ${p.category} project by mTouch Labs.`,
+//     keywords: [`${p.category} app development`, ...tags, 'mTouch Labs', 'app development Hyderabad'],
+//     openGraph: { title: p.og_title || p.title, description: p.og_description || p.subtitle, url: p.canonical_url || `/portfolio/${p.slug}`, siteName: 'mTouch Labs', type: 'article', images: [{ url: full(p.og_image || p.image), width: 1200, height: 630 }] },
+//     twitter: { card: 'summary_large_image', title: p.og_title || p.title, description: p.og_description || p.subtitle },
+//     alternates: { canonical: p.canonical_url || `/portfolio/${p.slug}` },
+//     robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large' as const, 'max-snippet': -1 } },
+//   };
+// }
 async function getRelatedProjects(category: string, excludeId: number) {
   const rows = await sql`
     SELECT id, slug, title, subtitle, category, image, tech_stack, tags
@@ -26,6 +54,7 @@ async function getRelatedProjects(category: string, excludeId: number) {
 
 // ─── HELPERS ─────────────────────────────────────────
 function parseJSON(val: string | null, fb: any = []) { if (!val) return fb; try { return JSON.parse(val) || fb; } catch { return fb; } }
+function cleanTitle(t: string) { const words = t.split(" "); const half = Math.floor(words.length / 2); if (words.length >= 4 && words.slice(0, half).join(" ") === words.slice(half).join(" ")) return words.slice(0, half).join(" "); const suffixes = ["Mobile App Development", "Web Development", "App Development"]; for (const s of suffixes) { if (t.endsWith(s + " " + s)) return t.replace(s + " " + s, s); } return t; }
 function slash(p: string) { return !p ? '' : p.startsWith('/') ? p : `/${p}`; }
 function full(p: string) { return !p ? '' : p.startsWith('http') ? p : `https://www.mtouchlabs.com${slash(p)}`; }
 
@@ -36,7 +65,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!p) return { title: 'Project Not Found | mTouch Labs' };
   const tags = p.tags ? p.tags.split(',').map((t: string) => t.trim().toLowerCase()) : [];
   return {
-    title: p.meta_title || `${p.title} | mTouch Labs Portfolio`,
+    title: p.meta_title || `${p.title.replace(/(Mobile App Development|Web Development|App Development) \1/g, '$1')} | mTouch Labs Portfolio`,
     description: p.meta_description || p.subtitle || `${p.title} — a ${p.category} project by mTouch Labs.`,
     keywords: [`${p.category} app development`, ...tags, 'mTouch Labs', 'app development Hyderabad'],
     openGraph: { title: p.og_title || p.title, description: p.og_description || p.subtitle, url: p.canonical_url || `/portfolio/${p.slug}`, siteName: 'mTouch Labs', type: 'article', images: [{ url: full(p.og_image || p.image), width: 1200, height: 630 }] },
@@ -44,10 +73,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     alternates: { canonical: p.canonical_url || `/portfolio/${p.slug}` },
     robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large' as const, 'max-snippet': -1 } },
   };
-}
-export async function generateStaticParams() {
-  const rows = await sql`SELECT slug FROM portfolios WHERE published = true`;
-  return rows.map((r) => ({ slug: r.slug }));
 }
 
 // ─── STRUCTURED DATA ─────────────────────────────────
@@ -130,7 +155,7 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
               </ol>
             </nav>
             <span className="cs-hero__badge">{project.category}</span>
-            <h1 className="cs-hero__title">{project.title}</h1>
+            <h1 className="cs-hero__title">{cleanTitle(project.title)}</h1>
             <p className="cs-hero__sub">{project.subtitle}</p>
             <div className="cs-hero__pills">{techStack.map((t: string, i: number) => <span key={i} className="cs-hero__pill">{t}</span>)}</div>
             {(project.play_store_url || project.app_store_url) && (

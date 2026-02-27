@@ -7,6 +7,21 @@ export const dynamic = 'force-dynamic';
 export const metadata: Metadata = {
   title: 'Dashboard | mTouch Labs Admin',
   robots: 'noindex, nofollow',
+
+  openGraph: {
+    title: "Dashboard | mTouch Labs Admin",
+    description: "Dashboard | mTouch Labs Admin",
+    url: "https://www.mtouchlabs.com/admin/dashboard",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Dashboard | mTouch Labs Admin" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dashboard | mTouch Labs Admin",
+    description: "Dashboard | mTouch Labs Admin",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 interface BlogRow {

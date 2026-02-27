@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Secure Your Business with Advanced Cybersecurity Solutions",
   description: "Protect your digital assets and drive growth with robust cybersecurity solutions. Ensure safety, compliance, and innovation for your business.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/cybersecurity-development-company",
+  },
+
+  openGraph: {
+    title: "Secure Your Business with Advanced Cybersecurity Solutions",
+    description: "Protect your digital assets and drive growth with robust cybersecurity solutions. Ensure safety, compliance, and innovation for your business.",
+    url: "https://www.mtouchlabs.com/cybersecurity-development-company",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Secure Your Business with Advanced Cybersecurity Solutions" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Secure Your Business with Advanced Cybersecurity Solutions",
+    description: "Protect your digital assets and drive growth with robust cybersecurity solutions. Ensure safety, compliance, and innovation for your business.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Diagnostic App Development Company | mTouch Labs",
   description: "mTouch Labs develops diagnostic mobile apps that streamline medical diagnostics, testing workflows, and patient reporting.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/diagnostic-app-development-company",
+  },
+
+  openGraph: {
+    title: "Diagnostic App Development Company | mTouch Labs",
+    description: "mTouch Labs develops diagnostic mobile apps that streamline medical diagnostics, testing workflows, and patient reporting.",
+    url: "https://www.mtouchlabs.com/diagnostic-app-development-company",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Diagnostic App Development Company | mTouch Labs" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Diagnostic App Development Company | mTouch Labs",
+    description: "mTouch Labs develops diagnostic mobile apps that streamline medical diagnostics, testing workflows, and patient reporting.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

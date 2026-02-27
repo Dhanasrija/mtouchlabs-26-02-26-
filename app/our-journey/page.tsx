@@ -1,237 +1,223 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Our Journey – Growth & Innovation Story | mTouch Labs",
-  description: "Explore mTouch Labs’ journey from a startup to a leading tech innovator built on growth, experience, innovation, and impact in mobile & digital solutions.",
+  title: "Our Journey | Global Software Development & AI Solutions Company | mTouch Labs",
+  description:
+    "Founded in 2012, mTouch Labs evolved from a mobile app development startup into a global software development and AI solutions company delivering enterprise applications, cloud services, and digital transformation worldwide.",
+  keywords: [
+    "mTouch Labs journey",
+    "global software development company",
+    "AI solutions company",
+    "enterprise application development company",
+    "cloud services provider",
+    "digital transformation partner",
+  ],
+  openGraph: {
+    title: "Our Journey - mTouch Labs",
+    description:
+      "Discover how mTouch Labs grew from a mobile-first startup into a global enterprise software and AI solutions provider.",
+    url: "https://www.mtouchlabs.com/our-journey",
+    siteName: "mTouch Labs",
+    type: "website",
+  },
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/our-journey",
+  },
 };
 
-export default function Page() {
+const timeline = [
+  {
+    year: "2012",
+    title: "Mobile-First Innovation",
+    desc: "Founded with a mobile-first vision, specializing in iOS and Android app development, cross-platform solutions, and UI/UX-driven mobile experiences.",
+    icon: "fas fa-mobile-alt",
+  },
+  {
+    year: "2015",
+    title: "Enterprise & Cloud Expansion",
+    desc: "Expanded into custom software development, enterprise applications, web development, cloud services, and DevOps engineering.",
+    icon: "fas fa-cloud",
+  },
+  {
+    year: "2019",
+    title: "AI & Intelligent Solutions",
+    desc: "Strategically expanded into AI-powered business automation, predictive analytics, intelligent data solutions, and AI-integrated SaaS platforms.",
+    icon: "fas fa-brain",
+  },
+  {
+    year: "2022",
+    title: "Global Digital Partner",
+    desc: "Established presence serving clients across USA, UK, UAE, Australia, and India with enterprise-grade digital transformation solutions.",
+    icon: "fas fa-globe",
+  },
+];
+
+const milestones = [
+  "Founded in 2012 with a mobile-first vision",
+  "Expanded into enterprise software development",
+  "Successfully delivered scalable cloud-native solutions",
+  "Integrated AI-driven digital transformation services",
+  "Built long-term partnerships with global clients",
+];
+
+const todayServices = [
+  { icon: "fas fa-building", name: "Enterprise Software Modernization" },
+  { icon: "fas fa-cloud-upload-alt", name: "Cloud Transformation & Migration" },
+  { icon: "fas fa-robot", name: "AI-Powered Digital Solutions" },
+  { icon: "fas fa-laptop-code", name: "SaaS Product Development" },
+  { icon: "fas fa-cogs", name: "End-to-End Digital Product Engineering" },
+];
+
+const faqs = [
+  {
+    q: "When was mTouch Labs founded?",
+    a: "mTouch Labs was founded in 2012 as a mobile-focused development company and has since evolved into a global software development and AI solutions provider.",
+  },
+  {
+    q: "How has mTouch Labs evolved over the years?",
+    a: "The company expanded from mobile app development into enterprise software, cloud services, and AI-powered digital transformation solutions for global clients.",
+  },
+  {
+    q: "Does mTouch Labs provide AI solutions?",
+    a: "Yes, mTouch Labs offers AI-powered business automation, predictive analytics, and intelligent SaaS integrations for enterprises.",
+  },
+  {
+    q: "Does mTouch Labs serve international clients?",
+    a: "Yes, mTouch Labs delivers software development, cloud, and AI solutions to clients across the USA, UK, UAE, Australia, and India.",
+  },
+];
+
+export default function OurJourneyPage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+
   return (
     <>
-      <section className="hero-section_company_overview company_overview">
-    <div className="hero-content">
-<h1 className="hero-title">Our journey</h1>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <link rel="stylesheet" href="/css/journey-page.css" />
 
-      <p className="hero-subtitle">A decade of innovation, growth, and relentless commitment to delivering exceptional digital products</p>
-
-      
-    </div>
-  </section>
-
-  <section className="story_of_growth">
-    <h3>Our Story of Innovation and Growth</h3>
-    <p>The journey of <b>mTouch Labs</b> began with a bold vision — to revolutionize the digital landscape by building technology that truly empowers businesses. From day one, our focus has been on creating solutions that are not only innovative but also practical, scalable, and aligned with real-world business goals.</p>
-    <p>Founded in <b>2012</b>, mTouch Labs started as a small team of passionate developers driven by curiosity, creativity, and a desire to make technology more accessible. What began with a focus on mobile app development quickly grew into a broader mission: helping organizations leverage digital tools to accelerate growth, improve efficiency, and deliver exceptional user experiences.
-</p>
-<p>
-  As industries evolved and technology advanced, so did we. Through continuous learning, strategic expansion, and a commitment to quality, mTouch Labs transformed into a full-fledged <b>digital transformation company</b>. We expanded our expertise across enterprise applications, eCommerce platforms, cloud-based systems, and intelligent software solutions, enabling us to serve businesses of all sizes and industries.
-
-</p>
-<p>
-  Our growth has been shaped by strong client partnerships, a culture of innovation, and the ability to adapt in a fast-changing digital world. By embracing emerging technologies and future-ready architectures, we continue to help organizations stay competitive, agile, and resilient.
-
-</p>
-    <img src="./images/about/journery.png" style={{"width": "fit-content", "maxWidth": "100%"}} alt="growth" />
-  </section>
-  <section className="key_milestones">
-    <h1>Key Milestones</h1>
-
-    <div className="timeline">
-      
-      <div className="milestone">
-        <div className="left-content">
-          <div className="text-content">
-            <div className="year">2012</div>
-
-            <div className="milestone-title">vision</div>
-            <div className="milestone-desc">mTouch Labs founded with a vision to simplify technology for all.</div>
+      {/* Hero */}
+      <section className="jrn-hero">
+        <div className="jrn-hero__bg"><div className="jrn-hero__gradient"></div></div>
+        <div className="jrn-hero__content container">
+          <nav className="jrn-crumb" aria-label="Breadcrumb">
+            <ol>
+              <li><Link href="/">Home</Link></li>
+              <li><span className="jrn-crumb__sep">/</span></li>
+              <li className="jrn-crumb__current">Our Journey</li>
+            </ol>
+          </nav>
+          <span className="jrn-hero__badge">Since 2012</span>
+          <h1 className="jrn-hero__title">Our <span className="jrn-accent">Journey</span></h1>
+          <p className="jrn-hero__sub">
+            From a passionate startup to a global software &amp; AI solutions partner. Founded in 2012, mTouch Labs began as a small team of developers driven by curiosity, creativity, and a desire to make technology more accessible and impactful.
+          </p>
+          <div className="jrn-hero__btns">
+            <Link href="/contact-us" className="jrn-btn jrn-btn--primary">Get In Touch <i className="fas fa-arrow-right"></i></Link>
+            <Link href="/leadership-team" className="jrn-btn jrn-btn--ghost">Our Team</Link>
           </div>
         </div>
-        <div className="year-section">
-          <div className="dot"></div>
-        </div>
-        <div className="right-content">
-          <div className="image">
-            <img src="./images/about/our_journey_1.png" alt="Business meeting 2012" />
-          </div>
-        </div>
-      </div>
+      </section>
 
-      
-      <div className="milestone">
-        <div className="left-content">
-          <div className="image">
-            <img src="./images/about/our_journey_2.png" alt="Team collaboration 2015" />
-          </div>
-        </div>
-        <div className="year-section">
-          <div className="dot"></div>
-        </div>
-        <div className="right-content">
-          <div className="text-content">
-            <div className="year">2015</div>
-            <div className="milestone-title">vision</div>
-            <div className="milestone-desc">Expanded into enterprise app development and eCommerce solutions.</div>
-          </div>
-        </div>
-      </div>
-
-      
-      <div className="milestone">
-        <div className="left-content">
-          <div className="text-content">
-            <div className="year">2018</div>
-            <div className="milestone-title">vision</div>
-            <div className="milestone-desc">Recognized among the top mobile app development companies in India.</div>
-          </div>
-        </div>
-        <div className="year-section">
-          <div className="dot"></div>
-        </div>
-        <div className="right-content">
-          <div className="image">
-            <img src="./images/about/our_journey_3.png" alt="Professional meeting 2018" />
-          </div>
-        </div>
-      </div>
-
-      
-      <div className="milestone">
-        <div className="left-content">
-          <div className="image">
-            <img src="./images/about/our_journey_4.png" alt="Team discussion 2020" />
-          </div>
-        </div>
-        <div className="year-section">
-          <div className="dot"></div>
-        </div>
-        <div className="right-content">
-          <div className="text-content">
-            <div className="year">2020</div>
-            <div className="milestone-title">vision</div>
-            <div className="milestone-desc">Began serving international clients in the USA, UK, and UAE.</div>
-          </div>
-        </div>
-      </div>
-
-      
-      <div className="milestone">
-        <div className="left-content">
-          <div className="text-content">
-
-            <div className="year">2023</div>
-            <div className="milestone-title">vision</div>
-            <div className="milestone-desc">Introduced AI and drive-thru software solutions</div>
-          </div>
-        </div>
-        <div className="year-section">
-          <div className="dot"></div>
-        </div>
-        <div className="right-content">
-          <div className="image">
-            <img src="./images/about/ou_journey_5.png" alt="Business strategy 2023" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-   <div className="footer-quote">
-   Today, mTouch Labs continues to innovate using advanced technologies such as <b>Artificial Intelligence, IoT, Blockchain, and Cloud Computing</b>. Our journey is defined by innovation, resilience, and the trust of hundreds of satisfied clients who see us not just as a service provider, but as a long-term digital partner.
-
-   </div>
-
-         <section className="r-bg-x sec-pad">
-                <div className="container">
-                        <div className="row justify-content-center">
-                                <div className="col-lg-7 text-center">
-                                        <div className="page-headings">
-                                                <h3>Frequently Asked Questions</h3>
-                                                 
-                                                                        <div className="accordion">
-
-                                                  <div className="accordion-item">
-                                                    <button id="accordion-button-1" aria-expanded="false">
-                                                      <span className="accordion-title">When was mTouch Labs founded?</span>
-                                                      <span className="icon" aria-hidden="true"></span>
-                                                    </button>
-                                                    <div className="accordion-content">
-                                                      <p>
-                                                        mTouch Labs was founded in 2012 with the vision to simplify technology and empower businesses through innovative digital solutions.
-                                                      </p>
-                                                    </div>
-                                                  </div>
-
-                                                  <div className="accordion-item">
-                                                    <button id="accordion-button-2" aria-expanded="false">
-                                                      <span className="accordion-title">How did mTouch Labs begin its journey?</span>
-                                                      <span className="icon" aria-hidden="true"></span>
-                                                    </button>
-                                                    <div className="accordion-content">
-                                                      <p>
-                                                        We started as a small team of passionate developers focused primarily on mobile app development. Over time, our commitment to quality and innovation helped us expand into a full-scale digital transformation company.
-                                                      </p>
-                                                    </div>
-                                                  </div>
-
-                                                  <div className="accordion-item">
-                                                    <button id="accordion-button-3" aria-expanded="false">
-                                                      <span className="accordion-title">What major milestones has mTouch Labs achieved?</span>
-                                                      <span className="icon" aria-hidden="true"></span>
-                                                    </button>
-                                                    <div className="accordion-content">
-                                                      <p>
-                                                        Key milestones include expansion into enterprise app development (2015), recognition as a top app development company in India (2018), global client expansion to the USA, UK, and UAE (2020), and the introduction of AI-driven solutions (2023).
-                                                      </p>
-                                                    </div>
-                                                  </div>
-
-                                                  <div className="accordion-item">
-                                                    <button id="accordion-button-4" aria-expanded="false">
-                                                      <span className="accordion-title">How has mTouch Labs grown over the years?</span>
-                                                      <span className="icon" aria-hidden="true"></span>
-                                                    </button>
-                                                    <div className="accordion-content">
-                                                      <p>
-                                                        Through continuous innovation, technical excellence, and client trust, we have evolved into a globally recognized brand offering mobile apps, web solutions, enterprise software, and advanced AI technologies.
-                                                      </p>
-                                                    </div>
-                                                  </div>
-
-                                                  <div className="accordion-item">
-                                                    <button id="accordion-button-5" aria-expanded="false">
-                                                      <span className="accordion-title">What industries has mTouch Labs served during its journey?</span>
-                                                      <span className="icon" aria-hidden="true"></span>
-                                                    </button>
-                                                    <div className="accordion-content">
-                                                      <p>
-                                                        We’ve worked across diverse domains including healthcare, finance, logistics, eCommerce, education, and enterprise SaaS.
-                                                      </p>
-                                                    </div>
-                                                  </div>
-
-                                                                        </div>
-                                        </div>
-                                </div>
-
-
-                        </div>
+      {/* Timeline */}
+      <section className="jrn-section">
+        <div className="container">
+          <h2 className="jrn-section__title">How We <span className="jrn-accent">Evolved</span></h2>
+          <div className="jrn-timeline">
+            {timeline.map((t, i) => (
+              <div key={i} className="jrn-timeline__item" data-aos="fade-up" data-aos-delay={i * 120}>
+                <div className="jrn-timeline__dot"><i className={t.icon}></i></div>
+                <div className="jrn-timeline__card">
+                  <span className="jrn-timeline__year">{t.year}</span>
+                  <h3 className="jrn-timeline__heading">{t.title}</h3>
+                  <p className="jrn-timeline__desc">{t.desc}</p>
                 </div>
-        </section>
-  
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-  
-  
-  
-  
-  
-  
-  
+      {/* Milestones */}
+      <section className="jrn-section jrn-section--alt">
+        <div className="container">
+          <h2 className="jrn-section__title">Milestones That Define Our <span className="jrn-accent">Growth</span></h2>
+          <div className="jrn-milestones">
+            {milestones.map((m, i) => (
+              <div key={i} className="jrn-milestone" data-aos="fade-up" data-aos-delay={i * 80}>
+                <i className="fas fa-check-circle"></i>
+                <span>{m}</span>
+              </div>
+            ))}
+          </div>
+          <p className="jrn-closing">Each milestone represents our continuous evolution as a trusted global technology partner.</p>
+        </div>
+      </section>
 
-  
-  
+      {/* Where We Are Today */}
+      <section className="jrn-section">
+        <div className="container">
+          <h2 className="jrn-section__title">Where We Are <span className="jrn-accent">Today</span></h2>
+          <p className="jrn-section__desc">Today, mTouch Labs stands at the intersection of innovation, scalability, and intelligence.</p>
+          <div className="jrn-today-grid">
+            {todayServices.map((s, i) => (
+              <div key={i} className="jrn-today-card" data-aos="fade-up" data-aos-delay={i * 80}>
+                <i className={s.icon}></i>
+                <span>{s.name}</span>
+              </div>
+            ))}
+          </div>
+          <p className="jrn-closing">Our journey continues — driven by innovation, guided by expertise, and focused on delivering measurable business outcomes worldwide.</p>
+        </div>
+      </section>
 
-  
-  
+      {/* Global Presence */}
+      <section className="jrn-section jrn-section--dark">
+        <div className="container" style={{ textAlign: "center" }}>
+          <h2 className="jrn-section__title jrn-section__title--light">Global Presence & <span className="jrn-accent">Industry Impact</span></h2>
+          <div className="jrn-regions">
+            {["USA", "UK", "UAE", "Australia", "India"].map((r, i) => (
+              <div key={i} className="jrn-region"><i className="fas fa-globe"></i><span>{r}</span></div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="jrn-section">
+        <div className="container">
+          <h2 className="jrn-section__title">Frequently Asked <span className="jrn-accent">Questions</span></h2>
+          <div className="jrn-faq-list">
+            {faqs.map((f, i) => (
+              <details key={i} className="jrn-faq-item">
+                <summary>{f.q}</summary>
+                <p>{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="jrn-cta">
+        <div className="container jrn-cta__inner">
+          <span className="jrn-tag">Partner With Us</span>
+          <h2>Let&apos;s Build the Future Together</h2>
+          <p>Join 100+ global clients who trust mTouch Labs for enterprise-grade digital solutions.</p>
+          <div className="jrn-cta__btns">
+            <Link href="/contact-us" className="jrn-btn jrn-btn--white">Contact Us <i className="fas fa-arrow-right"></i></Link>
+            <Link href="/cloud-migration-services" className="jrn-btn jrn-btn--ghost-light">Cloud Migration</Link>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

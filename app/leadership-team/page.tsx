@@ -1,181 +1,251 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Leadership Team – Visionary Tech Leaders | mTouch Labs",
-  description: "Meet the mTouch Labs leadership team driving digital transformation and delivering impactful tech solutions with excellence.",
+  title: "Leadership Team | Global Software Development Experts | mTouch Labs",
+  description:
+    "Meet the leadership team at mTouch Labs, a global software development company delivering enterprise applications, cloud solutions, and digital transformation services worldwide.",
+  keywords: [
+    "mTouch Labs leadership team",
+    "global software development company",
+    "enterprise software experts",
+    "technology consulting leadership",
+    "digital transformation specialists",
+  ],
+  openGraph: {
+    title: "Leadership Team at mTouch Labs",
+    description:
+      "Experienced technology leaders driving enterprise software and cloud innovation globally.",
+    url: "https://www.mtouchlabs.com/leadership-team",
+    type: "website",
+  },
 };
 
-export default function Page() {
+const leaders = [
+  {
+    role: "Founder & CEO",
+    tagline: "Strategic Technology Visionary",
+    desc: "Leads global expansion, enterprise partnerships, and innovation initiatives. Drives long-term digital transformation strategies for clients across industries.",
+    expertise: "Global software consulting, enterprise modernization, SaaS platforms, AI adoption strategy.",
+    icon: "fas fa-chess-king",
+  },
+  {
+    role: "Chief Technology Officer",
+    tagline: "Enterprise Architecture Leader",
+    desc: "Oversees engineering excellence, DevOps governance, scalable system design, and cloud-native transformation initiatives.",
+    expertise: "Microservices architecture, Cloud infrastructure (AWS, Azure), API ecosystems, performance engineering.",
+    icon: "fas fa-microchip",
+  },
+  {
+    role: "Director of Operations",
+    tagline: "Delivery & Quality Excellence",
+    desc: "Ensures on-time global project delivery, process optimization, compliance standards, and customer success management.",
+    expertise: "Agile delivery, process optimization, compliance, customer success.",
+    icon: "fas fa-tasks",
+  },
+  {
+    role: "Head of Digital Strategy",
+    tagline: "Product & Experience Innovation",
+    desc: "Focuses on UI/UX innovation, digital product strategy, and data-driven growth solutions.",
+    expertise: "UI/UX design systems, product strategy, data-driven growth.",
+    icon: "fas fa-lightbulb",
+  },
+];
+
+const visionPoints = [
+  "Strategic product thinking",
+  "Enterprise-grade architecture planning",
+  "Agile delivery governance",
+  "Security-first cloud strategy",
+  "Long-term digital scalability",
+];
+
+const services = [
+  { name: "Custom Software Development", href: "/custom-software-development-company" },
+  { name: "Enterprise Application Development", href: "/enterprise-application-development-company" },
+  { name: "Mobile App Development", href: "/mobile-app-development-company" },
+  { name: "Cloud Services & Migration", href: "/cloud-services" },
+  { name: "AI-powered Digital Solutions", href: "/services" },
+];
+
+const strengths = [
+  "Proven experience in enterprise-grade applications",
+  "Strong expertise in cloud-first architecture",
+  "Agile & DevOps-driven execution",
+  "Transparent communication with global clients",
+  "Scalable digital transformation consulting",
+];
+
+const industries = [
+  { icon: "fas fa-heartbeat", name: "Healthcare" },
+  { icon: "fas fa-coins", name: "Fintech" },
+  { icon: "fas fa-store", name: "Retail & E-Commerce" },
+  { icon: "fas fa-truck", name: "Logistics & Supply Chain" },
+  { icon: "fas fa-graduation-cap", name: "Education Technology" },
+  { icon: "fas fa-laptop-code", name: "Enterprise SaaS" },
+];
+
+const faqs = [
+  {
+    q: "Who leads mTouch Labs?",
+    a: "mTouch Labs is led by experienced technology professionals with expertise in enterprise software development, cloud transformation, and digital innovation for global clients.",
+  },
+  {
+    q: "What industries does the leadership team specialize in?",
+    a: "Our leadership team has experience across healthcare, fintech, retail, logistics, and enterprise SaaS platforms.",
+  },
+  {
+    q: "How does the leadership team ensure project success?",
+    a: "Through agile governance, enterprise architecture planning, DevOps best practices, and proactive client collaboration.",
+  },
+  {
+    q: "Does mTouch Labs serve international clients?",
+    a: "Yes, mTouch Labs provides software development and digital transformation services to clients across the USA, UK, UAE, Australia, and India.",
+  },
+];
+
+export default function LeadershipTeamPage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+
   return (
     <>
-      <section className="hero-section_company_overview company_overview">
-  <div className="hero-content">
-<h1 className="hero-title">Leadership Team</h1>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <link rel="stylesheet" href="/css/leadership-page.css" />
 
-   <p className="hero-subtitle" style={{"maxWidth": "700px"}}>Guided by strategic thinkers and industry experts committed to building impactful technology solutions.</p>
+      {/* Hero */}
+      <section className="ldr-hero">
+        <div className="ldr-hero__bg">
+          <div className="ldr-hero__gradient"></div>
+        </div>
+        <div className="ldr-hero__content container">
+          <nav className="ldr-breadcrumb" aria-label="Breadcrumb">
+            <ol>
+              <li><Link href="/">Home</Link></li>
+              <li><span className="ldr-breadcrumb__sep">/</span></li>
+              <li className="ldr-breadcrumb__current">Leadership Team</li>
+            </ol>
+          </nav>
+          <span className="ldr-hero__badge">Our People</span>
+          <h1 className="ldr-hero__title">
+            Leadership <span className="ldr-accent">Team</span>
+          </h1>
+          <p className="ldr-hero__sub">
+            Global technology leaders driving digital innovation. Our leadership team consists of experienced technology strategists, enterprise architects, and digital transformation experts committed to delivering scalable software solutions.
+          </p>
+          <div className="ldr-hero__btns">
+            <Link href="/contact-us" className="ldr-btn ldr-btn--primary">
+              Get In Touch <i className="fas fa-arrow-right"></i>
+            </Link>
+          </div>
+        </div>
+      </section>
 
-   
-  </div>
- </section>
- 
- <section className="leadership-section">
-  <div className="container">
-   
-   <div className="leadership-hero">
-    <div className="leadership-image">
-     <img src="/images/about/leaders.png" alt="Our Leaders" />
-    </div>
-    <div className="leadership-content">
-     <h2>Our Leaders. Our Strength.</h2>
-     <p>The success of <b>mTouch Labs</b> is powered by a team of visionary leaders who bring together decades of expertise across technology, entrepreneurship, and digital strategy. Their diverse experience enables us to anticipate change, adapt quickly, and deliver solutions that are both innovative and sustainable.</p>
-      <p>
-        Our leadership team believes in <b>people-first innovation</b> — creating an environment where creativity, technical mastery, and strategic thinking thrive together. By empowering teams with trust, autonomy, and clear direction, our leaders inspire a culture where bold ideas turn into impactful digital products.
-
-      </p>
-      <p>
-        At the core of our leadership philosophy is a deep commitment to solving real-world business challenges. Our leaders work closely with clients, stakeholders, and internal teams to ensure every initiative is aligned with measurable outcomes, long-term value, and industry relevance.
-
-      </p>
-      <p>
-        They champion ethical practices, transparent communication, and continuous improvement, ensuring that mTouch Labs remains a trusted technology partner for businesses across industries. Through mentorship and knowledge sharing, our leaders actively nurture future innovators and decision-makers within the organization.
-
-      </p>
-    </div>
-   </div>
-
-   
-   <div className="leadership-defines">
-    <h3>What Defines Our Leadership</h3>
-    <div className="leadership-cards">
-     <div className="lead-card">
-      <img src="/images/about/leadership_icon_1.png" alt="" />
-      <h4>Visionary Thinking</h4>
-      
-    <p>
-       Staying ahead of emerging trends in AI, automation, cloud computing, and digital transformation to help businesses future-proof their operations.
-    </p> 
-    </div>
-     <div className="lead-card">
-
-      <img src="/images/about/leadership_icon_2.png" alt="" />
-      <h4>Strategic Excellence</h4>
-      
-    <p> Delivering tangible business value through intelligent design, data-driven insights, and technology-led innovation.
-</p> 
-    </div>
-     <div className="lead-card">
-
-      <img src="/images/about/leadership_icon_3.png" alt="" />
-      <h4>Empowering Teams</h4>
-      
-    <p>
-       Encouraging collaboration, ownership, and continuous learning to build high-performing teams that thrive on innovation
-    </p> 
-    </div>
-    </div>
-   </div>
-
-   
-   <div className="footer-quote">
-    At mTouch Labs, leadership isn't just about managing projects. It's about inspiring innovation, enabling growth, and
-    driving meaningful change across industries. "We lead with purpose, innovate with passion, and deliver with
-    integrity."
-   </div>
-  </div>
- </section>
-     
-                <section className="r-bg-x sec-pad" style={{"paddingTop": "50px"}}>
-                <div className="container">
-                        <div className="row justify-content-center">
-                                <div className="col-lg-7 text-center">
-                                        <div className="page-headings">
-                                                <h3>Frequently Asked Questions</h3>
-                                                 
-                                                <div className="accordion">
-
-                          <div className="accordion-item">
-                            <button id="accordion-button-1" aria-expanded="false">
-                              <span className="accordion-title">Who forms the leadership team at mTouch Labs?</span>
-                              <span className="icon" aria-hidden="true"></span>
-                            </button>
-                            <div className="accordion-content">
-                              <p>
-                                The leadership team consists of experienced professionals with deep expertise in technology, digital strategy, entrepreneurship, and business transformation.
-                              </p>
-                            </div>
-                          </div>
-
-                          <div className="accordion-item">
-                            <button id="accordion-button-2" aria-expanded="false">
-                              <span className="accordion-title">What makes mTouch Labs’ leadership unique?</span>
-                              <span className="icon" aria-hidden="true"></span>
-                            </button>
-                            <div className="accordion-content">
-                              <p>
-                                Our leaders combine visionary thinking with hands-on technical expertise. They focus on people-first innovation, creativity, and building digital solutions that deliver real business value.
-                              </p>
-                            </div>
-                          </div>
-
-                          <div className="accordion-item">
-                            <button id="accordion-button-3" aria-expanded="false">
-                              <span className="accordion-title">How does the leadership team contribute to mTouch Labs’ growth?</span>
-                              <span className="icon" aria-hidden="true"></span>
-                            </button>
-                            <div className="accordion-content">
-                              <p>
-                                They drive strategic direction, foster a culture of innovation, empower teams, and ensure that every project aligns with long-term business goals and industry trends.
-                              </p>
-                            </div>
-                          </div>
-
-                          <div className="accordion-item">
-                            <button id="accordion-button-4" aria-expanded="false">
-                              <span className="accordion-title">What values guide the mTouch Labs leadership team?</span>
-                              <span className="icon" aria-hidden="true"></span>
-                            </button>
-                            <div className="accordion-content">
-                              <p>
-                                Integrity, purposeful innovation, collaboration, continuous learning, and delivering measurable impact are the pillars of our leadership philosophy.
-                              </p>
-                            </div>
-                          </div>
-
-                          <div className="accordion-item">
-                            <button id="accordion-button-5" aria-expanded="false">
-                              <span className="accordion-title">How does the leadership team stay ahead of emerging technologies?</span>
-                              <span className="icon" aria-hidden="true"></span>
-                            </button>
-                            <div className="accordion-content">
-                              <p>
-                                Our leaders consistently explore advancements in AI, automation, cloud technologies, and user-first design to ensure mTouch Labs stays future-ready.
-                              </p>
-                            </div>
-                          </div>
-
-                                                </div>
-                                        </div>
-                                </div>
-
-
-                        </div>
+      {/* Vision */}
+      <section className="ldr-section">
+        <div className="container">
+          <div className="ldr-intro">
+            <h2>Our Leadership <span className="ldr-accent">Vision</span></h2>
+            <p>We believe technology leadership goes beyond management. Our executives actively guide teams across <Link href="/custom-software-development-company">Custom Software Development</Link>, <Link href="/enterprise-application-development-company">Enterprise Applications</Link>, <Link href="/mobile-app-development-company">Mobile App Development</Link>, <Link href="/cloud-services">Cloud Services</Link>, and AI-powered Digital Solutions.</p>
+            <div className="ldr-why-grid" style={{ marginTop: "24px" }}>
+              {visionPoints.map((p, i) => (
+                <div key={i} className="ldr-why-item">
+                  <i className="fas fa-check-circle"></i>
+                  <span>{p}</span>
                 </div>
-        </section>
- 
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
- 
- 
- 
- 
- 
- 
- 
+      {/* Leaders */}
+      <section className="ldr-section ldr-section--alt">
+        <div className="container">
+          <h2 className="ldr-section__title">Executive Leadership <span className="ldr-accent">Team</span></h2>
+          <div className="ldr-grid ldr-grid--2">
+            {leaders.map((l, i) => (
+              <div key={i} className="ldr-card ldr-card--leader" data-aos="fade-up" data-aos-delay={i * 100}>
+                <div className="ldr-card__icon"><i className={l.icon}></i></div>
+                <h3 className="ldr-card__title">{l.role}</h3>
+                <span className="ldr-card__tagline">{l.tagline}</span>
+                <p className="ldr-card__desc">{l.desc}</p>
+                <p className="ldr-card__expertise"><strong>Expertise:</strong> {l.expertise}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
- 
- 
+      {/* Why Us */}
+      <section className="ldr-section">
+        <div className="container">
+          <h2 className="ldr-section__title">Why Our Leadership <span className="ldr-accent">Stands Out</span></h2>
+          <div className="ldr-why-grid">
+            {strengths.map((s, i) => (
+              <div key={i} className="ldr-why-item" data-aos="fade-up" data-aos-delay={i * 80}>
+                <i className="fas fa-check-circle"></i>
+                <span>{s}</span>
+              </div>
+            ))}
+          </div>
+          <p className="ldr-closing">Our leadership ensures every engagement delivers measurable ROI and long-term value.</p>
+        </div>
+      </section>
 
- 
- 
+      {/* Industries */}
+      <section className="ldr-section ldr-section--alt">
+        <div className="container">
+          <h2 className="ldr-section__title">Industries We <span className="ldr-accent">Empower</span></h2>
+          <div className="ldr-industries">
+            {industries.map((ind, i) => (
+              <div key={i} className="ldr-industry" data-aos="fade-up" data-aos-delay={i * 80}>
+                <i className={ind.icon}></i>
+                <span>{ind.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="ldr-section">
+        <div className="container">
+          <h2 className="ldr-section__title">Frequently Asked <span className="ldr-accent">Questions</span></h2>
+          <div className="ldr-faq-list">
+            {faqs.map((f, i) => (
+              <details key={i} className="ldr-faq-item">
+                <summary>{f.q}</summary>
+                <p>{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="ldr-cta">
+        <div className="container ldr-cta__inner">
+          <span className="ldr-tag ldr-tag--light">Let&apos;s Connect</span>
+          <h2>Work with Our Expert Team</h2>
+          <p>Partner with proven technology leaders for your next digital initiative.</p>
+          <div className="ldr-cta__btns">
+            <Link href="/contact-us" className="ldr-btn ldr-btn--white">
+              Contact Us <i className="fas fa-arrow-right"></i>
+            </Link>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Gaming Apps Development Company in Hyderabad",
   description: "Best Gaming App Development Company in Hyderabad India. Hire Top Gaming App Developers to build fast & reliable apps for your Gaming Industry.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/gaming-apps-development-company",
+  },
+
+  openGraph: {
+    title: "Gaming Apps Development Company in Hyderabad",
+    description: "Best Gaming App Development Company in Hyderabad India. Hire Top Gaming App Developers to build fast & reliable apps for your Gaming Industry.",
+    url: "https://www.mtouchlabs.com/gaming-apps-development-company",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Gaming Apps Development Company in Hyderabad" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gaming Apps Development Company in Hyderabad",
+    description: "Best Gaming App Development Company in Hyderabad India. Hire Top Gaming App Developers to build fast & reliable apps for your Gaming Industry.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

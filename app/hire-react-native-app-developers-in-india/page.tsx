@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Hire React Native App Developers in India | mTouch Labs",
   description: "Hire React Native app developers in India from mTouch Labs to build cross-platform mobile apps with seamless performance, reusable code, and fast delivery.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/hire-react-native-app-developers-in-india",
+  },
+
+  openGraph: {
+    title: "Hire React Native App Developers in India | mTouch Labs",
+    description: "Hire React Native app developers in India from mTouch Labs to build cross-platform mobile apps with seamless performance, reusable code, and fast delivery.",
+    url: "https://www.mtouchlabs.com/hire-react-native-app-developers-in-india",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire React Native App Developers in India | mTouch Labs" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hire React Native App Developers in India | mTouch Labs",
+    description: "Hire React Native app developers in India from mTouch Labs to build cross-platform mobile apps with seamless performance, reusable code, and fast delivery.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

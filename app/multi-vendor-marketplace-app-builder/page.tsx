@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Multi-Vendor Marketplace App Builder | mTouch Labs",
   description: "mTouch Labs provides a multi-vendor marketplace app builder to create scalable, feature-rich apps enabling seamless online marketplace experiences.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/multi-vendor-marketplace-app-builder",
+  },
+
+  openGraph: {
+    title: "Multi-Vendor Marketplace App Builder | mTouch Labs",
+    description: "mTouch Labs provides a multi-vendor marketplace app builder to create scalable, feature-rich apps enabling seamless online marketplace experiences.",
+    url: "https://www.mtouchlabs.com/multi-vendor-marketplace-app-builder",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Multi-Vendor Marketplace App Builder | mTouch Labs" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Multi-Vendor Marketplace App Builder | mTouch Labs",
+    description: "mTouch Labs provides a multi-vendor marketplace app builder to create scalable, feature-rich apps enabling seamless online marketplace experiences.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

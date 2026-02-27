@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Hire MERN stack developers | Dedicated MERN developer",
   description: "Hire expert MERN stack developers from mTouch Labs to build robust, scalable, and top-quality web and mobile applications.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/hire-mern-stack-developers-in-india",
+  },
+
+  openGraph: {
+    title: "Hire MERN stack developers | Dedicated MERN developer",
+    description: "Hire expert MERN stack developers from mTouch Labs to build robust, scalable, and top-quality web and mobile applications.",
+    url: "https://www.mtouchlabs.com/hire-mern-stack-developers-in-india",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire MERN stack developers | Dedicated MERN developer" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hire MERN stack developers | Dedicated MERN developer",
+    description: "Hire expert MERN stack developers from mTouch Labs to build robust, scalable, and top-quality web and mobile applications.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

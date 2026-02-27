@@ -9,6 +9,21 @@ export const dynamic = 'force-dynamic';
 export const metadata: Metadata = {
   title: 'Edit Blog | Admin | mTouch Labs',
   robots: 'noindex, nofollow',
+
+  openGraph: {
+    title: "Edit Blog | Admin | mTouch Labs",
+    description: "Edit Blog | Admin | mTouch Labs",
+    url: "https://www.mtouchlabs.com/blogs/edit/[id]",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Edit Blog | Admin | mTouch Labs" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Edit Blog | Admin | mTouch Labs",
+    description: "Edit Blog | Admin | mTouch Labs",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 interface Blog {

@@ -1,0 +1,230 @@
+/* ============================================
+   mTouch Labs — Global Brand System
+   Font: Poppins (primary) + Lora (logo)
+   Colors: Brand palette from guidelines
+   
+   Usage: @import './brand.css'; in globals.css
+   ============================================ */
+
+/* ── Google Fonts ── */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Lora:wght@400;500;600;700&display=swap');
+
+/* ============================================
+   CSS VARIABLES
+   ============================================ */
+:root {
+
+  /* ── Fonts ── */
+  --font-primary: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-secondary: 'Lora', Georgia, serif;
+
+  /* ── Headings (Poppins Bold) ── */
+  --h1-size: 48px;
+  --h1-line: 60px;
+  --h1-weight: 700;
+
+  --h2-size: 40px;
+  --h2-line: 50px;
+  --h2-weight: 700;
+
+  --h3-size: 34px;
+  --h3-line: 44px;
+  --h3-weight: 700;
+
+  --h4-size: 28px;
+  --h4-line: 38px;
+  --h4-weight: 700;
+
+  /* ── Body Text ── */
+  --b1-size: 24px;
+  --b1-line: 34px;
+  --b1-weight: 500;
+
+  --b2-size: 20px;
+  --b2-line: 30px;
+  --b2-weight: 700;
+
+  --b3-size: 18px;
+  --b3-line: 28px;
+  --b3-weight: 400;
+
+  /* ── Tag / Label ── */
+  --tag-size: 14px;
+  --tag-line: 24px;
+  --tag-weight: 600;
+
+  /* ── Letter Spacing ── */
+  --letter-spacing: 0px;
+
+  /* ── Brand Colors ── */
+  --color-signature-blue: #3E8CFB;
+  --color-bright-horizon: #FAC759;
+  --color-heritage-navy: #011D80;
+  --color-deep-indigo: #0C1C32;
+  --color-carbon-black: #0D1117;
+  --color-slate-grey: #777777;
+  --color-white: #FFFFFF;
+
+  /* ── Functional Aliases ── */
+  --color-primary: #3E8CFB;
+  --color-primary-dark: #011D80;
+  --color-accent: #FAC759;
+  --color-bg-dark: #0C1C32;
+  --color-bg-darkest: #0D1117;
+  --color-text: #222222;
+  --color-text-light: #777777;
+  --color-text-white: #FFFFFF;
+}
+
+/* ============================================
+   BASE RESET
+   ============================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: var(--b3-size);
+  line-height: var(--b3-line);
+  font-weight: var(--b3-weight);
+  letter-spacing: var(--letter-spacing);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   HEADINGS
+   ============================================ */
+h1, .h1 {
+  font-family: var(--font-primary);
+  font-size: var(--h1-size);
+  line-height: var(--h1-line);
+  font-weight: var(--h1-weight);
+  letter-spacing: var(--letter-spacing);
+}
+
+h2, .h2 {
+  font-family: var(--font-primary);
+  font-size: var(--h2-size);
+  line-height: var(--h2-line);
+  font-weight: var(--h2-weight);
+  letter-spacing: var(--letter-spacing);
+}
+
+h3, .h3 {
+  font-family: var(--font-primary);
+  font-size: var(--h3-size);
+  line-height: var(--h3-line);
+  font-weight: var(--h3-weight);
+  letter-spacing: var(--letter-spacing);
+}
+
+h4, .h4 {
+  font-family: var(--font-primary);
+  font-size: var(--h4-size);
+  line-height: var(--h4-line);
+  font-weight: var(--h4-weight);
+  letter-spacing: var(--letter-spacing);
+}
+
+/* ============================================
+   BODY TEXT
+   ============================================ */
+.b1, .body-large {
+  font-family: var(--font-primary);
+  font-size: var(--b1-size);
+  line-height: var(--b1-line);
+  font-weight: var(--b1-weight);
+}
+
+.b2, .body-bold {
+  font-family: var(--font-primary);
+  font-size: var(--b2-size);
+  line-height: var(--b2-line);
+  font-weight: var(--b2-weight);
+}
+
+.b3, .body-regular, p {
+  font-family: var(--font-primary);
+  font-size: var(--b3-size);
+  line-height: var(--b3-line);
+  font-weight: var(--b3-weight);
+}
+
+/* ============================================
+   TAG / LABEL
+   ============================================ */
+.tag, .label, .caption {
+  font-family: var(--font-primary);
+  font-size: var(--tag-size);
+  line-height: var(--tag-line);
+  font-weight: var(--tag-weight);
+}
+
+/* ============================================
+   LOGO / SECONDARY FONT
+   ============================================ */
+.font-logo, .font-secondary {
+  font-family: var(--font-secondary);
+}
+
+/* ============================================
+   COLOR UTILITIES
+   ============================================ */
+.text-blue   { color: var(--color-signature-blue); }
+.text-navy   { color: var(--color-heritage-navy); }
+.text-indigo { color: var(--color-deep-indigo); }
+.text-gold   { color: var(--color-bright-horizon); }
+.text-grey   { color: var(--color-slate-grey); }
+.text-white  { color: var(--color-white); }
+
+.bg-blue     { background-color: var(--color-signature-blue); }
+.bg-navy     { background-color: var(--color-heritage-navy); }
+.bg-indigo   { background-color: var(--color-deep-indigo); }
+.bg-dark     { background-color: var(--color-carbon-black); }
+.bg-gold     { background-color: var(--color-bright-horizon); }
+
+/* ============================================
+   RESPONSIVE SCALING
+   ============================================ */
+@media (max-width: 1024px) {
+  :root {
+    --h1-size: 40px;  --h1-line: 50px;
+    --h2-size: 34px;  --h2-line: 44px;
+    --h3-size: 28px;  --h3-line: 38px;
+    --h4-size: 24px;  --h4-line: 34px;
+    --b1-size: 22px;  --b1-line: 32px;
+    --b2-size: 18px;  --b2-line: 28px;
+    --b3-size: 16px;  --b3-line: 26px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --h1-size: 34px;  --h1-line: 42px;
+    --h2-size: 28px;  --h2-line: 36px;
+    --h3-size: 24px;  --h3-line: 32px;
+    --h4-size: 20px;  --h4-line: 28px;
+    --b1-size: 20px;  --b1-line: 30px;
+    --b2-size: 17px;  --b2-line: 26px;
+    --b3-size: 15px;  --b3-line: 24px;
+    --tag-size: 13px; --tag-line: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --h1-size: 28px;  --h1-line: 36px;
+    --h2-size: 24px;  --h2-line: 32px;
+    --h3-size: 20px;  --h3-line: 28px;
+    --h4-size: 18px;  --h4-line: 26px;
+    --b1-size: 18px;  --b1-line: 28px;
+    --b2-size: 16px;  --b2-line: 24px;
+    --b3-size: 14px;  --b3-line: 22px;
+    --tag-size: 12px; --tag-line: 20px;
+  }
+}

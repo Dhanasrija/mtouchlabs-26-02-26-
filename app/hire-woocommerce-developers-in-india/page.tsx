@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Hire Woocommerce developers | dedicated woocommerce experts",
   description: "Hire WooCommerce developers from mTouch Labs to launch your eStore faster with high-quality and timely eCommerce solutions.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/hire-woocommerce-developers-in-india",
+  },
+
+  openGraph: {
+    title: "Hire Woocommerce developers | dedicated woocommerce experts",
+    description: "Hire WooCommerce developers from mTouch Labs to launch your eStore faster with high-quality and timely eCommerce solutions.",
+    url: "https://www.mtouchlabs.com/hire-woocommerce-developers-in-india",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire Woocommerce developers | dedicated woocommerce experts" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hire Woocommerce developers | dedicated woocommerce experts",
+    description: "Hire WooCommerce developers from mTouch Labs to launch your eStore faster with high-quality and timely eCommerce solutions.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

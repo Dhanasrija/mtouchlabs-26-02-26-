@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Hire wordpress developers | dedicated wordpress web developers",
   description: "Hire skilled WordPress developers from mTouch Labs to build fast, responsive, and feature-rich websites.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/hire-wordpress-developers-in-india",
+  },
+
+  openGraph: {
+    title: "Hire wordpress developers | dedicated wordpress web developers",
+    description: "Hire skilled WordPress developers from mTouch Labs to build fast, responsive, and feature-rich websites.",
+    url: "https://www.mtouchlabs.com/hire-wordpress-developers-in-india",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire wordpress developers | dedicated wordpress web developers" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hire wordpress developers | dedicated wordpress web developers",
+    description: "Hire skilled WordPress developers from mTouch Labs to build fast, responsive, and feature-rich websites.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

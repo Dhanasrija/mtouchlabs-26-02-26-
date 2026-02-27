@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Top Hybrid App Development Company in India - mTouch Labs",
   description: "Hire mTouch Labs, the top hybrid app development company in India, for custom and scalable hybrid mobile applications.Top Hybrid App Development Company in Hyderabad, \n\tspecialized in creating custom hybrid apps",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/hybrid-app-development-company",
+  },
+
+  openGraph: {
+    title: "Top Hybrid App Development Company in India - mTouch Labs",
+    description: "Hire mTouch Labs, the top hybrid app development company in India, for custom and scalable hybrid mobile applications.Top Hybrid App Development Company in Hyderabad, \n\tspecialized in creating custom hybrid apps",
+    url: "https://www.mtouchlabs.com/hybrid-app-development-company",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Top Hybrid App Development Company in India - mTouch Labs" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Top Hybrid App Development Company in India - mTouch Labs",
+    description: "Hire mTouch Labs, the top hybrid app development company in India, for custom and scalable hybrid mobile applications.Top Hybrid App Development Company in Hyderabad, \n\tspecialized in creating custom hybrid apps",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

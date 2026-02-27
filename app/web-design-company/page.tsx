@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Top Web Design Development Company In India",
   description: "Our web design company in India builds unique, responsive websites backed by professional and creative web designers.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/web-design-company",
+  },
+
+  openGraph: {
+    title: "Top Web Design Development Company In India",
+    description: "Our web design company in India builds unique, responsive websites backed by professional and creative web designers.",
+    url: "https://www.mtouchlabs.com/web-design-company",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Top Web Design Development Company In India" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Top Web Design Development Company In India",
+    description: "Our web design company in India builds unique, responsive websites backed by professional and creative web designers.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

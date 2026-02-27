@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Hire PHP developers | PHP programmers | PHP web developers",
   description: "Hire skilled PHP developers in India to build secure, scalable, and interactive web apps tailored to your business goals.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/hire-php-developers-in-india",
+  },
+
+  openGraph: {
+    title: "Hire PHP developers | PHP programmers | PHP web developers",
+    description: "Hire skilled PHP developers in India to build secure, scalable, and interactive web apps tailored to your business goals.",
+    url: "https://www.mtouchlabs.com/hire-php-developers-in-india",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire PHP developers | PHP programmers | PHP web developers" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hire PHP developers | PHP programmers | PHP web developers",
+    description: "Hire skilled PHP developers in India to build secure, scalable, and interactive web apps tailored to your business goals.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

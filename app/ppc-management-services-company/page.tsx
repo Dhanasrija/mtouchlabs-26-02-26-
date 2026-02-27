@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "PPC Management Services Company | mTouch Labs",
   description: "mTouch Labs is a PPC management services company offering pay-per-click campaigns, optimized ad strategies, and performance-driven results to boost ROI.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/ppc-management-services-company",
+  },
+
+  openGraph: {
+    title: "PPC Management Services Company | mTouch Labs",
+    description: "mTouch Labs is a PPC management services company offering pay-per-click campaigns, optimized ad strategies, and performance-driven results to boost ROI.",
+    url: "https://www.mtouchlabs.com/ppc-management-services-company",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "PPC Management Services Company | mTouch Labs" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "PPC Management Services Company | mTouch Labs",
+    description: "mTouch Labs is a PPC management services company offering pay-per-click campaigns, optimized ad strategies, and performance-driven results to boost ROI.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

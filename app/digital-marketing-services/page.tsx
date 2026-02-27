@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Digital Marketing Company | Digital Marketing Agency in India",
   description: "Leading digital marketing company in India offering industry-specific digital marketing solutions.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/digital-marketing-services",
+  },
+
+  openGraph: {
+    title: "Digital Marketing Company | Digital Marketing Agency in India",
+    description: "Leading digital marketing company in India offering industry-specific digital marketing solutions.",
+    url: "https://www.mtouchlabs.com/digital-marketing-services",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Digital Marketing Company | Digital Marketing Agency in India" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Digital Marketing Company | Digital Marketing Agency in India",
+    description: "Leading digital marketing company in India offering industry-specific digital marketing solutions.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "E-Learning App Development Company | mTouch Labs",
   description: "mTouch Labs is an e-learning app development company creating user-centric mobile apps that deliver engaging, and interactive learning experiences.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/e-learning-app-development-company",
+  },
+
+  openGraph: {
+    title: "E-Learning App Development Company | mTouch Labs",
+    description: "mTouch Labs is an e-learning app development company creating user-centric mobile apps that deliver engaging, and interactive learning experiences.",
+    url: "https://www.mtouchlabs.com/e-learning-app-development-company",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "E-Learning App Development Company | mTouch Labs" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "E-Learning App Development Company | mTouch Labs",
+    description: "mTouch Labs is an e-learning app development company creating user-centric mobile apps that deliver engaging, and interactive learning experiences.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

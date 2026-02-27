@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Web and App Development for temple services | mTouch Labs",
   description: "Build a custom temple app with features like live darshan, pooja bookings, and event updates to enhance spiritual engagement and connect with devotees.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/web-and-app-development-for-temple-services",
+  },
+
+  openGraph: {
+    title: "Web and App Development for temple services | mTouch Labs",
+    description: "Build a custom temple app with features like live darshan, pooja bookings, and event updates to enhance spiritual engagement and connect with devotees.",
+    url: "https://www.mtouchlabs.com/web-and-app-development-for-temple-services",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Web and App Development for temple services | mTouch Labs" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Web and App Development for temple services | mTouch Labs",
+    description: "Build a custom temple app with features like live darshan, pooja bookings, and event updates to enhance spiritual engagement and connect with devotees.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

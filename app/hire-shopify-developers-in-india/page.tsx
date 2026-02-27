@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Hire Shopify developers in India | Hire Shopify experts India",
   description: "Hire Shopify developers in India at mTouchlabs and get your estore up and running. Hire Shopify experts India who deliver projects on time with 2X speed",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/hire-shopify-developers-in-india",
+  },
+
+  openGraph: {
+    title: "Hire Shopify developers in India | Hire Shopify experts India",
+    description: "Hire Shopify developers in India at mTouchlabs and get your estore up and running. Hire Shopify experts India who deliver projects on time with 2X speed",
+    url: "https://www.mtouchlabs.com/hire-shopify-developers-in-india",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire Shopify developers in India | Hire Shopify experts India" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hire Shopify developers in India | Hire Shopify experts India",
+    description: "Hire Shopify developers in India at mTouchlabs and get your estore up and running. Hire Shopify experts India who deliver projects on time with 2X speed",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

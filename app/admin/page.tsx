@@ -8,6 +8,21 @@ export const dynamic = 'force-dynamic';
 export const metadata: Metadata = {
   title: 'Admin Login | mTouch Labs',
   robots: 'noindex, nofollow',
+
+  openGraph: {
+    title: "Admin Login | mTouch Labs",
+    description: "Admin Login | mTouch Labs",
+    url: "https://www.mtouchlabs.com/admin",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Admin Login | mTouch Labs" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Admin Login | mTouch Labs",
+    description: "Admin Login | mTouch Labs",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default async function AdminLoginPage({

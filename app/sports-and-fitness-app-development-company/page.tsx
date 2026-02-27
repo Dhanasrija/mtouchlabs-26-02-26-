@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Sports & Fitness App Development Company | mTouch Labs",
   description: "mTouch Labs is a sports and fitness app development company that drive engagement, track performance, and enhance wellness experiences.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/sports-and-fitness-app-development-company",
+  },
+
+  openGraph: {
+    title: "Sports & Fitness App Development Company | mTouch Labs",
+    description: "mTouch Labs is a sports and fitness app development company that drive engagement, track performance, and enhance wellness experiences.",
+    url: "https://www.mtouchlabs.com/sports-and-fitness-app-development-company",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Sports & Fitness App Development Company | mTouch Labs" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sports & Fitness App Development Company | mTouch Labs",
+    description: "mTouch Labs is a sports and fitness app development company that drive engagement, track performance, and enhance wellness experiences.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

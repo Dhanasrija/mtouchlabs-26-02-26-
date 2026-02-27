@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Custom CRM Software Development Company - mTouch Labs | mTouch Labs",
   description: "As a leading Custom CRM Software Development Company, We deliver best CRM Solutions to automate your Business Process.Contact us today",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/custom-crm-software-development-company",
+  },
+
+  openGraph: {
+    title: "Custom CRM Software Development Company - mTouch Labs | mTouch Labs",
+    description: "As a leading Custom CRM Software Development Company, We deliver best CRM Solutions to automate your Business Process.Contact us today",
+    url: "https://www.mtouchlabs.com/custom-crm-software-development-company",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Custom CRM Software Development Company - mTouch Labs | mTouch Labs" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Custom CRM Software Development Company - mTouch Labs | mTouch Labs",
+    description: "As a leading Custom CRM Software Development Company, We deliver best CRM Solutions to automate your Business Process.Contact us today",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

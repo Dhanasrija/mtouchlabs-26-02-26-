@@ -8,6 +8,21 @@ export const dynamic = 'force-dynamic';
 export const metadata: Metadata = {
   title: 'All Portfolios | Admin | mTouch Labs',
   robots: 'noindex, nofollow',
+
+  openGraph: {
+    title: "All Portfolios | Admin | mTouch Labs",
+    description: "All Portfolios | Admin | mTouch Labs",
+    url: "https://www.mtouchlabs.com/admin/portfolios",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "All Portfolios | Admin | mTouch Labs" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "All Portfolios | Admin | mTouch Labs",
+    description: "All Portfolios | Admin | mTouch Labs",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 interface Portfolio {

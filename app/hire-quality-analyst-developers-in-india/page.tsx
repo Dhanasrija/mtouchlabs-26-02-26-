@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Hire QA team | Hire quality analyst | Quality assurance team",
   description: "Hire QA team and Quality assurance team from mTouchlabs. Our quality analyst uses the latest tool to check the software quality and make it bugs free.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/hire-quality-analyst-developers-in-india",
+  },
+
+  openGraph: {
+    title: "Hire QA team | Hire quality analyst | Quality assurance team",
+    description: "Hire QA team and Quality assurance team from mTouchlabs. Our quality analyst uses the latest tool to check the software quality and make it bugs free.",
+    url: "https://www.mtouchlabs.com/hire-quality-analyst-developers-in-india",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire QA team | Hire quality analyst | Quality assurance team" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hire QA team | Hire quality analyst | Quality assurance team",
+    description: "Hire QA team and Quality assurance team from mTouchlabs. Our quality analyst uses the latest tool to check the software quality and make it bugs free.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

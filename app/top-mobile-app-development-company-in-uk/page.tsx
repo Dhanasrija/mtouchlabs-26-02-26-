@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Best Mobile App Development Company in UK - mTouch Labs",
   description: "mTouch Labs, a top UK mobile app development company, delivers the best app solutions for small to large-scale enterprises.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/top-mobile-app-development-company-in-uk",
+  },
+
+  openGraph: {
+    title: "Best Mobile App Development Company in UK - mTouch Labs",
+    description: "mTouch Labs, a top UK mobile app development company, delivers the best app solutions for small to large-scale enterprises.",
+    url: "https://www.mtouchlabs.com/top-mobile-app-development-company-in-uk",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Best Mobile App Development Company in UK - mTouch Labs" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Best Mobile App Development Company in UK - mTouch Labs",
+    description: "mTouch Labs, a top UK mobile app development company, delivers the best app solutions for small to large-scale enterprises.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

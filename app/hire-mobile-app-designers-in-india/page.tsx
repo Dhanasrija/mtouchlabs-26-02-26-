@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "hire mobile app designers | dedicated mobile UI designers",
   description: "Hire mobile app designer from mTouchlabs. Our dedicated mobile UI designers are committed to transforming your dreams into engaging mobile apps",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/hire-mobile-app-designers-in-india",
+  },
+
+  openGraph: {
+    title: "hire mobile app designers | dedicated mobile UI designers",
+    description: "Hire mobile app designer from mTouchlabs. Our dedicated mobile UI designers are committed to transforming your dreams into engaging mobile apps",
+    url: "https://www.mtouchlabs.com/hire-mobile-app-designers-in-india",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "hire mobile app designers | dedicated mobile UI designers" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "hire mobile app designers | dedicated mobile UI designers",
+    description: "Hire mobile app designer from mTouchlabs. Our dedicated mobile UI designers are committed to transforming your dreams into engaging mobile apps",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

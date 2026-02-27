@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "top Shopify App Development Company Hyderabad India",
   description: "mTouch Labs, a top Shopify development company, offers Shopify website services, integrations, support & maintenance in India.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/shopify-development-company-in-india",
+  },
+
+  openGraph: {
+    title: "top Shopify App Development Company Hyderabad India",
+    description: "mTouch Labs, a top Shopify development company, offers Shopify website services, integrations, support & maintenance in India.",
+    url: "https://www.mtouchlabs.com/shopify-development-company-in-india",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "top Shopify App Development Company Hyderabad India" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "top Shopify App Development Company Hyderabad India",
+    description: "mTouch Labs, a top Shopify development company, offers Shopify website services, integrations, support & maintenance in India.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

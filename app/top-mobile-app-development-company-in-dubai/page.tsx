@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Top Mobile app development company in Dubai - mTouch Labs",
   description: "Leading mobile app development company in Dubai. Get custom app development services tailored to your business goals.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/top-mobile-app-development-company-in-dubai",
+  },
+
+  openGraph: {
+    title: "Top Mobile app development company in Dubai - mTouch Labs",
+    description: "Leading mobile app development company in Dubai. Get custom app development services tailored to your business goals.",
+    url: "https://www.mtouchlabs.com/top-mobile-app-development-company-in-dubai",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Top Mobile app development company in Dubai - mTouch Labs" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Top Mobile app development company in Dubai - mTouch Labs",
+    description: "Leading mobile app development company in Dubai. Get custom app development services tailored to your business goals.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

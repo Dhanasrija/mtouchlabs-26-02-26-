@@ -2,16 +2,17 @@ export default function TrustedPartnersSection() {
   return (
     <section className="New-Home-section2">
       <div className="Homenewweb-logos">
-        <div className="New-Home-animated-text">
-            Trusted globally and proudly partnering with{" "}
-          <span className="New-Home-underline" id="partners">Telangana</span>,{" "}
-          <span className="New-Home-underline" id="abu-dhabi">Abu Dhabi Governments</span> &amp;{" "}
+        <h1 className="New-Home-animated-text">
+            Trusted globally as a leading{" "}
+          <span className="New-Home-underline" id="partners">Software Development Company</span>,{" "}
+          proudly partnering with{" "}
+          <span className="New-Home-underline" id="abu-dhabi">Telangana, Abu Dhabi Governments</span> &amp;{" "}
           <span className="New-Home-underline" id="enterprises">Enterprises</span>{" "}
           for innovation.{" "}
           <span className="New-home-section2-button js-open-logo-modal">
             View All
           </span>
-        </div>
+        </h1>
 
         <div className="Home-new-logo-scroll-container">
           {/* Row 1 — scrolls LEFT */}

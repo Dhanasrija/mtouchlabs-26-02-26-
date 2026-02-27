@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Top Woocommerce Website Development Company India",
   description: "mTouch Labs leading top Woocommerce website development company in india, providing custom WooCommerce web development services for creating successful eStores, plugins and themes.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/woocommerce-development-company-in-india",
+  },
+
+  openGraph: {
+    title: "Top Woocommerce Website Development Company India",
+    description: "mTouch Labs leading top Woocommerce website development company in india, providing custom WooCommerce web development services for creating successful eStores, plugins and themes.",
+    url: "https://www.mtouchlabs.com/woocommerce-development-company-in-india",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Top Woocommerce Website Development Company India" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Top Woocommerce Website Development Company India",
+    description: "mTouch Labs leading top Woocommerce website development company in india, providing custom WooCommerce web development services for creating successful eStores, plugins and themes.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

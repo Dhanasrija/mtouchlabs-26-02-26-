@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Web and App Development for Ecommerce Services | mTouch Labs",
   description: "",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/app-and-web-development-for-ecommerce-services",
+  },
+
+  openGraph: {
+    title: "Web and App Development for Ecommerce Services | mTouch Labs",
+    description: "Web and App Development for Ecommerce Services | mTouch Labs",
+    url: "https://www.mtouchlabs.com/app-and-web-development-for-ecommerce-services",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Web and App Development for Ecommerce Services | mTouch Labs" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Web and App Development for Ecommerce Services | mTouch Labs",
+    description: "Web and App Development for Ecommerce Services | mTouch Labs",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

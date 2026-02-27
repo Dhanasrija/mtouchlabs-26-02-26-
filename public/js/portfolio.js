@@ -538,3 +538,81 @@ const blogCards = [
     // Initial render
     renderCards(1);
 })();
+
+/* Portfolio TOC Scroll Spy */
+(function() {
+  'use strict';
+  
+  function initScrollSpy() {
+    const tocLinks = document.querySelectorAll('.cs-toc__link');
+    const sections = document.querySelectorAll('.cs-sec[id]');
+    
+    if (!tocLinks.length || !sections.length) return;
+    
+    // Set first link as active initially
+    tocLinks[0]?.classList.add('active');
+    
+    // IntersectionObserver to track which section is in view
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          // Remove active from all
+          tocLinks.forEach(function(link) {
+            link.classList.remove('active');
+          });
+          // Add active to matching link
+          const id = entry.target.id;
+          const activeLink = document.querySelector('.cs-toc__link[href="#' + id + '"]');
+          if (activeLink) {
+            activeLink.classList.add('active');
+            // Scroll TOC to keep active link visible
+            var tocContainer = document.querySelector('.cs-toc');
+            if (tocContainer) {
+              var linkTop = activeLink.offsetTop - tocContainer.offsetTop;
+              var tocHeight = tocContainer.clientHeight;
+              if (linkTop < tocContainer.scrollTop || linkTop > tocContainer.scrollTop + tocHeight - 40) {
+                tocContainer.scrollTo({ top: linkTop - tocHeight / 3, behavior: 'smooth' });
+              }
+            }
+          }
+        }
+      });
+    }, {
+      rootMargin: '-120px 0px -60% 0px',
+      threshold: 0
+    });
+    
+    sections.forEach(function(section) {
+      observer.observe(section);
+    });
+    
+    // Smooth scroll on TOC click
+    tocLinks.forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        var targetId = this.getAttribute('href').substring(1);
+        var target = document.getElementById(targetId);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Update active immediately
+          tocLinks.forEach(function(l) { l.classList.remove('active'); });
+          this.classList.add('active');
+        }
+      });
+    });
+    
+    // FAQ toggle
+    document.querySelectorAll('.cs-faq-q').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        this.closest('.cs-faq-item').classList.toggle('open');
+      });
+    });
+  }
+  
+  // Run after DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initScrollSpy);
+  } else {
+    initScrollSpy();
+  }
+})();

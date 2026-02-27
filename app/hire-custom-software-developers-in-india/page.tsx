@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Hire Custom Software Developers in India | mTouch Labs",
   description: "Hire custom software developers in India from mTouch Labs to build tailored, scalable, and high-performance software solutions that drive business growth.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/hire-custom-software-developers-in-india",
+  },
+
+  openGraph: {
+    title: "Hire Custom Software Developers in India | mTouch Labs",
+    description: "Hire custom software developers in India from mTouch Labs to build tailored, scalable, and high-performance software solutions that drive business growth.",
+    url: "https://www.mtouchlabs.com/hire-custom-software-developers-in-india",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire Custom Software Developers in India | mTouch Labs" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hire Custom Software Developers in India | mTouch Labs",
+    description: "Hire custom software developers in India from mTouch Labs to build tailored, scalable, and high-performance software solutions that drive business growth.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

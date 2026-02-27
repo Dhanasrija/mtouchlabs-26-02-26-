@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Top PHP Web Development Company in India",
   description: "mTouch Labs is a trusted top PHP web development company in India, building high-performance, responsive, and scalable websites tailored to your business goals.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/php-development-company",
+  },
+
+  openGraph: {
+    title: "Top PHP Web Development Company in India",
+    description: "mTouch Labs is a trusted top PHP web development company in India, building high-performance, responsive, and scalable websites tailored to your business goals.",
+    url: "https://www.mtouchlabs.com/php-development-company",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Top PHP Web Development Company in India" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Top PHP Web Development Company in India",
+    description: "mTouch Labs is a trusted top PHP web development company in India, building high-performance, responsive, and scalable websites tailored to your business goals.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Top Mobile App Development Company in Kochi - mTouch Labs",
   description: "Looking for a mobile app development partner?mTouch Labs is a leading mobile app company in Kochi that builds apps for all Business needs . Contact us for a free consultation.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/top-mobile-app-development-company-in-kochi",
+  },
+
+  openGraph: {
+    title: "Top Mobile App Development Company in Kochi - mTouch Labs",
+    description: "Looking for a mobile app development partner?mTouch Labs is a leading mobile app company in Kochi that builds apps for all Business needs . Contact us for a free consultation.",
+    url: "https://www.mtouchlabs.com/top-mobile-app-development-company-in-kochi",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Top Mobile App Development Company in Kochi - mTouch Labs" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Top Mobile App Development Company in Kochi - mTouch Labs",
+    description: "Looking for a mobile app development partner?mTouch Labs is a leading mobile app company in Kochi that builds apps for all Business needs . Contact us for a free consultation.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

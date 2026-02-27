@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Hire Hybrid App Developers in India | mTouch Labs",
   description: "Hire hybrid app developers in India from mTouch Labs to build cross-platform mobile apps with a single codebase that deliver fast performance and cost efficiency.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/hire-hybrid-app-developers-in-india",
+  },
+
+  openGraph: {
+    title: "Hire Hybrid App Developers in India | mTouch Labs",
+    description: "Hire hybrid app developers in India from mTouch Labs to build cross-platform mobile apps with a single codebase that deliver fast performance and cost efficiency.",
+    url: "https://www.mtouchlabs.com/hire-hybrid-app-developers-in-india",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire Hybrid App Developers in India | mTouch Labs" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hire Hybrid App Developers in India | mTouch Labs",
+    description: "Hire hybrid app developers in India from mTouch Labs to build cross-platform mobile apps with a single codebase that deliver fast performance and cost efficiency.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

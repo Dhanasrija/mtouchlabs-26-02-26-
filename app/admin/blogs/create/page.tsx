@@ -6,6 +6,21 @@ import { createBlog } from '@/lib/blog-actions';
 export const metadata: Metadata = {
   title: 'Create Blog | Admin | mTouch Labs',
   robots: 'noindex, nofollow',
+
+  openGraph: {
+    title: "Create Blog | Admin | mTouch Labs",
+    description: "Create Blog | Admin | mTouch Labs",
+    url: "https://www.mtouchlabs.com/admin/blogs/create",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Create Blog | Admin | mTouch Labs" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Create Blog | Admin | mTouch Labs",
+    description: "Create Blog | Admin | mTouch Labs",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function CreateBlogPage() {

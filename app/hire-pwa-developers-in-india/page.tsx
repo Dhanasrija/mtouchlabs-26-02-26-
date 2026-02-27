@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Hire PWA developers | Dedicated progressive web app developers",
   description: "Hire top PWA developers from mTouch Labs to build fast, reliable, and user-centric progressive web applications.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/hire-pwa-developers-in-india",
+  },
+
+  openGraph: {
+    title: "Hire PWA developers | Dedicated progressive web app developers",
+    description: "Hire top PWA developers from mTouch Labs to build fast, reliable, and user-centric progressive web applications.",
+    url: "https://www.mtouchlabs.com/hire-pwa-developers-in-india",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire PWA developers | Dedicated progressive web app developers" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hire PWA developers | Dedicated progressive web app developers",
+    description: "Hire top PWA developers from mTouch Labs to build fast, reliable, and user-centric progressive web applications.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

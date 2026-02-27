@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Real Estate App Development Company | mTouch Labs",
   description: "mTouch Labs is a real estate app development company building custom mobile apps that streamline property search, listings, bookings, and user engagement.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/real-estate-app-development-company",
+  },
+
+  openGraph: {
+    title: "Real Estate App Development Company | mTouch Labs",
+    description: "mTouch Labs is a real estate app development company building custom mobile apps that streamline property search, listings, bookings, and user engagement.",
+    url: "https://www.mtouchlabs.com/real-estate-app-development-company",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Real Estate App Development Company | mTouch Labs" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Real Estate App Development Company | mTouch Labs",
+    description: "mTouch Labs is a real estate app development company building custom mobile apps that streamline property search, listings, bookings, and user engagement.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

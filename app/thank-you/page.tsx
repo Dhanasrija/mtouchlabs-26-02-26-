@@ -1,8 +1,22 @@
-import type { Metadata } from "next";
-
+import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Thank You | mTouch Labs",
-  description: "Thank you for submitting your information. Our team will get in touch at the earliest.",
+  robots: { index: false, follow: false },
+
+  openGraph: {
+    title: "Thank You | mTouch Labs",
+    description: "Thank You | mTouch Labs",
+    url: "https://www.mtouchlabs.com/thank-you",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Thank You | mTouch Labs" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Thank You | mTouch Labs",
+    description: "Thank You | mTouch Labs",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function ThankYouPage() {

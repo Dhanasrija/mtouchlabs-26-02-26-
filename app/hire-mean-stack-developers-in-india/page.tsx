@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Hire MEAN stack developers | Certified MEAN Stack developers",
   description: "Hire certified MEAN stack developers from India for high-performance web apps built with MongoDB, Express, Angular, and Node.js.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/hire-mean-stack-developers-in-india",
+  },
+
+  openGraph: {
+    title: "Hire MEAN stack developers | Certified MEAN Stack developers",
+    description: "Hire certified MEAN stack developers from India for high-performance web apps built with MongoDB, Express, Angular, and Node.js.",
+    url: "https://www.mtouchlabs.com/hire-mean-stack-developers-in-india",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire MEAN stack developers | Certified MEAN Stack developers" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hire MEAN stack developers | Certified MEAN Stack developers",
+    description: "Hire certified MEAN stack developers from India for high-performance web apps built with MongoDB, Express, Angular, and Node.js.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

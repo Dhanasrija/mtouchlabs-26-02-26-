@@ -5,7 +5,13 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/api/', '/admin/', '/thank-you'],
+      disallow: [
+        '/api/',
+        '/admin/',
+        '/thank-you',
+        '/blogs/create',
+        '/blogs/edit/',
+      ],
     },
     sitemap: 'https://www.mtouchlabs.com/sitemap.xml',
   }

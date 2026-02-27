@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Hire Salesforce Developers in India | mTouch Labs",
   description: "Hire Salesforce developers in India from mTouch Labs to build, customize, and integrate Salesforce solutions that optimize your CRM, workflows, and business processes.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/hire-salesforce-developers-in-india",
+  },
+
+  openGraph: {
+    title: "Hire Salesforce Developers in India | mTouch Labs",
+    description: "Hire Salesforce developers in India from mTouch Labs to build, customize, and integrate Salesforce solutions that optimize your CRM, workflows, and business processes.",
+    url: "https://www.mtouchlabs.com/hire-salesforce-developers-in-india",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire Salesforce Developers in India | mTouch Labs" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hire Salesforce Developers in India | mTouch Labs",
+    description: "Hire Salesforce developers in India from mTouch Labs to build, customize, and integrate Salesforce solutions that optimize your CRM, workflows, and business processes.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Our Vision – Driving Digital Innovation | mTouch Labs",
   description: "Explore mTouch Labs’ vision to drive digital innovation, empower businesses through technology, and create impactful, future-ready digital solutions.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/our-vision",
+  },
+
+  openGraph: {
+    title: "Our Vision – Driving Digital Innovation | mTouch Labs",
+    description: "Explore mTouch Labs’ vision to drive digital innovation, empower businesses through technology, and create impactful, future-ready digital solutions.",
+    url: "https://www.mtouchlabs.com/our-vision",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Our Vision – Driving Digital Innovation | mTouch Labs" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Our Vision – Driving Digital Innovation | mTouch Labs",
+    description: "Explore mTouch Labs’ vision to drive digital innovation, empower businesses through technology, and create impactful, future-ready digital solutions.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

@@ -1,196 +1,240 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Awards & Recognition – Achievements & Honors | mTouch Labs",
-  description: "Discover mTouch Labs’ awards and recognition for excellence in technology, innovation, and digital solutions.",
+  title: "Awards & Recognition | Award-Winning Software Development Company | mTouch Labs",
+  description:
+    "Discover the awards and recognition earned by mTouch Labs for excellence in custom software development, mobile apps, enterprise solutions, and cloud services.",
+  keywords: [
+    "award winning software development company",
+    "mTouch Labs awards",
+    "recognized IT services company",
+    "enterprise application development experts",
+    "global software development company",
+  ],
+  openGraph: {
+    title: "Awards & Recognition - mTouch Labs",
+    description:
+      "Recognized globally for innovation in enterprise software, mobile app development, and cloud solutions.",
+    url: "https://www.mtouchlabs.com/awards-recognition",
+    type: "website",
+  },
 };
 
-export default function Page() {
+const awards = [
+  {
+    icon: "fas fa-trophy",
+    title: "Excellence in Custom Software Development",
+    desc: "Recognized for delivering high-performance enterprise applications and scalable SaaS platforms for global businesses.",
+    link: "/custom-software-development-company",
+    linkText: "Custom Software Services",
+  },
+  {
+    icon: "fas fa-mobile-alt",
+    title: "Innovation in Mobile App Development",
+    desc: "Acknowledged for building secure and user-centric mobile applications using modern frameworks like iOS, Android, and React Native.",
+    link: "/mobile-app-development-company",
+    linkText: "Mobile App Services",
+  },
+  {
+    icon: "fas fa-cloud",
+    title: "Cloud & Digital Transformation Leadership",
+    desc: "Honored for implementing cloud-native architectures and successful cloud migration strategies for enterprises.",
+    link: "/cloud-services",
+    linkText: "Cloud Services",
+  },
+  {
+    icon: "fas fa-handshake",
+    title: "Client Satisfaction & Delivery Excellence",
+    desc: "Appreciated for maintaining transparent communication, agile project management, and consistent on-time delivery.",
+    link: "/enterprise-application-development-company",
+    linkText: "Enterprise Solutions",
+  },
+];
+
+const certifications = [
+  "Cloud certifications (AWS, Azure)",
+  "Agile & DevOps best practices",
+  "Enterprise security compliance",
+  "Modern UI/UX and accessibility standards",
+];
+
+const benefits = [
+  "Proven technical expertise",
+  "Globally aligned engineering standards",
+  "Scalable and secure architecture",
+  "Dedicated innovation-driven teams",
+  "Long-term digital growth strategies",
+];
+
+const regions = ["USA", "UK", "UAE", "Australia", "India"];
+
+const faqs = [
+  {
+    q: "Has mTouch Labs received recognition for software development services?",
+    a: "Yes, mTouch Labs has been recognized for excellence in custom software development, enterprise applications, mobile app innovation, and cloud transformation services.",
+  },
+  {
+    q: "What makes mTouch Labs an award-worthy technology company?",
+    a: "Our commitment to scalable architecture, agile delivery, cloud expertise, and client satisfaction sets us apart as a trusted global software partner.",
+  },
+  {
+    q: "Do awards reflect project quality?",
+    a: "Yes. Industry recognition and client appreciation demonstrate our ability to consistently deliver high-performance, secure, and business-driven technology solutions.",
+  },
+  {
+    q: "Does recognition impact client projects?",
+    a: "Absolutely. Our achievements ensure clients work with an experienced, trusted, and innovation-driven technology team.",
+  },
+];
+
+export default function AwardsRecognitionPage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+
   return (
     <>
-      <section className="hero-section_company_overview company_overview">
-    <div className="hero-content">
-      
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <link rel="stylesheet" href="/css/service-page.css" />
 
-      <h1 className="hero-title">Awards & Recognition</h1>
-
-      <p className="hero-subtitle">Celebrated for excellence—our achievements reflect our dedication to quality, innovation, and client success.</p>
-
-      
-    </div>
-  </section>
-
-  
-  <section className="container about-section " >
-    <div className="company_overview_container awards-revognition-section" style={{"alignItems": "center"}}>
-      <div className="overview_content">
-        
-        <h2 >Recognized for Excellence.
-          Trusted Worldwide.</h2>
-        <p>Over the years, <b>mTouch Labs</b> has earned multiple awards and industry recognitions for its unwavering commitment to excellence, innovation, and client success. These achievements reflect not only our technical expertise, but also the trust our clients place in us to deliver high-impact digital solutions.</p>
-          <p>Our recognition is the result of consistent quality, user-centric design, and a results-driven approach across every project we undertake. From startups to global enterprises, organizations choose mTouch Labs for our ability to translate complex ideas into scalable, secure, and future-ready digital products.
-</p>
-
-      </div>
-      <div className="about-image">
-        <img src="/images/about/awards.png" alt="About mTouch Labs" className="img-fluid" />
-      </div>
-    </div>
-  </section>
-
-  <section className="awards-section bg_awards">
-    <div className="container">
-      <h2 className="awards-title text-center">Our Achievements Include</h2>
-      <div className="awards-grid mt-4">
-        <div className="award-card">
-          <div className="award-media">
-            <img src="/images/about/award1.png" alt="Award 1" className="img-fluid" />
-          </div>
-          <p className="award-caption">Award Winning Designers </p>
-          <p style={{"fontSize": "14px", "lineHeight": "24px"}}>
-            Blending creativity with cutting-edge technology to deliver exceptional user experiences.
-
-          </p>
+      {/* Hero */}
+      <section className="srv-hero">
+        <div className="srv-hero__bg">
+          <div className="srv-hero__gradient"></div>
         </div>
-        <div className="award-card">
-          <div className="award-media">
-            <img src="/images/about/award2.png" alt="Award 2" className="img-fluid" />
-          </div>
-          <p className="award-caption">4.9 Rating on Google Reviews</p>
-           <p style={{"fontSize": "14px", "lineHeight": "24px"}}>
-            A reputation built on trust, performance, and consistent results
+        <div className="srv-hero__content container">
+          <nav className="srv-breadcrumb" aria-label="Breadcrumb">
+            <ol>
+              <li><Link href="/">Home</Link></li>
+              <li><span className="srv-breadcrumb__sep">/</span></li>
+              <li className="srv-breadcrumb__current">Awards &amp; Recognition</li>
+            </ol>
+          </nav>
+          <span className="srv-hero__badge">Recognition</span>
+          <h1 className="srv-hero__title">
+            Awards & <span className="srv-accent">Recognition</span>
+          </h1>
+          <p className="srv-hero__sub">
+            Recognized for excellence in software development and digital innovation. Our commitment to delivering scalable, secure, and innovative solutions has earned us recognition across industries.
           </p>
-        </div>
-        <div className="award-card">
-          <div className="award-media">
-            <img src="/images/about/award4.png" alt="Award 3" className="img-fluid" />
+          <div className="srv-hero__btns">
+            <Link href="/contact-us" className="srv-btn srv-btn--primary">
+              Work With Us <i className="fas fa-arrow-right"></i>
+            </Link>
+            <Link href="/leadership-team" className="srv-btn srv-btn--ghost">
+              Our Team
+            </Link>
           </div>
-          <p className="award-caption">App Development Company of the Year </p>
-           <p style={{"fontSize": "14px", "lineHeight": "24px"}}>
-Recognized for technical excellence and innovation-driven solutions.
-          </p>
         </div>
-        <div className="award-card">
-          <div className="award-media">
-            <img src="/images/about/award3.png" alt="Award 4" className="img-fluid" />
+      </section>
+
+      {/* Awards */}
+      <section className="srv-section">
+        <div className="container">
+          <h2 className="srv-section__title">Industry Recognition & <span className="srv-accent">Achievements</span></h2>
+          <div className="srv-grid srv-grid--2">
+            {awards.map((a, i) => (
+              <div key={i} className="srv-card srv-card--award" data-aos="fade-up" data-aos-delay={i * 100}>
+                <div className="srv-card__icon srv-card__icon--gold"><i className={a.icon}></i></div>
+                <h3 className="srv-card__title">{a.title}</h3>
+                <p className="srv-card__desc">{a.desc}</p>
+                <Link href={a.link} className="srv-card__link">{a.linkText} →</Link>
+              </div>
+            ))}
           </div>
-          <p className="award-caption"> Proud Partner of DesignRush</p>
-          <p style={{"fontSize": "14px", "lineHeight": "24px"}}>
-            Strengthening credibility through global visibility and digital excellence.
-          </p>
         </div>
-      </div>
-    </div>
-  </section>
- <div className="footer-quote">
-  Our reputation as a trusted technology partner is built on a foundation of <b>transparency, innovation, and measurable success.</b> Each recognition reinforces our responsibility to raise the bar, push boundaries, and deliver solutions that truly make a difference.
+      </section>
 
-   </div>
+      {/* Certifications */}
+      <section className="srv-section srv-section--alt">
+        <div className="container">
+          <h2 className="srv-section__title">Certifications & <span className="srv-accent">Partnerships</span></h2>
+          <p className="srv-section__desc">Our team continuously upgrades skills and aligns with global standards through:</p>
+          <div className="srv-why-grid">
+            {certifications.map((c, i) => (
+              <div key={i} className="srv-why-item">
+                <i className="fas fa-certificate"></i>
+                <span>{c}</span>
+              </div>
+            ))}
+          </div>
+          <p className="srv-closing">These recognitions reinforce our position as a trusted <Link href="/enterprise-application-development-company">enterprise software development partner</Link>.</p>
+        </div>
+      </section>
 
-      <section className="r-bg-x sec-pad">
-                <div className="container">
-                        <div className="row justify-content-center">
-                                <div className="col-lg-7 text-center">
-                                        <div className="page-headings">
-                                                <h3>Frequently Asked Questions</h3>
-                                                 
-                                                                        <div className="accordion">
+      {/* Benefits */}
+      <section className="srv-section">
+        <div className="container">
+          <h2 className="srv-section__title">What Our Recognition <span className="srv-accent">Means for Clients</span></h2>
+          <div className="srv-why-grid">
+            {benefits.map((b, i) => (
+              <div key={i} className="srv-why-item" data-aos="fade-up" data-aos-delay={i * 80}>
+                <i className="fas fa-check-circle"></i>
+                <span>{b}</span>
+              </div>
+            ))}
+          </div>
+          <p className="srv-closing">Our recognition is not just an achievement — it is a responsibility to continue delivering excellence.</p>
+        </div>
+      </section>
 
-                                                  <div className="accordion-item">
-                                                    <button id="accordion-button-1" aria-expanded="false">
-                                                      <span className="accordion-title">What awards has mTouch Labs received?</span>
-                                                      <span className="icon" aria-hidden="true"></span>
-                                                    </button>
-                                                    <div className="accordion-content">
-                                                      <p>
-                                                        mTouch Labs has been recognized for excellence in mobile app development, design innovation, and digital transformation. Our achievements include industry awards such as App Development Company of the Year and recognition for our award-winning designers.
-                                                      </p>
-                                                    </div>
-                                                  </div>
+      {/* Global */}
+      <section className="srv-section srv-section--dark">
+        <div className="container" style={{ textAlign: "center" }}>
+          <h2 className="srv-section__title srv-section__title--light">Global Trust & <span className="srv-accent">Industry Impact</span></h2>
+          <p style={{ color: "rgba(255,255,255,0.7)", marginBottom: "32px", fontSize: "16px" }}>We proudly serve clients across:</p>
+          <div className="srv-industries">
+            {regions.map((r, i) => (
+              <div key={i} className="srv-industry">
+                <i className="fas fa-globe"></i>
+                <span>{r}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-                                                  <div className="accordion-item">
-                                                    <button id="accordion-button-2" aria-expanded="false">
-                                                      <span className="accordion-title">What makes mTouch Labs an award-winning company?</span>
-                                                      <span className="icon" aria-hidden="true"></span>
-                                                    </button>
-                                                    <div className="accordion-content">
-                                                      <p>
-                                                        Our commitment to quality, creativity, user-focused design, and technology innovation has consistently earned us recognition from global platforms and industry associations.
-                                                      </p>
-                                                    </div>
-                                                  </div>
+      {/* FAQ */}
+      <section className="srv-section">
+        <div className="container">
+          <h2 className="srv-section__title">Frequently Asked <span className="srv-accent">Questions</span></h2>
+          <div className="srv-faq-list">
+            {faqs.map((f, i) => (
+              <details key={i} className="srv-faq-item">
+                <summary>{f.q}</summary>
+                <p>{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
 
-                                                  <div className="accordion-item">
-                                                    <button id="accordion-button-3" aria-expanded="false">
-                                                      <span className="accordion-title">What is mTouch Labs’ rating on Google Reviews?</span>
-                                                      <span className="icon" aria-hidden="true"></span>
-                                                    </button>
-                                                    <div className="accordion-content">
-                                                      <p>
-                                                        We proudly maintain a 4.9-star rating on Google Reviews, reflecting the trust, satisfaction, and positive experiences of our clients.
-                                                      </p>
-                                                    </div>
-                                                  </div>
-
-                                                  <div className="accordion-item">
-                                                    <button id="accordion-button-4" aria-expanded="false">
-                                                      <span className="accordion-title">Is mTouch Labs partnered with any global platforms?</span>
-                                                      <span className="icon" aria-hidden="true"></span>
-                                                    </button>
-                                                    <div className="accordion-content">
-                                                      <p>
-                                                        Yes. We are officially partnered with DesignRush, which further strengthens our credibility and positions us as a trusted digital solutions provider.
-                                                      </p>
-                                                    </div>
-                                                  </div>
-
-                                                  <div className="accordion-item">
-                                                    <button id="accordion-button-5" aria-expanded="false">
-                                                      <span className="accordion-title">What do these awards and recognitions signify for clients?</span>
-                                                      <span className="icon" aria-hidden="true"></span>
-                                                    </button>
-                                                    <div className="accordion-content">
-                                                      <p>
-                                                        They represent our reliability, quality standards, transparent processes, and consistent delivery of high-performing digital products that drive measurable results.
-                                                      </p>
-                                                    </div>
-                                                  </div>
-
-                                                  <div className="accordion-item">
-                                                    <button id="accordion-button-6" aria-expanded="false">
-                                                      <span className="accordion-title">How does mTouch Labs maintain its award-winning standards?</span>
-                                                      <span className="icon" aria-hidden="true"></span>
-                                                    </button>
-                                                    <div className="accordion-content">
-                                                      <p>
-                                                        We follow strong internal quality frameworks, embrace innovation, invest in continuous learning, and prioritize client success in every project.
-                                                      </p>
-                                                    </div>
-                                                  </div>
-
-                                                                        </div>
-                                        </div>
-                                </div>
-
-
-                        </div>
-                </div>
-        </section>
-  
-
-  
-  
-  
-  
-  
-  
-  
-
-  
-  
-
-  
-  
+      {/* CTA */}
+      <section className="srv-cta">
+        <div className="container srv-cta__inner">
+          <span className="srv-tag srv-tag--light">Award-Winning Team</span>
+          <h2>Build Your Next Project With Us</h2>
+          <p>Partner with a globally recognized software development company.</p>
+          <div className="srv-cta__btns">
+            <Link href="/contact-us" className="srv-btn srv-btn--white">
+              Contact Us <i className="fas fa-arrow-right"></i>
+            </Link>
+            <Link href="/cloud-migration-services" className="srv-btn srv-btn--ghost-light">
+              Cloud Migration
+            </Link>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

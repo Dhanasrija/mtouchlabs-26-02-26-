@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Hire android developers | hire android app developers",
   description: "Looking to hire android app developers in India. Hire Android developers who are dedicated to developing and delivering engaging Android applications",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/hire-android-app-developers-in-india",
+  },
+
+  openGraph: {
+    title: "Hire android developers | hire android app developers",
+    description: "Looking to hire android app developers in India. Hire Android developers who are dedicated to developing and delivering engaging Android applications",
+    url: "https://www.mtouchlabs.com/hire-android-app-developers-in-india",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire android developers | hire android app developers" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hire android developers | hire android app developers",
+    description: "Looking to hire android app developers in India. Hire Android developers who are dedicated to developing and delivering engaging Android applications",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Hire Fullstack Developers in India | mTouch Labs",
   description: "Hire fullstack developers in India from mTouch Labs to build robust, scalable web and mobile applications using modern frontend and backend technologies.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/hire-fullstack-developers-in-india",
+  },
+
+  openGraph: {
+    title: "Hire Fullstack Developers in India | mTouch Labs",
+    description: "Hire fullstack developers in India from mTouch Labs to build robust, scalable web and mobile applications using modern frontend and backend technologies.",
+    url: "https://www.mtouchlabs.com/hire-fullstack-developers-in-india",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire Fullstack Developers in India | mTouch Labs" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hire Fullstack Developers in India | mTouch Labs",
+    description: "Hire fullstack developers in India from mTouch Labs to build robust, scalable web and mobile applications using modern frontend and backend technologies.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

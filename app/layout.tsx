@@ -46,6 +46,7 @@ export default function RootLayout({
         <link href="/css/location-pages.css" rel="stylesheet" />
         <link href="/css/responsive.css" rel="stylesheet" />
         <link href="/css/navbar-dropdown.css" rel="stylesheet" />
+
         <meta name="turnstile-site-key" content={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY} />
         {/* AOS animations */}
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />

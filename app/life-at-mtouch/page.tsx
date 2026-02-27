@@ -15,6 +15,13 @@ export const metadata: Metadata = {
     siteName: "mTouch Labs",
     type: "website",
   },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Life at mTouch – Culture, People & Work Environment | mTouch Labs",
+    description: "Explore Life at mTouch — our vibrant culture, employee experiences, and teamwork that make mTouch Labs a great place to grow and innovate.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 const culturePoints = [

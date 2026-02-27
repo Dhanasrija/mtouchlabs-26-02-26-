@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "hire laravel developers in india",
   description: "Hire Laravel developers in India on an hourly and monthly basis. Get in touch to hire Laravel web developers from mTouchlabs at cost-effective rates.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/hire-laravel-developers-in-india",
+  },
+
+  openGraph: {
+    title: "hire laravel developers in india",
+    description: "Hire Laravel developers in India on an hourly and monthly basis. Get in touch to hire Laravel web developers from mTouchlabs at cost-effective rates.",
+    url: "https://www.mtouchlabs.com/hire-laravel-developers-in-india",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "hire laravel developers in india" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "hire laravel developers in india",
+    description: "Hire Laravel developers in India on an hourly and monthly basis. Get in touch to hire Laravel web developers from mTouchlabs at cost-effective rates.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

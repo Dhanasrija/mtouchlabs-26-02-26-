@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Hire magento developers India | Hire magento 2 developers India",
   description: "Hire expert Magento 2 developers from mTouch Labs for responsive web design and custom eCommerce solutions.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/hire-magento-developers-in-india",
+  },
+
+  openGraph: {
+    title: "Hire magento developers India | Hire magento 2 developers India",
+    description: "Hire expert Magento 2 developers from mTouch Labs for responsive web design and custom eCommerce solutions.",
+    url: "https://www.mtouchlabs.com/hire-magento-developers-in-india",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire magento developers India | Hire magento 2 developers India" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hire magento developers India | Hire magento 2 developers India",
+    description: "Hire expert Magento 2 developers from mTouch Labs for responsive web design and custom eCommerce solutions.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "hire Swift developers | dedicated swift app developers",
   description: "Looking to hire Swift developers in India? We have a team of dedicated swift app developers with vast experience in swift ios development technology",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/hire-swift-developers-in-india",
+  },
+
+  openGraph: {
+    title: "hire Swift developers | dedicated swift app developers",
+    description: "Looking to hire Swift developers in India? We have a team of dedicated swift app developers with vast experience in swift ios development technology",
+    url: "https://www.mtouchlabs.com/hire-swift-developers-in-india",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "hire Swift developers | dedicated swift app developers" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "hire Swift developers | dedicated swift app developers",
+    description: "Looking to hire Swift developers in India? We have a team of dedicated swift app developers with vast experience in swift ios development technology",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

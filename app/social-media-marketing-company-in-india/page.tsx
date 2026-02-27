@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Social Media Marketing Company in India | mTouch Labs",
   description: "mTouch Labs is a social media marketing company in India offering targeted social campaigns, audience engagement, and strategy to grow your brand online.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/social-media-marketing-company-in-india",
+  },
+
+  openGraph: {
+    title: "Social Media Marketing Company in India | mTouch Labs",
+    description: "mTouch Labs is a social media marketing company in India offering targeted social campaigns, audience engagement, and strategy to grow your brand online.",
+    url: "https://www.mtouchlabs.com/social-media-marketing-company-in-india",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Social Media Marketing Company in India | mTouch Labs" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Social Media Marketing Company in India | mTouch Labs",
+    description: "mTouch Labs is a social media marketing company in India offering targeted social campaigns, audience engagement, and strategy to grow your brand online.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

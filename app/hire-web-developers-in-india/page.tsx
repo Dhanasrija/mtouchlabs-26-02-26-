@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Hire Web Developers in India | mTouch Labs",
   description: "Hire web developers in India from mTouch Labs to build high-performance web applications tailored to your business goals and user needs.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/hire-web-developers-in-india",
+  },
+
+  openGraph: {
+    title: "Hire Web Developers in India | mTouch Labs",
+    description: "Hire web developers in India from mTouch Labs to build high-performance web applications tailored to your business goals and user needs.",
+    url: "https://www.mtouchlabs.com/hire-web-developers-in-india",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire Web Developers in India | mTouch Labs" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hire Web Developers in India | mTouch Labs",
+    description: "Hire web developers in India from mTouch Labs to build high-performance web applications tailored to your business goals and user needs.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

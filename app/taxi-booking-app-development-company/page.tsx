@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Taxi Booking App Development Company | mTouch Labs",
   description: "mTouch Labs builds powerful, scalable taxi booking apps that help businesses launch and grow efficient ride-hailing and transportation services.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/taxi-booking-app-development-company",
+  },
+
+  openGraph: {
+    title: "Taxi Booking App Development Company | mTouch Labs",
+    description: "mTouch Labs builds powerful, scalable taxi booking apps that help businesses launch and grow efficient ride-hailing and transportation services.",
+    url: "https://www.mtouchlabs.com/taxi-booking-app-development-company",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Taxi Booking App Development Company | mTouch Labs" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Taxi Booking App Development Company | mTouch Labs",
+    description: "mTouch Labs builds powerful, scalable taxi booking apps that help businesses launch and grow efficient ride-hailing and transportation services.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {

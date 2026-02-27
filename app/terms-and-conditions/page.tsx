@@ -3,6 +3,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Terms and Conditions | mTouch Labs – Digital Solutions & Services",
   description: "Read the Terms and Conditions of mTouch Labs to understand your rights, responsibilities, and our service policies. Stay informed and protected.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/terms-and-conditions",
+  },
+
+  openGraph: {
+    title: "Terms and Conditions | mTouch Labs – Digital Solutions & Services",
+    description: "Read the Terms and Conditions of mTouch Labs to understand your rights, responsibilities, and our service policies. Stay informed and protected.",
+    url: "https://www.mtouchlabs.com/terms-and-conditions",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Terms and Conditions | mTouch Labs – Digital Solutions & Services" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Terms and Conditions | mTouch Labs – Digital Solutions & Services",
+    description: "Read the Terms and Conditions of mTouch Labs to understand your rights, responsibilities, and our service policies. Stay informed and protected.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+  },
 };
 
 export default function Page() {
