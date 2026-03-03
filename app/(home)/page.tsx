@@ -550,7 +550,16 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-
+<script dangerouslySetInnerHTML={{ __html: `
+        document.addEventListener("click", function(e) {
+          var btn = e.target.closest("._faq_question");
+          if (!btn) return;
+          var item = btn.closest("._faq_item");
+          var wasActive = item.classList.contains("active");
+          document.querySelectorAll("._faq_item").forEach(function(o) { o.classList.remove("active", "glow"); });
+          if (!wasActive) { item.classList.add("active", "glow"); }
+        });
+      ` }} />
       {/* Logo modal — shows all partner logos when "View All" is clicked */}
       <div className="modal-overlay hide" id="openlogoModal">
         <div className="logomodal">

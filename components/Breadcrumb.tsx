@@ -84,6 +84,7 @@ const SLUG_LABELS: Record<string, string> = {
   "app-maintenance-support-services": "App Maintenance & Support",
   "360-degree-photography-services-in-india": "360° Photography",
   "it-services-digital-transformation-company": "IT Services & Digital Transformation",
+  "quality-assurance-and-testing-services": "Quality Assurance & Testing",
 };
 
 // Non-service pages (no "Services" middle breadcrumb)

@@ -262,7 +262,7 @@ export default function Page() {
 				<div className="food-tech-item"><img src="/images/products/aws.png" width="95px" alt="AWS" /></div>
 			</div>
 		</div>
-
+{/* 
 		<div className="food-application-features">
 			<div className="food-application-features-heading">
 				<h3>Application Features</h3>
@@ -316,7 +316,7 @@ export default function Page() {
 					</ul>
 				</div>
 			</div>
-		</div>
+		</div> */}
 
 
 		<div className="food-faq-section">

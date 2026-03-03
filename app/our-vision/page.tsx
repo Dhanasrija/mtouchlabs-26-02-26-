@@ -55,7 +55,7 @@ As digital ecosystems continue to evolve, we aspire to stay ahead of change by c
 
 </p>
     </div>
-    <img src="/images/about/visionmission.png" alt="" />
+    <img src="/images/about/visionmission.png" alt="mTouch Labs vision and mission" />
   </section>
   
   <section className="core-expertise_company_overview company_overview" style={{"position": "relative"}}>

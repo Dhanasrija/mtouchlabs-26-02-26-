@@ -27,15 +27,6 @@ export default function Page() {
   return (
     <>
 
-    
-    
-    
-    
-
-    
-    
-
-    
     <div className="port-head-sec pt85 pb120 r-bg-a ">
         <div className="container">
             <div className="row vcenter pt80">

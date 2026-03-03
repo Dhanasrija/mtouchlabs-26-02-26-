@@ -3,27 +3,36 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Social Media App Development Company | mTouch Labs",
+  title: "Social Media App Development Company in Hyderabad | mTouch Labs",
   description:
-    "mTouch Labs is a leading social media app development company that enhance engagement, connectivity, and community interaction.",
+    "mTouch Labs is a leading social media app development company specializing in custom social networking apps with real-time chat, video streaming, AI content recommendations, and scalable cloud hosting solutions.",
   keywords:
-    "social media app development company, social networking app development, social app developers, mobile social app solutions, social engagement app development, community app development",
+    "social media app development company, social networking app development, custom social media app, social app developers Hyderabad, community app development, social media API integration, real-time chat app development",
   alternates: {
-    canonical: "https://mtouchlabs.com/social-media-app-development-company",
+    canonical: "https://www.mtouchlabs.com/social-media-app-development-company",
   },
   openGraph: {
-    title: "Mobile app development company | Website development company",
+    title: "Social Media App Development Company in Hyderabad | mTouch Labs",
     description:
-      "mTouch Labs is a top-tier software development company in India providing Website development and mobile app development for Startups and Enterprises",
-    url: "https://mtouchlabs.com",
+      "mTouch Labs builds custom social media apps with real-time messaging, AI-powered feeds, live streaming, and scalable cloud infrastructure for communities, influencers, and enterprises.",
+    url: "https://www.mtouchlabs.com/social-media-app-development-company",
     siteName: "mTouch Labs",
     type: "website",
+    images: [
+      {
+        url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png",
+        width: 1200,
+        height: 630,
+        alt: "Social Media App Development Company | mTouch Labs",
+      },
+    ],
   },
   twitter: {
-    card: "summary",
-    title: "Mobile app development company | Website development company",
+    card: "summary_large_image",
+    title: "Social Media App Development Company in Hyderabad | mTouch Labs",
     description:
-      "mTouch Labs is a top-tier software development company in India providing Website development and mobile app development for Startups and Enterprises",
+      "Build custom social media apps with real-time messaging, AI recommendations, and scalable infrastructure. mTouch Labs delivers end-to-end social networking solutions.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
   },
 };
 
@@ -112,6 +121,15 @@ export default function SocialMediaAppDevelopment() {
 
   return (
     <div className="social-page">
+      {/* Breadcrumb */}
+      <nav className="social-breadcrumb" aria-label="Breadcrumb">
+        <Link href="/" style={{ color: "black" }}>Home</Link>
+        <span className="social-breadcrumb-sep">/</span>
+        <Link href="/on-demand-products-development-company-hyderabad" style={{ color: "black" }}>Products</Link>
+        <span className="social-breadcrumb-sep">/</span>
+        <span style={{ color: "black" }}>Social Media App Development</span>
+      </nav>
+
       {/* Hero Section */}
       <section className="social-hero-section">
         <div className="social-hero-content">
@@ -132,21 +150,13 @@ export default function SocialMediaAppDevelopment() {
             href="https://www.youtube.com/watch?v=mWcMXqtNP30"
             target="_blank"
             rel="noopener noreferrer"
-            className="social-hero-demo-btn"
+            className="social-delivery-button"
+            style={{ position: "relative", zIndex: 10, display: "inline-block" }}
           >
             View Demo
           </Link>
         </div>
       </section>
-
-      {/* Breadcrumb */}
-      <nav className="social-breadcrumb" aria-label="Breadcrumb">
-        <Link href="/">Home</Link>
-        <span className="social-breadcrumb-sep">/</span>
-        <Link href="/on-demand-products-development-company-hyderabad">Products</Link>
-        <span className="social-breadcrumb-sep">/</span>
-        <span>Grow Your Social App with Web &amp; App Development</span>
-      </nav>
 
       {/* Key Features */}
       <section className="social-key-features">
@@ -165,20 +175,23 @@ export default function SocialMediaAppDevelopment() {
       <div className="social-dark-section">
         <div className="social-two-col">
           <div className="social-two-col-img">
-            <Image src="/images/products/social/phone1.png" alt="Social Media App" width={400} height={700} className="social-phone-img" />
+            <Image src="/images/products/social/phone1.png" alt="On-Demand Social Media App Development" width={400} height={700} className="social-phone-img" />
           </div>
           <div className="social-two-col-text">
-            <h2>On - Demand Social Media App Development</h2>
+            <h2>On-Demand Social Media App Development</h2>
             <p>
               Social networking apps have transformed the way we communicate, share, and interact with others. These
               platforms have become a vital part of our daily lives, offering a multitude of features that cater to
               various needs and preferences. From personal interactions and community building to professional
               networking and content development,{" "}
-              <Link href="/social-community-mobile-app-development" target="_blank">
+              <Link href="/mobile-app-development-company" style={{ color: "#3e8cfb", fontWeight: 600 }}>
                 social media applications
               </Link>{" "}
               offer a dynamic platform for individuals and organisations to connect with a global audience.
             </p>
+            <button className="js-open-modal">
+              Request Quote<i className="fas fa-long-arrow-alt-right" id="food-button-icon"></i>
+            </button>
           </div>
         </div>
       </div>
@@ -190,18 +203,22 @@ export default function SocialMediaAppDevelopment() {
             <h3>Social Media App Development Agency</h3>
             <p>
               We are passionate about developing{" "}
-              <Link href="/custom-software-development-company" target="_blank">
-                social media apps
+              <Link href="/custom-software-development-company" style={{ color: "#3e8cfb", fontWeight: 600 }}>
+                custom social media apps
               </Link>{" "}
               that redefine the way people connect and interact online. Our team of trained specialists uses
-              cutting-edge technologies and innovative design principles to create platforms that are not only
+              cutting-edge technologies and innovative{" "}
+              <Link href="/ui-ux-design-company" style={{ color: "#3e8cfb", fontWeight: 600 }}>
+                design principles
+              </Link>{" "}
+              to create platforms that are not only
               feature-rich and safe, but also extremely engaging and user-friendly. Whether you aim to build a niche
               community or a global social network, we provide the expertise and creativity to bring your vision to life.
             </p>
-            <Image src="/images/products/diagnostic/dots.png" alt="" width={80} height={20} className="social-dots-img" />
+            <Image src="/images/products/diagnostic/dots.png" alt="Decorative dots" width={80} height={20} className="social-dots-img" />
           </div>
           <div className="social-two-col-img">
-            <Image src="/images/products/diagnostic/phone2.png" alt="Social Media Agency" width={400} height={700} className="social-phone-img" />
+            <Image src="/images/products/diagnostic/phone2.png" alt="Social Media App Development Agency" width={400} height={700} className="social-phone-img" />
           </div>
         </div>
       </div>
@@ -234,7 +251,7 @@ export default function SocialMediaAppDevelopment() {
         <div className="social-screens-scroll">
           {appScreens.map((screen, i) => (
             <div key={i} className="social-screen-item">
-              <Image src={screen} alt={`Social app screen ${i + 1}`} width={250} height={500} />
+              <Image src={screen} alt={`Social media app screen ${i + 1}`} width={250} height={500} />
             </div>
           ))}
         </div>
@@ -272,14 +289,14 @@ export default function SocialMediaAppDevelopment() {
       </div>
 
       {/* Technology Stack */}
-      <div className="social-tech-section">
-        <div className="social-tech-heading">
-          <h2>Technology We Use</h2>
+      <div className="food-teach-container">
+        <div className="food-teach-container-heading">
+          <h3>Technology We Use</h3>
           <p>Advanced Technologies We Leverage for App Development</p>
         </div>
-        <div className="social-tech-grid">
+        <div className="food-tech-grid">
           {techStack.map((tech, i) => (
-            <div key={i} className="social-tech-item">
+            <div key={i} className="food-tech-item">
               <Image src={tech.src} width={tech.width} height={60} alt={tech.alt} />
             </div>
           ))}
@@ -287,18 +304,39 @@ export default function SocialMediaAppDevelopment() {
       </div>
 
       {/* FAQ */}
-      <div className="social-faq-section">
-        <h3 className="social-faq-heading">FAQ&#39;s</h3>
-        <div className="social-faq-list">
+      <div className="food-faq-section">
+        <h2 className="food-faq-section-heading">FAQ&#39;s</h2>
+        <div className="food-faq">
           {faqData.map((faq, i) => (
-            <details key={i} className="social-faq-item">
-              <summary className="social-faq-question">
+            <details key={i} className="food-faq-item">
+              <summary className="food-faq-question">
                 {faq.question}
-                <span className="social-faq-toggle">+</span>
+                <span className="food-faq-toggle">+</span>
               </summary>
-              <div className="social-faq-answer">{faq.answer}</div>
+              <div className="food-faq-answer">{faq.answer}</div>
             </details>
           ))}
+        </div>
+      </div>
+
+      {/* CTA */}
+      <div className="food-cta-section">
+        <div className="food-cta-content">
+          <h2>Build Your Custom Social Media App Today</h2>
+          <p>Transform how people connect with our cutting-edge social networking app development solutions</p>
+          <Link href="/contact-us" className="food-cta-button">
+            Let&#39;s Bring Your Idea to Life
+            <i className="fas fa-arrow-right" id="food-button-icon"></i>
+          </Link>
+        </div>
+        <div className="food-cta-content-img">
+          <Image
+            src="/images/products/social/phone1.png"
+            alt="Social Media App Development"
+            width={300}
+            height={500}
+            className="food-cta-image"
+          />
         </div>
       </div>
     </div>

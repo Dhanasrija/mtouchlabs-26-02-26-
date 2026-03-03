@@ -95,14 +95,14 @@ export default function Navbar() {
                       <div className="home-mega-sidebar">
                         <h4 className="home-mega-title">Home</h4>
                         <div className="home-mega-item js-home-mega-item active" data-target="home-about">
-                          <div className="home-mega-item-icon"><img src="/images/new_home/chat.png" alt="" width="28" height="28" /></div>
+                          <div className="home-mega-item-icon"><img src="/images/new_home/chat.png" alt="Chat icon" width="28" height="28" /></div>
                           <div className="home-mega-item-text">
                             <span className="home-mega-item-label">About us</span>
                             <span className="home-mega-item-desc">mTouch Labs delivers innovative mobile and web app solutions for modern businesses.</span>
                           </div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="home-blog">
-                          <div className="home-mega-item-icon"><img src="/images/new_home/blog.png" alt="" width="28" height="28" /></div>
+                          <div className="home-mega-item-icon"><img src="/images/new_home/blog.png" alt="Blog icon" width="28" height="28" /></div>
                           <div className="home-mega-item-text">
                             <span className="home-mega-item-label">Blog</span>
                             <span className="home-mega-item-desc">Discover expert ideas and innovations on our Blogs</span>
@@ -168,30 +168,30 @@ export default function Navbar() {
                       <div className="home-mega-sidebar">
                         <h4 className="home-mega-title">Services</h4>
                         <div className="home-mega-item js-home-mega-item active" data-target="svc-software">
-                          <div className="home-mega-item-icon"><img src="/images/nav/custom_software-dev.png" alt="" width="28" height="28" /></div>
+                          <div className="home-mega-item-icon"><img src="/images/nav/custom_software-dev.png" alt="Custom software development" width="28" height="28" /></div>
                           <div className="home-mega-item-text">
                             <span className="home-mega-item-label">Software Development</span>
                             <span className="home-mega-item-desc">Delivering seamless digital experiences with expert software development.</span>
                           </div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="svc-cloud">
-                          <div className="home-mega-item-icon"><img src="/images/nav/cloud_devops.png" alt="" width="28" height="28" /></div>
+                          <div className="home-mega-item-icon"><img src="/images/nav/cloud_devops.png" alt="Cloud and DevOps" width="28" height="28" /></div>
                           <div className="home-mega-item-text"><span className="home-mega-item-label">Cloud &amp; DevOps</span><span className="home-mega-item-desc">Scalable cloud infrastructure and CI/CD automation</span></div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="svc-ai">
-                          <div className="home-mega-item-icon"><img src="/images/nav/ai_data_intelligence.png" alt="" width="28" height="28" /></div>
+                          <div className="home-mega-item-icon"><img src="/images/nav/ai_data_intelligence.png" alt="AI and data intelligence" width="28" height="28" /></div>
                           <div className="home-mega-item-text"><span className="home-mega-item-label">AI &amp; Data Intelligence</span><span className="home-mega-item-desc">AI-powered insights that transform raw data into impact</span></div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="svc-salesforce">
-                          <div className="home-mega-item-icon"><img src="/images/nav/sales_force.png" alt="" width="28" height="28" /></div>
+                          <div className="home-mega-item-icon"><img src="/images/nav/sales_force.png" alt="Salesforce" width="28" height="28" /></div>
                           <div className="home-mega-item-text"><span className="home-mega-item-label">Salesforce</span><span className="home-mega-item-desc">CRM customization, integration and consulting</span></div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="svc-design">
-                          <div className="home-mega-item-icon"><img src="/images/nav/design_experience.png" alt="" width="28" height="28" /></div>
+                          <div className="home-mega-item-icon"><img src="/images/nav/design_experience.png" alt="Design experience" width="28" height="28" /></div>
                           <div className="home-mega-item-text"><span className="home-mega-item-label">Design &amp; Experience</span><span className="home-mega-item-desc">User-centric UI/UX design that drives engagement</span></div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="svc-marketing">
-                          <div className="home-mega-item-icon"><img src="/images/nav/digital-marketing-services.png" alt="" width="28" height="28" /></div>
+                          <div className="home-mega-item-icon"><img src="/images/nav/digital-marketing-services.png" alt="Digital marketing services" width="28" height="28" /></div>
                           <div className="home-mega-item-text"><span className="home-mega-item-label">Digital Marketing Solutions</span><span className="home-mega-item-desc">SEO, PPC and social media strategies that grow revenue</span></div>
                         </div>
                       </div>
@@ -491,30 +491,30 @@ AWS cloud migration, deployment, DevOps automation, and secure scalable infrastr
                       <div className="home-mega-sidebar">
                         <h4 className="home-mega-title">Products</h4>
                         <div className="home-mega-item js-home-mega-item active" data-target="prod-ondemand">
-                          <div className="home-mega-item-icon"><img src="/images/nav/ondemand.png" alt="" width="28" height="28" /></div>
+                          <div className="home-mega-item-icon"><img src="/images/nav/ondemand.png" alt="On-demand services" width="28" height="28" /></div>
                           <div className="home-mega-item-text">
                             <span className="home-mega-item-label">On-Demand &amp; Delivery Apps</span>
                             <span className="home-mega-item-desc">On Demand and Delivery apps-Transforming everyday services into on-demand success stories.</span>
                           </div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="prod-booking">
-                          <div className="home-mega-item-icon"><img src="/images/nav/booking.png" alt="" width="28" height="28" /></div>
+                          <div className="home-mega-item-icon"><img src="/images/nav/booking.png" alt="Booking apps" width="28" height="28" /></div>
                           <div className="home-mega-item-text"><span className="home-mega-item-label">Booking and Service Platforms</span><span className="home-mega-item-desc">Seamless scheduling and appointment management apps</span></div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="prod-ecommerce">
-                          <div className="home-mega-item-icon"><img src="/images/nav/ecommerce.png" alt="" width="28" height="28" /></div>
+                          <div className="home-mega-item-icon"><img src="/images/nav/ecommerce.png" alt="Ecommerce" width="28" height="28" /></div>
                           <div className="home-mega-item-text"><span className="home-mega-item-label">E-Commerce &amp; Marketplace Solutions</span><span className="home-mega-item-desc">Multi-vendor stores and online shopping platforms</span></div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="prod-education">
-                          <div className="home-mega-item-icon"><img src="/images/nav/education.png" alt="" width="28" height="28" /></div>
+                          <div className="home-mega-item-icon"><img src="/images/nav/education.png" alt="Education" width="28" height="28" /></div>
                           <div className="home-mega-item-text"><span className="home-mega-item-label">Education &amp; Entertainment</span><span className="home-mega-item-desc">eLearning platforms and interactive media solutions</span></div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="prod-healthcare">
-                          <div className="home-mega-item-icon"><img src="/images/nav/healthcare.png" alt="" width="28" height="28" /></div>
+                          <div className="home-mega-item-icon"><img src="/images/nav/healthcare.png" alt="Healthcare" width="28" height="28" /></div>
                           <div className="home-mega-item-text"><span className="home-mega-item-label">Healthcare &amp; Wellness</span><span className="home-mega-item-desc">Patient management and telemedicine applications</span></div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="prod-social">
-                          <div className="home-mega-item-icon"><img src="/images/nav/socialmedia.png" alt="" width="28" height="28" /></div>
+                          <div className="home-mega-item-icon"><img src="/images/nav/socialmedia.png" alt="Social media" width="28" height="28" /></div>
                           <div className="home-mega-item-text"><span className="home-mega-item-label">Social &amp; Media Apps</span><span className="home-mega-item-desc">Community building and content sharing platforms</span></div>
                         </div>
                       </div>
@@ -591,22 +591,22 @@ AWS cloud migration, deployment, DevOps automation, and secure scalable infrastr
                       <div className="home-mega-sidebar">
                         <h4 className="home-mega-title">Resources</h4>
                         <div className="home-mega-item js-home-mega-item active" data-target="res-mobile">
-                          <div className="home-mega-item-icon"><img src="/images/nav/resources.png" alt="" width="28" height="28" /></div>
+                          <div className="home-mega-item-icon"><img src="/images/nav/resources.png" alt="Resources" width="28" height="28" /></div>
                           <div className="home-mega-item-text">
                             <span className="home-mega-item-label">Mobile App Developers</span>
                             <span className="home-mega-item-desc">Mobile App Development - From concept to code, we create apps that connect and convert.</span>
                           </div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="res-web">
-                          <div className="home-mega-item-icon"><img src="/images/nav/web.png" alt="" width="28" height="28" /></div>
+                          <div className="home-mega-item-icon"><img src="/images/nav/web.png" alt="Web development" width="28" height="28" /></div>
                           <div className="home-mega-item-text"><span className="home-mega-item-label">Web App Developers</span><span className="home-mega-item-desc">Full-stack developers for scalable web applications</span></div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="res-enterprise">
-                          <div className="home-mega-item-icon"><img src="/images/nav/entr.png" alt="" width="28" height="28" /></div>
+                          <div className="home-mega-item-icon"><img src="/images/nav/entr.png" alt="Enterprise solutions" width="28" height="28" /></div>
                           <div className="home-mega-item-text"><span className="home-mega-item-label">Enterprise &amp; Cloud Developers</span><span className="home-mega-item-desc">AWS, DevOps and cloud infrastructure specialists</span></div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="res-design">
-                          <div className="home-mega-item-icon"><img src="/images/nav/design_experience.png" alt="" width="28" height="28" /></div>
+                          <div className="home-mega-item-icon"><img src="/images/nav/design_experience.png" alt="Design experience" width="28" height="28" /></div>
                           <div className="home-mega-item-text"><span className="home-mega-item-label">Design &amp; Creative Experts</span><span className="home-mega-item-desc">UI/UX designers and creative professionals on demand</span></div>
                         </div>
                       </div>
@@ -692,15 +692,14 @@ AWS cloud migration, deployment, DevOps automation, and secure scalable infrastr
           </ul>
         </div>
         <div className="nav-right-btn">
-          <a className="ree-btn ree-btn-grdt2 nav-quote-btn js-open-modal">
+          <a href="/contact-us" className="ree-btn ree-btn-grdt2 nav-quote-btn js-open-modal">
             Request Quote <i className="fas fa-arrow-right fa-btn"></i>
           </a>
         </div>
         <div className="mobile-menu2">
           <ul className="mob-nav2">
-            <li><a className="ree-btn2 ree-btn-grdt1 js-open-modal"><i className="fas fa-envelope-open-text"></i></a></li>
-            <li className="navm-"><a className="toggle" href="/"><span></span></a></li>
-          </ul>
+            <li><a href="/contact-us" className="ree-btn2 ree-btn-grdt1 js-open-modal"><i className="fas fa-envelope-open-text"></i></a></li>
+<li className="navm-"><a className="toggle" href="#"><span></span></a></li> </ul>
         </div>
         <nav id="main-nav">
           <ul>

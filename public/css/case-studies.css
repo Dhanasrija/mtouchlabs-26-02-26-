@@ -213,7 +213,7 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: linear-gradient(135deg, #3b82f6, #2563eb) !important;
+  background: linear-gradient(135deg, #3b82f6, var(--color-signature-blue)) !important;
   color: #fff !important;
   border: none;
   border-radius: 8px !important;

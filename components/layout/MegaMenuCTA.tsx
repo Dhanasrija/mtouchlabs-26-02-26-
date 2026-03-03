@@ -12,7 +12,7 @@ export default function MegaMenuCTA({
       <p className="mb10">{heading}</p>
       <h4>{subheading}</h4>
       {/* onclick="openModal()" handled via vanilla JS in script tag */}
-      <a className="ree-btn ree-btn0 ree-btn-grdt2 mt30 js-open-modal">
+      <a href="/contact-us" className="ree-btn ree-btn0 ree-btn-grdt2 mt30 js-open-modal">
         Request Quote
         <i className="fas fa-arrow-right fa-btn"></i>
       </a>

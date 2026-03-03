@@ -445,10 +445,10 @@
     if (typeof __NEXT_DATA__ === 'undefined') {
       if ($("#footer").length) $("#footer").load("footer.html");
       if ($("#footer2").length) $("#footer2").load("footer.html");
-      if ($("#requestQuoteModal").length) $("#requestQuoteModal").load("requestquote.html");
-      if ($("#brochureModal").length) $("#brochureModal").load("brochureform.html");
+      // if ($("#requestQuoteModal").length) $("#requestQuoteModal").load("requestquote.html");
+      // if ($("#brochureModal").length) $("#brochureModal").load("brochureform.html");
       if ($("#careerformModal").length) $("#careerformModal").load("careerform.html .modal");
-      if ($("#openlogoModal").length) $("#openlogoModal").load("logomodal.html");
+      // if ($("#openlogoModal").length) $("#openlogoModal").load("logomodal.html");
     }
 
     var currentPage = window.location.pathname;

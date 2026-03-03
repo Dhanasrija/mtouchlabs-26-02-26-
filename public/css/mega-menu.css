@@ -6,7 +6,7 @@
     --stroke: #eef2f6;
     --muted: #6b7280;
     --ink: #111827;
-    --accent: #2563eb;
+    --accent: var(--color-signature-blue);
     --bg: #f8fafc;
 }
 .icon-bubble_img {
@@ -82,7 +82,7 @@
     display: inline-flex;
     gap: 8px;
     align-items: center;
-    color: #777777;
+    color: var(--color-slate-grey);
     font-size: 16px;
     font-weight: 500;
     line-height: 1.5;
@@ -360,7 +360,7 @@
     gap: 8px;
     padding: 10px 18px;
     border: 2px solid #3b82f6;
-    color: #1e40af;
+    color: var(--color-heritage-navy);
     border-radius: 999px;
     font-weight: 700;
     box-shadow: 0 2px 6px rgba(37, 99, 235, 0.15);
@@ -475,7 +475,7 @@
     box-shadow: 0 6px 18px rgba(2, 6, 23, 0.04);
 }
 .blog-nav-cards.full-width .blog-nav-card.is-current {
-    border: 2px solid #3e8cfb;
+    border: 2px solid var(--color-signature-blue);
 }
 .blog-nav-card .blog-thumb {
     height: 180px;
@@ -647,4 +647,25 @@
 html.no-scroll,
 .no-scroll {
     overflow: hidden !important;
+}
+
+
+
+
+/* ═══ FIX MEGA MENU HOVER GAP ═══ */
+.megamenu {
+  position: relative !important;
+}
+.megamenu .menu-dropdown {
+  top: 100% !important;
+  padding-top: 0 !important;
+}
+.megamenu::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -20px !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 20px !important;
+  background: transparent !important;
 }

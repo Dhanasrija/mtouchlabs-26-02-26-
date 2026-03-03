@@ -2,7 +2,26 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+  const host = request.headers.get('host') || '';
+  const hostname = host.split(':')[0].toLowerCase();
 
+  // ═══ FORCE NON-WWW → WWW ═══
+  if (hostname === 'mtouchlabs.com') {
+    return NextResponse.redirect(
+      `https://www.mtouchlabs.com${pathname}${request.nextUrl.search}`,
+      301
+    );
+  }
+
+  // ═══ FORCE LOWERCASE URLs (skip admin, api, static) ═══
+  if (!pathname.startsWith('/admin') && !pathname.startsWith('/api') && !pathname.startsWith('/_next') && pathname !== pathname.toLowerCase()) {
+    return NextResponse.redirect(
+      `https://${host}${pathname.toLowerCase()}${request.nextUrl.search}`,
+      301
+    );
+  }
+
+  // ═══ ADMIN AUTH ═══
   // Skip the login page itself
   if (pathname === '/admin') {
     return NextResponse.next();
@@ -15,7 +34,6 @@ export function middleware(request: NextRequest) {
 
     // Not logged in → redirect to login
     if (!userId || !userRole) {
-      // Backward compat: check old cookie
       const oldAuth = request.cookies.get('admin_auth')?.value;
       const adminPassword = process.env.ADMIN_PASSWORD;
       if (oldAuth && oldAuth === adminPassword) {
@@ -25,7 +43,6 @@ export function middleware(request: NextRequest) {
       return NextResponse.redirect(loginUrl);
     }
 
-    // Role-based route protection
     // /admin/users → only super_admin
     if (pathname.startsWith('/admin/users') && userRole !== 'super_admin') {
       const dashUrl = new URL('/admin/dashboard', request.url);
@@ -46,5 +63,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/admin/:path*'],
+  matcher: ['/((?!_next/static|_next/image|images|css|js|fonts|favicon).*)'],
 };

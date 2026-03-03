@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
@@ -38,7 +39,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Server configuration error." }, { status: 500 });
     }
 
-    const toEmail = process.env.CONTACT_EMAIL || "srija271103@gmail.com";
+const toEmail = process.env.CONTACT_EMAIL;
     const fromEmail = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
 
     const emailHtml = `

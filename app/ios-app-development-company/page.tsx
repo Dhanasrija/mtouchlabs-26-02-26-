@@ -37,7 +37,6 @@ export default function iOSDevelopment() {
           <div className="io-about__grid">
             <div className="io-about__content io-animate--left">
               <h2 className="io-about__heading">
-                {/* /*How an iOS App Development Company Builds and Delivers Mobile Apps */}
                 How is an <span className="io-text-accent">iOS App Development</span> and Company Builds and Delivers Mobile Apps?
               </h2>
               <p className="io-about__text">
@@ -56,8 +55,7 @@ export default function iOSDevelopment() {
             </div>
             <div className="io-stats io-animate--right">
               <div className="io-stat">
-                <span className="io-stat__icon">🍎</span>
-                <span className="io-stat__label">Swift Native</span>
+                <span className="io-stat__icon"><img src="/images/swift.png" alt="Swift" width={36} height={36} style={{borderRadius:"8px"}} /></span>                <span className="io-stat__label">Swift Native</span>
               </div>
               <div className="io-stat">
                 <span className="io-stat__icon">📱</span>
@@ -106,26 +104,11 @@ export default function iOSDevelopment() {
                 Our iOS applications include enterprise-grade security:
               </p>
               <ul className="io-checklist">
-                <li className="io-checklist__item">
-                  <span className="io-checklist__icon">✓</span>
-                  <span>Data encryption &amp; secure API communication</span>
-                </li>
-                <li className="io-checklist__item">
-                  <span className="io-checklist__icon">✓</span>
-                  <span>Role-based access control</span>
-                </li>
-                <li className="io-checklist__item">
-                  <span className="io-checklist__icon">✓</span>
-                  <span>High-performance memory management</span>
-                </li>
-                <li className="io-checklist__item">
-                  <span className="io-checklist__icon">✓</span>
-                  <span>Battery efficiency optimization</span>
-                </li>
-                <li className="io-checklist__item">
-                  <span className="io-checklist__icon">✓</span>
-                  <span>Apple Human Interface Guidelines compliance</span>
-                </li>
+                <li className="io-checklist__item"><span className="io-checklist__icon">✓</span><span>Data encryption &amp; secure API communication</span></li>
+                <li className="io-checklist__item"><span className="io-checklist__icon">✓</span><span>Role-based access control</span></li>
+                <li className="io-checklist__item"><span className="io-checklist__icon">✓</span><span>High-performance memory management</span></li>
+                <li className="io-checklist__item"><span className="io-checklist__icon">✓</span><span>Battery efficiency optimization</span></li>
+                <li className="io-checklist__item"><span className="io-checklist__icon">✓</span><span>Apple Human Interface Guidelines compliance</span></li>
               </ul>
             </div>
           </div>
@@ -139,47 +122,33 @@ export default function iOSDevelopment() {
             <h2 className="io-services__title">
               Our iOS <span className="io-text-accent">Development Services</span>
             </h2>
-            <p className="io-services__subtitle">
-              From consumer apps to enterprise mobility
-            </p>
+            <p className="io-services__subtitle">From consumer apps to enterprise mobility</p>
           </div>
           <div className="io-services__grid io-stagger">
             <div className="io-service-card io-animate--scale">
               <span className="io-service-card__badge">01</span>
               <h4 className="io-service-card__title">Custom iOS Apps</h4>
-              <p className="io-service-card__text">
-                Consumer apps, enterprise mobility, on-demand services, marketplace platforms, and subscription applications using Swift.
-              </p>
+              <p className="io-service-card__text">Consumer apps, enterprise mobility, on-demand services, marketplace platforms, and subscription applications using Swift.</p>
             </div>
             <div className="io-service-card io-animate--scale">
               <span className="io-service-card__badge">02</span>
               <h4 className="io-service-card__title">UI/UX Design for iOS</h4>
-              <p className="io-service-card__text">
-                Apple HIG compliance, intuitive navigation, accessibility optimization, responsive layouts, and engagement-driven design.
-              </p>
+              <p className="io-service-card__text">Apple HIG compliance, intuitive navigation, accessibility optimization, responsive layouts, and engagement-driven design.</p>
             </div>
             <div className="io-service-card io-animate--scale">
               <span className="io-service-card__badge">03</span>
               <h4 className="io-service-card__title">Architecture &amp; Engineering</h4>
-              <p className="io-service-card__text">
-                Swift-based native development, modular code, API-driven backends, secure authentication, and performance optimization.
-              </p>
+              <p className="io-service-card__text">Swift-based native development, modular code, API-driven backends, secure authentication, and performance optimization.</p>
             </div>
             <div className="io-service-card io-animate--scale">
               <span className="io-service-card__badge">04</span>
               <h4 className="io-service-card__title">App Store Deployment</h4>
-              <p className="io-service-card__text">
-                Submission, compliance review, performance testing, metadata optimization, and version updates &amp; enhancements.
-              </p>
+              <p className="io-service-card__text">Submission, compliance review, performance testing, metadata optimization, and version updates &amp; enhancements.</p>
             </div>
             <div className="io-service-card io-service-card--wide io-animate--scale">
               <span className="io-service-card__badge">05</span>
               <h4 className="io-service-card__title">Enterprise iOS Solutions</h4>
-              <p className="io-service-card__text">
-                Secure internal business apps, field workforce mobility, real-time reporting, cloud-integrated platforms, and multi-role access. Explore our full{" "}
-                <a href="/mobile-app-development-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>mobile app development services</a>{" "}
-                for multi-platform needs.
-              </p>
+              <p className="io-service-card__text">Secure internal business apps, field workforce mobility, real-time reporting, cloud-integrated platforms, and multi-role access. Explore our full{" "}<a href="/mobile-app-development-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>mobile app development services</a>{" "}for multi-platform needs.</p>
             </div>
           </div>
         </div>
@@ -191,9 +160,7 @@ export default function iOSDevelopment() {
           <h2 className="io-delivery__heading io-animate">
             Our iOS <span className="io-text-accent">Development Process</span>
           </h2>
-          <p className="io-delivery__text">
-            We follow a structured lifecycle for reliable and predictable delivery.
-          </p>
+          <p className="io-delivery__text">We follow a structured lifecycle for reliable and predictable delivery.</p>
           <div className="io-delivery__steps">
             <div className="io-step"><span className="io-step__circle">Requirements</span></div>
             <span className="io-step__arrow">→</span>
@@ -219,18 +186,14 @@ export default function iOSDevelopment() {
             <h2 className="io-reliable__heading">
               Why Choose <span className="io-text-accent">mTouch Labs</span>?
             </h2>
-            <p className="io-reliable__text">
-              We build iOS apps that align with business goals and user expectations.
-            </p>
+            <p className="io-reliable__text">We build iOS apps that align with business goals and user expectations.</p>
             <div className="io-reliable__pillars">
               <div className="io-pillar"><span className="io-pillar__dot"></span><span className="io-pillar__label">Swift-native expertise</span></div>
               <div className="io-pillar"><span className="io-pillar__dot"></span><span className="io-pillar__label">App Store compliance knowledge</span></div>
               <div className="io-pillar"><span className="io-pillar__dot"></span><span className="io-pillar__label">Performance-first engineering</span></div>
               <div className="io-pillar"><span className="io-pillar__dot"></span><span className="io-pillar__label">Scalable backend integration</span></div>
               <div className="io-pillar"><span className="io-pillar__dot"></span><span className="io-pillar__label">Secure development standards</span></div>
-              <div className="io-pillar"><span className="io-pillar__dot"></span><span className="io-pillar__label">Long-term{" "}
-                <a href="/app-maintenance-support-services" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>maintenance support</a>
-              </span></div>
+              <div className="io-pillar"><span className="io-pillar__dot"></span><span className="io-pillar__label">Long-term{" "}<a href="/app-maintenance-support-services" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>maintenance support</a></span></div>
             </div>
           </div>
         </div>
@@ -261,37 +224,18 @@ export default function iOSDevelopment() {
               <h2 className="io-tech__heading">
                 Our <span className="io-text-accent">Technology Stack</span>
               </h2>
-              <p className="io-tech__text">
-                We leverage Apple&apos;s latest frameworks and modern development tools to build high-performance, future-ready iOS applications.
-              </p>
+              <p className="io-tech__text">We leverage Apple&apos;s latest frameworks and modern development tools to build high-performance, future-ready iOS applications.</p>
               <div className="io-tech__tags">
-                {[
-                  "Swift", "SwiftUI", "UIKit", "Xcode", "Objective-C",
-                  "Core Data", "CloudKit", "ARKit", "CoreML", "Firebase",
-                  "REST APIs", "GraphQL", "TestFlight", "Fastlane", "CocoaPods",
-                  "SPM", "Combine", "MVVM"
-                ].map((tech) => (
+                {["Swift","SwiftUI","UIKit","Xcode","Objective-C","Core Data","CloudKit","ARKit","CoreML","Firebase","REST APIs","GraphQL","TestFlight","Fastlane","CocoaPods","SPM","Combine","MVVM"].map((tech) => (
                   <span key={tech} className="io-tag">{tech}</span>
                 ))}
               </div>
             </div>
             <div className="io-tech__stats io-animate--right">
-              <div className="io-stat io-stat--dark">
-                <span className="io-stat__number">18+</span>
-                <span className="io-stat__label">Frameworks &amp; Tools</span>
-              </div>
-              <div className="io-stat io-stat--dark">
-                <span className="io-stat__number">iOS 15+</span>
-                <span className="io-stat__label">Version Support</span>
-              </div>
-              <div className="io-stat io-stat--dark">
-                <span className="io-stat__number">4.8★</span>
-                <span className="io-stat__label">Avg App Rating</span>
-              </div>
-              <div className="io-stat io-stat--dark">
-                <span className="io-stat__number">99%</span>
-                <span className="io-stat__label">Crash-Free Rate</span>
-              </div>
+              <div className="io-stat io-stat--dark"><span className="io-stat__number">18+</span><span className="io-stat__label">Frameworks &amp; Tools</span></div>
+              <div className="io-stat io-stat--dark"><span className="io-stat__number">iOS 15+</span><span className="io-stat__label">Version Support</span></div>
+              <div className="io-stat io-stat--dark"><span className="io-stat__number">4.8★</span><span className="io-stat__label">Avg App Rating</span></div>
+              <div className="io-stat io-stat--dark"><span className="io-stat__number">99%</span><span className="io-stat__label">Crash-Free Rate</span></div>
             </div>
           </div>
         </div>
@@ -316,14 +260,11 @@ export default function iOSDevelopment() {
               </details>
               <details className="io-faq__item">
                 <summary className="io-faq__question"><span>Do you develop apps for both iPhone and iPad?</span><span className="io-faq__chevron"></span></summary>
-                <div className="io-faq__answer"><p>Yes. We develop optimized applications compatible with iPhone, iPad, and multiple iOS versions. We also offer dedicated{" "}
-                  <a href="/ipad-app-development-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>iPad app development</a>{" "}
-                  for tablet-specific experiences.</p></div>
+                <div className="io-faq__answer"><p>Yes. We develop optimized applications compatible with iPhone, iPad, and multiple iOS versions. We also offer dedicated{" "}<a href="/ipad-app-development-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>iPad app development</a>{" "}for tablet-specific experiences.</p></div>
               </details>
               <details className="io-faq__item">
                 <summary className="io-faq__question"><span>Do you provide post-launch support?</span><span className="io-faq__chevron"></span></summary>
-                <div className="io-faq__answer"><p>Yes. We offer continuous monitoring, updates, feature enhancements, and performance optimization through our{" "}
-                  <a href="/app-maintenance-support-services" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>app maintenance services</a>.</p></div>
+                <div className="io-faq__answer"><p>Yes. We offer continuous monitoring, updates, feature enhancements, and performance optimization through our{" "}<a href="/app-maintenance-support-services" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>app maintenance services</a>.</p></div>
               </details>
             </div>
           </div>
@@ -337,12 +278,8 @@ export default function iOSDevelopment() {
             <h2 className="io-cta__heading">
               Build Your <span className="io-text-accent">iOS App</span> Today
             </h2>
-            <p className="io-cta__text">
-              Let&apos;s discuss how we can build a high-performance iPhone app for your business.
-            </p>
-            <button type="button" className="io-cta__button js-open-modal">
-              Start Your iOS Project
-            </button>
+            <p className="io-cta__text">Let&apos;s discuss how we can build a high-performance iPhone app for your business.</p>
+            <button type="button" className="io-cta__button js-open-modal">Start Your iOS Project</button>
           </div>
         </div>
       </section>

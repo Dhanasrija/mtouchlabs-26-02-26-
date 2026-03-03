@@ -96,7 +96,7 @@ export default function Page() {
                   results swiftly, enhance patient management, and optimize clinical workflows. By integrating advanced
                   technology and user-friendly interfaces, we ensure your practice meets the challenges of modern
                   medicine with confidence.</p>
-               <button>Request Quote<i className='fas fa-long-arrow-alt-right'
+               <button className="js-open-modal">Request Quote<i className='fas fa-long-arrow-alt-right'
                         id="food-button-icon"></i></button>
 
             </div>

@@ -1,18 +1,20 @@
 export default function TrustedPartnersSection() {
   return (
     <section className="New-Home-section2">
-      <div className="Homenewweb-logos">
-        <h1 className="New-Home-animated-text">
-            Trusted globally as a leading{" "}
-          <span className="New-Home-underline" id="partners">Software Development Company</span>,{" "}
-          proudly partnering with{" "}
-          <span className="New-Home-underline" id="abu-dhabi">Telangana, Abu Dhabi Governments</span> &amp;{" "}
-          <span className="New-Home-underline" id="enterprises">Enterprises</span>{" "}
-          for innovation.{" "}
-          <span className="New-home-section2-button js-open-logo-modal">
-            View All
-          </span>
-        </h1>
+     <div className="New-Home-animated-text">
+  Recognized worldwide as a trusted{" "}
+  <h1 className="New-Home-underline" id="partners" style={{ display: "inline", fontWeight: "bold" }}>
+  Software Development Company & IT Solutions provider
+</h1>
+  ,{" "}
+  mTouch Labs collaborates with the{" "}
+  <span className="New-Home-underline" id="abu-dhabi">Telangana, Abu Dhabi Governments</span> &amp;{" "}
+  <span className="New-Home-underline" id="enterprises"></span>{" "}
+  and leading enterprises to deliver secure, scalable, and innovative digital solutions.{" "}
+  <span className="New-home-section2-button js-open-logo-modal">
+    View All
+  </span>
+
 
         <div className="Home-new-logo-scroll-container">
           {/* Row 1 — scrolls LEFT */}

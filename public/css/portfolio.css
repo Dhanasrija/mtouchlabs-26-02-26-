@@ -222,7 +222,7 @@
     }
 
     .blog-read-more:hover {
-      color: #2563eb !important;
+      color: var(--color-signature-blue) !important;
       gap: 10px !important;
     }
 

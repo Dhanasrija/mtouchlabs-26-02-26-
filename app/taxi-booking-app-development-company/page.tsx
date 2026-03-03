@@ -251,7 +251,7 @@ export default function Page() {
       </div>
       
 
-      <div className="food-application-features">
+      {/* <div className="food-application-features">
          <div className="food-application-features-heading">
             <h3>Application Features</h3>
             <h6>Powerful features designed for a seamless and efficient app experience!</h6>
@@ -328,7 +328,7 @@ export default function Page() {
                   alt="Google Analytics" /></div>
             <div className="food-tech-item"><img src="/images/products/aws.png" width="95px" alt="AWS" /></div>
          </div>
-      </div>
+      </div> */}
 
 
       <div className="food-faq-section">

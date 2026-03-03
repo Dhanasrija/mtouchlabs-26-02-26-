@@ -863,7 +863,7 @@ export default function Page() {
 							<li className="megamenu1 mega-small">
 								<a href="/contact-us" className="menu-links">CONTACT US</a>
 							</li>
-							<li><a className="ree-btn ree-btn0 ree-btn-grdt2"> Request Quote</a> </li>
+							<li><a className="ree-btn ree-btn0 ree-btn-grdt2 js-open-modal" href="#"> Request Quote</a> </li>
 						</ul>
 					</div>
 					

@@ -22,13 +22,14 @@ export default function TopBar() {
           +1 (551) 222-0070
         </span>
       </div>
-      <div className="right_header_nav">
-        <p>Hyderabad</p>
-        <p>|</p>
-        <p><strong>Bangalore</strong></p>
-        <p>|</p>
-        <p>USA</p>
-      </div>
+     <div className="right_header_nav">
+  <a href="https://maps.app.goo.gl/vHVVC1vzkR2hS7Ek7" target="_blank" rel="noopener noreferrer">Hyderabad</a>
+  <span className="topbar-divider">|</span>
+  <a href="https://maps.app.goo.gl/WgJMfx2PzuScWZbQA" target="_blank" rel="noopener noreferrer">Bangalore</a>
+  <span className="topbar-divider">|</span>
+  <a href="https://maps.app.goo.gl/RUQSXXJ8hCP2RMRd7" target="_blank" rel="noopener noreferrer">USA</a>
+</div>
     </div>
   );
 }
+

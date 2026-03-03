@@ -86,6 +86,9 @@
   will-change: transform;
   transition: transform 0.3s, box-shadow 0.3s;
   overflow: visible;
+  animation: none;
+  opacity: 1;
+  transform: scale(1);
 }
 
 @keyframes cwBtnEntry {
@@ -622,4 +625,15 @@
   .cw-label { display: none; }
   .cw-ai-btn { width: 56px; height: 56px; }
   .cw-ai-orbit { width: 70px; height: 70px; }
+}
+
+
+/* ── Offline status indicators ── */
+.cw-online-dot-offline {
+  background: #ef4444 !important;
+  animation: none !important;
+}
+.cw-ai-status-dot-offline {
+  background: #ef4444 !important;
+  animation: none !important;
 }

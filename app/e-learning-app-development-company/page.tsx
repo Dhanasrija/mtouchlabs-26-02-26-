@@ -62,7 +62,7 @@ export default function Page() {
       <section className="food-delivery-features">
          <div className="e-Learning-features">
             <div className="e-Learning-features-content1">
-               <img src="/images/products/elearning/elearning.png" className="e-Learning-img" alt="" />
+               <img src="/images/products/elearning/elearning.png" className="e-Learning-img" alt="E-learning app development" />
                <h5>Key Features for Seamless Functionality</h5>
             </div>
             <div className="e-Learning-features-content2">

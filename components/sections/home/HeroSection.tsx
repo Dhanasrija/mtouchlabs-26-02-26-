@@ -44,20 +44,6 @@ export default function HeroSection() {
           `,
         }}
       />
-      <a
-        href="https://wa.me/message/H5VADFWLMPYIM1"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="whatsapp-hero-btn"
-        title="Chat with us on WhatsApp"
-      >
-        <img
-          src="/images/new_home/ai-product-pages/cybersecurity/whatsapp.png"
-          alt="WhatsApp"
-          className="whatsapp-hero-img"
-        />
-        <span className="wa-tooltip">Chat with us!</span>
-      </a>
     </div>
   );
 }

@@ -219,9 +219,6 @@
 //     </footer>
 //   );
 // }
-
-
-
 import Link from "next/link";
 
 export default function Footer() {
@@ -280,12 +277,12 @@ export default function Footer() {
             <div className="ft-links-col">
               <h4 className="ft-col-heading">SERVICES</h4>
               <ul className="ft-link-list">
-                <li><Link href="/services/custom-software-development">Custom Software Development</Link></li>
-                <li><Link href="/services/cloud-devops-solutions">Cloud &amp; DevOps Solutions</Link></li>
-                <li><Link href="/services/mobile-app-development">Mobile Application Development</Link></li>
-                <li><Link href="/services/salesforce-consulting">Salesforce Consulting</Link></li>
-                <li><Link href="/services/quality-engineering">Quality Engineering &amp; Testing</Link></li>
-                <li><Link href="/services/ai-data-analytics">AI &amp; Data Analytics</Link></li>
+                <li><Link href="/custom-software-development-company">Custom Software Development</Link></li>
+                <li><Link href="/devops-services">Cloud &amp; DevOps Solutions</Link></li>
+                <li><Link href="/mobile-app-development-company">Mobile Application Development</Link></li>
+                <li><Link href="/salesforce-consulting-services-company">Salesforce Consulting</Link></li>
+                <li><Link href="/quality-assurance-and-testing-services">Quality Assurance &amp; Testing </Link></li>
+                <li><Link href="/generative-ai-development-company">AI &amp; Data Analytics</Link></li>
               </ul>
             </div>
 
@@ -294,7 +291,7 @@ export default function Footer() {
               <div className="ft-map-box">
                 <a
                   className="ft-map-overlay"
-                  href="https://www.google.com/maps/place/mTouch+Labs+Pvt+Ltd+-+Software+Development+Company/@17.4892271,78.3901496,17z"
+                  href="https://maps.app.goo.gl/yDpEjLczZQyQj7w7A"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Open in Google Maps"
@@ -323,12 +320,11 @@ export default function Footer() {
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0074E6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" /></svg>
             <div>
               <h4 className="ft-presence-title">Global Presence</h4>
-              {/* <p className="ft-presence-sub">Delivering from 15 countries worldwide</p> */}
             </div>
           </div>
           <div className="ft-divider" />
 
-          {/* 5-column regions — all vertical */}
+          {/* 5-column regions */}
           <div className="ft-regions-grid">
             <div className="ft-region">
               <h5 className="ft-region-label"><span className="ft-region-dot" /> INDIA</h5>
@@ -336,8 +332,8 @@ export default function Footer() {
                 <li><Link href="/software-development-company-hyderabad">Hyderabad</Link></li>
                 <li><Link href="/software-development-company-bangalore">Bangalore</Link></li>
                 <li><Link href="/software-development-company-chennai">Chennai</Link></li>
-                <li><Link href="/top-mobile-app-development-company-in-coimbatore">Coimbatore</Link></li>
-                <li><Link href="/top-mobile-app-development-company-in-kochi">Kochi</Link></li>
+                <li><Link href="/software-development-company-coimbatore">Coimbatore</Link></li>
+                <li><Link href="/software-development-company-kochi">Kochi</Link></li>
               </ul>
             </div>
             <div className="ft-region">
@@ -361,6 +357,8 @@ export default function Footer() {
                 <li><Link href="/software-development-company-singapore">Singapore</Link></li>
                 <li><Link href="/software-development-company-australia">Australia</Link></li>
                 <li><Link href="/software-development-company-new-zealand">New Zealand</Link></li>
+                <li><Link href="/software-development-company-india">India</Link></li>
+
               </ul>
             </div>
             <div className="ft-region">
@@ -378,18 +376,35 @@ export default function Footer() {
       </div>
 
       {/* ── BOTTOM BAR ── */}
-      <div className="ft-bottom">
-        <div className="ft-container">
-          <div className="ft-bottom-inner">
-            <p className="ft-copyright">© 2026 mTouch Labs Pvt. Ltd. All rights reserved.</p>
-            <div className="ft-legal">
-              <Link href="/privacy-policy">Privacy Policy</Link>
-              <Link href="/terms-and-conditions">Terms of Service</Link>
-              <Link href="/refundpolicy">Refund Policy</Link>
-            </div>
-          </div>
-        </div>
+<div className="ft-bottom">
+  <div className="ft-container">
+    <div className="ft-bottom-inner">
+      
+      <p className="ft-copyright">
+        © 2026{" "}
+        <Link href="/" className="company-link">
+          mTouch Labs Pvt. Ltd.
+        </Link>{" "}
+        All rights reserved.
+      </p>
+
+      <div className="ft-legal">
+        <Link href="/privacy-policy" className="legal-link">
+          Privacy Policy
+        </Link>
+
+        <Link href="/terms-and-conditions" className="legal-link">
+          Terms of Service
+        </Link>
+
+        <Link href="/refundpolicy" className="legal-link">
+          Refund Policy
+        </Link>
       </div>
+
+    </div>
+  </div>
+</div>
     </footer>
   );
 }

@@ -139,9 +139,9 @@ export default function Page() {
                 <span className="career-h1-white">Shape the Future Together</span>
               </h1>
               <p className="career-hero-desc" data-aos="fade-up" data-aos-delay="400">
-                Explore exciting career opportunities where your skills, ideas, and
-                passion make an impact. Together, we drive success and create a
-                brighter future for everyone.
+                <a href="#open-positions" className="career-findjob-btn">
+              Find More Jobs <i className="fas fa-external-link-alt"></i>
+            </a>
               </p>
             </div>
             <div className="career-hero-img-space"></div>
@@ -151,12 +151,8 @@ export default function Page() {
         {/* ===== FIND JOBS BAR ===== */}
         <div className="career-findjob-bar">
           <div className="career-findjob-bar-inner">
-            <div>
-              <h2>Discover Your Next Opportunity<br />Across Every Industry</h2>
-            </div>
-            <a href="#open-positions" className="career-findjob-btn">
-              Find More Jobs <i className="fas fa-external-link-alt"></i>
-            </a>
+           
+            
           </div>
         </div>
 

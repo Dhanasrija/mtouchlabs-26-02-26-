@@ -7,6 +7,15 @@ const nextConfig = {
   async redirects() {
     return [
       // ===========================
+      // NON-WWW → WWW REDIRECT
+      // ===========================
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'mtouchlabs.com' }],
+        destination: 'https://www.mtouchlabs.com/:path*',
+        permanent: true,
+      },
+      // ===========================
       // BLOG REDIRECTS — /blog/slug → /slug
       // ===========================
       {

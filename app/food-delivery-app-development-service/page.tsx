@@ -152,10 +152,11 @@ export default function Page() {
             Web &amp; App Solutions
           </h1>
           <Link
-            href="https://youtu.be/Zvae5N9p3Gcsi=ok-KlYDubki5hAE-"
+            href="https://youtu.be/Zvae5N9p3Gc"
             target="_blank"
             rel="noopener noreferrer"
             className="foodelivery-delivery-button"
+            style={{ position: "relative", zIndex: 10, display: "inline-block" }}
           >
             View Demo
           </Link>
@@ -191,8 +192,8 @@ export default function Page() {
             <h3>On-Demand Food Delivery App Development</h3>
             <p>
               <Link
-                href="https://www.mtouchlabs.com/online-food-ordering-mobile-app-development"
-                target="_blank"
+                href="/mobile-app-development-company"
+                style={{ color: "#3e8cfb", fontWeight: 600 }}
               >
                 Food delivery app development services
               </Link>{" "}
@@ -201,8 +202,14 @@ export default function Page() {
             </p>
             <p>
               When it comes to designing a food delivery app, there are many crucial services that
-              assist businesses in building a successful platform. From creating user-friendly
-              interfaces to integrating secure payment methods, app development services are critical
+              assist businesses in building a successful platform. From creating{" "}
+              <Link
+                href="/ui-ux-design-company"
+                style={{ color: "#3e8cfb", fontWeight: 600 }}
+              >
+                user-friendly interfaces
+              </Link>{" "}
+              to integrating secure payment methods, app development services are critical
               to providing a seamless experience for both customers and restaurants.
             </p>
           </div>
@@ -234,15 +241,17 @@ export default function Page() {
           <div className="food-delivery-mobile-text-section">
             <h3>Online Food Delivery Applications</h3>
             <p>
-              At mTouch Labs, we specialise in creating unique{" "}
-              <Link
-                href="https://www.mtouchlabs.com/on-demand-service-providers-web-and-mobile-app-development"
-                target="_blank"
-              >
-                food delivery apps
-              </Link>{" "}
+              At mTouch Labs, we specialise in creating unique
+              food delivery apps
               that transform how restaurants and food businesses interact with their customers. Our
-              expertise in app development and deep understanding of the food and beverage industry
+              expertise in{" "}
+              <Link
+                href="/cross-platform-app-development-company"
+                style={{ color: "#3e8cfb", fontWeight: 600 }}
+              >
+                cross-platform app development
+              </Link>{" "}
+              and deep understanding of the food and beverage industry
               allow us to create solutions that are not only functional but also highly engaging and
               user-friendly.
             </p>
@@ -512,7 +521,7 @@ export default function Page() {
               Drive your business forward with our customizable Food Delivery App Development
               Solutions
             </p>
-            <Link href="/contact" className="food-cta-button">
+            <Link href="/contact-us" className="food-cta-button">
               Let&#39;s Bring Your Idea to Life
               <span className="food-button-icon">→</span>
             </Link>

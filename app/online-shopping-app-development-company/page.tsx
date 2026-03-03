@@ -59,7 +59,7 @@ export default function Page() {
       <section className="shopping-page1">
          <div className="sports-service-container">
             <div className="sports-service-container1">
-               <img src="/images/products/shopping/styleimg.png" className="Sports_main_img" alt="" />
+               <img src="/images/products/shopping/styleimg.png" className="Sports_main_img" alt="Online shopping app" />
             </div>
             <div>
                <h5 className="sports-service-header">Key Features for Seamless<br /> Functionality</h5>

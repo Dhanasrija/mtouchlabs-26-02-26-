@@ -8,13 +8,7 @@
   }
 
 const blogCards = [
-      {
-        image: "/images/portfolio/otloffers.png",
-        link: "otloffers-mobile-app-development",
-        name: "OLT Offers Mobile Deals & Coupon App Development",
-        tag: "UX, UI, Android and iOS",
-        category: "Ecommerce"
-      },
+     
       {
         image: "/images/portfolio/omVideos.png",
         link: "devotional-mobile-app-development",

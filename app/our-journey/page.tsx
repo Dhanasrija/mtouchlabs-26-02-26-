@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
   title: "Our Journey | Global Software Development & AI Solutions Company | mTouch Labs",
@@ -107,14 +108,8 @@ export default function OurJourneyPage() {
       {/* Hero */}
       <section className="jrn-hero">
         <div className="jrn-hero__bg"><div className="jrn-hero__gradient"></div></div>
-        <div className="jrn-hero__content container">
-          <nav className="jrn-crumb" aria-label="Breadcrumb">
-            <ol>
-              <li><Link href="/">Home</Link></li>
-              <li><span className="jrn-crumb__sep">/</span></li>
-              <li className="jrn-crumb__current">Our Journey</li>
-            </ol>
-          </nav>
+        <div className="jrn-hero__content container" style={{ paddingTop: "140px" }}>
+          <Breadcrumb pagePath="/our-journey" currentLabel="Our Journey" />
           <span className="jrn-hero__badge">Since 2012</span>
           <h1 className="jrn-hero__title">Our <span className="jrn-accent">Journey</span></h1>
           <p className="jrn-hero__sub">
@@ -166,7 +161,12 @@ export default function OurJourneyPage() {
       <section className="jrn-section">
         <div className="container">
           <h2 className="jrn-section__title">Where We Are <span className="jrn-accent">Today</span></h2>
-          <p className="jrn-section__desc">Today, mTouch Labs stands at the intersection of innovation, scalability, and intelligence.</p>
+          <p className="jrn-section__desc">
+            Today, mTouch Labs stands at the intersection of innovation, scalability, and intelligence — delivering{" "}
+            <Link href="/custom-software-development-company">custom software solutions</Link>,{" "}
+            <Link href="/cloud-services">cloud services</Link>, and{" "}
+            <Link href="/generative-ai-development-company">AI-powered platforms</Link> to clients worldwide.
+          </p>
           <div className="jrn-today-grid">
             {todayServices.map((s, i) => (
               <div key={i} className="jrn-today-card" data-aos="fade-up" data-aos-delay={i * 80}>
@@ -182,7 +182,7 @@ export default function OurJourneyPage() {
       {/* Global Presence */}
       <section className="jrn-section jrn-section--dark">
         <div className="container" style={{ textAlign: "center" }}>
-          <h2 className="jrn-section__title jrn-section__title--light">Global Presence & <span className="jrn-accent">Industry Impact</span></h2>
+          <h2 className="jrn-section__title jrn-section__title--light">Global Presence &amp; <span className="jrn-accent">Industry Impact</span></h2>
           <div className="jrn-regions">
             {["USA", "UK", "UAE", "Australia", "India"].map((r, i) => (
               <div key={i} className="jrn-region"><i className="fas fa-globe"></i><span>{r}</span></div>

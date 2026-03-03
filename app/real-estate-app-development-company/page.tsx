@@ -101,7 +101,7 @@ export default function Page() {
                <p>We understand that every real estate business is unique. Whether you're a real estate agent, broker,
                   or property developer, we can create an app that meets your unique business needs.</p>
 
-                <button>Get A Request Quote<i
+                <button className="js-open-modal">Get A Request Quote<i
                         className='fas fa-long-arrow-alt-right' id="food-button-icon"></i></button>
             </div>
          </div>
@@ -236,67 +236,7 @@ export default function Page() {
             </section>
          </div>
          
-         
 
-         <div className="food-application-features">
-            <div className="food-application-features-heading">
-               <h3>Application Features</h3>
-               <h6>Powerful Features to Elevate Your Application's Performance</h6>
-            </div>
-            <div className="food-application-container">
-               <div className="food-application-panel-selector">
-                  <button className="food-application-panel-btn active" data-panel="customer">Customer
-                     Panel</button>
-                  <button className="food-application-panel-btn" data-panel="admin">Admin Panel</button>
-                  <button className="food-application-panel-btn" data-panel="delivery">Agent/Broker
-                     Panel</button>
-               </div>
-               <div id="customer" className="food-application-panel">
-                  <ul>
-                     <li>User Registration/Login</li>
-                     <li>Profile Management</li>
-                     <li>Property Search/Browse</li>
-                     <li>Property Details</li>
-                     <li>Scheduling/Appointments</li>
-                     <li>User Interface/Experience</li>
-                     <li>Agent/Agency Profiles</li>
-                     <li>Promotions/Offers</li>
-                     <li>Ratings/Reviews</li>
-                     <li>Feedback/Suggestions</li>
-
-                  </ul>
-               </div>
-               <div id="admin" className="food-application-panel" style={{display: "none"}}>
-                  <ul>
-                     <li>User Management</li>
-                     <li> Property Management</li>
-                     <li>Listing Management</li>
-                     <li> Lead Management</li>
-                     <li> Analytics and Reporting</li>
-                     <li> Payment Management</li>
-                     <li>Promotions and Marketing</li>
-                     <li>Feedback and Review</li>
-                     <li> Security and Privacy</li>
-
-
-                  </ul>
-               </div>
-               <div id="delivery" className="food-application-panel" style={{display: "none"}}>
-                  <ul>
-                     <li>Property Listings</li>
-                     <li>Client Management</li>
-                     <li>Schedule Management</li>
-                     <li>Earnings and Payments</li>
-                     <li> Communication Tools</li>
-                     <li> Profile Management</li>
-                     <li>Notifications and Alerts</li>
-                     <li>Customer Management</li>
-                     <li> Transaction Management</li>
-
-                  </ul>
-               </div>
-            </div>
-         </div>
 
 
          <div className="food-teach-container">

@@ -13,7 +13,7 @@
   // ===== Request Quote Modal =====
   var openModalBtns = document.querySelectorAll(".js-open-modal");
   openModalBtns.forEach(function (btn) {
-    btn.addEventListener("click", function () {
+    btn.addEventListener("click", function (e) { e.preventDefault();
       var modal = document.getElementById("requestQuoteModal");
       if (modal) modal.classList.remove("hide");
     });
@@ -110,7 +110,7 @@
   // ===== Brochure Modal =====
   var brochureBtns = document.querySelectorAll(".js-brochure-modal");
   brochureBtns.forEach(function (btn) {
-    btn.addEventListener("click", function () {
+    btn.addEventListener("click", function (e) { e.preventDefault();
       var modal = document.getElementById("brochureModal");
       if (modal) modal.classList.remove("hide");
     });

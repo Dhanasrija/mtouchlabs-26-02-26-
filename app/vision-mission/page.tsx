@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-
+import Link from "next/link";
+import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
   title: "Vision & Mission | mTouch Labs",
@@ -39,10 +40,7 @@ export default function VisionMission() {
       {/* ===== HERO SECTION ===== */}
       <section className="vm-hero">
         <div className="vm-hero__inner">
-          <p className="vm-hero__breadcrumb">
-            Home / About Us /{" "}
-            <span className="vm-hero__breadcrumb-active">Vision &amp; Mission</span>
-          </p>
+          <Breadcrumb pagePath="/vision-mission" />
           <h1 className="vm-hero__title">
             Our <span className="vm-hero__title-accent">Vision</span> &amp;{" "}
             <span className="vm-hero__title-accent">Mission</span>
@@ -65,9 +63,9 @@ export default function VisionMission() {
                 Our <span className="vm-text-accent">Vision</span>
               </h2>
               <p className="vm-about__text">
-                At mTouch Labs, our vision is to become a globally recognized IT
-                Services and Digital Transformation Company that empowers
-                businesses across India and international markets to innovate,
+                At mTouch Labs, our vision is to become a globally recognized{" "}
+                <Link href="/it-services-digital-transformation-company">IT Services and Digital Transformation Company</Link>{" "}
+                that empowers businesses across India and international markets to innovate,
                 scale, and lead confidently in the digital era.
               </p>
               <p className="vm-about__text">
@@ -145,11 +143,11 @@ export default function VisionMission() {
                 </li>
                 <li className="vm-checklist__item">
                   <span className="vm-checklist__icon">✓</span>
-                  <span>Modernizing legacy systems with cloud transformation</span>
+                  <span>Modernizing legacy systems with <Link href="/cloud-services">cloud transformation</Link></span>
                 </li>
                 <li className="vm-checklist__item">
                   <span className="vm-checklist__icon">✓</span>
-                  <span>Implementing AI and automation frameworks</span>
+                  <span>Implementing <Link href="/generative-ai-development-company">AI and automation</Link> frameworks</span>
                 </li>
                 <li className="vm-checklist__item">
                   <span className="vm-checklist__icon">✓</span>
@@ -305,47 +303,26 @@ export default function VisionMission() {
       <section className="vm-faq">
         <div className="vm-container">
           <div className="vm-faq__wrapper">
-            <h3 className="vm-faq__heading vm-animate">Frequently Asked Questions</h3>
-            <div className="accordion">
-              <div className="accordion-item">
-                <button id="accordion-button-1" aria-expanded="false">
-                  <span className="accordion-title">What is the vision of mTouch Labs?</span>
-                  <span className="icon" aria-hidden="true"></span>
-                </button>
-                <div className="accordion-content">
-                  <p>
-                    The vision of mTouch Labs is to become a globally trusted IT
-                    services and digital transformation company delivering
-                    innovative, scalable, and enterprise-grade technology
-                    solutions.
-                  </p>
+            <h2 className="vm-faq__heading vm-animate">Frequently Asked Questions</h2>
+            <div className="vm-faq__list">
+              <details className="vm-faq__item">
+                <summary className="vm-faq__question">What is the vision of mTouch Labs?</summary>
+                <div className="vm-faq__answer">
+                  <p>The vision of mTouch Labs is to become a globally trusted IT services and digital transformation company delivering innovative, scalable, and enterprise-grade technology solutions.</p>
                 </div>
-              </div>
-              <div className="accordion-item">
-                <button id="accordion-button-2" aria-expanded="false">
-                  <span className="accordion-title">What is the mission of mTouch Labs?</span>
-                  <span className="icon" aria-hidden="true"></span>
-                </button>
-                <div className="accordion-content">
-                  <p>
-                    The mission of mTouch Labs is to provide cloud-driven,
-                    AI-powered, and secure IT services that support sustainable
-                    business transformation for clients in India and worldwide.
-                  </p>
+              </details>
+              <details className="vm-faq__item">
+                <summary className="vm-faq__question">What is the mission of mTouch Labs?</summary>
+                <div className="vm-faq__answer">
+                  <p>The mission of mTouch Labs is to provide cloud-driven, AI-powered, and secure IT services that support sustainable business transformation for clients in India and worldwide.</p>
                 </div>
-              </div>
-              <div className="accordion-item">
-                <button id="accordion-button-3" aria-expanded="false">
-                  <span className="accordion-title">Where is mTouch Labs located?</span>
-                  <span className="icon" aria-hidden="true"></span>
-                </button>
-                <div className="accordion-content">
-                  <p>
-                    mTouch Labs is headquartered in Hyderabad, India, serving
-                    clients across domestic and international markets.
-                  </p>
+              </details>
+              <details className="vm-faq__item">
+                <summary className="vm-faq__question">Where is mTouch Labs located?</summary>
+                <div className="vm-faq__answer">
+                  <p>mTouch Labs is headquartered in Hyderabad, India, serving clients across domestic and international markets.</p>
                 </div>
-              </div>
+              </details>
             </div>
           </div>
         </div>
@@ -364,9 +341,9 @@ export default function VisionMission() {
               Labs combines strategic consulting with deep technical expertise to
               deliver measurable business outcomes.
             </p>
-            <a href="/contact-us" className="vm-cta__button">
+            <Link href="/contact-us" className="vm-cta__button">
               Connect With Our Team
-            </a>
+            </Link>
           </div>
         </div>
       </section>

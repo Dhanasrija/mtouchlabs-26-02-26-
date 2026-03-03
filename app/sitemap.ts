@@ -1,7 +1,9 @@
 import { MetadataRoute } from 'next'
+import { sql } from '@/lib/db'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://www.mtouchlabs.com'
+  const today = new Date().toISOString().split('T')[0]
 
   // ===========================
   // CORE PAGES (priority: 1.0, changeFrequency: weekly)
@@ -14,13 +16,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/contact-us',
     '/careers',
     '/blog',
+    '/blogs',
   ]
 
   // ===========================
   // COMPANY PAGES (priority: 0.7, changeFrequency: monthly)
   // ===========================
   const companyPages = [
-    '/company-overview',
     '/leadership-team',
     '/our-journey',
     '/our-vision',
@@ -35,7 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // SERVICE PAGES (priority: 0.9, changeFrequency: weekly)
   // ===========================
   const servicePages = [
-    // Development
+    // Software Development
     '/custom-software-development-company',
     '/mobile-app-development-company',
     '/android-app-development-company',
@@ -47,6 +49,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/native-app-development-company',
     '/ipad-app-development-company',
     '/progressive-web-app-development-company-in-india',
+    // Web Development
     '/web-development-company',
     '/web-design-company',
     '/php-development-company',
@@ -55,6 +58,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/shopify-development-company-in-india',
     '/magento-development-company-in-india',
     '/custom-cms-development-company-in-india',
+    // App Categories
     '/ecommerce-app-development-company',
     '/enterprise-application-development-company',
     '/saas-development-services',
@@ -66,15 +70,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/grocery-delivery-app-development-company',
     '/hotel-booking-app-development-company',
     '/taxi-booking-app-development-company',
-    '/cabs-booking-app-development-company',
     '/car-wash-app-development-company',
-    '/milk-delivery-app-development-company',
+    '/milk-delivery-app-development-service',
     '/sports-and-fitness-app-development-company',
     '/diagnostic-app-development-company',
     '/online-shopping-app-development-company',
     '/tickets-booking-app-development-company',
+    '/social-media-app-development-company',
     '/on-demand-products-development-company-hyderabad',
     '/on-demand-service-mobile-app-development',
+    '/on-demand-chef-app-development-company',
+    '/chef-management-app-solutions',
+    '/multi-vendor-marketplace-app-builder',
     '/app-maintenance-support-services',
     // Design
     '/ui-ux-design-company',
@@ -82,7 +89,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/mobile-app-design-company',
     '/product-design-services',
     '/design-system-development',
-    // AI / ML / Data
+    // AI / ML / Data / IoT
     '/generative-ai-development-company',
     '/machine-learning-development-company',
     '/data-science-solutions',
@@ -108,14 +115,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/digital-marketing-solutions',
     '/digital-marketing-services',
     '/digital-marketing-services-company-in-india',
+    '/digital-marketing-company',
     '/seo-services',
     '/ppc-advertising-services',
+    '/ppc-management-services-company',
     '/social-media-marketing-services',
+    '/social-media-marketing-company-in-india',
     '/app-store-optimization-services',
     '/content-marketing-services',
     '/email-marketing-services',
     '/performance-marketing-services',
     '/conversion-rate-optimization-services',
+    // Industry Solutions
+    '/app-and-web-development-for-ecommerce-services',
+    '/web-and-app-development-for-education-services',
+    '/web-and-app-development-for-real-estate-services',
+    '/web-and-app-development-for-temple-services',
+    '/360-degree-photography-services-in-india',
+    '/it-services-digital-transformation-company',
+    '/quality-assurance-and-testing-services',
   ]
 
   // ===========================
@@ -162,92 +180,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // LOCATION PAGES (priority: 0.8, changeFrequency: monthly)
   // ===========================
   const locationPages = [
-    '/best-mobile-app-development-company-in-usa',
-    '/best-mobile-app-development-company-in-canada',
-    '/top-mobile-app-development-company-in-hyderabad',
-    '/top-mobile-app-development-company-in-bangalore',
-    '/top-mobile-app-development-company-in-chennai',
-    '/top-mobile-app-development-company-in-coimbatore',
-    '/top-mobile-app-development-company-in-kochi',
-    '/top-mobile-app-development-company-in-dubai',
-    '/top-mobile-app-development-company-in-uk',
-    '/top-mobile-app-development-company-in-australia',
-    '/top-mobile-app-development-company-in-qatar',
-    '/top-mobile-app-development-company-in-kuwait',
-  ]
-
-  // ===========================
-  // CASE STUDY / PORTFOLIO PAGES (priority: 0.7, changeFrequency: monthly)
-  // ===========================
-  const caseStudyPages = [
-    '/abu-dhabi-judicial-department-mobile-app-development',
-    '/adfini8-mobile-advertising-platform-development',
-    '/b2b-grocery-shopping-mobile-app-development-and-web-development',
-    '/b2b-lead-intelligence-platform',
-    '/best-on-demand-grocery-delivery-android-app-development',
-    '/bikers-community-social-networking-app-development',
-    '/call-management-mobile-app-development',
-    '/car-booking-app-rent-ride',
-    '/custom-matrimonial-mobile-app-development',
-    '/devotional-mobile-app-development',
-    '/drpick-healthcare-app',
-    '/event-management-and-gifting-app',
-    '/fractional-property-ownership-web-development',
-    '/grocery-delivery-android-app-development',
-    '/healthcare-super-app',
-    '/hitech-shuttle-bus-management-platform',
-    '/hyderabad-startups-app-development-mtouch-labs',
-    '/key-plantation-ngo-mobile-app-development',
-    '/lip-sync-video-dubbing-mobile-app-development',
-    '/loyalty-program-management-mobile-app-development',
-    '/make-your-taxi-business-smart-with-our-uber-clone-app-development',
-    '/multi-vendor-ecommerce-mobile-app-development',
-    '/multi-vendor-marketplace-app-builder',
-    '/on-demand-chef-app-development-company',
-    '/on-demand-chef-management-web-development',
-    '/on-demand-home-services-mobile-app-development',
-    '/on-demand-service-providers-web-and-mobile-app-development',
-    '/online-astrology-consultation-mobile-app-development',
-    '/online-delivery-grocery-shopping-mobile-app-development',
-    '/online-food-ordering-mobile-app-development',
-    '/online-generic-medicine-delivery-mobile-app-development',
-    '/online-generic-medicine-mobile-app-development-and-web-development',
-    '/online-grocery-delivery-android-app-development',
-    '/online-grocery-shopping-mobile-app-development',
-    '/online-learning-android-app-development',
-    '/online-learning-platform-mobile-app-development',
-    '/online-shopping-and-international-shipping-service-mobile-app',
-    '/onlyshop-mobile-shopping-app-development',
-    '/otloffers-mobile-app-development',
-    '/pg-hostel-management-mobile-app-development',
-    '/photo-editor-mobile-app-development',
-    '/rahayel-parking-lot-management-system',
-    '/real-estate-lead-app',
-    '/retailer-management-system-mobile-web-app',
-    '/secure-ecommerce-shopping-platform',
-    '/short-video-sharing-mobile-app-development',
-    '/social-community-mobile-app-development',
-    '/spa-and-salon-booking-flutter-app-development',
-    '/staff-and-student-management-enterprise-mobile-app-development',
-    '/telangana-ecommerce-mobile-app-development',
-    '/360-degree-photography-services-in-india',
-    '/app-solutions-for-medical-device-companies',
-    '/web-and-app-development-for-education-services',
-    '/web-and-app-development-for-real-estate-services',
-    '/web-and-app-development-for-temple-services',
-    '/app-and-web-development-for-ecommerce-services',
-  ]
-
-  // ===========================
-  // BLOG PAGES (priority: 0.6, changeFrequency: daily)
-  // ===========================
-  const blogPages = [
-    '/ai-role-in-business-automation',
-    '/artificial-intelligence-transforming-mobile-technology',
-    '/mobile-app-development-bangalore-tech-startups',
-    '/top-10-free-ai-tools-for-software-developers',
-    '/top-ecommerce-niches-us',
-    '/top-generative-ai-tools-for-developers',
+    '/software-development-company-australia',
+    '/software-development-company-bangalore',
+    '/software-development-company-canada',
+    '/software-development-company-chennai',
+    '/software-development-company-coimbatore',
+    '/software-development-company-dubai',
+    '/software-development-company-germany',
+    '/software-development-company-hyderabad',
+    '/software-development-company-india',
+    '/software-development-company-ireland',
+    '/software-development-company-kochi',
+    '/software-development-company-kuwait',
+    '/software-development-company-new-zealand',
+    '/software-development-company-qatar',
+    '/software-development-company-saudi-arabia',
+    '/software-development-company-singapore',
+    '/software-development-company-united-arab-emirates',
+    '/software-development-company-united-kingdom',
+    '/software-development-company-usa',
   ]
 
   // ===========================
@@ -260,25 +211,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ]
 
   // ===========================
-  // LEGACY PAGES (kept for SEO, priority: 0.5)
-  // These still exist as pages but have redirects pointing TO them
+  // BUILD SITEMAP ENTRIES
   // ===========================
-  const legacyPages = [
-    '/digital-marketing-company',
-    '/ppc-management-services-company',
-    '/social-media-marketing-company-in-india',
-    '/hotel-booking-ios-app-development',
-    '/custom-crm-software-development-company',
-    '/hyper-local-delivery-mobile-app-development',
-    '/it-services-digital-transformation-company',
-  ]
-
-  const today = new Date().toISOString().split('T')[0]
-
-  // Build sitemap entries
   const entries: MetadataRoute.Sitemap = []
 
-  // Core pages
   corePages.forEach((path) => {
     entries.push({
       url: `${baseUrl}${path}`,
@@ -288,7 +224,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   })
 
-  // Company pages
   companyPages.forEach((path) => {
     entries.push({
       url: `${baseUrl}${path}`,
@@ -298,7 +233,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   })
 
-  // Service pages
   servicePages.forEach((path) => {
     entries.push({
       url: `${baseUrl}${path}`,
@@ -308,7 +242,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   })
 
-  // Hire developer pages
   hireDeveloperPages.forEach((path) => {
     entries.push({
       url: `${baseUrl}${path}`,
@@ -318,7 +251,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   })
 
-  // Location pages
   locationPages.forEach((path) => {
     entries.push({
       url: `${baseUrl}${path}`,
@@ -328,27 +260,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   })
 
-  // Case study pages
-  caseStudyPages.forEach((path) => {
-    entries.push({
-      url: `${baseUrl}${path}`,
-      lastModified: today,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    })
-  })
-
-  // Blog pages
-  blogPages.forEach((path) => {
-    entries.push({
-      url: `${baseUrl}${path}`,
-      lastModified: today,
-      changeFrequency: 'daily',
-      priority: 0.6,
-    })
-  })
-
-  // Legal pages
   legalPages.forEach((path) => {
     entries.push({
       url: `${baseUrl}${path}`,
@@ -358,15 +269,45 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   })
 
-  // Legacy pages (still exist but lower priority)
-  legacyPages.forEach((path) => {
-    entries.push({
-      url: `${baseUrl}${path}`,
-      lastModified: today,
-      changeFrequency: 'monthly',
-      priority: 0.5,
+  // ===========================
+  // DYNAMIC: BLOGS FROM DATABASE
+  // Auto-updates when you publish new blogs
+  // ===========================
+  try {
+    const blogs = await sql`SELECT slug, updated_at FROM blogs WHERE published = true`
+    blogs.forEach((blog: any) => {
+      entries.push({
+        url: `${baseUrl}/${blog.slug}`,
+        lastModified: blog.updated_at
+          ? new Date(blog.updated_at).toISOString().split('T')[0]
+          : today,
+        changeFrequency: 'weekly',
+        priority: 0.6,
+      })
     })
-  })
+  } catch (e) {
+    console.error('Sitemap: Failed to fetch blogs', e)
+  }
+
+  // ===========================
+  // DYNAMIC: PORTFOLIOS FROM DATABASE
+  // Auto-updates when you publish new portfolios
+  // ===========================
+  try {
+    const portfolios = await sql`SELECT slug, updated_at FROM portfolios WHERE published = true`
+    portfolios.forEach((portfolio: any) => {
+      entries.push({
+        url: `${baseUrl}/${portfolio.slug}`,
+        lastModified: portfolio.updated_at
+          ? new Date(portfolio.updated_at).toISOString().split('T')[0]
+          : today,
+        changeFrequency: 'monthly',
+        priority: 0.7,
+      })
+    })
+  } catch (e) {
+    console.error('Sitemap: Failed to fetch portfolios', e)
+  }
 
   return entries
 }

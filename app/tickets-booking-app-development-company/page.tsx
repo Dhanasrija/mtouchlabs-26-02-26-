@@ -261,7 +261,7 @@ export default function Page() {
             </div>
          </div>
 
-         <div className="food-application-features">
+         {/* <div className="food-application-features">
             <div className="food-application-features-heading">
                <h3>Application Features</h3>
                <h6>Innovative Technologies Powering Our Ticket Booking App Solutions</h6>
@@ -315,7 +315,7 @@ export default function Page() {
                </div>
             </div>
          </div>
-
+ */}
 
          <div className="food-faq-section-main">
             <div className="food-faq-section">

@@ -58,7 +58,7 @@ export default function Page() {
       <section className="shopping-page1">
          <div className="sports-service-container">
             <div className="sports-service-container1">
-               <img src="/images/products/ecommerce/shopping1.png" className="e-commerce-shopping-icon1" alt="" />
+               <img src="/images/products/ecommerce/shopping1.png" className="e-commerce-shopping-icon1" alt="Shopping cart icon" />
             </div>
             <div>
                <h5 className="sports-service-header">Key Features for Seamless<br /> Functionality</h5>
@@ -108,7 +108,7 @@ export default function Page() {
             Custom E-Commerce Apps for All
          </h2>
          <div>
-            <img src="/images/products/ecommerce/shopping1.png" className="e-commerce-shopping-icon2" alt="" />
+            <img src="/images/products/ecommerce/shopping1.png" className="e-commerce-shopping-icon2" alt="Shopping cart icon" />
          </div>
       </div>
 

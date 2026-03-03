@@ -2,7 +2,7 @@ import { Resend } from "resend";
 import { NextResponse } from "next/server";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const TO = ["srija271103@gmail.com"];
+const TO: string = process.env.CONTACT_EMAIL || "venky@mtouchlabs.com";
 
 function buildHtml(d: {
   phone: string; email: string; name: string; companyType: string;
@@ -46,11 +46,50 @@ function buildText(d: any) {
 export async function POST(req: Request) {
   try {
     const body = await req.json();
+
+    // ═══ Cloudflare Turnstile verification ═══
+    const turnstileToken = body['cf-turnstile-response'];
+    if (turnstileToken) {
+      const verifyRes = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          secret: process.env.TURNSTILE_SECRET_KEY,
+          response: turnstileToken,
+        }),
+      });
+      const verifyData = await verifyRes.json();
+      if (!verifyData.success) {
+        return NextResponse.json({ error: 'Captcha verification failed' }, { status: 400 });
+      }
+    }
+
     const { phone, email, name, companyType, projectType, platform, features, budget, timeline, partial } = body;
     const data = { phone, email, name: name || "Unknown", companyType: companyType || "Not specified", projectType: projectType || "Not yet selected", platform: platform || "Not yet selected", features: features || [], budget: budget || "Not yet selected", timeline: timeline || "Not yet selected", partial: !!partial };
     const pre = partial ? "Lead: " : "Quote: ";
     const subject = `${pre}${data.name} | ${data.phone}${!partial ? " | " + (data.projectType || "Project") : ""}`;
     await resend.emails.send({ from: "mTouch Labs <onboarding@resend.dev>", replyTo: email || undefined, to: TO, subject, html: buildHtml(data), text: buildText(data) });
+
+    // Send to CRM
+    try {
+      const crmRes = await fetch("https://xcrmapi.mtouchlabs.com/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          contactPerson: data.name,
+          email: data.email || "",
+          countryCode: data.phone?.startsWith("+") ? data.phone.split(" ")[0] : "+91",
+          phone: data.phone?.replace(/^\+\d+\s*/, "") || "",
+          requirement: data.projectType || "",
+        }),
+      });
+      const crmData = await crmRes.json();
+      console.log("CRM response status:", crmRes.status);
+      console.log("CRM response body:", crmData);
+    } catch (crmErr) {
+      console.error("CRM submission error:", crmErr);
+    }
+
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Email send error:", error);

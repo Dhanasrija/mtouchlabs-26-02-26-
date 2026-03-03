@@ -180,7 +180,7 @@ if (typeof AOS !== 'undefined') {
 /* ===== FAQ ACCORDION ===== */
 (function initFaq() {
   var items = document.querySelectorAll('._faq_item');
-  if (!items.length) return setTimeout(initFaq, 300);
+  if (!items.length) { if (!window.__hfaqR) window.__hfaqR=0; if (window.__hfaqR<20) { window.__hfaqR++; return setTimeout(initFaq, 300); } return; }
   items.forEach(function(item) {
     var btn = item.querySelector('._faq_question');
     if (!btn || btn.dataset.faqBound) return;

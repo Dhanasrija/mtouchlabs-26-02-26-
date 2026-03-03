@@ -204,8 +204,8 @@ export default function ChefManagementAppSolutions() {
 
       {/* On-Demand Chef Section */}
       <section className="chef-ondemand-section">
-        <Image src="/images/products/chef/leaf.png" alt="" width={100} height={100} className="chef-leaf-decor" />
-        <Image src="/images/products/chef/tomatto.png" alt="" width={80} height={80} className="chef-tomato-decor" />
+        <Image src="/images/products/chef/leaf.png" alt="Decorative leaf" width={100} height={100} className="chef-leaf-decor" />
+        <Image src="/images/products/chef/tomatto.png" alt="Decorative tomato" width={80} height={80} className="chef-tomato-decor" />
 
         <div className="chef-ondemand-container">
           <div className="chef-ondemand-image">
@@ -289,7 +289,7 @@ export default function ChefManagementAppSolutions() {
             </div>
           ))}
         </div>
-        <Image src="/images/products/chef/leaf.png" alt="" width={100} height={100} className="chef-footer-leaf" />
+        <Image src="/images/products/chef/leaf.png" alt="Decorative leaf" width={100} height={100} className="chef-footer-leaf" />
       </section>
 
       {/* App Screens Section */}

@@ -112,16 +112,28 @@ export default function WhyChooseSection() {
         {/* Left Side Content */}
         <div className="left-content">
           <div className="About-text">
-            <div className="section-tag-container">
-              <div className="section-tag">Why Choose mTouch Labs</div>
-            </div>
-            <h2>Your Trusted Enterprise Digital Solutions Partner</h2>
-            <p>
-              End-to-end software development expertise | Enterprise-grade architecture |
-              Agile &amp; DevOps-driven delivery | Global client engagement model |
-              Long-term technology partnerships | ISO Certified
-            </p>
-          </div>
+  <div className="section-tag-container">
+    <div className="section-tag">Why Choose mTouch Labs</div>
+  </div>
+
+  <h2>Your Trusted Enterprise Digital Solutions Partner</h2>
+
+  <p>
+    mTouch Labs is a leading software development company and IT solutions provider delivering innovative, scalable, and performance-driven digital products for startups, enterprises, and growing businesses.
+  </p>
+
+  <p>
+    We combine technology expertise, strategic thinking, and user-centric design to build solutions that accelerate digital transformation.
+  </p>
+
+  <p>
+    From custom software development to enterprise IT services, we help businesses streamline operations, enhance customer experiences, and drive measurable growth.
+  </p>
+
+  <p>
+    ISO Certified.
+  </p>
+</div>
 
           {/* Cards Section */}
           <div className="cards-section">

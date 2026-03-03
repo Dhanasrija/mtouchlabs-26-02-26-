@@ -4,10 +4,11 @@
    Colors: Brand palette from guidelines
    
    Usage: @import './brand.css'; in globals.css
+   or import in layout.tsx
    ============================================ */
 
 /* ── Google Fonts ── */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Lora:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Lora:wght@400;500;600;700&display=swap');
 
 /* ============================================
    CSS VARIABLES
@@ -81,25 +82,19 @@
    ============================================ */
 *, *::before, *::after {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 body {
   font-family: var(--font-primary);
-  font-size: var(--b3-size);
-  line-height: var(--b3-line);
-  font-weight: var(--b3-weight);
-  letter-spacing: var(--letter-spacing);
-  color: var(--color-text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 /* ============================================
-   HEADINGS
+   HEADINGS — only plain tags without classes
+   Page-specific classes always win
    ============================================ */
-h1, .h1 {
+h1:not([class]) {
   font-family: var(--font-primary);
   font-size: var(--h1-size);
   line-height: var(--h1-line);
@@ -107,7 +102,7 @@ h1, .h1 {
   letter-spacing: var(--letter-spacing);
 }
 
-h2, .h2 {
+h2:not([class]) {
   font-family: var(--font-primary);
   font-size: var(--h2-size);
   line-height: var(--h2-line);
@@ -115,7 +110,7 @@ h2, .h2 {
   letter-spacing: var(--letter-spacing);
 }
 
-h3, .h3 {
+h3:not([class]) {
   font-family: var(--font-primary);
   font-size: var(--h3-size);
   line-height: var(--h3-line);
@@ -123,7 +118,40 @@ h3, .h3 {
   letter-spacing: var(--letter-spacing);
 }
 
-h4, .h4 {
+h4:not([class]) {
+  font-family: var(--font-primary);
+  font-size: var(--h4-size);
+  line-height: var(--h4-line);
+  font-weight: var(--h4-weight);
+  letter-spacing: var(--letter-spacing);
+}
+
+/* ── Utility classes for headings ── */
+.h1 {
+  font-family: var(--font-primary);
+  font-size: var(--h1-size);
+  line-height: var(--h1-line);
+  font-weight: var(--h1-weight);
+  letter-spacing: var(--letter-spacing);
+}
+
+.h2 {
+  font-family: var(--font-primary);
+  font-size: var(--h2-size);
+  line-height: var(--h2-line);
+  font-weight: var(--h2-weight);
+  letter-spacing: var(--letter-spacing);
+}
+
+.h3 {
+  font-family: var(--font-primary);
+  font-size: var(--h3-size);
+  line-height: var(--h3-line);
+  font-weight: var(--h3-weight);
+  letter-spacing: var(--letter-spacing);
+}
+
+.h4 {
   font-family: var(--font-primary);
   font-size: var(--h4-size);
   line-height: var(--h4-line);
@@ -132,8 +160,16 @@ h4, .h4 {
 }
 
 /* ============================================
-   BODY TEXT
+   BODY TEXT — only plain p without classes
    ============================================ */
+p:not([class]) {
+  font-family: var(--font-primary);
+  font-size: var(--b3-size);
+  line-height: var(--b3-line);
+  font-weight: var(--b3-weight);
+}
+
+/* ── Utility classes for body text ── */
 .b1, .body-large {
   font-family: var(--font-primary);
   font-size: var(--b1-size);
@@ -148,7 +184,7 @@ h4, .h4 {
   font-weight: var(--b2-weight);
 }
 
-.b3, .body-regular, p {
+.b3, .body-regular {
   font-family: var(--font-primary);
   font-size: var(--b3-size);
   line-height: var(--b3-line);

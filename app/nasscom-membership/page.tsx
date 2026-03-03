@@ -250,7 +250,7 @@ export default function NasscomPage() {
           <div className="nsc-grid nsc-grid--3">
             {empowerCards.map((c, i) => (
               <div key={i} className="nsc-card nsc-card--center" data-aos="fade-up" data-aos-delay={i * 100}>
-                <div className="nsc-card__icon"><img src={c.img} alt="" /></div>
+                <div className="nsc-card__icon"><img src={c.img} alt={c.text} /></div>
                 <p className="nsc-card__desc">{c.text}</p>
               </div>
             ))}

@@ -1,17 +1,20 @@
+import '../public/css/brand.css';
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ChatWidget from "@/components/layout/ChatWidget";
 import Script from "next/script";
 import QuoteModal from "@/components/sections/home/QuoteModal";
-//import './css/blog.css'; />
+import Analytics from "@/components/Analytics";
+
 export const metadata = {
   metadataBase: new URL('https://www.mtouchlabs.com'),
   alternates: {
-    canonical: './',   // ← this tells Next.js to auto-canonical every page
+    canonical: './',
   },
   title: "mTouch Labs - Software Development Company",
   description: "mTouch Labs is a leading software development company providing mobile app development, web development, and digital marketing services.",
 };
+
 export default function RootLayout({
   children,
 }: {
@@ -20,7 +23,67 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Core CSS */}
+        {/* ========== GOOGLE TAG (gtag.js) — Ads + Analytics ========== */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=G-XKH5MQ5FD4`}
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17755266570');
+            gtag('config', 'G-XKH5MQ5FD4');
+          `}
+        </Script>
+        <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" strategy="afterInteractive" />
+
+        {/* ========== SCHEMA.ORG — Organization ========== */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "mTouch Labs",
+              "url": "https://www.mtouchlabs.com",
+              "logo": "https://www.mtouchlabs.com/images/favicon.png",
+              "description": "Leading software development company specializing in web and mobile app development, partnering with Telangana and Abu Dhabi Governments.",
+              "foundingDate": "2018",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Hyderabad",
+                "addressRegion": "Telangana",
+                "postalCode": "500072",
+                "addressCountry": "IN"
+              },
+              "contactPoint": [
+                { "@type": "ContactPoint", "telephone": "+91-9390683154", "contactType": "sales", "areaServed": "IN" },
+                { "@type": "ContactPoint", "telephone": "+1-551-222-0070", "contactType": "sales", "areaServed": "US" }
+              ],
+              "sameAs": [
+                "https://www.linkedin.com/company/mtouchlabs",
+                "https://www.instagram.com/mtouchlabs"
+              ]
+            })
+          }}
+        />
+
+        {/* ========== SCHEMA.ORG — WebSite ========== */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "mTouch Labs",
+              "url": "https://www.mtouchlabs.com"
+            })
+          }}
+        />
+
+        {/* ========== CSS — Core ========== */}
         <link href="/css/bootstrap.min.css" rel="stylesheet" />
         <link href="/css/plugin.min.css" rel="stylesheet" />
         <link href="/css/all.min.css" rel="stylesheet" />
@@ -34,7 +97,8 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         />
-        {/* Template CSS */}
+
+        {/* ========== CSS — Site ========== */}
         <link href="/css/style.css" rel="stylesheet" />
         <link href="/css/responsive.css" rel="stylesheet" />
         <link href="/css/mega-menu.css" rel="stylesheet" />
@@ -44,13 +108,14 @@ export default function RootLayout({
         <link href="/css/home-mega-menu.css" rel="stylesheet" />
         <link href="/css/chat-widget.css" rel="stylesheet" />
         <link href="/css/location-pages.css" rel="stylesheet" />
-        <link href="/css/responsive.css" rel="stylesheet" />
         <link href="/css/navbar-dropdown.css" rel="stylesheet" />
+        <link href="/css/services.css" rel="stylesheet" />
+        <link href ="/css/case-studies.css" rel="stylesheet"/>
 
         <meta name="turnstile-site-key" content={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY} />
-        {/* AOS animations */}
+
+        {/* ========== CSS — Third Party ========== */}
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-        {/* Owl Carousel */}
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
@@ -59,22 +124,22 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
         />
+
         {/* Favicon */}
         <link href="/images/favicon.png" rel="icon" />
       </head>
       <body>
+        <Analytics />
         {/* Request Quote Modal Overlay (shared) */}
         <QuoteModal />
         {/* Brochure Modal Overlay */}
         <div className="modal-overlay hide" id="brochureModal">
           <div className="brochure-modal-box">
-            {/* Left — Brochure Image */}
             <div className="brochure-modal-left">
               <div className="brochure-modal-circle">
                 <img src="/images/sliders/mobile_app_development.png" alt="Web and Mobile App Development" />
               </div>
             </div>
-            {/* Right — Form */}
             <div className="brochure-modal-right">
               <button id="closeBrochureModal" className="brochure-close-btn">&#10005;</button>
               <h3 className="brochure-modal-title">Request Brochure</h3>
@@ -137,33 +202,22 @@ export default function RootLayout({
           <span className="wa-tooltip">Chat with us!</span>
         </a>
 
-        {/* ========== SHARED SCRIPTS ========== */}
-        <Script
-          src="/js/jquery-3.6.0.min.js"
-          strategy="beforeInteractive"
-        />
-        <Script
-          src="/js/bootstrap.bundle.min.js"
-          strategy="beforeInteractive"
-        />
-        <Script id="app-bundle" strategy="lazyOnload" dangerouslySetInnerHTML={{ __html: `(function c(){if(typeof jQuery!=="undefined"){var s=document.createElement("script");s.src="/js/app.bundle.js";document.body.appendChild(s)}else{setTimeout(c,100)}})()` }} />
-        <Script
-          src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
-          strategy="afterInteractive"
-        />
-        <Script
-          src="https://unpkg.com/aos@2.3.1/dist/aos.js"
-          strategy="afterInteractive"
-        />
+        {/* ========== JS — Core Libraries ========== */}
+        <Script src="/js/jquery-3.6.0.min.js" strategy="beforeInteractive" />
+        <Script src="/js/bootstrap.bundle.min.js" strategy="beforeInteractive" />
+        <Script id="app-bundle" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: `(function c(){if(typeof jQuery!=="undefined"){var s=document.createElement("script");s.src="/js/app.bundle.js";s.onload=function(){var n=document.createElement("script");n.src="/js/navbar-init.js";document.body.appendChild(n)};document.body.appendChild(s)}else{setTimeout(c,100)}})()` }} />
+        <Script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" strategy="afterInteractive" />
+        <Script src="https://unpkg.com/aos@2.3.1/dist/aos.js" strategy="afterInteractive" />
+
+        {/* ========== JS — Site Scripts ========== */}
         <Script src="/js/mega-menu.js" strategy="lazyOnload" />
-        <Script src="/js/navbar-init.js" strategy="lazyOnload" />
         <Script id="main-js" strategy="lazyOnload" dangerouslySetInnerHTML={{ __html: `(function c(){if(typeof jQuery!=="undefined"){var s=document.createElement("script");s.src="/js/main.js";document.body.appendChild(s)}else{setTimeout(c,100)}})()` }} />
         <Script src="/js/site-interactions.js" strategy="lazyOnload" />
-        <Script src="/js/faq.js" strategy="lazyOnload" />
+        <Script src="/js/faq.js" strategy="afterInteractive" />
         <Script src="/js/tabs.js" strategy="lazyOnload" />
         <Script src="/js/services.js" strategy="lazyOnload" />
 
-        {/* ========== REQUEST QUOTE HANDLER ========== */}
+        {/* ========== JS — Request Quote Handler ========== */}
         <Script id="request-quote-handler" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: `
           (function() {
             var form = document.getElementById('requestQuoteForm');
@@ -180,33 +234,21 @@ export default function RootLayout({
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                  name: d.name,
-                  email: d.email,
-                  countryCode: d.countryCode,
-                  mobile: d.mobile,
-                  service: d.service,
-                  budget: d.budget,
-                  message: d.message
+                  name: d.name, email: d.email, countryCode: d.countryCode,
+                  mobile: d.mobile, service: d.service, budget: d.budget, message: d.message
                 })
               }).then(function(r) {
-                if (r.ok) {
-                  window.location.href = '/thank-you';
-                } else {
-                  alert('Something went wrong. Please try again.');
-                  if (btn) btn.disabled = false;
-                  if (icon) icon.style.display = 'none';
-                }
+                if (r.ok) { window.location.href = '/thank-you'; }
+                else { alert('Something went wrong. Please try again.'); if (btn) btn.disabled = false; if (icon) icon.style.display = 'none'; }
               }).catch(function(err) {
-                console.error(err);
-                alert('Something went wrong. Please try again.');
-                if (btn) btn.disabled = false;
-                if (icon) icon.style.display = 'none';
+                console.error(err); alert('Something went wrong. Please try again.');
+                if (btn) btn.disabled = false; if (icon) icon.style.display = 'none';
               });
             });
           })();
         `}} />
 
-        {/* ========== BROCHURE FORM HANDLER ========== */}
+        {/* ========== JS — Brochure Form Handler ========== */}
         <Script id="brochure-form-handler" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: `
           (function() {
             function initBrochure() {
@@ -214,79 +256,48 @@ export default function RootLayout({
               if (!btn) return setTimeout(initBrochure, 500);
               if (btn.dataset.handled) return;
               btn.dataset.handled = 'true';
-
               btn.addEventListener('click', function(e) {
                 e.preventDefault();
-
                 var name = (document.getElementById('brochure_name') || {}).value || '';
                 var email = (document.getElementById('brochure_email') || {}).value || '';
                 var countryCode = (document.getElementById('brochure_country') || {}).value || '+91';
                 var mobile = (document.getElementById('brochure_phone') || {}).value || '';
-
-                name = name.trim();
-                email = email.trim();
-                mobile = mobile.trim();
-
-                if (!name || !email) {
-                  alert('Please fill in your name and email.');
-                  return;
-                }
-
-                btn.disabled = true;
-                btn.textContent = 'Sending...';
-
+                name = name.trim(); email = email.trim(); mobile = mobile.trim();
+                if (!name || !email) { alert('Please fill in your name and email.'); return; }
+                btn.disabled = true; btn.textContent = 'Sending...';
                 fetch('/api/brochure', {
                   method: 'POST',
                   headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify({
-                    name: name,
-                    email: email,
-                    countryCode: countryCode,
-                    mobile: mobile
-                  })
-                }).then(function() {
-                  window.location.href = '/thank-you';
-                }).catch(function() {
-                  window.location.href = '/thank-you';
-                });
+                  body: JSON.stringify({ name: name, email: email, countryCode: countryCode, mobile: mobile })
+                }).then(function() { window.location.href = '/thank-you'; })
+                  .catch(function() { window.location.href = '/thank-you'; });
               });
             }
-            if (document.readyState === 'loading') {
-              document.addEventListener('DOMContentLoaded', initBrochure);
-            } else {
-              initBrochure();
-            }
+            if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initBrochure); }
+            else { initBrochure(); }
           })();
         `}} />
+
+        {/* ========== JS — Bottom Nav Icons ========== */}
         <Script id="bottom-nav-icons" strategy="lazyOnload" dangerouslySetInnerHTML={{ __html: `
-  (function() {
-    function fixBottomNav() {
-      var allLinks = document.querySelectorAll('.bottom-nav .ree-hc a');
-      if (!allLinks.length) return setTimeout(fixBottomNav, 500);
-      var icons = [
-        '/images/nav-icon/phone-call.png',
-        '/images/nav-icon/gmail.png',
-        '/images/nav-icon/whatsapp.png',
-        '/images/nav-icon/who.png'
-      ];
-      var alts = ['Phone','Email','WhatsApp','About'];
-      allLinks.forEach(function(a, i) {
-        var idx = i % 4;
-        if (!a.querySelector('img')) {
-          var img = document.createElement('img');
-          img.src = icons[idx];
-          img.alt = alts[idx];
-          img.width = 24;
-          img.height = 24;
-          img.style.display = 'inline-block';
-          a.innerHTML = '';
-          a.appendChild(img);
-        }
-      });
-    }
-    setTimeout(fixBottomNav, 1500);
-  })();
-` }} />
+          (function() {
+            function fixBottomNav() {
+              var allLinks = document.querySelectorAll('.bottom-nav .ree-hc a');
+              if (!allLinks.length) return setTimeout(fixBottomNav, 500);
+              var icons = ['/images/nav-icon/phone-call.png','/images/nav-icon/gmail.png','/images/nav-icon/whatsapp.png','/images/nav-icon/who.png'];
+              var alts = ['Phone','Email','WhatsApp','About'];
+              allLinks.forEach(function(a, i) {
+                var idx = i % 4;
+                if (!a.querySelector('img')) {
+                  var img = document.createElement('img');
+                  img.src = icons[idx]; img.alt = alts[idx]; img.width = 24; img.height = 24;
+                  img.style.display = 'inline-block'; a.innerHTML = ''; a.appendChild(img);
+                }
+              });
+            }
+            setTimeout(fixBottomNav, 1500);
+          })();
+        `}} />
       </body>
     </html>
   );

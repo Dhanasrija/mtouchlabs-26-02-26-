@@ -19,7 +19,7 @@ body:has(#admin-root) [class*="whatsapp-hero"] {
 }
 
 /* RESET + ROOT */
-#admin-root { display: flex; min-height: 100vh; font-family: 'Inter', sans-serif; background: #f9fafb; color: #111827; line-height: 1.5; }
+#admin-root { display: flex; min-height: 100vh; font-family: var(--font-primary); background: #f9fafb; color: #111827; line-height: 1.5; }
 #admin-root *, #admin-root *::before, #admin-root *::after { box-sizing: border-box; margin: 0; padding: 0; }
 #admin-root a { text-decoration: none; color: inherit; }
 #admin-root a:hover { text-decoration: none; }
@@ -58,7 +58,7 @@ body:has(#admin-root) [class*="whatsapp-hero"] {
   display: flex; align-items: center; gap: 12px;
   padding: 10px 14px; border-radius: 8px;
   color: #a0aec0; font-size: 14px; font-weight: 500;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-primary);
   transition: all 0.12s;
 }
 #admin-root .sidebar .s-links a:hover { background: rgba(255,255,255,0.08); color: #e2e8f0; }
@@ -275,7 +275,7 @@ body:has(#admin-root) [class*="whatsapp-hero"] {
   border: 1px solid #e5e7eb !important;
   border-radius: 10px !important;
   font-size: 15px !important;
-  font-family: 'Inter', sans-serif !important;
+  font-family: var(--font-primary) !important;
   background: #fff !important;
   color: #111827 !important;
   outline: none !important;
@@ -302,7 +302,7 @@ body:has(#admin-root) [class*="whatsapp-hero"] {
   border: 1px solid #e5e7eb !important;
   border-radius: 10px !important;
   font-size: 14px !important;
-  font-family: 'Inter', sans-serif !important;
+  font-family: var(--font-primary) !important;
   background: #fff !important;
   color: #374151 !important;
   cursor: pointer !important;
@@ -338,7 +338,7 @@ body:has(#admin-root) [class*="whatsapp-hero"] {
   cursor: pointer !important;
   flex-shrink: 0 !important;
   height: 46px !important;
-  font-family: 'Inter', sans-serif !important;
+  font-family: var(--font-primary) !important;
   white-space: nowrap !important;
 }
 #admin-root form[method="GET"] > button[type="submit"]:hover {
@@ -392,7 +392,7 @@ body:has(#admin-root) [class*="whatsapp-hero"] {
   width: 32px; height: 32px; border: none; background: transparent;
   border-radius: 6px; cursor: pointer; font-size: 18px;
   color: #9ca3af; display: flex; align-items: center; justify-content: center;
-  font-family: 'Inter', sans-serif; transition: all 0.1s; list-style: none;
+  font-family: var(--font-primary); transition: all 0.1s; list-style: none;
 }
 #admin-root .ab-menu summary::-webkit-details-marker { display: none; }
 #admin-root .ab-menu summary::marker { display: none; content: ''; }
@@ -408,7 +408,7 @@ body:has(#admin-root) [class*="whatsapp-hero"] {
   display: flex; align-items: center; gap: 10px;
   padding: 9px 12px; border-radius: 6px;
   font-size: 14px; color: #374151; font-weight: 450;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-primary);
   background: none; border: none; width: 100%; text-align: left; cursor: pointer;
   transition: all 0.1s;
 }
@@ -529,7 +529,7 @@ body:has(#admin-root) [class*="whatsapp-hero"] {
 }
 #admin-root .cb-btn {
   padding: 10px 22px; border-radius: 8px; font-size: 14px; font-weight: 600;
-  cursor: pointer; border: none; font-family: 'Inter', sans-serif;
+  cursor: pointer; border: none; font-family: var(--font-primary);
   transition: all 0.15s; white-space: nowrap;
 }
 #admin-root .cb-btn--primary {
@@ -553,7 +553,7 @@ body:has(#admin-root) [class*="whatsapp-hero"] {
   color: #6b7280 !important; cursor: pointer !important;
   border-bottom: 2px solid transparent !important;
   transition: all 0.15s !important; white-space: nowrap !important;
-  font-family: 'Inter', sans-serif !important;
+  font-family: var(--font-primary) !important;
   display: inline-block !important; user-select: none !important;
 }
 #admin-root .cb-tab-label:hover { color: #374151 !important; }
@@ -632,7 +632,7 @@ body:has(#admin-root) [class*="whatsapp-hero"] {
 #admin-root .cb-input {
   width: 100%; padding: 11px 14px; border: 1px solid #e5e7eb; border-radius: 8px;
   font-size: 14px; color: #111827; background: #fff;
-  font-family: 'Inter', sans-serif; box-sizing: border-box;
+  font-family: var(--font-primary); box-sizing: border-box;
   transition: border-color 0.15s;
 }
 #admin-root .cb-input:focus {
@@ -654,7 +654,7 @@ body:has(#admin-root) [class*="whatsapp-hero"] {
 #admin-root .cb-select {
   width: 100%; padding: 12px 36px 12px 14px; border: 1px solid #e5e7eb;
   border-radius: 8px; font-size: 14px; color: #374151; background: #fff;
-  font-family: 'Inter', sans-serif; box-sizing: border-box;
+  font-family: var(--font-primary); box-sizing: border-box;
   cursor: pointer; appearance: none; line-height: 1.4;
   height: auto; min-height: 44px;
   overflow: visible; text-overflow: ellipsis; white-space: nowrap;
@@ -693,7 +693,7 @@ body:has(#admin-root) [class*="whatsapp-hero"] {
 #admin-root .cb-textarea {
   width: 100%; padding: 11px 14px; border: 1px solid #e5e7eb; border-radius: 8px;
   font-size: 14px; color: #111827; background: #fff;
-  font-family: 'Inter', sans-serif; box-sizing: border-box;
+  font-family: var(--font-primary); box-sizing: border-box;
   resize: vertical; min-height: 110px;
   transition: border-color 0.15s;
 }
@@ -797,7 +797,7 @@ body:has(#admin-root) [class*="whatsapp-hero"] {
 #admin-root .cb-seo-ring { width: 140px; height: 140px; }
 #admin-root .cb-seo-number {
   font-size: 36px; font-weight: 700; fill: #10b981;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-primary);
 }
 #admin-root .cb-seo-checks {
   list-style: none; padding: 0; margin: 0;
@@ -837,7 +837,7 @@ body:has(#admin-root) [class*="whatsapp-hero"] {
   padding: 10px 18px; border-radius: 8px;
   border: 1px dashed #d1d5db; background: #fff;
   color: #6b7280; font-size: 14px; font-weight: 500;
-  cursor: pointer; font-family: 'Inter', sans-serif;
+  cursor: pointer; font-family: var(--font-primary);
   transition: all 0.15s;
 }
 #admin-root .cb-add-faq span { font-size: 16px; font-weight: 600; color: #6366f1; }
@@ -861,7 +861,7 @@ body:has(#admin-root) [class*="whatsapp-hero"] {
 #admin-root .cb-version-restore {
   padding: 6px 14px; border-radius: 6px; border: 1px solid #e5e7eb;
   background: #fff; color: #374151; font-size: 13px; font-weight: 500;
-  cursor: pointer; font-family: 'Inter', sans-serif;
+  cursor: pointer; font-family: var(--font-primary);
   transition: all 0.15s;
 }
 #admin-root .cb-version-restore:hover { background: #f3f4f6; }
@@ -888,7 +888,7 @@ body:has(#admin-root) [class*="whatsapp-hero"] {
   width: 32px; height: 32px; border: none; background: transparent;
   border-radius: 6px; cursor: pointer; font-size: 14px; color: #4b5563;
   display: flex; align-items: center; justify-content: center;
-  font-family: 'Inter', sans-serif; transition: all 0.12s;
+  font-family: var(--font-primary); transition: all 0.12s;
 }
 #admin-root .cb-toolbar-btn:hover {
   background: #e5e7eb; color: #111827;
@@ -898,7 +898,7 @@ body:has(#admin-root) [class*="whatsapp-hero"] {
 #admin-root .cb-textarea--editor {
   width: 100%; min-height: 520px; padding: 24px 28px;
   border: none; border-radius: 0; font-size: 15px; line-height: 1.8;
-  font-family: 'Inter', sans-serif; color: #111827; background: #fff;
+  font-family: var(--font-primary); color: #111827; background: #fff;
   resize: vertical; box-sizing: border-box;
 }
 #admin-root .cb-textarea--editor:focus {
@@ -998,7 +998,7 @@ body:has(#admin-root) [class*="whatsapp-hero"] {
   cursor: pointer;
   border: none; background: none;
   width: 100%;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-primary);
   text-decoration: none;
   transition: background 0.15s, color 0.15s;
 }

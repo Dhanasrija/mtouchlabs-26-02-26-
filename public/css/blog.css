@@ -187,7 +187,7 @@
 }
 
 .blog-read-more:hover {
-  color: #2563eb !important;
+  color: var(--color-signature-blue) !important;
   gap: 10px !important;
 }
 
@@ -1086,10 +1086,10 @@ body:has(.blv3-page) {
 }
 
 .blv3-toc-link.blv3-toc-active {
-  color: #3E8CFB;
+  color: var(--color-signature-blue);
   font-weight: 600;
 }
 
 .blv3-toc-sub .blv3-toc-link.blv3-toc-active {
-  color: #3E8CFB;
+  color: var(--color-signature-blue);
 }

@@ -7,6 +7,7 @@ export default function PortfolioLayout({
 }) {
   return (
     <>
+      <link rel="stylesheet" href="/css/case-study.css" />
       {children}
       <Script src="/js/portfolio.js" strategy="afterInteractive" />
     </>

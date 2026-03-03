@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
   title: "Leadership Team | Global Software Development Experts | mTouch Labs",
@@ -58,14 +59,6 @@ const visionPoints = [
   "Agile delivery governance",
   "Security-first cloud strategy",
   "Long-term digital scalability",
-];
-
-const services = [
-  { name: "Custom Software Development", href: "/custom-software-development-company" },
-  { name: "Enterprise Application Development", href: "/enterprise-application-development-company" },
-  { name: "Mobile App Development", href: "/mobile-app-development-company" },
-  { name: "Cloud Services & Migration", href: "/cloud-services" },
-  { name: "AI-powered Digital Solutions", href: "/services" },
 ];
 
 const strengths = [
@@ -128,20 +121,15 @@ export default function LeadershipTeamPage() {
         <div className="ldr-hero__bg">
           <div className="ldr-hero__gradient"></div>
         </div>
-        <div className="ldr-hero__content container">
-          <nav className="ldr-breadcrumb" aria-label="Breadcrumb">
-            <ol>
-              <li><Link href="/">Home</Link></li>
-              <li><span className="ldr-breadcrumb__sep">/</span></li>
-              <li className="ldr-breadcrumb__current">Leadership Team</li>
-            </ol>
-          </nav>
+        <div className="ldr-hero__content container" style={{ paddingTop: "140px" }}>
+          <Breadcrumb pagePath="/leadership-team" currentLabel="Leadership Team" />
           <span className="ldr-hero__badge">Our People</span>
           <h1 className="ldr-hero__title">
             Leadership <span className="ldr-accent">Team</span>
           </h1>
           <p className="ldr-hero__sub">
-            Global technology leaders driving digital innovation. Our leadership team consists of experienced technology strategists, enterprise architects, and digital transformation experts committed to delivering scalable software solutions.
+            Global technology leaders driving digital innovation. Our leadership team consists of experienced technology strategists, enterprise architects, and{" "}
+            <Link href="/it-services-digital-transformation-company">digital transformation</Link> experts committed to delivering scalable software solutions.
           </p>
           <div className="ldr-hero__btns">
             <Link href="/contact-us" className="ldr-btn ldr-btn--primary">
@@ -156,7 +144,12 @@ export default function LeadershipTeamPage() {
         <div className="container">
           <div className="ldr-intro">
             <h2>Our Leadership <span className="ldr-accent">Vision</span></h2>
-            <p>We believe technology leadership goes beyond management. Our executives actively guide teams across <Link href="/custom-software-development-company">Custom Software Development</Link>, <Link href="/enterprise-application-development-company">Enterprise Applications</Link>, <Link href="/mobile-app-development-company">Mobile App Development</Link>, <Link href="/cloud-services">Cloud Services</Link>, and AI-powered Digital Solutions.</p>
+            <p>We believe technology leadership goes beyond management. Our executives actively guide teams across{" "}
+              <Link href="/custom-software-development-company">Custom Software Development</Link>,{" "}
+              <Link href="/enterprise-application-development-company">Enterprise Applications</Link>,{" "}
+              <Link href="/mobile-app-development-company">Mobile App Development</Link>,{" "}
+              <Link href="/cloud-services">Cloud Services</Link>, and AI-powered Digital Solutions.
+            </p>
             <div className="ldr-why-grid" style={{ marginTop: "24px" }}>
               {visionPoints.map((p, i) => (
                 <div key={i} className="ldr-why-item">
