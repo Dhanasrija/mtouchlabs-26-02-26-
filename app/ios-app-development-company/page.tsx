@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 
 
 export const metadata: Metadata = {
-  title: "iOS App Development Company | mTouch Labs",
+  title: "iOS App Development Company",
   description: "mTouch Labs is an iOS app development company delivering secure, scalable, and high-performance iPhone applications tailored to business needs.",
   alternates: { canonical: "https://www.mtouchlabs.com/ios-app-development-company" },
-  openGraph: { title: "iOS App Development Company | mTouch Labs", description: "Custom iPhone app development services focused on performance, security, and scalability.", url: "https://www.mtouchlabs.com/ios-app-development-company", siteName: "mTouch Labs", type: "website" },
-  twitter: { card: "summary_large_image", title: "iOS App Development Company | mTouch Labs", description: "Professional iOS mobile app development services engineered for growth and performance." },
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }], title: "iOS App Development Company", description: "Custom iPhone app development services focused on performance, security, and scalability.", url: "https://www.mtouchlabs.com/ios-app-development-company", siteName: "mTouch Labs", type: "website" },
+  twitter: { card: "summary_large_image", title: "iOS App Development Company", description: "Professional iOS mobile app development services engineered for growth and performance." },
 };
 
 export default function iOSDevelopment() {

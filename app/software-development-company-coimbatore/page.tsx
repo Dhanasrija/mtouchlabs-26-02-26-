@@ -3,11 +3,11 @@ import Link from "next/link";
 import FAQSchema from "@/components/seo/FAQSchema";
 
 export const metadata: Metadata = {
-  title: "Software Development Company in Coimbatore | mTouch Labs",
-  description: "mTouch Labs is a leading software development company in Coimbatore delivering custom enterprise software, SaaS platforms, AI-powered systems, ERP solutions, and cloud modernization services.",
+  title: "Software Development Company in Coimbatore",
+  description: "Looking for a software development company in Coimbatore? mTouch Labs delivers enterprise software, SaaS platforms, AI, ERP, and cloud solutions.",
   keywords: ["software development company in Coimbatore","custom software development Coimbatore","ERP development Coimbatore","AI development company Coimbatore","SaaS development Coimbatore"],
-  openGraph: {
-    title: "Software Development Company in Coimbatore | mTouch Labs",
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }],
+    title: "Software Development Company in Coimbatore",
     description: "Enterprise software, AI-driven systems, ERP solutions, and scalable SaaS platforms for businesses in Coimbatore.",
     url: "https://www.mtouchlabs.com/software-development-company-coimbatore",
     type: "website",

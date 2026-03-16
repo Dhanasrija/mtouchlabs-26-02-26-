@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "NASSCOM Membership – Industry Recognition | mTouch Labs",
+  title: "NASSCOM Membership – Industry Recognition",
   description:
     "mTouch Labs' NASSCOM membership reinforces our credibility, industry recognition, and commitment to innovation.",
   alternates: {
     canonical: "https://www.mtouchlabs.com/nasscom-membership",
   },
   openGraph: {
-    title: "NASSCOM Membership – Industry Recognition | mTouch Labs",
+    title: "NASSCOM Membership – Industry Recognition",
     description:
       "mTouch Labs' NASSCOM membership reinforces our credibility, industry recognition, and commitment to innovation.",
     url: "https://www.mtouchlabs.com/nasscom-membership",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "NASSCOM Membership – Industry Recognition | mTouch Labs",
+    title: "NASSCOM Membership – Industry Recognition",
     description:
       "mTouch Labs' NASSCOM membership reinforces our credibility, industry recognition, and commitment to innovation.",
     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
@@ -95,7 +95,7 @@ const faqs = [
     a: "As a member, we gain access to industry insights, emerging tech trends, collaborative initiatives, and networking opportunities that help us stay at the forefront of innovation.",
   },
   {
-    q: "What values does NASSCOM membership align with at mTouch Labs?",
+    q: "What values does NASSCOM membership align with?",
     a: "It aligns with our principles of transparency, ethical business conduct, quality-driven development, and continuous learning.",
   },
 ];

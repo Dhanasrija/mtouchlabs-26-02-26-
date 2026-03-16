@@ -6,21 +6,21 @@ import { loginUser } from '@/lib/user-actions';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Admin Login | mTouch Labs',
+  title: 'Admin Login',
   robots: 'noindex, nofollow',
 
   openGraph: {
-    title: "Admin Login | mTouch Labs",
-    description: "Admin Login | mTouch Labs",
+    title: "Admin Login",
+    description: "Admin Login",
     url: "https://www.mtouchlabs.com/admin",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Admin Login | mTouch Labs" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Admin Login" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Admin Login | mTouch Labs",
-    description: "Admin Login | mTouch Labs",
+    title: "Admin Login",
+    description: "Admin Login",
     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
   },
 };

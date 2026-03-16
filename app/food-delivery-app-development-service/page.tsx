@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Food Delivery App Development Service | mTouch Labs",
+  title: "Food Delivery App Development Service",
   description:
     "mTouch Labs offers food delivery app development services to build user-friendly mobile apps for restaurants and delivery platforms.",
   alternates: {
@@ -11,16 +11,16 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Food Delivery App Development Service | mTouch Labs",
+    title: "Food Delivery App Development Service",
     description: "mTouch Labs offers food delivery app development services to build user-friendly mobile apps for restaurants and delivery platforms.",
     url: "https://www.mtouchlabs.com/food-delivery-app-development-service",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Food Delivery App Development Service | mTouch Labs" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Food Delivery App Development Service" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Food Delivery App Development Service | mTouch Labs",
+    title: "Food Delivery App Development Service",
     description: "mTouch Labs offers food delivery app development services to build user-friendly mobile apps for restaurants and delivery platforms.",
     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
   },
@@ -156,7 +156,7 @@ export default function Page() {
             target="_blank"
             rel="noopener noreferrer"
             className="foodelivery-delivery-button"
-            style={{ position: "relative", zIndex: 10, display: "inline-block" }}
+            style={{ display: "inline-block", position: "relative", zIndex: 2 }}
           >
             View Demo
           </Link>

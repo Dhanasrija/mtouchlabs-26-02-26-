@@ -3,12 +3,12 @@ import Link from "next/link";
 import FAQSchema from "@/components/seo/FAQSchema";
 
 export const metadata: Metadata = {
-  title: "Software Development Company in United Arab Emirates | mTouch Labs",
-  description: "mTouch Labs is a leading Software Development Company in United Arab Emirates delivering custom software, enterprise applications, cloud services, and AI solutions.",
+  title: "Software Development Company in UAE",
+  description: "mTouch Labs delivers custom software, enterprise applications, cloud, and AI solutions as a trusted software development company in the UAE.",
   keywords: ["software development company in United Arab Emirates","custom software development United Arab Emirates","enterprise software United Arab Emirates"],
-  openGraph: {
-    title: "Software Development Company in United Arab Emirates - mTouch Labs",
-    description: "mTouch Labs is a leading Software Development Company in United Arab Emirates delivering custom software, enterprise applications, cloud services, and AI solutions.",
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }],
+    title: "Software Development Company in UAE",
+    description: "mTouch Labs is a leading Software Development Company in UAE delivering custom software, enterprise applications, cloud services, and AI solutions.",
     url: "https://www.mtouchlabs.com/software-development-company-united-arab-emirates",
     type: "website",
   },

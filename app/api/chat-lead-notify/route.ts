@@ -5,7 +5,7 @@ import { Resend } from "resend";
  * POST /api/chat-lead-notify
  *
  * This route does TWO things:
- *   1. Forwards the lead to xcrmapi.mtouchlabs.com/lead (server-side, no CORS issues)
+ *   1. Forwards the lead to crmapi.mtouchlabs.com/lead (server-side, no CORS issues)
  *   2. Sends email notification via Resend
  *
  * Place at: app/api/chat-lead-notify/route.ts
@@ -31,7 +31,7 @@ export async function POST(req: NextRequest) {
     /* ── 1. Submit to CRM API (server-side = no CORS) ── */
     let crmOk = false;
     try {
-      const crmRes = await fetch("https://xcrmapi.mtouchlabs.com/lead", {
+      const crmRes = await fetch("https://crmapi.mtouchlabs.com/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ contactPerson, email, countryCode, phone, requirement }),

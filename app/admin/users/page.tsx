@@ -7,21 +7,21 @@ import { getCurrentUser, addUser, updateUserRole, deleteUser, logoutUser } from 
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Manage Users | Admin | mTouch Labs',
+  title: 'Manage Users | Admin',
   robots: 'noindex, nofollow',
 
   openGraph: {
-    title: "Manage Users | Admin | mTouch Labs",
-    description: "Manage Users | Admin | mTouch Labs",
+    title: "Manage Users | Admin",
+    description: "Manage Users | Admin",
     url: "https://www.mtouchlabs.com/admin/users",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Manage Users | Admin | mTouch Labs" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Manage Users | Admin" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Manage Users | Admin | mTouch Labs",
-    description: "Manage Users | Admin | mTouch Labs",
+    title: "Manage Users | Admin",
+    description: "Manage Users | Admin",
     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
   },
 };

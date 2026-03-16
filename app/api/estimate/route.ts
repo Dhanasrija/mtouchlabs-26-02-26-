@@ -43,6 +43,23 @@ function buildText(d: any) {
   return `${d.partial ? "PARTIAL LEAD" : "NEW QUOTE REQUEST"} - mTouchLabs\n\nName: ${d.name}\nPhone: ${d.phone}\nEmail: ${d.email || "Not provided"}\nCompany: ${d.companyType}\nService: ${d.projectType}\nPlatform: ${d.platform}\nFeatures: ${(d.features || []).join(", ") || "Not selected"}\nBudget: ${d.budget}\nTimeline: ${d.timeline}\n\nSubmitted: ${new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })} IST`;
 }
 
+/**
+ * Parse phone string like "+91 9876543210" into { countryCode, phoneNumber }
+ */
+function parsePhone(phone: string): { countryCode: string; phoneNumber: string } {
+  if (!phone) return { countryCode: "+91", phoneNumber: "" };
+  const trimmed = phone.trim();
+
+  // Format: "+91 9876543210" or "+1 2025551234"
+  const match = trimmed.match(/^(\+\d{1,4})\s+(.+)$/);
+  if (match) {
+    return { countryCode: match[1], phoneNumber: match[2].replace(/\D/g, "") };
+  }
+
+  // If no country code prefix, assume +91
+  return { countryCode: "+91", phoneNumber: trimmed.replace(/\D/g, "") };
+}
+
 export async function POST(req: Request) {
   try {
     const body = await req.json();
@@ -64,28 +81,47 @@ export async function POST(req: Request) {
       }
     }
 
-    const { phone, email, name, companyType, projectType, platform, features, budget, timeline, partial } = body;
-    const data = { phone, email, name: name || "Unknown", companyType: companyType || "Not specified", projectType: projectType || "Not yet selected", platform: platform || "Not yet selected", features: features || [], budget: budget || "Not yet selected", timeline: timeline || "Not yet selected", partial: !!partial };
+    const { phone, email, name, companyType, projectType, platform, features, budget, timeline, partial, message } = body;
+    const data = { phone, email, name: name || "Unknown", companyType: companyType || "Not specified", projectType: projectType || "Not yet selected", platform: platform || "Not yet selected", features: features || [], budget: budget || "Not yet selected", timeline: timeline || "Not yet selected", partial: !!partial, message: message || "" };
     const pre = partial ? "Lead: " : "Quote: ";
     const subject = `${pre}${data.name} | ${data.phone}${!partial ? " | " + (data.projectType || "Project") : ""}`;
     await resend.emails.send({ from: "mTouch Labs <onboarding@resend.dev>", replyTo: email || undefined, to: TO, subject, html: buildHtml(data), text: buildText(data) });
 
-    // Send to CRM
+    // ═══ Send to CRM ═══
     try {
-      const crmRes = await fetch("https://xcrmapi.mtouchlabs.com/lead", {
+      const { countryCode, phoneNumber } = parsePhone(data.phone);
+
+      // Build CRM payload
+      const crmPayload = {
+        contactPerson: data.name,
+        email: data.email || "",
+        countryCode: countryCode,
+        phone: phoneNumber,
+        requirement: [
+          data.projectType !== "Not yet selected" ? `Service: ${data.projectType}` : "",
+          data.budget !== "Not yet selected" ? `Budget: ${data.budget}` : "",
+          data.message ? `Message: ${data.message}` : "",
+        ].filter(Boolean).join(" | ") || "Quote request from website",
+      };
+
+      console.log("CRM payload:", JSON.stringify(crmPayload));
+
+      const crmRes = await fetch("https://crmapi.mtouchlabs.com/lead", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          contactPerson: data.name,
-          email: data.email || "",
-          countryCode: data.phone?.startsWith("+") ? data.phone.split(" ")[0] : "+91",
-          phone: data.phone?.replace(/^\+\d+\s*/, "") || "",
-          requirement: data.projectType || "",
-        }),
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify(crmPayload),
       });
-      const crmData = await crmRes.json();
+
+      const crmText = await crmRes.text();
       console.log("CRM response status:", crmRes.status);
-      console.log("CRM response body:", crmData);
+      console.log("CRM response body:", crmText);
+
+      if (!crmRes.ok) {
+        console.error("CRM submission failed:", crmRes.status, crmText);
+      }
     } catch (crmErr) {
       console.error("CRM submission error:", crmErr);
     }

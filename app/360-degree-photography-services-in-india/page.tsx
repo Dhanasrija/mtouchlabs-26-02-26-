@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "360 Degree Photography Services in India | mTouch Labs",
+  title: "360 Degree Photography Services in India",
   description:
     "mTouch Labs offers professional 360 degree photography services in India, delivering immersive virtual tours and panoramic visual solutions.",
   keywords: [
@@ -16,8 +16,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.mtouchlabs.com/360-degree-photography-services-in-india",
   },
-  openGraph: {
-    title: "360 Degree Photography Services in India | mTouch Labs",
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }],
+    title: "360 Degree Photography Services in India",
     description: "Interactive 360 virtual tours and panoramic photography solutions for businesses.",
     url: "https://www.mtouchlabs.com/360-degree-photography-services-in-india",
     siteName: "mTouch Labs",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "360 Degree Photography Services in India | mTouch Labs",
+    title: "360 Degree Photography Services in India",
     description: "Immersive panoramic photography and virtual tour services across India.",
   },
 };

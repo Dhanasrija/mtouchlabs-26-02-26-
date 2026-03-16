@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "UI/UX Design Company | User Experience Experts | mTouch Labs",
+  title: "UI/UX Design Company",
   description: "mTouch Labs is a UI/UX design company delivering user-centered design, research-driven interfaces, and conversion-focused digital experiences.",
   keywords: ["UI/UX design company","UX design services","user experience design","UI design agency","conversion-focused design","user interface design company"],
   alternates: { canonical: "https://www.mtouchlabs.com/ui-ux-design-company" },
-  openGraph: { title: "UI/UX Design Company | mTouch Labs", description: "Professional UI and UX design services focused on usability, engagement, and digital growth.", url: "https://www.mtouchlabs.com/ui-ux-design-company", siteName: "mTouch Labs", type: "website" },
-  twitter: { card: "summary_large_image", title: "UI/UX Design Company | mTouch Labs", description: "Research-driven UI/UX design services built for engagement and performance." },
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }], title: "UI/UX Design Company", description: "Professional UI and UX design services focused on usability, engagement, and digital growth.", url: "https://www.mtouchlabs.com/ui-ux-design-company", siteName: "mTouch Labs", type: "website" },
+  twitter: { card: "summary_large_image", title: "UI/UX Design Company", description: "Research-driven UI/UX design services built for engagement and performance." },
 };
 
 export default function UIUXDesignCompany() {

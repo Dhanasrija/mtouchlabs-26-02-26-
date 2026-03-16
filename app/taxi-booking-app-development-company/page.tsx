@@ -1,23 +1,23 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Taxi Booking App Development Company | mTouch Labs",
+  title: "Taxi Booking App Development Company",
   description: "mTouch Labs builds powerful, scalable taxi booking apps that help businesses launch and grow efficient ride-hailing and transportation services.",
   alternates: {
     canonical: "https://www.mtouchlabs.com/taxi-booking-app-development-company",
   },
 
   openGraph: {
-    title: "Taxi Booking App Development Company | mTouch Labs",
+    title: "Taxi Booking App Development Company",
     description: "mTouch Labs builds powerful, scalable taxi booking apps that help businesses launch and grow efficient ride-hailing and transportation services.",
     url: "https://www.mtouchlabs.com/taxi-booking-app-development-company",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Taxi Booking App Development Company | mTouch Labs" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Taxi Booking App Development Company" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Taxi Booking App Development Company | mTouch Labs",
+    title: "Taxi Booking App Development Company",
     description: "mTouch Labs builds powerful, scalable taxi booking apps that help businesses launch and grow efficient ride-hailing and transportation services.",
     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
   },
@@ -50,7 +50,7 @@ export default function Page() {
                   for<br /> Web and Mobile Development<br />
                </h1>
                <a href="https://www.youtube.com/watch?v=Ftq3P5P4Xg8" target="_blank"
-                  style={{position: "relative", zIndex: 5}}><button className="tax-delivery-button">View Demo</button></a></div>
+                  ><button className="tax-delivery-button">View Demo</button></a></div>
             <img src="/images/products/tax/bannergif.gif" className="tax-banner-gif" alt="Taxi Booking App Banner" />
          </section>
       </div>

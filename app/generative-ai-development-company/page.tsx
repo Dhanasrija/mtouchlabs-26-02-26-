@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Generative AI Development Company | mTouch Labs",
-  description: "mTouch Labs is a generative AI development company delivering secure, scalable AI-powered systems for automation, personalization, and enterprise intelligence.",
+  title: "Generative AI Development Company",
+  description: "Build secure, scalable AI-powered systems with mTouch Labs, a trusted generative AI development company for automation and enterprise intelligence.",
   keywords: ["generative AI development","generative AI company","AI development services","enterprise AI solutions","AI automation","LLM development company"],
   alternates: { canonical: "https://www.mtouchlabs.com/generative-ai-development-company" },
-  openGraph: { title: "Generative AI Development Company | mTouch Labs", description: "Enterprise-focused generative AI solutions engineered for intelligent automation and digital transformation.", url: "https://www.mtouchlabs.com/generative-ai-development-company", siteName: "mTouch Labs", type: "website" },
-  twitter: { card: "summary_large_image", title: "Generative AI Development Company | mTouch Labs", description: "Advanced AI-powered systems designed for automation and scalable intelligence." },
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }], title: "Generative AI Development Company", description: "Enterprise-focused generative AI solutions engineered for intelligent automation and digital transformation.", url: "https://www.mtouchlabs.com/generative-ai-development-company", siteName: "mTouch Labs", type: "website" },
+  twitter: { card: "summary_large_image", title: "Generative AI Development Company", description: "Advanced AI-powered systems designed for automation and scalable intelligence." },
 };
 
 export default function GenerativeAIDevelopment() {

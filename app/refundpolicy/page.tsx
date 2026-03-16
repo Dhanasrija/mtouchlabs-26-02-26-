@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description: "We are committed to safeguarding and preserving the privacy of our users. Read our privacy policy page before submitting any confidential data",
+  title: "Refund & Cancellation Policy",
+  description: "Review the refund policy of mTouch Labs outlining eligibility, payment terms, service cancellations, and refund conditions.",
   alternates: {
     canonical: "https://www.mtouchlabs.com/refundpolicy",
   },

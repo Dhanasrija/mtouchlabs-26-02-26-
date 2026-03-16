@@ -26,150 +26,104 @@
   }
 
   function setActiveNavLink() {
+  // ═══ REPLACE the entire `navigationSections` object inside setActiveNavLink() in navbar-init.js ═══
+// Copy everything between the { } below and replace the existing navigationSections object
+
     var navigationSections = {
       home: {
-        pages: ['index', 'index.html', 'company-overview', 'company-overview.html',
-          'artificial-intelligence-transforming-mobile-technology', 'artificial-intelligence-transforming-mobile-technology.html',
-          'our-vision', 'our-vision.html', 'leadership-team', 'leadership-team.html',
-          'our-journey', 'our-journey.html', 'awards-recognition', 'awards-recognition.html',
-          'nasscom-membership', 'nasscom-membership.html', 'life-at-mtouch', 'life-at-mtouch.html',
-          'about', 'about.html', 'blog', 'blog.html', 'case-studies', 'case-studies.html', 'our-vision',
-          'ai-role-in-business-automation', 'top-10-free-ai-tools-for-software-developers',
-          'mobile-app-development-bangalore-tech-startups', 'top-ecommerce-niches-us',
+        pages: ['index', '/',
+          'it-services-digital-transformation-company',
+          'vision-mission', 'leadership-team', 'our-journey',
+          'awards-recognition', 'nasscom-membership', 'life-at-mtouch',
+          'about', 'blog',
+          'ai-role-in-business-automation',
+          'top-10-free-ai-tools-for-software-developers',
+          'mobile-app-development-bangalore-tech-startups',
+          'top-ecommerce-niches-us',
           'hyderabad-startups-app-development-mtouch-labs'],
-        selectors: ['#firstMega > a.menu-links', '.menu-links[href="/"]', '.menu-links[href="index"]']
+        selectors: ['.menu-links[href="/"]']
       },
       services: {
-        pages: ['services', 'services.html',
-          'cross-platform-development',
-          'empowering-businesses-with-data-science', 'empowering-businesses-with-data-science.html',
-          'cloud-infrastructure-management', 'cloud-native-application-development',
-          'ai-consulting-strategy', 'predictive-analytics-data-modelling',
-          'ai-powered-automation-tools', 'ai-model-deployment',
-          'service-cloud-customer-support', 'influencer-video-marketing',
-          'ai-driven-business-automation', 'saas-product-development',
-          'data-analytics-business-intelligence', 'best-iot-development-company-in-india',
-          'fintech-healthtech-platforms', 'Security & Maintence',
-          'application-security-compliance', 'software-testing-qa-automation',
-          'maintenance-support-service', 'legacy-software-modernization',
-          'marketing-cloud', 'product-prototyping', 'design-system-development',
-          'branding-visual-identity', 'content-marketing', 'email-marketing-automation',
-          'custom-software-development', 'ios-app-development-company',
-          'ai-powered-mobile-application', 'app-store-optimization-services-company',
-          'e-commerce-app-development-company', 'app-maintenance-support',
-          'android-app-development-company', 'enterprise-web-solutions',
-          'saas-web-platforms', 'progressive-web-apps', 'cloud-based-web-applications',
-          'ai-enabled-web-application', 'web-app-modernization-migration-services',
-          'web-maintenance-support-services', 'crm-development',
-          'software-integration-services', 'legacy-application-modernization',
-          'enterprise-data-management', 'software-maintenance-support',
-          'enterprise-mobility-solutions', 'enterprise-website-solutions',
+        pages: ['services',
+          'mobile-app-development-company', 'ios-app-development-company',
+          'android-app-development-company', 'ipad-app-development-company',
           'flutter-app-development-company', 'react-native-app-development-company',
-          'best-cross-platform-app-development-frameworks-in-2022',
-          'enterprise-application-development-company',
-          'on-demand-service-mobile-app-development',
-          'openai-for-a-mobile-app-development-company',
-          'mobile-app-development-company',
-          'web-development-company', 'top-ecommerce-development-company-in-india',
-          'saas-future-of-ecommerce',
-          'progressive-web-app-development-company-in-india',
+          'cross-platform-app-development-company',
+          'web-development-company', 'custom-software-development-company',
           'custom-cms-development-company-in-india',
-          'custom-crm-software-development-company',
           '360-degree-photography-services-in-india',
-          'cloud-devops-services', 'devops-services-and-solutions', 'aws-cloud-services',
-          'ai-data-intelligence-services', 'ai-machine-learning-services',
-          'generative-ai-development-company',
-          'salesforce-consulting-services', 'salesforce-implementation-services',
+          'enterprise-application-development-company',
+          'app-maintenance-support-services',
+          'cloud-services', 'devops-services', 'cloud-migration-services',
+          'devops-consulting-services', 'cloud-security-services',
+          'cloud-managed-services', 'best-iot-development-company-in-india',
+          'aws-cloud-services', 'amazon-web-services-company',
+          'generative-ai-development-company', 'machine-learning-development-company',
+          'data-science-solutions', 'cyber-security-services-company',
+          'saas-development-services',
+          'salesforce-consulting-services-company', 'salesforce-implementation-services',
           'salesforce-lightning-migration-development', 'salesforce-integration-services',
-          'salesforce-sales-cloud-services', 'salesforce-service-cloud-services',
-          'ui-ux-design-company',
-          'digital-marketing-services', 'seo-services-company',
-          'ppc-management-services-company', 'social-media-marketing-company-in-india',
-          'business-solutions', 'ecommerce-app-development-company',
-          'custom-app-development-for-temple-services',
-          'cybersecurity-development-company', 'software-testing-services'],
-        selectors: ['.menu-links[href="services"]']
+          'salesforce-sales-cloud-services',
+          'ui-ux-design-company', 'mobile-app-design-company',
+          'product-design-services', 'ux-research-services',
+          'design-system-development', 'web-design-company',
+          'digital-marketing-solutions', 'seo-services',
+          'ppc-advertising-services', 'app-store-optimization-services',
+          'social-media-marketing-services', 'conversion-rate-optimization-services',
+          'content-marketing-services', 'email-marketing-services',
+          'progressive-web-app-development-company-in-india',
+          'quality-assurance-and-testing-services',
+          'performance-marketing-services'],
+        selectors: ['.menu-links[href="/services"]']
       },
       products: {
-        pages: ['on-demand-products-development-company-hyderabad', 'on-demand-products-development-company-hyderabad.html',
-          'products', 'products.html',
-          'on-demand-mobile-app-development-solutions-for-your-business-needs', 'on-demand-mobile-app-development-solutions-for-your-business-needs.html',
-          'community-network-platforms',
-          'food-delivery-app-development-service', 'food-delivery-app-development-service.html',
-          'grocery-delivery-app-development-company', 'grocery-delivery-app-development-company.html',
-          'milk-delivery-app-development-service', 'milk-delivery-app-development-service.html',
-          'car-wash-app-development-company', 'car-wash-app-development-company.html',
-          'chef-management-app-solutions', 'chef-management-app-solutions.html',
-          'taxi-booking-app-development-company', 'taxi-booking-app-development-company.html',
-          'hotel-booking-app-development-company', 'hotel-booking-app-development-company.html',
-          'tickets-booking-app-development-company', 'tickets-booking-app-development-company.html',
-          'effortless-wedding-planning-app-website', 'effortless-wedding-planning-app-website.html',
-          'diagnostic-app-development-company', 'diagnostic-app-development-company.html',
-          'online-shopping-app-development-company', 'online-shopping-app-development-company.html',
-          'multi-vendor-marketplace-app-builder', 'multi-vendor-marketplace-app-builder.html',
-          'real-estate-app-development-company', 'real-estate-app-development-company.html',
-          'education-app-development-company-in-india', 'education-app-development-company-in-india.html',
-          'e-learning-app-development-company', 'e-learning-app-development-company.html',
-          'ott-app-development-company', 'ott-app-development-company.html',
-          'gaming-apps-development-company', 'gaming-apps-development-company.html',
-          'sports-and-fitness-app-development-company', 'sports-and-fitness-app-development-company.html',
-          'top-healthcare-software-development-company-in-india',
-          'custom-beauty-wellness-apps', 'custom-beauty-wellness-apps.html',
-          'social-media-app-development-company', 'social-media-app-development-company.html',
-          'social-community-mobile-app-development', 'social-community-mobile-app-development.html'],
-        selectors: ['.menu-links[href="on-demand-products-development-company-hyderabad"]']
+        pages: ['on-demand-products-development-company-hyderabad',
+          'food-delivery-app-development-service', 'grocery-delivery-app-development-company',
+          'milk-delivery-app-development-service', 'car-wash-app-development-company',
+          'chef-management-app-solutions',
+          'taxi-booking-app-development-company', 'hotel-booking-app-development-company',
+          'tickets-booking-app-development-company', 'real-estate-app-development-company',
+          'ecommerce-app-development-company', 'online-shopping-app-development-company',
+          'multi-vendor-marketplace-app-builder',
+          'e-learning-app-development-company', 'gaming-apps-development-company',
+          'ott-app-development-company',
+          'diagnostic-app-development-company', 'sports-and-fitness-app-development-company',
+          'social-media-app-development-company'],
+        selectors: ['.menu-links[href="/on-demand-products-development-company-hyderabad"]']
       },
       resources: {
-        pages: ['hire-developers-in-india', 'hire-developers-in-india.html',
-          'hire-salesforce-adminstrators', 'hire-devops-enginners',
-          'hire-cloud-engineers', 'hire-erp-crm-developers',
-          'hire-ai-developers', 'hire-machine-learning-engineers',
-          'hire-chat-bot.developer', 'hire-product-designer', 'hire-graphic-designers',
-          'hire-mobile-app-developers-in-india', 'hire-mobile-app-developers-in-india.html',
-          'hire-android-app-developers-in-india', 'hire-android-app-developers-in-india.html',
-          'hire-ios-app-developers-in-india', 'hire-ios-app-developers-in-india.html',
-          'hire-ipad-developers-in-india', 'hire-ipad-developers-in-india.html',
-          'hire-custom-software-developers-in-india', 'hire-custom-software-developers-in-india.html',
-          'hire-native-app-developers-in-india', 'hire-native-app-developers-in-india.html',
-          'hire-hybrid-app-developers-in-india', 'hire-hybrid-app-developers-in-india.html',
-          'hire-flutter-app-developers-in-india', 'hire-flutter-app-developers-in-india.html',
-          'hire-react-native-app-developers-in-india', 'hire-react-native-app-developers-in-india.html',
-          'hire-web-developers-in-india', 'hire-web-developers-in-india.html',
-          'hire-dedicated-developers-in-india', 'hire-dedicated-developers-in-india.html',
-          'hire-fullstack-developers-in-india', 'hire-fullstack-developers-in-india.html',
-          'hire-node-js-developers-in-india', 'hire-node-js-developers-in-india.html',
-          'hire-react-developers-in-india', 'hire-react-developers-in-india.html',
-          'hire-angular-developers-in-india', 'hire-angular-developers-in-india.html',
-          'hire-salesforce-developers-in-india', 'hire-salesforce-developers-in-india.html',
-          'hire-aws-developers-in-india', 'hire-aws-developers-in-india.html',
-          'hire-ui-ux-designers-in-india', 'hire-ui-ux-designers-in-india.html',
-          'hire-custom-cms-developers-in-india', 'hire-custom-cms-developers-in-india.html',
-          'hire-php-developers-in-india', 'hire-php-developers-in-india.html',
-          'mobile-app-design-company', 'mobile-app-design-company.html'],
-        selectors: ['.menu-links[href="hire-developers-in-india"]']
+        pages: ['hire-developers-in-india',
+          'hire-mobile-app-developers-in-india', 'hire-android-app-developers-in-india',
+          'hire-ios-app-developers-in-india', 'hire-ipad-developers-in-india',
+          'hire-custom-software-developers-in-india', 'hire-native-app-developers-in-india',
+          'hire-hybrid-app-developers-in-india', 'hire-flutter-app-developers-in-india',
+          'hire-react-native-app-developers-in-india',
+          'hire-web-developers-in-india', 'hire-wordpress-developers-in-india',
+          'hire-php-developers-in-india', 'hire-custom-cms-developers-in-india',
+          'hire-angular-developers-in-india', 'hire-react-developers-in-india',
+          'hire-swift-developers-in-india', 'hire-laravel-developers-in-india',
+          'hire-magento-developers-in-india', 'hire-woocommerce-developers-in-india',
+          'hire-javascript-developers-in-india', 'hire-fullstack-developers-in-india',
+          'hire-mean-stack-developers-in-india', 'hire-mern-stack-developers-in-india',
+          'hire-vue-js-developers-in-india', 'hire-node-js-developers-in-india',
+          'hire-aws-developers-in-india', 'hire-dedicated-developers-in-india',
+          'hire-salesforce-developers-in-india',
+          'hire-ui-ux-designers-in-india', 'hire-mobile-app-designers-in-india',
+          'hire-quality-analyst-developers-in-india',
+          'hire-pwa-developers-in-india', 'hire-shopify-developers-in-india'],
+        selectors: ['.menu-links[href="/hire-developers-in-india"]']
       },
       portfolio: {
-        pages: ['portfolio', 'portfolio.html', 'portfolio-2', 'portfolio-2.html',
-          'portfolio-3', 'portfolio-3.html', 'portfolio-4', 'portfolio-4.html',
-          'portfolio-5', 'portfolio-5.html',
-          'case-studies', 'case-studies.html', 'our-work', 'our-work.html',
-          'projects', 'projects.html', 'success-stories', 'success-stories.html'],
-        selectors: ['.menu-links[href="portfolio"]']
+        pages: ['portfolio'],
+        selectors: ['.menu-links[href="/portfolio"]']
       },
       careers: {
-        pages: ['careers', 'careers.html', 'career-opportunities-web-mobile-development',
-          'career-opportunities-web-mobile-development.html', 'jobs', 'jobs.html',
-          'join-us', 'join-us.html', 'openings', 'openings.html',
-          'work-with-us', 'work-with-us.html', 'job-opportunities', 'job-opportunities.html',
-          'current-openings', 'current-openings.html', 'career-opportunities', 'career-opportunities.html'],
-        selectors: ['.menu-links[href="careers"]']
+        pages: ['careers'],
+        selectors: ['.menu-links[href="/careers"]']
       },
       contact: {
-        pages: ['contact-us', 'contact-us.html', 'contact', 'contact.html',
-          'get-in-touch', 'get-in-touch.html', 'reach-us', 'reach-us.html',
-          'contact-form', 'contact-form.html', 'get-quote', 'get-quote.html',
-          'request-quote', 'request-quote.html', 'inquiry', 'inquiry.html'],
-        selectors: ['.menu-links[href="contact-us"]']
+        pages: ['contact-us'],
+        selectors: ['.menu-links[href="/contact-us"]']
       }
     };
 
@@ -295,7 +249,7 @@
             disableAt: false,
             customToggle: '.toggle',
             levelSpacing: 40,
-            navTitle: 'mTouch Labs Menu',
+            navTitle: 'mTouch Labs',
             levelTitles: true,
             labelClose: '\u2715',
             levelTitleAsBack: true,
@@ -308,6 +262,18 @@
         } catch (e) {
           console.warn('hcOffcanvasNav init error', e);
         }
+        // Replace navTitle with clickable logo in blue bar
+        var checkTitle = setInterval(function() {
+          var titles = document.querySelectorAll('h2');
+          for (var i = 0; i < titles.length; i++) {
+            if (titles[i].className && titles[i].className.indexOf('nav-title') > -1) {
+              titles[i].innerHTML = '<a href="/"><img src="/images/logo-white.svg" alt="mTouch Labs" height="28"></a>';
+              titles[i].style.lineHeight = '0';
+              clearInterval(checkTitle);
+              break;
+            }
+          }
+        }, 50);
       }
     } catch (err) {
       console.warn('hcOffcanvasNav check error', err);

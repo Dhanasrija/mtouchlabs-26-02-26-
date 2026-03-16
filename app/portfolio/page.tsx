@@ -1,23 +1,23 @@
 // import type { Metadata } from "next";
 
 // export const metadata: Metadata = {
-//   title: "Portfolio | Web And Mobile App Development | mTouch Labs",
+//   title: "Portfolio | Web And Mobile App Development",
 //   description: "Explore our portfolio of innovative web and mobile apps built by our experienced Android and iOS app development team.",
 //   alternates: {
 //     canonical: "https://www.mtouchlabs.com/portfolio",
 //   },
 // // 
 //   openGraph: {
-//     title: "Portfolio | Web And Mobile App Development | mTouch Labs",
+//     title: "Portfolio | Web And Mobile App Development",
 //     description: "Explore our portfolio of innovative web and mobile apps built by our experienced Android and iOS app development team.",
 //     url: "https://www.mtouchlabs.com/portfolio",
 //     siteName: "mTouch Labs",
 //     type: "website",
-//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Portfolio | Web And Mobile App Development | mTouch Labs" }],
+//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Portfolio | Web And Mobile App Development" }],
 //   },
 //   twitter: {
 //     card: "summary_large_image",
-//     title: "Portfolio | Web And Mobile App Development | mTouch Labs",
+//     title: "Portfolio | Web And Mobile App Development",
 //     description: "Explore our portfolio of innovative web and mobile apps built by our experienced Android and iOS app development team.",
 //     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
 //   },
@@ -180,7 +180,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Portfolio | Web And Mobile App Development | mTouch Labs",
+  title: "Portfolio | Web And Mobile App Development",
   description: "Explore our portfolio of innovative web and mobile apps built by our experienced Android and iOS app development team.",
 };
 

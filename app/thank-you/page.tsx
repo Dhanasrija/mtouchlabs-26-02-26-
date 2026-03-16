@@ -1,20 +1,20 @@
 import { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "Thank You | mTouch Labs",
+  title: "Thank You",
   robots: { index: false, follow: false },
 
   openGraph: {
-    title: "Thank You | mTouch Labs",
-    description: "Thank You | mTouch Labs",
+    title: "Thank You",
+    description: "Thank You",
     url: "https://www.mtouchlabs.com/thank-you",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Thank You | mTouch Labs" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Thank You" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Thank You | mTouch Labs",
-    description: "Thank You | mTouch Labs",
+    title: "Thank You",
+    description: "Thank You",
     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
   },
 };

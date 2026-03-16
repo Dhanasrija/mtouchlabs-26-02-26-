@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "DevOps Consulting Services | mTouch Labs",
+  title: "DevOps Consulting Services",
   description: "mTouch Labs provides DevOps consulting services including maturity assessment, roadmap planning, and enterprise DevOps transformation strategy.",
   keywords: ["DevOps consulting services","DevOps advisory","DevOps maturity assessment","DevOps transformation","CI/CD consulting","enterprise DevOps strategy"],
   alternates: { canonical: "https://www.mtouchlabs.com/devops-consulting-services" },
-  openGraph: { title: "DevOps Consulting Services | mTouch Labs", description: "Enterprise DevOps advisory and transformation strategy for scalable software delivery.", url: "https://www.mtouchlabs.com/devops-consulting-services", siteName: "mTouch Labs", type: "website" },
-  twitter: { card: "summary_large_image", title: "DevOps Consulting Services | mTouch Labs", description: "Strategic DevOps consulting for automation and scalability." },
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }], title: "DevOps Consulting Services", description: "Enterprise DevOps advisory and transformation strategy for scalable software delivery.", url: "https://www.mtouchlabs.com/devops-consulting-services", siteName: "mTouch Labs", type: "website" },
+  twitter: { card: "summary_large_image", title: "DevOps Consulting Services", description: "Strategic DevOps consulting for automation and scalability." },
 };
 
 export default function DevOpsConsultingServices() {

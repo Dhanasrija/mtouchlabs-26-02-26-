@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Salesforce Sales Cloud Services | Sales Automation & CRM Experts | mTouch Labs",
-  description: "mTouch Labs provides Salesforce Sales Cloud services including CRM setup, automation, pipeline optimization, customization, and revenue forecasting solutions.",
+  title: "Salesforce Sales Cloud Services",
+  description: "mTouch Labs provides Salesforce Sales Cloud services including CRM setup, automation, pipeline optimization, customization, and revenue forecasting.",
   keywords: ["Salesforce Sales Cloud services","Sales Cloud implementation","Salesforce sales automation","Salesforce CRM sales optimization","Sales Cloud consulting company","Salesforce partner India"],
   alternates: { canonical: "https://www.mtouchlabs.com/salesforce-sales-cloud-services" },
-  openGraph: { title: "Salesforce Sales Cloud Services | mTouch Labs", description: "Optimize your sales pipeline with Salesforce Sales Cloud implementation and automation services.", url: "https://www.mtouchlabs.com/salesforce-sales-cloud-services", siteName: "mTouch Labs", type: "website" },
-  twitter: { card: "summary_large_image", title: "Salesforce Sales Cloud Services | mTouch Labs", description: "Optimize your sales pipeline with Sales Cloud implementation and automation." },
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }], title: "Salesforce Sales Cloud Services", description: "Optimize your sales pipeline with Salesforce Sales Cloud implementation and automation services.", url: "https://www.mtouchlabs.com/salesforce-sales-cloud-services", siteName: "mTouch Labs", type: "website" },
+  twitter: { card: "summary_large_image", title: "Salesforce Sales Cloud Services", description: "Optimize your sales pipeline with Sales Cloud implementation and automation." },
 };
 
 export default function SalesforceSalesCloud() {

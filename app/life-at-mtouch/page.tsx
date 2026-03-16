@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Life at mTouch – Culture, People & Work Environment | mTouch Labs",
+  title: "Life at mTouch – Work Environment",
   description:
     "Explore Life at mTouch — our vibrant culture, employee experiences, and teamwork that make mTouch Labs a great place to grow and innovate.",
   keywords:
     "life at mTouch, company culture, employee experience, work environment, team culture, mTouch Labs life, career culture, workplace innovation",
   alternates: { canonical: "https://www.mtouchlabs.com/life-at-mtouch" },
   openGraph: {
-    title: "Life at mTouch – Culture, People & Work Environment",
+    title: "Life at mTouch – Culture & People",
     description: "Explore our vibrant culture, employee experiences, and teamwork that make mTouch Labs a great place to grow.",
     url: "https://www.mtouchlabs.com/life-at-mtouch",
     siteName: "mTouch Labs",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Life at mTouch – Culture, People & Work Environment | mTouch Labs",
+    title: "Life at mTouch – Culture & People",
     description: "Explore Life at mTouch — our vibrant culture, employee experiences, and teamwork that make mTouch Labs a great place to grow and innovate.",
     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
   },
@@ -48,12 +48,12 @@ const numbers = [
 ];
 
 const faqs = [
-  { q: "What is the work culture like at mTouch Labs?", a: "mTouch Labs fosters a collaborative, creative, and inclusive work environment where innovation, teamwork, and continuous learning are deeply encouraged." },
-  { q: "Why should I consider a career at mTouch Labs?", a: "We offer opportunities to work on global projects, hands-on exposure to emerging technologies, a growth-driven culture, supportive leadership, and a transparent work ecosystem." },
+  { q: "What is the work culture like?", a: "mTouch Labs fosters a collaborative, creative, and inclusive work environment where innovation, teamwork, and continuous learning are deeply encouraged." },
+  { q: "Why should I consider a career?", a: "We offer opportunities to work on global projects, hands-on exposure to emerging technologies, a growth-driven culture, supportive leadership, and a transparent work ecosystem." },
   { q: "What kind of projects do employees work on?", a: "Our teams work on diverse projects including mobile apps, web platforms, enterprise systems, AI-driven solutions, and digital transformation initiatives for clients across India, USA, UK, and UAE." },
   { q: "Does mTouch Labs support learning and upskilling?", a: "Absolutely. We promote continuous learning through workshops, training sessions, mentorship, and real-time exposure to cutting-edge technologies." },
   { q: "Is the work environment flexible?", a: "Yes. We value work-life balance with structured work processes, open communication, and a supportive environment that helps employees thrive." },
-  { q: "Are there team-building or fun activities at mTouch Labs?", a: "Definitely! We regularly host team outings, workshops, fun Fridays, celebrations, and creative sessions to keep the energy high and strengthen team bonding." },
+  { q: "Are there team-building or fun activities?", a: "Definitely! We regularly host team outings, workshops, fun Fridays, celebrations, and creative sessions to keep the energy high and strengthen team bonding." },
 ];
 
 export default function LifeAtMtouch() {
@@ -86,7 +86,7 @@ export default function LifeAtMtouch() {
 
       <section className="lam-culture"><div className="lam-container">
         <h2 className="lam-section-title">What Makes Us <span className="lam-accent">Different</span></h2>
-        <p className="lam-section-subtitle">The values and practices that define life at mTouch Labs</p>
+        <p className="lam-section-subtitle">The values and practices that define life</p>
         <div className="lam-culture__grid">
           {culturePoints.map((c, i) => (
             <div className="lam-culture-card" key={i}>
@@ -120,7 +120,7 @@ export default function LifeAtMtouch() {
           <a href="/careers" className="lam-team__btn">View Open Positions →</a>
         </div>
         <div className="lam-team__image-wrap">
-          <img src="/images/about/life_at_mtouch2.png" alt="Professional at mTouch Labs" className="lam-team__image" />
+          <img src="/images/about/life_at_mtouch2.png" alt="Professional" className="lam-team__image" />
         </div>
       </div></div></section>
 

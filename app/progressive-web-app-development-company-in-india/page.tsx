@@ -1,23 +1,23 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Progressive web app development company | PWA development company",
+  title: "Progressive Web App (PWA) Development",
   description: "mTouch Labs leading progressive web app development company in Hyderabad India, Providing cutting-edge PWA development services.",
   alternates: {
     canonical: "https://www.mtouchlabs.com/progressive-web-app-development-company-in-india",
   },
 
   openGraph: {
-    title: "Progressive web app development company | PWA development company",
+    title: "Progressive Web App (PWA) Development",
     description: "mTouch Labs leading progressive web app development company in Hyderabad India, Providing cutting-edge PWA development services.",
     url: "https://www.mtouchlabs.com/progressive-web-app-development-company-in-india",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Progressive web app development company | PWA development company" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Progressive Web App (PWA) Development" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Progressive web app development company | PWA development company",
+    title: "Progressive Web App (PWA) Development",
     description: "mTouch Labs leading progressive web app development company in Hyderabad India, Providing cutting-edge PWA development services.",
     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
   },

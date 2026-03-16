@@ -6,7 +6,7 @@ type Message = {
   text: string;
 };
 
-// const WS_BASE = "ws://3.6.54.39:8000/ws";
+const WS_BASE = "wss://webagent.mtouchlabs.com/ws";
 
 function generateSessionId() {
   return "sess_" + Math.random().toString(36).substring(2, 15) + Date.now().toString(36);
@@ -20,6 +20,14 @@ export default function ChatWidget() {
     const t1 = setTimeout(() => setShowLabel(true), 2500);
     const t2 = setTimeout(() => setShowLabel(false), 9000);
     return () => { clearTimeout(t1); clearTimeout(t2); };
+  }, []);
+
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth <= 600);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
   }, []);
 
   const toggle = () => setOpen(p => !p);
@@ -43,47 +51,43 @@ export default function ChatWidget() {
   const connectWebSocket = useCallback(() => {
     if (wsRef.current?.readyState === WebSocket.OPEN) return;
 
-const protocol =
-  window.location.protocol === "https:" ? "wss:" : "ws:";
-
-const ws = new WebSocket(
-  `${protocol}//3.6.54.39:8000/ws/${sessionIdRef.current}`
-);    wsRef.current = ws;
+    const ws = new WebSocket(`${WS_BASE}/${sessionIdRef.current}`);
+    wsRef.current = ws;
 
     ws.onopen = () => {
-      console.log("WebSocket connected");
+      console.log("WebSocket connected to", WS_BASE);
       setConnected(true);
       reconnectAttempts.current = 0;
     };
 
-ws.onmessage = (event) => {
-  setLoading(false);
+    ws.onmessage = (event) => {
+      setLoading(false);
 
-  try {
-    const data = JSON.parse(event.data);
+      try {
+        const data = JSON.parse(event.data);
 
-    // If backend is sending tool call
-    if (data.tool_calls || data.function_call) {
-      console.log("Function call detected:", data);
-      return; // do not display in chat
-    }
+        // If backend is sending tool call
+        if (data.tool_calls || data.function_call) {
+          console.log("Function call detected:", data);
+          return; // do not display in chat
+        }
 
-    const text =
-      data.response ||
-      data.message ||
-      data.answer ||
-      data.text ||
-      data.reply;
+        const text =
+          data.response ||
+          data.message ||
+          data.answer ||
+          data.text ||
+          data.reply;
 
-    if (text) {
-      setMessages(prev => [...prev, { from: "ai", text }]);
-    }
-  } catch {
-    if (event.data?.trim()) {
-      setMessages(prev => [...prev, { from: "ai", text: event.data }]);
-    }
-  }
-};
+        if (text) {
+          setMessages(prev => [...prev, { from: "ai", text }]);
+        }
+      } catch {
+        if (event.data?.trim()) {
+          setMessages(prev => [...prev, { from: "ai", text: event.data }]);
+        }
+      }
+    };
 
     ws.onerror = () => setConnected(false);
 
@@ -249,13 +253,13 @@ ws.onmessage = (event) => {
           )}
         </div>
 
-        {/* Input — always active */}
+        {/* Input */}
         <div className="cw-ai-input-area">
           <div className="cw-ai-input-row cw-ai-input-row-active">
             <input
               type="text"
               className="cw-ai-input"
-              placeholder={connected ? "Ask me anything about mTouch Labs..." : "Connecting to AI..."}
+              placeholder={connected ? (isMobile ? "Ask anything..." : "Ask me anything about mTouch Labs...") : "Connecting..."}
               disabled={!connected || loading}
               autoComplete="off"
               value={input}

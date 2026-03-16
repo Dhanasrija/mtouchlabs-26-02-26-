@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "iPad App Development Company | mTouch Labs",
+  title: "iPad App Development Company",
   description:
     "mTouch Labs is an iPad app development company delivering enterprise-ready, large-screen optimized applications built for productivity and performance.",
   keywords: [
@@ -16,8 +16,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.mtouchlabs.com/ipad-app-development-company",
   },
-  openGraph: {
-    title: "iPad App Development Company | mTouch Labs",
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }],
+    title: "iPad App Development Company",
     description:
       "Custom iPad application development services focused on enterprise productivity and large-screen optimization.",
     url: "https://www.mtouchlabs.com/ipad-app-development-company",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "iPad App Development Company | mTouch Labs",
+    title: "iPad App Development Company",
     description:
       "Enterprise-focused iPad app development built for performance and usability.",
   },

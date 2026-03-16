@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Milk Delivery App Development Service | mTouch Labs",
+  title: "Milk Delivery App Development Service",
   description:
     "mTouch Labs offers milk delivery app development services, building scalable, feature-rich user-friendly mobile apps delivery operations for businesses.",
   keywords:
@@ -13,16 +13,16 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Milk Delivery App Development Service | mTouch Labs",
+    title: "Milk Delivery App Development Service",
     description: "mTouch Labs offers milk delivery app development services, building scalable, feature-rich user-friendly mobile apps delivery operations for businesses.",
     url: "https://www.mtouchlabs.com/milk-delivery-app-development-service",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Milk Delivery App Development Service | mTouch Labs" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Milk Delivery App Development Service" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Milk Delivery App Development Service | mTouch Labs",
+    title: "Milk Delivery App Development Service",
     description: "mTouch Labs offers milk delivery app development services, building scalable, feature-rich user-friendly mobile apps delivery operations for businesses.",
     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
   },

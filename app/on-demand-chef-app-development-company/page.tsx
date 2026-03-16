@@ -1,23 +1,23 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "On-Demand Chef Management | Hire a cook | Web development",
+  title: "On-Demand Chef Management App",
   description: "Cook-a-doddle is an on-demand chef hiring app and website offering seamless cook booking with expert web and mobile app development services.",
   alternates: {
     canonical: "https://www.mtouchlabs.com/on-demand-chef-app-development-company",
   },
 
   openGraph: {
-    title: "On-Demand Chef Management | Hire a cook | Web development",
+    title: "On-Demand Chef Management App",
     description: "Cook-a-doddle is an on-demand chef hiring app and website offering seamless cook booking with expert web and mobile app development services.",
     url: "https://www.mtouchlabs.com/on-demand-chef-app-development-company",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "On-Demand Chef Management | Hire a cook | Web development" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "On-Demand Chef Management App" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "On-Demand Chef Management | Hire a cook | Web development",
+    title: "On-Demand Chef Management App",
     description: "Cook-a-doddle is an on-demand chef hiring app and website offering seamless cook booking with expert web and mobile app development services.",
     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
   },

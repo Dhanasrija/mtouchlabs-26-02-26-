@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "React Native App Development Company | mTouch Labs",
+  title: "React Native App Development Company",
   description:
     "mTouch Labs is a React Native app development company delivering scalable cross-platform mobile apps with native performance and secure integrations.",
   keywords: [
@@ -16,8 +16,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.mtouchlabs.com/react-native-app-development-company",
   },
-  openGraph: {
-    title: "React Native App Development Company | mTouch Labs",
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }],
+    title: "React Native App Development Company",
     description:
       "Professional React Native mobile app development services for cross-platform scalability.",
     url: "https://www.mtouchlabs.com/react-native-app-development-company",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "React Native App Development Company | mTouch Labs",
+    title: "React Native App Development Company",
     description:
       "Custom hybrid mobile app development built for performance and growth.",
   },

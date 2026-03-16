@@ -1,23 +1,23 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Case Studies | Mobile App Development & Web Development Projects",
+  title: "Case Studies | Software Projects",
   description: "Explore our detailed case studies showcasing successful mobile app development and web development projects across various industries.",
   alternates: {
     canonical: "https://www.mtouchlabs.com/case-studies",
   },
 
   openGraph: {
-    title: "Case Studies | Mobile App Development & Web Development Projects",
+    title: "Case Studies | Software Projects",
     description: "Explore our detailed case studies showcasing successful mobile app development and web development projects across various industries.",
     url: "https://www.mtouchlabs.com/case-studies",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Case Studies | Mobile App Development & Web Development Projects" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Case Studies | Software Projects" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Case Studies | Mobile App Development & Web Development Projects",
+    title: "Case Studies | Software Projects",
     description: "Explore our detailed case studies showcasing successful mobile app development and web development projects across various industries.",
     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
   },

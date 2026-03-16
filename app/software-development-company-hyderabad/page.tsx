@@ -3,11 +3,11 @@ import Link from "next/link";
 import FAQSchema from "@/components/seo/FAQSchema";
 
 export const metadata: Metadata = {
-  title: "Software Development Company in Hyderabad | Custom IT Solutions | mTouch Labs",
-  description: "mTouch Labs is a leading Software Development Company in Hyderabad offering custom software, enterprise applications, mobile apps, cloud services, and AI solutions.",
+  title: "Software Development Company in Hyderabad",
+  description: "Looking for a software development company in Hyderabad? mTouch Labs delivers custom software, mobile apps, enterprise solutions, cloud, and AI services.",
   keywords: ["software development company in Hyderabad","custom software development Hyderabad","mobile app development company Hyderabad","enterprise application development Hyderabad","AI development company Hyderabad"],
-  openGraph: {
-    title: "Software Development Company in Hyderabad - mTouch Labs",
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }],
+    title: "Software Development Company in Hyderabad",
     description: "mTouch Labs is a leading Software Development Company in Hyderabad offering custom software, enterprise applications, mobile apps, cloud services, and AI solutions.",
     url: "https://www.mtouchlabs.com/software-development-company-hyderabad",
     type: "website",

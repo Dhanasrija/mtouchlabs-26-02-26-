@@ -82,11 +82,11 @@ function imgUrl(p: string | null | undefined): string {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const p = await getProject(slug);
-  if (!p) return { title: 'Project Not Found | mTouch Labs' };
+  if (!p) return { title: 'Project Not Found' };
   const tags = p.tags ? p.tags.split(',').map((t: string) => t.trim().toLowerCase()) : [];
   const fullImg = p.og_image || p.image ? (p.og_image || p.image).startsWith('http') ? (p.og_image || p.image) : `https://www.mtouchlabs.com${imgUrl(p.og_image || p.image)}` : '';
   return {
-    title: p.meta_title || `${cleanTitle(p.title)} | mTouch Labs Portfolio`,
+    title: p.meta_title || `${cleanTitle(p.title)} Portfolio`,
     description: p.meta_description || p.subtitle || `${p.title} — a ${p.category} project by mTouch Labs.`,
     keywords: [`${p.category} app development`, ...tags, 'mTouch Labs', 'app development Hyderabad'],
     openGraph: { title: p.og_title || p.title, description: p.og_description || p.subtitle, url: p.canonical_url || `/portfolio/${p.slug}`, siteName: 'mTouch Labs', type: 'article', images: fullImg ? [{ url: fullImg, width: 1200, height: 630 }] : [] },

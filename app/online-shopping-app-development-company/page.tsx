@@ -1,23 +1,23 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Online Shopping App Development Company | mTouch Labs",
+  title: "Online Shopping App Development Company",
   description: "mTouch Labs is an online shopping app development company building mobile apps that deliver seamless shopping experiences and boost customer engagement.",
   alternates: {
     canonical: "https://www.mtouchlabs.com/online-shopping-app-development-company",
   },
 
   openGraph: {
-    title: "Online Shopping App Development Company | mTouch Labs",
+    title: "Online Shopping App Development Company",
     description: "mTouch Labs is an online shopping app development company building mobile apps that deliver seamless shopping experiences and boost customer engagement.",
     url: "https://www.mtouchlabs.com/online-shopping-app-development-company",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Online Shopping App Development Company | mTouch Labs" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Online Shopping App Development Company" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Online Shopping App Development Company | mTouch Labs",
+    title: "Online Shopping App Development Company",
     description: "mTouch Labs is an online shopping app development company building mobile apps that deliver seamless shopping experiences and boost customer engagement.",
     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
   },

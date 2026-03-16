@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Design System Development | mTouch Labs",
+  title: "Design System Development",
   description: "mTouch Labs provides design system development services to create scalable UI frameworks, reusable components, and structured visual standards.",
   keywords: ["design system development","UI component library","design system services","scalable UI frameworks","design tokens","design system company"],
   alternates: { canonical: "https://www.mtouchlabs.com/design-system-development" },
-  openGraph: { title: "Design System Development | mTouch Labs", description: "Enterprise-ready design system frameworks for consistent and scalable digital products.", url: "https://www.mtouchlabs.com/design-system-development", siteName: "mTouch Labs", type: "website" },
-  twitter: { card: "summary_large_image", title: "Design System Development | mTouch Labs", description: "Reusable UI components and scalable design frameworks." },
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }], title: "Design System Development", description: "Enterprise-ready design system frameworks for consistent and scalable digital products.", url: "https://www.mtouchlabs.com/design-system-development", siteName: "mTouch Labs", type: "website" },
+  twitter: { card: "summary_large_image", title: "Design System Development", description: "Reusable UI components and scalable design frameworks." },
 };
 
 export default function DesignSystemDevelopment() {

@@ -1,7 +1,8 @@
+export const dynamic = "force-dynamic";
 import '../public/css/brand.css';
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import ChatWidget from "@/components/layout/ChatWidget";
+// import ChatWidget from "@/components/layout/ChatWidget";
 import Script from "next/script";
 import QuoteModal from "@/components/sections/home/QuoteModal";
 import Analytics from "@/components/Analytics";
@@ -11,8 +12,28 @@ export const metadata = {
   alternates: {
     canonical: './',
   },
-  title: "mTouch Labs - Software Development Company",
+  title: {
+    default: "Software Development Company & IT Solutions | mTouch Labs",
+    template: "%s | mTouch Labs"
+  },
   description: "mTouch Labs is a leading software development company providing mobile app development, web development, and digital marketing services.",
+  openGraph: {
+    siteName: "mTouch Labs",
+    type: "website",
+    locale: "en_US",
+    images: [
+      {
+        url: "/images/Light.png",
+        width: 1200,
+        height: 630,
+        alt: "mTouch Labs Software Development Company"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/images/Light.png"]
+  },
 };
 
 export default function RootLayout({
@@ -106,11 +127,13 @@ export default function RootLayout({
         <link href="/css/blog.css" rel="stylesheet" />
         <link href="/css/case-study.css" rel="stylesheet" />
         <link href="/css/home-mega-menu.css" rel="stylesheet" />
-        <link href="/css/chat-widget.css" rel="stylesheet" />
+        {/* <link href="/css/chat-widget.css" rel="stylesheet" /> */}
         <link href="/css/location-pages.css" rel="stylesheet" />
         <link href="/css/navbar-dropdown.css" rel="stylesheet" />
         <link href="/css/services.css" rel="stylesheet" />
         <link href ="/css/case-studies.css" rel="stylesheet"/>
+        <link href="/css/homepage-fixes.css" rel="stylesheet"/>
+        <link href="/css/brand.css" rel="stylesheet"/>
 
         <meta name="turnstile-site-key" content={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY} />
 
@@ -176,6 +199,8 @@ export default function RootLayout({
                   <span className="brochure-input-icon">&#128241;</span>
                   <input type="tel" id="brochure_phone" placeholder="Contact Number" />
                 </div>
+                <div className="cf-turnstile" data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY} data-callback="onBrochureTurnstileSuccess"></div>
+
                 <button id="brochureSubmitBtn" className="brochure-submit-btn">Submit Now</button>
               </div>
             </div>
@@ -185,7 +210,7 @@ export default function RootLayout({
         <div className="header-spacer"></div>
         {children}
         <Footer />
-        <ChatWidget />
+        {/* <ChatWidget /> */}
         {/* Floating WhatsApp Button */}
         <a
           href="https://wa.me/message/H5VADFWLMPYIM1"
@@ -205,17 +230,25 @@ export default function RootLayout({
         {/* ========== JS — Core Libraries ========== */}
         <Script src="/js/jquery-3.6.0.min.js" strategy="beforeInteractive" />
         <Script src="/js/bootstrap.bundle.min.js" strategy="beforeInteractive" />
-        <Script id="app-bundle" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: `(function c(){if(typeof jQuery!=="undefined"){var s=document.createElement("script");s.src="/js/app.bundle.js";s.onload=function(){var n=document.createElement("script");n.src="/js/navbar-init.js";document.body.appendChild(n)};document.body.appendChild(s)}else{setTimeout(c,100)}})()` }} />
+        {/* <Script id="app-bundle" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: `(function c(){if(typeof jQuery!=="undefined"){var s=document.createElement("script");s.src="/js/app.bundle.js";s.onload=function(){var n=document.createElement("script");n.src="/js/navbar-init.js";document.body.appendChild(n)};document.body.appendChild(s)}else{setTimeout(c,100)}})()` }} /> */}
         <Script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" strategy="afterInteractive" />
         <Script src="https://unpkg.com/aos@2.3.1/dist/aos.js" strategy="afterInteractive" />
 
         {/* ========== JS — Site Scripts ========== */}
+        {/* <Script id="main-js" strategy="lazyOnload" dangerouslySetInnerHTML={{ __html: `(function c(){if(typeof jQuery!=="undefined"){var s=document.createElement("script");s.src="/js/main.js";document.body.appendChild(s)}else{setTimeout(c,100)}})()` }} /> */}
+        
+        <Script src="/js/app.bundle.js" strategy="afterInteractive" />
+        
+<Script src="/js/navbar-init.js" strategy="afterInteractive" />
+<Script src="/js/main.js" strategy="afterInteractive" />
         <Script src="/js/mega-menu.js" strategy="lazyOnload" />
-        <Script id="main-js" strategy="lazyOnload" dangerouslySetInnerHTML={{ __html: `(function c(){if(typeof jQuery!=="undefined"){var s=document.createElement("script");s.src="/js/main.js";document.body.appendChild(s)}else{setTimeout(c,100)}})()` }} />
+
         <Script src="/js/site-interactions.js" strategy="lazyOnload" />
         <Script src="/js/faq.js" strategy="afterInteractive" />
         <Script src="/js/tabs.js" strategy="lazyOnload" />
         <Script src="/js/services.js" strategy="lazyOnload" />
+
+ {/* <script src="/js/nav-active.js"></script> */}
 
         {/* ========== JS — Request Quote Handler ========== */}
         <Script id="request-quote-handler" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: `
@@ -249,8 +282,12 @@ export default function RootLayout({
         `}} />
 
         {/* ========== JS — Brochure Form Handler ========== */}
-        <Script id="brochure-form-handler" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: `
+       <Script id="brochure-form-handler" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: `
           (function() {
+            var brochureTurnstileToken = '';
+            window.onBrochureTurnstileSuccess = function(token) {
+              brochureTurnstileToken = token;
+            };
             function initBrochure() {
               var btn = document.getElementById('brochureSubmitBtn');
               if (!btn) return setTimeout(initBrochure, 500);
@@ -268,7 +305,7 @@ export default function RootLayout({
                 fetch('/api/brochure', {
                   method: 'POST',
                   headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify({ name: name, email: email, countryCode: countryCode, mobile: mobile })
+                  body: JSON.stringify({ name: name, email: email, countryCode: countryCode, mobile: mobile, 'cf-turnstile-response': brochureTurnstileToken })
                 }).then(function() { window.location.href = '/thank-you'; })
                   .catch(function() { window.location.href = '/thank-you'; });
               });
@@ -298,6 +335,48 @@ export default function RootLayout({
             setTimeout(fixBottomNav, 1500);
           })();
         `}} />
+
+        <script
+  dangerouslySetInnerHTML={{
+    __html: `
+      var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+      (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/614aeb4425797d7a890039a2/1fg6ae1bv';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+      })();
+    `,
+  }}
+/>
+
+
+<script
+  dangerouslySetInnerHTML={{
+    __html: `
+      var Tawk_API = Tawk_API || {};
+      Tawk_API.customStyle = {
+        visibility: {
+          desktop: { position: 'br', xOffset: 20, yOffset: 20 },
+          mobile: { position: 'br', xOffset: 10, yOffset: 10 }
+        }
+      };
+      var Tawk_LoadStart = new Date();
+      (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/614aeb4425797d7a890039a2/1fg6ae1bv';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+      })();
+    `,
+  }}
+/>
+
+
       </body>
     </html>
   );

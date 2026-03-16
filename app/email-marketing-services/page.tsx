@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Email Marketing Services | mTouch Labs",
+  title: "Email Marketing Services",
   description: "mTouch Labs offers email marketing services including automation setup, lifecycle campaigns, and performance-driven subscriber engagement strategies.",
   keywords: ["email marketing services","email automation","lifecycle email marketing","email campaign management","marketing automation","email marketing company"],
   alternates: { canonical: "https://www.mtouchlabs.com/email-marketing-services" },
-  openGraph: { title: "Email Marketing Services | mTouch Labs", description: "Intelligent email automation and lifecycle marketing for measurable growth.", url: "https://www.mtouchlabs.com/email-marketing-services", siteName: "mTouch Labs", type: "website" },
-  twitter: { card: "summary_large_image", title: "Email Marketing Services | mTouch Labs", description: "Scalable email marketing strategies powered by automation and analytics." },
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }], title: "Email Marketing Services", description: "Intelligent email automation and lifecycle marketing for measurable growth.", url: "https://www.mtouchlabs.com/email-marketing-services", siteName: "mTouch Labs", type: "website" },
+  twitter: { card: "summary_large_image", title: "Email Marketing Services", description: "Scalable email marketing strategies powered by automation and analytics." },
 };
 
 export default function EmailMarketingServices() {

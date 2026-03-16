@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Amazon Web Services Company | mTouch Labs",
+  title: "Amazon Web Services Company",
   description:
     "mTouch Labs is an Amazon Web Services company delivering scalable, resilient, and performance-driven cloud infrastructure solutions.",
   alternates: {
     canonical: "https://www.mtouchlabs.com/amazon-web-services-company",
   },
-  openGraph: {
-    title: "Amazon Web Services Company | mTouch Labs",
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }],
+    title: "Amazon Web Services Company",
     description:
       "Enterprise-grade AWS cloud modernization and infrastructure engineering solutions.",
     url: "https://www.mtouchlabs.com/amazon-web-services-company",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Amazon Web Services Company | mTouch Labs",
+    title: "Amazon Web Services Company",
     description:
       "Scalable AWS infrastructure and cloud transformation services.",
   },

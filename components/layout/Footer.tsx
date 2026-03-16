@@ -219,7 +219,7 @@
 //     </footer>
 //   );
 // }
-import Link from "next/link";
+
 
 export default function Footer() {
   return (
@@ -265,11 +265,11 @@ export default function Footer() {
             <div className="ft-links-col">
               <h4 className="ft-col-heading">COMPANY</h4>
               <ul className="ft-link-list">
-                <li><Link href="/">Home</Link></li>
-                <li><Link href="/services">Services</Link></li>
-                <li><Link href="/about">About Us</Link></li>
-                <li><Link href="/careers">Careers</Link></li>
-                <li><Link href="/contact-us">Contact Us</Link></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/careers">Careers</a></li>
+                <li><a href="/contact-us">Contact Us</a></li>
               </ul>
             </div>
 
@@ -277,12 +277,12 @@ export default function Footer() {
             <div className="ft-links-col">
               <h4 className="ft-col-heading">SERVICES</h4>
               <ul className="ft-link-list">
-                <li><Link href="/custom-software-development-company">Custom Software Development</Link></li>
-                <li><Link href="/devops-services">Cloud &amp; DevOps Solutions</Link></li>
-                <li><Link href="/mobile-app-development-company">Mobile Application Development</Link></li>
-                <li><Link href="/salesforce-consulting-services-company">Salesforce Consulting</Link></li>
-                <li><Link href="/quality-assurance-and-testing-services">Quality Assurance &amp; Testing </Link></li>
-                <li><Link href="/generative-ai-development-company">AI &amp; Data Analytics</Link></li>
+                <li><a href="/custom-software-development-company">Custom Software Development</a></li>
+                <li><a href="/devops-services">Cloud &amp; DevOps Solutions</a></li>
+                <li><a href="/mobile-app-development-company">Mobile Application Development</a></li>
+                <li><a href="/salesforce-consulting-services-company">Salesforce Consulting</a></li>
+                <li><a href="/quality-assurance-and-testing-services">Quality Assurance &amp; Testing</a></li>
+                <li><a href="/generative-ai-development-company">AI &amp; Data Analytics</a></li>
               </ul>
             </div>
 
@@ -329,46 +329,45 @@ export default function Footer() {
             <div className="ft-region">
               <h5 className="ft-region-label"><span className="ft-region-dot" /> INDIA</h5>
               <ul className="ft-region-list">
-                <li><Link href="/software-development-company-hyderabad">Hyderabad</Link></li>
-                <li><Link href="/software-development-company-bangalore">Bangalore</Link></li>
-                <li><Link href="/software-development-company-chennai">Chennai</Link></li>
-                <li><Link href="/software-development-company-coimbatore">Coimbatore</Link></li>
-                <li><Link href="/software-development-company-kochi">Kochi</Link></li>
+                <li><a href="/software-development-company-hyderabad">Hyderabad</a></li>
+                <li><a href="/software-development-company-bangalore">Bangalore</a></li>
+                <li><a href="/software-development-company-chennai">Chennai</a></li>
+                <li><a href="/software-development-company-coimbatore">Coimbatore</a></li>
+                <li><a href="/software-development-company-kochi">Kochi</a></li>
               </ul>
             </div>
             <div className="ft-region">
               <h5 className="ft-region-label"><span className="ft-region-dot" /> AMERICAS</h5>
               <ul className="ft-region-list">
-                <li><Link href="/software-development-company-usa">United States</Link></li>
-                <li><Link href="/software-development-company-canada">Canada</Link></li>
+                <li><a href="/software-development-company-usa">United States</a></li>
+                <li><a href="/software-development-company-canada">Canada</a></li>
               </ul>
             </div>
             <div className="ft-region">
               <h5 className="ft-region-label"><span className="ft-region-dot" /> EUROPE</h5>
               <ul className="ft-region-list">
-                <li><Link href="/software-development-company-united-kingdom">United Kingdom</Link></li>
-                <li><Link href="/software-development-company-germany">Germany</Link></li>
-                <li><Link href="/software-development-company-ireland">Ireland</Link></li>
+                <li><a href="/software-development-company-united-kingdom">United Kingdom</a></li>
+                <li><a href="/software-development-company-germany">Germany</a></li>
+                <li><a href="/software-development-company-ireland">Ireland</a></li>
               </ul>
             </div>
             <div className="ft-region">
               <h5 className="ft-region-label"><span className="ft-region-dot" /> ASIA PACIFIC</h5>
               <ul className="ft-region-list">
-                <li><Link href="/software-development-company-singapore">Singapore</Link></li>
-                <li><Link href="/software-development-company-australia">Australia</Link></li>
-                <li><Link href="/software-development-company-new-zealand">New Zealand</Link></li>
-                <li><Link href="/software-development-company-india">India</Link></li>
-
+                <li><a href="/software-development-company-singapore">Singapore</a></li>
+                <li><a href="/software-development-company-australia">Australia</a></li>
+                <li><a href="/software-development-company-new-zealand">New Zealand</a></li>
+                <li><a href="/software-development-company-india">India</a></li>
               </ul>
             </div>
             <div className="ft-region">
               <h5 className="ft-region-label"><span className="ft-region-dot" /> MIDDLE EAST</h5>
               <ul className="ft-region-list">
-                <li><Link href="/software-development-company-united-arab-emirates">UAE</Link></li>
-                <li><Link href="/software-development-company-dubai">Dubai</Link></li>
-                <li><Link href="/software-development-company-saudi-arabia">Saudi Arabia</Link></li>
-                <li><Link href="/software-development-company-qatar">Qatar</Link></li>
-                <li><Link href="/software-development-company-kuwait">Kuwait</Link></li>
+                <li><a href="/software-development-company-united-arab-emirates">UAE</a></li>
+                <li><a href="/software-development-company-dubai">Dubai</a></li>
+                <li><a href="/software-development-company-saudi-arabia">Saudi Arabia</a></li>
+                <li><a href="/software-development-company-qatar">Qatar</a></li>
+                <li><a href="/software-development-company-kuwait">Kuwait</a></li>
               </ul>
             </div>
           </div>
@@ -376,35 +375,24 @@ export default function Footer() {
       </div>
 
       {/* ── BOTTOM BAR ── */}
-<div className="ft-bottom">
-  <div className="ft-container">
-    <div className="ft-bottom-inner">
-      
-      <p className="ft-copyright">
-        © 2026{" "}
-        <Link href="/" className="company-link">
-          mTouch Labs Pvt. Ltd.
-        </Link>{" "}
-        All rights reserved.
-      </p>
-
-      <div className="ft-legal">
-        <Link href="/privacy-policy" className="legal-link">
-          Privacy Policy
-        </Link>
-
-        <Link href="/terms-and-conditions" className="legal-link">
-          Terms of Service
-        </Link>
-
-        <Link href="/refundpolicy" className="legal-link">
-          Refund Policy
-        </Link>
+      <div className="ft-bottom">
+        <div className="ft-container">
+          <div className="ft-bottom-inner">
+            <p className="ft-copyright">
+              © 2026{" "}
+              <a href="/" className="company-link">
+                mTouch Labs Pvt. Ltd.
+              </a>{" "}
+              All rights reserved.
+            </p>
+            <div className="ft-legal">
+              <a href="/privacy-policy" className="legal-link">Privacy Policy</a>
+              <a href="/terms-and-conditions" className="legal-link">Terms of Service</a>
+              <a href="/refundpolicy" className="legal-link">Refund Policy</a>
+            </div>
+          </div>
+        </div>
       </div>
-
-    </div>
-  </div>
-</div>
     </footer>
   );
 }

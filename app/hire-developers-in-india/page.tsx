@@ -1,23 +1,23 @@
 // import type { Metadata } from "next";
 
 // export const metadata: Metadata = {
-//   title: "Hire Developers in India | mTouch Labs",
+//   title: "Hire Developers in India",
 //   description: "Hire top developers in India for your next project.",
 //   alternates: {
 //     canonical: "https://www.mtouchlabs.com/hire-developers-in-india",
 //   },
 
 //   openGraph: {
-//     title: "Hire Developers in India | mTouch Labs",
+//     title: "Hire Developers in India",
 //     description: "Hire top developers in India for your next project.",
 //     url: "https://www.mtouchlabs.com/hire-developers-in-india",
 //     siteName: "mTouch Labs",
 //     type: "website",
-//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire Developers in India | mTouch Labs" }],
+//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire Developers in India" }],
 //   },
 //   twitter: {
 //     card: "summary_large_image",
-//     title: "Hire Developers in India | mTouch Labs",
+//     title: "Hire Developers in India",
 //     description: "Hire top developers in India for your next project.",
 //     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
 //   },
@@ -211,7 +211,7 @@
 //                 <span className="_faq_chevron" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#08182b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9l6 6 6-6" /></svg></span>
 //               </button>
 //               <div className="_faq_answer">
-//                 <p className="_faq_answer_text">Developers at mTouch Labs specialize in technologies like iOS, Android, Node.js, Angular, web development frameworks, and modern design tools. This wide expertise allows businesses to build scalable web and mobile applications using the latest technologies and trends.</p>
+//                 <p className="_faq_answer_text">Developers specialize in technologies like iOS, Android, Node.js, Angular, web development frameworks, and modern design tools. This wide expertise allows businesses to build scalable web and mobile applications using the latest technologies and trends.</p>
 //               </div>
 //             </div>
 
@@ -295,20 +295,20 @@ import Link from "next/link";
 import FAQSchema from "@/components/seo/FAQSchema";
 
 export const metadata: Metadata = {
-  title: "Hire Dedicated Developers in India | Offshore Development Team | mTouch Labs",
+  title: "Hire Dedicated Developers in India",
   description: "Hire dedicated developers in India from mTouch Labs. Scale your business with experienced mobile, web, enterprise, and AI developers through flexible offshore hiring models.",
   keywords: ["hire developers in India","dedicated developers India","offshore development team India","hire remote developers India","software developers for hire India"],
   alternates: { canonical: "https://www.mtouchlabs.com/hire-developers-in-india" },
   openGraph: {
-    title: "Hire Developers in India - mTouch Labs",
+    title: "Hire Developers in India",
     description: "Scale your projects with skilled Indian developers offering mobile, web, cloud, and AI expertise.",
     url: "https://www.mtouchlabs.com/hire-developers-in-india",
     siteName: "mTouch Labs", type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire Developers in India | mTouch Labs" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire Developers in India" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hire Developers in India - mTouch Labs",
+    title: "Hire Developers in India",
     description: "Scale your projects with skilled Indian developers offering mobile, web, cloud, and AI expertise.",
     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
   },

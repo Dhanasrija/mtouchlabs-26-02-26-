@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Mobile App Design Company | mTouch Labs",
+  title: "Mobile App Design Company",
   description: "mTouch Labs is a mobile app design company delivering intuitive iOS and Android app interfaces focused on usability, engagement, and performance.",
   keywords: ["mobile app design company","mobile UX design","iOS app design","Android app design","mobile UI design","app design services"],
   alternates: { canonical: "https://www.mtouchlabs.com/mobile-app-design-company" },
-  openGraph: { title: "Mobile App Design Company | mTouch Labs", description: "Professional mobile app UI/UX design services for iOS and Android platforms.", url: "https://www.mtouchlabs.com/mobile-app-design-company", siteName: "mTouch Labs", type: "website" },
-  twitter: { card: "summary_large_image", title: "Mobile App Design Company | mTouch Labs", description: "User-focused mobile app design services engineered for performance and engagement." },
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }], title: "Mobile App Design Company", description: "Professional mobile app UI/UX design services for iOS and Android platforms.", url: "https://www.mtouchlabs.com/mobile-app-design-company", siteName: "mTouch Labs", type: "website" },
+  twitter: { card: "summary_large_image", title: "Mobile App Design Company", description: "User-focused mobile app design services engineered for performance and engagement." },
 };
 
 export default function MobileAppDesignCompany() {

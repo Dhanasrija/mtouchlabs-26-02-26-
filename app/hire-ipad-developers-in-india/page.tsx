@@ -1,437 +1,429 @@
-import type { Metadata } from "next";
+// import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Hire iPad Developers in India | mTouch Labs",
-  description: "Hire iPad app developers in India from mTouch Labs for scalable, high-performance, business-ready iPad applications.",
-  alternates: {
-    canonical: "https://www.mtouchlabs.com/hire-ipad-developers-in-india",
-  },
+// export const metadata: Metadata = {
+//   title: "Hire iPad Developers in India",
+//   description: "Hire iPad app developers in India from mTouch Labs for scalable, high-performance, business-ready iPad applications.",
+//   alternates: {
+//     canonical: "https://www.mtouchlabs.com/hire-ipad-developers-in-india",
+//   },
 
-  openGraph: {
-    title: "Hire iPad Developers in India | mTouch Labs",
-    description: "Hire iPad app developers in India from mTouch Labs for scalable, high-performance, business-ready iPad applications.",
-    url: "https://www.mtouchlabs.com/hire-ipad-developers-in-india",
-    siteName: "mTouch Labs",
-    type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire iPad Developers in India | mTouch Labs" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Hire iPad Developers in India | mTouch Labs",
-    description: "Hire iPad app developers in India from mTouch Labs for scalable, high-performance, business-ready iPad applications.",
-    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
-  },
-};
+//   openGraph: {
+//     title: "Hire iPad Developers in India",
+//     description: "Hire iPad app developers in India from mTouch Labs for scalable, high-performance, business-ready iPad applications.",
+//     url: "https://www.mtouchlabs.com/hire-ipad-developers-in-india",
+//     siteName: "mTouch Labs",
+//     type: "website",
+//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire iPad Developers in India" }],
+//   },
+//   twitter: {
+//     card: "summary_large_image",
+//     title: "Hire iPad Developers in India",
+//     description: "Hire iPad app developers in India from mTouch Labs for scalable, high-performance, business-ready iPad applications.",
+//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+//   },
+// };
 
-export default function Page() {
-  return (
-    <>
+// export default function Page() {
+//   return (
+//     <>
 
 	
 	
-	
-	
-
-
 	
 	
 
 
 	
-	<section className="page-heading-sec r-bg-a pt85 pb120">
-		<div className="container">
-			<div className="row pt80 justify-content-center">
-				<div className="col-lg-6">
-					<div className="page-headings">
-						<span className="sub-heading mb15" data-aos="fade-up" data-aos-delay="200">Best iPad App Developers
-							In India</span>
-						<h1 data-aos="fade-up" data-aos-delay="400">Hire Skilled And Professional <span
-								className="ree-text rt45"> iPad</span> Developers In India </h1>
-						<p className="mt20 h-light" data-aos="fade-up" data-aos-delay="400">Hire iPad App Developers and get
-							iPad App Development services made as per your business requirements.</p>
-						<a href="/contact-us" className="ree-btn  ree-btn-grdt1 mt40" data-aos="fade-up"
-							data-aos-delay="800">Let’s discuss <i className="fas fa-arrow-right fa-btn"></i></a>
-					</div>
-				</div>
-				<div className="col-lg-6">
-					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img
-							src="/images/others/Hire-iPad-app-developers-and-get-iPad-app-development-services.svg"
-							alt="mTouch Labs" className="img-fluid" /></div>
-				</div>
-			</div>
-		</div>
-	</section>
+	
+
+
+	
+// 	<section className="page-heading-sec r-bg-a pt85 pb120">
+// 		<div className="container">
+// 			<div className="row pt80 justify-content-center">
+// 				<div className="col-lg-6">
+// 					<div className="page-headings">
+// 						<span className="sub-heading mb15" data-aos="fade-up" data-aos-delay="200">Best iPad App Developers
+// 							In India</span>
+// 						<h1 data-aos="fade-up" data-aos-delay="400">Hire Skilled And Professional <span
+// 								className="ree-text rt45"> iPad</span> Developers In India </h1>
+// 						<p className="mt20 h-light" data-aos="fade-up" data-aos-delay="400">Hire iPad App Developers and get
+// 							iPad App Development services made as per your business requirements.</p>
+// 						<a href="/contact-us" className="ree-btn  ree-btn-grdt1 mt40" data-aos="fade-up"
+// 							data-aos-delay="800">Let’s discuss <i className="fas fa-arrow-right fa-btn"></i></a>
+// 					</div>
+// 				</div>
+// 				<div className="col-lg-6">
+// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img
+// 							src="/images/others/Hire-iPad-app-developers-and-get-iPad-app-development-services.svg"
+// 							alt="mTouch Labs" className="img-fluid" /></div>
+// 				</div>
+// 			</div>
+// 		</div>
+// 	</section>
 	
 
 	
-	<section className="r-bg-x sec-pad">
-		<div className="container">
-			<div className="ree">
-				<div className="row">
+// 	<section className="r-bg-x sec-pad">
+// 		<div className="container">
+// 			<div className="ree">
+// 				<div className="row">
 
-					<div className="col-lg-6 vcenter">
-						<div className="cta-heading-2">
-							<h2 className="mb15">Hire Dedicated <span className="ree-text rt40"> iPad </span> Developers <span
-									className="ree-text rt40"> From mTouch Labs </span> in India</h2>
-							<p>Along with the iPhone, the iPad too has achieved enormous success through high-quality
-								graphics and immense functionalities. mTouchlabs offers an array of iPad developers and
-								iPad programmers who can customize iPad apps to meet business requirements. </p>
+// 					<div className="col-lg-6 vcenter">
+// 						<div className="cta-heading-2">
+// 							<h2 className="mb15">Hire Dedicated <span className="ree-text rt40"> iPad </span> Developers <span
+// 									className="ree-text rt40"> From mTouch Labs </span> in India</h2>
+// 							<p>Along with the iPhone, the iPad too has achieved enormous success through high-quality
+// 								graphics and immense functionalities. mTouchlabs offers an array of iPad developers and
+// 								iPad programmers who can customize iPad apps to meet business requirements. </p>
 							 
-							<p>When you hire <a href="https://mtouchlabs.com/ipad-app-development-company"
-									target="_blank"> iPad developers </a> from mTouchlabs, you can drive efficiency and
-								significance
-								through iPad apps for the new age enterprise. We have a team of dedicated iPad
-								developers for hire to create user-friendly and highly functional next-generation iPad
-								applications. </p>
+// 							<p>When you hire <a href="https://mtouchlabs.com/ipad-app-development-company"
+// 									target="_blank"> iPad developers </a> from mTouchlabs, you can drive efficiency and
+// 								significance
+// 								through iPad apps for the new age enterprise. We have a team of dedicated iPad
+// 								developers for hire to create user-friendly and highly functional next-generation iPad
+// 								applications. </p>
 							 
-							<p> Our iPad programmers provide the adaptable technological expertise required for
-								large-scale and medium-scale iPad development projects. When you hire iPad Programmers
-								from mTouchlabs, you get a dedicated iOS app developer working exclusively on your
-								project. You can control your hired remote iPad application developers, iOS software
-								programmers and assign work/daily tasks, and interact directly with your developers.
-							</p>
-							 
-							
-
+// 							<p> Our iPad programmers provide the adaptable technological expertise required for
+// 								large-scale and medium-scale iPad development projects. When you hire iPad Programmers
+// 								from mTouchlabs, you get a dedicated iOS app developer working exclusively on your
+// 								project. You can control your hired remote iPad application developers, iOS software
+// 								programmers and assign work/daily tasks, and interact directly with your developers.
+// 							</p>
 							 
 							
+
+							 
 							
-						</div>
-					</div>
-					<div className="col-lg-6 vcenter">
-						<div className="ct-sol-img"> <img
-								src="/images/cta/Hire-Dedicated-iPad-Developers-From-mTouchlabs.svg"
-								alt="iPad Developers" className="img-fluid" /> </div>
-					</div>
-				</div>
+							
+// 						</div>
+// 					</div>
+// 					<div className="col-lg-6 vcenter">
+// 						<div className="ct-sol-img"> <img
+// 								src="/images/cta/Hire-Dedicated-iPad-Developers-From-mTouchlabs.svg"
+// 								alt="iPad Developers" className="img-fluid" /> </div>
+// 					</div>
+// 				</div>
 
 				
 
 				 
 
-				<div className="row">
+// 				<div className="row">
 
-					<div className="col-lg-6 vcenter">
-						<div className="ct-sol-img"> <img src="/images/cta/Why-Hire-iPad-App-Developers-from-mTouchlabs.svg"
-								alt="Dedicated iPad Developers" className="img-fluid" /></div>
-					</div>
+// 					<div className="col-lg-6 vcenter">
+// 						<div className="ct-sol-img"> <img src="/images/cta/Why-Hire-iPad-App-Developers-from-mTouchlabs.svg"
+// 								alt="Dedicated iPad Developers" className="img-fluid" /></div>
+// 					</div>
 
-					<div className="col-lg-6 vcenter">
-						<div className="cta-heading-2">
-							<h2 className="mb15">Why Hire <span className="ree-text rt40"> iPad </span> <span
-									className="ree-text rt40"> App Developers from </span> <span className="ree-text rt40">
-									mTouch Labs? </span></h2>
-							<p>We’re the <a
-									href="https://mtouchlabs.com/top-mobile-app-development-companies-in-hyderabad"
-									target="_blank"> top iPad app development company</a> in India delivering more than
-								100 successful
-								projects and end-to-end customer-centric iPad mobile app development services. Our iPad
-								app developers create interactive mobile games and business apps.
-							</p>
+// 					<div className="col-lg-6 vcenter">
+// 						<div className="cta-heading-2">
+// 							<h2 className="mb15">Why Hire <span className="ree-text rt40"> iPad </span> <span
+// 									className="ree-text rt40"> App Developers from </span> <span className="ree-text rt40">
+// 									mTouch Labs? </span></h2>
+// 							<p>We’re the <a
+// 									href="https://mtouchlabs.com/top-mobile-app-development-companies-in-hyderabad"
+// 									target="_blank"> top iPad app development company</a> in India delivering more than
+// 								100 successful
+// 								projects and end-to-end customer-centric iPad mobile app development services. Our iPad
+// 								app developers create interactive mobile games and business apps.
+// 							</p>
 							 
-							<p>Our team of talented, and dedicated iPad app developers provide the iPad app of your
-								dreams. With experience across industries like Education, Finance, Transport, and
-								Pharmaceutical, our iPad designers take care of all your app development needs and
-								deliver high performance.
-							</p>
+// 							<p>Our team of talented, and dedicated iPad app developers provide the iPad app of your
+// 								dreams. With experience across industries like Education, Finance, Transport, and
+// 								Pharmaceutical, our iPad designers take care of all your app development needs and
+// 								deliver high performance.
+// 							</p>
 							 
-							<p> Our iPad designers are specialists in serving iPad applications that are highly
-								functional and robust. Our iPad designers collaborate across all stages of iPad
-								development to accelerate digital transformation and shape business strategies. Hire our
-								iPad app developers to leverage our <a
-									href="https://mtouchlabs.com/navigating-the-world-of-mobile-application-apps"
-									target="_blank"> iPad mobile app development services</a> at an
-								affordable cost.
-							</p>
-							<ul className="ul-list-icon mt30">
-								<li><i className="fas fa-tasks"></i> Controlled Agile</li>
-								<li><i className="fas fa-tachometer-alt"></i> On-Time delivery </li>
-								<li><i className="fas fa-users"></i> Dedicated Team</li>
+// 							<p> Our iPad designers are specialists in serving iPad applications that are highly
+// 								functional and robust. Our iPad designers collaborate across all stages of iPad
+// 								development to accelerate digital transformation and shape business strategies. Hire our
+// 								iPad app developers to leverage our <a
+// 									href="https://mtouchlabs.com/navigating-the-world-of-mobile-application-apps"
+// 									target="_blank"> iPad mobile app development services</a> at an
+// 								affordable cost.
+// 							</p>
+// 							<ul className="ul-list-icon mt30">
+// 								<li><i className="fas fa-tasks"></i> Controlled Agile</li>
+// 								<li><i className="fas fa-tachometer-alt"></i> On-Time delivery </li>
+// 								<li><i className="fas fa-users"></i> Dedicated Team</li>
 								
 
-							</ul>
-						</div>
-					</div>
+// 							</ul>
+// 						</div>
+// 					</div>
 
-				</div>
+// 				</div>
 
 				
-			</div>
-		</div>
-	</section>
+// 			</div>
+// 		</div>
+// 	</section>
 	
 
 
 	
-	<section className="r-bg-a  sec-pad">
-		<div className="container">
-			<div className="row justify-content-center">
-				<div className="col-lg-7 text-center">
-					<div className="page-headings">
-						<h3>Hire our Dedicated iPad App Developers Specialization? </h3>
-						<p className="mt15">Our iPad app developers are experts in developing iPad apps using innovative
-							technologies</p>
+// 	<section className="r-bg-a  sec-pad">
+// 		<div className="container">
+// 			<div className="row justify-content-center">
+// 				<div className="col-lg-7 text-center">
+// 					<div className="page-headings">
+// 						<h3>Hire our Dedicated iPad App Developers Specialization? </h3>
+// 						<p className="mt15">Our iPad app developers are experts in developing iPad apps using innovative
+// 							technologies</p>
 
-					</div>
-				</div>
-			</div>
+// 					</div>
+// 				</div>
+// 			</div>
 
-			<div className="row mt30">
-				<div className="col-lg-4 col-sm-6">
-					<div className="ree-card  mt60">
-						<div className="ree-card-img"><img src="/images/icons/Dedicated-iPad-developers.svg" alt="services" />
-						</div>
-						<div className="ree-card-content mt40">
-							<h3 className="mb15">Dedicated iPad Developers</h3>
-							<p>Our dedicated team of iPad developers will work thoroughly to offer robust and
-								performance-based applications.</p>
-						</div>
-					</div>
-				</div>
-				<div className="col-lg-4 col-sm-6">
-					<div className="ree-card  mt60">
-						<div className="ree-card-img"><img src="/images/icons/Agile-development.svg" alt="services" /> </div>
-						<div className="ree-card-content mt40">
-							<h3 className="mb15">Agile Development</h3>
-							<p>The agile development model helps you hire our iPad developers on budget by managing all
-								your app needs with flexibility.</p>
-						</div>
+// 			<div className="row mt30">
+// 				<div className="col-lg-4 col-sm-6">
+// 					<div className="ree-card  mt60">
+// 						<div className="ree-card-img"><img src="/images/icons/Dedicated-iPad-developers.svg" alt="services" />
+// 						</div>
+// 						<div className="ree-card-content mt40">
+// 							<h3 className="mb15">Dedicated iPad Developers</h3>
+// 							<p>Our dedicated team of iPad developers will work thoroughly to offer robust and
+// 								performance-based applications.</p>
+// 						</div>
+// 					</div>
+// 				</div>
+// 				<div className="col-lg-4 col-sm-6">
+// 					<div className="ree-card  mt60">
+// 						<div className="ree-card-img"><img src="/images/icons/Agile-development.svg" alt="services" /> </div>
+// 						<div className="ree-card-content mt40">
+// 							<h3 className="mb15">Agile Development</h3>
+// 							<p>The agile development model helps you hire our iPad developers on budget by managing all
+// 								your app needs with flexibility.</p>
+// 						</div>
 
-					</div>
-				</div>
-				<div className="col-lg-4 col-sm-6">
-					<div className="ree-card  mt60">
-						<div className="ree-card-img"><img src="/images/icons/Time-&-Material.svg" alt="services" /> </div>
-						<div className="ree-card-content mt40">
-							<h3 className="mb15">Time & Material</h3>
-							<p>Our iOS developers work within time and hours and coordinate with you for better
-								outcomes.</p>
-						</div>
+// 					</div>
+// 				</div>
+// 				<div className="col-lg-4 col-sm-6">
+// 					<div className="ree-card  mt60">
+// 						<div className="ree-card-img"><img src="/images/icons/Time-&-Material.svg" alt="services" /> </div>
+// 						<div className="ree-card-content mt40">
+// 							<h3 className="mb15">Time & Material</h3>
+// 							<p>Our iOS developers work within time and hours and coordinate with you for better
+// 								outcomes.</p>
+// 						</div>
 
-					</div>
-				</div>
-				<div className="col-lg-4 col-sm-6">
-					<div className="ree-card  mt60">
-						<div className="ree-card-img"><img src="/images/icons/Managed-Team.svg" alt="services" /> </div>
-						<div className="ree-card-content mt40">
-							<h3 className="mb15">Managed Team</h3>
-							<p>Our team works with the client's project managers for advanced efficiency,
-								cost-effectiveness, and scalability.</p>
-						</div>
+// 					</div>
+// 				</div>
+// 				<div className="col-lg-4 col-sm-6">
+// 					<div className="ree-card  mt60">
+// 						<div className="ree-card-img"><img src="/images/icons/Managed-Team.svg" alt="services" /> </div>
+// 						<div className="ree-card-content mt40">
+// 							<h3 className="mb15">Managed Team</h3>
+// 							<p>Our team works with the client's project managers for advanced efficiency,
+// 								cost-effectiveness, and scalability.</p>
+// 						</div>
 
-					</div>
-				</div>
-				<div className="col-lg-4 col-sm-6">
-					<div className="ree-card  mt60">
-						<div className="ree-card-img"><img src="/images/icons/iPad-Migration.svg" alt="services" /> </div>
-						<div className="ree-card-content mt40">
-							<h3 className="mb15">iPad Migration</h3>
-							<p>Expert iPad app developers help iPad migration from legacy business applications to iOS.
-							</p>
-						</div>
+// 					</div>
+// 				</div>
+// 				<div className="col-lg-4 col-sm-6">
+// 					<div className="ree-card  mt60">
+// 						<div className="ree-card-img"><img src="/images/icons/iPad-Migration.svg" alt="services" /> </div>
+// 						<div className="ree-card-content mt40">
+// 							<h3 className="mb15">iPad Migration</h3>
+// 							<p>Expert iPad app developers help iPad migration from legacy business applications to iOS.
+// 							</p>
+// 						</div>
 
-					</div>
-				</div>
-				<div className="col-lg-4 col-sm-6">
-					<div className="ree-card  mt60">
-						<div className="ree-card-img"><img src="/images/icons/iPad-Testing-And-Maintenance.svg"
-								alt="services" /> </div>
-						<div className="ree-card-content mt40">
-							<h3 className="mb15">iPad Testing And Maintenance</h3>
-							<p>We check for stability and usability after testing and provide continuous support and
-								maintenance.</p>
-						</div>
+// 					</div>
+// 				</div>
+// 				<div className="col-lg-4 col-sm-6">
+// 					<div className="ree-card  mt60">
+// 						<div className="ree-card-img"><img src="/images/icons/iPad-Testing-And-Maintenance.svg"
+// 								alt="services" /> </div>
+// 						<div className="ree-card-content mt40">
+// 							<h3 className="mb15">iPad Testing And Maintenance</h3>
+// 							<p>We check for stability and usability after testing and provide continuous support and
+// 								maintenance.</p>
+// 						</div>
 
-					</div>
-				</div>
-
-
+// 					</div>
+// 				</div>
 
 
 
 
-			</div>
-		</div>
-	</section>
+
+
+// 			</div>
+// 		</div>
+// 	</section>
 	
 
 
 	
-	<section className="r-bg-x sec-pad">
-		<div className="container">
-			<div className="ree">
-				<div className="row">
-					<div className="col-lg-6 vcenter">
-						<div className="cta-heading">
-							<h3 className="mb15">Hire Our Best <span className="ree-text rt40">iPad </span> <span
-									className="ree-text rt40">Developers</span> & iPad Designers From mTouch Labs for your
-								Project</h3>
-							<p>Our iPad Developers and iPad Designers work together and ensure smooth functionality of
-								the product</p>
-							<div className="mult-btns">
-								<a href="/contact-us" className="ree-btn  ree-btn-grdt1 mt40">Talk to our experts <i
-										className="fas fa-arrow-right fa-btn"></i></a>
-								<span className="or">or</span>
-								<a href="tel:9390683154" className="mt40 call-us">Call Us 9390683154</a>
+// 	<section className="r-bg-x sec-pad">
+// 		<div className="container">
+// 			<div className="ree">
+// 				<div className="row">
+// 					<div className="col-lg-6 vcenter">
+// 						<div className="cta-heading">
+// 							<h3 className="mb15">Hire Our Best <span className="ree-text rt40">iPad </span> <span
+// 									className="ree-text rt40">Developers</span> & iPad Designers From mTouch Labs for your
+// 								Project</h3>
+// 							<p>Our iPad Developers and iPad Designers work together and ensure smooth functionality of
+// 								the product</p>
+// 							<div className="mult-btns">
+// 								<a href="/contact-us" className="ree-btn  ree-btn-grdt1 mt40">Talk to our experts <i
+// 										className="fas fa-arrow-right fa-btn"></i></a>
+// 								<span className="or">or</span>
+// 								<a href="tel:9390683154" className="mt40 call-us">Call Us 9390683154</a>
 
-							</div>
-						</div>
-					</div>
-					<div className="col-lg-6 vcenter text-center">
-						<div className="sol-img-png"> <img
-								src="/images/cta/Hire-Our-Best-iPad-Developers-&-iPad-Designers.svg"
-								alt="hire iPad developers" className="img-fluid" /> </div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+// 							</div>
+// 						</div>
+// 					</div>
+// 					<div className="col-lg-6 vcenter text-center">
+// 						<div className="sol-img-png"> <img
+// 								src="/images/cta/Hire-Our-Best-iPad-Developers-&-iPad-Designers.svg"
+// 								alt="hire iPad developers" className="img-fluid" /> </div>
+// 					</div>
+// 				</div>
+// 			</div>
+// 		</div>
+// 	</section>
 	
 
 
 
 	
-<section className="r-bg-x sec-pad">
-		<div className="container">
-			<div className="row justify-content-center">
-				<div className="col-lg-7 text-center">
-					<div className="page-headings">
-						<h3>Frequently Asked Questions</h3>
+// <section className="r-bg-x sec-pad">
+// 		<div className="container">
+// 			<div className="row justify-content-center">
+// 				<div className="col-lg-7 text-center">
+// 					<div className="page-headings">
+// 						<h3>Frequently Asked Questions</h3>
 						 
-						<div className="accordion">
+// 						<div className="accordion">
 
 							
-							<div className="accordion-item">
-								<button id="accordion-button-1" aria-expanded="false">
-									<span className="accordion-title">What services do your iPad developers offer ?
-</span>
-									<span className="icon" aria-hidden="true"></span>
-								</button>
-								<div className="accordion-content">
-									<p>
-Our iPad developers build custom, high-performance iPad apps tailored to your business requirements.
-									</p>
-								</div>
-							</div>
+// 							<div className="accordion-item">
+// 								<button id="accordion-button-1" aria-expanded="false">
+// 									<span className="accordion-title">What services do your iPad developers offer ?
+// </span>
+// 									<span className="icon" aria-hidden="true"></span>
+// 								</button>
+// 								<div className="accordion-content">
+// 									<p>
+// Our iPad developers build custom, high-performance iPad apps tailored to your business requirements.
+// 									</p>
+// 								</div>
+// 							</div>
 
 							
-							<div className="accordion-item">
-								<button id="accordion-button-2" aria-expanded="false">
-									<span className="accordion-title"> Can I directly communicate with the hired iPad developers ?
-</span>
-									<span className="icon" aria-hidden="true"></span>
-								</button>
-								<div className="accordion-content">
-									<p>
-Yes, you can interact directly and manage the hired iPad developers throughout the project.
+// 							<div className="accordion-item">
+// 								<button id="accordion-button-2" aria-expanded="false">
+// 									<span className="accordion-title"> Can I directly communicate with the hired iPad developers ?
+// </span>
+// 									<span className="icon" aria-hidden="true"></span>
+// 								</button>
+// 								<div className="accordion-content">
+// 									<p>
+// Yes, you can interact directly and manage the hired iPad developers throughout the project.
 
-									</p>
-								</div>
-							</div>
-
-							
-							<div className="accordion-item">
-								<button id="accordion-button-3" aria-expanded="false">
-									<span className="accordion-title">Do you provide iPad app testing and maintenance ?
-</span>
-									<span className="icon" aria-hidden="true"></span>
-								</button>
-								<div className="accordion-content">
-									<p>
-Yes, we conduct thorough testing and offer ongoing maintenance and support.
-									</p>
-								</div>
-							</div>
+// 									</p>
+// 								</div>
+// 							</div>
 
 							
-							<div className="accordion-item">
-								<button id="accordion-button-4" aria-expanded="false">
-									<span className="accordion-title"> Can you develop industry-specific iPad applications ?</span>
-									<span className="icon" aria-hidden="true"></span>
-								</button>
-								<div className="accordion-content">
-									<p>
-Yes, our developers have experience across industries like education, finance, transport, and more.
-
-									</p>
-								</div>
-							</div>
+// 							<div className="accordion-item">
+// 								<button id="accordion-button-3" aria-expanded="false">
+// 									<span className="accordion-title">Do you provide iPad app testing and maintenance ?
+// </span>
+// 									<span className="icon" aria-hidden="true"></span>
+// 								</button>
+// 								<div className="accordion-content">
+// 									<p>
+// Yes, we conduct thorough testing and offer ongoing maintenance and support.
+// 									</p>
+// 								</div>
+// 							</div>
 
 							
-							<div className="accordion-item">
-								<button id="accordion-button-5" aria-expanded="false">
-									<span className="accordion-title">Do you follow flexible engagement models
+// 							<div className="accordion-item">
+// 								<button id="accordion-button-4" aria-expanded="false">
+// 									<span className="accordion-title"> Can you develop industry-specific iPad applications ?</span>
+// 									<span className="icon" aria-hidden="true"></span>
+// 								</button>
+// 								<div className="accordion-content">
+// 									<p>
+// Yes, our developers have experience across industries like education, finance, transport, and more.
 
- ?</span>
-									<span className="icon" aria-hidden="true"></span>
-								</button>
-								<div className="accordion-content">
-									<p>
-Yes, you can hire iPad developers on full-time, part-time, or project-based engagement.
+// 									</p>
+// 								</div>
+// 							</div>
 
-									</p>
-								</div>
-							</div>
-<div className="accordion-item">
-								<button id="accordion-button-5" aria-expanded="false">
-									<span className="accordion-title">Will my iPad app be user-friendly and robust
- ?</span>
-									<span className="icon" aria-hidden="true"></span>
-								</button>
-								<div className="accordion-content">
-									<p>
-Yes, our developers build user-friendly, high-performance, and scalable iPad applications.
+							
+// 							<div className="accordion-item">
+// 								<button id="accordion-button-5" aria-expanded="false">
+// 									<span className="accordion-title">Do you follow flexible engagement models
 
-									</p>
-								</div>
-							</div>
+//  ?</span>
+// 									<span className="icon" aria-hidden="true"></span>
+// 								</button>
+// 								<div className="accordion-content">
+// 									<p>
+// Yes, you can hire iPad developers on full-time, part-time, or project-based engagement.
+
+// 									</p>
+// 								</div>
+// 							</div>
+// <div className="accordion-item">
+// 								<button id="accordion-button-5" aria-expanded="false">
+// 									<span className="accordion-title">Will my iPad app be user-friendly and robust
+//  ?</span>
+// 									<span className="icon" aria-hidden="true"></span>
+// 								</button>
+// 								<div className="accordion-content">
+// 									<p>
+// Yes, our developers build user-friendly, high-performance, and scalable iPad applications.
+
+// 									</p>
+// 								</div>
+// 							</div>
 						
 
-						</div>
-					</div>
-				</div>
+// 						</div>
+// 					</div>
+// 				</div>
 
 
-			</div>
-		</div>
-	</section>
+// 			</div>
+// 		</div>
+// 	</section>
 
 	
-	<section className="sec-pad r-bg-a">
-		<div className="container">
-			<div className="ree">
-				<div className="row">
-					<div className="col-lg-6 vcenter">
-						<div className="cta-heading">
-							<span className="sub-heading mb15">Contact Us</span>
-							<h3>Need any <span className="ree-text rt40">iPad </span> Developers? Let's get to chat.</h3>
-							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
-									className="fas fa-user fb-bigon"></i> Contact </a>
+// 	<section className="sec-pad r-bg-a">
+// 		<div className="container">
+// 			<div className="ree">
+// 				<div className="row">
+// 					<div className="col-lg-6 vcenter">
+// 						<div className="cta-heading">
+// 							<span className="sub-heading mb15">Contact Us</span>
+// 							<h3>Need any <span className="ree-text rt40">iPad </span> Developers? Let's get to chat.</h3>
+// 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
+// 									className="fas fa-user fb-bigon"></i> Contact </a>
 
-							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
-								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
-								Whatsapp </a>
+// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
+// 								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
+// 								Whatsapp </a>
 
-						</div>
-					</div>
-					<div className="col-lg-6 vcenter text-center">
-						<div className="sol-img-png">
-							<img src="/images/cta/let's-get-to-chat-ipad-designers.svg" alt="working with client"
-								className="img-fluid" />
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	
-	
-	
-	
-
-	
-	
-	
+// 						</div>
+// 					</div>
+// 					<div className="col-lg-6 vcenter text-center">
+// 						<div className="sol-img-png">
+// 							<img src="/images/cta/let's-get-to-chat-ipad-designers.svg" alt="working with client"
+// 								className="img-fluid" />
+// 						</div>
+// 					</div>
+// 				</div>
+// 			</div>
+// 		</div>
+// 	</section>
 	
 	
 	
@@ -439,9 +431,197 @@ Yes, our developers build user-friendly, high-performance, and scalable iPad app
 
 	
 	
+	
+	
+	
+	
+	
+
+	
+	
 
 	
 
-    </>
+//     </>
+//   );
+// }
+
+
+
+import type { Metadata } from "next";
+import Link from "next/link";
+import FAQSchema from "@/components/seo/FAQSchema";
+
+export const metadata: Metadata = {
+  title: "Hire iPad Developers in India",
+  description:
+    "Hire iPad developers in India from mTouch Labs to build secure, enterprise-ready, and performance-driven iPad applications tailored to your business.",
+  metadataBase: new URL("https://www.mtouchlabs.com"),
+  alternates: {
+    canonical: "/hire-ipad-developers-in-india",
+  },
+  openGraph: {
+    title: "Hire iPad Developers in India",
+    description:
+      "Build scalable and enterprise-ready iPad applications with expert developers from mTouch Labs.",
+    url: "https://www.mtouchlabs.com/hire-ipad-developers-in-india",
+    siteName: "mTouch Labs",
+    type: "website",
+    images: [
+      {
+        url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png",
+        width: 1200,
+        height: 630,
+        alt: "Hire iPad Developers in India",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hire iPad Developers in India",
+    description:
+      "Hire dedicated iPad developers for secure and scalable enterprise tablet applications.",
+    images: [
+      "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png",
+    ],
+  },
+  robots: { index: true, follow: true },
+};
+
+export default function HireIpadDevelopersInIndia() {
+  return (
+    <div className="hma-page">
+      <section className="hma-hero">
+        <div className="hma-heroOrb hma-heroOrb1" />
+        <div className="hma-heroOrb hma-heroOrb2" />
+        <div className="hma-heroOrb hma-heroOrb3" />
+        <div className="hma-heroInner">
+          <div className="hma-heroContent">
+            <div className="hma-heroBadge">
+              <span className="hma-heroBadgeDot" />
+              IPAD APP DEVELOPMENT · INDIA
+            </div>
+            <h1 className="hma-heroTitle">
+              <span className="hma-hl">Hire iPad Developers in India</span>
+            </h1>
+            <div className="hma-heroCtas">
+              <Link href="/contact-us" className="hma-heroBtnPrimary">Hire Developers →</Link>
+              <Link href="/portfolio" className="hma-heroBtnOutline">View Our Work</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="hma-section hma-introSection">
+        <div className="hma-inner">
+          <div className="hma-introContent">
+            <p className="hma-introDesc">
+              iPad applications require a different level of design precision and workflow thinking compared to standard mobile apps. From enterprise dashboards to productivity tools, tablet-based applications demand enhanced usability, optimized layouts, and high-performance architecture.
+            </p>
+            <p className="hma-introTagline">
+              At mTouch Labs, we provide experienced iPad developers in India who build feature-rich, scalable, and secure applications designed specifically for the iPad ecosystem.
+            </p>
+          </div>
+          <div className="hma-introTrust">
+            <div className="hma-introTrustItem"><div className="hma-introTrustNum">500+</div><div className="hma-introTrustLabel">Apps Delivered</div></div>
+            <div className="hma-introTrustItem"><div className="hma-introTrustNum">1050+</div><div className="hma-introTrustLabel">Clients</div></div>
+            <div className="hma-introTrustItem"><div className="hma-introTrustNum">14+</div><div className="hma-introTrustLabel">Years</div></div>
+            <div className="hma-introTrustItem"><div className="hma-introTrustNum">99%</div><div className="hma-introTrustLabel">Retention</div></div>
+          </div>
+        </div>
+      </section>
+
+      <section className="hma-section hma-whySection">
+        <div className="hma-inner">
+          <div className="hma-header">
+            <h2 className="hma-title">Built for <span className="hma-hlb">Larger Screens &amp; Business Productivity</span></h2>
+            <p className="hma-subtitle">We ensure your iPad app delivers a seamless experience across devices.</p>
+          </div>
+          <div className="hma-whyGrid">
+            <div className="hma-whyCard"><span className="hma-whyEmoji">📐</span><h3 className="hma-whyCardTitle">Optimized Tablet UI/UX</h3><p className="hma-whyCardDesc">Tablet-optimized layouts designed for enhanced usability and productivity.</p></div>
+            <div className="hma-whyCard"><span className="hma-whyEmoji">📱</span><h3 className="hma-whyCardTitle">Split-Screen &amp; Multitasking</h3><p className="hma-whyCardDesc">Multi-window and split-screen features for power-user workflows.</p></div>
+            <div className="hma-whyCard"><span className="hma-whyEmoji">✏️</span><h3 className="hma-whyCardTitle">Apple Pencil Integration</h3><p className="hma-whyCardDesc">Precision input support with Apple Pencil for drawing, annotation, and signatures.</p></div>
+            <div className="hma-whyCard"><span className="hma-whyEmoji">📊</span><h3 className="hma-whyCardTitle">Data Visualization Dashboards</h3><p className="hma-whyCardDesc">Enterprise dashboards with real-time data visualization and analytics.</p></div>
+            <div className="hma-whyCard"><span className="hma-whyEmoji">☁️</span><h3 className="hma-whyCardTitle">Cloud-Based Synchronization</h3><p className="hma-whyCardDesc">Secure cloud sync for real-time data access across devices and teams.</p></div>
+            <div className="hma-whyCard"><span className="hma-whyEmoji">⚡</span><h3 className="hma-whyCardTitle">High-Performance Native Architecture</h3><p className="hma-whyCardDesc">Native iPad architecture optimized for speed and reliability.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section className="hma-section hma-modelsSection">
+        <div className="hma-inner">
+          <div className="hma-header">
+            <h2 className="hma-title">Flexible <span className="hma-hl">Hiring Models</span></h2>
+            <p className="hma-subtitle">Scale your team based on project requirements.</p>
+          </div>
+          <div className="hma-modelsGrid">
+            <div className="hma-modelCard"><span className="hma-modelEmoji">👤</span><h3 className="hma-modelCardTitle">Dedicated Developer Model</h3><p className="hma-modelCardDesc">Full-time iPad developers working exclusively on your tablet project.</p></div>
+            <div className="hma-modelCard"><span className="hma-modelEmoji">📋</span><h3 className="hma-modelCardTitle">Full-Cycle iPad Development</h3><p className="hma-modelCardDesc">End-to-end iPad app development from design to App Store deployment.</p></div>
+            <div className="hma-modelCard"><span className="hma-modelEmoji">🔗</span><h3 className="hma-modelCardTitle">Team Augmentation</h3><p className="hma-modelCardDesc">Extend your team with skilled iPad development engineers.</p></div>
+            <div className="hma-modelCard"><span className="hma-modelEmoji">🌍</span><h3 className="hma-modelCardTitle">Offshore Development Support</h3><p className="hma-modelCardDesc">Build your offshore iPad development team with experienced project leads.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section className="hma-section hma-benefitsSection">
+        <div className="hma-inner">
+          <div className="hma-header">
+            <h2 className="hma-title">iPad Solutions for <span className="hma-hlb">Modern Enterprises</span></h2>
+          </div>
+          <div className="hma-benefitsGrid">
+            <div className="hma-bCard"><span className="hma-bEmoji">👷</span><p className="hma-bText">Field workforce management</p></div>
+            <div className="hma-bCard"><span className="hma-bEmoji">🏥</span><p className="hma-bText">Healthcare systems &amp; medical apps</p></div>
+            <div className="hma-bCard"><span className="hma-bEmoji">📚</span><p className="hma-bText">Education &amp; eLearning platforms</p></div>
+            <div className="hma-bCard"><span className="hma-bEmoji">🛒</span><p className="hma-bText">Retail POS &amp; inventory systems</p></div>
+            <div className="hma-bCard"><span className="hma-bEmoji">📈</span><p className="hma-bText">Sales &amp; CRM dashboards</p></div>
+            <div className="hma-bCard"><span className="hma-bEmoji">🏢</span><p className="hma-bText">Enterprise productivity platforms</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section className="hma-section hma-faqSection">
+        <div className="hma-faqContainer">
+          <h2 className="hma-faqTitle">Frequently Asked Questions</h2>
+          <div className="hma-faqList">
+            <details className="hma-faqItem" open>
+              <summary className="hma-faqQ">What makes iPad app development different from iPhone apps?<span className="hma-faqChev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9l6 6 6-6" /></svg></span></summary>
+              <div className="hma-faqA">iPad apps require tablet-optimized UI design, multitasking features, and larger-screen experience engineering.</div>
+            </details>
+            <details className="hma-faqItem">
+              <summary className="hma-faqQ">Can you build enterprise iPad applications?<span className="hma-faqChev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9l6 6 6-6" /></svg></span></summary>
+              <div className="hma-faqA">Yes. We specialize in secure, scalable enterprise-grade iPad solutions.</div>
+            </details>
+            <details className="hma-faqItem">
+              <summary className="hma-faqQ">Do you support cloud integration?<span className="hma-faqChev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9l6 6 6-6" /></svg></span></summary>
+              <div className="hma-faqA">Absolutely. We integrate iPad apps with secure cloud platforms and backend systems.</div>
+            </details>
+            <details className="hma-faqItem">
+              <summary className="hma-faqQ">Can I hire a dedicated iPad developer?<span className="hma-faqChev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9l6 6 6-6" /></svg></span></summary>
+              <div className="hma-faqA">Yes, we offer flexible dedicated hiring models tailored to your needs.</div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section className="hma-cta">
+        <div className="hma-ctaOrb hma-ctaOrb1" />
+        <div className="hma-ctaOrb hma-ctaOrb2" />
+        <div className="hma-ctaInner">
+          <h2 className="hma-ctaTitle">Start Building Your iPad Application</h2>
+          <p className="hma-ctaDesc">If you&apos;re planning to develop a secure and scalable iPad application, our experienced team is ready to support your vision. Partner with mTouch Labs to build performance-driven tablet solutions.</p>
+          <div className="hma-ctaBtns">
+            <Link href="/contact-us" className="hma-ctaPrimary">Contact Us Today →</Link>
+            <a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer" className="hma-ctaWa">WhatsApp →</a>
+          </div>
+        </div>
+      </section>
+
+      <FAQSchema faqs={[
+        { q: "What makes iPad app development different from iPhone apps?", a: "iPad apps require tablet-optimized UI design, multitasking features, and larger-screen experience engineering." },
+        { q: "Can you build enterprise iPad applications?", a: "Yes. We specialize in secure, scalable enterprise-grade iPad solutions." },
+        { q: "Do you support cloud integration?", a: "Absolutely. We integrate iPad apps with secure cloud platforms and backend systems." },
+        { q: "Can I hire a dedicated iPad developer?", a: "Yes, we offer flexible dedicated hiring models tailored to your needs." },
+      ]} />
+    </div>
   );
 }

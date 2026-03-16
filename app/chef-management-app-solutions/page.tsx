@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Chef Management App Solutions | mTouch Labs",
+  title: "Chef Management App Solutions",
   description:
     "mTouch Labs offers chef management app solutions to streamline kitchen operations, manage chefs, orders, and improve overall kitchen efficiency.",
   keywords:
@@ -13,16 +13,16 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Chef Management App Solutions | mTouch Labs",
+    title: "Chef Management App Solutions",
     description: "mTouch Labs offers chef management app solutions to streamline kitchen operations, manage chefs, orders, and improve overall kitchen efficiency.",
     url: "https://www.mtouchlabs.com/chef-management-app-solutions",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Chef Management App Solutions | mTouch Labs" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Chef Management App Solutions" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Chef Management App Solutions | mTouch Labs",
+    title: "Chef Management App Solutions",
     description: "mTouch Labs offers chef management app solutions to streamline kitchen operations, manage chefs, orders, and improve overall kitchen efficiency.",
     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
   },

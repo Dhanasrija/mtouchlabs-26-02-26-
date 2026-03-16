@@ -1,23 +1,23 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Web and app development for Education Services | mTouch Labs",
+  title: "Education App & Web Development",
   description: "Boost learning with custom web & app development for education—engage students, support educators, and streamline management with digital solutions.",
   alternates: {
     canonical: "https://www.mtouchlabs.com/web-and-app-development-for-education-services",
   },
 
   openGraph: {
-    title: "Web and app development for Education Services | mTouch Labs",
+    title: "Education App & Web Development",
     description: "Boost learning with custom web & app development for education—engage students, support educators, and streamline management with digital solutions.",
     url: "https://www.mtouchlabs.com/web-and-app-development-for-education-services",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Web and app development for Education Services | mTouch Labs" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Education App & Web Development" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Web and app development for Education Services | mTouch Labs",
+    title: "Education App & Web Development",
     description: "Boost learning with custom web & app development for education—engage students, support educators, and streamline management with digital solutions.",
     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
   },

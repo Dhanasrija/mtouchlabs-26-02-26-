@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { createBlog } from '@/lib/blog-actions';
 
 export const metadata: Metadata = {
-  title: 'Create Blog | Admin | mTouch Labs',
+  title: 'Create Blog | Admin',
   robots: 'noindex, nofollow',
 };
 

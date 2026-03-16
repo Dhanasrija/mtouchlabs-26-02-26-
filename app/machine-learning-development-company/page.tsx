@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Machine Learning Development Company | AI & ML Services | mTouch Labs",
+  title: "Machine Learning Development Company",
   description: "mTouch Labs is a leading machine learning development company offering AI, predictive analytics, NLP, and enterprise ML solutions for scalable business growth.",
   keywords: ["machine learning services","machine learning development company","AI and ML solutions","machine learning consulting","enterprise AI solutions","predictive analytics company","ML services India"],
   alternates: { canonical: "https://www.mtouchlabs.com/machine-learning-development-company" },
-  openGraph: { title: "Machine Learning Development Company | mTouch Labs", description: "Enterprise AI and machine learning services including predictive analytics, NLP, and computer vision solutions.", url: "https://www.mtouchlabs.com/machine-learning-development-company", siteName: "mTouch Labs", type: "website" },
-  twitter: { card: "summary_large_image", title: "Machine Learning Development Company | mTouch Labs", description: "Enterprise AI and machine learning services including predictive analytics, NLP, and computer vision solutions." },
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }], title: "Machine Learning Development Company", description: "Enterprise AI and machine learning services including predictive analytics, NLP, and computer vision solutions.", url: "https://www.mtouchlabs.com/machine-learning-development-company", siteName: "mTouch Labs", type: "website" },
+  twitter: { card: "summary_large_image", title: "Machine Learning Development Company", description: "Enterprise AI and machine learning services including predictive analytics, NLP, and computer vision solutions." },
 };
 
 export default function AIMLServices() {

@@ -3,9 +3,9 @@ import Link from "next/link";
 import FAQSchema from "@/components/seo/FAQSchema";
 
 export const metadata: Metadata = {
-  title: "Quality Assurance Quality Engineering & Testing Testing Services | QA Solutions | mTouch Labs",
+  title: "Quality Assurance & Testing Services",
   description:
-    "mTouch Labs provides end-to-end quality engineering and testing services including functional testing, automation testing, performance testing, security testing, and CI/CD quality integration.",
+    "mTouch Labs is a leading machine learning development company offering AI, predictive analytics, NLP, and enterprise ML solutions for business growth.",
   keywords: [
     "quality engineering services",
     "software testing company",
@@ -14,8 +14,8 @@ export const metadata: Metadata = {
     "performance testing company",
     "quality assurance company India",
   ],
-  openGraph: {
-    title: "Quality Assurance Quality Engineering & Testing Testing Services | mTouch Labs",
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }],
+    title: "Quality Assurance & Testing Services",
     description:
       "End-to-end quality engineering and software testing services — from test automation to performance and security testing.",
     url: "https://www.mtouchlabs.com/quality-assurance-and-testing-services",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Quality Assurance Quality Engineering & Testing Testing Services | mTouch Labs",
+    title: "Quality Assurance & Testing Services",
     description:
       "Comprehensive QA and testing services to deliver bug-free, high-performance software products.",
   },

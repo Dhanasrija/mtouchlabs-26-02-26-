@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Best IoT Development Company in India | mTouch Labs",
+  title: "Best IoT Development Company in India",
   description: "mTouch Labs is a leading IoT development company in India delivering secure, scalable, and cloud-integrated IoT solutions for enterprises.",
   keywords: ["IoT development company India","IoT solutions India","IoT application development","industrial IoT services","IoT cloud integration","IoT company India"],
   alternates: { canonical: "https://www.mtouchlabs.com/best-iot-development-company-in-india" },
-  openGraph: { title: "Best IoT Development Company in India | mTouch Labs", description: "Custom IoT development services including device integration, cloud connectivity, and industrial IoT solutions.", url: "https://www.mtouchlabs.com/best-iot-development-company-in-india", siteName: "mTouch Labs", type: "website" },
-  twitter: { card: "summary_large_image", title: "Best IoT Development Company in India | mTouch Labs", description: "Secure and scalable IoT development services tailored for enterprise growth." },
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }], title: "Best IoT Development Company in India", description: "Custom IoT development services including device integration, cloud connectivity, and industrial IoT solutions.", url: "https://www.mtouchlabs.com/best-iot-development-company-in-india", siteName: "mTouch Labs", type: "website" },
+  twitter: { card: "summary_large_image", title: "Best IoT Development Company in India", description: "Secure and scalable IoT development services tailored for enterprise growth." },
 };
 
 export default function IoTDevelopmentIndia() {

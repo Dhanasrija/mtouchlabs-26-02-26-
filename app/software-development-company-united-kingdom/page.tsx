@@ -3,12 +3,12 @@ import Link from "next/link";
 import FAQSchema from "@/components/seo/FAQSchema";
 
 export const metadata: Metadata = {
-  title: "Software Development Company in United Kingdom | mTouch Labs",
-  description: "mTouch Labs is a leading Software Development Company in United Kingdom delivering custom software, enterprise applications, cloud services, and AI solutions.",
+  title: "Software Development Company in UK",
+  description: "Looking for a software development company in the United Kingdom? mTouch Labs delivers custom software, enterprise applications, cloud, and AI solutions.",
   keywords: ["software development company in United Kingdom","custom software development United Kingdom","enterprise software United Kingdom"],
-  openGraph: {
-    title: "Software Development Company in United Kingdom - mTouch Labs",
-    description: "mTouch Labs is a leading Software Development Company in United Kingdom delivering custom software, enterprise applications, cloud services, and AI solutions.",
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }],
+    title: "Software Development Company in UK",
+    description: "mTouch Labs is a leading Software Development Company in UK delivering custom software, enterprise applications, cloud services, and AI solutions.",
     url: "https://www.mtouchlabs.com/software-development-company-united-kingdom",
     type: "website",
   },

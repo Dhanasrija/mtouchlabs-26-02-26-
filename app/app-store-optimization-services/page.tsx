@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "App Store Optimization Services | mTouch Labs",
+  title: "App Store Optimization Services",
   description: "mTouch Labs offers app store optimization services to improve app visibility, increase organic downloads, and strengthen global marketplace rankings.",
   keywords: ["app store optimization services","ASO services","app store optimization company","mobile app ASO","Google Play optimization","Apple App Store optimization"],
   alternates: { canonical: "https://www.mtouchlabs.com/app-store-optimization-services" },
-  openGraph: { title: "App Store Optimization Services | mTouch Labs", description: "Global app store optimization strategies for increased visibility and organic growth.", url: "https://www.mtouchlabs.com/app-store-optimization-services", siteName: "mTouch Labs", type: "website" },
-  twitter: { card: "summary_large_image", title: "App Store Optimization Services | mTouch Labs", description: "Data-driven ASO strategies for scalable mobile app growth." },
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }], title: "App Store Optimization Services", description: "Global app store optimization strategies for increased visibility and organic growth.", url: "https://www.mtouchlabs.com/app-store-optimization-services", siteName: "mTouch Labs", type: "website" },
+  twitter: { card: "summary_large_image", title: "App Store Optimization Services", description: "Data-driven ASO strategies for scalable mobile app growth." },
 };
 
 export default function AppStoreOptimization() {

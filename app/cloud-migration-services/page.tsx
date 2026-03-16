@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Cloud Migration Services | mTouch Labs",
+  title: "Cloud Migration Services",
   description: "mTouch Labs provides secure cloud migration services for enterprise infrastructure, applications, and data modernization.",
   keywords: ["cloud migration services","enterprise cloud migration","application migration","database migration","zero-downtime migration","cloud modernization"],
   alternates: { canonical: "https://www.mtouchlabs.com/cloud-migration-services" },
-  openGraph: { title: "Cloud Migration Services | mTouch Labs", description: "Enterprise cloud migration solutions designed for scalability and zero disruption.", url: "https://www.mtouchlabs.com/cloud-migration-services", siteName: "mTouch Labs", type: "website" },
-  twitter: { card: "summary_large_image", title: "Cloud Migration Services | mTouch Labs", description: "Structured cloud migration for secure and scalable digital transformation." },
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }], title: "Cloud Migration Services", description: "Enterprise cloud migration solutions designed for scalability and zero disruption.", url: "https://www.mtouchlabs.com/cloud-migration-services", siteName: "mTouch Labs", type: "website" },
+  twitter: { card: "summary_large_image", title: "Cloud Migration Services", description: "Structured cloud migration for secure and scalable digital transformation." },
 };
 
 export default function CloudMigrationServices() {

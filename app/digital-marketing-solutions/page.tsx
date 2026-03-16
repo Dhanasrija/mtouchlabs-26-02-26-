@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Digital Marketing Solutions | mTouch Labs",
+  title: "Digital Marketing Solutions",
   description: "mTouch Labs delivers digital marketing solutions including SEO, performance advertising, conversion optimization, and data-driven growth strategies.",
   keywords: ["digital marketing solutions","digital marketing services","SEO services","performance marketing","digital growth strategy","marketing analytics"],
   alternates: { canonical: "https://www.mtouchlabs.com/digital-marketing-solutions" },
-  openGraph: { title: "Digital Marketing Solutions | mTouch Labs", description: "Integrated performance marketing and growth strategies powered by analytics and technology.", url: "https://www.mtouchlabs.com/digital-marketing-solutions", siteName: "mTouch Labs", type: "website" },
-  twitter: { card: "summary_large_image", title: "Digital Marketing Solutions | mTouch Labs", description: "Performance-focused digital growth and marketing services." },
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }], title: "Digital Marketing Solutions", description: "Integrated performance marketing and growth strategies powered by analytics and technology.", url: "https://www.mtouchlabs.com/digital-marketing-solutions", siteName: "mTouch Labs", type: "website" },
+  twitter: { card: "summary_large_image", title: "Digital Marketing Solutions", description: "Performance-focused digital growth and marketing services." },
 };
 
 export default function DigitalMarketingSolutions() {

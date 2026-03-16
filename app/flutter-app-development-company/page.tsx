@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Flutter App Development Company | mTouch Labs",
+  title: "Flutter App Development Company",
   description:
     "mTouch Labs is a Flutter app development company delivering scalable cross-platform mobile apps for iOS and Android using a unified codebase.",
   keywords: [
@@ -15,8 +15,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.mtouchlabs.com/flutter-app-development-company",
   },
-  openGraph: {
-    title: "Flutter App Development Company | mTouch Labs",
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }],
+    title: "Flutter App Development Company",
     description: "Professional Flutter app development services for cross-platform mobile solutions.",
     url: "https://www.mtouchlabs.com/flutter-app-development-company",
     siteName: "mTouch Labs",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Flutter App Development Company | mTouch Labs",
+    title: "Flutter App Development Company",
     description: "Custom cross-platform mobile app development powered by Flutter.",
   },
 };

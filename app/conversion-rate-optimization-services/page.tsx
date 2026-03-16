@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Conversion Rate Optimization Services | mTouch Labs",
+  title: "Conversion Rate Optimization Services",
   description: "mTouch Labs provides conversion rate optimization services to improve website performance, increase revenue, and maximize marketing ROI.",
   keywords: ["conversion rate optimization services","CRO services","website optimization","A/B testing services","conversion optimization company","landing page optimization"],
   alternates: { canonical: "https://www.mtouchlabs.com/conversion-rate-optimization-services" },
-  openGraph: { title: "Conversion Rate Optimization Services | mTouch Labs", description: "Data-driven CRO strategies focused on measurable revenue growth.", url: "https://www.mtouchlabs.com/conversion-rate-optimization-services", siteName: "mTouch Labs", type: "website" },
-  twitter: { card: "summary_large_image", title: "Conversion Rate Optimization Services | mTouch Labs", description: "Performance-focused website conversion optimization services." },
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }], title: "Conversion Rate Optimization Services", description: "Data-driven CRO strategies focused on measurable revenue growth.", url: "https://www.mtouchlabs.com/conversion-rate-optimization-services", siteName: "mTouch Labs", type: "website" },
+  twitter: { card: "summary_large_image", title: "Conversion Rate Optimization Services", description: "Performance-focused website conversion optimization services." },
 };
 
 export default function ConversionRateOptimization() {

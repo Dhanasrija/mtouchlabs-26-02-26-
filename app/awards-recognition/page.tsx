@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Awards & Recognition | Award-Winning Software Development Company | mTouch Labs",
+  title: "Awards-Winning Software Development Company",
   description:
-    "Discover the awards and recognition earned by mTouch Labs for excellence in custom software development, mobile apps, enterprise solutions, and cloud services.",
+    "Discover the awards and recognition earned by mTouch Labs for excellence in custom software, mobile apps, enterprise solutions, and cloud services.",
   keywords: [
     "award winning software development company",
     "mTouch Labs awards",
@@ -12,8 +12,8 @@ export const metadata: Metadata = {
     "enterprise application development experts",
     "global software development company",
   ],
-  openGraph: {
-    title: "Awards & Recognition - mTouch Labs",
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }],
+    title: "Awards & Recognition",
     description:
       "Recognized globally for innovation in enterprise software, mobile app development, and cloud solutions.",
     url: "https://www.mtouchlabs.com/awards-recognition",

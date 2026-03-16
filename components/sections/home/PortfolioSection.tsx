@@ -33,7 +33,7 @@ const portfolioItems = [
     href: "/staff-and-student-management-enterprise-mobile-app-development",
     img: "/images/portfolio/InstiServe.jpg",
     tags: "UX, UI, Android and iOS",
-    title: "Instiserve :- Staff And Student Management App",
+    title: "Instiserv :- Staff And Student Management App",
   },
   {
     href: "/online-astrology-consultation-mobile-app-development",

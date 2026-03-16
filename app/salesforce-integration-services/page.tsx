@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Salesforce Integration Services | mTouch Labs",
+  title: "Salesforce Integration Services",
   description: "Salesforce integration services including ERP, marketing automation, API development, and secure system connectivity.",
   keywords: ["Salesforce integration services","Salesforce API integration","Salesforce ERP integration","CRM integration services","Salesforce middleware development","Salesforce integration company India"],
   alternates: { canonical: "https://www.mtouchlabs.com/salesforce-integration-services" },
-  openGraph: { title: "Salesforce Integration Services | mTouch Labs", description: "Connect Salesforce with ERP, marketing platforms, and enterprise systems for seamless automation.", url: "https://www.mtouchlabs.com/salesforce-integration-services", siteName: "mTouch Labs", type: "website" },
-  twitter: { card: "summary_large_image", title: "Salesforce Integration Services | mTouch Labs", description: "Connect Salesforce with ERP, marketing platforms, and enterprise systems." },
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }], title: "Salesforce Integration Services", description: "Connect Salesforce with ERP, marketing platforms, and enterprise systems for seamless automation.", url: "https://www.mtouchlabs.com/salesforce-integration-services", siteName: "mTouch Labs", type: "website" },
+  twitter: { card: "summary_large_image", title: "Salesforce Integration Services", description: "Connect Salesforce with ERP, marketing platforms, and enterprise systems." },
 };
 
 export default function SalesforceIntegration() {

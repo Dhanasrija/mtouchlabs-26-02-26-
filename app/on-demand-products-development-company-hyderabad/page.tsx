@@ -1,24 +1,24 @@
 // import type { Metadata } from 'next';
 
 // export const metadata: Metadata = {
-//   title: 'On-Demand Product Development Company in Hyderabad | mTouch Labs',
+//   title: 'On-Demand Product Development Company in Hyderabad',
 //   description: 'mTouch Labs is an on-demand product development company in Hyderabad offering end-to-end product design, prototyping, and launch services to bring your ideas to market.',
 //   keywords: 'on-demand product development, product prototyping, product design, MVP development, mobile app development, IoT product development',
 //   alternates: { canonical: 'https://www.mtouchlabs.com/on-demand-products-development-company-hyderabad' },
 
 //   openGraph: {
-//     title: "On-Demand Product Development Company in Hyderabad | mTouch Labs",
+//     title: "On-Demand Product Development Company in Hyderabad",
 //     description: "mTouch Labs is an on-demand product development company in Hyderabad offering end-to-end product design, prototyping, and launch services to bring your ideas to market.",
 //     url: "https://www.mtouchlabs.com/on-demand-products-development-company-hyderabad",
 //     siteName: "mTouch Labs",
 //     type: "website",
-//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "On-Demand Product Development Company in Hyderabad | mTouch Labs" }],
+//     images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "On-Demand Product Development Company in Hyderabad" }],
 //   },
 //   twitter: {
 //     card: "summary_large_image",
-//     title: "On-Demand Product Development Company in Hyderabad | mTouch Labs",
+//     title: "On-Demand Product Development Company in Hyderabad",
 //     description: "mTouch Labs is an on-demand product development company in Hyderabad offering end-to-end product design, prototyping, and launch services to bring your ideas to market.",
-//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+//     images: ["/images/Light.png"],
 //   },
 // };
 
@@ -628,12 +628,12 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "On-Demand Products Development Company in Hyderabad | mTouch Labs",
-  description: "Looking for an On-Demand Products Development Company in Hyderabad? mTouch Labs builds scalable, secure, and high-performance on-demand mobile and web applications for startups and enterprises.",
+  title: "On-Demand Products Development",
+  description: "Looking for an on-demand products development company in Hyderabad? mTouch Labs builds scalable, secure mobile and web applications for businesses.",
   keywords: ["on-demand products development company in Hyderabad","on-demand app development company Hyderabad","custom on-demand application development","marketplace app development Hyderabad","on-demand software development company"],
   alternates: { canonical: "https://www.mtouchlabs.com/on-demand-products-development-company-hyderabad" },
-  openGraph: { title: "On-Demand Products Development Company in Hyderabad | mTouch Labs", description: "We build scalable on-demand apps including food delivery, logistics, healthcare, and marketplace platforms.", url: "https://www.mtouchlabs.com/on-demand-products-development-company-hyderabad", siteName: "mTouch Labs", type: "website", images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "On-Demand Product Development" }] },
-  twitter: { card: "summary_large_image", title: "On-Demand Products Development Company in Hyderabad | mTouch Labs", description: "mTouch Labs builds scalable on-demand mobile and web applications.", images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"] },
+  openGraph: { title: "On-Demand Products Development", description: "We build scalable on-demand apps including food delivery, logistics, healthcare, and marketplace platforms.", url: "https://www.mtouchlabs.com/on-demand-products-development-company-hyderabad", siteName: "mTouch Labs", type: "website", images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "On-Demand Product Development" }] },
+  twitter: { card: "summary_large_image", title: "On-Demand Products Development", description: "mTouch Labs builds scalable on-demand mobile and web applications.", images: ["/images/Light.png"] },
 };
 
 export default function OnDemandProductsPage() {
@@ -669,7 +669,7 @@ export default function OnDemandProductsPage() {
           <span className="odm-hero__badge odm-anim-fade">Hyderabad&apos;s Leading Partner</span>
 <h1 className="odm-hero__title odm-anim-slide">
   On-Demand Product <span className="odm-accent-glow">Development Company</span> in Hyderabad
-</h1>          <p className="odm-hero__sub odm-anim-slide odm-anim-delay-1">mTouch Labs is a leading On-Demand Products Development Company in Hyderabad, specializing in building scalable, secure, and high-performance on-demand applications for startups, enterprises, and growing businesses.</p>
+</h1>          <p className="odm-hero__sub odm-anim-slide odm-anim-delay-1">mTouch Labs is a leading On-Demand Products Development, specializing in building scalable, secure, and high-performance on-demand applications for startups, enterprises, and growing businesses.</p>
           <div className="odm-hero__btns odm-anim-slide odm-anim-delay-2">
             <a href="/contact-us" className="odm-btn odm-btn--primary odm-btn--glow">Get Started <i className="fas fa-arrow-right"></i></a>
             <a href="/mobile-app-development-company" className="odm-btn odm-btn--ghost">Mobile App Services</a>

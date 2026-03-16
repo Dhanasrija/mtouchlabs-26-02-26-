@@ -25,13 +25,13 @@ export default function TrustedPartnersSection() {
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/aduri.png" alt="aduri" /></div>
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/govt.png" alt="golkonda" /></div>
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/kezad-logo.png" alt="kezad" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/paygenpro.png" alt="paygenpro" /></div>
+              {/* <div className="Homenew-logo-grid-item"><img src="/images/home/tech/paygenpro.png" alt="paygenpro" /></div> */}
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/payville.png" alt="payville" /></div>
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/kohere.png" alt="kohere" /></div>
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/onlyshops.png" alt="onlyshops" /></div>
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/olt.png" alt="olt" /></div>
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/fleuncyo.png" alt="fleuncyo" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/zuppibuy.png" alt="zuppibuy" /></div>
+              {/* <div className="Homenew-logo-grid-item"><img src="/images/home/tech/zuppibuy.png" alt="zuppibuy" /></div> */}
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/paygen.png" alt="paygen" /></div>
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/voosh.png" alt="voosh" /></div>
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/omvideos.png" alt="omvideos" /></div>
@@ -46,13 +46,13 @@ export default function TrustedPartnersSection() {
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/aduri.png" alt="aduri" /></div>
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/govt.png" alt="golkonda" /></div>
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/kezad-logo.png" alt="kezad" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/paygenpro.png" alt="paygenpro" /></div>
+              {/* <div className="Homenew-logo-grid-item"><img src="/images/home/tech/paygenpro.png" alt="paygenpro" /></div> */}
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/payville.png" alt="payville" /></div>
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/kohere.png" alt="kohere" /></div>
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/onlyshops.png" alt="onlyshops" /></div>
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/olt.png" alt="olt" /></div>
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/fleuncyo.png" alt="fleuncyo" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/zuppibuy.png" alt="zuppibuy" /></div>
+              {/* <div className="Homenew-logo-grid-item"><img src="/images/home/tech/zuppibuy.png" alt="zuppibuy" /></div> */}
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/paygen.png" alt="paygen" /></div>
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/voosh.png" alt="voosh" /></div>
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/omvideos.png" alt="omvideos" /></div>
@@ -69,15 +69,15 @@ export default function TrustedPartnersSection() {
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/drpicklogo.png" alt="dr pick" /></div>
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/classy.png" alt="classy" /></div>
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/onus.png" alt="onus" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/hitech.svg" alt="hitech" /></div>
+              {/* <div className="Homenew-logo-grid-item"><img src="/images/home/tech/hitech.svg" alt="hitech" /></div> */}
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/zefsci.png" alt="zefsci" /></div>
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/medbuz.png" alt="medbuz" /></div>
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/veteach.png" alt="veteach" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/tanyya.png" alt="tanyya" /></div>
+              {/* <div className="Homenew-logo-grid-item"><img src="/images/home/tech/tanyya.png" alt="tanyya" /></div> */}
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/heyman.png" alt="heyman" /></div>
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/badham.png" alt="badham" /></div>
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/v.png" alt="v" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/tej.png" alt="tej" /></div>
+              {/* <div className="Homenew-logo-grid-item"><img src="/images/home/tech/tej.png" alt="tej" /></div> */}
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/adify.png" alt="adify" /></div>
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/clikget.png" alt="clikget" /></div>
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/countryclub.png" alt="countryclub" /></div>
@@ -91,15 +91,15 @@ export default function TrustedPartnersSection() {
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/drpicklogo.png" alt="dr pick" /></div>
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/classy.png" alt="classy" /></div>
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/onus.png" alt="onus" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/hitech.svg" alt="hitech" /></div>
+              {/* <div className="Homenew-logo-grid-item"><img src="/images/home/tech/hitech.svg" alt="hitech" /></div> */}
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/zefsci.png" alt="zefsci" /></div>
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/medbuz.png" alt="medbuz" /></div>
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/veteach.png" alt="veteach" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/tanyya.png" alt="tanyya" /></div>
+              {/* <div className="Homenew-logo-grid-item"><img src="/images/home/tech/tanyya.png" alt="tanyya" /></div> */}
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/heyman.png" alt="heyman" /></div>
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/badham.png" alt="badham" /></div>
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/v.png" alt="v" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/tej.png" alt="tej" /></div>
+              {/* <div className="Homenew-logo-grid-item"><img src="/images/home/tech/tej.png" alt="tej" /></div> */}
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/adify.png" alt="adify" /></div>
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/clikget.png" alt="clikget" /></div>
               <div className="Homenew-logo-grid-item"><img src="/images/home/tech/countryclub.png" alt="countryclub" /></div>

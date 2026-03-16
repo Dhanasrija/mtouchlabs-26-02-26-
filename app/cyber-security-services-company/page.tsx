@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Cyber Security Services Company | mTouch Labs",
-  description: "mTouch Labs provides enterprise cyber security services including secure application development, cloud security, penetration testing, and compliance solutions.",
+  title: "Cyber Security Services Company",
+  description: "Protect your business with mTouch Labs, a cyber security services company offering cloud security, penetration testing, and compliance solutions.",
   keywords: ["cyber security services","cyber security company","application security services","cloud security solutions","DevSecOps services","enterprise cyber security","cyber security company India"],
   alternates: { canonical: "https://www.mtouchlabs.com/cyber-security-services-company" },
-  openGraph: { title: "Cyber Security Services Company | mTouch Labs", description: "Enterprise cyber security solutions including DevSecOps, cloud security, penetration testing, and compliance.", url: "https://www.mtouchlabs.com/cyber-security-services-company", siteName: "mTouch Labs", type: "website" },
-  twitter: { card: "summary_large_image", title: "Cyber Security Services Company | mTouch Labs", description: "Enterprise cyber security solutions including DevSecOps, cloud security, penetration testing, and compliance." },
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }], title: "Cyber Security Services Company", description: "Enterprise cyber security solutions including DevSecOps, cloud security, penetration testing, and compliance.", url: "https://www.mtouchlabs.com/cyber-security-services-company", siteName: "mTouch Labs", type: "website" },
+  twitter: { card: "summary_large_image", title: "Cyber Security Services Company", description: "Enterprise cyber security solutions including DevSecOps, cloud security, penetration testing, and compliance." },
 };
 
 export default function CyberSecurityServices() {

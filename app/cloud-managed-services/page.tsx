@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Cloud Managed Services | mTouch Labs",
+  title: "Cloud Managed Services",
   description: "mTouch Labs provides cloud managed services including 24/7 monitoring, performance optimization, security governance, and infrastructure management.",
   keywords: ["cloud managed services","cloud infrastructure management","24/7 cloud monitoring","cloud performance optimization","managed cloud support","enterprise cloud management"],
   alternates: { canonical: "https://www.mtouchlabs.com/cloud-managed-services" },
-  openGraph: { title: "Cloud Managed Services | mTouch Labs", description: "Proactive enterprise cloud infrastructure management and monitoring services.", url: "https://www.mtouchlabs.com/cloud-managed-services", siteName: "mTouch Labs", type: "website" },
-  twitter: { card: "summary_large_image", title: "Cloud Managed Services | mTouch Labs", description: "Continuous cloud monitoring, governance, and optimization solutions." },
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }], title: "Cloud Managed Services", description: "Proactive enterprise cloud infrastructure management and monitoring services.", url: "https://www.mtouchlabs.com/cloud-managed-services", siteName: "mTouch Labs", type: "website" },
+  twitter: { card: "summary_large_image", title: "Cloud Managed Services", description: "Continuous cloud monitoring, governance, and optimization solutions." },
 };
 
 export default function CloudManagedServices() {

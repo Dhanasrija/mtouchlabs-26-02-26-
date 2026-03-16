@@ -1,23 +1,23 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Top Wordpress Website Development Company in India",
+  title: "WordPress Development Company India",
   description: "We are the Top wordpress development company in India, offering the Top customized and rich experience wordpress web development services.",
   alternates: {
     canonical: "https://www.mtouchlabs.com/wordpress-development-company",
   },
 
   openGraph: {
-    title: "Top Wordpress Website Development Company in India",
+    title: "WordPress Development Company India",
     description: "We are the Top wordpress development company in India, offering the Top customized and rich experience wordpress web development services.",
     url: "https://www.mtouchlabs.com/wordpress-development-company",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Top Wordpress Website Development Company in India" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "WordPress Development Company India" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Top Wordpress Website Development Company in India",
+    title: "WordPress Development Company India",
     description: "We are the Top wordpress development company in India, offering the Top customized and rich experience wordpress web development services.",
     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
   },

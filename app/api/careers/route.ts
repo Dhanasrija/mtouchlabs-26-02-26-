@@ -8,17 +8,35 @@ function getRecipients(): string[] {
   return (process.env.NOTIFICATION_EMAILS || '').split(',').map(e => e.trim()).filter(Boolean);
 }
 
+async function verifyTurnstile(token: string): Promise<boolean> {
+  try {
+    const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        secret: process.env.TURNSTILE_SECRET_KEY,
+        response: token,
+      }),
+    });
+    const data = await res.json();
+    return data.success === true;
+  } catch (err) {
+    console.error('Turnstile verification error:', err);
+    return false;
+  }
+}
+
 export async function POST(req: Request) {
   try {
     let name = '', email = '', countryCode = '91', mobile = '', role = '', message = '';
     let resumeFilename = '';
+    let turnstileToken = '';
     const attachments: { filename: string; content: Buffer }[] = [];
 
     // Detect content type — handle both JSON and FormData
     const contentType = req.headers.get('content-type') || '';
 
     if (contentType.includes('application/json')) {
-      // JSON submission
       const data = await req.json();
       name = data.name || '';
       email = data.email || '';
@@ -26,8 +44,8 @@ export async function POST(req: Request) {
       mobile = data.mobile || '';
       role = data.role || '';
       message = data.message || '';
+      turnstileToken = data['cf-turnstile-response'] || '';
     } else {
-      // FormData submission (with file upload)
       const formData = await req.formData();
       name = (formData.get('name') as string) || '';
       email = (formData.get('email') as string) || '';
@@ -35,6 +53,7 @@ export async function POST(req: Request) {
       mobile = (formData.get('mobile') as string) || '';
       role = (formData.get('role') as string) || '';
       message = (formData.get('message') as string) || '';
+      turnstileToken = (formData.get('cf-turnstile-response') as string) || '';
 
       const resumeFile = formData.get('resume') as File | null;
       if (resumeFile && resumeFile.size > 0) {
@@ -46,6 +65,18 @@ export async function POST(req: Request) {
         });
       }
     }
+
+    // Verify Turnstile captcha
+    if (!turnstileToken) {
+      return NextResponse.json({ error: 'Captcha token missing' }, { status: 400 });
+    }
+    const captchaValid = await verifyTurnstile(turnstileToken);
+    if (!captchaValid) {
+      return NextResponse.json({ error: 'Captcha verification failed' }, { status: 403 });
+    }
+
+    // Clean country code for display (e.g. "1_CA" → "1")
+    const displayCountryCode = countryCode.replace(/_[A-Z]+$/, '');
 
     if (!name || !email) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
@@ -74,7 +105,7 @@ export async function POST(req: Request) {
     <table style="width:100%;border-collapse:collapse;">
       <tr><td style="padding:14px 16px;font-size:13px;font-weight:600;color:#6b7280;text-transform:uppercase;width:130px;border-bottom:1px solid #f3f4f6;">Candidate</td><td style="padding:14px 16px;font-size:15px;color:#1a1a2e;border-bottom:1px solid #f3f4f6;">${name}</td></tr>
       <tr><td style="padding:14px 16px;font-size:13px;font-weight:600;color:#6b7280;text-transform:uppercase;width:130px;border-bottom:1px solid #f3f4f6;">Email</td><td style="padding:14px 16px;border-bottom:1px solid #f3f4f6;"><a href="mailto:${email}" style="color:#7c3aed;">${email}</a></td></tr>
-      <tr><td style="padding:14px 16px;font-size:13px;font-weight:600;color:#6b7280;text-transform:uppercase;width:130px;border-bottom:1px solid #f3f4f6;">Phone</td><td style="padding:14px 16px;font-size:15px;color:#1a1a2e;border-bottom:1px solid #f3f4f6;">+${countryCode} ${mobile}</td></tr>
+      <tr><td style="padding:14px 16px;font-size:13px;font-weight:600;color:#6b7280;text-transform:uppercase;width:130px;border-bottom:1px solid #f3f4f6;">Phone</td><td style="padding:14px 16px;font-size:15px;color:#1a1a2e;border-bottom:1px solid #f3f4f6;">+${displayCountryCode} ${mobile}</td></tr>
       <tr><td style="padding:14px 16px;font-size:13px;font-weight:600;color:#6b7280;text-transform:uppercase;width:130px;border-bottom:1px solid #f3f4f6;">Role</td><td style="padding:14px 16px;border-bottom:1px solid #f3f4f6;"><span style="background:#f3e8ff;color:#7c3aed;padding:4px 12px;border-radius:12px;font-size:13px;">${role || '—'}</span></td></tr>
       <tr><td style="padding:14px 16px;font-size:13px;font-weight:600;color:#6b7280;text-transform:uppercase;width:130px;border-bottom:1px solid #f3f4f6;">Resume</td><td style="padding:14px 16px;font-size:14px;border-bottom:1px solid #f3f4f6;">${resumeFilename ? '📎 ' + resumeFilename + ' (attached)' : '<span style="color:#d1d5db">Not uploaded</span>'}</td></tr>
       <tr><td style="padding:14px 16px;font-size:13px;font-weight:600;color:#6b7280;text-transform:uppercase;width:130px;">Message</td><td style="padding:14px 16px;font-size:14px;color:#374151;line-height:1.7;">${message || '—'}</td></tr>

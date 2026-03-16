@@ -3,9 +3,9 @@ import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Our Journey | Global Software Development & AI Solutions Company | mTouch Labs",
+  title: "Global Software & AI Solutions",
   description:
-    "Founded in 2012, mTouch Labs evolved from a mobile app development startup into a global software development and AI solutions company delivering enterprise applications, cloud services, and digital transformation worldwide.",
+    "Founded in 2012, mTouch Labs is a global software development and AI solutions company delivering enterprise applications and cloud services.",
   keywords: [
     "mTouch Labs journey",
     "global software development company",
@@ -14,8 +14,8 @@ export const metadata: Metadata = {
     "cloud services provider",
     "digital transformation partner",
   ],
-  openGraph: {
-    title: "Our Journey - mTouch Labs",
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }],
+    title: "Our Journey",
     description:
       "Discover how mTouch Labs grew from a mobile-first startup into a global enterprise software and AI solutions provider.",
     url: "https://www.mtouchlabs.com/our-journey",

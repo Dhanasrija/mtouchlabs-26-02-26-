@@ -10,21 +10,21 @@ import { logoutUser } from '@/lib/user-actions';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Edit Project | Admin | mTouch Labs',
+  title: 'Edit Project | Admin',
   robots: 'noindex, nofollow',
 
   openGraph: {
-    title: "Edit Project | Admin | mTouch Labs",
-    description: "Edit Project | Admin | mTouch Labs",
+    title: "Edit Project | Admin",
+    description: "Edit Project | Admin",
     url: "https://www.mtouchlabs.com/admin/portfolios/[id]/edit",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Edit Project | Admin | mTouch Labs" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Edit Project | Admin" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Edit Project | Admin | mTouch Labs",
-    description: "Edit Project | Admin | mTouch Labs",
+    title: "Edit Project | Admin",
+    description: "Edit Project | Admin",
     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
   },
 };

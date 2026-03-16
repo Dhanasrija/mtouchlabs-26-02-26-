@@ -3,14 +3,14 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "About Us | mTouch Labs – Leading Software Development Company in India",
+  title: "About Us | Leading Software Company",
   description:
-    "mTouch Labs is a top-rated software development company in India with 14+ years of experience delivering mobile apps, web platforms, and enterprise solutions across 12+ countries.",
+    "mTouch Labs is a top-rated software development company in India with 14+ years of experience delivering mobile, web, and enterprise solutions globally.",
   keywords:
     "about mTouch Labs, software development company India, mobile app development company, web development company Hyderabad, IT company India",
   alternates: { canonical: "https://www.mtouchlabs.com/about" },
   openGraph: {
-    title: "About Us | mTouch Labs",
+    title: "About Us",
     description:
       "14+ years of delivering world-class mobile apps, web platforms, and enterprise solutions across 12+ countries.",
     url: "https://www.mtouchlabs.com/about",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "About Us | mTouch Labs – Leading Software Development Company in India",
+    title: "About Us – Leading Software Company",
     description: "mTouch Labs is a top-rated software development company in India with 14+ years of experience delivering mobile apps, web platforms, and enterprise solutions across 12+ countries.",
     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
   },

@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Custom Software Development Company | mTouch Labs",
+  title: "Custom Software Development Company",
   description: "mTouch Labs is a custom software development company delivering secure, scalable, and cloud-native software solutions tailored to business needs.",
   keywords: ["custom software development company","bespoke software development services","enterprise software solutions","custom application development","SaaS product development company"],
   alternates: { canonical: "https://www.mtouchlabs.com/custom-software-development-company" },
-  openGraph: { title: "Custom Software Development Company | mTouch Labs", description: "Secure and scalable custom software solutions designed for enterprises and growth-focused businesses.", url: "https://www.mtouchlabs.com/custom-software-development-company", siteName: "mTouch Labs", type: "website" },
-  twitter: { card: "summary_large_image", title: "Custom Software Development Company | mTouch Labs", description: "Tailored custom software solutions built for scalability, automation, and long-term business growth." },
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }], title: "Custom Software Development Company", description: "Secure and scalable custom software solutions designed for enterprises and growth-focused businesses.", url: "https://www.mtouchlabs.com/custom-software-development-company", siteName: "mTouch Labs", type: "website" },
+  twitter: { card: "summary_large_image", title: "Custom Software Development Company", description: "Tailored custom software solutions built for scalability, automation, and long-term business growth." },
 };
 
 export default function CustomSoftwareDevelopment() {

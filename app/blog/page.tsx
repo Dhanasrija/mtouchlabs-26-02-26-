@@ -1,23 +1,23 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Blog - Insights & Ideas | mTouch Labs",
+  title: "Blog - Insights & Ideas",
   description: "Explore articles and trends shaping the future of technology, design, and innovation.",
   alternates: {
     canonical: "https://www.mtouchlabs.com/blog",
   },
 
   openGraph: {
-    title: "Blog - Insights & Ideas | mTouch Labs",
+    title: "Blog - Insights & Ideas",
     description: "Explore articles and trends shaping the future of technology, design, and innovation.",
     url: "https://www.mtouchlabs.com/blog",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Blog - Insights & Ideas | mTouch Labs" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Blog - Insights & Ideas" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blog - Insights & Ideas | mTouch Labs",
+    title: "Blog - Insights & Ideas",
     description: "Explore articles and trends shaping the future of technology, design, and innovation.",
     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
   },
@@ -410,11 +410,11 @@ export default function BlogPage() {
             <div className="ree-media-crd">
               <div className="rpl-img">
                 <span className="blog-category-tag">AI &amp; Automation</span>
-                <a href="/ai-role-in-business-automation"><img src="/images/blogs/ai-in-business.png" alt="AI for Business Automation - mTouch Labs" className="fill-fixed" /></a>
+                <a href="/ai-role-in-business-automation"><img src="/images/blogs/ai-in-business.png" alt="AI for Business Automation" className="fill-fixed" /></a>
               </div>
               <div className="rpl-contt">
                 
-                <h4><a href="/ai-role-in-business-automation">AI for Business Automation - mTouch Labs</a></h4>
+                <h4><a href="/ai-role-in-business-automation">AI for Business Automation</a></h4>
                 <p className="blog-description">Discover how AI can transform your business operations with intelligent automation solutions from mTouch Labs...</p>
                 <a href="/ai-role-in-business-automation" className="blog-read-more">Read More <i className="fas fa-arrow-right"></i></a>
               </div>

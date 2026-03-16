@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Web Development Company | Custom Website & Web Application Experts | mTouch Labs",
+  title: "Custom Web Development Company",
   description:
-    "mTouch Labs is a professional web development company delivering custom websites, web applications, and scalable enterprise web solutions optimized for performance and growth.",
+    "mTouch Labs is a professional web development company delivering custom websites, web applications, and scalable enterprise web solutions.",
   keywords: [
     "web development company",
     "custom web development company",
@@ -16,8 +16,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.mtouchlabs.com/web-development-company",
   },
-  openGraph: {
-    title: "Web Development Company | mTouch Labs",
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }],
+    title: "Web Development Company",
     description:
       "Custom website and enterprise web application development services designed for scalability and performance.",
     url: "https://www.mtouchlabs.com/web-development-company",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Web Development Company | mTouch Labs",
+    title: "Web Development Company",
     description:
       "Professional web development services including custom websites and enterprise web applications.",
   },

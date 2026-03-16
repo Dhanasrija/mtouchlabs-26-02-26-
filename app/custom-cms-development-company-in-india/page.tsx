@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Custom CMS Development Company in India | mTouch Labs",
+  title: "Custom CMS Development Company in India",
   description:
     "mTouch Labs is a custom CMS development company in India delivering secure, scalable, and business-driven content management solutions.",
   keywords: [
@@ -16,8 +16,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.mtouchlabs.com/custom-cms-development-company-in-india",
   },
-  openGraph: {
-    title: "Custom CMS Development Company in India | mTouch Labs",
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }],
+    title: "Custom CMS Development Company in India",
     description: "Enterprise-grade custom CMS solutions designed for scalability and performance.",
     url: "https://www.mtouchlabs.com/custom-cms-development-company-in-india",
     siteName: "mTouch Labs",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Custom CMS Development Company in India | mTouch Labs",
+    title: "Custom CMS Development Company in India",
     description: "Professional custom CMS development services built for secure and scalable content management.",
   },
 };

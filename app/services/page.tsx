@@ -1,7 +1,7 @@
 // import type { Metadata } from "next";
 
 // export const metadata: Metadata = {
-//   title: "Software Development Services | mTouch Labs",
+//   title: "Software Development Services",
 //   description:
 //     "mTouch Labs delivers end-to-end software development services including web application development, mobile app development, custom software engineering, SaaS platforms, Salesforce consulting, and cloud & DevOps solutions.",
 //   keywords: [
@@ -17,7 +17,7 @@
 //     canonical: "https://www.mtouchlabs.com/services",
 //   },
 //   openGraph: {
-//     title: "Software Development Services | mTouch Labs",
+//     title: "Software Development Services",
 //     description:
 //       "Comprehensive software development services including web, mobile, SaaS, enterprise, Salesforce, and cloud solutions.",
 //     url: "https://www.mtouchlabs.com/services",
@@ -26,7 +26,7 @@
 //   },
 //   twitter: {
 //     card: "summary_large_image",
-//     title: "Software Development Services | mTouch Labs",
+//     title: "Software Development Services",
 //     description:
 //       "End-to-end software development services for startups and enterprises worldwide.",
 //   },
@@ -69,7 +69,7 @@
 //   { q: "What software development services does mTouch Labs offer?", a: "We provide web application development, mobile app development, custom software engineering, SaaS development, Salesforce consulting, and cloud & DevOps services for startups and enterprises worldwide." },
 //   { q: "Do you provide both web and mobile application development?", a: "Yes. We develop scalable web applications and high-performance mobile apps using modern frameworks and cloud-native infrastructure for both iOS and Android." },
 //   { q: "Does mTouch Labs provide custom software solutions?", a: "Absolutely. We deliver tailored custom software designed around your specific business needs, internal workflows, enterprise requirements, and long-term growth plans." },
-//   { q: "What is the development process at mTouch Labs?", a: "Our development process includes requirement analysis, strategy planning, UI/UX design, agile development, quality assurance, deployment, and ongoing support & maintenance." },
+//   { q: "What is the development process?", a: "Our development process includes requirement analysis, strategy planning, UI/UX design, agile development, quality assurance, deployment, and ongoing support & maintenance." },
 //   { q: "Do you work with international clients?", a: "Yes. We serve startups and enterprises across North America, Europe, the Middle East, and APAC with dedicated development teams and 24/7 support." },
 // ];
 
@@ -347,9 +347,9 @@ import Link from "next/link";
 import FAQSchema from "@/components/seo/FAQSchema";
 
 export const metadata: Metadata = {
-  title: "Software Development Services | mTouch Labs",
+  title: "Software Development Services",
   description:
-    "mTouch Labs delivers end-to-end software development services including web application development, mobile app development, custom software engineering, SaaS platforms, Salesforce consulting, and cloud & DevOps solutions.",
+    "mTouch Labs delivers end-to-end software development services including web and mobile app development, SaaS platforms, Salesforce, and cloud solutions.",
   keywords: [
     "Software Development Services",
     "Web Application Development Services",
@@ -360,20 +360,21 @@ export const metadata: Metadata = {
     "Cloud & DevOps Services",
   ],
   alternates: { canonical: "https://www.mtouchlabs.com/services" },
-  openGraph: {
-    title: "Software Development Services | mTouch Labs",
+ openGraph: {
+    title: "Software Development Services",
     description: "Comprehensive software development services including web, mobile, SaaS, enterprise, Salesforce, and cloud solutions.",
     url: "https://www.mtouchlabs.com/services",
     siteName: "mTouch Labs",
     type: "website",
+    images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs Services" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Software Development Services | mTouch Labs",
+    title: "Software Development Services",
     description: "End-to-end software development services for startups and enterprises worldwide.",
+    images: ["/images/Light.png"],
   },
 };
-
 const designServices = [
   { icon: "icon1.png", title: "Website Design", text: "Modern, user-friendly websites with seamless functionality and responsive layouts." },
   { icon: "icon2.png", title: "Mobile App Design", text: "Designing intuitive, high-performance mobile app interfaces for iOS and Android." },
@@ -418,7 +419,7 @@ const faqs = [
   { q: "What software development services does mTouch Labs offer?", a: "We provide web application development, mobile app development, custom software engineering, SaaS development, Salesforce consulting, and cloud & DevOps services for startups and enterprises worldwide." },
   { q: "Do you provide both web and mobile application development?", a: "Yes. We develop scalable web applications and high-performance mobile apps using modern frameworks and cloud-native infrastructure for both iOS and Android." },
   { q: "Does mTouch Labs provide custom software solutions?", a: "Absolutely. We deliver tailored custom software designed around your specific business needs, internal workflows, enterprise requirements, and long-term growth plans." },
-  { q: "What is the development process at mTouch Labs?", a: "Our development process includes requirement analysis, strategy planning, UI/UX design, agile development, quality assurance, deployment, and ongoing support & maintenance." },
+  { q: "What is the development process?", a: "Our development process includes requirement analysis, strategy planning, UI/UX design, agile development, quality assurance, deployment, and ongoing support & maintenance." },
   { q: "Do you work with international clients?", a: "Yes. We serve startups and enterprises across North America, Europe, the Middle East, and APAC with dedicated development teams and 24/7 support." },
 ];
 

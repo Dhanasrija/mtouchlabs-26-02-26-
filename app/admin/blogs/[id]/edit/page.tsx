@@ -8,21 +8,21 @@ import { updateBlog } from '@/lib/blog-actions';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-    title: 'Edit Blog | Admin | mTouch Labs',
+    title: 'Edit Blog | Admin',
     robots: 'noindex, nofollow',
 
   openGraph: {
-    title: "Edit Blog | Admin | mTouch Labs",
-    description: "Edit Blog | Admin | mTouch Labs",
+    title: "Edit Blog | Admin",
+    description: "Edit Blog | Admin",
     url: "https://www.mtouchlabs.com/admin/blogs/[id]/edit",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Edit Blog | Admin | mTouch Labs" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Edit Blog | Admin" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Edit Blog | Admin | mTouch Labs",
-    description: "Edit Blog | Admin | mTouch Labs",
+    title: "Edit Blog | Admin",
+    description: "Edit Blog | Admin",
     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
   },
 };

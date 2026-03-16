@@ -62,6 +62,8 @@ const nextConfig = {
       // DATA SCIENCE REDIRECT
       // ===========================
       { source: "/empowering-businesses-with-data-science", destination: "/data-science-solutions", permanent: true },
+    { source: "/company-overview", destination: "/it-services-digital-transformation-company", permanent: true },
+
     ];
   },
 };

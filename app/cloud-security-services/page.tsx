@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Cloud Security Services | mTouch Labs",
+  title: "Cloud Security Services",
   description: "mTouch Labs provides cloud security services including risk assessment, compliance management, encryption, and enterprise cloud protection solutions.",
   keywords: ["cloud security services","cloud security consulting","enterprise cloud protection","IAM implementation","cloud compliance services","cloud threat monitoring"],
   alternates: { canonical: "https://www.mtouchlabs.com/cloud-security-services" },
-  openGraph: { title: "Cloud Security Services | mTouch Labs", description: "Advanced cloud security solutions for enterprise infrastructure protection.", url: "https://www.mtouchlabs.com/cloud-security-services", siteName: "mTouch Labs", type: "website" },
-  twitter: { card: "summary_large_image", title: "Cloud Security Services | mTouch Labs", description: "Secure and compliant cloud environments with structured governance." },
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }], title: "Cloud Security Services", description: "Advanced cloud security solutions for enterprise infrastructure protection.", url: "https://www.mtouchlabs.com/cloud-security-services", siteName: "mTouch Labs", type: "website" },
+  twitter: { card: "summary_large_image", title: "Cloud Security Services", description: "Secure and compliant cloud environments with structured governance." },
 };
 
 export default function CloudSecurityServices() {

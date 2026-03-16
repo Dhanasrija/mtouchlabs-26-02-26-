@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Social Media App Development Company in Hyderabad | mTouch Labs",
+  title: "Social Media App Development",
   description:
     "mTouch Labs is a leading social media app development company specializing in custom social networking apps with real-time chat, video streaming, AI content recommendations, and scalable cloud hosting solutions.",
   keywords:
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     canonical: "https://www.mtouchlabs.com/social-media-app-development-company",
   },
   openGraph: {
-    title: "Social Media App Development Company in Hyderabad | mTouch Labs",
+    title: "Social Media App Development",
     description:
       "mTouch Labs builds custom social media apps with real-time messaging, AI-powered feeds, live streaming, and scalable cloud infrastructure for communities, influencers, and enterprises.",
     url: "https://www.mtouchlabs.com/social-media-app-development-company",
@@ -23,13 +23,13 @@ export const metadata: Metadata = {
         url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png",
         width: 1200,
         height: 630,
-        alt: "Social Media App Development Company | mTouch Labs",
+        alt: "Social Media App Development Company",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Social Media App Development Company in Hyderabad | mTouch Labs",
+    title: "Social Media App Development",
     description:
       "Build custom social media apps with real-time messaging, AI recommendations, and scalable infrastructure. mTouch Labs delivers end-to-end social networking solutions.",
     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],

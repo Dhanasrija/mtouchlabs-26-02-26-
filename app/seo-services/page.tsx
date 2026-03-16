@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "SEO Services | mTouch Labs",
+  title: "Trusted SEO Services Company",
   description: "mTouch Labs provides SEO services including technical optimization, content strategy, and authority building for sustainable organic growth.",
   keywords: ["SEO services","search engine optimization","technical SEO","enterprise SEO","content SEO strategy","SEO company"],
   alternates: { canonical: "https://www.mtouchlabs.com/seo-services" },
-  openGraph: { title: "SEO Services | mTouch Labs", description: "Enterprise-grade search engine optimization for measurable organic growth.", url: "https://www.mtouchlabs.com/seo-services", siteName: "mTouch Labs", type: "website" },
-  twitter: { card: "summary_large_image", title: "SEO Services | mTouch Labs", description: "Data-driven SEO strategies for long-term visibility and ranking success." },
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }], title: "SEO Services", description: "Enterprise-grade search engine optimization for measurable organic growth.", url: "https://www.mtouchlabs.com/seo-services", siteName: "mTouch Labs", type: "website" },
+  twitter: { card: "summary_large_image", title: "SEO Services", description: "Data-driven SEO strategies for long-term visibility and ranking success." },
 };
 
 export default function SEOServices() {

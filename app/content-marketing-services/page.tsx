@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Content Marketing Services | mTouch Labs",
+  title: "Content Marketing Services",
   description: "mTouch Labs provides content marketing services including SEO-driven content strategy, B2B content development, and conversion-focused messaging.",
   keywords: ["content marketing services","content strategy","B2B content marketing","SEO content","content marketing company","content development services"],
   alternates: { canonical: "https://www.mtouchlabs.com/content-marketing-services" },
-  openGraph: { title: "Content Marketing Services | mTouch Labs", description: "Strategic content marketing designed to build authority and drive measurable growth.", url: "https://www.mtouchlabs.com/content-marketing-services", siteName: "mTouch Labs", type: "website" },
-  twitter: { card: "summary_large_image", title: "Content Marketing Services | mTouch Labs", description: "SEO-focused content strategies for global business growth." },
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }], title: "Content Marketing Services", description: "Strategic content marketing designed to build authority and drive measurable growth.", url: "https://www.mtouchlabs.com/content-marketing-services", siteName: "mTouch Labs", type: "website" },
+  twitter: { card: "summary_large_image", title: "Content Marketing Services", description: "SEO-focused content strategies for global business growth." },
 };
 
 export default function ContentMarketingServices() {

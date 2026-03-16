@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Data Science Solutions | mTouch Labs",
+  title: "Data Science Solutions",
   description: "mTouch Labs delivers data science solutions including predictive analytics, business intelligence, and scalable data engineering services.",
   keywords: ["data science solutions","predictive analytics","business intelligence","data engineering services","statistical modeling","data-driven decision making"],
   alternates: { canonical: "https://www.mtouchlabs.com/data-science-solutions" },
-  openGraph: { title: "Data Science Solutions | mTouch Labs", description: "Advanced data analytics and predictive modeling solutions for enterprise decision intelligence.", url: "https://www.mtouchlabs.com/data-science-solutions", siteName: "mTouch Labs", type: "website" },
-  twitter: { card: "summary_large_image", title: "Data Science Solutions | mTouch Labs", description: "Enterprise data analytics, forecasting, and intelligence solutions." },
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }], title: "Data Science Solutions", description: "Advanced data analytics and predictive modeling solutions for enterprise decision intelligence.", url: "https://www.mtouchlabs.com/data-science-solutions", siteName: "mTouch Labs", type: "website" },
+  twitter: { card: "summary_large_image", title: "Data Science Solutions", description: "Enterprise data analytics, forecasting, and intelligence solutions." },
 };
 
 export default function DataScienceSolutions() {

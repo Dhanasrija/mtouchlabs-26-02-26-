@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "UX Research Services | mTouch Labs",
+  title: "UX Research Services",
   description: "mTouch Labs provides UX research services including usability testing, user behavior analysis, and experience validation for data-driven decisions.",
   keywords: ["UX research services","usability testing","user behavior analysis","user experience research","UX audit services","UX research company"],
   alternates: { canonical: "https://www.mtouchlabs.com/ux-research-services" },
-  openGraph: { title: "UX Research Services | mTouch Labs", description: "Professional user experience research for usability validation and data-driven product strategy.", url: "https://www.mtouchlabs.com/ux-research-services", siteName: "mTouch Labs", type: "website" },
-  twitter: { card: "summary_large_image", title: "UX Research Services | mTouch Labs", description: "Evidence-driven UX research and usability testing services." },
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }], title: "UX Research Services", description: "Professional user experience research for usability validation and data-driven product strategy.", url: "https://www.mtouchlabs.com/ux-research-services", siteName: "mTouch Labs", type: "website" },
+  twitter: { card: "summary_large_image", title: "UX Research Services", description: "Evidence-driven UX research and usability testing services." },
 };
 
 export default function UXResearchServices() {

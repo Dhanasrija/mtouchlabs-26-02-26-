@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Social Media Marketing Services | mTouch Labs",
+  title: "Social Media Marketing Services",
   description: "mTouch Labs provides social media marketing services including strategy, paid social advertising, and engagement-driven brand growth.",
   keywords: ["social media marketing services","social media management","paid social advertising","social media strategy","brand growth","social media company"],
   alternates: { canonical: "https://www.mtouchlabs.com/social-media-marketing-services" },
-  openGraph: { title: "Social Media Marketing Services | mTouch Labs", description: "Strategic social media marketing and paid advertising for measurable brand growth.", url: "https://www.mtouchlabs.com/social-media-marketing-services", siteName: "mTouch Labs", type: "website" },
-  twitter: { card: "summary_large_image", title: "Social Media Marketing Services | mTouch Labs", description: "Performance-focused global social media marketing strategies." },
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }], title: "Social Media Marketing Services", description: "Strategic social media marketing and paid advertising for measurable brand growth.", url: "https://www.mtouchlabs.com/social-media-marketing-services", siteName: "mTouch Labs", type: "website" },
+  twitter: { card: "summary_large_image", title: "Social Media Marketing Services", description: "Performance-focused global social media marketing strategies." },
 };
 
 export default function SocialMediaMarketing() {

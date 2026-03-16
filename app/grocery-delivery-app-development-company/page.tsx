@@ -2,23 +2,23 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Grocery Delivery App Development Company in Hyderabad | mTouch Labs",
-  description: "mTouch Labs is a leading grocery delivery app development company in Hyderabad, offering custom mobile and web solutions for single-store and multi-vendor grocery platforms to scale your business efficiently.",
+  title: "Grocery Delivery App Development in Hyderabad",
+  description: "mTouch Labs is a leading grocery delivery app development company in Hyderabad offering custom mobile and web solutions for scalable grocery platforms.",
   alternates: {
     canonical: "https://www.mtouchlabs.com/grocery-delivery-app-development-company",
   },
 
   openGraph: {
-    title: "Grocery Delivery App Development Company in Hyderabad | mTouch Labs",
+    title: "Grocery Delivery App Development",
     description: "mTouch Labs is a leading grocery delivery app development company in Hyderabad, offering custom mobile and web solutions for single-store and multi-vendor grocery platforms to scale your business efficiently.",
     url: "https://www.mtouchlabs.com/grocery-delivery-app-development-company",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Grocery Delivery App Development Company in Hyderabad | mTouch Labs" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Grocery Delivery App Development" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Grocery Delivery App Development Company in Hyderabad | mTouch Labs",
+    title: "Grocery Delivery App Development",
     description: "mTouch Labs is a leading grocery delivery app development company in Hyderabad, offering custom mobile and web solutions for single-store and multi-vendor grocery platforms to scale your business efficiently.",
     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
   },
@@ -43,7 +43,7 @@ export default function Page() {
             <span className="grocery-heading">App Development</span>
          </h1>
          <Link href="https://youtu.be/OG7xN9zS0nQ" target="_blank" rel="noopener noreferrer">
-            <button className="grocery-delivery-button" style={{ position: "relative", zIndex: 10 }}>View Demo</button>
+            <button className="grocery-delivery-button" >View Demo</button>
          </Link>
       </div>
    </section>

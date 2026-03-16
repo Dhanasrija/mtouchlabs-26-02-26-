@@ -2,7 +2,7 @@
 // import Breadcrumb from "@/components/Breadcrumb";
 
 // export const metadata: Metadata = {
-//   title: "App Maintenance & Support Services | mTouch Labs",
+//   title: "App Maintenance & Support Services",
 //   description:
 //     "mTouch Labs provides reliable app maintenance and support services including bug fixes, performance optimization, security updates, and SLA-based application support.",
 //   keywords: [
@@ -17,8 +17,8 @@
 //   alternates: {
 //     canonical: "https://www.mtouchlabs.com/app-maintenance-support-services",
 //   },
-//   openGraph: {
-//     title: "App Maintenance & Support Services | mTouch Labs",
+//   openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }],
+//     title: "App Maintenance & Support Services",
 //     description:
 //       "Secure and scalable application maintenance services for mobile and web apps.",
 //     url: "https://www.mtouchlabs.com/app-maintenance-support-services",
@@ -27,7 +27,7 @@
 //   },
 //   twitter: {
 //     card: "summary_large_image",
-//     title: "App Maintenance & Support Services | mTouch Labs",
+//     title: "App Maintenance & Support Services",
 //     description:
 //       "Secure and scalable application maintenance services for mobile and web apps.",
 //   },
@@ -425,9 +425,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "App Maintenance & Support Services | mTouch Labs",
+  title: "App Maintenance & Support Services",
   description:
-    "mTouch Labs provides reliable app maintenance and support services including bug fixes, performance optimization, security updates, and SLA-based application support.",
+    "Ensure app stability with maintenance and support services from mTouch Labs, including bug fixes, performance optimization, and security updates.",
   keywords: [
     "app maintenance services",
     "application support services",
@@ -441,8 +441,8 @@ export const metadata: Metadata = {
     canonical:
       "https://www.mtouchlabs.com/app-maintenance-support-services",
   },
-  openGraph: {
-    title: "App Maintenance & Support Services | mTouch Labs",
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }],
+    title: "App Maintenance & Support Services",
     description:
       "Secure and scalable application maintenance services for mobile and web apps.",
     url: "https://www.mtouchlabs.com/app-maintenance-support-services",
@@ -451,7 +451,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "App Maintenance & Support Services | mTouch Labs",
+    title: "App Maintenance & Support Services",
     description:
       "Secure and scalable application maintenance services for mobile and web apps.",
   },

@@ -3,11 +3,11 @@ import Link from "next/link";
 import FAQSchema from "@/components/seo/FAQSchema";
 
 export const metadata: Metadata = {
-  title: "Software Development Company in Chennai | mTouch Labs",
+  title: "Software Development Company in Chennai",
   description: "mTouch Labs is a leading Software Development Company in Chennai delivering custom software, enterprise applications, cloud services, and AI solutions.",
   keywords: ["software development company in Chennai","custom software development Chennai","enterprise software Chennai"],
-  openGraph: {
-    title: "Software Development Company in Chennai - mTouch Labs",
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }],
+    title: "Software Development Company in Chennai",
     description: "mTouch Labs is a leading Software Development Company in Chennai delivering custom software, enterprise applications, cloud services, and AI solutions.",
     url: "https://www.mtouchlabs.com/software-development-company-chennai",
     type: "website",

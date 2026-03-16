@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Android App Development Company | mTouch Labs",
+  title: "Android App Development Company",
   description:
     "mTouch Labs is an Android app development company delivering secure, scalable native mobile apps built with Kotlin and optimized for performance.",
   keywords: [
@@ -15,8 +15,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.mtouchlabs.com/android-app-development-company",
   },
-  openGraph: {
-    title: "Android App Development Company | mTouch Labs",
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }],
+    title: "Android App Development Company",
     description: "Professional native Android app development services for scalable and high-performance mobile solutions.",
     url: "https://www.mtouchlabs.com/android-app-development-company",
     siteName: "mTouch Labs",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Android App Development Company | mTouch Labs",
+    title: "Android App Development Company",
     description: "Custom Android app development services engineered for growth and reliability.",
   },
 };

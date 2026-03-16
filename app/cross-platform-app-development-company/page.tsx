@@ -2,7 +2,7 @@
 // import Breadcrumb from "@/components/Breadcrumb";
 
 // export const metadata: Metadata = {
-//   title: "Cross Platform App Development Company | mTouch Labs",
+//   title: "Cross Platform App Development Company",
 //   description:
 //     "mTouch Labs is a leading cross platform app development company offering Flutter, React Native, and hybrid mobile app solutions for scalable business growth.",
 //   keywords: [
@@ -17,8 +17,8 @@
 //   alternates: {
 //     canonical: "https://www.mtouchlabs.com/cross-platform-app-development-company",
 //   },
-//   openGraph: {
-//     title: "Cross Platform App Development Company | mTouch Labs",
+//   openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }],
+//     title: "Cross Platform App Development Company",
 //     description:
 //       "Scalable Flutter and React Native app development services for startups and enterprises.",
 //     url: "https://www.mtouchlabs.com/cross-platform-app-development-company",
@@ -27,7 +27,7 @@
 //   },
 //   twitter: {
 //     card: "summary_large_image",
-//     title: "Cross Platform App Development Company | mTouch Labs",
+//     title: "Cross Platform App Development Company",
 //     description:
 //       "Scalable Flutter and React Native app development services for startups and enterprises.",
 //   },
@@ -435,9 +435,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Cross Platform App Development Company | mTouch Labs",
+  title: "Cross Platform App Development Company",
   description:
-    "mTouch Labs is a leading cross platform app development company offering Flutter, React Native, and hybrid mobile app solutions for scalable business growth.",
+    "mTouch Labs is a cross platform app development company offering Flutter, React Native, and hybrid mobile solutions for scalable growth.",
   keywords: [
     "cross platform app development",
     "cross platform mobile app development company",
@@ -451,8 +451,8 @@ export const metadata: Metadata = {
     canonical:
       "https://www.mtouchlabs.com/cross-platform-app-development-company",
   },
-  openGraph: {
-    title: "Cross Platform App Development Company | mTouch Labs",
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }],
+    title: "Cross Platform App Development Company",
     description:
       "Scalable Flutter and React Native app development services for startups and enterprises.",
     url: "https://www.mtouchlabs.com/cross-platform-app-development-company",
@@ -461,7 +461,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cross Platform App Development Company | mTouch Labs",
+    title: "Cross Platform App Development Company",
     description:
       "Scalable Flutter and React Native app development services for startups and enterprises.",
   },

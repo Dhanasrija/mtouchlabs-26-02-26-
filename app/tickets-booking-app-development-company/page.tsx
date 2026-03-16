@@ -1,23 +1,23 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Tickets Booking App Development Company | mTouch Labs",
+  title: "Tickets Booking App Development Company",
   description: "mTouch Labs delivers end-to-end ticket booking app, combining intuitive design with scalable technology for event, travel, and entertainment platforms.",
   alternates: {
     canonical: "https://www.mtouchlabs.com/tickets-booking-app-development-company",
   },
 
   openGraph: {
-    title: "Tickets Booking App Development Company | mTouch Labs",
+    title: "Tickets Booking App Development Company",
     description: "mTouch Labs delivers end-to-end ticket booking app, combining intuitive design with scalable technology for event, travel, and entertainment platforms.",
     url: "https://www.mtouchlabs.com/tickets-booking-app-development-company",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Tickets Booking App Development Company | mTouch Labs" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Tickets Booking App Development Company" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tickets Booking App Development Company | mTouch Labs",
+    title: "Tickets Booking App Development Company",
     description: "mTouch Labs delivers end-to-end ticket booking app, combining intuitive design with scalable technology for event, travel, and entertainment platforms.",
     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
   },
@@ -40,7 +40,7 @@ export default function Page() {
                   <span className="ticket-development-heading">Development for Web & Mobile</span>
                </h1>
                <a href="https://www.youtube.com/watch?v=jy_PrGTVv1I" target="_blank"
-                  style={{position: "relative", zIndex: 9}}><button className="ticket-delivery-button">View Demo</button></a></div>
+                  ><button className="ticket-delivery-button">View Demo</button></a></div>
          </section>
 
          

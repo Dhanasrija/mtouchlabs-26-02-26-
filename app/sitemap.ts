@@ -31,6 +31,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/awards-recognition',
     '/nasscom-membership',
     '/case-studies',
+    '/clutch',
   ]
 
   // ===========================

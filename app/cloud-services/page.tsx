@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Cloud Services | mTouch Labs",
+  title: "Cloud Services and Solutions",
   description: "mTouch Labs provides cloud services including consulting, migration, infrastructure engineering, and secure enterprise cloud solutions.",
   keywords: ["cloud services","cloud consulting","cloud infrastructure engineering","cloud migration services","enterprise cloud solutions","multi-cloud architecture"],
   alternates: { canonical: "https://www.mtouchlabs.com/cloud-services" },
-  openGraph: { title: "Cloud Services | mTouch Labs", description: "Enterprise-ready cloud solutions designed for scalability, security, and digital transformation.", url: "https://www.mtouchlabs.com/cloud-services", siteName: "mTouch Labs", type: "website" },
-  twitter: { card: "summary_large_image", title: "Cloud Services | mTouch Labs", description: "Scalable and secure cloud engineering for global businesses." },
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }], title: "Cloud Services", description: "Enterprise-ready cloud solutions designed for scalability, security, and digital transformation.", url: "https://www.mtouchlabs.com/cloud-services", siteName: "mTouch Labs", type: "website" },
+  twitter: { card: "summary_large_image", title: "Cloud Services", description: "Scalable and secure cloud engineering for global businesses." },
 };
 
 export default function CloudServices() {

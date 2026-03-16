@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Enterprise Application Development Company | mTouch Labs",
-  description: "mTouch Labs delivers scalable enterprise application development services including custom software, cloud-based enterprise solutions, and system integration.",
+  title: "Enterprise Application Development Company",
+  description: "Partner with mTouch Labs, an enterprise application development company delivering scalable custom software, cloud solutions, and integration services.",
   keywords: ["enterprise application development company","enterprise software development services","custom enterprise application development","enterprise web application development","cloud enterprise software solutions","enterprise development company India"],
   alternates: { canonical: "https://www.mtouchlabs.com/enterprise-application-development-company" },
-  openGraph: { title: "Enterprise Application Development Company | mTouch Labs", description: "Custom enterprise software development services designed for scalability, security, and performance.", url: "https://www.mtouchlabs.com/enterprise-application-development-company", siteName: "mTouch Labs", type: "website" },
-  twitter: { card: "summary_large_image", title: "Enterprise Application Development Company | mTouch Labs", description: "Custom enterprise software development for scalability, security, and performance." },
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }], title: "Enterprise Application Development Company", description: "Custom enterprise software development services designed for scalability, security, and performance.", url: "https://www.mtouchlabs.com/enterprise-application-development-company", siteName: "mTouch Labs", type: "website" },
+  twitter: { card: "summary_large_image", title: "Enterprise Application Development Company", description: "Custom enterprise software development for scalability, security, and performance." },
 };
 
 export default function EnterpriseApplicationDevelopment() {

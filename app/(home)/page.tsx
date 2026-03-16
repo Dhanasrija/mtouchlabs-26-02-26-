@@ -116,72 +116,207 @@ import FAQSection from "@/components/sections/home/FAQSection";
 // SEO + AEO Metadata (2025-2026)
 // H1: Global Software Development Company Delivering Scalable Digital Solutions
 // ─────────────────────────────────────────────────────────────
-export const metadata: Metadata = {
-  title: "Software Development Company | mTouch Labs",
+// export const metadata: Metadata = {
+//   title: "Software Development Company",
+//   description:
+//     "mTouch Labs is a global software development company delivering custom software solutions, SaaS platforms, Salesforce consulting, cloud engineering, and end-to-end digital transformation services.",
+//   keywords: [
+//     "global software development company",
+//     "custom software development",
+//     "SaaS product development",
+//     "Salesforce consulting services",
+//     "cloud and DevOps solutions",
+//     "enterprise digital transformation",
+//     "scalable digital solutions",
+//     "software development company India",
+//     "SaaS platform engineering",
+//     "CRM implementation services",
+//     "cloud-native architecture",
+//     "CI/CD pipeline services",
+//     "business process automation",
+//     "software development company near me",
+//     "hire software developers",
+//   ].join(", "),
+//   alternates: {
+//     canonical: "https://mtouchlabs.com/",
+//   },
+//   robots: {
+//     index: true,
+//     follow: true,
+//     "max-snippet": -1,
+//     "max-image-preview": "large" as const,
+//     "max-video-preview": -1,
+//   },
+//   openGraph: {
+//     title: "Software Development Company",
+//     description:
+//       "From product strategy to deployment — mTouch Labs delivers custom software, SaaS platforms, Salesforce consulting, and cloud engineering for startups and enterprises worldwide.",
+//     url: "https://mtouchlabs.com",
+//     siteName: "mTouch Labs",
+//     type: "website",
+//     locale: "en_US",
+//     images: [
+//       {
+//         url: "https://mtouchlabs.com/images/web-and-mobile-app-development.png",
+//         width: 1200,
+//         height: 630,
+//         alt: "mTouch Labs — Global Software Development Company",
+//         type: "image/png",
+//       },
+//     ],
+//   },
+//   twitter: {
+//     card: "summary_large_image",
+//     title: "Software Development Company",
+//     description:
+//       "Custom software, SaaS, Salesforce & cloud solutions for startups and enterprises. Trusted by 50+ businesses worldwide.",
+//     images: [
+//       {
+//         url: "https://mtouchlabs.com/images/web-and-mobile-app-development.png",
+//         alt: "mTouch Labs — Software Development Services",
+//       },
+//     ],
+//   },
+//   other: {
+//     "theme-color": "#0a0a0a",
+//   },
+// };
+
+
+// export const metadata = {
+//   metadataBase: new URL("https://www.mtouchlabs.com"),
+//   title: {
+//     default: "Software Development Company & IT Solutions",
+//     template: "%s"
+//   },
+//   description:
+//     "mTouch Labs is a leading software development company providing custom software development, mobile app development, web development, Salesforce solutions, UI/UX design, and enterprise IT services.",
+//   keywords: [
+//     "software development company",
+//     "IT solutions company",
+//     "custom software development",
+//     "mobile app development company",
+//     "web development company",
+//     "salesforce development company",
+//     "hire dedicated developers",
+//     "enterprise software development"
+//   ],
+//   authors: [{ name: "mTouch Labs" }],
+//   creator: "mTouch Labs",
+//   publisher: "mTouch Labs",
+//   alternates: {
+//     canonical: "https://www.mtouchlabs.com"
+//   },
+//   robots: {
+//     index: true,
+//     follow: true,
+//     googleBot: {
+//       index: true,
+//       follow: true,
+//       "max-video-preview": -1,
+//       "max-image-preview": "large",
+//       "max-snippet": -1
+//     }
+//   },
+//   category: "technology",
+//   icons: {
+//     icon: "/favicon.ico",
+//     shortcut: "/favicon.ico",
+//     apple: "/apple-touch-icon.png"
+//   },
+//  openGraph: {
+//     title: "Software Development Company & IT Solutions",
+//     description:
+//       "Custom software development, mobile apps, web solutions, Salesforce services and enterprise IT solutions for startups and businesses.",
+//     url: "https://www.mtouchlabs.com",
+//     siteName: "mTouch Labs",
+//     type: "website",
+//     locale: "en_US",
+//     images: [
+//       {
+//         url: "https://www.mtouchlabs.com/images/Light.png",
+//         width: 1200,
+//         height: 630,
+//         alt: "mTouch Labs Software Development Company"
+//       }
+//     ]
+//   },
+//   twitter: {
+//     card: "summary_large_image",
+//     title: "Software Development Company & IT Solutions",
+//     description:
+//       "mTouch Labs offers custom software development, mobile apps, Salesforce development, UI/UX design and enterprise IT solutions.",
+//     images: ["https://www.mtouchlabs.com/images/Light.png"]
+//   }
+// };
+export const metadata = {
+  metadataBase: new URL("https://www.mtouchlabs.com"),
+  title: {
+    default: "Software Development Company & IT Solutions | mTouch Labs",
+    template: "%s | mTouch Labs"
+  },
   description:
-    "mTouch Labs is a global software development company delivering custom software solutions, SaaS platforms, Salesforce consulting, cloud engineering, and end-to-end digital transformation services.",
+    "Leading software development company offering custom software, mobile apps, web development, Salesforce solutions, UI/UX design & enterprise IT services.",
   keywords: [
-    "global software development company",
+    "software development company",
+    "IT solutions company",
     "custom software development",
-    "SaaS product development",
-    "Salesforce consulting services",
-    "cloud and DevOps solutions",
-    "enterprise digital transformation",
-    "scalable digital solutions",
-    "software development company India",
-    "SaaS platform engineering",
-    "CRM implementation services",
-    "cloud-native architecture",
-    "CI/CD pipeline services",
-    "business process automation",
-    "software development company near me",
-    "hire software developers",
-  ].join(", "),
+    "mobile app development company",
+    "web development company",
+    "salesforce development company",
+    "hire dedicated developers",
+    "enterprise software development",
+    "UI/UX design company",
+    "mTouch Labs"
+  ],
+  authors: [{ name: "mTouch Labs" }],
+  creator: "mTouch Labs",
+  publisher: "mTouch Labs",
   alternates: {
-    canonical: "https://mtouchlabs.com/",
+    canonical: "https://www.mtouchlabs.com"
   },
   robots: {
     index: true,
     follow: true,
-    "max-snippet": -1,
-    "max-image-preview": "large" as const,
-    "max-video-preview": -1,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1
+    }
+  },
+  category: "technology",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png"
   },
   openGraph: {
-    title: "Software Development Company | mTouch Labs",
+    title: "Software Development Company & IT Solutions | mTouch Labs",
     description:
-      "From product strategy to deployment — mTouch Labs delivers custom software, SaaS platforms, Salesforce consulting, and cloud engineering for startups and enterprises worldwide.",
-    url: "https://mtouchlabs.com",
+      "Custom software development, mobile apps, web solutions, Salesforce services and enterprise IT solutions for startups and businesses.",
+    url: "https://www.mtouchlabs.com",
     siteName: "mTouch Labs",
     type: "website",
     locale: "en_US",
     images: [
       {
-        url: "https://mtouchlabs.com/images/web-and-mobile-app-development.png",
+        url: "https://www.mtouchlabs.com/images/Light.png",
         width: 1200,
         height: 630,
-        alt: "mTouch Labs — Global Software Development Company",
-        type: "image/png",
-      },
-    ],
+        alt: "mTouch Labs - Software Development Company & IT Solutions"
+      }
+    ]
   },
   twitter: {
     card: "summary_large_image",
-    title: "Software Development Company | mTouch Labs",
+    title: "Software Development Company & IT Solutions | mTouch Labs",
     description:
-      "Custom software, SaaS, Salesforce & cloud solutions for startups and enterprises. Trusted by 50+ businesses worldwide.",
-    images: [
-      {
-        url: "https://mtouchlabs.com/images/web-and-mobile-app-development.png",
-        alt: "mTouch Labs — Software Development Services",
-      },
-    ],
-  },
-  other: {
-    "theme-color": "#0a0a0a",
-  },
+      "Custom software development, mobile apps, Salesforce solutions, UI/UX design & enterprise IT services by mTouch Labs.",
+    images: ["https://www.mtouchlabs.com/images/Light.png"]
+  }
 };
-
 // ─────────────────────────────────────────────────────────────
 // JSON-LD Structured Data — Updated for new service positioning
 // ─────────────────────────────────────────────────────────────
@@ -190,31 +325,38 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "mTouch Labs",
-  url: "https://mtouchlabs.com",
-  logo: "https://mtouchlabs.com/images/logo.png",
+  url: "https://www.mtouchlabs.com",
+  logo: "https://www.mtouchlabs.com/images/Light.png",
   description:
     "mTouch Labs is a global software development company specializing in custom software development, SaaS product engineering, Salesforce consulting, cloud & DevOps solutions, and enterprise digital transformation.",
-  foundingDate: "2018",
+  foundingDate: "2011",
   sameAs: [
     "https://www.linkedin.com/company/mtouchlabs",
     "https://twitter.com/mtouchlabs",
     "https://www.facebook.com/mtouchlabs",
     "https://www.instagram.com/mtouchlabs",
   ],
+
+
+  areaServed: {
+    "@type": "Place",
+    name: "Worldwide"
+  },
+
   contactPoint: [
     {
       "@type": "ContactPoint",
       telephone: "+91-9390683154",
       contactType: "sales",
       availableLanguage: ["English", "Hindi", "Telugu"],
-      areaServed: ["IN", "US", "AE", "GB"],
+      areaServed: "Worldwide",
     },
     {
       "@type": "ContactPoint",
       telephone: "+1-551-222-0070",
       contactType: "sales",
       availableLanguage: "English",
-      areaServed: "US",
+      areaServed: "Worldwide",
     },
   ],
   address: [
@@ -240,12 +382,7 @@ const organizationSchema = {
       addressCountry: "US",
     },
   ],
-  areaServed: [
-    { "@type": "Country", name: "India" },
-    { "@type": "Country", name: "United States" },
-    { "@type": "Country", name: "United Arab Emirates" },
-    { "@type": "Country", name: "United Kingdom" },
-  ],
+ 
   knowsAbout: [
     "Custom Software Development",
     "SaaS Product Engineering",

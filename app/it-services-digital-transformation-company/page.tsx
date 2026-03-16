@@ -3,15 +3,15 @@ import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "IT Services & Digital Transformation Company | mTouch Labs",
+  title: "IT Services & Digital Transformation Company",
   description:
     "mTouch Labs delivers scalable IT services, cloud solutions, AI integration, and enterprise digital transformation for sustainable business growth.",
   alternates: {
     canonical:
       "https://www.mtouchlabs.com/it-services-digital-transformation-company",
   },
-  openGraph: {
-    title: "IT Services & Digital Transformation Company | mTouch Labs",
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }],
+    title: "IT Services & Digital Transformation Company",
     description:
       "mTouch Labs delivers scalable IT services, cloud solutions, AI integration, and enterprise digital transformation for sustainable business growth.",
     type: "website",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "IT Services & Digital Transformation Company | mTouch Labs",
+    title: "IT Services & Digital Transformation Company",
     description:
       "Scalable IT services and enterprise digital transformation solutions by mTouch Labs.",
   },

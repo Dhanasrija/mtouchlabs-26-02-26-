@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Salesforce Lightning Migration & Development Services | mTouch Labs",
+  title: "Salesforce Lightning Migration & Development",
   description: "Salesforce Lightning migration services including Classic to Lightning upgrades, Lightning Web Component development, and CRM optimization.",
   keywords: ["Salesforce Lightning migration services","Salesforce Lightning development","Salesforce Classic to Lightning migration","Lightning Web Component development","Salesforce Lightning upgrade services","Salesforce Lightning partner India"],
   alternates: { canonical: "https://www.mtouchlabs.com/salesforce-lightning-migration-development" },
-  openGraph: { title: "Salesforce Lightning Migration & Development Services | mTouch Labs", description: "Upgrade to Salesforce Lightning with structured migration and Lightning Web Component development.", url: "https://www.mtouchlabs.com/salesforce-lightning-migration-development", siteName: "mTouch Labs", type: "website" },
-  twitter: { card: "summary_large_image", title: "Salesforce Lightning Migration & Development Services | mTouch Labs", description: "Upgrade to Salesforce Lightning with structured migration and LWC development." },
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }], title: "Salesforce Lightning Migration & Development Services", description: "Upgrade to Salesforce Lightning with structured migration and Lightning Web Component development.", url: "https://www.mtouchlabs.com/salesforce-lightning-migration-development", siteName: "mTouch Labs", type: "website" },
+  twitter: { card: "summary_large_image", title: "Salesforce Lightning Migration & Development Services", description: "Upgrade to Salesforce Lightning with structured migration and LWC development." },
 };
 
 export default function SalesforceLightning() {

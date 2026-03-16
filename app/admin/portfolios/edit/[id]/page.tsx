@@ -7,21 +7,21 @@ import { updatePortfolio } from '@/lib/portfolio-actions';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Edit Portfolio | mTouch Labs Admin',
+  title: 'Edit Portfolio Admin',
   robots: 'noindex, nofollow',
 
   openGraph: {
-    title: "Edit Portfolio | mTouch Labs Admin",
-    description: "Edit Portfolio | mTouch Labs Admin",
+    title: "Edit Portfolio Admin",
+    description: "Edit Portfolio Admin",
     url: "https://www.mtouchlabs.com/admin/portfolios/edit/[id]",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Edit Portfolio | mTouch Labs Admin" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Edit Portfolio Admin" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Edit Portfolio | mTouch Labs Admin",
-    description: "Edit Portfolio | mTouch Labs Admin",
+    title: "Edit Portfolio Admin",
+    description: "Edit Portfolio Admin",
     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
   },
 };

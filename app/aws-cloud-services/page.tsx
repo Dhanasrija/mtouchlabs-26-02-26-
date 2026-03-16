@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "AWS Cloud Services | Amazon Web Services Experts | mTouch Labs",
+  title: "AWS Cloud Services",
   description: "mTouch Labs provides AWS cloud services including migration, infrastructure deployment, DevOps automation, and managed cloud solutions.",
   keywords: ["AWS cloud services","Amazon Web Services","AWS migration","AWS infrastructure","cloud consulting","AWS managed services","AWS DevOps"],
   alternates: { canonical: "https://www.mtouchlabs.com/aws-cloud-services" },
-  openGraph: { title: "AWS Cloud Services | mTouch Labs", description: "Secure and scalable Amazon Web Services solutions designed for performance and growth.", url: "https://www.mtouchlabs.com/aws-cloud-services", siteName: "mTouch Labs", type: "website" },
-  twitter: { card: "summary_large_image", title: "AWS Cloud Services | mTouch Labs", description: "Professional AWS cloud consulting, migration, and managed services." },
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }], title: "AWS Cloud Services", description: "Secure and scalable Amazon Web Services solutions designed for performance and growth.", url: "https://www.mtouchlabs.com/aws-cloud-services", siteName: "mTouch Labs", type: "website" },
+  twitter: { card: "summary_large_image", title: "AWS Cloud Services", description: "Professional AWS cloud consulting, migration, and managed services." },
 };
 
 export default function AWSCloudServices() {

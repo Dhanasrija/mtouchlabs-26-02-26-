@@ -7665,3 +7665,29 @@ header.ree-header.sticky1 {
   display: none !important;
   content: none !important;
 }
+
+
+/* ═══ Mobile Nav — white background fix ═══ */
+@media (max-width: 1150px) {
+  .hc-offcanvas-nav .nav-container {
+    background: #fff;
+  }
+  .hc-offcanvas-nav .nav-content {
+    background: #fff;
+  }
+  .hc-offcanvas-nav .nav-wrapper {
+    background: #fff;
+  }
+  .hc-offcanvas-nav .nav-item-link,
+  .hc-offcanvas-nav li.nav-close a,
+  .hc-offcanvas-nav .nav-back a {
+    background: #fff;
+    color: #110a32;
+  }
+  .hc-offcanvas-nav li {
+    color: #110a32;
+  }
+  .hc-offcanvas-nav .nav-wrapper::after {
+    background: rgba(0,0,0,0.3);
+  }
+}

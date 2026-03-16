@@ -115,7 +115,7 @@ export default function QuoteModal() {
 
                 <div className="rq-error" id="rqError"></div>
 
-                <div className="cf-turnstile" data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}  data-callback="onTurnstileSuccess"></div>
+                <div className="cf-turnstile" data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY} data-callback="onTurnstileSuccess"></div>
 
                 <button type="submit" className="rq-submit" id="rqSubmitBtn">SUBMIT NOW</button>
               </form>
@@ -174,9 +174,14 @@ export default function QuoteModal() {
           var closeBtn = document.getElementById('rqCloseBtn');
           var successClose = document.getElementById('rqSuccessClose');
 
+          /* Turnstile token storage */
+          var turnstileToken = '';
+          window.onTurnstileSuccess = function(token) {
+            turnstileToken = token;
+          };
+
           /* ═══════════════════════════════════════════════════
              Country-code → phone rules map
-             Each entry: { digits: [min, max], label: "Country" }
              ═══════════════════════════════════════════════════ */
           var phoneRules = {
             '+91':  { digits: [10, 10], label: 'India',     placeholder: '9876543210' },
@@ -199,7 +204,6 @@ export default function QuoteModal() {
             return phoneRules[cc] || { digits: [7, 15], label: 'selected country', placeholder: '' };
           }
 
-          /* ── Helper: check if any field has been touched ── */
           function isFormDirty(){
             if(!form) return false;
             var fd = new FormData(form);
@@ -216,11 +220,13 @@ export default function QuoteModal() {
             if(formWrap) formWrap.style.display='';
             if(success) success.style.display='none';
             if(errEl) { errEl.textContent=''; errEl.style.display='none'; }
+            turnstileToken = '';
+            /* Reset Turnstile widget */
+            if(typeof turnstile !== 'undefined') { try { turnstile.reset(); } catch(e){} }
             var allErrors = document.querySelectorAll('.rq-field-error');
             for(var i=0;i<allErrors.length;i++){ allErrors[i].textContent=''; allErrors[i].classList.remove('show'); }
             var allInputs = form ? form.querySelectorAll('.rq-input, .rq-select') : [];
             for(var j=0;j<allInputs.length;j++){ allInputs[j].classList.remove('rq-invalid','rq-valid'); }
-            /* Reset placeholder to default country */
             updatePhonePlaceholder();
           }
 
@@ -262,10 +268,8 @@ export default function QuoteModal() {
             clearFieldError(fieldName);
           }
 
-          /* ── Email regex ── */
           var emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
 
-          /* ── Phone validation using country rules ── */
           function validatePhone(phoneVal){
             var rule = getPhoneRule();
             var min = rule.digits[0];
@@ -275,12 +279,11 @@ export default function QuoteModal() {
               if(min === max){
                 return rule.label + ' numbers must be exactly ' + min + ' digits.';
               }
-              return rule.label + ' numbers must be ' + min + '–' + max + ' digits.';
+              return rule.label + ' numbers must be ' + min + '\\u2013' + max + ' digits.';
             }
-            return ''; /* valid */
+            return '';
           }
 
-          /* ── Update phone placeholder + maxlength on country change ── */
           function updatePhonePlaceholder(){
             var phoneInput = form ? form.querySelector('[name=phone]') : null;
             if(!phoneInput) return;
@@ -296,13 +299,10 @@ export default function QuoteModal() {
             var serviceSelect = form.querySelector('[name=service]');
             var ccSelect = form.querySelector('[name=cc]');
 
-            /* Set initial placeholder */
             updatePhonePlaceholder();
 
-            /* ── Country code change: update placeholder + re-validate phone ── */
             if(ccSelect) ccSelect.addEventListener('change', function(){
               updatePhonePlaceholder();
-              /* Re-validate if phone already has value */
               if(phoneInput && phoneInput.value.trim()){
                 var err = validatePhone(phoneInput.value.trim());
                 if(err){ showFieldError('phone', err); }
@@ -310,7 +310,6 @@ export default function QuoteModal() {
               }
             });
 
-            /* ── Name blur ── */
             if(nameInput) nameInput.addEventListener('blur', function(){
               var v = this.value.trim();
               if(!v){ showFieldError('name','Full name is required.'); }
@@ -318,7 +317,6 @@ export default function QuoteModal() {
               else { markFieldValid('name'); }
             });
 
-            /* ── Email blur ── */
             if(emailInput) emailInput.addEventListener('blur', function(){
               var v = this.value.trim();
               if(!v){ showFieldError('email','Email is required.'); }
@@ -326,11 +324,9 @@ export default function QuoteModal() {
               else { markFieldValid('email'); }
             });
 
-            /* ── Phone: digits only + blur validation ── */
             if(phoneInput){
               phoneInput.addEventListener('input', function(){
                 this.value = this.value.replace(/[^0-9]/g,'');
-                /* Enforce maxlength */
                 var rule = getPhoneRule();
                 if(this.value.length > rule.digits[1]){
                   this.value = this.value.slice(0, rule.digits[1]);
@@ -344,14 +340,12 @@ export default function QuoteModal() {
               });
             }
 
-            /* ── Service change ── */
             if(serviceSelect) serviceSelect.addEventListener('change', function(){
               if(!this.value){ showFieldError('service','Please select a service.'); }
               else { markFieldValid('service'); }
             });
           }
 
-          /* ── Clear errors on input (real-time) ── */
           if(form){
             ['name','email'].forEach(function(fieldName){
               var inp = form.querySelector('[name='+fieldName+']');
@@ -361,7 +355,7 @@ export default function QuoteModal() {
             });
           }
 
-          /* ── Form submit with full validation ── */
+          /* ── Form submit ── */
           if(form) form.addEventListener('submit', function(e){
             e.preventDefault();
             errEl.style.display='none'; errEl.textContent='';
@@ -371,10 +365,10 @@ export default function QuoteModal() {
             var email = (fd.get('email')||'').toString().trim();
             var phone = (fd.get('phone')||'').toString().trim();
             var service = (fd.get('service')||'').toString().trim();
+            var message = (fd.get('message')||'').toString().trim();
 
             var hasError = false;
 
-            /* Name */
             if(!name){
               showFieldError('name','Full name is required.');
               hasError = true;
@@ -383,7 +377,6 @@ export default function QuoteModal() {
               hasError = true;
             } else { clearFieldError('name'); }
 
-            /* Email */
             if(!email){
               showFieldError('email','Email is required.');
               hasError = true;
@@ -392,14 +385,12 @@ export default function QuoteModal() {
               hasError = true;
             } else { clearFieldError('email'); }
 
-            /* Phone — country-aware */
             var phoneErr = validatePhone(phone);
             if(phoneErr){
               showFieldError('phone', phoneErr);
               hasError = true;
             } else { clearFieldError('phone'); }
 
-            /* Service */
             if(!service){
               showFieldError('service','Please select a service.');
               hasError = true;
@@ -416,22 +407,29 @@ export default function QuoteModal() {
             submitBtn.disabled = true;
             submitBtn.textContent = 'Sending...';
 
+            var payload = {
+              name: name,
+              email: email,
+              phone: (fd.get('cc')||'+91') + ' ' + phone,
+              companyType: 'N/A',
+              projectType: service || 'Not specified',
+              platform: 'Not specified',
+              features: [],
+              budget: (fd.get('budget')||'Not specified').toString(),
+              timeline: 'Not specified',
+              message: message,
+              partial: false
+            };
+
+            /* Include Turnstile token if available */
+            if(turnstileToken){
+              payload['cf-turnstile-response'] = turnstileToken;
+            }
+
             fetch('/api/estimate',{
               method:'POST',
               headers:{'Content-Type':'application/json'},
-              body: JSON.stringify({
-                name: name,
-                email: email,
-                phone: (fd.get('cc')||'+91') + ' ' + phone,
-                companyType: 'N/A',
-                projectType: service || 'Not specified',
-                platform: 'Not specified',
-                features: [],
-                budget: (fd.get('budget')||'Not specified').toString(),
-                timeline: 'Not specified',
-                message: (fd.get('message')||'').toString().trim(),
-                partial: false
-              })
+              body: JSON.stringify(payload)
             })
             .then(function(r){ if(!r.ok) throw new Error('fail'); formWrap.style.display='none'; success.style.display='flex'; })
             .catch(function(){ errEl.textContent='Something went wrong. Please try again.'; errEl.style.display='block'; })

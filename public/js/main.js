@@ -9,7 +9,7 @@
   "use strict";
 
   // Guard: exit early if jQuery is not available
-  if (typeof $ === 'undefined') return;
+  if (typeof $ === 'undefined' || $ === null) return;
 
   //Preloader
   window.addEventListener("load", function () {
@@ -27,7 +27,7 @@
         disableAt: false,
         customToggle: ".toggle",
         levelSpacing: 40,
-        navTitle: "mTouch Labs Menu",
+        navTitle: 'mTouch Labs',
         levelTitles: true,
         labelClose: false,
         levelTitleAsBack: true,
@@ -491,7 +491,7 @@ function gtag_report_conversion(url) {
   };
   if (typeof gtag !== 'undefined') {
     gtag('event', 'conversion', {
-      'send_to': 'AW-836875485/MlvRCKLkqbkaEN3pho8D',
+      'send_to': 'AW-17755266570/MlvRCKLkqbkaEN3pho8D',
       'event_callback': callback
     });
   }

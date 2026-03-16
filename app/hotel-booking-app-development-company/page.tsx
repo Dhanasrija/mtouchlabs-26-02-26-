@@ -1,23 +1,23 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Hotel Booking App Development Company | mTouch Labs",
-  description: "mTouch Labs is the leading hotel booking app development company, building user-friendly hotel reservation and hospitality apps for hotels and travel businesses.",
+  title: "Hotel Booking App Development Company",
+  description: "mTouch Labs is a leading hotel booking app development company building user-friendly hotel reservation apps for hotels and travel businesses.",
   alternates: {
     canonical: "https://www.mtouchlabs.com/hotel-booking-app-development-company",
   },
 
   openGraph: {
-    title: "Hotel Booking App Development Company | mTouch Labs",
+    title: "Hotel Booking App Development Company",
     description: "mTouch Labs is the leading hotel booking app development company, building user-friendly hotel reservation and hospitality apps for hotels and travel businesses.",
     url: "https://www.mtouchlabs.com/hotel-booking-app-development-company",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hotel Booking App Development Company | mTouch Labs" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hotel Booking App Development Company" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hotel Booking App Development Company | mTouch Labs",
+    title: "Hotel Booking App Development Company",
     description: "mTouch Labs is the leading hotel booking app development company, building user-friendly hotel reservation and hospitality apps for hotels and travel businesses.",
     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
   },

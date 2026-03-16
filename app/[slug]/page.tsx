@@ -35,7 +35,7 @@ export async function generateMetadata({
     return portfolioMeta({ params: childParams });
   }
 
-  return { title: 'Page Not Found | mTouch Labs' };
+  return { title: 'Page Not Found' };
 }
 
 export default async function CatchAllSlugPage({

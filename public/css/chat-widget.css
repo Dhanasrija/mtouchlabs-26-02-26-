@@ -81,19 +81,12 @@
     0 4px 20px rgba(99,102,241,0.4),
     0 0 40px rgba(139,92,246,0.15),
     inset 0 1px 0 rgba(255,255,255,0.2);
-  animation: cwBtnEntry 0.8s cubic-bezier(0.34,1.56,0.64,1) 0.5s both;
   flex-shrink: 0;
   will-change: transform;
   transition: transform 0.3s, box-shadow 0.3s;
   overflow: visible;
-  animation: none;
   opacity: 1;
   transform: scale(1);
-}
-
-@keyframes cwBtnEntry {
-  0% { opacity:0; transform: scale(0) rotate(-180deg); }
-  100% { opacity:1; transform: scale(1) rotate(0deg); }
 }
 
 .cw-ai-btn:hover {
@@ -236,6 +229,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-shrink: 0;
 }
 .cw-panel-header-left {
   display: flex;
@@ -335,6 +329,7 @@
   flex-direction: column;
   gap: 12px;
   background: #f9fafb;
+  min-height: 0;
 }
 .cw-time-stamp {
   text-align: center;
@@ -384,6 +379,8 @@
   line-height: 1.55;
   box-shadow: 0 1px 4px rgba(0,0,0,0.06);
   max-width: 85%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 .cw-msg-bubble strong {
   color: #4338ca;
@@ -452,6 +449,7 @@
   padding: 12px 16px;
   border-top: 1px solid #f3f4f6;
   background: #fff;
+  flex-shrink: 0;
 }
 .cw-ai-input-row {
   display: flex;
@@ -496,6 +494,7 @@
   color: #1f2937;
   font-family: inherit;
   padding: 8px 0;
+  min-width: 0;
 }
 .cw-ai-input::placeholder { color: #9ca3af; }
 .cw-ai-input:disabled { cursor: not-allowed; color: #6b7280; }
@@ -580,6 +579,7 @@
   color: #9ca3af;
   border-top: 1px solid #f3f4f6;
   background: #fff;
+  flex-shrink: 0;
 }
 .cw-panel-footer strong { color: #6b7280; }
 
@@ -598,7 +598,7 @@
   background: #9ca3af;
 }
 
-/* ── Inline Quick Actions (after chat flow completes) ── */
+/* ── Inline Quick Actions ── */
 .cw-quick-actions-inline {
   display: flex !important;
   flex-wrap: wrap !important;
@@ -611,23 +611,6 @@
   pointer-events: auto !important;
 }
 
-/* ── Mobile ── */
-@media (max-width: 480px) {
-  .cw-panel {
-    right: 10px; left: 10px;
-    width: auto;
-    bottom: 98px;
-    max-height: 470px;
-  }
-  .cw-wrapper {
-    right: 16px; bottom: 16px;
-  }
-  .cw-label { display: none; }
-  .cw-ai-btn { width: 56px; height: 56px; }
-  .cw-ai-orbit { width: 70px; height: 70px; }
-}
-
-
 /* ── Offline status indicators ── */
 .cw-online-dot-offline {
   background: #ef4444 !important;
@@ -636,4 +619,167 @@
 .cw-ai-status-dot-offline {
   background: #ef4444 !important;
   animation: none !important;
+}
+
+
+/* ════════════════════════════════════
+   MOBILE RESPONSIVE
+   ════════════════════════════════════ */
+
+/* Tablets & small laptops */
+@media (max-width: 600px) {
+  .cw-wrapper {
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .cw-label { display: none; }
+
+  .cw-ai-btn {
+    width: 60px;
+    height: 60px;
+  }
+  .cw-ai-orbit { width: 74px; height: 74px; }
+
+  /* Full-screen chat panel on mobile */
+  .cw-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-height: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    transform-origin: bottom right;
+  }
+  .cw-panel-open {
+    transform: translateY(0) scale(1);
+  }
+
+  /* Header — compact with safe area */
+  .cw-panel-header {
+    padding: 14px 16px;
+    padding-top: max(14px, env(safe-area-inset-top, 14px));
+  }
+  .cw-avatar {
+    width: 36px;
+    height: 36px;
+  }
+  .cw-ai-sparkle-icon { font-size: 17px; }
+  .cw-header-info h4 { font-size: 14px; }
+  .cw-header-info p { font-size: 11px; }
+
+  /* Close button — bigger touch target */
+  .cw-panel-close {
+    padding: 10px;
+    min-width: 40px;
+    min-height: 40px;
+  }
+
+  /* Body — fill available space */
+  .cw-panel-body {
+    padding: 16px;
+    gap: 10px;
+  }
+
+  /* Force all animated messages visible on mobile */
+  .cw-msg {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    animation: none !important;
+  }
+
+  /* Messages — wider on mobile */
+  .cw-msg-bubble {
+    max-width: 88%;
+    font-size: 14px;
+    padding: 10px 14px;
+  }
+  .cw-msg-avatar {
+    width: 28px;
+    height: 28px;
+  }
+  .cw-ai-mini { font-size: 12px; }
+
+  /* Quick action buttons — wrap visible on mobile, same as desktop */
+  .cw-quick-actions {
+    flex-wrap: wrap;
+    overflow-x: visible;
+    gap: 6px;
+    padding-bottom: 4px;
+    /* Force visible on mobile — override animation delay issues */
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    animation: none !important;
+  }
+  .cw-quick-actions::-webkit-scrollbar { display: none; }
+  .cw-quick-btn {
+    padding: 7px 13px;
+    font-size: 12px;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  /* Input area — safe area for bottom notch */
+  .cw-ai-input-area {
+    padding: 10px 14px;
+    padding-bottom: max(10px, env(safe-area-inset-bottom, 10px));
+  }
+  .cw-ai-input {
+    font-size: 16px; /* prevents iOS zoom on focus */
+    padding: 10px 0;
+  }
+  .cw-ai-send {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+  }
+
+  /* Footer — compact with safe area */
+  .cw-panel-footer {
+    padding: 8px 16px;
+    padding-bottom: max(8px, env(safe-area-inset-bottom, 8px));
+    font-size: 10px;
+  }
+
+  /* Hint */
+  .cw-ai-hint { font-size: 10px; margin-top: 6px; }
+
+  /* Inline quick actions */
+  .cw-quick-actions-inline {
+    margin-left: 36px;
+    flex-wrap: wrap !important;
+    overflow-x: visible !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    animation: none !important;
+  }
+}
+
+/* Extra small phones (iPhone SE, etc.) */
+@media (max-width: 380px) {
+  .cw-wrapper {
+    right: 12px;
+    bottom: 12px;
+  }
+  .cw-ai-btn {
+    width: 52px;
+    height: 52px;
+  }
+  .cw-ai-orbit { width: 66px; height: 66px; }
+
+  .cw-panel-header { padding: 12px 14px; }
+  .cw-avatar { width: 32px; height: 32px; }
+  .cw-header-info h4 { font-size: 13px; }
+
+  .cw-panel-body { padding: 12px; }
+  .cw-msg-bubble {
+    max-width: 90%;
+    font-size: 13px;
+    padding: 9px 12px;
+  }
+  .cw-msg-avatar { width: 26px; height: 26px; }
+  .cw-quick-btn { padding: 7px 12px; font-size: 11px; }
 }

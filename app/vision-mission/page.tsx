@@ -3,9 +3,9 @@ import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Vision & Mission | mTouch Labs",
+  title: "Vision & Mission",
   description:
-    "Discover the vision and mission of mTouch Labs, a trusted IT services and digital transformation company delivering enterprise cloud, AI, and technology solutions globally.",
+    "Explore the vision and mission of mTouch Labs, delivering enterprise IT services, cloud, AI, and digital transformation solutions worldwide.",
   keywords: [
     "mTouch Labs vision",
     "mTouch Labs mission",
@@ -18,8 +18,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.mtouchlabs.com/vision-mission",
   },
-  openGraph: {
-    title: "Vision & Mission | mTouch Labs",
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }],
+    title: "Vision & Mission",
     description:
       "Learn how mTouch Labs drives innovation through enterprise IT services, digital transformation, cloud, and AI solutions.",
     url: "https://www.mtouchlabs.com/vision-mission",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vision & Mission | mTouch Labs",
+    title: "Vision & Mission",
     description:
       "mTouch Labs is committed to delivering scalable IT services and digital transformation solutions across India and global markets.",
   },

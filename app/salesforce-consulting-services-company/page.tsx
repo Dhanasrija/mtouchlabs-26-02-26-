@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Salesforce Consulting Services Company | mTouch Labs",
+  title: "Salesforce Consulting Services Company",
   description: "mTouch Labs offers Salesforce consulting, CRM implementation, customization, integration, and optimization services for startups and enterprises.",
   keywords: ["Salesforce consulting services","Salesforce consulting company","Salesforce implementation services","Salesforce CRM solutions","Salesforce partner India","CRM consulting company"],
   alternates: { canonical: "https://www.mtouchlabs.com/salesforce-consulting-services-company" },
-  openGraph: { title: "Salesforce Consulting Services Company | mTouch Labs", description: "Strategic Salesforce CRM consulting and implementation services for scalable business transformation.", url: "https://www.mtouchlabs.com/salesforce-consulting-services-company", siteName: "mTouch Labs", type: "website" },
-  twitter: { card: "summary_large_image", title: "Salesforce Consulting Services Company | mTouch Labs", description: "Strategic Salesforce CRM consulting and implementation services for scalable business transformation." },
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }], title: "Salesforce Consulting Services Company", description: "Strategic Salesforce CRM consulting and implementation services for scalable business transformation.", url: "https://www.mtouchlabs.com/salesforce-consulting-services-company", siteName: "mTouch Labs", type: "website" },
+  twitter: { card: "summary_large_image", title: "Salesforce Consulting Services Company", description: "Strategic Salesforce CRM consulting and implementation services for scalable business transformation." },
 };
 
 export default function SalesforceConsultingServices() {

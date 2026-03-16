@@ -46,13 +46,13 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const blogs = await sql`SELECT * FROM blogs WHERE slug = ${slug} AND published = true` as Blog[];
-  if (blogs.length === 0) return { title: 'Blog Not Found | mTouch Labs' };
+  if (blogs.length === 0) return { title: 'Blog Not Found' };
 
   const blog = blogs[0];
   const pageUrl = `${SITE_URL}/blog/${blog.slug}`;
 
   return {
-    title: blog.meta_title || blog.title + ' | mTouch Labs',
+    title: blog.meta_title || blog.title + '',
     description: blog.meta_description || blog.description,
     keywords: [blog.focus_keyword, blog.secondary_keywords].filter(Boolean).join(', ') || undefined,
     alternates: { canonical: blog.canonical_url || pageUrl },

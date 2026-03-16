@@ -8,21 +8,21 @@ import { logoutUser } from '@/lib/user-actions';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Create Project | Admin | mTouch Labs',
+  title: 'Create Project | Admin',
   robots: 'noindex, nofollow',
 
   openGraph: {
-    title: "Create Project | Admin | mTouch Labs",
-    description: "Create Project | Admin | mTouch Labs",
+    title: "Create Project | Admin",
+    description: "Create Project | Admin",
     url: "https://www.mtouchlabs.com/admin/portfolios/create",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Create Project | Admin | mTouch Labs" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Create Project | Admin" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Create Project | Admin | mTouch Labs",
-    description: "Create Project | Admin | mTouch Labs",
+    title: "Create Project | Admin",
+    description: "Create Project | Admin",
     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
   },
 };

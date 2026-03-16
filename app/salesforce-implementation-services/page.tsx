@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Salesforce Implementation Services | CRM Deployment Experts | mTouch Labs",
-  description: "mTouch Labs provides strategic Salesforce implementation services including CRM setup, automation, data migration, and system integration for scalable business growth.",
+  title: "Salesforce Implementation Services",
+  description: "Streamline your business with Salesforce implementation services from mTouch Labs, covering CRM setup, automation, migration, and integration.",
   keywords: ["Salesforce implementation services","Salesforce CRM implementation","Salesforce deployment company","Salesforce setup services","Salesforce integration services","CRM implementation company","Salesforce implementation partner India"],
   alternates: { canonical: "https://www.mtouchlabs.com/salesforce-implementation-services" },
-  openGraph: { title: "Salesforce Implementation Services | mTouch Labs", description: "Strategic Salesforce CRM deployment, automation, and integration services for growing businesses and enterprises.", url: "https://www.mtouchlabs.com/salesforce-implementation-services", siteName: "mTouch Labs", type: "website" },
-  twitter: { card: "summary_large_image", title: "Salesforce Implementation Services | mTouch Labs", description: "CRM implementation, automation, and Salesforce integration services tailored for scalable business growth." },
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }], title: "Salesforce Implementation Services", description: "Strategic Salesforce CRM deployment, automation, and integration services for growing businesses and enterprises.", url: "https://www.mtouchlabs.com/salesforce-implementation-services", siteName: "mTouch Labs", type: "website" },
+  twitter: { card: "summary_large_image", title: "Salesforce Implementation Services", description: "CRM implementation, automation, and Salesforce integration services tailored for scalable business growth." },
 };
 
 export default function SalesforceImplementation() {

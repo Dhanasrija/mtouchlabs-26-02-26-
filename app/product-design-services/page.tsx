@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Product Design Services | mTouch Labs",
+  title: "Product Design Services",
   description: "mTouch Labs delivers product design services including MVP design, SaaS product UX, and scalable digital product development strategies.",
   keywords: ["product design services","digital product design","SaaS product design","MVP design services","product UX design","product design company"],
   alternates: { canonical: "https://www.mtouchlabs.com/product-design-services" },
-  openGraph: { title: "Product Design Services | mTouch Labs", description: "Strategic digital product design for scalable SaaS and enterprise platforms.", url: "https://www.mtouchlabs.com/product-design-services", siteName: "mTouch Labs", type: "website" },
-  twitter: { card: "summary_large_image", title: "Product Design Services | mTouch Labs", description: "End-to-end product design solutions for startups and enterprises." },
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }], title: "Product Design Services", description: "Strategic digital product design for scalable SaaS and enterprise platforms.", url: "https://www.mtouchlabs.com/product-design-services", siteName: "mTouch Labs", type: "website" },
+  twitter: { card: "summary_large_image", title: "Product Design Services", description: "End-to-end product design solutions for startups and enterprises." },
 };
 
 export default function ProductDesignServices() {

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "SaaS Development Services | Scalable SaaS Solutions | mTouch Labs",
+  title: "Scalable SaaS Development Services",
   description:
-    "mTouch Labs provides end-to-end SaaS development services including multi-tenant architecture, subscription platforms, cloud-native applications, and scalable SaaS product engineering.",
+    "mTouch Labs delivers SaaS development services including multi-tenant architecture, cloud-native apps, and scalable product engineering solutions.",
   keywords: [
     "SaaS development services",
     "SaaS application development",
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.mtouchlabs.com/saas-development-services",
   },
-  openGraph: {
-    title: "SaaS Development Services | mTouch Labs",
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }],
+    title: "SaaS Development Services",
     description:
       "Scalable SaaS development services including architecture design, subscription systems, and cloud-native deployment.",
     url: "https://www.mtouchlabs.com/saas-development-services",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SaaS Development Services | mTouch Labs",
+    title: "SaaS Development Services",
     description:
       "Build scalable SaaS platforms with multi-tenant architecture and cloud-native engineering.",
   },

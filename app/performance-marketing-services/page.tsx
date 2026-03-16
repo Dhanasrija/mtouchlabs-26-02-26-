@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Performance Marketing Services | mTouch Labs",
+  title: "Performance Marketing Services",
   description: "mTouch Labs offers performance marketing services focused on measurable ROI, scalable acquisition, and revenue-driven growth strategies.",
   keywords: ["performance marketing services","ROI marketing","paid media strategy","customer acquisition","performance advertising","growth marketing company"],
   alternates: { canonical: "https://www.mtouchlabs.com/performance-marketing-services" },
-  openGraph: { title: "Performance Marketing Services | mTouch Labs", description: "Data-driven performance marketing strategies for scalable global growth.", url: "https://www.mtouchlabs.com/performance-marketing-services", siteName: "mTouch Labs", type: "website" },
-  twitter: { card: "summary_large_image", title: "Performance Marketing Services | mTouch Labs", description: "ROI-focused paid media and acquisition strategies." },
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }], title: "Performance Marketing Services", description: "Data-driven performance marketing strategies for scalable global growth.", url: "https://www.mtouchlabs.com/performance-marketing-services", siteName: "mTouch Labs", type: "website" },
+  twitter: { card: "summary_large_image", title: "Performance Marketing Services", description: "ROI-focused paid media and acquisition strategies." },
 };
 
 export default function PerformanceMarketing() {

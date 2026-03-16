@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "PPC Advertising Services | mTouch Labs",
+  title: "PPC Advertising Services",
   description: "mTouch Labs offers PPC advertising services including Google Ads, paid search marketing, and performance-driven paid media campaigns.",
   keywords: ["PPC advertising services","Google Ads management","paid search marketing","PPC campaign management","pay per click services","PPC company"],
   alternates: { canonical: "https://www.mtouchlabs.com/ppc-advertising-services" },
-  openGraph: { title: "PPC Advertising Services | mTouch Labs", description: "Data-driven pay per click campaigns focused on measurable ROI and scalable growth.", url: "https://www.mtouchlabs.com/ppc-advertising-services", siteName: "mTouch Labs", type: "website" },
-  twitter: { card: "summary_large_image", title: "PPC Advertising Services | mTouch Labs", description: "Strategic paid media campaigns engineered for performance and profitability." },
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }], title: "PPC Advertising Services", description: "Data-driven pay per click campaigns focused on measurable ROI and scalable growth.", url: "https://www.mtouchlabs.com/ppc-advertising-services", siteName: "mTouch Labs", type: "website" },
+  twitter: { card: "summary_large_image", title: "PPC Advertising Services", description: "Strategic paid media campaigns engineered for performance and profitability." },
 };
 
 export default function PPCAdvertisingServices() {
