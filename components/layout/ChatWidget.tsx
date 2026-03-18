@@ -1,19 +1,28 @@
 "use client";
 import { useEffect, useState, useRef, useCallback } from "react";
 
+type OptionItem = {
+  value: string;
+  label: string;
+  image?: string;
+};
+
 type Message = {
   from: "ai" | "user";
   text: string;
-  options?: string[];
+  options?: OptionItem[];
 };
 
-const WS_BASE = "wss://webagent.mtouchlabs.com/ws";
+// Dev vs Prod WebSocket URL based on env
+const WS_BASE = process.env.NEXT_PUBLIC_SHOW_CHATBOT === "true"
+  ? "wss://webagent.dev.mtouchlabs.com/ws"
+  : "wss://webagent.mtouchlabs.com/ws";
 
 function generateSessionId() {
   return "sess_" + Math.random().toString(36).substring(2, 15) + Date.now().toString(36);
 }
 
-// Recursively extract text from any nested response structure
+// Extract text from any nested response structure
 function extractText(val: unknown): string {
   if (typeof val === "string") return val;
   if (Array.isArray(val)) return val.map(extractText).filter(Boolean).join("\n");
@@ -26,7 +35,6 @@ function extractText(val: unknown): string {
         if (extracted) return extracted;
       }
     }
-    // Fallback: find any longish string value
     for (const value of Object.values(obj)) {
       if (typeof value === "string" && value.length > 10) return value;
     }
@@ -34,17 +42,30 @@ function extractText(val: unknown): string {
   return "";
 }
 
-// Extract options array from any level of the response
-function extractOptions(data: Record<string, unknown>): string[] | undefined {
-  if (Array.isArray(data.options)) {
-    return data.options.filter((o): o is string => typeof o === "string");
-  }
-  // Check nested response object for options
+// Extract options array — handles both string[] and {value, label, image}[]
+function extractOptions(data: Record<string, unknown>): OptionItem[] | undefined {
+  const parseOptions = (raw: unknown): OptionItem[] | undefined => {
+    if (!Array.isArray(raw) || raw.length === 0) return undefined;
+    return raw.map((o) => {
+      if (typeof o === "string") return { value: o, label: o };
+      if (o && typeof o === "object") {
+        const obj = o as Record<string, unknown>;
+        return {
+          value: (obj.value as string) || (obj.label as string) || String(obj),
+          label: (obj.label as string) || (obj.value as string) || String(obj),
+          image: (obj.image as string) || undefined,
+        };
+      }
+      return { value: String(o), label: String(o) };
+    });
+  };
+
+  // Check top level
+  if (data.options) return parseOptions(data.options);
+  // Check nested response
   if (data.response && typeof data.response === "object" && !Array.isArray(data.response)) {
     const resp = data.response as Record<string, unknown>;
-    if (Array.isArray(resp.options)) {
-      return resp.options.filter((o): o is string => typeof o === "string");
-    }
+    if (resp.options) return parseOptions(resp.options);
   }
   return undefined;
 }
@@ -84,7 +105,6 @@ export default function ChatWidget() {
     }
   }, [messages, loading]);
 
-  /* ── WebSocket Connection ── */
   const connectWebSocket = useCallback(() => {
     if (wsRef.current?.readyState === WebSocket.OPEN) return;
 
@@ -103,13 +123,11 @@ export default function ChatWidget() {
       try {
         const data = JSON.parse(event.data);
 
-        // Skip tool calls
         if (data.tool_calls || data.function_call) {
           console.log("Function call detected:", data);
           return;
         }
 
-        // Extract clean text from any nested structure
         const text = extractText(data);
         const options = extractOptions(data);
 
@@ -117,7 +135,6 @@ export default function ChatWidget() {
           setMessages(prev => [...prev, { from: "ai", text, options }]);
         }
       } catch {
-        // Not JSON — treat as plain text
         const raw = event.data;
         if (raw && typeof raw === "string" && raw.trim()) {
           setMessages(prev => [...prev, { from: "ai", text: raw.trim() }]);
@@ -146,8 +163,7 @@ export default function ChatWidget() {
     return () => { wsRef.current?.close(); };
   }, []);
 
-  /* ── Send message ── */
-  const sendMessage = (text: string) => {
+  const sendMessage = (text: string, value?: string) => {
     if (!text.trim()) return;
     setMessages(prev => [...prev, { from: "user", text }]);
     setInput("");
@@ -155,9 +171,10 @@ export default function ChatWidget() {
 
     if (wsRef.current?.readyState === WebSocket.OPEN) {
       try {
-        wsRef.current.send(JSON.stringify({ message: text }));
+        // Send the value (e.g. "MOBILE_APPS") if available, otherwise the label text
+        wsRef.current.send(JSON.stringify({ message: value || text }));
       } catch {
-        wsRef.current.send(text);
+        wsRef.current.send(value || text);
       }
     } else {
       setLoading(false);
@@ -175,9 +192,10 @@ export default function ChatWidget() {
     if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); handleSend(); }
   };
 
-  const handleQuickAction = (action: string) => {
+  const handleOptionClick = (option: OptionItem) => {
     if (loading) return;
-    sendMessage(action);
+    // Show label to user, send value to backend
+    sendMessage(option.label, option.value);
   };
 
   const renderText = (text: string) => {
@@ -259,14 +277,59 @@ export default function ChatWidget() {
             <div className="cw-msg-bubble">Ask me anything about mTouch Labs — our services, technologies, pricing, or how we can help with your project!</div>
           </div>
 
-          {/* Dynamic messages */}          {messages.map((msg, i) => (
+          {/* Dynamic messages */}
+          {messages.map((msg, i) => (
             <div key={i} className={`cw-msg ${msg.from === "user" ? "cw-msg-user" : ""}`}>
               {msg.from === "ai" && (
                 <div className="cw-msg-avatar"><span className="cw-ai-mini">✦</span></div>
               )}
               <div className={`cw-msg-bubble ${msg.from === "user" ? "cw-msg-bubble-user" : ""}`}>
                 {renderText(msg.text)}
-                
+                {/* Option buttons with optional images */}
+                {msg.from === "ai" && msg.options && msg.options.length > 0 && (
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginTop: "12px" }}>
+                    {msg.options.map((opt, j) => (
+                      <button
+                        key={j}
+                        onClick={() => handleOptionClick(opt)}
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "8px",
+                          padding: opt.image ? "8px 14px 8px 8px" : "7px 14px",
+                          borderRadius: "10px",
+                          border: "1px solid rgba(99,102,241,0.25)",
+                          background: "rgba(99,102,241,0.06)",
+                          color: "#6366f1",
+                          fontSize: "13px",
+                          fontWeight: 600,
+                          cursor: "pointer",
+                          transition: "all 0.2s ease",
+                          fontFamily: "inherit",
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.background = "rgba(99,102,241,0.15)";
+                          e.currentTarget.style.transform = "translateY(-1px)";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.background = "rgba(99,102,241,0.06)";
+                          e.currentTarget.style.transform = "translateY(0)";
+                        }}
+                      >
+                        {opt.image && (
+                          <img
+                            src={opt.image}
+                            alt={opt.label}
+                            width={22}
+                            height={22}
+                            style={{ borderRadius: "6px", objectFit: "cover" }}
+                          />
+                        )}
+                        {opt.label}
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           ))}
