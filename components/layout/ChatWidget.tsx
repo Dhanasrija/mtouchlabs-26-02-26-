@@ -4,12 +4,49 @@ import { useEffect, useState, useRef, useCallback } from "react";
 type Message = {
   from: "ai" | "user";
   text: string;
+  options?: string[];
 };
 
 const WS_BASE = "wss://webagent.mtouchlabs.com/ws";
 
 function generateSessionId() {
   return "sess_" + Math.random().toString(36).substring(2, 15) + Date.now().toString(36);
+}
+
+// Recursively extract text from any nested response structure
+function extractText(val: unknown): string {
+  if (typeof val === "string") return val;
+  if (Array.isArray(val)) return val.map(extractText).filter(Boolean).join("\n");
+  if (val && typeof val === "object") {
+    const obj = val as Record<string, unknown>;
+    const keys = ["response", "message", "answer", "text", "reply", "content", "output", "result"];
+    for (const key of keys) {
+      if (obj[key] !== undefined && obj[key] !== null) {
+        const extracted = extractText(obj[key]);
+        if (extracted) return extracted;
+      }
+    }
+    // Fallback: find any longish string value
+    for (const value of Object.values(obj)) {
+      if (typeof value === "string" && value.length > 10) return value;
+    }
+  }
+  return "";
+}
+
+// Extract options array from any level of the response
+function extractOptions(data: Record<string, unknown>): string[] | undefined {
+  if (Array.isArray(data.options)) {
+    return data.options.filter((o): o is string => typeof o === "string");
+  }
+  // Check nested response object for options
+  if (data.response && typeof data.response === "object" && !Array.isArray(data.response)) {
+    const resp = data.response as Record<string, unknown>;
+    if (Array.isArray(resp.options)) {
+      return resp.options.filter((o): o is string => typeof o === "string");
+    }
+  }
+  return undefined;
 }
 
 export default function ChatWidget() {
@@ -66,25 +103,24 @@ export default function ChatWidget() {
       try {
         const data = JSON.parse(event.data);
 
-        // If backend is sending tool call
+        // Skip tool calls
         if (data.tool_calls || data.function_call) {
           console.log("Function call detected:", data);
-          return; // do not display in chat
+          return;
         }
 
-        const text =
-          data.response ||
-          data.message ||
-          data.answer ||
-          data.text ||
-          data.reply;
+        // Extract clean text from any nested structure
+        const text = extractText(data);
+        const options = extractOptions(data);
 
         if (text) {
-          setMessages(prev => [...prev, { from: "ai", text }]);
+          setMessages(prev => [...prev, { from: "ai", text, options }]);
         }
       } catch {
-        if (event.data?.trim()) {
-          setMessages(prev => [...prev, { from: "ai", text: event.data }]);
+        // Not JSON — treat as plain text
+        const raw = event.data;
+        if (raw && typeof raw === "string" && raw.trim()) {
+          setMessages(prev => [...prev, { from: "ai", text: raw.trim() }]);
         }
       }
     };
@@ -145,6 +181,7 @@ export default function ChatWidget() {
   };
 
   const renderText = (text: string) => {
+    if (!text || typeof text !== "string") return null;
     return text.split("\n").map((line, i) => (
       <span key={i}>
         {i > 0 && <br />}
@@ -161,7 +198,7 @@ export default function ChatWidget() {
   return (
     <>
       {/* FLOATING BUTTON */}
-      <div className="cw-wrapper">
+      <div className="cw-wrapper" style={{ right: 'auto', left: '-10px', bottom: '90px' }}>
         <div className={`cw-label ${showLabel && !open ? "cw-label-show" : ""}`}>
           <span className="cw-label-dot" />
           <span className="cw-label-text">Ask AI ✦</span>
@@ -222,23 +259,14 @@ export default function ChatWidget() {
             <div className="cw-msg-bubble">Ask me anything about mTouch Labs — our services, technologies, pricing, or how we can help with your project!</div>
           </div>
 
-          {/* Suggested prompts */}
-          <div className="cw-quick-actions cw-msg-anim-3">
-            <button className="cw-quick-btn" onClick={() => handleQuickAction("What services does mTouch Labs offer?")}>🔧 Our Services</button>
-            <button className="cw-quick-btn" onClick={() => handleQuickAction("I need a quote for my project")}>💡 Get a Quote</button>
-            <button className="cw-quick-btn" onClick={() => handleQuickAction("Tell me about your mobile app development")}>📱 Mobile Apps</button>
-            <button className="cw-quick-btn" onClick={() => handleQuickAction("What AI solutions do you provide?")}>🤖 AI Solutions</button>
-            <a href="https://api.whatsapp.com/message/H5VADFWLMPYIM1?autoload=1&app_absent=0" target="_blank" rel="noopener noreferrer" className="cw-quick-btn cw-expert-btn">💬 Talk to Expert</a>
-          </div>
-
-          {/* Dynamic messages */}
-          {messages.map((msg, i) => (
+          {/* Dynamic messages */}          {messages.map((msg, i) => (
             <div key={i} className={`cw-msg ${msg.from === "user" ? "cw-msg-user" : ""}`}>
               {msg.from === "ai" && (
                 <div className="cw-msg-avatar"><span className="cw-ai-mini">✦</span></div>
               )}
               <div className={`cw-msg-bubble ${msg.from === "user" ? "cw-msg-bubble-user" : ""}`}>
                 {renderText(msg.text)}
+                
               </div>
             </div>
           ))}

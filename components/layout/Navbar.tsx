@@ -933,6 +933,14 @@ const isContact = pathname === "/contact-us" || pathname.startsWith("/contact-us
                             <span className="home-mega-item-desc">Discover expert ideas and innovations on our Blogs</span>
                           </div>
                         </div>
+
+                        <div className="home-mega-item js-home-mega-item" data-target="home-case-studies">
+  <div className="home-mega-item-icon"><img src="/images/new_home/caseStudies.png" alt="Case Studies icon" width="28" height="28" /></div>
+  <div className="home-mega-item-text">
+    <span className="home-mega-item-label">Case Studies</span>
+    <span className="home-mega-item-desc">Real projects and results across industries</span>
+  </div>
+</div>
                       </div>
                       <div className="home-mega-content">
                         <div className="home-mega-panel active" id="home-about">

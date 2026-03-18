@@ -6,7 +6,7 @@
 .cw-wrapper {
   position: fixed;
   bottom: 24px;
-  right: 24px;
+  right: auto; left: 10px;
   z-index: 9999;
   display: flex;
   align-items: center;
@@ -200,7 +200,7 @@
 .cw-panel {
   position: fixed;
   bottom: 104px;
-  right: 24px;
+  right: auto; left: 10px;
   width: 380px;
   max-height: 560px;
   background: #fff;
@@ -212,7 +212,7 @@
   overflow: hidden;
   opacity: 0;
   transform: translateY(24px) scale(0.9);
-  transform-origin: bottom right;
+  transform-origin: bottom left;
   pointer-events: none;
   transition: all 0.4s cubic-bezier(0.34,1.56,0.64,1);
 }
@@ -629,7 +629,7 @@
 /* Tablets & small laptops */
 @media (max-width: 600px) {
   .cw-wrapper {
-    right: 16px;
+    right: auto; left: 10px;
     bottom: 16px;
   }
 
@@ -646,13 +646,13 @@
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
+    right: auto; left: 0;
     bottom: 0;
     width: 100%;
     max-height: 100%;
     border-radius: 0;
     box-shadow: none;
-    transform-origin: bottom right;
+    transform-origin: bottom left;
   }
   .cw-panel-open {
     transform: translateY(0) scale(1);
@@ -761,7 +761,7 @@
 /* Extra small phones (iPhone SE, etc.) */
 @media (max-width: 380px) {
   .cw-wrapper {
-    right: 12px;
+    right: auto; left: 10px;
     bottom: 12px;
   }
   .cw-ai-btn {
@@ -782,4 +782,55 @@
   }
   .cw-msg-avatar { width: 26px; height: 26px; }
   .cw-quick-btn { padding: 7px 12px; font-size: 11px; }
+}
+
+
+
+/* Chat widget — left side */
+.cw-wrapper {
+  right: auto !important;
+  left: 20px !important;
+}
+.cw-panel {
+  right: auto !important;
+  left: 20px !important;
+}
+.cw-label {
+  right: auto !important;
+  left: 80px !important;
+}
+/* FORCE LEFT SIDE */
+body .cw-wrapper,
+html body .cw-wrapper {
+  right: auto !important;
+  left: 10px !important;
+  position: fixed !important;
+}
+body .cw-panel,
+html body .cw-panel {
+  right: auto !important;
+  left: 10px !important;
+}
+@media (max-width: 600px) {
+  body .cw-wrapper,
+  html body .cw-wrapper {
+    right: auto !important;
+    left: 10px !important;
+  }
+  body .cw-panel,
+  html body .cw-panel {
+    right: auto !important;
+    left: 0 !important;
+  }
+}
+
+/* Push chat widget above bottom content */
+body .cw-wrapper,
+html body .cw-wrapper {
+  bottom: 90px !important;
+}
+
+body .cw-wrapper,
+html body .cw-wrapper {
+  left: 0px !important;
 }

@@ -2,7 +2,7 @@ export const dynamic = "force-dynamic";
 import '../public/css/brand.css';
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-// import ChatWidget from "@/components/layout/ChatWidget";
+import ChatWidget from "@/components/layout/ChatWidget";
 import Script from "next/script";
 import QuoteModal from "@/components/sections/home/QuoteModal";
 import Analytics from "@/components/Analytics";
@@ -127,7 +127,7 @@ export default function RootLayout({
         <link href="/css/blog.css" rel="stylesheet" />
         <link href="/css/case-study.css" rel="stylesheet" />
         <link href="/css/home-mega-menu.css" rel="stylesheet" />
-        {/* <link href="/css/chat-widget.css" rel="stylesheet" /> */}
+        <link href="/css/chat-widget.css" rel="stylesheet" />
         <link href="/css/location-pages.css" rel="stylesheet" />
         <link href="/css/navbar-dropdown.css" rel="stylesheet" />
         <link href="/css/services.css" rel="stylesheet" />
@@ -210,7 +210,7 @@ export default function RootLayout({
         <div className="header-spacer"></div>
         {children}
         <Footer />
-        {/* <ChatWidget /> */}
+        {process.env.NEXT_PUBLIC_SHOW_CHATBOT === "true" && <ChatWidget />}
         {/* Floating WhatsApp Button */}
         <a
           href="https://wa.me/message/H5VADFWLMPYIM1"

@@ -252,7 +252,7 @@ import FAQSection from "@/components/sections/home/FAQSection";
 export const metadata = {
   metadataBase: new URL("https://www.mtouchlabs.com"),
   title: {
-    default: "Software Development Company & IT Solutions | mTouch Labs",
+    default: "Software Development Company & IT Solutions",
     template: "%s | mTouch Labs"
   },
   description:

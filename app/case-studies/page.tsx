@@ -1,488 +1,185 @@
 import type { Metadata } from "next";
+import { sql } from "@/lib/db";
+import Link from "next/link";
+import Breadcrumb from "@/components/Breadcrumb";
+import BlogFilter from "../blog/BlogFilter";
 
 export const metadata: Metadata = {
-  title: "Case Studies | Software Projects",
-  description: "Explore our detailed case studies showcasing successful mobile app development and web development projects across various industries.",
-  alternates: {
-    canonical: "https://www.mtouchlabs.com/case-studies",
-  },
-
+  title: "Case Studies & Portfolio | mTouch Labs",
+  description: "Explore our case studies across healthcare, e-commerce, and logistics. See how mTouch Labs delivers real results for businesses.",
+  alternates: { canonical: "https://www.mtouchlabs.com/case-studies" },
   openGraph: {
-    title: "Case Studies | Software Projects",
-    description: "Explore our detailed case studies showcasing successful mobile app development and web development projects across various industries.",
+    title: "Case Studies & Portfolio | mTouch Labs",
+    description: "Real-world case studies from mTouch Labs across industries.",
     url: "https://www.mtouchlabs.com/case-studies",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Case Studies | Software Projects" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Case Studies | Software Projects",
-    description: "Explore our detailed case studies showcasing successful mobile app development and web development projects across various industries.",
-    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+    images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs Case Studies" }],
   },
 };
 
-export default function Page() {
+interface CaseStudyRow {
+  id: number; slug: string; title: string; industry: string; platform: string;
+  icon: string; color: string; challenge: string; solution: string;
+  result_points: string[]; technologies: { name: string; purpose: string }[];
+  testimonial_quote: string; testimonial_role: string; testimonial_initials: string;
+}
+
+export const revalidate = 60;
+
+const costFactors = [
+  "Number of features and functionality",
+  "UI/UX design requirements",
+  "Platform and technology selection",
+  "Backend infrastructure and APIs",
+  "Security and compliance requirements",
+];
+
+const advantages = [
+  "Experienced development team",
+  "Strong technical expertise",
+  "Scalable and secure architecture",
+  "Transparent development process",
+  "Reliable post-launch support",
+];
+
+const faqs = [
+  { q: "How long does a typical project take?", a: "Development timelines depend on project complexity. Most applications take between 8 and 16 weeks to design, develop, test, and launch." },
+  { q: "Do you develop for both web and mobile?", a: "Yes. We develop web applications, mobile applications for both platforms, and also build cross-platform solutions using frameworks like Flutter and React Native." },
+  { q: "Do you provide maintenance after launch?", a: "Yes. We provide ongoing support and maintenance services to ensure applications remain secure, updated, and optimized for performance." },
+];
+
+export default async function CaseStudies() {
+  const caseStudies = await sql`
+    SELECT id, slug, title, industry, platform, icon, color, challenge, solution,
+           result_points, technologies, testimonial_quote, testimonial_role, testimonial_initials
+    FROM case_studies
+    WHERE published = true OR status = 'published'
+    ORDER BY COALESCE(publish_date, created_at) DESC
+  ` as CaseStudyRow[];
+
+  const testimonials = caseStudies
+    .filter(cs => cs.testimonial_quote)
+    .map(cs => ({ quote: cs.testimonial_quote, role: cs.testimonial_role || "Client", initials: cs.testimonial_initials || "CL" }));
+
   return (
     <>
+      <link href="/css/ma-case-studies.css" rel="stylesheet" />
 
-    <div className="port-head-sec pt85 pb120 r-bg-a ">
-        <div className="container">
-            <div className="row vcenter pt80">
-                <div className="col-lg-7">
-                    <div className="page-headings">
-                        <span className="sub-heading mb15" data-aos="fade-in" data-aos-delay="200"><i
-                                className="fas fa-chart-line mr5"></i>
-                            Success Stories</span>
-                        <h1 className="mb15" data-aos="fade-in" data-aos-delay="400">Detailed Case Studies of Our <span
-                                className="ree-text rt40"> Mobile App Development & Web Development </span> Projects</h1>
-                        <p className="h-light" data-aos="fade-in" data-aos-delay="600">Explore in-depth case studies
-                            showcasing our successful projects across various industries, technologies, and business
-                            challenges.</p>
-                        <a className="ree-btn  ree-btn-grdt1 mt40" data-aos="fade-in"
-                            data-aos-delay="800">Get Quote <i className="fas fa-arrow-right fa-btn"></i></a>
-                    </div>
-                </div>
-                <div className="col-lg-5">
-                    <div className="custom_ree_card m-mt30 trust-review owl-carousel" data-aos="fade-in"
-                        data-aos-delay="500" >
-                        <div className="items">
-                            <div className="review-text">
-                                <p>mTouch Labs delivered an exceptional mobile application that exceeded our
-                                    expectations. Their team's expertise in mobile app development and attention to
-                                    detail helped us achieve significant business growth.</p>
-                            </div>
-                            <div className="ree-row-set mt30">
-                                <div className="media vcenter">
-                                    <div className="ree-details-set user-info">
-                                        <h5>Sarah Johnson</h5>
-                                        <p>CEO, TechStart Inc.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="items">
-                            <div className="review-text">
-                                <p>The web development project was completed on time and within budget. Their technical
-                                    expertise and professional approach made the entire process smooth and efficient.
-                                </p>
-                            </div>
-                            <div className="ree-row-set mt30">
-                                <div className="media vcenter">
-                                    <div className="ree-details-set user-info">
-                                        <h5>Michael Chen</h5>
-                                        <p>CTO, Digital Solutions</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <section className="macs-hero">
+        <div className="macs-hero__grain"></div>
+        <div className="macs-hero__inner">
+          <Breadcrumb pagePath="/case-studies" />
+          <span className="macs-hero__tag">Case Studies</span>
+          <h1 className="macs-hero__title">Case Studies<br /><span className="macs-hero__title-glow">That Deliver Results</span></h1>
+          <p className="macs-hero__desc">Real projects. Real challenges. Real outcomes. Explore how mTouch Labs builds digital solutions that drive business growth across industries.</p>
         </div>
-    </div>
-    
+        <div className="macs-hero__shapes"><div className="macs-shape macs-shape--1"></div><div className="macs-shape macs-shape--2"></div><div className="macs-shape macs-shape--3"></div></div>
+      </section>
 
-    
-    <div className="success-stories-header">
-        <div className="container">
-            <div className="row justify-content-center">
-                <div className="col-lg-8 text-center">
-                    <h1 className="success-title">Our Success Stories</h1>
-                    <p className="success-subtitle">Discover how we've helped businesses transform their ideas into
-                        impactful digital solutions</p>
-                </div>
-            </div>
+      <section className="macs-studies">
+        <div className="macs-container">
+          {caseStudies.map((cs, i) => {
+            const resultPoints: string[] = Array.isArray(cs.result_points) ? cs.result_points : [];
+            const technologies: { name: string; purpose: string }[] = Array.isArray(cs.technologies) ? cs.technologies : [];
+            const accentColor = cs.color || "#6366f1";
+            return (
+              <Link href={`/case-studies/${cs.slug}`} key={cs.id} style={{ textDecoration: "none", color: "inherit" }}>
+                <article className={`macs-card macs-card--${i % 2 === 0 ? "left" : "right"}`} data-aos="fade-up" data-aos-delay={i * 120}>
+                  <div className="macs-card__left">
+                    <span className="macs-card__number">{String(i + 1).padStart(2, "0")}</span>
+                    <div className="macs-card__icon-wrap" style={{ background: `${accentColor}15` }}>{cs.icon || "\uD83D\uDCCB"}</div>
+                    <h2 className="macs-card__title">{cs.title}</h2>
+                    <div className="macs-card__meta">
+                      {cs.industry && <span className="macs-card__pill">{cs.industry}</span>}
+                      {cs.platform && <span className="macs-card__pill">{cs.platform}</span>}
+                      {technologies.map((t, j) => (<span key={j} className="macs-card__pill macs-card__pill--tech">{t.name}</span>))}
+                    </div>
+                  </div>
+                  <div className="macs-card__right">
+                    <div className="macs-card__section"><h3 className="macs-card__label"><span className="macs-card__label-line" style={{ background: accentColor }}></span><span style={{ color: accentColor }}>Challenge</span></h3><p>{cs.challenge}</p></div>
+                    <div className="macs-card__section"><h3 className="macs-card__label"><span className="macs-card__label-line" style={{ background: accentColor }}></span><span style={{ color: accentColor }}>Solution</span></h3><p>{cs.solution}</p></div>
+                    <div className="macs-card__section"><h3 className="macs-card__label"><span className="macs-card__label-line" style={{ background: accentColor }}></span><span style={{ color: accentColor }}>Results</span></h3><div className="macs-card__results">{resultPoints.map((r, k) => (<div key={k} className="macs-result"><span className="macs-result__check" style={{ background: accentColor }}>&#10003;</span><span>{r}</span></div>))}</div></div>
+                  </div>
+                  <div className="macs-card__accent" style={{ background: `linear-gradient(to right, ${accentColor}, transparent)` }}></div>
+                </article>
+              </Link>
+            );
+          })}
         </div>
-    </div>
+      </section>
 
-    
-    <div className="filter-section">
-        <div className="container">
-            <div className="filter-bar">
-                <div className="filter-categories">
-                    <span className="filter-label">Filter by:</span>
-                    <button className="filter-category-btn" data-category="technology">Technology</button>
-                    <button className="filter-category-btn active" data-category="industry">Industry</button>
+      {testimonials.length > 0 && (
+        <section className="macs-testimonials">
+          <div className="macs-container">
+            <span className="macs-section-tag" data-aos="fade-up">Client Testimonials</span>
+            <h2 className="macs-section-title" data-aos="fade-up">What Our Clients <span className="macs-text-accent">Say</span></h2>
+            <p className="macs-section-desc" data-aos="fade-up">Businesses partner with mTouch Labs because of our commitment to delivering reliable solutions and maintaining transparent communication throughout the project lifecycle.</p>
+            <div className="macs-testimonials__grid">
+              {testimonials.map((t, i) => (
+                <div key={i} className="macs-testimonial" data-aos="fade-up" data-aos-delay={i * 150}>
+                  <div className="macs-testimonial__quote">&ldquo;</div>
+                  <p className="macs-testimonial__text">{t.quote}</p>
+                  <div className="macs-testimonial__author"><div className="macs-testimonial__avatar">{t.initials}</div><span className="macs-testimonial__role">{t.role}</span></div>
                 </div>
-                <div className="filter-options" id="industry-filters">
-                    <button className="filter-option active" data-filter="all">All</button>
-                    <button className="filter-option" data-filter="healthcare">Healthcare</button>
-                    <button className="filter-option" data-filter="government">Government</button>
-                    <button className="filter-option" data-filter="ecommerce">E-commerce</button>
-                    <button className="filter-option" data-filter="logistics">Logistics</button>
-                    <button className="filter-option" data-filter="food">Food & Beverage</button>
-                    <button className="filter-option" data-filter="education">Education</button>
-                    <button className="filter-option" data-filter="fintech">Fintech</button>
-                    <button className="filter-option" data-filter="smartcity">Smart City</button>
-                </div>
+              ))}
             </div>
+          </div>
+        </section>
+      )}
+
+      <section className="macs-cost">
+        <div className="macs-container">
+          <div className="macs-cost__grid">
+            <div className="macs-cost__content" data-aos="fade-right">
+              <span className="macs-section-tag">Pricing</span>
+              <h2 className="macs-cost__title">Development <span className="macs-text-accent">Cost</span></h2>
+              <p className="macs-cost__text">The cost of development varies depending on several factors including application complexity, required features, supported platforms, and integrations with external systems.</p>
+              <p className="macs-cost__text">Simple applications may require shorter development timelines, while advanced applications with complex functionality may require additional development resources. At mTouch Labs, we work closely with clients to provide transparent estimates.</p>
+            </div>
+            <div className="macs-cost__factors" data-aos="fade-left">
+              <h3 className="macs-cost__factors-title">Key Cost Factors</h3>
+              {costFactors.map((f, i) => (<div key={i} className="macs-cost__factor"><span className="macs-cost__factor-num">{String(i + 1).padStart(2, "0")}</span><span>{f}</span></div>))}
+            </div>
+          </div>
         </div>
-    </div>
+      </section>
 
-    
-    <div className="case-studies-section">
-        <div className="container">
-            <div className="case-studies-header">
-                <h2 id="case-studies-count">Showing 9 of 9 case studies</h2>
-            </div>
-
-            <div className="case-studies-grid" id="case-studies-grid">
-                
-                <div className="case-study-card" data-industry="healthcare" data-technologies="react,ai,node">
-                    <div className="case-study-image">
-                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=250&fit=crop"
-                            alt="AI-Powered Healthcare Platform" />
-                        <div className="image-overlay">
-                            <span className="client-name">MedBuz</span>
-                            <span className="year">2024</span>
-                        </div>
-                    </div>
-                    <div className="case-study-content">
-                        <h3 className="case-study-title">AI-Powered Healthcare Platform</h3>
-                        <p className="case-study-description">Developed a comprehensive healthcare management system with
-                            AI-driven diagnostics and patient monitoring capabilities.</p>
-                        <div className="technology-tags">
-                            <span className="tech-tag">React</span>
-                            <span className="tech-tag">AI/ML</span>
-                            <span className="tech-tag">Node.js</span>
-                            <span className="tech-tag">+1</span>
-                        </div>
-                        <div className="key-results">
-                            <h4>Key Results:</h4>
-                            <ul>
-                                <li><span className="checkmark">✓</span> 60% reduction in patient wait times</li>
-                                <li><span className="checkmark">✓</span> AI diagnostics improved accuracy by 40%</li>
-                            </ul>
-                        </div>
-                        <button className="download-btn">
-                            <i className="fas fa-download"></i>
-                            Download Case Study
-                        </button>
-                    </div>
-                </div>
-
-                
-                <div className="case-study-card" data-industry="government" data-technologies="angular,blockchain,cloud">
-                    <div className="case-study-image">
-                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400&h=250&fit=crop"
-                            alt="Government Document Management System" />
-                        <div className="image-overlay">
-                            <span className="client-name">Abu Dhabi Judicial Department</span>
-                            <span className="year">2023</span>
-                        </div>
-                    </div>
-                    <div className="case-study-content">
-                        <h3 className="case-study-title">Government Document Management System</h3>
-                        <p className="case-study-description">Built a secure, scalable document management and workflow
-                            automation system for government operations.</p>
-                        <div className="technology-tags">
-                            <span className="tech-tag">Angular</span>
-                            <span className="tech-tag">Blockchain</span>
-                            <span className="tech-tag">Cloud</span>
-                            <span className="tech-tag">+1</span>
-                        </div>
-                        <div className="key-results">
-                            <h4>Key Results:</h4>
-                            <ul>
-                                <li><span className="checkmark">✓</span> 99.9% uptime achieved</li>
-                                <li><span className="checkmark">✓</span> Processed 1M+ documents annually</li>
-                            </ul>
-                        </div>
-                        <button className="download-btn">
-                            <i className="fas fa-download"></i>
-                            Download Case Study
-                        </button>
-                    </div>
-                </div>
-
-                
-                <div className="case-study-card" data-industry="logistics" data-technologies="react,mobile,iot">
-                    <div className="case-study-image">
-                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=250&fit=crop"
-                            alt="Real-Time Logistics Mobile App" />
-                        <div className="image-overlay">
-                            <span className="client-name">KEZAD</span>
-                            <span className="year">2024</span>
-                        </div>
-                    </div>
-                    <div className="case-study-content">
-                        <h3 className="case-study-title">Real-Time Logistics Mobile App</h3>
-                        <p className="case-study-description">Developed iOS and Android apps for real-time logistics
-                            tracking and warehouse management.</p>
-                        <div className="technology-tags">
-                            <span className="tech-tag">React Native</span>
-                            <span className="tech-tag">Mobile</span>
-                            <span className="tech-tag">IoT</span>
-                            <span className="tech-tag">+1</span>
-                        </div>
-                        <div className="key-results">
-                            <h4>Key Results:</h4>
-                            <ul>
-                                <li><span className="checkmark">✓</span> 30% faster delivery times</li>
-                                <li><span className="checkmark">✓</span> Real-time tracking for 10K+ shipments</li>
-                            </ul>
-                        </div>
-                        <button className="download-btn">
-                            <i className="fas fa-download"></i>
-                            Download Case Study
-                        </button>
-                    </div>
-                </div>
-
-                
-                <div className="case-study-card" data-industry="ecommerce" data-technologies="next,ai,stripe">
-                    <div className="case-study-image">
-                        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=250&fit=crop"
-                            alt="E-commerce Platform with AI Recommendations" />
-                        <div className="image-overlay">
-                            <span className="client-name">Classy Fashion</span>
-                            <span className="year">2023</span>
-                        </div>
-                    </div>
-                    <div className="case-study-content">
-                        <h3 className="case-study-title">E-commerce Platform with AI Recommendations</h3>
-                        <p className="case-study-description">Created a modern e-commerce platform with AI-powered product
-                            recommendations and personalized shopping experience.</p>
-                        <div className="technology-tags">
-                            <span className="tech-tag">Next.js</span>
-                            <span className="tech-tag">AI/ML</span>
-                            <span className="tech-tag">Stripe</span>
-                            <span className="tech-tag">+1</span>
-                        </div>
-                        <div className="key-results">
-                            <h4>Key Results:</h4>
-                            <ul>
-                                <li><span className="checkmark">✓</span> 200% increase in conversion rate</li>
-                                <li><span className="checkmark">✓</span> 50K+ active users monthly</li>
-                            </ul>
-                        </div>
-                        <button className="download-btn">
-                            <i className="fas fa-download"></i>
-                            Download Case Study
-                        </button>
-                    </div>
-                </div>
-
-                
-                <div className="case-study-card" data-industry="food" data-technologies="react,mobile,node">
-                    <div className="case-study-image">
-                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=250&fit=crop"
-                            alt="Food Delivery Management System" />
-                        <div className="image-overlay">
-                            <span className="client-name">Voosh</span>
-                            <span className="year">2024</span>
-                        </div>
-                    </div>
-                    <div className="case-study-content">
-                        <h3 className="case-study-title">Food Delivery Management System</h3>
-                        <p className="case-study-description">Built a comprehensive multi-restaurant food delivery platform
-                            with advanced analytics and vendor management.</p>
-                        <div className="technology-tags">
-                            <span className="tech-tag">React</span>
-                            <span className="tech-tag">Mobile</span>
-                            <span className="tech-tag">Node.js</span>
-                            <span className="tech-tag">+1</span>
-                        </div>
-                        <div className="key-results">
-                            <h4>Key Results:</h4>
-                            <ul>
-                                <li><span className="checkmark">✓</span> Integrated 500+ restaurants</li>
-                                <li><span className="checkmark">✓</span> Handled 100K+ orders monthly</li>
-                            </ul>
-                        </div>
-                        <button className="download-btn">
-                            <i className="fas fa-download"></i>
-                            Download Case Study
-                        </button>
-                    </div>
-                </div>
-
-                
-                <div className="case-study-card" data-industry="education" data-technologies="vue,webrtc,python">
-                    <div className="case-study-image">
-                        <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=250&fit=crop"
-                            alt="EdTech Learning Platform" />
-                        <div className="image-overlay">
-                            <span className="client-name">Learn2Read Foundation</span>
-                            <span className="year">2023</span>
-                        </div>
-                    </div>
-                    <div className="case-study-content">
-                        <h3 className="case-study-title">EdTech Learning Platform</h3>
-                        <p className="case-study-description">Developed an interactive learning platform with gamification
-                            features and progress tracking for students.</p>
-                        <div className="technology-tags">
-                            <span className="tech-tag">Vue.js</span>
-                            <span className="tech-tag">WebRTC</span>
-                            <span className="tech-tag">Python</span>
-                            <span className="tech-tag">+1</span>
-                        </div>
-                        <div className="key-results">
-                            <h4>Key Results:</h4>
-                            <ul>
-                                <li><span className="checkmark">✓</span> 50K+ students enrolled</li>
-                                <li><span className="checkmark">✓</span> 85% course completion rate</li>
-                            </ul>
-                        </div>
-                        <button className="download-btn">
-                            <i className="fas fa-download"></i>
-                            Download Case Study
-                        </button>
-                    </div>
-                </div>
-
-                
-                <div className="case-study-card" data-industry="healthcare" data-technologies="react,mobile,webrtc">
-                    <div className="case-study-image">
-                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400&h=250&fit=crop"
-                            alt="Telemedicine Consultation App" />
-                        <div className="image-overlay">
-                            <span className="client-name">Dr. Pick</span>
-                            <span className="year">2024</span>
-                        </div>
-                    </div>
-                    <div className="case-study-content">
-                        <h3 className="case-study-title">Telemedicine Consultation App</h3>
-                        <p className="case-study-description">Created a secure telemedicine platform enabling virtual
-                            consultations with integrated prescription management.</p>
-                        <div className="technology-tags">
-                            <span className="tech-tag">React Native</span>
-                            <span className="tech-tag">WebRTC</span>
-                            <span className="tech-tag">HIPAA</span>
-                            <span className="tech-tag">+1</span>
-                        </div>
-                        <div className="key-results">
-                            <h4>Key Results:</h4>
-                            <ul>
-                                <li><span className="checkmark">✓</span> 10K+ consultations monthly</li>
-                                <li><span className="checkmark">✓</span> HIPAA compliant infrastructure</li>
-                            </ul>
-                        </div>
-                        <button className="download-btn">
-                            <i className="fas fa-download"></i>
-                            Download Case Study
-                        </button>
-                    </div>
-                </div>
-
-                
-                <div className="case-study-card" data-industry="smartcity" data-technologies="react,iot,bigdata">
-                    <div className="case-study-image">
-                        <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=400&h=250&fit=crop"
-                            alt="Smart City IoT Dashboard" />
-                        <div className="image-overlay">
-                            <span className="client-name">Telangana Government</span>
-                            <span className="year">2023</span>
-                        </div>
-                    </div>
-                    <div className="case-study-content">
-                        <h3 className="case-study-title">Smart City IoT Dashboard</h3>
-                        <p className="case-study-description">Designed and deployed a comprehensive IoT dashboard for smart
-                            city infrastructure monitoring and management.</p>
-                        <div className="technology-tags">
-                            <span className="tech-tag">React</span>
-                            <span className="tech-tag">IoT</span>
-                            <span className="tech-tag">Big Data</span>
-                            <span className="tech-tag">+1</span>
-                        </div>
-                        <div className="key-results">
-                            <h4>Key Results:</h4>
-                            <ul>
-                                <li><span className="checkmark">✓</span> Monitoring 1000+ IoT devices</li>
-                                <li><span className="checkmark">✓</span> Real-time alerts reduced response time by 70%</li>
-                            </ul>
-                        </div>
-                        <button className="download-btn">
-                            <i className="fas fa-download"></i>
-                            Download Case Study
-                        </button>
-                    </div>
-                </div>
-
-                
-                <div className="case-study-card" data-industry="fintech" data-technologies="java,microservices,blockchain">
-                    <div className="case-study-image">
-                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=250&fit=crop"
-                            alt="Fintech Payment Gateway" />
-                        <div className="image-overlay">
-                            <span className="client-name">Onus Financial</span>
-                            <span className="year">2024</span>
-                        </div>
-                    </div>
-                    <div className="case-study-content">
-                        <h3 className="case-study-title">Fintech Payment Gateway</h3>
-                        <p className="case-study-description">Built a secure, high-performance payment gateway with
-                            multi-currency support and fraud detection.</p>
-                        <div className="technology-tags">
-                            <span className="tech-tag">Java</span>
-                            <span className="tech-tag">Microservices</span>
-                            <span className="tech-tag">Blockchain</span>
-                            <span className="tech-tag">+1</span>
-                        </div>
-                        <div className="key-results">
-                            <h4>Key Results:</h4>
-                            <ul>
-                                <li><span className="checkmark">✓</span> Processing $10M+ transactions monthly</li>
-                                <li><span className="checkmark">✓</span> 99.99% transaction success rate</li>
-                            </ul>
-                        </div>
-                        <button className="download-btn">
-                            <i className="fas fa-download"></i>
-                            Download Case Study
-                        </button>
-                    </div>
-                </div>
-            </div>
+      <section className="macs-why">
+        <div className="macs-container">
+          <span className="macs-section-tag" data-aos="fade-up">Why mTouch Labs</span>
+          <h2 className="macs-section-title" data-aos="fade-up">Why Choose <span className="macs-text-accent">mTouch Labs</span></h2>
+          <p className="macs-section-desc" data-aos="fade-up">Companies choose mTouch Labs because we focus on delivering applications that provide real business value.</p>
+          <div className="macs-why__grid">
+            {advantages.map((a, i) => (<div key={i} className="macs-why__card" data-aos="zoom-in" data-aos-delay={i * 80}><span className="macs-why__num">{String(i + 1).padStart(2, "0")}</span><p>{a}</p></div>))}
+          </div>
         </div>
-    </div>
+      </section>
 
+      <section className="macs-faq">
+        <div className="macs-container">
+          <span className="macs-section-tag" data-aos="fade-up">FAQ</span>
+          <h2 className="macs-section-title" data-aos="fade-up">Frequently Asked <span className="macs-text-accent">Questions</span></h2>
+          <div className="macs-faq__list">
+            {faqs.map((f, i) => (
+              <details key={i} className="macs-faq__item" data-aos="fade-up" data-aos-delay={i * 100}>
+                <summary className="macs-faq__question"><span>{f.q}</span><span className="macs-faq__chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9l6 6 6-6" /></svg></span></summary>
+                <div className="macs-faq__answer"><p>{f.a}</p></div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
 
-
-    
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-        
-    
-    
-
-    
-      
-
+      <section className="macs-cta">
+        <div className="macs-container">
+          <div className="macs-cta__inner" data-aos="zoom-in">
+            <h2 className="macs-cta__title">Ready to Build Your <span className="macs-text-accent">Project</span>?</h2>
+            <p className="macs-cta__text">Let&apos;s discuss how we can build a solution that drives real business growth.</p>
+            <Link href="/contact-us" className="macs-cta__button">Start Your Project &rarr;</Link>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
