@@ -13,7 +13,6 @@ type Message = {
   options?: OptionItem[];
 };
 
-// Dev vs Prod WebSocket URL based on env
 const WS_BASE = process.env.NEXT_PUBLIC_SHOW_CHATBOT === "true"
   ? "wss://webagent.dev.mtouchlabs.com/ws"
   : "wss://webagent.mtouchlabs.com/ws";
@@ -22,7 +21,6 @@ function generateSessionId() {
   return "sess_" + Math.random().toString(36).substring(2, 15) + Date.now().toString(36);
 }
 
-// Extract text from any nested response structure
 function extractText(val: unknown): string {
   if (typeof val === "string") return val;
   if (Array.isArray(val)) return val.map(extractText).filter(Boolean).join("\n");
@@ -42,7 +40,6 @@ function extractText(val: unknown): string {
   return "";
 }
 
-// Extract options array — handles both string[] and {value, label, image}[]
 function extractOptions(data: Record<string, unknown>): OptionItem[] | undefined {
   const parseOptions = (raw: unknown): OptionItem[] | undefined => {
     if (!Array.isArray(raw) || raw.length === 0) return undefined;
@@ -59,10 +56,7 @@ function extractOptions(data: Record<string, unknown>): OptionItem[] | undefined
       return { value: String(o), label: String(o) };
     });
   };
-
-  // Check top level
   if (data.options) return parseOptions(data.options);
-  // Check nested response
   if (data.response && typeof data.response === "object" && !Array.isArray(data.response)) {
     const resp = data.response as Record<string, unknown>;
     if (resp.options) return parseOptions(resp.options);
@@ -72,15 +66,32 @@ function extractOptions(data: Record<string, unknown>): OptionItem[] | undefined
 
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);
-
   const [showLabel, setShowLabel] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [connected, setConnected] = useState(false);
+
+  // ⭐ Lead form state
+  const [showForm, setShowForm] = useState(false);
+  const [leadCollected, setLeadCollected] = useState(false);
+  const [formName, setFormName] = useState("");
+  const [formEmail, setFormEmail] = useState("");
+  const [formPhone, setFormPhone] = useState("");
+  const [formSubmitting, setFormSubmitting] = useState(false);
+
+  const bodyRef = useRef<HTMLDivElement>(null);
+  const wsRef = useRef<WebSocket | null>(null);
+  const sessionIdRef = useRef<string>(generateSessionId());
+  const reconnectAttempts = useRef(0);
+
   useEffect(() => {
     const t1 = setTimeout(() => setShowLabel(true), 2500);
     const t2 = setTimeout(() => setShowLabel(false), 9000);
     return () => { clearTimeout(t1); clearTimeout(t2); };
   }, []);
 
-  const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth <= 600);
     check();
@@ -88,23 +99,18 @@ export default function ChatWidget() {
     return () => window.removeEventListener("resize", check);
   }, []);
 
-  const toggle = () => setOpen(p => !p);
-
-  const [messages, setMessages] = useState<Message[]>([]);
-  const [input, setInput] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [connected, setConnected] = useState(false);
-  const bodyRef = useRef<HTMLDivElement>(null);
-  const wsRef = useRef<WebSocket | null>(null);
-  const sessionIdRef = useRef<string>(generateSessionId());
-  const reconnectAttempts = useRef(0);
-
   useEffect(() => {
     if (bodyRef.current) {
       bodyRef.current.scrollTop = bodyRef.current.scrollHeight;
+      setTimeout(() => {
+        if (bodyRef.current) bodyRef.current.scrollTop = bodyRef.current.scrollHeight;
+      }, 100);
     }
-  }, [messages, loading]);
+  }, [messages, loading, showForm]);
 
+  const toggle = () => setOpen(p => !p);
+
+  /* ── WebSocket Connection ── */
   const connectWebSocket = useCallback(() => {
     if (wsRef.current?.readyState === WebSocket.OPEN) return;
 
@@ -112,20 +118,31 @@ export default function ChatWidget() {
     wsRef.current = ws;
 
     ws.onopen = () => {
-      console.log("WebSocket connected to", WS_BASE);
       setConnected(true);
       reconnectAttempts.current = 0;
     };
 
     ws.onmessage = (event) => {
       setLoading(false);
+      setFormSubmitting(false);
 
       try {
         const data = JSON.parse(event.data);
 
-        if (data.tool_calls || data.function_call) {
-          console.log("Function call detected:", data);
-          return;
+        if (data.tool_calls || data.function_call) return;
+
+        // ⭐ Handle show_form flag
+        if (data.show_form === true) {
+          setShowForm(true);
+          setLeadCollected(false);
+        } else if (data.show_form === false) {
+          setShowForm(false);
+        }
+
+        // ⭐ Handle lead_collected flag
+        if (data.lead_collected === true) {
+          setLeadCollected(true);
+          setShowForm(false);
         }
 
         const text = extractText(data);
@@ -163,6 +180,7 @@ export default function ChatWidget() {
     return () => { wsRef.current?.close(); };
   }, []);
 
+  /* ── Send type:1 message (normal chat) ── */
   const sendMessage = (text: string, value?: string) => {
     if (!text.trim()) return;
     setMessages(prev => [...prev, { from: "user", text }]);
@@ -171,8 +189,7 @@ export default function ChatWidget() {
 
     if (wsRef.current?.readyState === WebSocket.OPEN) {
       try {
-        // Send the value (e.g. "MOBILE_APPS") if available, otherwise the label text
-        wsRef.current.send(JSON.stringify({ message: value || text }));
+        wsRef.current.send(JSON.stringify({ type: 1, message: value || text }));
       } catch {
         wsRef.current.send(value || text);
       }
@@ -181,6 +198,34 @@ export default function ChatWidget() {
       setMessages(prev => [...prev, { from: "ai", text: "⚠️ Connection lost. Reconnecting..." }]);
       connectWebSocket();
     }
+  };
+
+  /* ── Send type:0 message (lead form) ── */
+  const submitLeadForm = () => {
+    if (!formName.trim() || !formEmail.trim() || !formPhone.trim()) return;
+    setFormSubmitting(true);
+
+    setMessages(prev => [...prev, {
+      from: "user",
+      text: `${formName} • ${formEmail} • ${formPhone}`
+    }]);
+
+    if (wsRef.current?.readyState === WebSocket.OPEN) {
+      try {
+        wsRef.current.send(JSON.stringify({
+          type: 0,
+          name: formName.trim(),
+          email: formEmail.trim(),
+          phone: formPhone.trim(),
+        }));
+      } catch {
+        setFormSubmitting(false);
+      }
+    }
+
+    setFormName("");
+    setFormEmail("");
+    setFormPhone("");
   };
 
   const handleSend = () => {
@@ -194,7 +239,6 @@ export default function ChatWidget() {
 
   const handleOptionClick = (option: OptionItem) => {
     if (loading) return;
-    // Show label to user, send value to backend
     sendMessage(option.label, option.value);
   };
 
@@ -285,7 +329,6 @@ export default function ChatWidget() {
               )}
               <div className={`cw-msg-bubble ${msg.from === "user" ? "cw-msg-bubble-user" : ""}`}>
                 {renderText(msg.text)}
-                {/* Option buttons with optional images */}
                 {msg.from === "ai" && msg.options && msg.options.length > 0 && (
                   <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginTop: "12px" }}>
                     {msg.options.map((opt, j) => (
@@ -293,38 +336,17 @@ export default function ChatWidget() {
                         key={j}
                         onClick={() => handleOptionClick(opt)}
                         style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: "8px",
+                          display: "flex", alignItems: "center", gap: "8px",
                           padding: opt.image ? "8px 14px 8px 8px" : "7px 14px",
-                          borderRadius: "10px",
-                          border: "1px solid rgba(99,102,241,0.25)",
-                          background: "rgba(99,102,241,0.06)",
-                          color: "#6366f1",
-                          fontSize: "13px",
-                          fontWeight: 600,
-                          cursor: "pointer",
-                          transition: "all 0.2s ease",
-                          fontFamily: "inherit",
+                          borderRadius: "10px", border: "1px solid rgba(99,102,241,0.25)",
+                          background: "rgba(99,102,241,0.06)", color: "#6366f1",
+                          fontSize: "13px", fontWeight: 600, cursor: "pointer",
+                          transition: "all 0.2s ease", fontFamily: "inherit",
                         }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.background = "rgba(99,102,241,0.15)";
-                          e.currentTarget.style.transform = "translateY(-1px)";
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.background = "rgba(99,102,241,0.06)";
-                          e.currentTarget.style.transform = "translateY(0)";
-                        }}
+                        onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(99,102,241,0.15)"; e.currentTarget.style.transform = "translateY(-1px)"; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.background = "rgba(99,102,241,0.06)"; e.currentTarget.style.transform = "translateY(0)"; }}
                       >
-                        {opt.image && (
-                          <img
-                            src={opt.image}
-                            alt={opt.label}
-                            width={22}
-                            height={22}
-                            style={{ borderRadius: "6px", objectFit: "cover" }}
-                          />
-                        )}
+                        {opt.image && <img src={opt.image} alt={opt.label} width={22} height={22} style={{ borderRadius: "6px", objectFit: "cover" }} />}
                         {opt.label}
                       </button>
                     ))}
@@ -333,6 +355,71 @@ export default function ChatWidget() {
               </div>
             </div>
           ))}
+
+          {/* ⭐ LEAD COLLECTION FORM */}
+          {showForm && !leadCollected && (
+            <div className="cw-msg">
+              <div className="cw-msg-avatar"><span className="cw-ai-mini">✦</span></div>
+              <div className="cw-msg-bubble" style={{ padding: "16px", width: "100%" }}>
+                <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                  <p style={{ margin: "0 0 4px", fontSize: "13px", fontWeight: 600, color: "#374151" }}>Please share your details to continue:</p>
+                  <input
+                    type="text"
+                    placeholder="Your Name"
+                    value={formName}
+                    onChange={(e) => setFormName(e.target.value)}
+                    style={{
+                      padding: "10px 14px", borderRadius: "8px", border: "1px solid #d1d5db",
+                      fontSize: "14px", fontFamily: "inherit", outline: "none",
+                      transition: "border-color 0.2s ease",
+                    }}
+                    onFocus={(e) => e.currentTarget.style.borderColor = "#6366f1"}
+                    onBlur={(e) => e.currentTarget.style.borderColor = "#d1d5db"}
+                  />
+                  <input
+                    type="email"
+                    placeholder="Email Address"
+                    value={formEmail}
+                    onChange={(e) => setFormEmail(e.target.value)}
+                    style={{
+                      padding: "10px 14px", borderRadius: "8px", border: "1px solid #d1d5db",
+                      fontSize: "14px", fontFamily: "inherit", outline: "none",
+                      transition: "border-color 0.2s ease",
+                    }}
+                    onFocus={(e) => e.currentTarget.style.borderColor = "#6366f1"}
+                    onBlur={(e) => e.currentTarget.style.borderColor = "#d1d5db"}
+                  />
+                  <input
+                    type="tel"
+                    placeholder="Phone Number"
+                    value={formPhone}
+                    onChange={(e) => setFormPhone(e.target.value)}
+                    style={{
+                      padding: "10px 14px", borderRadius: "8px", border: "1px solid #d1d5db",
+                      fontSize: "14px", fontFamily: "inherit", outline: "none",
+                      transition: "border-color 0.2s ease",
+                    }}
+                    onFocus={(e) => e.currentTarget.style.borderColor = "#6366f1"}
+                    onBlur={(e) => e.currentTarget.style.borderColor = "#d1d5db"}
+                    onKeyDown={(e) => { if (e.key === "Enter") submitLeadForm(); }}
+                  />
+                  <button
+                    onClick={submitLeadForm}
+                    disabled={!formName.trim() || !formEmail.trim() || !formPhone.trim() || formSubmitting}
+                    style={{
+                      padding: "10px 20px", borderRadius: "10px", border: "none",
+                      background: (formName.trim() && formEmail.trim() && formPhone.trim() && !formSubmitting) ? "linear-gradient(135deg, #6366f1, #8b5cf6)" : "#e5e7eb",
+                      color: (formName.trim() && formEmail.trim() && formPhone.trim() && !formSubmitting) ? "#fff" : "#9ca3af",
+                      fontSize: "14px", fontWeight: 700, cursor: (formName.trim() && formEmail.trim() && formPhone.trim()) ? "pointer" : "not-allowed",
+                      transition: "all 0.2s ease", fontFamily: "inherit",
+                    }}
+                  >
+                    {formSubmitting ? "Submitting..." : "Continue →"}
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
 
           {loading && (
             <div className="cw-msg">
@@ -344,22 +431,26 @@ export default function ChatWidget() {
           )}
         </div>
 
-        {/* Input */}
+        {/* Input — disabled when form is showing */}
         <div className="cw-ai-input-area">
           <div className="cw-ai-input-row cw-ai-input-row-active">
             <input
               type="text"
               className="cw-ai-input"
-              placeholder={connected ? (isMobile ? "Ask anything..." : "Ask me anything about mTouch Labs...") : "Connecting..."}
-              disabled={!connected || loading}
+              placeholder={
+                !connected ? "Connecting..." :
+                showForm && !leadCollected ? "Please fill the form above..." :
+                isMobile ? "Ask anything..." : "Ask me anything about mTouch Labs..."
+              }
+              disabled={!connected || loading || (showForm && !leadCollected)}
               autoComplete="off"
               value={input}
               onChange={e => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
             />
             <button
-              className={`cw-ai-send ${connected && input.trim() && !loading ? "cw-ai-send-active" : ""}`}
-              disabled={!connected || !input.trim() || loading}
+              className={`cw-ai-send ${connected && input.trim() && !loading && !(showForm && !leadCollected) ? "cw-ai-send-active" : ""}`}
+              disabled={!connected || !input.trim() || loading || (showForm && !leadCollected)}
               aria-label="Send"
               onClick={handleSend}
             >
@@ -370,7 +461,7 @@ export default function ChatWidget() {
           </div>
           <div className="cw-ai-hint">
             <span className="cw-ai-badge">AI</span>
-            {loading ? "Thinking..." : "Powered by mTouch Labs AI"}
+            {loading ? "Thinking..." : showForm && !leadCollected ? "Fill in your details to continue" : "Powered by mTouch Labs AI"}
           </div>
         </div>
 

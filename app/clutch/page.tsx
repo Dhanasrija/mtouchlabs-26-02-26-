@@ -73,12 +73,8 @@ export default function ClutchPage() {
       {/* ════════ HERO ════════ */}
       <section className="clutch-hero">
         <div className="clutch-hero__inner">
-          <div className="clutch-hero__badge">
-            <span className="clutch-hero__badge-dot"></span>
-            Trusted by 50+ Enterprises Worldwide
-          </div>
           <h1 className="clutch-hero__title">Love What We Do? <span>Rate Us!</span></h1>
-          <p className="clutch-hero__subtitle">Your honest feedback helps us improve and helps other businesses find the right technology partner.</p>
+          <p className="clutch-hero__subtitle">Your honest feedback helps us improve and helps other businesses find the right technology partner.</p><div style={{display:"flex",justifyContent:"center",marginTop:"32px"}}><a href="/contact-us" className="clutch-cta__btn">Get in Touch →</a></div>
         </div>
       </section>
 
@@ -98,7 +94,7 @@ export default function ClutchPage() {
       <section className="clutch-why">
         <div className="clutch-why__inner">
           <h2 className="clutch-why__heading">Why Your <span>Review Matters</span></h2>
-          <p className="clutch-why__sub">A few minutes of your time makes a big difference for our team and for future clients.</p>
+          <p className="clutch-why__sub">A few minutes of your time makes a big difference for our team and for future clients.</p><div style={{display:"flex",gap:"14px",justifyContent:"center",marginTop:"32px",flexWrap:"wrap"}}><a href="/contact-us" className="clutch-cta__btn">Get in Touch &rarr;</a></div>
           <div className="clutch-why__grid">
             {reasons.map((r, i) => (
               <div className="clutch-why__card" key={i}>
