@@ -988,14 +988,26 @@ const isContact = pathname === "/contact-us" || pathname.startsWith("/contact-us
                           <div className="menu-inner-block-a">
                             <div className="inner-blockss">
                               <ul className="menu-li-link">
-                                <li><a href="/case-studies/healthcare-mobile-app-development"><span className="mega-link-title">Healthcare Mobile App</span><span className="mega-link-desc">Secure mobile app for appointment booking and patient communication</span></a></li>
+                                <li><a href="/case-studies/healthcare-mobile-app-development"><span className="mega-link-title">Healthcare Mobile App</span><span className="mega-link-desc">Appointment booking, patient records, and doctor-patient messaging</span></a></li>
                               </ul>
                             </div>
                             <div className="inner-blockss">
-                              <a href="/case-studies" className="home-mega-readmore">View All Case Studies &#x2192;&#x2192;</a>
+                              <a href="/case-studies" className="home-mega-readmore">&#x2192;&#x2192;</a>
                             </div>
                           </div>
                         </div>                      <HomeCTA />
+
+
+
+
+
+
+
+
+
+
+
+
                     </div>
                   </div>
                   <MegaMenuExtraInfo />

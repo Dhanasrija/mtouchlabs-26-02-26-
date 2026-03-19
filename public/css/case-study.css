@@ -1841,3 +1841,34 @@
 .csx-hero__bg {
   opacity: 0.5 !important; 
 }
+
+
+#home-case-studies {
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  padding-left: 0 !important;
+}
+#home-case-studies .menu-inner-block-a {
+  padding-left: 0 !important;
+  display: grid !important;
+  grid-template-columns: 1fr auto !important;
+  gap: 20px !important;
+}
+#home-case-studies .home-mega-panel-title {
+  padding-left: 0 !important;
+}
+#home-case-studies .menu-li-link li a {
+  padding-left: 0 !important;
+}
+
+/* UNDO — remove absolute positioning */
+#home-case-studies {
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+}
+#home-case-studies .menu-inner-block-a {
+  display: flex !important;
+  grid-template-columns: unset !important;
+}
