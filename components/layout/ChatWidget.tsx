@@ -203,7 +203,9 @@ export default function ChatWidget() {
   /* ── Send type:0 message (lead form) ── */
   const submitLeadForm = () => {
     if (!formName.trim() || !formEmail.trim() || !formPhone.trim()) return;
-    setFormSubmitting(true);
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formEmail.trim());
+    if (!emailOk) { setMessages(prev => [...prev, { from: "ai", text: "Please enter a valid email address." }]); return; }
+    if (formPhone.replace(/[^0-9]/g, "").length < 10) { setMessages(prev => [...prev, { from: "ai", text: "Please enter a valid phone number (minimum 10 digits)." }]); return; }    setFormSubmitting(true);
 
     setMessages(prev => [...prev, {
       from: "user",

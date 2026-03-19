@@ -1,5 +1,5 @@
-export const dynamic = "force-dynamic";
 import '../public/css/brand.css';
+import "../public/css/case-study.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ChatWidget from "@/components/layout/ChatWidget";
@@ -110,7 +110,7 @@ export default function RootLayout({
         <link href="/css/all.min.css" rel="stylesheet" />
         <link href="/css/ionicon.min.css" rel="stylesheet" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />        <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Lora:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
@@ -125,15 +125,12 @@ export default function RootLayout({
         <link href="/css/mega-menu.css" rel="stylesheet" />
         <link href="/css/about.css" rel="stylesheet" />
         <link href="/css/blog.css" rel="stylesheet" />
-        <link href="/css/case-study.css" rel="stylesheet" />
         <link href="/css/home-mega-menu.css" rel="stylesheet" />
         <link href="/css/chat-widget.css" rel="stylesheet" />
         <link href="/css/location-pages.css" rel="stylesheet" />
         <link href="/css/navbar-dropdown.css" rel="stylesheet" />
         <link href="/css/services.css" rel="stylesheet" />
-        <link href ="/css/case-studies.css" rel="stylesheet"/>
         <link href="/css/homepage-fixes.css" rel="stylesheet"/>
-        <link href="/css/brand.css" rel="stylesheet"/>
 
         <meta name="turnstile-site-key" content={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY} />
 
