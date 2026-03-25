@@ -1,3 +1,4 @@
+
 "use client";
 import { useEffect, useState, useRef, useCallback } from "react";
 
@@ -73,7 +74,6 @@ export default function ChatWidget() {
   const [loading, setLoading] = useState(false);
   const [connected, setConnected] = useState(false);
 
-  // ⭐ Lead form state
   const [showForm, setShowForm] = useState(false);
   const [leadCollected, setLeadCollected] = useState(false);
   const [formName, setFormName] = useState("");
@@ -108,49 +108,42 @@ export default function ChatWidget() {
     }
   }, [messages, loading, showForm]);
 
-  const toggle = () => setOpen(p => !p);
+  const closeChat = useCallback(() => {
+    setOpen(false);
+    if (wsRef.current) { wsRef.current.close(); wsRef.current = null; }
+    setConnected(false);
+    setMessages([]);
+    setInput("");
+    setLoading(false);
+    setShowForm(false);
+    setLeadCollected(false);
+    setFormName("");
+    setFormEmail("");
+    setFormPhone("");
+    setFormSubmitting(false);
+    reconnectAttempts.current = 0;
+    sessionIdRef.current = generateSessionId();
+  }, []);
 
-  /* ── WebSocket Connection ── */
+  const toggle = () => { if (open) { closeChat(); } else { setOpen(true); } };
+
   const connectWebSocket = useCallback(() => {
     if (wsRef.current?.readyState === WebSocket.OPEN) return;
-
     const ws = new WebSocket(`${WS_BASE}/${sessionIdRef.current}`);
     wsRef.current = ws;
-
-    ws.onopen = () => {
-      setConnected(true);
-      reconnectAttempts.current = 0;
-    };
-
+    ws.onopen = () => { setConnected(true); reconnectAttempts.current = 0; };
     ws.onmessage = (event) => {
       setLoading(false);
       setFormSubmitting(false);
-
       try {
         const data = JSON.parse(event.data);
-
         if (data.tool_calls || data.function_call) return;
-
-        // ⭐ Handle show_form flag
-        if (data.show_form === true) {
-          setShowForm(true);
-          setLeadCollected(false);
-        } else if (data.show_form === false) {
-          setShowForm(false);
-        }
-
-        // ⭐ Handle lead_collected flag
-        if (data.lead_collected === true) {
-          setLeadCollected(true);
-          setShowForm(false);
-        }
-
+        if (data.show_form === true) { setShowForm(true); setLeadCollected(false); }
+        else if (data.show_form === false) { setShowForm(false); }
+        if (data.lead_collected === true) { setLeadCollected(true); setShowForm(false); }
         const text = extractText(data);
         const options = extractOptions(data);
-
-        if (text) {
-          setMessages(prev => [...prev, { from: "ai", text, options }]);
-        }
+        if (text) { setMessages(prev => [...prev, { from: "ai", text, options }]); }
       } catch {
         const raw = event.data;
         if (raw && typeof raw === "string" && raw.trim()) {
@@ -158,9 +151,7 @@ export default function ChatWidget() {
         }
       }
     };
-
     ws.onerror = () => setConnected(false);
-
     ws.onclose = () => {
       setConnected(false);
       wsRef.current = null;
@@ -172,72 +163,85 @@ export default function ChatWidget() {
     };
   }, []);
 
-  useEffect(() => {
-    if (open) connectWebSocket();
-  }, [open, connectWebSocket]);
+  useEffect(() => { if (open) connectWebSocket(); }, [open, connectWebSocket]);
+  useEffect(() => { return () => { wsRef.current?.close(); }; }, []);
 
-  useEffect(() => {
-    return () => { wsRef.current?.close(); };
-  }, []);
-
-  /* ── Send type:1 message (normal chat) ── */
   const sendMessage = (text: string, value?: string) => {
     if (!text.trim()) return;
     setMessages(prev => [...prev, { from: "user", text }]);
     setInput("");
     setLoading(true);
-
     if (wsRef.current?.readyState === WebSocket.OPEN) {
-      try {
-        wsRef.current.send(JSON.stringify({ type: 1, message: value || text }));
-      } catch {
-        wsRef.current.send(value || text);
-      }
+      try { wsRef.current.send(JSON.stringify({ type: 1, message: value || text })); }
+      catch { wsRef.current.send(value || text); }
     } else {
       setLoading(false);
-      setMessages(prev => [...prev, { from: "ai", text: "⚠️ Connection lost. Reconnecting..." }]);
+      setMessages(prev => [...prev, { from: "ai", text: "Connection lost. Reconnecting..." }]);
       connectWebSocket();
     }
   };
 
-  /* ── Send type:0 message (lead form) ── */
   const submitLeadForm = () => {
     if (!formName.trim() || !formEmail.trim() || !formPhone.trim()) return;
-    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formEmail.trim());
-    if (!emailOk) { setMessages(prev => [...prev, { from: "ai", text: "Please enter a valid email address." }]); return; }
-    if (formPhone.replace(/[^0-9]/g, "").length < 10) { setMessages(prev => [...prev, { from: "ai", text: "Please enter a valid phone number (minimum 10 digits)." }]); return; }
-    setFormSubmitting(true);
 
-    setMessages(prev => [...prev, {
-      from: "user",
-      text: `${formName} • ${formEmail} • ${formPhone}`
-    }]);
+    const errors: string[] = [];
 
-    if (wsRef.current?.readyState === WebSocket.OPEN) {
-      try {
-        wsRef.current.send(JSON.stringify({
-          type: 0,
-          name: formName.trim(),
-          email: formEmail.trim(),
-          phone: formPhone.trim(),
-        }));
-      } catch {
-        setFormSubmitting(false);
-      }
+    // Email validation
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(formEmail.trim())) {
+      errors.push("• Invalid email address (e.g. name@gmail.com)");
     }
 
+    // Phone validation — country code aware
+    const phone = formPhone.trim();
+    const phoneDigits = phone.replace(/[^0-9]/g, "");
+    let phoneValid = false;
+    if (phone.startsWith("+91") || phoneDigits.startsWith("91")) {
+      const local = phoneDigits.startsWith("91") ? phoneDigits.slice(2) : phoneDigits;
+      phoneValid = local.length === 10;
+    } else if (phone.startsWith("+1")) {
+      const local = phoneDigits.startsWith("1") ? phoneDigits.slice(1) : phoneDigits;
+      phoneValid = local.length === 10;
+    } else if (phone.startsWith("+44")) {
+      const local = phoneDigits.startsWith("44") ? phoneDigits.slice(2) : phoneDigits;
+      phoneValid = local.length >= 10 && local.length <= 11;
+    } else if (phone.startsWith("+971")) {
+      const local = phoneDigits.startsWith("971") ? phoneDigits.slice(3) : phoneDigits;
+      phoneValid = local.length === 9;
+    } else {
+      phoneValid = phoneDigits.length >= 10 && phoneDigits.length <= 13;
+    }
+    if (!phoneValid) {
+      errors.push("• Invalid phone number for the country code entered");
+    }
+
+    if (errors.length > 0) {
+      setMessages(prev => [...prev, { from: "ai", text: errors.join("\n") }]);
+      return;
+    }
+
+    setFormSubmitting(true);
+    setMessages(prev => [...prev, { from: "user", text: `${formName.trim()} • ${formEmail.trim()} • ${formPhone.trim()}` }]);
+    if (wsRef.current?.readyState === WebSocket.OPEN) {
+      try {
+wsRef.current.send(JSON.stringify({ type: 0, name: formName.trim(), email: formEmail.trim(), phone: formPhone.trim().replace(/[^0-9]/g, "").slice(-10) }));      } catch { setFormSubmitting(false); }
+    }
     setFormName("");
     setFormEmail("");
     setFormPhone("");
   };
 
   const handleSend = () => {
-    if (!input.trim() || loading) return;
+    if (!input || !input.trim() || input.trim().length === 0 || loading) return;
     sendMessage(input.trim());
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); handleSend(); }
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      if (!input || !input.trim()) return;
+      handleSend();
+    }
   };
 
   const handleOptionClick = (option: OptionItem) => {
@@ -262,7 +266,6 @@ export default function ChatWidget() {
 
   return (
     <>
-      {/* FLOATING BUTTON */}
       <div className="cw-wrapper" style={{ right: 'auto', left: '-10px', bottom: '90px' }}>
         <div className={`cw-label ${showLabel && !open ? "cw-label-show" : ""}`}>
           <span className="cw-label-dot" />
@@ -289,32 +292,29 @@ export default function ChatWidget() {
         </button>
       </div>
 
-      {/* CHAT PANEL */}
       <div className={`cw-panel ${open ? "cw-panel-open" : ""}`}>
-        <div className="cw-panel-header">
+        <div className="cw-panel-header" style={{ padding: "14px 16px", minHeight: "60px" }}>
           <div className="cw-panel-header-left">
             <div className="cw-avatar cw-ai-avatar">
               <span className="cw-ai-sparkle-icon">✦</span>
-              <span className={`cw-online-dot ${connected ? "" : "cw-online-dot-offline"}`} />
             </div>
             <div className="cw-header-info">
-              <h4>mTouch AI</h4>
-              <p>
+              <h4 style={{ margin: 0, lineHeight: 1.3 }}>mTouch AI</h4>
+              <p style={{ margin: 0, lineHeight: 1.3 }}>
                 <span className={`cw-ai-status-dot ${connected ? "" : "cw-ai-status-dot-offline"}`} />
-                {connected ? "Online — Ask me anything" : "Connecting..."}
+                {connected ? "Online" : "Connecting..."}
               </p>
             </div>
           </div>
-          <button className="cw-panel-close" aria-label="Close chat" onClick={() => setOpen(false)}>
+          <button className="cw-panel-close" aria-label="Close chat" onClick={closeChat} style={{ padding: "8px", flexShrink: 0 }}>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
             </svg>
           </button>
         </div>
 
-        <div className="cw-panel-body" ref={bodyRef}>
+        <div className="cw-panel-body" ref={bodyRef} style={{ paddingTop: "12px", paddingBottom: "12px" }}>
           <div className="cw-time-stamp">Today</div>
-
           <div className="cw-msg cw-msg-anim-1">
             <div className="cw-msg-avatar"><span className="cw-ai-mini">✦</span></div>
             <div className="cw-msg-bubble">Hi there! 👋 I&apos;m the <strong>mTouch AI Assistant</strong>.</div>
@@ -324,7 +324,6 @@ export default function ChatWidget() {
             <div className="cw-msg-bubble">Ask me anything about mTouch Labs — our services, technologies, pricing, or how we can help with your project!</div>
           </div>
 
-          {/* Dynamic messages */}
           {messages.map((msg, i) => (
             <div key={i} className={`cw-msg ${msg.from === "user" ? "cw-msg-user" : ""}`}>
               {msg.from === "ai" && (
@@ -359,64 +358,31 @@ export default function ChatWidget() {
             </div>
           ))}
 
-          {/* ⭐ LEAD COLLECTION FORM */}
           {showForm && !leadCollected && (
             <div className="cw-msg">
               <div className="cw-msg-avatar"><span className="cw-ai-mini">✦</span></div>
               <div className="cw-msg-bubble" style={{ padding: "16px", width: "100%" }}>
                 <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
                   <p style={{ margin: "0 0 4px", fontSize: "13px", fontWeight: 600, color: "#374151" }}>Please share your details to continue:</p>
-                  <input
-                    type="text"
-                    placeholder="Your Name"
-                    value={formName}
-                    onChange={(e) => setFormName(e.target.value)}
-                    style={{
-                      padding: "10px 14px", borderRadius: "8px", border: "1px solid #d1d5db",
-                      fontSize: "14px", fontFamily: "inherit", outline: "none",
-                      transition: "border-color 0.2s ease",
-                    }}
-                    onFocus={(e) => e.currentTarget.style.borderColor = "#6366f1"}
-                    onBlur={(e) => e.currentTarget.style.borderColor = "#d1d5db"}
-                  />
-                  <input
-                    type="email"
-                    placeholder="Email Address"
-                    value={formEmail}
-                    onChange={(e) => setFormEmail(e.target.value)}
-                    style={{
-                      padding: "10px 14px", borderRadius: "8px", border: "1px solid #d1d5db",
-                      fontSize: "14px", fontFamily: "inherit", outline: "none",
-                      transition: "border-color 0.2s ease",
-                    }}
-                    onFocus={(e) => e.currentTarget.style.borderColor = "#6366f1"}
-                    onBlur={(e) => e.currentTarget.style.borderColor = "#d1d5db"}
-                  />
-                  <input
-                    type="tel"
-                    placeholder="Phone Number"
-                    value={formPhone}
-                    onChange={(e) => setFormPhone(e.target.value)}
-                    style={{
-                      padding: "10px 14px", borderRadius: "8px", border: "1px solid #d1d5db",
-                      fontSize: "14px", fontFamily: "inherit", outline: "none",
-                      transition: "border-color 0.2s ease",
-                    }}
-                    onFocus={(e) => e.currentTarget.style.borderColor = "#6366f1"}
-                    onBlur={(e) => e.currentTarget.style.borderColor = "#d1d5db"}
-                    onKeyDown={(e) => { if (e.key === "Enter") submitLeadForm(); }}
-                  />
-                  <button
-                    onClick={submitLeadForm}
-                    disabled={!formName.trim() || !formEmail.trim() || !formPhone.trim() || formSubmitting}
+                  <input type="text" placeholder="Your Name" value={formName} onChange={(e) => setFormName(e.target.value)}
+                    style={{ padding: "10px 14px", borderRadius: "8px", border: "1px solid #d1d5db", fontSize: "14px", fontFamily: "inherit", outline: "none", transition: "border-color 0.2s ease" }}
+                    onFocus={(e) => e.currentTarget.style.borderColor = "#6366f1"} onBlur={(e) => e.currentTarget.style.borderColor = "#d1d5db"} />
+                  <input type="email" placeholder="Email Address" value={formEmail} onChange={(e) => setFormEmail(e.target.value)}
+                    style={{ padding: "10px 14px", borderRadius: "8px", border: "1px solid #d1d5db", fontSize: "14px", fontFamily: "inherit", outline: "none", transition: "border-color 0.2s ease" }}
+                    onFocus={(e) => e.currentTarget.style.borderColor = "#6366f1"} onBlur={(e) => e.currentTarget.style.borderColor = "#d1d5db"} />
+                  <input type="tel" placeholder="+91 9876543210" value={formPhone} maxLength={14}
+                    onChange={(e) => { const val = e.target.value.replace(/[^0-9+\-\s]/g, ""); const digits = val.replace(/[^0-9]/g, ""); if (val.startsWith("+91") && digits.length > 12) return; if (val.startsWith("+1") && digits.length > 11) return; if (val.startsWith("+44") && digits.length > 13) return; if (val.startsWith("+971") && digits.length > 12) return; if (!val.startsWith("+") && digits.length > 10) return; setFormPhone(val); }}
+                    style={{ padding: "10px 14px", borderRadius: "8px", border: "1px solid #d1d5db", fontSize: "14px", fontFamily: "inherit", outline: "none", transition: "border-color 0.2s ease" }}
+                    onFocus={(e) => e.currentTarget.style.borderColor = "#6366f1"} onBlur={(e) => e.currentTarget.style.borderColor = "#d1d5db"}
+                    onKeyDown={(e) => { if (e.key === "Enter") submitLeadForm(); }} />
+                  <button onClick={submitLeadForm} disabled={!formName.trim() || !formEmail.trim() || !formPhone.trim() || formSubmitting}
                     style={{
                       padding: "10px 20px", borderRadius: "10px", border: "none",
                       background: (formName.trim() && formEmail.trim() && formPhone.trim() && !formSubmitting) ? "linear-gradient(135deg, #6366f1, #8b5cf6)" : "#e5e7eb",
                       color: (formName.trim() && formEmail.trim() && formPhone.trim() && !formSubmitting) ? "#fff" : "#9ca3af",
                       fontSize: "14px", fontWeight: 700, cursor: (formName.trim() && formEmail.trim() && formPhone.trim()) ? "pointer" : "not-allowed",
                       transition: "all 0.2s ease", fontFamily: "inherit",
-                    }}
-                  >
+                    }}>
                     {formSubmitting ? "Submitting..." : "Continue →"}
                   </button>
                 </div>
@@ -434,29 +400,14 @@ export default function ChatWidget() {
           )}
         </div>
 
-        {/* Input — disabled when form is showing */}
         <div className="cw-ai-input-area">
           <div className="cw-ai-input-row cw-ai-input-row-active">
-            <input
-              type="text"
-              className="cw-ai-input"
-              placeholder={
-                !connected ? "Connecting..." :
-                showForm && !leadCollected ? "Please fill the form above..." :
-                isMobile ? "Ask anything..." : "Ask me anything about mTouch Labs..."
-              }
-              disabled={!connected || loading || (showForm && !leadCollected)}
-              autoComplete="off"
-              value={input}
-              onChange={e => setInput(e.target.value)}
-              onKeyDown={handleKeyDown}
-            />
-            <button
-              className={`cw-ai-send ${connected && input.trim() && !loading && !(showForm && !leadCollected) ? "cw-ai-send-active" : ""}`}
-              disabled={!connected || !input.trim() || loading || (showForm && !leadCollected)}
-              aria-label="Send"
-              onClick={handleSend}
-            >
+            <input type="text" className="cw-ai-input"
+              placeholder={!connected ? "Connecting..." : showForm && !leadCollected ? "Please fill the form above..." : isMobile ? "Ask anything..." : "Ask me anything about mTouch Labs..."}
+              disabled={!connected || loading || (showForm && !leadCollected)} autoComplete="off"
+              value={input} onChange={e => setInput(e.target.value)} onKeyDown={handleKeyDown} />
+            <button className={`cw-ai-send ${connected && input.trim() && !loading && !(showForm && !leadCollected) ? "cw-ai-send-active" : ""}`}
+              disabled={!connected || !input.trim() || loading || (showForm && !leadCollected)} aria-label="Send" onClick={handleSend}>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" />
               </svg>
@@ -467,7 +418,6 @@ export default function ChatWidget() {
             {loading ? "Thinking..." : showForm && !leadCollected ? "Fill in your details to continue" : "Powered by mTouch Labs AI"}
           </div>
         </div>
-
         <div className="cw-panel-footer">Powered by <strong>mTouch Labs</strong></div>
       </div>
     </>

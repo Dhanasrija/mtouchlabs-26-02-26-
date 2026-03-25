@@ -934,13 +934,13 @@ const isContact = pathname === "/contact-us" || pathname.startsWith("/contact-us
                           </div>
                         </div>
 
-                        <div className="home-mega-item js-home-mega-item" data-target="home-case-studies">
+                        {/* <div className="home-mega-item js-home-mega-item" data-target="home-case-studies">
   <div className="home-mega-item-icon"><img src="/images/new_home/caseStudies.png" alt="Case Studies icon" width="28" height="28" /></div>
   <div className="home-mega-item-text">
     <span className="home-mega-item-label">Case Studies</span>
     <span className="home-mega-item-desc">Real projects and results across industries</span>
   </div>
-</div>
+</div> */}
                       </div>
                       <div className="home-mega-content">
                         <div className="home-mega-panel active" id="home-about">
@@ -963,27 +963,27 @@ const isContact = pathname === "/contact-us" || pathname.startsWith("/contact-us
                             </div>
                           </div>
                         </div>
-                        <div className="home-mega-panel" id="home-blog">
-                          <h4 className="home-mega-panel-title">Blogs</h4>
-                          <div className="menu-inner-block-a">
-                            <div className="inner-blockss">
-                              <ul className="menu-li-link">
-                                <li><a href="/ai-role-in-business-automation"><span className="mega-link-title">AI &amp; Automation in Business</span><span className="mega-link-desc">Discover how AI is transforming enterprise workflows and driving operational efficiency</span></a></li>
-                                <li><a href="/top-10-free-ai-tools-for-software-developers"><span className="mega-link-title">Top 10 Free AI Tools</span><span className="mega-link-desc">Essential AI-powered tools every software developer should use in 2025</span></a></li>
-                                <li><a href="/mobile-app-development-bangalore-tech-startups"><span className="mega-link-title">Mobile App Dev in Bangalore</span><span className="mega-link-desc">Building scalable mobile solutions for fast-growing Bangalore tech startups</span></a></li>
-                              </ul>
-                            </div>
-                            <div className="inner-blockss">
-                              <ul className="menu-li-link">
-                                <li><a href="/top-ecommerce-niches-us"><span className="mega-link-title">Top eCommerce Niches (2025)</span><span className="mega-link-desc">Most profitable eCommerce niches to explore in the US market this year</span></a></li>
-                                <li><a href="/hyderabad-startups-app-development-mtouch-labs"><span className="mega-link-title">Why Startups Choose mTouch</span><span className="mega-link-desc">Hyderabad&apos;s trusted app development partner for growing startups</span></a></li>
-                              </ul>
-                              <a href="/blog" className="home-mega-readmore">&#x2192;&#x2192;</a>
-                            </div>
-                          </div>
-                        </div>
+                       <div className="home-mega-panel" id="home-blog">
+  <h4 className="home-mega-panel-title">Blogs</h4>
+  <div className="menu-inner-block-a">
+    <div className="inner-blockss">
+      <ul className="menu-li-link">
+        <li><a href="/blog/mtouch-labs-wins-nasscom-sme-inspire-award-2026-mumbai"><span className="mega-link-title">NASSCOM SME Inspire Award 2026</span><span className="mega-link-desc">mTouch Labs wins Digital Transformation Catalyst award at NASSCOM Mumbai</span></a></li>
+        <li><a href="/blog/next-js-16-the-best-enterprise-web-framework-in-2026"><span className="mega-link-title">Next.js 16 for Enterprise</span><span className="mega-link-desc">Why Next.js 16 is the best enterprise web framework in 2026</span></a></li>
+        <li><a href="/blog/building-future-of-digital-india"><span className="mega-link-title">Building Future of Digital India</span><span className="mega-link-desc">How technology is shaping India's digital transformation journey</span></a></li>
+      </ul>
+    </div>
+    <div className="inner-blockss">
+      <ul className="menu-li-link">
+        <li><a href="/blog/digital-transformation-journey-from-2025-achievements-and-the-road-to-2026"><span className="mega-link-title">Digital Transformation Journey</span><span className="mega-link-desc">From 2025 achievements to the road ahead in 2026</span></a></li>
+        <li><a href="/blog/top-10-free-ai-tools-for-software-developers"><span className="mega-link-title">Top 10 Free AI Tools</span><span className="mega-link-desc">Essential AI-powered tools every software developer should use</span></a></li>
+      </ul>
+      <a href="/blog" className="home-mega-readmore">&#x2192;&#x2192;</a>
+    </div>
+  </div>
+</div>
                       </div>
-                        <div className="home-mega-panel" id="home-case-studies">
+                        {/* <div className="home-mega-panel" id="home-case-studies">
                           <h4 className="home-mega-panel-title">Case Studies</h4>
                           <div className="menu-inner-block-a">
                             <div className="inner-blockss">
@@ -995,7 +995,9 @@ const isContact = pathname === "/contact-us" || pathname.startsWith("/contact-us
                               <a href="/case-studies" className="home-mega-readmore">&#x2192;&#x2192;</a>
                             </div>
                           </div>
-                        </div>                      <HomeCTA />
+                        </div>                */}
+                        
+                               <HomeCTA />
 
 
 
