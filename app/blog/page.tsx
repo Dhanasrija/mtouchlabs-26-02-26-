@@ -104,9 +104,6 @@ export default async function BlogPage() {
                   >
                     <div className="ree-media-crd">
                       <div className="rpl-img">
-                        {blog.category && (
-                          <span className="blog-category-tag">{blog.category}</span>
-                        )}
                         <Link href={`/blog/${blog.slug}`}>
                           <img
                             src={blog.image || "/images/Light.png"}
@@ -116,6 +113,9 @@ export default async function BlogPage() {
                         </Link>
                       </div>
                       <div className="rpl-contt">
+                        {blog.category && (
+                          <span className="blog-category-tag">{blog.category}</span>
+                        )}
                         <p className="blog-meta">
                           {dateStr}
                           {readTime > 0 && ` • ${readTime} min read`}

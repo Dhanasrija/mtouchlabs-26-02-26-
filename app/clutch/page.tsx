@@ -74,7 +74,7 @@ export default function ClutchPage() {
       <section className="clutch-hero">
         <div className="clutch-hero__inner">
           <h1 className="clutch-hero__title">Love What We Do? <span>Rate Us!</span></h1>
-          <p className="clutch-hero__subtitle">Your honest feedback helps us improve and helps other businesses find the right technology partner.</p><div style={{display:"flex",justifyContent:"center",marginTop:"32px"}}><a href="/contact-us" className="clutch-cta__btn">Get in Touch →</a></div>
+          <p className="clutch-hero__subtitle">Your honest feedback helps us improve and helps other businesses find the right technology partner.</p><div style={{display:"flex",justifyContent:"center",marginTop:"32px",gap:"14px",flexWrap:"wrap"}}><a href="/contact-us" className="clutch-cta__btn">Get in Touch →</a><a href="https://review.clutch.co/review/?provider_id=1209509" target="_blank" rel="noopener noreferrer" className="clutch-cta__btn">Review Us on Clutch →</a></div>
         </div>
       </section>
 
@@ -94,7 +94,7 @@ export default function ClutchPage() {
       <section className="clutch-why">
         <div className="clutch-why__inner">
           <h2 className="clutch-why__heading">Why Your <span>Review Matters</span></h2>
-          <p className="clutch-why__sub">A few minutes of your time makes a big difference for our team and for future clients.</p><div style={{display:"flex",gap:"14px",justifyContent:"center",marginTop:"32px",flexWrap:"wrap"}}><a href="/contact-us" className="clutch-cta__btn">Get in Touch &rarr;</a></div>
+          <p className="clutch-why__sub">A few minutes of your time makes a big difference for our team and for future clients.</p>
           <div className="clutch-why__grid">
             {reasons.map((r, i) => (
               <div className="clutch-why__card" key={i}>
@@ -147,7 +147,7 @@ export default function ClutchPage() {
         <div className="clutch-cta__inner">
           <h2 className="clutch-cta__title">Ready to Start Your <span>Next Project</span>?</h2>
           <p className="clutch-cta__text">Whether you&apos;ve worked with us before or you&apos;re just getting started — we&apos;d love to hear from you.</p>
-          <a href="/contact-us" className="clutch-cta__btn">Get in Touch →</a>
+          <a href="https://review.clutch.co/review/?provider_id=1209509" target="_blank" rel="noopener noreferrer" className="clutch-cta__btn">Review Us on Clutch →</a>
         </div>
       </section>
     </>

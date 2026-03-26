@@ -817,86 +817,86 @@ function ResourcesCTA() {
   );
 }
 export default async function Navbar() {
-const headersList = headers();
+  const headersList = headers();
 
-let pathname =
-  headersList.get("next-url") ||
-  headersList.get("x-next-url") ||
-  headersList.get("x-invoke-path") ||
-  new URL(headersList.get("referer") || "http://localhost").pathname ||
-  "/";
-/* ═══════════════════════════════════════════════════════
-   PASTE THIS — Replace the existing active state block
-   in your Navbar.tsx (the part after pathname detection
-   and before `return`)
-   ═══════════════════════════════════════════════════════ */
+  let pathname =
+    headersList.get("next-url") ||
+    headersList.get("x-next-url") ||
+    headersList.get("x-invoke-path") ||
+    new URL(headersList.get("referer") || "http://localhost").pathname ||
+    "/";
+  /* ═══════════════════════════════════════════════════════
+     PASTE THIS — Replace the existing active state block
+     in your Navbar.tsx (the part after pathname detection
+     and before `return`)
+     ═══════════════════════════════════════════════════════ */
 
-// ── All service page URLs (every link under Services mega menu) ──
-const SERVICE_PATHS = new Set([
-  "/services",
-  "/mobile-app-development-company", "/ios-app-development-company", "/android-app-development-company",
-  "/ipad-app-development-company", "/flutter-app-development-company", "/react-native-app-development-company",
-  "/cross-platform-app-development-company", "/web-development-company", "/custom-software-development-company",
-  "/custom-cms-development-company-in-india", "/360-degree-photography-services-in-india",
-  "/enterprise-application-development-company", "/app-maintenance-support-services",
-  "/it-services-digital-transformation-company",
-  "/cloud-services", "/devops-services", "/cloud-migration-services", "/devops-consulting-services",
-  "/cloud-security-services", "/cloud-managed-services", "/best-iot-development-company-in-india",
-  "/aws-cloud-services", "/amazon-web-services-company",
-  "/generative-ai-development-company", "/machine-learning-development-company", "/data-science-solutions",
-  "/cyber-security-services-company", "/saas-development-services",
-  "/salesforce-consulting-services-company", "/salesforce-implementation-services",
-  "/salesforce-lightning-migration-development", "/salesforce-integration-services", "/salesforce-sales-cloud-services",
-  "/ui-ux-design-company", "/mobile-app-design-company", "/product-design-services",
-  "/ux-research-services", "/design-system-development",
-  "/digital-marketing-solutions", "/seo-services", "/ppc-advertising-services", "/app-store-optimization-services",
-  "/social-media-marketing-services", "/conversion-rate-optimization-services", "/content-marketing-services",
-  "/email-marketing-services",
-]);
+  // ── All service page URLs (every link under Services mega menu) ──
+  const SERVICE_PATHS = new Set([
+    "/services",
+    "/mobile-app-development-company", "/ios-app-development-company", "/android-app-development-company",
+    "/ipad-app-development-company", "/flutter-app-development-company", "/react-native-app-development-company",
+    "/cross-platform-app-development-company", "/web-development-company", "/custom-software-development-company",
+    "/custom-cms-development-company-in-india", "/360-degree-photography-services-in-india",
+    "/enterprise-application-development-company", "/app-maintenance-support-services",
+    "/it-services-digital-transformation-company",
+    "/cloud-services", "/devops-services", "/cloud-migration-services", "/devops-consulting-services",
+    "/cloud-security-services", "/cloud-managed-services", "/best-iot-development-company-in-india",
+    "/aws-cloud-services", "/amazon-web-services-company",
+    "/generative-ai-development-company", "/machine-learning-development-company", "/data-science-solutions",
+    "/cyber-security-services-company", "/saas-development-services",
+    "/salesforce-consulting-services-company", "/salesforce-implementation-services",
+    "/salesforce-lightning-migration-development", "/salesforce-integration-services", "/salesforce-sales-cloud-services",
+    "/ui-ux-design-company", "/mobile-app-design-company", "/product-design-services",
+    "/ux-research-services", "/design-system-development",
+    "/digital-marketing-solutions", "/seo-services", "/ppc-advertising-services", "/app-store-optimization-services",
+    "/social-media-marketing-services", "/conversion-rate-optimization-services", "/content-marketing-services",
+    "/email-marketing-services",
+  ]);
 
-// ── All product page URLs ──
-const PRODUCT_PATHS = new Set([
-  "/on-demand-products-development-company-hyderabad",
-  "/food-delivery-app-development-service", "/grocery-delivery-app-development-company",
-  "/milk-delivery-app-development-service", "/car-wash-app-development-company", "/chef-management-app-solutions",
-  "/taxi-booking-app-development-company", "/hotel-booking-app-development-company",
-  "/tickets-booking-app-development-company", "/real-estate-app-development-company",
-  "/ecommerce-app-development-company", "/online-shopping-app-development-company",
-  "/multi-vendor-marketplace-app-builder",
-  "/e-learning-app-development-company", "/gaming-apps-development-company", "/ott-app-development-company",
-  "/diagnostic-app-development-company", "/sports-and-fitness-app-development-company",
-  "/social-media-app-development-company",
-]);
+  // ── All product page URLs ──
+  const PRODUCT_PATHS = new Set([
+    "/on-demand-products-development-company-hyderabad",
+    "/food-delivery-app-development-service", "/grocery-delivery-app-development-company",
+    "/milk-delivery-app-development-service", "/car-wash-app-development-company", "/chef-management-app-solutions",
+    "/taxi-booking-app-development-company", "/hotel-booking-app-development-company",
+    "/tickets-booking-app-development-company", "/real-estate-app-development-company",
+    "/ecommerce-app-development-company", "/online-shopping-app-development-company",
+    "/multi-vendor-marketplace-app-builder",
+    "/e-learning-app-development-company", "/gaming-apps-development-company", "/ott-app-development-company",
+    "/diagnostic-app-development-company", "/sports-and-fitness-app-development-company",
+    "/social-media-app-development-company",
+  ]);
 
-// ── All resource (hire) page URLs ──
-const RESOURCE_PATHS = new Set([
-  "/hire-developers-in-india", "/hire-dedicated-developers-in-india",
-  "/hire-mobile-app-developers-in-india", "/hire-android-app-developers-in-india",
-  "/hire-ios-app-developers-in-india", "/hire-ipad-developers-in-india",
-  "/hire-custom-software-developers-in-india", "/hire-native-app-developers-in-india",
-  "/hire-hybrid-app-developers-in-india", "/hire-flutter-app-developers-in-india",
-  "/hire-react-native-app-developers-in-india",
-  "/hire-web-developers-in-india", "/hire-wordpress-developers-in-india",
-  "/hire-php-developers-in-india", "/hire-custom-cms-developers-in-india",
-  "/hire-angular-developers-in-india", "/hire-react-developers-in-india",
-  "/hire-swift-developers-in-india", "/hire-laravel-developers-in-india",
-  "/hire-magento-developers-in-india", "/hire-woocommerce-developers-in-india",
-  "/hire-javascript-developers-in-india", "/hire-fullstack-developers-in-india",
-  "/hire-mean-stack-developers-in-india", "/hire-mern-stack-developers-in-india",
-  "/hire-vue-js-developers-in-india", "/hire-node-js-developers-in-india",
-  "/hire-aws-developers-in-india", "/hire-salesforce-developers-in-india",
-  "/hire-ui-ux-designers-in-india", "/hire-mobile-app-designers-in-india",
-  "/hire-quality-analyst-developers-in-india", "/hire-pwa-developers-in-india",
-  "/hire-shopify-developers-in-india",
-]);
+  // ── All resource (hire) page URLs ──
+  const RESOURCE_PATHS = new Set([
+    "/hire-developers-in-india", "/hire-dedicated-developers-in-india",
+    "/hire-mobile-app-developers-in-india", "/hire-android-app-developers-in-india",
+    "/hire-ios-app-developers-in-india", "/hire-ipad-developers-in-india",
+    "/hire-custom-software-developers-in-india", "/hire-native-app-developers-in-india",
+    "/hire-hybrid-app-developers-in-india", "/hire-flutter-app-developers-in-india",
+    "/hire-react-native-app-developers-in-india",
+    "/hire-web-developers-in-india", "/hire-wordpress-developers-in-india",
+    "/hire-php-developers-in-india", "/hire-custom-cms-developers-in-india",
+    "/hire-angular-developers-in-india", "/hire-react-developers-in-india",
+    "/hire-swift-developers-in-india", "/hire-laravel-developers-in-india",
+    "/hire-magento-developers-in-india", "/hire-woocommerce-developers-in-india",
+    "/hire-javascript-developers-in-india", "/hire-fullstack-developers-in-india",
+    "/hire-mean-stack-developers-in-india", "/hire-mern-stack-developers-in-india",
+    "/hire-vue-js-developers-in-india", "/hire-node-js-developers-in-india",
+    "/hire-aws-developers-in-india", "/hire-salesforce-developers-in-india",
+    "/hire-ui-ux-designers-in-india", "/hire-mobile-app-designers-in-india",
+    "/hire-quality-analyst-developers-in-india", "/hire-pwa-developers-in-india",
+    "/hire-shopify-developers-in-india",
+  ]);
 
-const isHome = pathname === "/";
-const isServices = SERVICE_PATHS.has(pathname);
-const isProducts = PRODUCT_PATHS.has(pathname);
-const isResources = RESOURCE_PATHS.has(pathname) || pathname.startsWith("/hire-");
-const isPortfolio = pathname === "/portfolio" || pathname.startsWith("/portfolio/");
-const isCareers = pathname === "/careers" || pathname.startsWith("/careers/");
-const isContact = pathname === "/contact-us" || pathname.startsWith("/contact-us");
+  const isHome = pathname === "/";
+  const isServices = SERVICE_PATHS.has(pathname);
+  const isProducts = PRODUCT_PATHS.has(pathname);
+  const isResources = RESOURCE_PATHS.has(pathname) || pathname.startsWith("/hire-");
+  const isPortfolio = pathname === "/portfolio" || pathname.startsWith("/portfolio/");
+  const isCareers = pathname === "/careers" || pathname.startsWith("/careers/");
+  const isContact = pathname === "/contact-us" || pathname.startsWith("/contact-us");
 
   return (
     <div className="container-fluid m-p-l-r-0">
@@ -963,27 +963,29 @@ const isContact = pathname === "/contact-us" || pathname.startsWith("/contact-us
                             </div>
                           </div>
                         </div>
-                       <div className="home-mega-panel" id="home-blog">
-  <h4 className="home-mega-panel-title">Blogs</h4>
-  <div className="menu-inner-block-a">
-    <div className="inner-blockss">
-      <ul className="menu-li-link">
-        <li><a href="/blog/mtouch-labs-wins-nasscom-sme-inspire-award-2026-mumbai"><span className="mega-link-title">NASSCOM SME Inspire Award 2026</span><span className="mega-link-desc">mTouch Labs wins Digital Transformation Catalyst award at NASSCOM Mumbai</span></a></li>
-        <li><a href="/blog/next-js-16-the-best-enterprise-web-framework-in-2026"><span className="mega-link-title">Next.js 16 for Enterprise</span><span className="mega-link-desc">Why Next.js 16 is the best enterprise web framework in 2026</span></a></li>
-        <li><a href="/blog/building-future-of-digital-india"><span className="mega-link-title">Building Future of Digital India</span><span className="mega-link-desc">How technology is shaping India's digital transformation journey</span></a></li>
-      </ul>
-    </div>
-    <div className="inner-blockss">
-      <ul className="menu-li-link">
-        <li><a href="/blog/digital-transformation-journey-from-2025-achievements-and-the-road-to-2026"><span className="mega-link-title">Digital Transformation Journey</span><span className="mega-link-desc">From 2025 achievements to the road ahead in 2026</span></a></li>
-        <li><a href="/blog/top-10-free-ai-tools-for-software-developers"><span className="mega-link-title">Top 10 Free AI Tools</span><span className="mega-link-desc">Essential AI-powered tools every software developer should use</span></a></li>
-      </ul>
-      <a href="/blog" className="home-mega-readmore">&#x2192;&#x2192;</a>
-    </div>
-  </div>
-</div>
+                        <div className="home-mega-panel" id="home-blog">
+                          <h4 className="home-mega-panel-title">Blogs</h4>
+                          <div className="menu-inner-block-a">
+                            <div className="inner-blockss">
+                              <ul className="menu-li-link">
+                                <li><a href="/blog/mtouch-labs-wins-nasscom-sme-inspire-award-2026-mumbai"><span className="mega-link-title">NASSCOM SME Inspire Award 2026</span><span className="mega-link-desc">mTouch Labs wins Digital Transformation Catalyst award at NASSCOM Mumbai</span></a></li>
+                                <li><a href="/blog/next-js-16-the-best-enterprise-web-framework-in-2026"><span className="mega-link-title">Next.js 16 for Enterprise</span><span className="mega-link-desc">Why Next.js 16 is the best enterprise web framework in 2026</span></a></li>
+                                <li><a href="/blog/building-future-of-digital-india"><span className="mega-link-title">Building Future of Digital India</span><span className="mega-link-desc">How technology is shaping India's digital transformation journey</span></a></li>
+                              </ul>
+                            </div>
+                            <div className="inner-blockss">
+                              <ul className="menu-li-link">
+                                <li><a href="/blog/digital-transformation-journey-from-2025-achievements-and-the-road-to-2026"><span className="mega-link-title">Digital Transformation Journey</span><span className="mega-link-desc">From 2025 achievements to the road ahead in 2026</span></a></li>
+                                <li><a href="/blog/top-10-free-ai-tools-for-software-developers"><span className="mega-link-title">Top 10 Free AI Tools</span><span className="mega-link-desc">Essential AI-powered tools every software developer should use</span></a></li>
+                                <li><a href="/top-ecommerce-niches-us"><span className="mega-link-title">Top eCommerce Niches in the US</span><span className="mega-link-desc">Most profitable eCommerce niches to explore in the US market</span></a></li>
+
+                              </ul>
+                              <a href="/blog" className="home-mega-readmore">&#x2192;&#x2192;</a>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                        {/* <div className="home-mega-panel" id="home-case-studies">
+                      {/* <div className="home-mega-panel" id="home-case-studies">
                           <h4 className="home-mega-panel-title">Case Studies</h4>
                           <div className="menu-inner-block-a">
                             <div className="inner-blockss">
@@ -996,8 +998,8 @@ const isContact = pathname === "/contact-us" || pathname.startsWith("/contact-us
                             </div>
                           </div>
                         </div>                */}
-                        
-                               <HomeCTA />
+
+                      <HomeCTA />
 
 
 

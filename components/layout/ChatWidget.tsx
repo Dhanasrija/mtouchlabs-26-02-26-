@@ -1,4 +1,3 @@
-
 "use client";
 import { useEffect, useState, useRef, useCallback } from "react";
 
@@ -13,6 +12,73 @@ type Message = {
   text: string;
   options?: OptionItem[];
 };
+
+const COUNTRY_CODES = [
+  { code: "+91",  flag: "🇮🇳", name: "India",      maxDigits: 10 },
+  { code: "+1",   flag: "🇺🇸", name: "USA/Canada",  maxDigits: 10 },
+  { code: "+44",  flag: "🇬🇧", name: "UK",          maxDigits: 10 },
+  { code: "+971", flag: "🇦🇪", name: "UAE",         maxDigits: 9  },
+  { code: "+61",  flag: "🇦🇺", name: "Australia",   maxDigits: 9  },
+  { code: "+49",  flag: "🇩🇪", name: "Germany",     maxDigits: 11 },
+  { code: "+65",  flag: "🇸🇬", name: "Singapore",   maxDigits: 8  },
+  { code: "+60",  flag: "🇲🇾", name: "Malaysia",    maxDigits: 10 },
+];
+
+function validatePhone(digits: string, countryCode: string): { valid: boolean; error: string } {
+  switch (countryCode) {
+    case "+91":
+      if (digits.length !== 10) return { valid: false, error: "India (+91): exactly 10 digits required" };
+      if (!/^[6-9]/.test(digits)) return { valid: false, error: "India (+91): must start with 6, 7, 8, or 9" };
+      return { valid: true, error: "" };
+    case "+1":
+      if (digits.length !== 10) return { valid: false, error: "USA/Canada (+1): exactly 10 digits required" };
+      if (/^[01]/.test(digits)) return { valid: false, error: "USA/Canada (+1): cannot start with 0 or 1" };
+      return { valid: true, error: "" };
+    case "+44":
+      if (digits.length !== 10) return { valid: false, error: "UK (+44): exactly 10 digits required" };
+      if (!/^[127]/.test(digits)) return { valid: false, error: "UK (+44): must start with 7 (mobile) or 1/2 (landline)" };
+      return { valid: true, error: "" };
+    case "+971":
+      if (digits.length !== 9) return { valid: false, error: "UAE (+971): exactly 9 digits required" };
+      return { valid: true, error: "" };
+    case "+61":
+      if (digits.length !== 9) return { valid: false, error: "Australia (+61): exactly 9 digits required" };
+      if (!/^[2-9]/.test(digits)) return { valid: false, error: "Australia (+61): must start with 2–9" };
+      return { valid: true, error: "" };
+    case "+49":
+      if (digits.length < 10 || digits.length > 11) return { valid: false, error: "Germany (+49): 10 or 11 digits required" };
+      return { valid: true, error: "" };
+    case "+65":
+      if (digits.length !== 8) return { valid: false, error: "Singapore (+65): exactly 8 digits required" };
+      if (!/^[689]/.test(digits)) return { valid: false, error: "Singapore (+65): must start with 6, 8, or 9" };
+      return { valid: true, error: "" };
+    case "+60":
+      if (digits.length < 9 || digits.length > 10) return { valid: false, error: "Malaysia (+60): 9 or 10 digits required" };
+      if (!/^1/.test(digits)) return { valid: false, error: "Malaysia (+60): mobile numbers start with 1" };
+      return { valid: true, error: "" };
+    default:
+      if (digits.length < 8 || digits.length > 12) return { valid: false, error: "Phone number must be 8–12 digits" };
+      return { valid: true, error: "" };
+  }
+}
+
+function getMaxDigits(countryCode: string): number {
+  return COUNTRY_CODES.find(c => c.code === countryCode)?.maxDigits ?? 12;
+}
+
+function getPlaceholder(countryCode: string): string {
+  switch (countryCode) {
+    case "+91":  return "98765 43210";
+    case "+1":   return "415 555 0100";
+    case "+44":  return "7911 123456";
+    case "+971": return "50 123 4567";
+    case "+61":  return "412 345 678";
+    case "+49":  return "1512 3456789";
+    case "+65":  return "9123 4567";
+    case "+60":  return "12 345 6789";
+    default:     return "Phone number";
+  }
+}
 
 const WS_BASE = process.env.NEXT_PUBLIC_SHOW_CHATBOT === "true"
   ? "wss://webagent.dev.mtouchlabs.com/ws"
@@ -79,7 +145,9 @@ export default function ChatWidget() {
   const [formName, setFormName] = useState("");
   const [formEmail, setFormEmail] = useState("");
   const [formPhone, setFormPhone] = useState("");
+  const [formCountryCode, setFormCountryCode] = useState("+91");
   const [formSubmitting, setFormSubmitting] = useState(false);
+  const [formError, setFormError] = useState("");
 
   const bodyRef = useRef<HTMLDivElement>(null);
   const wsRef = useRef<WebSocket | null>(null);
@@ -120,7 +188,9 @@ export default function ChatWidget() {
     setFormName("");
     setFormEmail("");
     setFormPhone("");
+    setFormCountryCode("+91");
     setFormSubmitting(false);
+    setFormError("");
     reconnectAttempts.current = 0;
     sessionIdRef.current = generateSessionId();
   }, []);
@@ -183,70 +253,71 @@ export default function ChatWidget() {
 
   const submitLeadForm = () => {
     if (!formName.trim() || !formEmail.trim() || !formPhone.trim()) return;
-
     const errors: string[] = [];
-
-    // Email validation
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailRegex.test(formEmail.trim())) {
       errors.push("• Invalid email address (e.g. name@gmail.com)");
     }
-
-    // Phone validation — country code aware
-    const phone = formPhone.trim();
-    const phoneDigits = phone.replace(/[^0-9]/g, "");
-    let phoneValid = false;
-    if (phone.startsWith("+91") || phoneDigits.startsWith("91")) {
-      const local = phoneDigits.startsWith("91") ? phoneDigits.slice(2) : phoneDigits;
-      phoneValid = local.length === 10;
-    } else if (phone.startsWith("+1")) {
-      const local = phoneDigits.startsWith("1") ? phoneDigits.slice(1) : phoneDigits;
-      phoneValid = local.length === 10;
-    } else if (phone.startsWith("+44")) {
-      const local = phoneDigits.startsWith("44") ? phoneDigits.slice(2) : phoneDigits;
-      phoneValid = local.length >= 10 && local.length <= 11;
-    } else if (phone.startsWith("+971")) {
-      const local = phoneDigits.startsWith("971") ? phoneDigits.slice(3) : phoneDigits;
-      phoneValid = local.length === 9;
-    } else {
-      phoneValid = phoneDigits.length >= 10 && phoneDigits.length <= 13;
+    const digits = formPhone.trim().replace(/[^0-9]/g, "");
+    const phoneResult = validatePhone(digits, formCountryCode);
+    if (!phoneResult.valid) {
+      errors.push("• " + phoneResult.error);
     }
-    if (!phoneValid) {
-      errors.push("• Invalid phone number for the country code entered");
-    }
-
     if (errors.length > 0) {
-      setMessages(prev => [...prev, { from: "ai", text: errors.join("\n") }]);
+      setFormError(errors.join("\n"));
       return;
     }
-
+    setFormError("");
     setFormSubmitting(true);
-    setMessages(prev => [...prev, { from: "user", text: `${formName.trim()} • ${formEmail.trim()} • ${formPhone.trim()}` }]);
+    const fullPhone = formCountryCode + digits;
+    setMessages(prev => [...prev, { from: "user", text: `${formName.trim()} • ${formEmail.trim()} • ${fullPhone}` }]);
     if (wsRef.current?.readyState === WebSocket.OPEN) {
       try {
-wsRef.current.send(JSON.stringify({ type: 0, name: formName.trim(), email: formEmail.trim(), phone: formPhone.trim().replace(/[^0-9]/g, "").slice(-10) }));      } catch { setFormSubmitting(false); }
+        wsRef.current.send(JSON.stringify({
+          type: 0,
+          name: formName.trim(),
+          email: formEmail.trim(),
+          phone: digits,
+        }));
+      } catch { setFormSubmitting(false); }
     }
     setFormName("");
     setFormEmail("");
     setFormPhone("");
+    setFormCountryCode("+91");
+    setFormError("");
   };
 
   const handleSend = () => {
-    if (!input || !input.trim() || input.trim().length === 0 || loading) return;
-    sendMessage(input.trim());
+    const trimmed = input.trim();
+    if (!trimmed || loading) return;
+    if (showForm && !leadCollected) return;
+    sendMessage(trimmed);
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
-      if (!input || !input.trim()) return;
+      e.stopPropagation();
+      const trimmed = input.trim();
+      if (!trimmed || loading) return;
+      if (showForm && !leadCollected) return;
       handleSend();
     }
   };
 
   const handleOptionClick = (option: OptionItem) => {
     if (loading) return;
+    const isEndChat = /end\s*chat|end\s*session|bye|exit/i.test(option.label);
     sendMessage(option.label, option.value);
+    if (isEndChat) {
+      setTimeout(() => {
+        sessionIdRef.current = generateSessionId();
+        if (wsRef.current) { wsRef.current.close(); wsRef.current = null; }
+        setConnected(false);
+        reconnectAttempts.current = 0;
+      }, 800);
+    }
   };
 
   const renderText = (text: string) => {
@@ -264,9 +335,25 @@ wsRef.current.send(JSON.stringify({ type: 0, name: formName.trim(), email: formE
     ));
   };
 
+  const inputStyle = {
+    padding: "10px 14px",
+    borderRadius: "8px",
+    border: "1px solid #d1d5db",
+    fontSize: "14px",
+    fontFamily: "inherit",
+    outline: "none",
+    width: "100%",
+    boxSizing: "border-box" as const,
+    transition: "border-color 0.2s",
+    height: "42px",
+  };
+
+  const maxDigits = getMaxDigits(formCountryCode);
+  const canSubmit = formName.trim() && formEmail.trim() && formPhone.length >= (formCountryCode === "+49" || formCountryCode === "+60" ? maxDigits - 1 : maxDigits) && !formSubmitting;
+
   return (
     <>
-      <div className="cw-wrapper" style={{ right: 'auto', left: '-10px', bottom: '90px' }}>
+      <div className="cw-wrapper" style={{ right: "auto", left: "-10px", bottom: "90px" }}>
         <div className={`cw-label ${showLabel && !open ? "cw-label-show" : ""}`}>
           <span className="cw-label-dot" />
           <span className="cw-label-text">Ask AI ✦</span>
@@ -313,7 +400,7 @@ wsRef.current.send(JSON.stringify({ type: 0, name: formName.trim(), email: formE
           </button>
         </div>
 
-        <div className="cw-panel-body" ref={bodyRef} style={{ paddingTop: "12px", paddingBottom: "12px" }}>
+        <div className="cw-panel-body" ref={bodyRef} style={{ paddingTop: "12px", paddingBottom: "32px" }}>
           <div className="cw-time-stamp">Today</div>
           <div className="cw-msg cw-msg-anim-1">
             <div className="cw-msg-avatar"><span className="cw-ai-mini">✦</span></div>
@@ -363,26 +450,119 @@ wsRef.current.send(JSON.stringify({ type: 0, name: formName.trim(), email: formE
               <div className="cw-msg-avatar"><span className="cw-ai-mini">✦</span></div>
               <div className="cw-msg-bubble" style={{ padding: "16px", width: "100%" }}>
                 <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                  <p style={{ margin: "0 0 4px", fontSize: "13px", fontWeight: 600, color: "#374151" }}>Please share your details to continue:</p>
-                  <input type="text" placeholder="Your Name" value={formName} onChange={(e) => setFormName(e.target.value)}
-                    style={{ padding: "10px 14px", borderRadius: "8px", border: "1px solid #d1d5db", fontSize: "14px", fontFamily: "inherit", outline: "none", transition: "border-color 0.2s ease" }}
-                    onFocus={(e) => e.currentTarget.style.borderColor = "#6366f1"} onBlur={(e) => e.currentTarget.style.borderColor = "#d1d5db"} />
-                  <input type="email" placeholder="Email Address" value={formEmail} onChange={(e) => setFormEmail(e.target.value)}
-                    style={{ padding: "10px 14px", borderRadius: "8px", border: "1px solid #d1d5db", fontSize: "14px", fontFamily: "inherit", outline: "none", transition: "border-color 0.2s ease" }}
-                    onFocus={(e) => e.currentTarget.style.borderColor = "#6366f1"} onBlur={(e) => e.currentTarget.style.borderColor = "#d1d5db"} />
-                  <input type="tel" placeholder="+91 9876543210" value={formPhone} maxLength={14}
-                    onChange={(e) => { const val = e.target.value.replace(/[^0-9+\-\s]/g, ""); const digits = val.replace(/[^0-9]/g, ""); if (val.startsWith("+91") && digits.length > 12) return; if (val.startsWith("+1") && digits.length > 11) return; if (val.startsWith("+44") && digits.length > 13) return; if (val.startsWith("+971") && digits.length > 12) return; if (!val.startsWith("+") && digits.length > 10) return; setFormPhone(val); }}
-                    style={{ padding: "10px 14px", borderRadius: "8px", border: "1px solid #d1d5db", fontSize: "14px", fontFamily: "inherit", outline: "none", transition: "border-color 0.2s ease" }}
-                    onFocus={(e) => e.currentTarget.style.borderColor = "#6366f1"} onBlur={(e) => e.currentTarget.style.borderColor = "#d1d5db"}
-                    onKeyDown={(e) => { if (e.key === "Enter") submitLeadForm(); }} />
-                  <button onClick={submitLeadForm} disabled={!formName.trim() || !formEmail.trim() || !formPhone.trim() || formSubmitting}
-                    style={{
-                      padding: "10px 20px", borderRadius: "10px", border: "none",
-                      background: (formName.trim() && formEmail.trim() && formPhone.trim() && !formSubmitting) ? "linear-gradient(135deg, #6366f1, #8b5cf6)" : "#e5e7eb",
-                      color: (formName.trim() && formEmail.trim() && formPhone.trim() && !formSubmitting) ? "#fff" : "#9ca3af",
-                      fontSize: "14px", fontWeight: 700, cursor: (formName.trim() && formEmail.trim() && formPhone.trim()) ? "pointer" : "not-allowed",
-                      transition: "all 0.2s ease", fontFamily: "inherit",
+                  <p style={{ margin: "0 0 4px", fontSize: "13px", fontWeight: 600, color: "#374151" }}>
+                    Please share your details to continue:
+                  </p>
+
+                  {/* Name */}
+                  <input
+                    type="text"
+                    placeholder="Your Name"
+                    value={formName}
+                    onChange={(e) => { setFormName(e.target.value); setFormError(""); }}
+                    style={inputStyle}
+                    onFocus={(e) => (e.currentTarget.style.borderColor = "#6366f1")}
+                    onBlur={(e) => (e.currentTarget.style.borderColor = "#d1d5db")}
+                  />
+
+                  {/* Email */}
+                  <input
+                    type="email"
+                    placeholder="Email Address"
+                    value={formEmail}
+                    onChange={(e) => { setFormEmail(e.target.value); setFormError(""); }}
+                    style={inputStyle}
+                    onFocus={(e) => (e.currentTarget.style.borderColor = "#6366f1")}
+                    onBlur={(e) => (e.currentTarget.style.borderColor = "#d1d5db")}
+                  />
+
+                  {/* Country code + Phone — both same height, select not cut off */}
+                  <div style={{ display: "flex", gap: "8px" }}>
+                    <select
+                      value={formCountryCode}
+                      onChange={(e) => {
+                        setFormCountryCode(e.target.value);
+                        setFormPhone("");
+                        setFormError("");
+                      }}
+                      style={{
+                        flexShrink: 0,
+                        width: "105px",
+                        height: "42px",           // same height as inputs
+                        padding: "0 6px",          // no top/bottom padding — let height handle it
+                        borderRadius: "8px",
+                        border: "1px solid #d1d5db",
+                        fontSize: "13px",
+                        fontFamily: "inherit",
+                        outline: "none",
+                        background: "#fff",
+                        cursor: "pointer",
+                        lineHeight: "42px",        // vertically center text
+                        appearance: "auto" as const,
+                        boxSizing: "border-box" as const,
+                      }}
+                    >
+                      {COUNTRY_CODES.map((c) => (
+                        <option key={c.code} value={c.code}>
+                          {c.flag} {c.code}
+                        </option>
+                      ))}
+                    </select>
+
+                    <input
+                      type="tel"
+                      placeholder={getPlaceholder(formCountryCode)}
+                      value={formPhone}
+                      maxLength={maxDigits}
+                      onChange={(e) => {
+                        const val = e.target.value.replace(/[^0-9]/g, "").slice(0, maxDigits);
+                        setFormPhone(val);
+                        setFormError("");
+                      }}
+                      style={{
+                        ...inputStyle,
+                        flex: 1,
+                        minWidth: 0,
+                        width: "auto",
+                      }}
+                      onFocus={(e) => (e.currentTarget.style.borderColor = "#6366f1")}
+                      onBlur={(e) => (e.currentTarget.style.borderColor = "#d1d5db")}
+                      onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); submitLeadForm(); } }}
+                    />
+                  </div>
+
+                  {/* Inline error only — no chat bubble */}
+                  {formError && (
+                    <div style={{
+                      fontSize: "12.5px",
+                      color: "#dc2626",
+                      background: "#fef2f2",
+                      border: "1px solid #fecaca",
+                      borderRadius: "8px",
+                      padding: "8px 12px",
+                      lineHeight: 1.6,
+                      whiteSpace: "pre-line",
                     }}>
+                      {formError}
+                    </div>
+                  )}
+
+                  <button
+                    onClick={submitLeadForm}
+                    disabled={!canSubmit}
+                    style={{
+                      padding: "10px 20px",
+                      borderRadius: "10px",
+                      border: "none",
+                      background: canSubmit ? "linear-gradient(135deg, #6366f1, #8b5cf6)" : "#e5e7eb",
+                      color: canSubmit ? "#fff" : "#9ca3af",
+                      fontSize: "14px",
+                      fontWeight: 700,
+                      cursor: canSubmit ? "pointer" : "not-allowed",
+                      transition: "all 0.2s ease",
+                      fontFamily: "inherit",
+                    }}
+                  >
                     {formSubmitting ? "Submitting..." : "Continue →"}
                   </button>
                 </div>
@@ -402,12 +582,27 @@ wsRef.current.send(JSON.stringify({ type: 0, name: formName.trim(), email: formE
 
         <div className="cw-ai-input-area">
           <div className="cw-ai-input-row cw-ai-input-row-active">
-            <input type="text" className="cw-ai-input"
-              placeholder={!connected ? "Connecting..." : showForm && !leadCollected ? "Please fill the form above..." : isMobile ? "Ask anything..." : "Ask me anything about mTouch Labs..."}
-              disabled={!connected || loading || (showForm && !leadCollected)} autoComplete="off"
-              value={input} onChange={e => setInput(e.target.value)} onKeyDown={handleKeyDown} />
-            <button className={`cw-ai-send ${connected && input.trim() && !loading && !(showForm && !leadCollected) ? "cw-ai-send-active" : ""}`}
-              disabled={!connected || !input.trim() || loading || (showForm && !leadCollected)} aria-label="Send" onClick={handleSend}>
+            <input
+              type="text"
+              className="cw-ai-input"
+              placeholder={
+                !connected ? "Connecting..."
+                : showForm && !leadCollected ? "Please fill the form above..."
+                : isMobile ? "Ask anything..."
+                : "Ask me anything about mTouch Labs..."
+              }
+              disabled={!connected || loading || (showForm && !leadCollected)}
+              autoComplete="off"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={handleKeyDown}
+            />
+            <button
+              className={`cw-ai-send ${connected && input.trim() && !loading && !(showForm && !leadCollected) ? "cw-ai-send-active" : ""}`}
+              disabled={!connected || !input.trim() || loading || (showForm && !leadCollected)}
+              aria-label="Send"
+              onClick={handleSend}
+            >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" />
               </svg>
@@ -415,7 +610,9 @@ wsRef.current.send(JSON.stringify({ type: 0, name: formName.trim(), email: formE
           </div>
           <div className="cw-ai-hint">
             <span className="cw-ai-badge">AI</span>
-            {loading ? "Thinking..." : showForm && !leadCollected ? "Fill in your details to continue" : "Powered by mTouch Labs AI"}
+            {loading ? "Thinking..."
+              : showForm && !leadCollected ? "Fill in your details to continue"
+              : "Powered by mTouch Labs AI"}
           </div>
         </div>
         <div className="cw-panel-footer">Powered by <strong>mTouch Labs</strong></div>

@@ -202,7 +202,7 @@
 //                 Flutter &amp; React Native development for faster market entry and cost efficiency. Single codebase with consistent experiences across iOS and Android.
 //               </p>
 //             </div>
-//             <div className="ma-service-card ma-service-card--wide ma-animate--scale">
+//             <div className="ma-service-card ma-animate--scale">
 //               <span className="ma-service-card__badge">05</span>
 //               <h4 className="ma-service-card__title">Enterprise Mobile Solutions</h4>
 //               <p className="ma-service-card__text">
@@ -478,18 +478,10 @@ export default function MobileAppDevelopment() {
           <h1 className="ma-hero__title">
             Mobile <span className="ma-hero__title-accent">App Development</span> Company
           </h1>
-          <p className="ma-hero__subtitle">
-            Transforming Ideas Into Powerful Mobile Applications
-          </p>
-          <p className="ma-hero__desc">
-            Mobile applications play a vital role in helping businesses connect with customers, deliver digital services, and improve operational efficiency. At mTouch Labs, we help organizations transform their ideas into powerful mobile applications that provide seamless user experiences and long-term scalability.
-          </p>
-          <p className="ma-hero__desc">
-            As a trusted mobile app development company, we build custom mobile solutions for startups, enterprises, and growing businesses. Our team focuses on creating mobile applications that are secure, scalable, and designed to meet real business objectives.
-          </p>
-          <p className="ma-hero__desc">
-            From concept and design to development, testing, and deployment, we guide businesses through every stage of the mobile product lifecycle.
-          </p>
+          <p style={{ fontSize: "16px", color: "rgba(255,255,255,0.7)", maxWidth: "600px", margin: "16px auto 32px", lineHeight: 1.7, textAlign: "center" }}>Custom iOS, Android, and cross-platform apps built for scalable growth.</p>
+
+
+          <div style={{ marginTop: "32px" }}><a href="/contact-us" className="ma-cta__button" style={{ textDecoration: "none" }}>Contact Us →</a></div>
         </div>
       </section>
 
@@ -531,7 +523,7 @@ export default function MobileAppDevelopment() {
                 that provide consistent performance across multiple devices. Our Android developers focus on building scalable applications with intuitive interfaces and optimized performance.
               </p>
             </div>
-            <div className="ma-service-card ma-service-card--wide ma-animate--scale">
+            <div className="ma-service-card ma-animate--scale">
               <span className="ma-service-card__badge">04</span>
               <h4 className="ma-service-card__title">Cross-Platform App Development</h4>
               <p className="ma-service-card__text">
@@ -547,74 +539,66 @@ export default function MobileAppDevelopment() {
       </section>
 
       {/* ===== PROCESS ===== */}
-      <section className="ma-delivery">
-        <div className="ma-container">
-          <h2 className="ma-delivery__heading ma-animate">
-            Our Mobile App <span className="ma-text-accent">Development Process</span>
+ {/* ===== PROCESS — Horizontal Timeline ===== */}
+      <section className="ma-process">
+        <div className="ma-process__header">
+          <h2 className="ma-process__title">
+            Our Development <span className="ma-text-accent">Process</span>
           </h2>
-          <p className="ma-delivery__text">
-            We follow a structured development process that ensures transparency, efficiency, and high-quality results.
-          </p>
-          <div className="ma-delivery__steps">
-            <div className="ma-step"><span className="ma-step__circle">Discovery &amp; Planning</span></div>
-            <span className="ma-step__arrow">→</span>
-            <div className="ma-step"><span className="ma-step__circle">UI/UX Design</span></div>
-            <span className="ma-step__arrow">→</span>
-            <div className="ma-step"><span className="ma-step__circle">Development</span></div>
-            <span className="ma-step__arrow">→</span>
-            <div className="ma-step"><span className="ma-step__circle">Testing &amp; QA</span></div>
-            <span className="ma-step__arrow">→</span>
-            <div className="ma-step"><span className="ma-step__circle">Deployment</span></div>
-            <span className="ma-step__arrow">→</span>
-            <div className="ma-step"><span className="ma-step__circle">Maintenance &amp; Support</span></div>
+          <p className="ma-process__sub">A structured approach that ensures quality at every stage</p>
+        </div>
+        <div className="ma-process__track">
+          <div className="ma-process__line">
+            <div className="ma-process__line-fill"></div>
           </div>
-
-          <div className="ma-services__grid ma-stagger" style={{marginTop: '48px'}}>
-            <div className="ma-service-card ma-animate--scale">
-              <span className="ma-service-card__badge">01</span>
-              <h4 className="ma-service-card__title">Discovery &amp; Planning</h4>
-              <p className="ma-service-card__text">
-                We begin by understanding business objectives, product requirements, and target users. This helps us define the project scope and development roadmap.
-              </p>
+          <div className="ma-process__nodes">
+            <div className="ma-process__node">
+              <div className="ma-process__circle">
+                <span className="ma-process__pulse"></span>
+                01
+              </div>
+              <span className="ma-process__label">Discovery</span>
+              <p className="ma-process__desc">Understanding goals, users, and defining the project roadmap.</p>
             </div>
-            <div className="ma-service-card ma-animate--scale">
-              <span className="ma-service-card__badge">02</span>
-              <h4 className="ma-service-card__title">UI/UX Design</h4>
-              <p className="ma-service-card__text">
-                Our{" "}
-                <a href="/ui-ux-design-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>designers</a>{" "}
-                focus on creating intuitive user interfaces that improve usability and enhance the overall user experience.
-              </p>
+            <div className="ma-process__node">
+              <div className="ma-process__circle">
+                <span className="ma-process__pulse"></span>
+                02
+              </div>
+              <span className="ma-process__label">UI/UX Design</span>
+              <p className="ma-process__desc">Creating intuitive interfaces that enhance user experience.</p>
             </div>
-            <div className="ma-service-card ma-animate--scale">
-              <span className="ma-service-card__badge">03</span>
-              <h4 className="ma-service-card__title">Development</h4>
-              <p className="ma-service-card__text">
-                Our development team uses modern technologies and agile methodologies to build scalable and high-performance mobile applications.
-              </p>
+            <div className="ma-process__node">
+              <div className="ma-process__circle">
+                <span className="ma-process__pulse"></span>
+                03
+              </div>
+              <span className="ma-process__label">Development</span>
+              <p className="ma-process__desc">Building scalable apps with modern tech and agile methods.</p>
             </div>
-            <div className="ma-service-card ma-animate--scale">
-              <span className="ma-service-card__badge">04</span>
-              <h4 className="ma-service-card__title">Testing &amp; Quality Assurance</h4>
-              <p className="ma-service-card__text">
-                Each application undergoes thorough testing to ensure stability, security, and compatibility across different devices and operating systems.
-              </p>
+            <div className="ma-process__node">
+              <div className="ma-process__circle">
+                <span className="ma-process__pulse"></span>
+                04
+              </div>
+              <span className="ma-process__label">Testing &amp; QA</span>
+              <p className="ma-process__desc">Thorough testing for stability, security, and compatibility.</p>
             </div>
-            <div className="ma-service-card ma-animate--scale">
-              <span className="ma-service-card__badge">05</span>
-              <h4 className="ma-service-card__title">Deployment</h4>
-              <p className="ma-service-card__text">
-                We assist with application deployment, app store submissions, and configuration to ensure a smooth launch.
-              </p>
+            <div className="ma-process__node">
+              <div className="ma-process__circle">
+                <span className="ma-process__pulse"></span>
+                05
+              </div>
+              <span className="ma-process__label">Deployment</span>
+              <p className="ma-process__desc">App store submissions and smooth launch configuration.</p>
             </div>
-            <div className="ma-service-card ma-animate--scale">
-              <span className="ma-service-card__badge">06</span>
-              <h4 className="ma-service-card__title">Maintenance &amp; Support</h4>
-              <p className="ma-service-card__text">
-                After launch, we provide ongoing{" "}
-                <a href="/app-maintenance-support-services" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>maintenance services</a>{" "}
-                including updates, feature enhancements, and performance improvements.
-              </p>
+            <div className="ma-process__node">
+              <div className="ma-process__circle">
+                <span className="ma-process__pulse"></span>
+                06
+              </div>
+              <span className="ma-process__label">Support</span>
+              <p className="ma-process__desc">Ongoing updates, enhancements, and performance monitoring.</p>
             </div>
           </div>
         </div>
