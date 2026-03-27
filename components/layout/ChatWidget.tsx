@@ -14,14 +14,14 @@ type Message = {
 };
 
 const COUNTRY_CODES = [
-  { code: "+91",  flag: "🇮🇳", name: "India",      maxDigits: 10 },
-  { code: "+1",   flag: "🇺🇸", name: "USA/Canada",  maxDigits: 10 },
-  { code: "+44",  flag: "🇬🇧", name: "UK",          maxDigits: 10 },
-  { code: "+971", flag: "🇦🇪", name: "UAE",         maxDigits: 9  },
-  { code: "+61",  flag: "🇦🇺", name: "Australia",   maxDigits: 9  },
-  { code: "+49",  flag: "🇩🇪", name: "Germany",     maxDigits: 11 },
-  { code: "+65",  flag: "🇸🇬", name: "Singapore",   maxDigits: 8  },
-  { code: "+60",  flag: "🇲🇾", name: "Malaysia",    maxDigits: 10 },
+  { code: "+91", flag: "🇮🇳", name: "India", maxDigits: 10 },
+  { code: "+1", flag: "🇺🇸", name: "USA/Canada", maxDigits: 10 },
+  { code: "+44", flag: "🇬🇧", name: "UK", maxDigits: 10 },
+  { code: "+971", flag: "🇦🇪", name: "UAE", maxDigits: 9 },
+  { code: "+61", flag: "🇦🇺", name: "Australia", maxDigits: 9 },
+  { code: "+49", flag: "🇩🇪", name: "Germany", maxDigits: 11 },
+  { code: "+65", flag: "🇸🇬", name: "Singapore", maxDigits: 8 },
+  { code: "+60", flag: "🇲🇾", name: "Malaysia", maxDigits: 10 },
 ];
 
 function validatePhone(digits: string, countryCode: string): { valid: boolean; error: string } {
@@ -68,15 +68,15 @@ function getMaxDigits(countryCode: string): number {
 
 function getPlaceholder(countryCode: string): string {
   switch (countryCode) {
-    case "+91":  return "98765 43210";
-    case "+1":   return "415 555 0100";
-    case "+44":  return "7911 123456";
+    case "+91": return "98765 43210";
+    case "+1": return "415 555 0100";
+    case "+44": return "7911 123456";
     case "+971": return "50 123 4567";
-    case "+61":  return "412 345 678";
-    case "+49":  return "1512 3456789";
-    case "+65":  return "9123 4567";
-    case "+60":  return "12 345 6789";
-    default:     return "Phone number";
+    case "+61": return "412 345 678";
+    case "+49": return "1512 3456789";
+    case "+65": return "9123 4567";
+    case "+60": return "12 345 6789";
+    default: return "Phone number";
   }
 }
 
@@ -139,6 +139,7 @@ export default function ChatWidget() {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [connected, setConnected] = useState(false);
+  const [sessionEnded, setSessionEnded] = useState(false);
 
   const [showForm, setShowForm] = useState(false);
   const [leadCollected, setLeadCollected] = useState(false);
@@ -191,6 +192,7 @@ export default function ChatWidget() {
     setFormCountryCode("+91");
     setFormSubmitting(false);
     setFormError("");
+    setSessionEnded(false);
     reconnectAttempts.current = 0;
     sessionIdRef.current = generateSessionId();
   }, []);
@@ -290,7 +292,7 @@ export default function ChatWidget() {
 
   const handleSend = () => {
     const trimmed = input.trim();
-    if (!trimmed || loading) return;
+    if (!trimmed || loading || sessionEnded) return;
     if (showForm && !leadCollected) return;
     sendMessage(trimmed);
   };
@@ -300,17 +302,18 @@ export default function ChatWidget() {
       e.preventDefault();
       e.stopPropagation();
       const trimmed = input.trim();
-      if (!trimmed || loading) return;
+      if (!trimmed || loading || sessionEnded) return;
       if (showForm && !leadCollected) return;
       handleSend();
     }
   };
 
   const handleOptionClick = (option: OptionItem) => {
-    if (loading) return;
+    if (loading || sessionEnded) return;
     const isEndChat = /end\s*chat|end\s*session|bye|exit/i.test(option.label);
     sendMessage(option.label, option.value);
     if (isEndChat) {
+      setSessionEnded(true);
       setTimeout(() => {
         sessionIdRef.current = generateSessionId();
         if (wsRef.current) { wsRef.current.close(); wsRef.current = null; }
@@ -400,7 +403,7 @@ export default function ChatWidget() {
           </button>
         </div>
 
-        <div className="cw-panel-body" ref={bodyRef} style={{ paddingTop: "12px", paddingBottom: "32px" }}>
+        <div className="cw-panel-body" ref={bodyRef} style={{ paddingTop: "12px", paddingBottom: "80px" }}>
           <div className="cw-time-stamp">Today</div>
           <div className="cw-msg cw-msg-anim-1">
             <div className="cw-msg-avatar"><span className="cw-ai-mini">✦</span></div>
@@ -422,18 +425,23 @@ export default function ChatWidget() {
                   <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginTop: "12px" }}>
                     {msg.options.map((opt, j) => (
                       <button
+                        type="button"
                         key={j}
+                        disabled={sessionEnded}
                         onClick={() => handleOptionClick(opt)}
                         style={{
                           display: "flex", alignItems: "center", gap: "8px",
                           padding: opt.image ? "8px 14px 8px 8px" : "7px 14px",
                           borderRadius: "10px", border: "1px solid rgba(99,102,241,0.25)",
-                          background: "rgba(99,102,241,0.06)", color: "#6366f1",
-                          fontSize: "13px", fontWeight: 600, cursor: "pointer",
+                          background: sessionEnded ? "#e5e7eb" : "rgba(99,102,241,0.06)",
+                          color: sessionEnded ? "#9ca3af" : "#6366f1",
+                          fontSize: "13px", fontWeight: 600,
+                          cursor: sessionEnded ? "not-allowed" : "pointer",
+                          opacity: sessionEnded ? 0.5 : 1,
                           transition: "all 0.2s ease", fontFamily: "inherit",
                         }}
-                        onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(99,102,241,0.15)"; e.currentTarget.style.transform = "translateY(-1px)"; }}
-                        onMouseLeave={(e) => { e.currentTarget.style.background = "rgba(99,102,241,0.06)"; e.currentTarget.style.transform = "translateY(0)"; }}
+                        onMouseEnter={(e) => { if (!sessionEnded) { e.currentTarget.style.background = "rgba(99,102,241,0.15)"; e.currentTarget.style.transform = "translateY(-1px)"; } }}
+                        onMouseLeave={(e) => { if (!sessionEnded) { e.currentTarget.style.background = "rgba(99,102,241,0.06)"; e.currentTarget.style.transform = "translateY(0)"; } }}
                       >
                         {opt.image && <img src={opt.image} alt={opt.label} width={22} height={22} style={{ borderRadius: "6px", objectFit: "cover" }} />}
                         {opt.label}
@@ -587,19 +595,19 @@ export default function ChatWidget() {
               className="cw-ai-input"
               placeholder={
                 !connected ? "Connecting..."
-                : showForm && !leadCollected ? "Please fill the form above..."
-                : isMobile ? "Ask anything..."
-                : "Ask me anything about mTouch Labs..."
+                  : showForm && !leadCollected ? "Please fill the form above..."
+                    : isMobile ? "Ask anything..."
+                      : "Ask me anything about mTouch Labs..."
               }
-              disabled={!connected || loading || (showForm && !leadCollected)}
+              disabled={!connected || loading || sessionEnded || (showForm && !leadCollected)}
               autoComplete="off"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
             />
             <button
-              className={`cw-ai-send ${connected && input.trim() && !loading && !(showForm && !leadCollected) ? "cw-ai-send-active" : ""}`}
-              disabled={!connected || !input.trim() || loading || (showForm && !leadCollected)}
+              className={`cw-ai-send ${connected && input.trim() && !loading && !sessionEnded && !(showForm && !leadCollected) ? "cw-ai-send-active" : ""}`}
+              disabled={!connected || !input.trim() || loading || sessionEnded || (showForm && !leadCollected)}
               aria-label="Send"
               onClick={handleSend}
             >
@@ -612,7 +620,7 @@ export default function ChatWidget() {
             <span className="cw-ai-badge">AI</span>
             {loading ? "Thinking..."
               : showForm && !leadCollected ? "Fill in your details to continue"
-              : "Powered by mTouch Labs AI"}
+                : "Powered by mTouch Labs AI"}
           </div>
         </div>
         <div className="cw-panel-footer">Powered by <strong>mTouch Labs</strong></div>

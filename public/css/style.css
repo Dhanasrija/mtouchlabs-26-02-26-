@@ -39428,3 +39428,60 @@ hero section compamny overview*/
   .csd-hero__title { font-size: 26px; }
   .csd-tech-grid { grid-template-columns: 1fr; }
 }
+
+
+
+
+.topbar-nasscom {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.topbar-nasscom-trophy {
+  font-size: 14px;
+}
+
+.topbar-nasscom-text strong {
+  color: #f5c518; /* gold color for NASSCOM */
+}
+
+.topbar-nasscom-img {
+  height: 22px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Hide on mobile if topbar gets too cramped */
+@media (max-width: 768px) {
+  .topbar-nasscom { display: none; }
+}
+
+.home-mega-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.home-mega-item-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-li-link li a {
+  display: block;
+}
+
+.mega-link-title {
+  display: block;
+  font-weight: 600;
+}
+
+.mega-link-desc {
+  display: block;
+  font-size: 13px;
+  color: #666;
+}

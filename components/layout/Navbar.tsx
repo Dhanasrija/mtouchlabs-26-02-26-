@@ -934,14 +934,15 @@ export default async function Navbar() {
                           </div>
                         </div>
 
-                        {/* <div className="home-mega-item js-home-mega-item" data-target="home-case-studies">
-  <div className="home-mega-item-icon"><img src="/images/new_home/caseStudies.png" alt="Case Studies icon" width="28" height="28" /></div>
-  <div className="home-mega-item-text">
-    <span className="home-mega-item-label">Case Studies</span>
-    <span className="home-mega-item-desc">Real projects and results across industries</span>
-  </div>
-</div> */}
+                        <div className="home-mega-item js-home-mega-item" data-target="home-case-studies">
+                          <div className="home-mega-item-icon"><img src="/images/new_home/caseStudies.png" alt="Case Studies icon" width="28" height="28" /></div>
+                          <div className="home-mega-item-text">
+                            <span className="home-mega-item-label">Case Studies</span>
+                            <span className="home-mega-item-desc">Real projects and results across industries</span>
+                          </div>
+                        </div>
                       </div>
+
                       <div className="home-mega-content">
                         <div className="home-mega-panel active" id="home-about">
                           <h4 className="home-mega-panel-title">About Us</h4>
@@ -984,8 +985,7 @@ export default async function Navbar() {
                             </div>
                           </div>
                         </div>
-                      </div>
-                      {/* <div className="home-mega-panel" id="home-case-studies">
+                        <div className="home-mega-panel" id="home-case-studies">
                           <h4 className="home-mega-panel-title">Case Studies</h4>
                           <div className="menu-inner-block-a">
                             <div className="inner-blockss">
@@ -997,7 +997,9 @@ export default async function Navbar() {
                               <a href="/case-studies" className="home-mega-readmore">&#x2192;&#x2192;</a>
                             </div>
                           </div>
-                        </div>                */}
+                        </div>
+                      </div>
+
 
                       <HomeCTA />
 
