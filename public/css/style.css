@@ -42170,3 +42170,916 @@ hero section compamny overview*/
         padding: 60px 20px;
     }
 }
+
+
+
+/*new homepage
+
+/* ================================================
+   WHY CHOOSE — Aeline Bento (clean rewrite)
+   Paste into public/css/style.css
+   ================================================ */
+
+.wcs-section {
+  padding: 100px 0;
+  background: #fff;
+  font-family: 'Outfit', system-ui, sans-serif;
+}
+.wcs-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Label */
+.wcs-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+.wcs-label-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #111;
+}
+.wcs-label-text {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #111;
+  text-transform: uppercase;
+}
+
+/* Heading */
+.wcs-big-heading {
+  font-size: 58px;
+  font-weight: 600;
+  line-height: 1.1;
+  text-align: center;
+  color: #000000;
+  margin: 0 0 52px;
+  letter-spacing: -2px;
+}
+.wcs-big-heading-muted { color: #000000; }
+
+/* ── BENTO GRID ──
+   3 columns, 2 rows
+   Col1: blue  → spans rows 1+2
+   Col2: light → spans rows 1+2
+   Col3: yellow row1, dark row2
+*/
+.wcs-bento {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr auto;
+  gap: 14px;
+  align-items: stretch;
+}
+
+/* Blue: col1, both rows */
+.wcs-card--blue     { grid-column: 1; grid-row: 1 / 3; }
+/* Light: col2, both rows */
+.wcs-card--mid      { grid-column: 2; grid-row: 1 / 3; }
+/* Yellow: col3 row1 */
+.wcs-card--yellow   { grid-column: 3; grid-row: 1; }
+/* Dark: col3 row2 */
+.wcs-card--dark     { grid-column: 3; grid-row: 2; }
+
+/* Base card */
+.wcs-card {
+  border-radius: 24px;
+  padding: 28px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.wcs-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.10);
+}
+
+/* Blue */
+.wcs-card--blue {
+  background: linear-gradient(160deg, #1a3fcb 0%, #2563eb 60%, #3b82f6 100%);
+  padding: 24px;
+}
+.wcs-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+.wcs-card-brand {
+  font-size: 17px;
+  font-weight: 800;
+  color: #fff;
+}
+.wcs-card-icon-btn {
+  width: 36px; height: 36px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+/* Visual block inside blue card */
+.wcs-card-visual {
+  flex: 1;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.12);
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+  min-height: 160px;
+  display: flex;
+  align-items: flex-end;
+  padding: 16px;
+}
+.wcs-visual-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(30px);
+  opacity: 0.55;
+}
+.wcs-orb1 { width:120px; height:120px; background:#93c5fd; top:-30px; left:-20px; }
+.wcs-orb2 { width:90px;  height:90px;  background:#bfdbfe; top:20px;  right:10px; }
+.wcs-orb3 { width:70px;  height:70px;  background:#60a5fa; bottom:10px; left:40%; }
+.wcs-visual-badge {
+  position: absolute;
+  top: 12px; right: 12px;
+  background: rgba(255,255,255,0.22);
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  z-index: 2;
+}
+.wcs-visual-grid {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  width: 100%;
+  height: 70px;
+  position: relative;
+  z-index: 1;
+}
+.wcs-visual-bar {
+  flex: 1;
+  background: rgba(255,255,255,0.45);
+  border-radius: 4px 4px 0 0;
+}
+.wcs-bar-bright { background: rgba(255,255,255,0.95); }
+
+/* White stat box */
+.wcs-card-bottom-white {
+  background: #fff;
+  border-radius: 14px;
+  padding: 18px 20px;
+}
+
+/* Light */
+.wcs-card--light { background: #f4f4f4; }
+
+/* Yellow */
+.wcs-card--yellow { background: #FAC759; }
+
+/* Dark */
+.wcs-card--dark {
+  background: #111;
+  justify-content: center;
+  padding: 22px 28px;
+  border-radius: 50px;
+}
+
+/* Shared text */
+.wcs-card-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #888;
+  margin-bottom: 12px;
+  display: block;
+}
+.wcs-label-light { color: rgba(255,255,255,0.4) !important; }
+
+.wcs-card-big-num {
+  font-size: 64px;
+  font-weight: 800;
+  letter-spacing: -3px;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.wcs-num-dark  { color: #0a0a0a !important; }
+.wcs-num-white { color: #fff    !important; }
+
+.wcs-card-sub  { font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.5; }
+.wcs-sub-dark  { color: rgba(0,0,0,0.5) !important; }
+
+/* Avatars */
+.wcs-card-avatars {
+  display: flex;
+  margin: 18px 0 14px;
+}
+.wcs-avatar {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  border: 2.5px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease;
+  cursor: default;
+}
+.wcs-avatar:first-child { margin-left: 0; }
+.wcs-avatar:hover { transform: translateY(-3px) scale(1.1); z-index: 10; }
+.wcs-avatar-init {
+  font-size: 11px;
+  font-weight: 800;
+  color: #fff;
+}
+.wcs-avatar-more {
+  background: #e5e7eb !important;
+  font-size: 10px;
+}
+
+.wcs-card-quote {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.65;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Dark card inline */
+.wcs-card-inline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.wcs-card-inline-label {
+  font-size: 14px;
+  color: rgba(255,255,255,0.45);
+  max-width: 90px;
+  line-height: 1.3;
+}
+.wcs-card--dark .wcs-card-big-num {
+  font-size: 48px;
+  margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .wcs-big-heading { font-size: 44px; }
+}
+@media (max-width: 768px) {
+  .wcs-section { padding: 60px 0; }
+  .wcs-big-heading { font-size: 32px; letter-spacing: -1px; margin-bottom: 36px; }
+  .wcs-bento {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+  .wcs-card--blue   { grid-column: 1 / 3; grid-row: auto; }
+  .wcs-card--mid    { grid-column: 1 / 3; grid-row: auto; }
+  .wcs-card--yellow { grid-column: 1;     grid-row: auto; }
+  .wcs-card--dark   { grid-column: 2;     grid-row: auto; border-radius: 24px; }
+}
+@media (max-width: 480px) {
+  .wcs-bento { grid-template-columns: 1fr; }
+  .wcs-card--blue,
+  .wcs-card--mid,
+  .wcs-card--yellow,
+  .wcs-card--dark { grid-column: 1; }
+  .wcs-big-heading { font-size: 26px; }
+  .wcs-card--dark { border-radius: 24px; }
+}
+/* ── Years card — make smaller ── */
+.wcs-card--yellow .wcs-card-big-num {
+  font-size: 48px !important;
+  letter-spacing: -2px !important;
+}
+
+.wcs-card--yellow {
+  padding: 20px 24px !important;
+}
+
+
+
+/* ============================================
+   Digital Solutions Section — Flexio Style
+   Add this to your style.css
+   ============================================ */
+
+.digital-solutions-section {
+  padding: 90px 0;
+  background: #ffffff;
+}
+
+.digital-solutions-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ----- Header ----- */
+.digital-solutions-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 18px;
+  margin-bottom: 52px;
+}
+
+.digital-solutions-label {
+  display: inline-block;
+  background-color: #3b82f6;       /* orange-red pill — matches reference */
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 6px 20px;
+  border-radius: 100px;
+}
+
+.digital-solutions-title {
+  font-size: 46px;
+  font-weight: 600;
+  color: #000000;
+  line-height: 1.2;
+  max-width: 680px;
+  margin: 0;
+}
+
+/* ----- Grid ----- */
+.digital-solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* ----- Card ----- */
+.ds-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  display: block;
+  text-decoration: none;
+  aspect-ratio: 3 / 4;             /* tall portrait card like reference */
+  cursor: pointer;
+}
+
+/* Background image fills the whole card */
+.ds-card-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.ds-card:hover .ds-card-bg {
+  transform: scale(1.06);
+}
+
+/* Dark gradient overlay — heavier at top & bottom */
+.ds-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.45) 0%,
+    rgba(0, 0, 0, 0.10) 45%,
+    rgba(0, 0, 0, 0.70) 100%
+  );
+  transition: background 0.3s ease;
+}
+
+.ds-card:hover .ds-card-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.15) 45%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
+}
+
+/* Inner layout: title+button top, description bottom */
+.ds-card-inner {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px;
+}
+
+/* ----- Top row: title + plus button ----- */
+.ds-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.ds-card-title {
+  font-size: 19px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.35;
+  margin: 0;
+  flex: 1;
+}
+
+/* Circular "+" button — top right */
+.ds-card-plus {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  flex-shrink: 0;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.ds-card:hover .ds-card-plus {
+  background: rgba(255, 255, 255, 0.38);
+  transform: rotate(90deg);       /* subtle rotate on hover */
+}
+
+/* ----- Description — bottom ----- */
+.ds-card-description {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .digital-solutions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .digital-solutions-title {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 640px) {
+  .digital-solutions-section {
+    padding: 56px 0;
+  }
+
+  .digital-solutions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .digital-solutions-title {
+    font-size: 28px;
+  }
+
+  .ds-card {
+    aspect-ratio: 4 / 3;          /* wider cards on mobile */
+  }
+}
+
+
+
+/* ============================================
+   Why Businesses Trust Us — Numbered Steps
+   Uses brand.css variables (blue palette)
+   Add this to your style.css
+   ============================================ */
+
+.why-trust-section {
+  padding: 100px 0;
+  background: #ffffff;
+}
+
+.why-trust-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* ── Left Column ── */
+.why-trust-left {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Orange pill → Brand Blue pill */
+.why-trust-label {
+  display: inline-block;
+  background-color: var(--color-signature-blue, #3E8CFB);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 6px 20px;
+  border-radius: 100px;
+  width: fit-content;
+}
+
+.why-trust-heading {
+  font-family: var(--font-primary, 'Poppins', sans-serif);
+  font-size: 46px;
+  font-weight: 600;
+  color: var(--color-deep-indigo, #0C1C32);
+  line-height: 1.2;
+  margin: 0;
+}
+
+/* CTA Buttons */
+.why-trust-ctas {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.why-trust-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  background-color: var(--color-signature-blue, #3E8CFB);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: var(--font-primary, 'Poppins', sans-serif);
+  border-radius: 100px;
+  text-decoration: none;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.why-trust-btn-primary:hover {
+  background-color: var(--color-heritage-navy, #011D80);
+  transform: translateY(-2px);
+}
+
+.why-trust-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 32px;
+  background-color: transparent;
+  color: var(--color-signature-blue, #3E8CFB);
+  font-size: 15px;
+  font-weight: 600;
+  font-family: var(--font-primary, 'Poppins', sans-serif);
+  border: 2px solid var(--color-signature-blue, #3E8CFB);
+  border-radius: 100px;
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
+}
+
+.why-trust-btn-outline:hover {
+  background-color: var(--color-signature-blue, #3E8CFB);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* ── Right Column — Step Cards ── */
+.why-trust-right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.why-trust-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background-color: #EEF5FF;         /* light blue tint — brand-aligned */
+  border-radius: 16px;
+  padding: 24px 28px;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.why-trust-card:hover {
+  box-shadow: 0 8px 24px rgba(62, 140, 251, 0.12);
+  transform: translateY(-2px);
+}
+
+/* Blue circle number — replaces orange */
+.why-trust-number {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--color-signature-blue, #3E8CFB);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: var(--font-primary, 'Poppins', sans-serif);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.why-trust-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.why-trust-card-title {
+  font-family: var(--font-primary, 'Poppins', sans-serif);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--color-deep-indigo, #0C1C32);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.why-trust-card-desc {
+  font-family: var(--font-primary, 'Poppins', sans-serif);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-slate-grey, #777777);
+  margin: 0;
+  line-height: 1.65;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .why-trust-container {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .why-trust-heading {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 640px) {
+  .why-trust-section {
+    padding: 60px 0;
+  }
+
+  .why-trust-heading {
+    font-size: 28px;
+  }
+
+  .why-trust-card {
+    padding: 20px;
+  }
+
+  .why-trust-ctas {
+    flex-direction: column;
+  }
+
+  .why-trust-btn-primary,
+  .why-trust-btn-outline {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
+/* ============================================================
+   Premium Scroll-Reveal — Pure CSS
+   Uses CSS Scroll-Driven Animations (animation-timeline: view())
+   No JavaScript. No library. No data attributes.
+
+   Browser support: Chrome 115+, Edge 115+
+   Safari / Firefox fallback: elements are just visible (graceful)
+
+   How it works:
+   - Each animation class defines its own keyframes + timeline.
+   - animation-range: entry 0% entry 30% means the animation
+     completes as the element enters 30% into the viewport.
+   - Stagger is done with :nth-child() on grid/list children.
+   ============================================================ */
+
+/* ── Shared easing ── */
+:root {
+  --ease-expo-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-back-out: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ============================================================
+   KEYFRAMES
+   ============================================================ */
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(52px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes clipReveal {
+  from {
+    clip-path: inset(0 0 100% 0);
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    clip-path: inset(0 0 0% 0);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scalePop {
+  from {
+    opacity: 0;
+    transform: scale(0.65);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes popBounce {
+  0%   { opacity: 0; transform: scale(0) rotate(-12deg); }
+  70%  { transform: scale(1.18) rotate(4deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   SCROLL-DRIVEN ANIMATION CLASSES
+   Attach these classes directly to your elements in TSX.
+   No JS hook needed.
+   ============================================================ */
+
+/* 1 ── Heading / Title — curtain lift */
+.reveal-clip {
+  animation: clipReveal 0.8s var(--ease-expo-out) both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 28%;
+}
+
+/* 2 ── Label pill — gentle scale pop */
+.reveal-scale {
+  animation: scalePop 0.6s var(--ease-back-out) both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 25%;
+}
+
+/* 3 ── Cards — rise up + scale */
+.reveal-card {
+  animation: fadeSlideUp 0.75s var(--ease-expo-out) both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 30%;
+}
+
+/* 4 ── Left column block */
+.reveal-left {
+  animation: slideFromLeft 0.75s var(--ease-expo-out) both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 30%;
+}
+
+/* 5 ── Right column cards */
+.reveal-right {
+  animation: slideFromRight 0.75s var(--ease-expo-out) both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 30%;
+}
+
+/* 6 ── Buttons / small elements */
+.reveal-fade-up {
+  animation: fadeUp 0.65s var(--ease-expo-out) both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 28%;
+}
+
+/* 7 ── Number circles / icon bubbles */
+.reveal-pop {
+  animation: popBounce 0.65s var(--ease-back-out) both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 28%;
+}
+
+/* ============================================================
+   STAGGER — Service Cards (DigitalSolutionsSection)
+   Each card starts animating slightly later in the entry range
+   ============================================================ */
+.digital-solutions-grid .ds-card:nth-child(1) { animation-range: entry 0%  entry 28%; }
+.digital-solutions-grid .ds-card:nth-child(2) { animation-range: entry 4%  entry 32%; }
+.digital-solutions-grid .ds-card:nth-child(3) { animation-range: entry 8%  entry 36%; }
+.digital-solutions-grid .ds-card:nth-child(4) { animation-range: entry 0%  entry 28%; }
+.digital-solutions-grid .ds-card:nth-child(5) { animation-range: entry 4%  entry 32%; }
+.digital-solutions-grid .ds-card:nth-child(6) { animation-range: entry 8%  entry 36%; }
+
+/* ============================================================
+   STAGGER — Step Cards (WhyBusinessTrustSection)
+   ============================================================ */
+.why-trust-right .why-trust-card:nth-child(1) { animation-range: entry 0%  entry 28%; }
+.why-trust-right .why-trust-card:nth-child(2) { animation-range: entry 6%  entry 34%; }
+.why-trust-right .why-trust-card:nth-child(3) { animation-range: entry 12% entry 40%; }
+.why-trust-right .why-trust-card:nth-child(4) { animation-range: entry 18% entry 46%; }
+
+/* ============================================================
+   STAGGER — Why Trust number circles
+   ============================================================ */
+.why-trust-right .why-trust-card:nth-child(1) .why-trust-number { animation-range: entry 2%  entry 26%; }
+.why-trust-right .why-trust-card:nth-child(2) .why-trust-number { animation-range: entry 8%  entry 32%; }
+.why-trust-right .why-trust-card:nth-child(3) .why-trust-number { animation-range: entry 14% entry 38%; }
+.why-trust-right .why-trust-card:nth-child(4) .why-trust-number { animation-range: entry 20% entry 44%; }
+
+/* ============================================================
+   FALLBACK — Safari / Firefox (no animation-timeline support)
+   Elements are simply visible — no broken layout.
+   ============================================================ */
+@supports not (animation-timeline: view()) {
+  .reveal-clip,
+  .reveal-scale,
+  .reveal-card,
+  .reveal-left,
+  .reveal-right,
+  .reveal-fade-up,
+  .reveal-pop {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    clip-path: none;
+  }
+}
+
+/* ============================================================
+   ACCESSIBILITY — Respect reduced motion
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-clip,
+  .reveal-scale,
+  .reveal-card,
+  .reveal-left,
+  .reveal-right,
+  .reveal-fade-up,
+  .reveal-pop {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+}
