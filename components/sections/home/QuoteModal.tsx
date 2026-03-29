@@ -105,7 +105,7 @@ export default function QuoteModal() {
                       <option>₹4L – ₹10L</option>
                       <option>₹10L – ₹25L</option>
                       <option>₹25L+</option>
-                      <option>Flexible</option>
+                      {/* <option>Flexible</option> */}
                     </select>
                   </div>
                 </div>

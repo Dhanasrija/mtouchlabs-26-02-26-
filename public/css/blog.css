@@ -391,7 +391,7 @@
 
 /* ===== STICKY TOC ===== */
 .blv3-toc {
-  width: 280px;
+  width: 260px;
   flex-shrink: 0;
   position: sticky !important;
   top: 120px !important;
@@ -449,7 +449,7 @@
 
 .blv3-toc-link {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
   padding: 11px 14px 11px 18px;
   font-size: 14px;
@@ -553,7 +553,7 @@
   color: #1a1a2e;
   margin: 48px 0 16px;
   line-height: 1.3;
-  scroll-margin-top: 100px;
+  scroll-margin-top: 140px;
 }
 
 .blv3-content h3 {
@@ -562,7 +562,7 @@
   color: #1a1a2e;
   margin: 36px 0 12px;
   line-height: 1.3;
-  scroll-margin-top: 100px;
+  scroll-margin-top: 140px;
 }
 
 .blv3-content h4 {
@@ -1092,4 +1092,110 @@ body:has(.blv3-page) {
 
 .blv3-toc-sub .blv3-toc-link.blv3-toc-active {
   color: var(--color-signature-blue);
+}
+/* ── TOC: fix title clipping + active state ── */
+.blv3-toc-link {
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.5;
+}
+
+.blv3-toc-link.blv3-toc-active {
+  color: #6366f1 !important;
+  font-weight: 700 !important;
+  background: rgba(99, 102, 241, 0.08) !important;
+  border-left-color: #6366f1 !important;
+}
+
+.blv3-toc-link.blv3-toc-active::before {
+  background: #6366f1 !important;
+  border-color: rgba(99, 102, 241, 0.3) !important;
+  transform: scale(1.4) !important;
+  box-shadow: 0 0 8px rgba(99, 102, 241, 0.4) !important;
+}
+
+.blv3-toc-sub .blv3-toc-link.blv3-toc-active {
+  color: #6366f1 !important;
+  font-weight: 600 !important;
+  background: rgba(99, 102, 241, 0.05) !important;
+  border-left-color: #6366f1 !important;
+}
+
+/* Mobile active pill */
+@media (max-width: 768px) {
+  .blv3-toc-link.blv3-toc-active {
+    background: #eef2ff !important;
+    border-color: #6366f1 !important;
+    color: #6366f1 !important;
+  }
+}
+
+/* ── TOC dot alignment fix for wrapped titles ── */
+.blv3-toc-link::before {
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+/* ── TOC final fixes ── */
+.blv3-toc {
+  width: 300px !important;
+  max-height: calc(100vh - 140px) !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+}
+
+.blv3-toc-link {
+  white-space: normal !important;
+  word-break: break-word !important;
+  overflow: visible !important;
+  text-overflow: unset !important;
+  align-items: flex-start !important;
+}
+
+.blv3-toc-list {
+  overflow: visible !important;
+}
+
+/* ── Case study section scroll offset fix ── */
+[id^="cs-"] {
+  scroll-margin-top: 120px !important;
+}
+
+/* ── All TOC link text wrap fix ── */
+.blv3-toc-link {
+  white-space: normal !important;
+  word-break: break-word !important;
+  overflow: visible !important;
+  text-overflow: unset !important;
+  align-items: flex-start !important;
+  line-height: 1.5 !important;
+}
+
+.blv3-toc-link::before {
+  margin-top: 5px !important;
+  flex-shrink: 0 !important;
+}
+
+/* ── Navbar offset fix — all scrollable targets ── */
+.blv3-content h2,
+.blv3-content h3,
+.blv3-content h4,
+[id^="cs-"],
+.blv3-faq,
+.blv3-tldr,
+.blv3-takeaways {
+  scroll-margin-top: 150px !important;
+}
+
+/* ── FINAL scroll offset fix — sticky header = 120px + top bar 40px + buffer ── */
+.blv3-content h2,
+.blv3-content h3,
+.blv3-content h4,
+[id^="cs-"],
+.blv3-faq,
+.blv3-tldr,
+.blv3-takeaways,
+.blv3-cta-banner {
+  scroll-margin-top: 180px !important;
 }

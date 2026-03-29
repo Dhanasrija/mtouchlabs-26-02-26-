@@ -113,6 +113,8 @@ import LocationSection from "@/components/sections/home/LocationSection";
 import FAQSection from "@/components/sections/home/FAQSection";
 
 
+
+
 export const metadata = {
   metadataBase: new URL("https://www.mtouchlabs.com"),
   title: {
@@ -246,7 +248,7 @@ const organizationSchema = {
       addressCountry: "US",
     },
   ],
- 
+
   knowsAbout: [
     "Custom Software Development",
     "SaaS Product Engineering",
@@ -551,7 +553,8 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-<script dangerouslySetInnerHTML={{ __html: `
+      <script dangerouslySetInnerHTML={{
+        __html: `
         document.addEventListener("click", function(e) {
           var btn = e.target.closest("._faq_question");
           if (!btn) return;
@@ -644,7 +647,8 @@ export default function HomePage() {
         </div>
       </div>
 
-      <script dangerouslySetInnerHTML={{ __html: `
+      <script dangerouslySetInnerHTML={{
+        __html: `
         (function() {
           function initFaqToggle() {
             var items = document.querySelectorAll('._faq_item');

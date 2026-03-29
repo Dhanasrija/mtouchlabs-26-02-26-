@@ -921,7 +921,7 @@ export async function generateMetadata({
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { sql } from '@/lib/db';
-import TocScrollHighlight from './TocScrollHighlight';
+import TocScrollHighlight from '@/components/TocScrollHighlight';
 
 const SITE_URL = 'https://www.mtouchlabs.com';
 
@@ -1053,11 +1053,11 @@ export default async function BlogPostPage({
   const displayDate = blog.publish_date || blog.created_at;
   const publishedDate = displayDate
     ? new Intl.DateTimeFormat('en-US', {
-        month: 'long',
-        day: 'numeric',
-        year: 'numeric',
-        timeZone: 'UTC',
-      }).format(new Date(displayDate))
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric',
+      timeZone: 'UTC',
+    }).format(new Date(displayDate))
     : '';
 
   const isoDate = displayDate ? new Date(displayDate).toISOString().split('T')[0] : '';
@@ -1067,9 +1067,9 @@ export default async function BlogPostPage({
 
   const processedContent = blog.content
     ? removeInlineTOC(
-        addIdsToHeadings(blog.content)
-          .replace(/href="\/contact"/g, 'href="/contact-us"')
-      )
+      addIdsToHeadings(blog.content)
+        .replace(/href="\/contact"/g, 'href="/contact-us"')
+    )
     : '';
 
   const tocExclude = ['table of contents', 'tl;dr', 'key takeaways'];
@@ -1170,13 +1170,13 @@ export default async function BlogPostPage({
           <div className="blv3-meta">
             {publishedDate && (
               <span className="blv3-meta-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
                 <time dateTime={isoDate}>{publishedDate}</time>
               </span>
             )}
             {readingTime > 0 && (
               <span className="blv3-meta-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" /></svg>
                 {readingTime} min read
               </span>
             )}
@@ -1218,7 +1218,7 @@ export default async function BlogPostPage({
               {blog.description && (
                 <div className="blv3-tldr">
                   <div className="blv3-tldr-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></svg>
                   </div>
                   <div>
                     <h2 className="blv3-tldr-title">TL;DR — What You&apos;ll Learn</h2>
@@ -1240,7 +1240,7 @@ export default async function BlogPostPage({
                 <p className="blv3-cta-banner-text">mTouch Labs combines AI-powered development with deep industry expertise to deliver solutions 3x faster.</p>
                 <Link href="/contact-us" className="blv3-cta-banner-btn">
                   Get a Free Consultation
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
                 </Link>
               </div>
 
