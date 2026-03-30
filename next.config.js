@@ -13,7 +13,7 @@ const nextConfig = {
         source: '/:path*',
         has: [{ type: 'host', value: 'mtouchlabs.com' }],
         destination: 'https://www.mtouchlabs.com/:path*',
-        permanent: true,
+        statusCode: 301,
       },
       // ===========================
       // BLOG REDIRECTS — /blog/slug → /slug

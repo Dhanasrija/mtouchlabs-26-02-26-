@@ -1,4 +1,12 @@
 {
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "mtouchlabs.com" }],
+      "destination": "https://www.mtouchlabs.com/:path*",
+      "statusCode": 301
+    }
+  ],
   "crons": [
     {
       "path": "/api/cron/publish-blogs",
