@@ -131,8 +131,6 @@ export default function RootLayout({
         <link href="/css/navbar-dropdown.css" rel="stylesheet" />
         <link href="/css/services.css" rel="stylesheet" />
         <link href="/css/homepage-fixes.css" rel="stylesheet"/>
-        <link href="/css/digital-solutions.css" rel="stylesheet"/>
-        <link href="/css/why-choose.css" rel="stylesheet"/>
 
         <meta name="turnstile-site-key" content={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY} />
 

@@ -1,417 +1,691 @@
-/* ─────────────────────────────────────────
-   DigitalSolutionsSection — matches Figma
-───────────────────────────────────────── */
 
-const AppleIcon = () => (
-  <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
-    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-  </svg>
-);
+// const ArrowSVG = () => (
+//   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+//     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+//   </svg>
+// );
 
-const AndroidIcon = () => (
-  <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
-    <path d="M17.523 15.341a1 1 0 0 1-1-1V9a1 1 0 0 1 2 0v5.341a1 1 0 0 1-1 1zm-11.046 0a1 1 0 0 1-1-1V9a1 1 0 0 1 2 0v5.341a1 1 0 0 1-1 1zM7.5 7h9a4.5 4.5 0 0 0-9 0zm-2 1v8.5A1.5 1.5 0 0 0 7 18h.5v2.5a1 1 0 0 0 2 0V18h5v2.5a1 1 0 0 0 2 0V18H17a1.5 1.5 0 0 0 1.5-1.5V8H5.5zm7.5-4.74a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5zm-3 0a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5z"/>
-  </svg>
-);
+// export default function DigitalSolutionsSection() {
+//   return (
+//     <section className="digital-solutions-section">
+//       <div className="digital-solutions-container">
+//         {/* Header - Centered */}
+//         <div className="digital-solutions-header" style={{ textAlign: "center" }}>
+//           <p className="digital-solutions-label">SERVICES</p>
+//           <h2 className="digital-solutions-title">We Deliver the Best Digital Solutions</h2>
+//         </div>
 
-const FlutterIcon = () => (
-  <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
-    <path d="M14.314 0L2.3 12 6 15.7 21.684.013h-7.37zm.159 11.545l-4.049 4.049 4.049 4.05 4.049-4.05-4.049-4.049zM6.3 19.7L2.6 16l-2.3 2.3L6.3 24l4.049-4.049-3.7-3.7L6.3 19.7z"/>
-  </svg>
-);
+//         {/* Service Cards Grid */}
+//         <div className="digital-solutions-grid">
+//           {/* Card 1: Custom Software Development */}
+//           <div className="ds-card ds-card-horizontal ds-grid-item-0" data-aos="fade-right" data-aos-offset="150">
+//             <div className="ds-card-image-side">
+//               <img src="/images/we_deliver_the_best _digital_solutions/web_development.png" alt="Custom Software Development" />
+//             </div>
+//             <div className="ds-card-content-side">
+//               <h2 className="ds-card-title">Custom Software Development</h2>
+//               <p className="ds-card-description">
+//                 We build tailored software systems designed to solve complex business challenges and improve operational efficiency.
+//               </p>
+//             </div>
+//             <a href="/custom-software-development-company" className="ds-card-arrow-btn" hrefLang="services">
+//               <ArrowSVG />
+//             </a>
+//           </div>
 
-const ReactIcon = () => (
-  <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
-    <circle cx="12" cy="12" r="2.5"/>
-    <ellipse cx="12" cy="12" rx="10" ry="4" stroke="currentColor" strokeWidth="1.5" fill="none"/>
-    <ellipse cx="12" cy="12" rx="10" ry="4" stroke="currentColor" strokeWidth="1.5" fill="none" transform="rotate(60 12 12)"/>
-    <ellipse cx="12" cy="12" rx="10" ry="4" stroke="currentColor" strokeWidth="1.5" fill="none" transform="rotate(120 12 12)"/>
+//           {/* Card 2: SaaS Development */}
+//           <div className="ds-card ds-card-vertical-tall ds-grid-item-1" data-aos="fade-down" data-aos-offset="150">
+//             <div className="ds-card-content-top">
+//               <h2 className="ds-card-title">SaaS Development</h2>
+//               <p className="ds-card-description">
+//                 We design and develop scalable SaaS platforms with multi-tenant architecture, subscription systems, and cloud-native infrastructure.
+//               </p>
+//             </div>
+//             <img
+//               src="/images/we_deliver_the_best _digital_solutions/mobile_app_development.png"
+//               alt="SaaS Development"
+//             />
+//             <a href="/saas-development-services" className="ds-card-arrow-btn">
+//               <ArrowSVG />
+//             </a>
+//           </div>
+
+//           {/* Card 3: Salesforce Consulting & CRM Solutions */}
+//           <div className="ds-card ds-card-horizontal ds-grid-item-2" data-aos="fade-left" data-aos-offset="150">
+//             <div className="ds-card-image-side">
+//               <img
+//                 src="/images/we_deliver_the_best _digital_solutions/salesforce_development_consulting.png"
+//                 alt="Salesforce Consulting & CRM Solutions"
+//               />
+//             </div>
+//             <div className="ds-card-content-side">
+//               <h2 className="ds-card-title">Salesforce Consulting &amp; CRM Solutions</h2>
+//               <p className="ds-card-description">
+//                 We help organizations optimize customer relationship management with Salesforce implementation, customization, and CRM integrations.
+//               </p>
+//             </div>
+//             <a href="/salesforce-consulting-services-company" className="ds-card-arrow-btn">
+//               <ArrowSVG />
+//             </a>
+//           </div>
+
+//           {/* Card 4: Cloud & DevOps Engineering */}
+//           <div className="ds-card ds-card-vertical ds-grid-item-3">
+//             <div className="ds-card-content-top">
+//               <h2 className="ds-card-title">Cloud &amp; DevOps Engineering</h2>
+//               <p className="ds-card-description">
+//                 We implement cloud-native environments, CI/CD pipelines, infrastructure automation, and scalable deployment solutions.
+//               </p>
+//             </div>
+//             <img src="/images/cloud_infra.png" alt="Cloud & DevOps Engineering" />
+//             <a href="/devops-services" className="ds-card-arrow-btn">
+//               <ArrowSVG />
+//             </a>
+//           </div>
+
+//           {/* Card 5: Generative AI Solutions */}
+//           <div className="ds-card ds-card-horizontal ds-grid-item-4">
+//             <div className="ds-card-image-side">
+//               <img
+//                 src="/images/we_deliver_the_best _digital_solutions/generative_ai_solutions.png"
+//                 alt="Generative AI Solutions"
+//               />
+//             </div>
+//             <div className="ds-card-content-side">
+//               <h2 className="ds-card-title">Generative AI Solutions</h2>
+//               <p className="ds-card-description">
+//                 Automate tasks, create content, and engage users with AI-driven innovation and intelligent automation.
+//               </p>
+//             </div>
+//             <a href="/generative-ai-development-company" className="ds-card-arrow-btn">
+//               <ArrowSVG />
+//             </a>
+//           </div>
+
+//           {/* Card 6: Mobile App Development */}
+//           <div className="ds-card ds-card-vertical ds-grid-item-5" data-aos="fade-up-right">
+//             <div className="ds-card-content-top">
+//               <h2 className="ds-card-title">Mobile App Development</h2>
+//               <p className="ds-card-description">
+//                 Build custom, high-performance mobile applications for iOS and Android with scalable architecture.
+//               </p>
+//             </div>
+//             <img
+//               src="/images/we_deliver_the_best _digital_solutions/mobile_app_development.png"
+//               alt="Mobile App Development"
+//             />
+//             <a href="/mobile-app-development-company" className="ds-card-arrow-btn">
+//               <ArrowSVG />
+//             </a>
+//           </div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
+// No hook needed — animations are handled entirely by CSS (animation-timeline: view())
+
+// const PlusIcon = () => (
+//   <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+//     <path d="M10 4V16M4 10H16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+//   </svg>
+// );
+
+// const services = [
+//   {
+//     title: "Custom Software Development",
+//     description:
+//       "We build tailored software systems designed to solve complex business challenges and improve operational efficiency.",
+//     image: "/images/we_deliver_the_best _digital_solutions/web_development.png",
+//     href: "/custom-software-development-company",
+//   },
+//   {
+//     title: "SaaS Development",
+//     description:
+//       "We design and develop scalable SaaS platforms with multi-tenant architecture, subscription systems, and cloud-native infrastructure.",
+//     image: "/images/we_deliver_the_best _digital_solutions/mobile_app_development.png",
+//     href: "/saas-development-services",
+//   },
+//   {
+//     title: "Salesforce Consulting & CRM Solutions",
+//     description:
+//       "We help organizations optimize customer relationship management with Salesforce implementation, customization, and CRM integrations.",
+//     image: "/images/we_deliver_the_best _digital_solutions/salesforce_development_consulting.png",
+//     href: "/salesforce-consulting-services-company",
+//   },
+//   {
+//     title: "Cloud & DevOps Engineering",
+//     description:
+//       "We implement cloud-native environments, CI/CD pipelines, infrastructure automation, and scalable deployment solutions.",
+//     image: "/images/cloud_infra.png",
+//     href: "/devops-services",
+//   },
+//   {
+//     title: "Generative AI Solutions",
+//     description:
+//       "Automate tasks, create content, and engage users with AI-driven innovation and intelligent automation.",
+//     image: "/images/we_deliver_the_best _digital_solutions/generative_ai_solutions.png",
+//     href: "/generative-ai-development-company",
+//   },
+//   {
+//     title: "Mobile App Development",
+//     description:
+//       "Build custom, high-performance mobile applications for iOS and Android with scalable architecture.",
+//     image: "/images/we_deliver_the_best _digital_solutions/mobile_app_development.png",
+//     href: "/mobile-app-development-company",
+//   },
+// ];
+
+// export default function DigitalSolutionsSection() {
+//   return (
+//     <section className="digital-solutions-section">
+//       <div className="digital-solutions-container">
+
+//         {/* Header */}
+//         <div className="digital-solutions-header">
+//           <span className="digital-solutions-label reveal-scale">OUR SERVICES</span>
+//           <h2 className="digital-solutions-title reveal-clip">
+//             We Deliver the Best Digital Solutions
+//           </h2>
+//         </div>
+
+//         {/* Cards Grid */}
+//         <div className="digital-solutions-grid">
+//           {services.map((service, index) => (
+//             <a key={index} href={service.href} className="ds-card reveal-card">
+//               <img src={service.image} alt={service.title} className="ds-card-bg" />
+//               <div className="ds-card-overlay" />
+//               <div className="ds-card-inner">
+//                 <div className="ds-card-top">
+//                   <h3 className="ds-card-title">{service.title}</h3>
+//                   <div className="ds-card-plus"><PlusIcon /></div>
+//                 </div>
+//                 <p className="ds-card-description">{service.description}</p>
+//               </div>
+//             </a>
+//           ))}
+//         </div>
+
+//       </div>
+//     </section>
+//   );
+// }
+
+
+
+
+// const ArrowSVG = () => (
+//   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+//     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+//   </svg>
+// );
+
+// export default function DigitalSolutionsSection() {
+//   return (
+//     <section className="digital-solutions-section">
+//       <div className="digital-solutions-container">
+//         {/* Header - Centered */}
+//         <div className="digital-solutions-header" style={{ textAlign: "center" }}>
+//           <p className="digital-solutions-label">SERVICES</p>
+//           <h2 className="digital-solutions-title">We Deliver the Best Digital Solutions</h2>
+//         </div>
+
+//         {/* Service Cards Grid */}
+//         <div className="digital-solutions-grid">
+//           {/* Card 1: Custom Software Development */}
+//           <div className="ds-card ds-card-horizontal ds-grid-item-0" data-aos="fade-right" data-aos-offset="150">
+//             <div className="ds-card-image-side">
+//               <img src="/images/we_deliver_the_best _digital_solutions/web_development.png" alt="Custom Software Development" />
+//             </div>
+//             <div className="ds-card-content-side">
+//               <h2 className="ds-card-title">Custom Software Development</h2>
+//               <p className="ds-card-description">
+//                 We build tailored software systems designed to solve complex business challenges and improve operational efficiency.
+//               </p>
+//             </div>
+//             <a href="/custom-software-development-company" className="ds-card-arrow-btn" hrefLang="services">
+//               <ArrowSVG />
+//             </a>
+//           </div>
+
+//           {/* Card 2: SaaS Development */}
+//           <div className="ds-card ds-card-vertical-tall ds-grid-item-1" data-aos="fade-down" data-aos-offset="150">
+//             <div className="ds-card-content-top">
+//               <h2 className="ds-card-title">SaaS Development</h2>
+//               <p className="ds-card-description">
+//                 We design and develop scalable SaaS platforms with multi-tenant architecture, subscription systems, and cloud-native infrastructure.
+//               </p>
+//             </div>
+//             <img
+//               src="/images/we_deliver_the_best _digital_solutions/mobile_app_development.png"
+//               alt="SaaS Development"
+//             />
+//             <a href="/saas-development-services" className="ds-card-arrow-btn">
+//               <ArrowSVG />
+//             </a>
+//           </div>
+
+//           {/* Card 3: Salesforce Consulting & CRM Solutions */}
+//           <div className="ds-card ds-card-horizontal ds-grid-item-2" data-aos="fade-left" data-aos-offset="150">
+//             <div className="ds-card-image-side">
+//               <img
+//                 src="/images/we_deliver_the_best _digital_solutions/salesforce_development_consulting.png"
+//                 alt="Salesforce Consulting & CRM Solutions"
+//               />
+//             </div>
+//             <div className="ds-card-content-side">
+//               <h2 className="ds-card-title">Salesforce Consulting &amp; CRM Solutions</h2>
+//               <p className="ds-card-description">
+//                 We help organizations optimize customer relationship management with Salesforce implementation, customization, and CRM integrations.
+//               </p>
+//             </div>
+//             <a href="/salesforce-consulting-services-company" className="ds-card-arrow-btn">
+//               <ArrowSVG />
+//             </a>
+//           </div>
+
+//           {/* Card 4: Cloud & DevOps Engineering */}
+//           <div className="ds-card ds-card-vertical ds-grid-item-3">
+//             <div className="ds-card-content-top">
+//               <h2 className="ds-card-title">Cloud &amp; DevOps Engineering</h2>
+//               <p className="ds-card-description">
+//                 We implement cloud-native environments, CI/CD pipelines, infrastructure automation, and scalable deployment solutions.
+//               </p>
+//             </div>
+//             <img src="/images/cloud_infra.png" alt="Cloud & DevOps Engineering" />
+//             <a href="/devops-services" className="ds-card-arrow-btn">
+//               <ArrowSVG />
+//             </a>
+//           </div>
+
+//           {/* Card 5: Generative AI Solutions */}
+//           <div className="ds-card ds-card-horizontal ds-grid-item-4">
+//             <div className="ds-card-image-side">
+//               <img
+//                 src="/images/we_deliver_the_best _digital_solutions/generative_ai_solutions.png"
+//                 alt="Generative AI Solutions"
+//               />
+//             </div>
+//             <div className="ds-card-content-side">
+//               <h2 className="ds-card-title">Generative AI Solutions</h2>
+//               <p className="ds-card-description">
+//                 Automate tasks, create content, and engage users with AI-driven innovation and intelligent automation.
+//               </p>
+//             </div>
+//             <a href="/generative-ai-development-company" className="ds-card-arrow-btn">
+//               <ArrowSVG />
+//             </a>
+//           </div>
+
+//           {/* Card 6: Mobile App Development */}
+//           <div className="ds-card ds-card-vertical ds-grid-item-5" data-aos="fade-up-right">
+//             <div className="ds-card-content-top">
+//               <h2 className="ds-card-title">Mobile App Development</h2>
+//               <p className="ds-card-description">
+//                 Build custom, high-performance mobile applications for iOS and Android with scalable architecture.
+//               </p>
+//             </div>
+//             <img
+//               src="/images/we_deliver_the_best _digital_solutions/mobile_app_development.png"
+//               alt="Mobile App Development"
+//             />
+//             <a href="/mobile-app-development-company" className="ds-card-arrow-btn">
+//               <ArrowSVG />
+//             </a>
+//           </div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
+// No hook needed — animations are handled entirely by CSS (animation-timeline: view())
+
+// const PlusIcon = () => (
+//   <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+//     <path d="M10 4V16M4 10H16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+//   </svg>
+// );
+
+// const services = [
+//   {
+//     title: "Custom Software Development",
+//     description:
+//       "We build tailored software systems designed to solve complex business challenges and improve operational efficiency.",
+//     image: "/images/we_deliver_the_best _digital_solutions/web_development.png",
+//     href: "/custom-software-development-company",
+//   },
+//   {
+//     title: "SaaS Development",
+//     description:
+//       "We design and develop scalable SaaS platforms with multi-tenant architecture, subscription systems, and cloud-native infrastructure.",
+//     image: "/images/we_deliver_the_best _digital_solutions/mobile_app_development.png",
+//     href: "/saas-development-services",
+//   },
+//   {
+//     title: "Salesforce Consulting & CRM Solutions",
+//     description:
+//       "We help organizations optimize customer relationship management with Salesforce implementation, customization, and CRM integrations.",
+//     image: "/images/we_deliver_the_best _digital_solutions/salesforce_development_consulting.png",
+//     href: "/salesforce-consulting-services-company",
+//   },
+//   {
+//     title: "Cloud & DevOps Engineering",
+//     description:
+//       "We implement cloud-native environments, CI/CD pipelines, infrastructure automation, and scalable deployment solutions.",
+//     image: "/images/cloud_infra.png",
+//     href: "/devops-services",
+//   },
+//   {
+//     title: "Generative AI Solutions",
+//     description:
+//       "Automate tasks, create content, and engage users with AI-driven innovation and intelligent automation.",
+//     image: "/images/we_deliver_the_best _digital_solutions/generative_ai_solutions.png",
+//     href: "/generative-ai-development-company",
+//   },
+//   {
+//     title: "Mobile App Development",
+//     description:
+//       "Build custom, high-performance mobile applications for iOS and Android with scalable architecture.",
+//     image: "/images/we_deliver_the_best _digital_solutions/mobile_app_development.png",
+//     href: "/mobile-app-development-company",
+//   },
+// ];
+
+// export default function DigitalSolutionsSection() {
+//   return (
+//     <section className="digital-solutions-section">
+//       <div className="digital-solutions-container">
+
+//         {/* Header */}
+//         <div className="digital-solutions-header">
+//           <span className="digital-solutions-label reveal-scale">OUR SERVICES</span>
+//           <h2 className="digital-solutions-title reveal-clip">
+//             We Deliver the Best Digital Solutions
+//           </h2>
+//         </div>
+
+//         {/* Cards Grid */}
+//         <div className="digital-solutions-grid">
+//           {services.map((service, index) => (
+//             <a key={index} href={service.href} className="ds-card reveal-card">
+//               <img src={service.image} alt={service.title} className="ds-card-bg" />
+//               <div className="ds-card-overlay" />
+//               <div className="ds-card-inner">
+//                 <div className="ds-card-top">
+//                   <h3 className="ds-card-title">{service.title}</h3>
+//                   <div className="ds-card-plus"><PlusIcon /></div>
+//                 </div>
+//                 <p className="ds-card-description">{service.description}</p>
+//               </div>
+//             </a>
+//           ))}
+//         </div>
+
+//       </div>
+//     </section>
+//   );
+// }
+
+
+// const ArrowSVG = () => (
+//   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+//     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+//   </svg>
+// );
+
+// export default function DigitalSolutionsSection() {
+//   return (
+//     <section className="digital-solutions-section">
+//       <div className="digital-solutions-container">
+//         {/* Header */}
+//         <div className="digital-solutions-header">
+//           <div className="digital-solutions-header-left">
+//             <p className="digital-solutions-label">SERVICES</p>
+//             <h2 className="digital-solutions-title">We Deliver the Best Digital Solutions</h2>
+//           </div>
+//           <div className="digital-solutions-header-right">
+//             <p className="digital-solutions-subtitle">
+//               mTouch Labs is an ISO-certified enterprise IT solutions company
+//             </p>
+//             <a href="/services" target="_blank" className="digital-solutions-view-btn">
+//               View All
+//               <span style={{ transform: "rotate(315deg)" }}>
+//                 <i className="fa-solid fa-arrow-right"></i>
+//               </span>
+//             </a>
+//           </div>
+//         </div>
+
+//         {/* Service Cards Grid */}
+//         <div className="digital-solutions-grid">
+//           {/* Card 1: Web Development */}
+//           <div className="ds-card ds-card-horizontal ds-grid-item-0" data-aos="fade-right" data-aos-offset="150">
+//             <div className="ds-card-image-side">
+//               <img src="/images/we_deliver_the_best _digital_solutions/web_development.png" alt="Web Development" />
+//             </div>
+//             <div className="ds-card-content-side">
+//               <h3 className="ds-card-title">Web Development</h3>
+//               <p className="ds-card-description">
+//                 Automate tasks, create content, and engage users with AI-driven innovation.
+//               </p>
+//             </div>
+//             <a href="/web-development-company" target="_blank" className="ds-card-arrow-btn" hrefLang="services">
+//               <ArrowSVG />
+//             </a>
+//           </div>
+
+//           {/* Card 2: Mobile app Development */}
+//           <div className="ds-card ds-card-vertical-tall ds-grid-item-1" data-aos="fade-down" data-aos-offset="150">
+//             <div className="ds-card-content-top">
+//               <h3 className="ds-card-title">Mobile app Development</h3>
+//               <p className="ds-card-description">Build custom ML models to boost accuracy and automate decisions.</p>
+//             </div>
+//             <img
+//               src="/images/we_deliver_the_best _digital_solutions/mobile_app_development.png"
+//               alt="Mobile app Development"
+//             />
+//             <a href="/mobile-app-development-company" target="_blank" className="ds-card-arrow-btn">
+//               <ArrowSVG />
+//             </a>
+//           </div>
+
+//           {/* Card 3: Digital Marketing Solutions */}
+//           <div className="ds-card ds-card-horizontal ds-grid-item-2" data-aos="fade-left" data-aos-offset="150">
+//             <div className="ds-card-image-side">
+//               <img
+//                 src="/images/we_deliver_the_best _digital_solutions/digital_marketing.png"
+//                 alt="Digital Marketing Solutions"
+//               />
+//             </div>
+//             <div className="ds-card-content-side">
+//               <h3 className="ds-card-title">Digital Marketing Solutions</h3>
+//               <p className="ds-card-description">
+//                 Elevate your brand through SEO, social media, and data-led campaigns.
+//               </p>
+//             </div>
+//             <a href="/digital-marketing-services" target="_blank" className="ds-card-arrow-btn">
+//               <ArrowSVG />
+//             </a>
+//           </div>
+
+//           {/* Card 4: Cloud Infrastructure Management */}
+//           <div className="ds-card ds-card-vertical ds-grid-item-3">
+//             <div className="ds-card-content-top">
+//               <h3 className="ds-card-title">Cloud Infrastructure Management</h3>
+//               <p className="ds-card-description">
+//                 Optimize and scale your infrastructure with seamless cloud integration.
+//               </p>
+//             </div>
+//             <img src="/images/cloud_infra.png" alt="Machine Learning Solutions" />
+//             <a href="/aws-cloud-services" target="_blank" className="ds-card-arrow-btn">
+//               <ArrowSVG />
+//             </a>
+//           </div>
+
+//           {/* Card 5: Generative AI Solutions */}
+//           <div className="ds-card ds-card-horizontal ds-grid-item-4">
+//             <div className="ds-card-image-side">
+//               <img
+//                 src="/images/we_deliver_the_best _digital_solutions/generative_ai_solutions.png"
+//                 alt="Generative AI Solutions"
+//               />
+//             </div>
+//             <div className="ds-card-content-side">
+//               <h3 className="ds-card-title">Generative AI Solutions</h3>
+//               <p className="ds-card-description">
+//                 Automate tasks, create content, and engage users with AI-driven innovation.
+//               </p>
+//             </div>
+//             <a href="/generative-ai-development-company" target="_blank" className="ds-card-arrow-btn">
+//               <ArrowSVG />
+//             </a>
+//           </div>
+
+//           {/* Card 6: Salesforce Development & Consulting */}
+//           <div className="ds-card ds-card-vertical ds-grid-item-5" data-aos="fade-up-right">
+//             <div className="ds-card-content-top">
+//               <h3 className="ds-card-title">Salesforce Development &amp; Consulting</h3>
+//               <p className="ds-card-description">
+//                 Streamline operations with tailored CRM apps and automation.
+//               </p>
+//             </div>
+//             <img
+//               src="/images/we_deliver_the_best _digital_solutions/salesforce_development_consulting.png"
+//               alt="Salesforce Development"
+//             />
+//             <a href="/salesforce-consulting-services" target="_blank" className="ds-card-arrow-btn">
+//               <ArrowSVG />
+//             </a>
+//           </div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
+const ArrowSVG = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 
 export default function DigitalSolutionsSection() {
   return (
-    <section className="fds-section">
-      <div className="fds-container">
-
-        {/* ── Header ── */}
-        <div className="fds-header">
-          <p className="fds-label">• SERVICES</p>
-          <h2 className="fds-title">
-            We Deliver the Best<br />
-            <span className="fds-title-cyan">Digital Solutions</span>
-            <span className="fds-bulb">
-              <span>💡</span>
-            </span>
-          </h2>
-          <p className="fds-subtitle">ISO-Certified Enterprise IT company</p>
+    <section className="digital-solutions-section">
+      <div className="digital-solutions-container">
+        {/* Header - Centered */}
+        <div className="digital-solutions-header" style={{ textAlign: "center" }}>
+          <p className="digital-solutions-label">SERVICES</p>
+          <h2 className="digital-solutions-title">We Deliver the Best Digital Solutions</h2>
         </div>
 
-        {/* ── Cards Grid ── */}
-        <div className="fds-grid">
-
-          {/* Card 1 — Custom Software (Blue + photo) */}
-          <a href="/custom-software-development-company" className="fds-card fds-card-blue fds-card-photo">
-            <div className="fds-card-topbar">
-              <div className="fds-logo-badge">
-                <img src="/images/Light.png" alt="mTouch Labs" />
-                <span>mTouch Labs</span>
-              </div>
-              <div className="fds-chart-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                  <line x1="18" y1="20" x2="18" y2="10"/>
-                  <line x1="12" y1="20" x2="12" y2="4"/>
-                  <line x1="6" y1="20" x2="6" y2="14"/>
-                </svg>
-              </div>
-            </div>
-            <div className="fds-photo-area">
+        {/* Service Cards Grid */}
+        <div className="digital-solutions-grid">
+          {/* Card 1: Custom Software Development */}
+          <div className="ds-card ds-card-horizontal ds-grid-item-0" data-aos="fade-right" data-aos-offset="150">
+            <div className="ds-card-image-side">
               <img src="/images/we_deliver_the_best _digital_solutions/web_development.png" alt="Custom Software Development" />
             </div>
-            <div className="fds-white-box">
-              <h3 className="fds-white-box-title">Custom Software<br />Development</h3>
-              <p className="fds-white-box-desc">Custom systems that simplify complex business operations</p>
+            <div className="ds-card-content-side">
+              <h2 className="ds-card-title">Custom Software Development</h2>
+              <p className="ds-card-description">
+                We build tailored software systems designed to solve complex business challenges and improve operational efficiency.
+              </p>
             </div>
-          </a>
+            <a href="/custom-software-development-company" className="ds-card-arrow-btn" hrefLang="services">
+              <ArrowSVG />
+            </a>
+          </div>
 
-          {/* Card 2 — SaaS Development (Light gray) */}
-          <a href="/saas-development-services" className="fds-card fds-card-gray">
-            <h3 className="fds-card-title-lg">SaaS<br />Development</h3>
-            <div className="fds-avatars">
-              <div className="fds-avatar fds-av1" />
-              <div className="fds-avatar fds-av2" />
-              <div className="fds-avatar fds-av3" />
-              <div className="fds-avatar fds-av4" />
+          {/* Card 2: SaaS Development */}
+          <div className="ds-card ds-card-vertical-tall ds-grid-item-1" data-aos="fade-down" data-aos-offset="150">
+            <div className="ds-card-content-top">
+              <h2 className="ds-card-title">SaaS Development</h2>
+              <p className="ds-card-description">
+                We design and develop scalable SaaS platforms with multi-tenant architecture, subscription systems, and cloud-native infrastructure.
+              </p>
             </div>
-            <p className="fds-card-desc">We develop cloud-native SaaS platforms built to scale.</p>
-          </a>
+            <img
+              src="/images/we_deliver_the_best _digital_solutions/mobile_app_development.png"
+              alt="SaaS Development"
+            />
+            <a href="/saas-development-services" className="ds-card-arrow-btn">
+              <ArrowSVG />
+            </a>
+          </div>
 
-          {/* Card 3 — Salesforce (Blue gradient + illustration) */}
-          <a href="/salesforce-consulting-services-company" className="fds-card fds-card-blue-grad">
-            <h3 className="fds-card-title-white fds-salesforce-title">Salesforce<br />Consulting &amp; CRM</h3>
-            <p className="fds-card-desc-white">Enhancing CRM with Salesforce solutions and integrations.</p>
-            <div className="fds-illustration">
-              <img src="/images/we_deliver_the_best _digital_solutions/salesforce_development_consulting.png" alt="Salesforce CRM" />
+          {/* Card 3: Salesforce Consulting & CRM Solutions */}
+          <div className="ds-card ds-card-horizontal ds-grid-item-2" data-aos="fade-left" data-aos-offset="150">
+            <div className="ds-card-image-side">
+              <img
+                src="/images/we_deliver_the_best _digital_solutions/salesforce_development_consulting.png"
+                alt="Salesforce Consulting & CRM Solutions"
+              />
             </div>
-          </a>
-
-          {/* Card 4 — Mobile App (Lime green) */}
-          <a href="/mobile-app-development-company" className="fds-card fds-card-lime">
-            <h3 className="fds-card-title-lime">Mobile App<br />Development</h3>
-            <div className="fds-tech-icons">
-              <div className="fds-tech-icon"><AppleIcon /></div>
-              <div className="fds-tech-icon"><AndroidIcon /></div>
-              <div className="fds-tech-icon"><FlutterIcon /></div>
-              <div className="fds-tech-icon"><ReactIcon /></div>
+            <div className="ds-card-content-side">
+              <h2 className="ds-card-title">Salesforce Consulting &amp; CRM Solutions</h2>
+              <p className="ds-card-description">
+                We help organizations optimize customer relationship management with Salesforce implementation, customization, and CRM integrations.
+              </p>
             </div>
-            <p className="fds-card-desc-lime">Custom high-performance mobile apps for iOS and Android.</p>
-          </a>
+            <a href="/salesforce-consulting-services-company" className="ds-card-arrow-btn">
+              <ArrowSVG />
+            </a>
+          </div>
 
-          {/* Card 5 — Generative AI (White + AI image) */}
-          <a href="/generative-ai-development-company" className="fds-card fds-card-white fds-card-ai">
-            <div className="fds-ai-text">
-              <h3 className="fds-card-title-lg">Generative AI<br />Solutions</h3>
-              <div className="fds-avatars">
-                <div className="fds-avatar fds-av1" />
-                <div className="fds-avatar fds-av2" />
-                <div className="fds-avatar fds-av3" />
-                <div className="fds-avatar fds-av4" />
-              </div>
-              <p className="fds-card-desc">Automate tasks, create content, and engage users with intelligent AI solutions</p>
+          {/* Card 4: Cloud & DevOps Engineering */}
+          <div className="ds-card ds-card-vertical ds-grid-item-3">
+            <div className="ds-card-content-top">
+              <h2 className="ds-card-title">Cloud &amp; DevOps Engineering</h2>
+              <p className="ds-card-description">
+                We implement cloud-native environments, CI/CD pipelines, infrastructure automation, and scalable deployment solutions.
+              </p>
             </div>
-            <div className="fds-ai-image">
-              <img src="/images/we_deliver_the_best _digital_solutions/generative_ai_solutions.png" alt="Generative AI" />
+            <img src="/images/cloud_infra.png" alt="Cloud & DevOps Engineering" />
+            <a href="/devops-services" className="ds-card-arrow-btn">
+              <ArrowSVG />
+            </a>
+          </div>
+
+          {/* Card 5: Generative AI Solutions */}
+          <div className="ds-card ds-card-horizontal ds-grid-item-4">
+            <div className="ds-card-image-side">
+              <img
+                src="/images/we_deliver_the_best _digital_solutions/generative_ai_solutions.png"
+                alt="Generative AI Solutions"
+              />
             </div>
-          </a>
+            <div className="ds-card-content-side">
+              <h2 className="ds-card-title">Generative AI Solutions</h2>
+              <p className="ds-card-description">
+                Automate tasks, create content, and engage users with AI-driven innovation and intelligent automation.
+              </p>
+            </div>
+            <a href="/generative-ai-development-company" className="ds-card-arrow-btn">
+              <ArrowSVG />
+            </a>
+          </div>
 
-          {/* Card 6 — Cloud & DevOps (Dark charcoal) */}
-          <a href="/devops-services" className="fds-card fds-card-dark">
-            <h3 className="fds-card-title-white">Cloud &amp; DevOps<br />Engineering</h3>
-            <p className="fds-card-desc-white">Cloud-native infrastructure with CI/CD and automated deployments.</p>
-          </a>
-
+          {/* Card 6: Mobile App Development */}
+          <div className="ds-card ds-card-vertical ds-grid-item-5" data-aos="fade-up-right">
+            <div className="ds-card-content-top">
+              <h2 className="ds-card-title">Mobile App Development</h2>
+              <p className="ds-card-description">
+                Build custom, high-performance mobile applications for iOS and Android with scalable architecture.
+              </p>
+            </div>
+            <img
+              src="/images/we_deliver_the_best _digital_solutions/mobile_app_development.png"
+              alt="Mobile App Development"
+            />
+            <a href="/mobile-app-development-company" className="ds-card-arrow-btn">
+              <ArrowSVG />
+            </a>
+          </div>
         </div>
       </div>
     </section>
   );
 }
-
-
-
-
-// /* ─────────────────────────────────────────
-//    DigitalSolutionsSection — matches Figma
-// ───────────────────────────────────────── */
-
-// const AppleIcon = () => (
-//   <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
-//     <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-//   </svg>
-// );
-
-// const AndroidIcon = () => (
-//   <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
-//     <path d="M17.523 15.341a1 1 0 0 1-1-1V9a1 1 0 0 1 2 0v5.341a1 1 0 0 1-1 1zm-11.046 0a1 1 0 0 1-1-1V9a1 1 0 0 1 2 0v5.341a1 1 0 0 1-1 1zM7.5 7h9a4.5 4.5 0 0 0-9 0zm-2 1v8.5A1.5 1.5 0 0 0 7 18h.5v2.5a1 1 0 0 0 2 0V18h5v2.5a1 1 0 0 0 2 0V18H17a1.5 1.5 0 0 0 1.5-1.5V8H5.5zm7.5-4.74a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5zm-3 0a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5z"/>
-//   </svg>
-// );
-
-// const FlutterIcon = () => (
-//   <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
-//     <path d="M14.314 0L2.3 12 6 15.7 21.684.013h-7.37zm.159 11.545l-4.049 4.049 4.049 4.05 4.049-4.05-4.049-4.049zM6.3 19.7L2.6 16l-2.3 2.3L6.3 24l4.049-4.049-3.7-3.7L6.3 19.7z"/>
-//   </svg>
-// );
-
-// const ReactIcon = () => (
-//   <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
-//     <circle cx="12" cy="12" r="2.5"/>
-//     <ellipse cx="12" cy="12" rx="10" ry="4" stroke="currentColor" strokeWidth="1.5" fill="none"/>
-//     <ellipse cx="12" cy="12" rx="10" ry="4" stroke="currentColor" strokeWidth="1.5" fill="none" transform="rotate(60 12 12)"/>
-//     <ellipse cx="12" cy="12" rx="10" ry="4" stroke="currentColor" strokeWidth="1.5" fill="none" transform="rotate(120 12 12)"/>
-//   </svg>
-// );
-
-// export default function DigitalSolutionsSection() {
-//   return (
-//     <section className="fds-section">
-//       <div className="fds-container">
-
-//         {/* ── Header ── */}
-//         <div className="fds-header">
-//           <p className="fds-label">• SERVICES</p>
-//           <h2 className="fds-title">
-//             We Deliver the Best<br />
-//             <span className="fds-title-cyan">Digital Solutions</span>
-//             <span className="fds-bulb">
-//               <span>💡</span>
-//             </span>
-//           </h2>
-//           <p className="fds-subtitle">ISO-Certified Enterprise IT company</p>
-//         </div>
-
-//         {/* ── Cards Grid ── */}
-//         <div className="fds-grid">
-
-//           {/* Card 1 — Custom Software (Blue + photo) */}
-//           <a href="/custom-software-development-company" className="fds-card fds-card-blue fds-card-photo">
-//             <div className="fds-card-topbar">
-//               <div className="fds-logo-badge">
-//                 <img src="/images/Light.png" alt="mTouch Labs" />
-//                 <span>mTouch Labs</span>
-//               </div>
-//               <div className="fds-chart-icon">
-//                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-//                   <line x1="18" y1="20" x2="18" y2="10"/>
-//                   <line x1="12" y1="20" x2="12" y2="4"/>
-//                   <line x1="6" y1="20" x2="6" y2="14"/>
-//                 </svg>
-//               </div>
-//             </div>
-//             <div className="fds-photo-area">
-//               <img src="/images/we_deliver_the_best _digital_solutions/web_development.png" alt="Custom Software Development" />
-//             </div>
-//             <div className="fds-white-box">
-//               <h3 className="fds-white-box-title">Custom Software<br />Development</h3>
-//               <p className="fds-white-box-desc">Custom systems that simplify complex business operations</p>
-//             </div>
-//           </a>
-
-//           {/* Card 2 — SaaS Development (Light gray) */}
-//           <a href="/saas-development-services" className="fds-card fds-card-gray">
-//             <h3 className="fds-card-title-lg">SaaS<br />Development</h3>
-//             <div className="fds-avatars">
-//               <div className="fds-avatar fds-av1" />
-//               <div className="fds-avatar fds-av2" />
-//               <div className="fds-avatar fds-av3" />
-//               <div className="fds-avatar fds-av4" />
-//             </div>
-//             <p className="fds-card-desc">We develop cloud-native SaaS platforms built to scale.</p>
-//           </a>
-
-//           {/* Card 3 — Salesforce (Blue gradient + illustration) */}
-//           <a href="/salesforce-consulting-services-company" className="fds-card fds-card-blue-grad">
-//             <h3 className="fds-card-title-white fds-salesforce-title">Salesforce<br />Consulting &amp; CRM</h3>
-//             <p className="fds-card-desc-white">Enhancing CRM with Salesforce solutions and integrations.</p>
-//             <div className="fds-illustration">
-//               <img src="/images/we_deliver_the_best _digital_solutions/salesforce_development_consulting.png" alt="Salesforce CRM" />
-//             </div>
-//           </a>
-
-//           {/* Card 4 — Mobile App (Lime green) */}
-//           <a href="/mobile-app-development-company" className="fds-card fds-card-lime">
-//             <h3 className="fds-card-title-lime">Mobile App<br />Development</h3>
-//             <div className="fds-tech-icons">
-//               <div className="fds-tech-icon"><AppleIcon /></div>
-//               <div className="fds-tech-icon"><AndroidIcon /></div>
-//               <div className="fds-tech-icon"><FlutterIcon /></div>
-//               <div className="fds-tech-icon"><ReactIcon /></div>
-//             </div>
-//             <p className="fds-card-desc-lime">Custom high-performance mobile apps for iOS and Android.</p>
-//           </a>
-
-//           {/* Card 5 — Generative AI (White + AI image) */}
-//           <a href="/generative-ai-development-company" className="fds-card fds-card-white fds-card-ai">
-//             <div className="fds-ai-text">
-//               <h3 className="fds-card-title-lg">Generative AI<br />Solutions</h3>
-//               <div className="fds-avatars">
-//                 <div className="fds-avatar fds-av1" />
-//                 <div className="fds-avatar fds-av2" />
-//                 <div className="fds-avatar fds-av3" />
-//                 <div className="fds-avatar fds-av4" />
-//               </div>
-//               <p className="fds-card-desc">Automate tasks, create content, and engage users with intelligent AI solutions</p>
-//             </div>
-//             <div className="fds-ai-image">
-//               <img src="/images/we_deliver_the_best _digital_solutions/generative_ai_solutions.png" alt="Generative AI" />
-//             </div>
-//           </a>
-
-//           {/* Card 6 — Cloud & DevOps (Dark charcoal) */}
-//           <a href="/devops-services" className="fds-card fds-card-dark">
-//             <h3 className="fds-card-title-white">Cloud &amp; DevOps<br />Engineering</h3>
-//             <p className="fds-card-desc-white">Cloud-native infrastructure with CI/CD and automated deployments.</p>
-//           </a>
-
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
-
-
-
-
-/* ─────────────────────────────────────────
-   DigitalSolutionsSection — matches Figma
-───────────────────────────────────────── */
-
-// const AppleIcon = () => (
-//   <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
-//     <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-//   </svg>
-// );
-
-// const AndroidIcon = () => (
-//   <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
-//     <path d="M17.523 15.341a1 1 0 0 1-1-1V9a1 1 0 0 1 2 0v5.341a1 1 0 0 1-1 1zm-11.046 0a1 1 0 0 1-1-1V9a1 1 0 0 1 2 0v5.341a1 1 0 0 1-1 1zM7.5 7h9a4.5 4.5 0 0 0-9 0zm-2 1v8.5A1.5 1.5 0 0 0 7 18h.5v2.5a1 1 0 0 0 2 0V18h5v2.5a1 1 0 0 0 2 0V18H17a1.5 1.5 0 0 0 1.5-1.5V8H5.5zm7.5-4.74a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5zm-3 0a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5z"/>
-//   </svg>
-// );
-
-// const FlutterIcon = () => (
-//   <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
-//     <path d="M14.314 0L2.3 12 6 15.7 21.684.013h-7.37zm.159 11.545l-4.049 4.049 4.049 4.05 4.049-4.05-4.049-4.049zM6.3 19.7L2.6 16l-2.3 2.3L6.3 24l4.049-4.049-3.7-3.7L6.3 19.7z"/>
-//   </svg>
-// );
-
-// const ReactIcon = () => (
-//   <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
-//     <circle cx="12" cy="12" r="2.5"/>
-//     <ellipse cx="12" cy="12" rx="10" ry="4" stroke="currentColor" strokeWidth="1.5" fill="none"/>
-//     <ellipse cx="12" cy="12" rx="10" ry="4" stroke="currentColor" strokeWidth="1.5" fill="none" transform="rotate(60 12 12)"/>
-//     <ellipse cx="12" cy="12" rx="10" ry="4" stroke="currentColor" strokeWidth="1.5" fill="none" transform="rotate(120 12 12)"/>
-//   </svg>
-// );
-
-// export default function DigitalSolutionsSection() {
-//   return (
-//     <section className="fds-section">
-//       <div className="fds-container">
-
-//         {/* ── Header ── */}
-//         <div className="fds-header">
-//           <p className="fds-label">• SERVICES</p>
-//           <h2 className="fds-title">
-//             We Deliver the Best<br />
-//             <span className="fds-title-cyan">Digital Solutions</span>
-//             <span className="fds-bulb"><span>💡</span></span>
-//           </h2>
-//           <p className="fds-subtitle">ISO-Certified Enterprise IT company</p>
-//         </div>
-
-//         {/* ── Cards Grid ── */}
-//         <div className="fds-grid">
-
-//           {/* ── Card 1: Custom Software — Blue + photo ── */}
-//           <a href="/custom-software-development-company" className="fds-card fds-card-blue">
-//             <div className="fds-card-topbar">
-//               <div className="fds-logo-badge">
-//                 <img src="/images/Light.png" alt="mTouch Labs" />
-//                 <span>mTouch Labs</span>
-//               </div>
-//               <div className="fds-chart-icon">
-//                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-//                   <line x1="18" y1="20" x2="18" y2="10"/>
-//                   <line x1="12" y1="20" x2="12" y2="4"/>
-//                   <line x1="6" y1="20" x2="6" y2="14"/>
-//                 </svg>
-//               </div>
-//             </div>
-//             <div className="fds-photo-area">
-//               <img src="/images/banner/boy.webp" alt="Custom Software Development" />
-//             </div>
-//             <div className="fds-white-box">
-//               <h3 className="fds-white-box-title">Custom Software<br />Development</h3>
-//               <p className="fds-white-box-desc">Custom systems that simplify complex business operations</p>
-//             </div>
-//           </a>
-
-//           {/* ── Card 2: SaaS — Light gray ── */}
-//           <a href="/saas-development-services" className="fds-card fds-card-gray">
-//             <h3 className="fds-card-title-lg">SaaS<br />Development</h3>
-//             <div className="fds-avatars">
-//               <div className="fds-avatar fds-av1" />
-//               <div className="fds-avatar fds-av2" />
-//               <div className="fds-avatar fds-av3" />
-//               <div className="fds-avatar fds-av4" />
-//             </div>
-//             <p className="fds-card-desc">We develop cloud-native SaaS platforms built to scale.</p>
-//           </a>
-
-//           {/* ── Card 3: Salesforce — Blue gradient + illustration ── */}
-//           <a href="/salesforce-consulting-services-company" className="fds-card fds-card-blue-grad">
-//             <h3 className="fds-card-title-white fds-salesforce-title">Salesforce<br />Consulting &amp; CRM</h3>
-//             <p className="fds-card-desc-white">Enhancing CRM with Salesforce solutions and integrations.</p>
-//             <div className="fds-illustration">
-//               <img src="/images/we_deliver_the_best _digital_solutions/salesforce_development_consulting.png" alt="Salesforce CRM" />
-//             </div>
-//           </a>
-
-//           {/* ── Card 4: Mobile App — Lime green ── */}
-//           <a href="/mobile-app-development-company" className="fds-card fds-card-lime">
-//             <h3 className="fds-card-title-lime">Mobile App<br />Development</h3>
-//             <div className="fds-tech-icons">
-//               <div className="fds-tech-icon"><AppleIcon /></div>
-//               <div className="fds-tech-icon"><AndroidIcon /></div>
-//               <div className="fds-tech-icon"><FlutterIcon /></div>
-//               <div className="fds-tech-icon"><ReactIcon /></div>
-//             </div>
-//             <p className="fds-card-desc-lime">Custom high-performance mobile apps for iOS and Android.</p>
-//           </a>
-
-//           {/* ── Card 5: Generative AI — White + AI image ── */}
-//           <a href="/generative-ai-development-company" className="fds-card fds-card-white fds-card-ai">
-//             <div className="fds-ai-text">
-//               <h3 className="fds-card-title-lg">Generative AI<br />Solutions</h3>
-//               <div className="fds-avatars">
-//                 <div className="fds-avatar fds-av1" />
-//                 <div className="fds-avatar fds-av2" />
-//                 <div className="fds-avatar fds-av3" />
-//                 <div className="fds-avatar fds-av4" />
-//               </div>
-//               <p className="fds-card-desc">Automate tasks, create content, and engage users with intelligent AI solutions</p>
-//             </div>
-//             <div className="fds-ai-image">
-//               <img src="/images/we_deliver_the_best _digital_solutions/generative_ai_solutions.png" alt="Generative AI" />
-//             </div>
-//           </a>
-
-//           {/* ── Card 6: Cloud & DevOps — Dark charcoal ── */}
-//           <a href="/devops-services" className="fds-card fds-card-dark">
-//             <h3 className="fds-card-title-white">Cloud &amp; DevOps<br />Engineering</h3>
-//             <p className="fds-card-desc-white">Cloud-native infrastructure with CI/CD and automated deployments.</p>
-//           </a>
-
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
