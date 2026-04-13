@@ -6,11 +6,18 @@ import ChatWidget from "@/components/layout/ChatWidget";
 import Script from "next/script";
 import QuoteModal from "@/components/sections/home/QuoteModal";
 import Analytics from "@/components/Analytics";
+import type { Viewport } from "next";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#3E8CFB",
+};
 
 export const metadata = {
   metadataBase: new URL('https://www.mtouchlabs.com'),
   alternates: {
-    canonical: './',
+    canonical: 'https://www.mtouchlabs.com',
   },
   title: {
     default: "Software Development Company & IT Solutions | mTouch Labs",
@@ -126,6 +133,7 @@ export default function RootLayout({
         <link href="/css/about.css" rel="stylesheet" />
         <link href="/css/blog.css" rel="stylesheet" />
         <link href="/css/home-mega-menu.css" rel="stylesheet" />
+        <link href="/css/navbar-redesign.css" rel="stylesheet" />
         <link href="/css/chat-widget.css" rel="stylesheet" />
         <link href="/css/location-pages.css" rel="stylesheet" />
         <link href="/css/navbar-dropdown.css" rel="stylesheet" />
@@ -167,15 +175,15 @@ export default function RootLayout({
                 <label className="brochure-form-label">Full Name</label>
                 <div className="brochure-input-group">
                   <span className="brochure-input-icon">&#128100;</span>
-                  <input type="text" id="brochure_name" placeholder="Full Name" />
+                  <input type="text" id="brochure_name" placeholder="Full Name" aria-label="Full Name" />
                 </div>
                 <label className="brochure-form-label">Your Email</label>
                 <div className="brochure-input-group">
                   <span className="brochure-input-icon">&#9993;&#65039;</span>
-                  <input type="email" id="brochure_email" placeholder="Email Id" />
+                  <input type="email" id="brochure_email" placeholder="Email Id" aria-label="Email Address" />
                 </div>
                 <label className="brochure-form-label">Country Code</label>
-                <select id="brochure_country" className="brochure-form-select">
+                <select id="brochure_country" className="brochure-form-select" aria-label="Country Code">
                   <option value="+91">India (+91)</option>
                   <option value="+1">USA (+1)</option>
                   <option value="+44">UK (+44)</option>
@@ -194,7 +202,7 @@ export default function RootLayout({
                 <label className="brochure-form-label">Your Mobile</label>
                 <div className="brochure-input-group">
                   <span className="brochure-input-icon">&#128241;</span>
-                  <input type="tel" id="brochure_phone" placeholder="Contact Number" />
+                  <input type="tel" id="brochure_phone" placeholder="Contact Number" aria-label="Phone Number" />
                 </div>
                 <div className="cf-turnstile" data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY} data-callback="onBrochureTurnstileSuccess"></div>
 
@@ -336,28 +344,11 @@ export default function RootLayout({
         <script
   dangerouslySetInnerHTML={{
     __html: `
-      var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-      (function(){
-        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-        s1.async=true;
-        s1.src='https://embed.tawk.to/614aeb4425797d7a890039a2/1fg6ae1bv';
-        s1.charset='UTF-8';
-        s1.setAttribute('crossorigin','*');
-        s0.parentNode.insertBefore(s1,s0);
-      })();
-    `,
-  }}
-/>
-
-
-<script
-  dangerouslySetInnerHTML={{
-    __html: `
       var Tawk_API = Tawk_API || {};
       Tawk_API.customStyle = {
         visibility: {
           desktop: { position: 'br', xOffset: 20, yOffset: 20 },
-          mobile: { position: 'br', xOffset: 10, yOffset: 10 }
+          mobile: { position: 'br', xOffset: 10, yOffset: 70 }
         }
       };
       var Tawk_LoadStart = new Date();

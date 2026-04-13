@@ -29,7 +29,6 @@ export default function TocScrollHighlight() {
       const match = entries.find((e) => e.id === id);
       if (!match) return;
       match.link.classList.add('blv3-toc-active');
-      match.link.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
     }
 
     const visible = new Set<string>();
@@ -75,10 +74,10 @@ export default function TocScrollHighlight() {
     entries.forEach(({ id, el, link }) => {
       const handler = (e: Event) => {
         e.preventDefault();
-        const top = el.getBoundingClientRect().top + window.scrollY - 180;
-        window.scrollTo({ top, behavior: 'smooth' });
+        const top = el.getBoundingClientRect().top + window.scrollY - 130;
+        window.scrollTo({ top, behavior: 'instant' });
         activate(id);
-        history.pushState(null, '', `#${id}`);
+        history.replaceState(null, '', `#${id}`);
       };
       link.addEventListener('click', handler);
       handlers.push(() => link.removeEventListener('click', handler));

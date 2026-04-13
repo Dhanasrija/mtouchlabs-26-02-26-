@@ -262,7 +262,6 @@
 /* ===== BREADCRUMB ===== */
 .blv3-breadcrumb {
   padding: 16px 0;
-  overflow: visible;
 }
 
 .blv3-breadcrumb .blv3-container {
@@ -270,7 +269,6 @@
   align-items: center;
   gap: 0;
   font-size: 14px;
-  overflow: visible;
   white-space: nowrap;
   flex-wrap: wrap;
 }
@@ -369,12 +367,15 @@
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+  aspect-ratio: 16 / 9;
+  background: #f3f4f6;
 }
 
 .blv3-hero-img img {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
+  object-fit: cover;
 }
 
 /* ===== CONTENT GRID ===== */
@@ -393,11 +394,11 @@
 .blv3-toc {
   width: 260px;
   flex-shrink: 0;
-  position: sticky !important;
-  top: 120px !important;
+  position: sticky;
+  top: 120px;
   max-height: calc(100vh - 180px);
   overflow-y: auto;
-  align-self: flex-start !important;
+  align-self: flex-start;
   background: #fafaff;
   border: 1px solid #e8e8f4;
   border-radius: 16px;
@@ -1055,30 +1056,32 @@
   }
 }
 
-/* ===== STICKY TOC FIX — override global overflow that breaks position:sticky ===== */
+/* ===== SCROLL & OVERFLOW FIX ===== */
+/* Use clip instead of hidden — hidden creates a scroll container that breaks position:sticky */
 html:has(.blv3-page) {
-  overflow-x: clip !important;
-  overflow-y: visible !important;
+  overflow-x: clip;
 }
-
 body:has(.blv3-page) {
-  overflow-x: clip !important;
-  overflow-y: visible !important;
+  overflow-x: clip;
 }
 
-.blv3-page,
-.blv3-body,
-.blv3-body .blv3-container,
-.blv3-grid {
-  overflow: visible !important;
+/* Kill parallax effects on blog pages — prevents scroll jerk */
+.blv3-page [data-paroller-factor],
+.blv3-page [data-rellax-speed],
+.blv3-page .parallax,
+.blv3-page [style*="will-change: transform"] {
+  transform: none !important;
+  will-change: auto !important;
+  transition: none !important;
 }
 
-/* ===== SCROLL-MARGIN FIX — prevent titles from hiding behind navbar ===== */
+/* ===== SCROLL-MARGIN FIX ===== */
 .blv3-content h2,
 .blv3-content h3,
 .blv3-content h4,
-.blv3-faq {
-  scroll-margin-top: 160px !important;
+.blv3-faq,
+[id] {
+  scroll-margin-top: 130px;
 }
 /* Add to blog.css */
 .blv3-toc-link {
@@ -1122,12 +1125,99 @@ body:has(.blv3-page) {
   border-left-color: #6366f1 !important;
 }
 
-/* Mobile active pill */
+/* ===== MOBILE BLOG DETAIL ===== */
 @media (max-width: 768px) {
+  .blv3-page {
+    padding-top: 100px !important;
+  }
+
+  /* Collapse TOC into a compact toggleable section */
+  .blv3-toc {
+    position: static !important;
+    width: 100% !important;
+    max-height: 200px !important;
+    overflow-y: auto !important;
+    padding: 14px 16px !important;
+    margin-bottom: 24px !important;
+    border-radius: 12px !important;
+  }
+
+  .blv3-toc-list {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    border-left: none !important;
+  }
+
+  .blv3-toc-link {
+    padding: 6px 14px !important;
+    font-size: 12px !important;
+    border-radius: 16px !important;
+    background: #f3f4f6 !important;
+    border: 1px solid #e5e7eb !important;
+    border-left: none !important;
+    margin-left: 0 !important;
+  }
+
+  .blv3-toc-link::before {
+    display: none !important;
+  }
+
   .blv3-toc-link.blv3-toc-active {
     background: #eef2ff !important;
     border-color: #6366f1 !important;
     color: #6366f1 !important;
+  }
+
+  /* Grid stacks */
+  .blv3-grid {
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+
+  .blv3-article {
+    max-width: 100% !important;
+  }
+
+  /* Hero image */
+  .blv3-hero-img {
+    border-radius: 12px !important;
+    aspect-ratio: 16 / 10 !important;
+  }
+
+  /* Content spacing */
+  .blv3-body {
+    padding: 24px 0 40px !important;
+  }
+
+  .blv3-content h2 {
+    scroll-margin-top: 120px !important;
+  }
+  .blv3-content h3 {
+    scroll-margin-top: 120px !important;
+  }
+
+  /* Tags wrap */
+  .blv3-tags {
+    gap: 6px !important;
+    margin-bottom: 16px !important;
+  }
+  .blv3-tag {
+    font-size: 11px !important;
+    padding: 4px 12px !important;
+  }
+
+  /* Title */
+  .blv3-title {
+    font-size: 28px !important;
+    margin-bottom: 16px !important;
+  }
+
+  /* Tables scroll */
+  .blv3-content table {
+    display: block !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
   }
 }
 
@@ -1138,23 +1228,36 @@ body:has(.blv3-page) {
 }
 
 /* ── TOC final fixes ── */
-.blv3-toc {
-  width: 300px !important;
-  max-height: calc(100vh - 140px) !important;
-  overflow-y: auto !important;
-  overflow-x: hidden !important;
+@media (min-width: 1025px) {
+  .blv3-toc {
+    width: 300px !important;
+    max-height: calc(100vh - 140px) !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    position: sticky !important;
+    top: 120px !important;
+    align-self: flex-start !important;
+    flex-shrink: 0 !important;
+  }
+}
+@media (max-width: 1024px) {
+  .blv3-toc {
+    position: static !important;
+    width: 100% !important;
+    max-height: none !important;
+  }
 }
 
 .blv3-toc-link {
   white-space: normal !important;
   word-break: break-word !important;
-  overflow: visible !important;
+  overflow: unset;
   text-overflow: unset !important;
   align-items: flex-start !important;
 }
 
 .blv3-toc-list {
-  overflow: visible !important;
+  overflow: unset;
 }
 
 /* ── Case study section scroll offset fix ── */
@@ -1166,7 +1269,7 @@ body:has(.blv3-page) {
 .blv3-toc-link {
   white-space: normal !important;
   word-break: break-word !important;
-  overflow: visible !important;
+  overflow: unset;
   text-overflow: unset !important;
   align-items: flex-start !important;
   line-height: 1.5 !important;

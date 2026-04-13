@@ -38,6 +38,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // SERVICE PAGES (priority: 0.9, changeFrequency: weekly)
   // ===========================
   const servicePages = [
+    // IT Solutions
+    '/it-solutions-company',
     // Software Development
     '/custom-software-development-company',
     '/mobile-app-development-company',
@@ -59,6 +61,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/shopify-development-company-in-india',
     '/magento-development-company-in-india',
     '/custom-cms-development-company-in-india',
+    '/custom-crm-software-development-company',
     // App Categories
     '/ecommerce-app-development-company',
     '/enterprise-application-development-company',
@@ -275,10 +278,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Auto-updates when you publish new blogs
   // ===========================
   try {
-    const blogs = await sql`SELECT slug, updated_at FROM blogs WHERE published = true`
+    const blogs = await sql`SELECT slug, updated_at FROM blogs WHERE published = true OR status = 'published'`
     blogs.forEach((blog: any) => {
       entries.push({
-        url: `${baseUrl}/${blog.slug}`,
+        url: `${baseUrl}/blog/${blog.slug}`,
         lastModified: blog.updated_at
           ? new Date(blog.updated_at).toISOString().split('T')[0]
           : today,
@@ -295,12 +298,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Auto-updates when you publish new portfolios
   // ===========================
   try {
-    const portfolios = await sql`SELECT slug, updated_at FROM portfolios WHERE published = true`
+    const portfolios = await sql`SELECT slug, created_at FROM portfolios WHERE published = true`
     portfolios.forEach((portfolio: any) => {
       entries.push({
         url: `${baseUrl}/${portfolio.slug}`,
-        lastModified: portfolio.updated_at
-          ? new Date(portfolio.updated_at).toISOString().split('T')[0]
+        lastModified: portfolio.created_at
+          ? new Date(portfolio.created_at).toISOString().split('T')[0]
           : today,
         changeFrequency: 'monthly',
         priority: 0.7,

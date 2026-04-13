@@ -199,7 +199,7 @@ interface CS {
   og_title: string; og_description: string; og_image: string;
   faq_schema: { question: string; answer: string }[];
   gallery_images: string[]; schema_json_ld: string; status: string; published: boolean;
-  publish_date: string; created_at: string; updated_at: string;
+  publish_date: string; created_at: string; // updated_at: string;
 }
 
 // ── Helpers ──

@@ -626,7 +626,7 @@ z-index:9999
     display: block !important;
     width: 24px !important;
     height: 2px !important;
-    background: #fff !important;
+    background: #111111 !important;
     position: absolute !important;
     top: 50% !important;
     left: 50% !important;
@@ -638,7 +638,7 @@ z-index:9999
     display: block !important;
     width: 24px !important;
     height: 2px !important;
-    background: #fff !important;
+    background: #111111 !important;
     position: absolute !important;
     top: -7px !important;
     left: 0 !important;
@@ -649,7 +649,7 @@ z-index:9999
     display: block !important;
     width: 24px !important;
     height: 2px !important;
-    background: #fff !important;
+    background: #111111 !important;
     position: absolute !important;
     top: 7px !important;
     left: 0 !important;

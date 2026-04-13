@@ -1,193 +1,242 @@
-// const sections = [
-//   {
-//     title: "Amazon Web Services",
-//     text: "Scale your business effortlessly and accelerate innovation with intelligent cloud solutions from Amazon Web Services, designed to empower organizations with agility, reliability, and cutting-edge technology.",
-//     link: "amazon-web-services-company",
-//     image: "/images/about/endpoints.png",
-//     imageAlt: "Custom Web & Mobile Applications",
-//     imageClass: "whatmakes-image1",
-//     reverse: false,
-//     aos: "fade-left",
-//   },
-//   {
-//     title: "Advanced Cybersecurity & <br />Data Protection",
-//     text: "Scale your business effortlessly and accelerate innovation with intelligent cloud solutions from Amazon Web Services, designed to empower organizations with agility, reliability, and cutting-edge technology.",
-//     link: "cybersecurity-development-company",
-//     image: "/images/new_home/cloud.png",
-//     imageAlt: "AWS Cloud & Infrastructure Management",
-//     imageClass: "whatmakes-image",
-//     reverse: true,
-//     aos: "fade-right",
-//   },
-//   {
-//     title: "Enterprise UI/UX Design",
-//     text: "User-centric, accessible, and performance-driven designs that enhance engagement and deliver frictionless enterprise experiences.",
-//     link: "ui-ux-design-company",
-//     image: "/images/new_home/enterprise.png",
-//     imageAlt: "Enterprise UI/UX Design",
-//     imageClass: "whatmakes-image1 ux-entripse",
-//     reverse: false,
-//     aos: "fade-left",
-//   },
-//   {
-//     title: "Application Security & <br /> Optimization (ASO)",
-//     text: "Enterprise-grade security audits, performance optimization, and app store strategies to keep your applications safe and discoverable.",
-//     link: "app-store-optimization-services-company",
-//     image: "/images/new_home/Aso.png",
-//     imageAlt: "Application Security & Optimization",
-//     imageClass: "whatmakes-image",
-//     reverse: true,
-//     aos: "fade-right",
-//   },
-//   {
-//     title: "Data Science & <br /> AI-Driven Insights",
-//     text: "Unlock the power of your data with intelligent analytics and machine learning solutions. We leverage advanced data science techniques to uncover trends, optimize operations, and empower smarter, data-driven decision-making for sustainable business growth",
-//     link: "empowering-businesses-with-data-science",
-//     image: "/images/new_home/digitalmarkting.png",
-//     imageAlt: "Digital Marketing & Growth Solutions",
-//     imageClass: "whatmakes-image",
-//     reverse: false,
-//     aos: "fade-left",
-//   },
-// ];
+import Image from "next/image";
+import { BlurText } from "@/components/sections/home/ui/BlurText";
 
-// export default function WhatMakesDifferentSection() {
-//   return (
-//     <div className="whatmakes-bg">
-//       <section className="whatmakes-wrapper">
-//         <h3 className="whatmakes-wrapper-h3">What Makes Us Different</h3>
-
-//         {sections.map((item, i) => (
-//           <div className={`whatmakes-row${item.reverse ? " reverse" : ""}`} key={i}>
-//             <div className="whatmakes-text" data-aos="zoom-in">
-//               <h2 dangerouslySetInnerHTML={{ __html: item.title }} />
-//               <p className="whatmakes-desc">
-//                 {item.text}
-//                 <br />
-//                 <br />
-//                 <a
-//                   href={`/${item.link}`}
-//                   target="_blank"
-//                   className="whatmakes-explore-link"
-//                 >
-//                   Explore
-//                 </a>
-//               </p>
-//             </div>
-//             <div className={item.imageClass} data-aos={item.aos}>
-//               <img src={item.image} alt={item.imageAlt} />
-//             </div>
-//           </div>
-//         ))}
-//       </section>
-//     </div>
-//   );
-// }
-
-
-
-
-const cards = [
+const row1 = [
   {
-    num: "01",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2L2 7l10 5 10-5-10-5z" />
-        <path d="M2 17l10 5 10-5" />
-        <path d="M2 12l10 5 10-5" />
-      </svg>
-    ),
-    title: "Product-First Engineering Approach",
-    description:
-      "We don't just write code — we engineer digital products aligned with business objectives. Every solution is designed with scalability, performance, and long-term growth in mind.",
+    iconSrc: "/images/home/why/image 6900.png",
+    iconAlt: "End-to-end IT solutions",
+    title: "End-to-end IT solutions",
+    description: "Complete digital solutions from idea to launch.",
+    image: "/images/home/why/End-to-end IT solutions.png",
   },
   {
-    num: "02",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-        <path d="M8 21h8" />
-        <path d="M12 17v4" />
-      </svg>
-    ),
-    title: "Enterprise-Grade Architecture from Day One",
-    description:
-      "As a global software development company, we build secure, scalable systems using modern cloud-native architecture and DevOps practices to support enterprise growth.",
+    iconSrc: "/images/home/why/image 6901.png",
+    iconAlt: "AI & emerging technologies",
+    title: "Strong expertise in AI & emerging technologies",
+    description: "Building smart solutions using AI and modern technologies",
+    image: "/images/home/why/Strong expertise in AI & emerging technologies.png",
   },
   {
-    num: "03",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="10" />
-        <path d="M8 12l2 2 4-4" />
-      </svg>
-    ),
-    title: "End-to-End Ownership",
-    description:
-      "From discovery and architecture design to development, integration, deployment, and optimization — we take full lifecycle responsibility for your product.",
+    iconSrc: "/images/home/why/image 6899.png",
+    iconAlt: "Agile development methodology",
+    title: "Agile development methodology",
+    description: "Fast, flexible delivery with continuous improvements.",
+    image: "/images/home/why/rear-view-programmer-working-all-night-long 1.png",
+  },
+];
+
+const row2 = [
+  {
+    iconSrc: "/images/home/why/image 6889 (1).png",
+    iconAlt: "Transparent communication",
+    title: "Transparent communication",
+    description: "Clear updates and seamless collaboration at every stage",
+    image: "/images/home/why/Transparent_communication.png",
   },
   {
-    num: "04",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="10" />
-        <line x1="2" y1="12" x2="22" y2="12" />
-        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-      </svg>
-    ),
-    title: "Dedicated Global Delivery Model",
-    description:
-      "We provide flexible engagement models including dedicated development teams and long-term strategic partnerships for international clients.",
+    iconSrc: "/images/home/why/maximise 1 (1).png",
+    iconAlt: "Scalable and future-ready solutions",
+    title: "Scalable and future-ready solutions",
+    description: "Systems designed to grow with your business.",
+    image: "/images/home/why/Scalable and future-ready solutions.png",
   },
   {
-    num: "05",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="5" r="3" />
-        <circle cx="5" cy="19" r="3" />
-        <circle cx="19" cy="19" r="3" />
-        <line x1="12" y1="8" x2="5" y2="16" />
-        <line x1="12" y1="8" x2="19" y2="16" />
-      </svg>
-    ),
-    title: "Multi-Domain Expertise Under One Roof",
-    description:
-      "SaaS development, enterprise software, Salesforce consulting, cloud engineering, DevOps automation — all integrated seamlessly for faster execution and better outcomes.",
-  },
-  {
-    num: "06",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-      </svg>
-    ),
-    title: "Business Impact Over Feature Delivery",
-    description:
-      "We focus on measurable business value — improving operational efficiency, customer engagement, and revenue growth through technology.",
+    iconSrc: "/images/home/why/image 6886 (1).png",
+    iconAlt: "Proven Industry Experience",
+    title: "Proven Industry Experience & Global Delivery",
+    description: "Trusted by startups and enterprises worldwide.",
+    image: "/images/home/why/Proven Industry Experience & Global Delivery.png",
   },
 ];
 
 export default function WhatMakesDifferentSection() {
   return (
-    <section className="wm-apart-section">
-      <div className="wm-apart-container">
-        <h2 className="wm-apart-heading">
-          What Sets <span className="wm-apart-highlight">mTouch Labs</span> Apart
-        </h2>
+    <>
+      <style>{`
+        @keyframes wmFadeUp {
+          from { opacity: 0; transform: translateY(60px); }
+          to   { opacity: 1; transform: translateY(0);    }
+        }
+        @keyframes wmBlurIn {
+          from { opacity: 0; filter: blur(6px); transform: translateX(-24px); }
+          to   { opacity: 1; filter: blur(0);   transform: translateX(0);     }
+        }
 
-        <div className="wm-apart-grid">
-          {cards.map((card, i) => (
-            <div className="wm-apart-card" key={i}>
-              <div className="wm-apart-card-top">
-                <div className="wm-apart-icon-box">{card.icon}</div>
-                <span className="wm-apart-num">{card.num}</span>
-              </div>
-              <h3 className="wm-apart-card-title">{card.title}</h3>
-              <p className="wm-apart-card-desc">{card.description}</p>
+        /* Image panel hidden by default — opacity:0 prevents any sliver bleed */
+        .wm-apart-img-panel {
+          transform: translateX(100%);
+          opacity: 0;
+          transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+
+        /* Any card hover reveals its image */
+        .wm-apart-card:hover .wm-apart-img-panel {
+          transform: translateX(0);
+          opacity: 1;
+        }
+
+        /* Row 1 first card: show image by default */
+        .wm-apart-row--first .wm-apart-card:first-child .wm-apart-img-panel {
+          transform: translateX(0);
+          opacity: 1;
+        }
+
+        /* When any card in the grid is hovered, hide first card's default image */
+        .wm-apart-grid:has(.wm-apart-card:hover) .wm-apart-row--first .wm-apart-card:first-child:not(:hover) .wm-apart-img-panel {
+          transform: translateX(100%);
+          opacity: 0;
+        }
+
+        /* Card hover lift */
+        .wm-apart-card {
+          transition: box-shadow 0.3s ease, flex 0.4s ease;
+        }
+        .wm-apart-card:hover {
+          box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+        }
+
+        /* ── First card in row 1: always looks hovered (matches global CSS hover state) ── */
+        .wm-apart-row--first .wm-apart-card:first-child {
+          flex: 2;
+          border-color: #d0d9f0;
+          box-shadow: 0 4px 20px rgba(37, 99, 235, 0.08);
+        }
+        .wm-apart-row--first .wm-apart-card:first-child .wm-apart-card-content {
+          width: 48%;
+        }
+
+        /* When any card in the grid is hovered, reset first card's state */
+        .wm-apart-grid:has(.wm-apart-card:hover) .wm-apart-row--first .wm-apart-card:first-child:not(:hover) {
+          flex: 1;
+          border-color: #e2e8f0;
+          box-shadow: none;
+        }
+        .wm-apart-grid:has(.wm-apart-card:hover) .wm-apart-row--first .wm-apart-card:first-child:not(:hover) .wm-apart-card-content {
+          width: 100%;
+        }
+
+        /* ── Remove the blue icon-box background on hover (global CSS override) ── */
+        .wm-apart-card:hover .wm-apart-icon-box {
+          background: #EEF4FF !important;
+        }
+        .wm-apart-card:hover .wm-apart-icon-box svg {
+          stroke: inherit !important;
+        }
+      `}</style>
+      <section className="wm-apart-section">
+        <div className="wm-apart-container">
+
+          {/* Eyebrow */}
+          <div
+            className="wm-apart-eyebrow"
+            style={{ display: "flex", alignItems: "center", gap: "8px" }}
+          >
+            {/* <span className="wm-apart-dot" style={{ margin: 0 }} /> */}
+            <BlurText text="• WHY US" delay={0} />
+          </div>
+
+          {/* Heading */}
+          <h2 className="wm-apart-heading">
+            <BlurText text="Why" delay={0.1} />{" "}
+            <BlurText 
+              text="mTouch Labs" 
+              delay={0.2} 
+              style={{ color: "#3E8CFB" }}
+            />{" "}
+            <BlurText text="is a Top Software" delay={0.3} />
+            <br />
+            <BlurText text="Development Company" delay={0.5} />
+          </h2>
+
+          {/* Subheading */}
+          <div className="wm-apart-subheading">
+            <BlurText 
+              text="Whether you're optimizing today or building for tomorrow, we help you move faster with confidence."
+              delay={0.7}
+            />
+          </div>
+
+          {/* Cards grid */}
+          <div className="wm-apart-grid">
+            {/* Row 1 — first card active by default via CSS */}
+            <div className="wm-apart-row wm-apart-row--first">
+              {row1.map((card, i) => (
+                <div
+                  key={i}
+                  className="wm-apart-card"
+                  style={{
+                    animation: "wmFadeUp 0.55s ease-out both",
+                    animationDelay: `${i * 0.12}s`,
+                  }}
+                >
+                  <div className="wm-apart-img-panel">
+                    <Image
+                      src={card.image}
+                      alt={card.title}
+                      fill
+                      sizes="280px"
+                      style={{ objectFit: "cover" }}
+                      unoptimized
+                    />
+                  </div>
+                  <div className="wm-apart-card-content">
+                    <div className="wm-apart-icon-box">
+                      <Image src={card.iconSrc} alt={card.iconAlt} width={28} height={28} />
+                    </div>
+                    <div className="wm-apart-card-text">
+                      <h3 className="wm-apart-card-title">
+                        <BlurText text={card.title} delay={0.2 + i * 0.1} />
+                      </h3>
+                      <p className="wm-apart-card-desc">
+                        <BlurText text={card.description} delay={0.3 + i * 0.1} />
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+
+            {/* Row 2 — no default active */}
+            <div className="wm-apart-row">
+              {row2.map((card, i) => (
+                <div
+                  key={i}
+                  className="wm-apart-card"
+                  style={{
+                    animation: "wmFadeUp 0.55s ease-out both",
+                    animationDelay: `${0.36 + i * 0.12}s`,
+                  }}
+                >
+                  <div className="wm-apart-img-panel">
+                    <Image
+                      src={card.image}
+                      alt={card.title}
+                      fill
+                      sizes="280px"
+                      style={{ objectFit: "cover" }}
+                      unoptimized
+                    />
+                  </div>
+                  <div className="wm-apart-card-content">
+                    <div className="wm-apart-icon-box">
+                      <Image src={card.iconSrc} alt={card.iconAlt} width={28} height={28} />
+                    </div>
+                    <div className="wm-apart-card-text">
+                      <h3 className="wm-apart-card-title">
+                        <BlurText text={card.title} delay={0.5 + i * 0.1} />
+                      </h3>
+                      <p className="wm-apart-card-desc">
+                        <BlurText text={card.description} delay={0.6 + i * 0.1} />
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

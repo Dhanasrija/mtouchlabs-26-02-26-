@@ -109,3 +109,45 @@
   .wmud-card { padding: 28px 24px 24px; }
   .wmud-card-title { font-size: 20px; }
 }
+
+/* ─────────────────────────────────────────────────────────────
+   Top Services Section
+───────────────────────────────────────────────────────────── */
+.top-services-section {
+  background: #fff;
+  border-top: 1px solid #e8eaed;
+  padding: 24px 0 28px;
+}
+
+.top-services-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.top-services-label {
+  font-weight: 700;
+  font-size: 15px;
+  color: #1a1a2e;
+}
+
+.top-services-text {
+  font-size: 14.5px;
+  color: #333;
+  line-height: 2;
+  margin: 0;
+}
+
+.top-services-sep {
+  color: #888;
+  margin: 0 3px;
+}
+
+@media (max-width: 640px) {
+  .top-services-text {
+    font-size: 13px;
+  }
+}

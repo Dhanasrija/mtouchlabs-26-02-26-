@@ -1,115 +1,39 @@
+import ScrollGallery from "./ScrollGallery";
+import StatsBar from "./StatsBar";
+
+const logos = [
+  { src: "/images/home/tech/kezad-logo.png", alt: "Kezad Group" },
+  { src: "/images/home/tech/kohere.png", alt: "Kohere" },
+  { src: "/images/home/tech/aduri.png", alt: "Aburi Group" },
+  { src: "/images/home/tech/image1.png", alt: "ADJD" },
+  { src: "/images/home/tech/image3.png", alt: "Government of Telangana" },
+  { src: "/images/home/tech/zefsci.png", alt: "ZetSci" },
+  { src: "/images/home/tech/uptick.png", alt: "UaTiK" },
+  { src: "/images/home/tech/saachi.png", alt: "Sacchi" },
+  { src: "/images/home/tech/drpicklogo.png", alt: "Dr.Pick" },
+  { src: "/images/home/tech/image2.png", alt: "ZuppiBuy" },
+];
+
 export default function TrustedPartnersSection() {
   return (
-    <section className="New-Home-section2">
-     <div className="New-Home-animated-text">
-  Recognized worldwide as a trusted{" "}
-  <h1 className="New-Home-underline" id="partners" style={{ display: "inline", fontWeight: "bold" }}>
-  Software Development Company & IT Solutions provider
-</h1>
-  ,{" "}
-  mTouch Labs collaborates with the{" "}
-  <span className="New-Home-underline" id="abu-dhabi">Telangana, Abu Dhabi Governments</span> &amp;{" "}
-  <span className="New-Home-underline" id="enterprises"></span>{" "}
-  and leading enterprises to deliver secure, scalable, and innovative digital solutions.{" "}
-  <span className="New-home-section2-button js-open-logo-modal">
-    View All
-  </span>
+    <>
+      
 
+      <section className="mtl-partners-wrap">
+        <ScrollGallery />
+        <StatsBar />
 
-        <div className="Home-new-logo-scroll-container">
-          {/* Row 1 — scrolls LEFT */}
-          <div className="Home-new-logo-scroll-row">
-            <div className="Home-new-logo-scroll">
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/adjd.png" alt="adjd" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/l2r.png" alt="l2r" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/aduri.png" alt="aduri" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/govt.png" alt="golkonda" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/kezad-logo.png" alt="kezad" /></div>
-              {/* <div className="Homenew-logo-grid-item"><img src="/images/home/tech/paygenpro.png" alt="paygenpro" /></div> */}
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/payville.png" alt="payville" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/kohere.png" alt="kohere" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/onlyshops.png" alt="onlyshops" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/olt.png" alt="olt" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/fleuncyo.png" alt="fleuncyo" /></div>
-              {/* <div className="Homenew-logo-grid-item"><img src="/images/home/tech/zuppibuy.png" alt="zuppibuy" /></div> */}
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/paygen.png" alt="paygen" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/voosh.png" alt="voosh" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/omvideos.png" alt="omvideos" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/book.png" alt="edhelpz" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/uptick.png" alt="uptick" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/saachi.png" alt="saachi" /></div>
-            </div>
-            {/* Duplicate for infinite loop */}
-            <div aria-hidden="true" className="Home-new-logo-scroll">
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/adjd.png" alt="adjd" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/l2r.png" alt="l2r" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/aduri.png" alt="aduri" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/govt.png" alt="golkonda" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/kezad-logo.png" alt="kezad" /></div>
-              {/* <div className="Homenew-logo-grid-item"><img src="/images/home/tech/paygenpro.png" alt="paygenpro" /></div> */}
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/payville.png" alt="payville" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/kohere.png" alt="kohere" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/onlyshops.png" alt="onlyshops" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/olt.png" alt="olt" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/fleuncyo.png" alt="fleuncyo" /></div>
-              {/* <div className="Homenew-logo-grid-item"><img src="/images/home/tech/zuppibuy.png" alt="zuppibuy" /></div> */}
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/paygen.png" alt="paygen" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/voosh.png" alt="voosh" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/omvideos.png" alt="omvideos" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/book.png" alt="edhelpz" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/uptick.png" alt="uptick" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/saachi.png" alt="saachi" /></div>
-            </div>
-          </div>
-
-          {/* Row 2 — scrolls RIGHT */}
-          <div className="Home-new-logo-scroll-row scroll-reverse">
-            <div className="Home-new-logo-scroll">
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/macServices.png" alt="macServices" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/drpicklogo.png" alt="dr pick" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/classy.png" alt="classy" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/onus.png" alt="onus" /></div>
-              {/* <div className="Homenew-logo-grid-item"><img src="/images/home/tech/hitech.svg" alt="hitech" /></div> */}
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/zefsci.png" alt="zefsci" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/medbuz.png" alt="medbuz" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/veteach.png" alt="veteach" /></div>
-              {/* <div className="Homenew-logo-grid-item"><img src="/images/home/tech/tanyya.png" alt="tanyya" /></div> */}
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/heyman.png" alt="heyman" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/badham.png" alt="badham" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/v.png" alt="v" /></div>
-              {/* <div className="Homenew-logo-grid-item"><img src="/images/home/tech/tej.png" alt="tej" /></div> */}
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/adify.png" alt="adify" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/clikget.png" alt="clikget" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/countryclub.png" alt="countryclub" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/kalp.png" alt="kalp" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/roboride.png" alt="roboride" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/ricehub.png" alt="ricehub" /></div>
-            </div>
-            {/* Duplicate for infinite loop */}
-            <div aria-hidden="true" className="Home-new-logo-scroll">
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/macServices.png" alt="macServices" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/drpicklogo.png" alt="dr pick" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/classy.png" alt="classy" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/onus.png" alt="onus" /></div>
-              {/* <div className="Homenew-logo-grid-item"><img src="/images/home/tech/hitech.svg" alt="hitech" /></div> */}
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/zefsci.png" alt="zefsci" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/medbuz.png" alt="medbuz" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/veteach.png" alt="veteach" /></div>
-              {/* <div className="Homenew-logo-grid-item"><img src="/images/home/tech/tanyya.png" alt="tanyya" /></div> */}
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/heyman.png" alt="heyman" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/badham.png" alt="badham" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/v.png" alt="v" /></div>
-              {/* <div className="Homenew-logo-grid-item"><img src="/images/home/tech/tej.png" alt="tej" /></div> */}
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/adify.png" alt="adify" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/clikget.png" alt="clikget" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/countryclub.png" alt="countryclub" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/kalp.png" alt="kalp" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/roboride.png" alt="roboride" /></div>
-              <div className="Homenew-logo-grid-item"><img src="/images/home/tech/ricehub.png" alt="ricehub" /></div>
-            </div>
+        {/* LOGOS — pure CSS scroll */}
+        <div className="mtl-logo-track-outer">
+          <div className="mtl-logo-track">
+            {[...logos, ...logos].map((l, i) => (
+              <div key={i} className="mtl-logo-item">
+                <img src={l.src} alt={l.alt} />
+              </div>
+            ))}
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

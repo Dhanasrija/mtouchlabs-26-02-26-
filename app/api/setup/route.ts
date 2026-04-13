@@ -18,8 +18,7 @@ export async function GET() {
         meta_description TEXT,
         og_image VARCHAR(500),
         published BOOLEAN DEFAULT true,
-        created_at TIMESTAMP DEFAULT NOW(),
-        updated_at TIMESTAMP DEFAULT NOW()
+        created_at TIMESTAMP DEFAULT NOW()
       )
     `;
 

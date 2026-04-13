@@ -956,22 +956,31 @@ interface Blog {
 // ── Helpers ──
 function extractHeadings(html: string): { id: string; text: string; level: number }[] {
   const headings: { id: string; text: string; level: number }[] = [];
-  const regex = /<(h[23])[^>]*id=["']([^"']+)["'][^>]*>(.*?)<\/\1>/gi;
+  // First pass: h2/h3/h4 WITH id attributes
+  const regex = /<(h[2-4])[^>]*id=["']([^"']+)["'][^>]*>([\s\S]*?)<\/\1>/gi;
   let match;
   while ((match = regex.exec(html)) !== null) {
+    const text = match[3].replace(/<[^>]+>/g, '').trim();
+    if (!text) continue;
     headings.push({
       id: match[2],
-      text: match[3].replace(/<[^>]+>/g, ''),
+      text,
       level: match[1] === 'h2' ? 2 : 3,
     });
   }
-  if (headings.length === 0) {
-    const regex2 = /<(h[23])[^>]*>(.*?)<\/\1>/gi;
+  // Second pass: ALL h2/h3/h4 (with or without id)
+  if (headings.length < 3) {
+    headings.length = 0; // reset and redo
+    const regex2 = /<(h[2-6])[^>]*>([\s\S]*?)<\/\1>/gi;
     let idx = 0;
     while ((match = regex2.exec(html)) !== null) {
-      const text = match[2].replace(/<[^>]+>/g, '');
+      const text = match[2].replace(/<[^>]+>/g, '').trim();
+      if (!text || text.length < 3) continue;
+      const level = parseInt(match[1][1]);
+      // Only include h2, h3, h4 in TOC (skip h5, h6 unless few headings)
+      if (level > 4 && headings.length >= 4) continue;
       const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || `section-${idx}`;
-      headings.push({ id, text, level: match[1] === 'h2' ? 2 : 3 });
+      headings.push({ id, text, level: level <= 3 ? level : 3 });
       idx++;
     }
   }
@@ -980,12 +989,12 @@ function extractHeadings(html: string): { id: string; text: string; level: numbe
 
 function addIdsToHeadings(html: string): string {
   let idx = 0;
-  return html.replace(/<(h[23])([^>]*)>(.*?)<\/\1>/gi, (full, tag, attrs, inner) => {
+  return html.replace(/<(h[2-6])([^>]*?)>([\s\S]*?)<\/\1>/gi, (full, tag, attrs, inner) => {
     if (/id=["']/.test(attrs)) return full;
-    const text = inner.replace(/<[^>]+>/g, '');
+    const text = inner.replace(/<[^>]+>/g, '').trim();
     const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || `section-${idx}`;
     idx++;
-    return `<${tag}${attrs} id="${id}" style="scroll-margin-top:100px">${inner}</${tag}>`;
+    return `<${tag}${attrs} id="${id}" style="scroll-margin-top:130px">${inner}</${tag}>`;
   });
 }
 
@@ -993,6 +1002,11 @@ function removeInlineTOC(html: string): string {
   let cleaned = html.replace(/<nav[^>]*>[\s\S]*?<\/nav>/gi, '');
   cleaned = cleaned.replace(/<div[^>]*style[^>]*>[^]*?(?:📑\s*)?Table of Contents[^]*?<\/(?:ol|ul)>[^]*?<\/div>/gi, '');
   return cleaned;
+}
+
+function removeContentImages(html: string): string {
+  // Remove all <img> tags from blog content — only the hero image (above) is shown
+  return html.replace(/<img[^>]*>/gi, '').replace(/<figure[^>]*>[\s\S]*?<\/figure>/gi, '');
 }
 
 function highlightKeyword(title: string, keyword?: string): { before: string; highlight: string; after: string } {
@@ -1041,7 +1055,7 @@ export default async function BlogPostPage({
   if (blogs.length === 0) notFound();
 
   const blog = blogs[0];
-  const pageUrl = `${SITE_URL}/${blog.slug}`;
+  const pageUrl = `${SITE_URL}/blog/${blog.slug}`;
 
   const tagList: string[] = Array.isArray(blog.tags)
     ? blog.tags
@@ -1066,9 +1080,11 @@ export default async function BlogPostPage({
   const authorName = blog.author || 'mTouch Labs';
 
   const processedContent = blog.content
-    ? removeInlineTOC(
-      addIdsToHeadings(blog.content)
-        .replace(/href="\/contact"/g, 'href="/contact-us"')
+    ? removeContentImages(
+      removeInlineTOC(
+        addIdsToHeadings(blog.content)
+          .replace(/href="\/contact"/g, 'href="/contact-us"')
+      )
     )
     : '';
 
@@ -1184,9 +1200,17 @@ export default async function BlogPostPage({
 
           <div className="blv3-accent-bar" />
 
-          {blog.image && (
+          {(blog.image || blog.og_image) && (
             <div className="blv3-hero-img">
-              <img src={blog.image} alt={blog.title} />
+              <img
+                src={blog.image || blog.og_image}
+                alt={blog.title}
+                width={1200}
+                height={630}
+                loading="eager"
+                fetchPriority="high"
+                style={{ width: '100%', height: 'auto' }}
+              />
             </div>
           )}
         </div>

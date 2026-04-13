@@ -834,3 +834,48 @@ body .cw-wrapper,
 html body .cw-wrapper {
   left: 0px !important;
 }
+
+
+
+.cw-ai-input-row::after {
+  display: none !important;
+}
+
+
+
+/* Remove input clear (X) button */
+input::-webkit-search-cancel-button,
+input::-webkit-clear-button {
+  display: none;
+}
+
+input[type="text"]::-ms-clear,
+input[type="email"]::-ms-clear,
+input[type="tel"]::-ms-clear {
+  display: none;
+}
+
+
+/* Kill ALL native input UI */
+.cw-ai-input {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+}
+
+
+/* Chrome, Safari */
+.cw-ai-input::-webkit-search-cancel-button,
+.cw-ai-input::-webkit-clear-button,
+.cw-ai-input::-webkit-textfield-decoration-container {
+  display: none !important;
+  appearance: none !important;
+}
+
+/* Edge / IE */
+.cw-ai-input::-ms-clear,
+.cw-ai-input::-ms-reveal {
+  display: none !important;
+  width: 0;
+  height: 0;
+}

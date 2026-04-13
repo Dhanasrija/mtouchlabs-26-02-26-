@@ -1,12 +1,12 @@
 import { sql } from '@/lib/db';
 import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 
 
 export const dynamic = 'force-dynamic';
 
 async function getSlugType(slug: string): Promise<'blog' | 'portfolio' | null> {
-  const blogs = await sql`SELECT id FROM blogs WHERE slug = ${slug} AND published = true`;
+  const blogs = await sql`SELECT id FROM blogs WHERE slug = ${slug} AND (published = true OR status = 'published')`;
   if (blogs.length > 0) return 'blog';
   const portfolios = await sql`SELECT id FROM portfolios WHERE slug = ${slug} AND published = true`;
   if (portfolios.length > 0) return 'portfolio';
@@ -19,18 +19,13 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const resolvedParams = await params;
-  console.log("=== CATCH-ALL HIT ===", resolvedParams.slug);
   const type = await getSlugType(resolvedParams.slug);
-  console.log("=== SLUG TYPE ===", type);
 
-  // Wrap resolved params back into a Promise for child pages
-  const childParams = Promise.resolve(resolvedParams);
+  // Blog will redirect — skip metadata
+  if (type === 'blog') return {};
 
-  if (type === 'blog') {
-    const { generateMetadata: blogMeta } = await import('../blog/[slug]/page');
-    return blogMeta({ params: childParams });
-  }
   if (type === 'portfolio') {
+    const childParams = Promise.resolve(resolvedParams);
     const { generateMetadata: portfolioMeta } = await import('../portfolio/[slug]/page');
     return portfolioMeta({ params: childParams });
   }
@@ -44,19 +39,15 @@ export default async function CatchAllSlugPage({
   params: Promise<{ slug: string }>;
 }) {
   const resolvedParams = await params;
-  console.log("=== CATCH-ALL HIT ===", resolvedParams.slug);
   const type = await getSlugType(resolvedParams.slug);
-  console.log("=== SLUG TYPE ===", type);
 
-  // Wrap resolved params back into a Promise for child pages
-  const childParams = Promise.resolve(resolvedParams);
-
+  // 301 redirect: /slug → /blog/slug
   if (type === 'blog') {
-    const BlogPage = (await import('../blog/[slug]/page')).default;
-    return <BlogPage params={childParams} />;
+    redirect(`/blog/${resolvedParams.slug}`);
   }
 
   if (type === 'portfolio') {
+    const childParams = Promise.resolve(resolvedParams);
     const PortfolioPage = (await import('../portfolio/[slug]/page')).default;
     return <PortfolioPage params={childParams} />;
   }

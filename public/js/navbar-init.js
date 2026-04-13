@@ -127,54 +127,10 @@
       }
     };
 
+    // Top-level active highlighting is handled server-side via active-link class in Navbar.tsx.
+    // Only handle sub-link highlighting in mega-menu dropdowns here.
     var currentPath = window.location.pathname;
     var currentPage = currentPath.split('/').pop() || 'index';
-
-    document.querySelectorAll('.menu-links.nav-active').forEach(function (link) {
-      link.classList.remove('nav-active');
-      link.style.color = '';
-    });
-
-    var activeSection = null;
-    var entries = Object.entries(navigationSections);
-    for (var i = 0; i < entries.length; i++) {
-      var sectionName = entries[i][0];
-      var section = entries[i][1];
-      var isInSection = section.pages.some(function (page) {
-        return currentPage === page || currentPage.includes(page.replace('.html', '')) ||
-          currentPath.includes('/' + page.replace('.html', ''));
-      });
-      if (isInSection) {
-        activeSection = sectionName;
-        break;
-      }
-    }
-
-    if (activeSection) {
-      var sect = navigationSections[activeSection];
-      var navLink = null;
-      for (var j = 0; j < sect.selectors.length; j++) {
-        navLink = document.querySelector(sect.selectors[j]);
-        if (navLink) break;
-      }
-      if (!navLink) {
-        var allMenuLinks = document.querySelectorAll('.menu-links');
-        for (var k = 0; k < allMenuLinks.length; k++) {
-          var linkText = allMenuLinks[k].textContent.toLowerCase();
-          if (linkText.includes(activeSection) ||
-            (activeSection === 'contact' && linkText.includes('contact us'))) {
-            navLink = allMenuLinks[k];
-            break;
-          }
-        }
-      }
-      if (navLink) {
-        navLink.classList.add('nav-active');
-        console.log(activeSection + ' link set to active for page:', currentPage);
-      } else {
-        console.warn(activeSection + ' link not found');
-      }
-    }
 
     setActiveDropdownLink(currentPage, currentPath);
   }

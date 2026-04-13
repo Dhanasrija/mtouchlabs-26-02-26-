@@ -1,3 +1,28 @@
+/* ═══════════════════════════════════════════════════
+   Portfolio carousel — 1 card at a time on mobile
+   ═══════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .pf-track {
+    gap: 0 !important;
+  }
+  .pf-card,
+  .pf-card--active {
+    flex: 1 1 100% !important;
+    min-width: 100% !important;
+    height: 280px !important;
+  }
+  .pf-card--active .pf-img {
+    width: 50% !important;
+  }
+  .pf-card--active .pf-info {
+    right: calc(50% + 12px) !important;
+  }
+  .pf-card-title,
+  .pf-card-title a {
+    font-size: 15px !important;
+  }
+}
+
 /* ===== #4: 2-ROW LOGO SCROLL ===== */
 .Home-new-logo-scroll-container {
   display: flex;
@@ -113,14 +138,15 @@
    mTouch Labs — Homepage DARK THEME
    ============================================ */
 
-/* ════════ NAVBAR — dark on homepage ════════ */
+/* ════════ NAVBAR — light on homepage, no border to merge with hero ════════ */
 .home-page .header-area,
 .home-page .navbar-area,
 .home-page nav,
 .home-page .main-nav,
 .home-page header {
-  background: #0a0a1a !important;
-  border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+  background: #ffffff !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
 }
 
 /* ════════ HERO ════════ */
@@ -372,5 +398,501 @@
   .sp-showcase__badge-text { font-size: 15px; }
 }
 
+/* ═══════════════════════════════════════════════════
+   HOMEPAGE — Mobile Responsive Fixes (Apr 2026)
+   ═══════════════════════════════════════════════════ */
+
+/* ── Logo modal inline grid — mobile stack ── */
+@media (max-width: 768px) {
+  .logo-modal-grid-inline {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 12px !important;
+  }
+}
+@media (max-width: 480px) {
+  .logo-modal-grid-inline {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* ── Hero section mobile ── */
+@media (max-width: 768px) {
+  .mtl-new-hero {
+    min-height: 60vh !important;
+    padding: 40px 16px 60px !important;
+  }
+  .mtl-new-hero-h1 {
+    font-size: clamp(28px, 7vw, 42px) !important;
+    letter-spacing: -1px !important;
+  }
+  .mtl-new-hero-sub {
+    font-size: 15px !important;
+    max-width: 100% !important;
+    padding: 0 8px;
+  }
+  .mtl-new-hero-btn {
+    font-size: 15px !important;
+    padding: 14px 28px !important;
+  }
+  .mtl-new-hero-badge img {
+    max-height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mtl-new-hero {
+    min-height: 50vh !important;
+    padding: 30px 12px 50px !important;
+  }
+  .mtl-new-hero-h1 {
+    font-size: clamp(24px, 8vw, 32px) !important;
+  }
+  .mtl-new-hero-sub {
+    font-size: 14px !important;
+  }
+  .mtl-new-hero-btn {
+    font-size: 14px !important;
+    padding: 12px 24px !important;
+  }
+}
+
+/* ── Header / Navbar — ensure white bg and black text on mobile ── */
+@media (max-width: 991px) {
+  .ree-header,
+  .ree-header.fixed-top {
+    background: #ffffff !important;
+  }
+  .menu-header {
+    background: #ffffff !important;
+  }
+  .nav-brand img {
+    max-height: 36px;
+  }
+}
+
+/* ── WhatsApp button mobile ── */
+@media (max-width: 768px) {
+  .whatsapp-hero-btn {
+    bottom: 70px !important;
+    right: 12px !important;
+  }
+  .whatsapp-hero-img {
+    width: 48px !important;
+    height: 48px !important;
+  }
+}
+
+/* ── Bottom nav mobile spacing ── */
+@media (max-width: 768px) {
+  .bottom-nav {
+    padding: 8px 0 !important;
+  }
+}
+
+/* ── Brochure modal mobile ── */
+@media (max-width: 768px) {
+  .brochure-modal-box {
+    flex-direction: column !important;
+    width: 95% !important;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+  }
+  .brochure-modal-left {
+    display: none !important;
+  }
+  .brochure-modal-right {
+    width: 100% !important;
+    padding: 20px !important;
+  }
+}
+
+/* ── General section padding mobile ── */
+@media (max-width: 768px) {
+  .header-spacer {
+    height: 110px !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   FIX #1: Hero section — NASSCOM badge fully visible
+   ═══════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .mtl-new-hero {
+    padding-top: 20px !important;
+    padding-bottom: 40px !important;
+    min-height: auto !important;
+    overflow: visible !important;
+  }
+  .mtl-new-hero-badge {
+    margin-bottom: 16px !important;
+    display: inline-flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    animation: none !important;
+    max-width: 95% !important;
+  }
+  .mtl-new-hero-badge img {
+    max-height: 55px !important;
+    max-width: 260px !important;
+    width: auto !important;
+    display: block !important;
+    object-fit: contain !important;
+  }
+  .hero-inner {
+    transform: none !important;
+    padding-top: 0 !important;
+  }
+}
+@media (max-width: 480px) {
+  .mtl-new-hero {
+    padding-top: 16px !important;
+    padding-bottom: 30px !important;
+  }
+  .mtl-new-hero-badge img {
+    max-height: 48px !important;
+    max-width: 220px !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   FIX #2: "Successfully Delivered Government" heading
+   + WhyChoose stats overflow fix
+   ═══════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .mtl-stats-bar {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 30px 16px !important;
+    gap: 24px !important;
+  }
+  .mtl-stats-heading {
+    flex: unset !important;
+    width: 100% !important;
+    font-size: clamp(24px, 6vw, 36px) !important;
+    line-height: 1.25 !important;
+    text-align: left !important;
+    word-break: break-word !important;
+  }
+  .mtl-stats-items {
+    gap: 30px !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+    justify-content: space-between !important;
+  }
+  /* Stop negative margin from hiding the stats heading behind hero */
+  .mtl-partners-wrap {
+    margin-top: 0 !important;
+  }
+}
+@media (max-width: 480px) {
+  .mtl-stats-heading {
+    font-size: clamp(22px, 7vw, 30px) !important;
+  }
+}
+@media (max-width: 600px) {
+  .wcs2-stats {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0 !important;
+  }
+  .wcs2-stat h3,
+  .wcs2-num {
+    font-size: 28px !important;
+    line-height: 1.2 !important;
+    word-break: break-word !important;
+  }
+  .wcs2-stat p {
+    font-size: 13px !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+  .wcs2-container {
+    padding: 0 16px !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   FIX #3: "Our Software Development & IT Services"
+   title getting cut — white-space:nowrap override
+   ═══════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .fds-title {
+    white-space: normal !important;
+    font-size: clamp(24px, 6vw, 36px) !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+    word-break: break-word !important;
+  }
+  .fds-subtitle {
+    font-size: 18px !important;
+    line-height: 1.4 !important;
+    letter-spacing: -0.5px !important;
+  }
+  .fds-header {
+    padding: 0 16px !important;
+  }
+  .fds-label {
+    font-size: 12px !important;
+  }
+}
+@media (max-width: 480px) {
+  .fds-title {
+    font-size: clamp(20px, 7vw, 28px) !important;
+  }
+  .fds-subtitle {
+    font-size: 16px !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   FIX #4: "What Sets mTouch Labs Apart" — cards/tabs
+   not responsive on mobile
+   ═══════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .wm-apart-section {
+    padding: 50px 16px !important;
+  }
+  .wm-apart-heading {
+    font-size: clamp(24px, 6vw, 34px) !important;
+    line-height: 1.2 !important;
+    word-break: break-word !important;
+  }
+  .wm-apart-subheading {
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+    padding: 0 !important;
+  }
+  .wm-apart-row {
+    flex-direction: column !important;
+  }
+  .wm-apart-card {
+    flex: unset !important;
+    width: 100% !important;
+    min-height: 200px !important;
+  }
+  .wm-apart-card:hover {
+    flex: unset !important;
+  }
+  /* Simple stacked cards — matches WHY US section */
+  .wm-apart-row {
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+  .wm-apart-card {
+    flex: unset !important;
+    width: 100% !important;
+    min-height: auto !important;
+    padding: 20px !important;
+  }
+  .wm-apart-card:hover {
+    flex: unset !important;
+  }
+  .wm-apart-img-panel {
+    display: none !important;
+  }
+  .wm-apart-card:hover .wm-apart-card-content,
+  .wm-apart-card .wm-apart-card-content {
+    width: 100% !important;
+  }
+  .wm-apart-card-title {
+    font-size: 17px !important;
+    line-height: 1.3 !important;
+  }
+  .wm-apart-card-desc {
+    font-size: 13px !important;
+  }
+  .wm-apart-grid {
+    padding: 0 !important;
+    gap: 16px !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   FIX #5: Awards & Recognition (HonorsCode)
+   Images getting cut / overflowing on mobile
+   ═══════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  /* ── Completely disable scroll-driven animation on mobile ── */
+  /* Remove the massive scrollable container — no blank space */
+  [class*="HonorsCode_container"] {
+    min-height: auto !important;
+    height: auto !important;
+    view-timeline-name: none !important;
+  }
+  /* Un-sticky, normal flow */
+  [class*="HonorsCode_sticky"] {
+    height: auto !important;
+    position: relative !important;
+    top: auto !important;
+    padding: 50px 16px !important;
+    overflow: visible !important;
+  }
+  /* Stack everything vertically */
+  [class*="HonorsCode_content"] {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 16px !important;
+    position: relative !important;
+    height: auto !important;
+  }
+  /* Turn floating images into a neat grid — no absolute, no animation */
+  [class*="HonorsCode_floatingImagePrimary"],
+  [class*="HonorsCode_floatingImageSecondary"] {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    animation: none !important;
+    opacity: 1 !important;
+    width: 100px !important;
+    height: 100px !important;
+    border-radius: 14px !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1) !important;
+    flex-shrink: 0 !important;
+  }
+  /* Center text: show first, no animation, fully visible */
+  [class*="HonorsCode_centerText"] {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    z-index: 10 !important;
+    order: -1 !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+  [class*="HonorsCode_mainHeading"] {
+    font-size: clamp(28px, 8vw, 42px) !important;
+    line-height: 1.2 !important;
+  }
+  [class*="HonorsCode_subText"] {
+    font-size: 14px !important;
+    padding: 0 8px !important;
+  }
+  [class*="HonorsCode_contactButton"] {
+    width: 90px !important;
+    height: 90px !important;
+    font-size: 0.85rem !important;
+  }
+}
+@media (max-width: 480px) {
+  [class*="HonorsCode_floatingImagePrimary"],
+  [class*="HonorsCode_floatingImageSecondary"] {
+    width: 80px !important;
+    height: 80px !important;
+  }
+  [class*="HonorsCode_mainHeading"] {
+    font-size: clamp(24px, 9vw, 34px) !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   FIX #6: Privacy Policy page — overlapping content
+   ═══════════════════════════════════════════════════ */
+.sec-pad {
+  padding: 40px 0;
+}
+.sec-pad .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.sec-pad h1 {
+  font-size: clamp(22px, 5vw, 36px);
+  line-height: 1.3;
+  word-break: break-word;
+}
+.sec-pad p {
+  font-size: 15px;
+  line-height: 1.7;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.sec-pad ul.ul-list-icon {
+  padding-left: 0;
+  list-style: none;
+}
+.sec-pad ul.ul-list-icon > li {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+.sec-pad ul.ul-list-icon > li > p {
+  font-weight: 400;
+  margin-top: 8px;
+}
+.sec-pad ul.ul-list-icon > li > ul {
+  padding-left: 20px;
+  margin-top: 8px;
+}
+.sec-pad ul.ul-list-icon > li > ul > li {
+  font-weight: 400;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 768px) {
+  .sec-pad {
+    padding: 20px 0 100px;
+  }
+  .sec-pad .container {
+    padding: 0 16px;
+  }
+  .sec-pad h1 {
+    font-size: clamp(20px, 6vw, 28px) !important;
+  }
+  .sec-pad p {
+    font-size: 14px;
+  }
+  .sec-pad ul.ul-list-icon > li {
+    font-size: 15px;
+  }
+  .sec-pad ul.ul-list-icon > li > ul > li {
+    font-size: 13px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   FIX: Tawk.to & floating widgets — prevent overlapping
+   ═══════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  /* Push all Tawk.to widget elements out of the way */
+  iframe[src*="tawk.to"],
+  .tawk-min-container,
+  [class*="tawk-min"],
+  #tawk-bubble-container,
+  [id*="tawk"],
+  div[class*="widget-visible"] {
+    bottom: 70px !important;
+    right: 5px !important;
+    max-width: 55px !important;
+    max-height: 55px !important;
+    transform: scale(0.65) !important;
+    transform-origin: bottom right !important;
+    z-index: 9990 !important;
+  }
+  /* Ensure ALL content pages have breathing room at bottom */
+  .sec-pad {
+    padding-bottom: 60px !important;
+    position: relative !important;
+    z-index: 1 !important;
+  }
+  /* WhatsApp button — don't overlap with Tawk */
+  .whatsapp-hero-btn {
+    bottom: 130px !important;
+    right: 10px !important;
+  }
+  .whatsapp-hero-img {
+    width: 44px !important;
+    height: 44px !important;
+  }
+  /* Footer needs space from floating widgets */
+  footer {
+    position: relative !important;
+    z-index: 1 !important;
+    padding-bottom: 70px !important;
+  }
+}
 
 

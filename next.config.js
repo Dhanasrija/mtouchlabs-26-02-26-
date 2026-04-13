@@ -4,6 +4,17 @@ const nextConfig = {
     unoptimized: true,
   },
   trailingSlash: false,
+
+  // ✅ Prevents Node.js packages from being bundled into Edge middleware
+  experimental: {
+    serverComponentsExternalPackages: [
+      'framer-motion',
+      '@anthropic-ai/sdk',
+      'resend',
+      '@neondatabase/serverless',
+    ],
+  },
+
   async redirects() {
     return [
       // ===========================
@@ -16,13 +27,10 @@ const nextConfig = {
         statusCode: 301,
       },
       // ===========================
-      // BLOG REDIRECTS — /blog/slug → /slug
+      // BLOG REDIRECTS — old /slug → /blog/slug (canonical)
+      // Note: actual redirect happens in app/[slug]/page.tsx via Next.js redirect()
+      // This config entry is intentionally removed to avoid redirect loops
       // ===========================
-      {
-        source: "/blog/:slug",
-        destination: "/:slug",
-        permanent: true,
-      },
       // ===========================
       // DELETED DUPLICATE "COPY" PAGES
       // ===========================
@@ -62,9 +70,9 @@ const nextConfig = {
       // DATA SCIENCE REDIRECT
       // ===========================
       { source: "/empowering-businesses-with-data-science", destination: "/data-science-solutions", permanent: true },
-    { source: "/company-overview", destination: "/it-services-digital-transformation-company", permanent: true },
-
+      { source: "/company-overview", destination: "/it-services-digital-transformation-company", permanent: true },
     ];
   },
 };
+
 module.exports = nextConfig;

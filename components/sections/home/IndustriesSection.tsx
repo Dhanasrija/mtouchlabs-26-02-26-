@@ -1,90 +1,50 @@
-// const industries = [
-//   { img: "realstate.png", label: "Real Estate", aos: "fade-up" },
-//   { img: "tours.png", label: "Tour & Travel", aos: "fade-down" },
-//   { img: "education.png", label: "Education", aos: "fade-up" },
-//   { img: "taxi.png", label: "Transport", aos: "fade-down" },
-//   { img: "retail.png", label: "e Commerce", aos: "fade-up" },
-//   { img: "media.png", label: "Game", aos: "fade-down" },
-//   { img: "sports.png", label: "Sports & Fitness", aos: "fade-up" },
-//   { img: "fintech.png", label: "Fintech", aos: "fade-down" },
-//   { img: "food.png", label: "Food and Grocery Delivery", aos: "fade-up" },
-//   { img: "hotel.png", label: "Hotel Booking Apps", aos: "fade-down" },
-//   { img: "goverment.png", label: "Government Apps", aos: "fade-up" },
-//   { img: "sector.png", label: "Manufacturing Sector", aos: "fade-down" },
-//   { img: "healthcare.png", label: "Health Care", aos: "fade-up" },
-// ];
 
-// export default function IndustriesSection() {
-//   return (
-//     <section className="industries-section">
-//       <h3 className="industries-title">Industries We Serve</h3>
-
-//       <div className="industries-carousel-container">
-//         <button className="industries-carousel-nav industries-carousel-prev" aria-label="Previous">
-//           <i className="fas fa-chevron-left"></i>
-//         </button>
-
-//         <div className="industries-carousel-wrapper">
-//           <div className="industries-grid">
-//             {industries.map((item, i) => (
-//               <div className="industry-item" data-aos={item.aos} key={i}>
-//                 <img src={`/images/home/${item.img}`} alt={item.label} />
-//                 <p>{item.label}</p>
-//               </div>
-//             ))}
-//           </div>
-//         </div>
-
-//         <button className="industries-carousel-nav industries-carousel-next" aria-label="Next">
-//           <i className="fas fa-chevron-right"></i>
-//         </button>
-//       </div>
-//     </section>
-//   );
-// }
-
-
-const industries = [
-  { img: "fintech.png", label: "Financial Services", aos: "fade-up" },
-  { img: "healthcare.png", label: "Healthcare", aos: "fade-down" },
-  { img: "retail.png", label: "Retail & E-Commerce", aos: "fade-up" },
-  { img: "taxi.png", label: "Logistics & Transportation", aos: "fade-down" },
-  { img: "sector.png", label: "Manufacturing", aos: "fade-up" },
-  { img: "media.png", label: "SaaS & Technology", aos: "fade-down" },
-  { img: "realstate.png", label: "Real Estate", aos: "fade-up" },
-  { img: "education.png", label: "Education", aos: "fade-down" },
-  { img: "food.png", label: "Food & Grocery Delivery", aos: "fade-up" },
-  { img: "hotel.png", label: "Hotel Booking Apps", aos: "fade-down" },
-  { img: "goverment.png", label: "Government Apps", aos: "fade-up" },
-  { img: "sports.png", label: "Sports & Fitness", aos: "fade-down" },
-  { img: "tours.png", label: "Tour & Travel", aos: "fade-up" },
-];
+import { BlurText } from "@/components/sections/home/ui/BlurText";
+import { IndustriesPills } from "@/components/sections/home/ui/IndustriesPills";
 
 export default function IndustriesSection() {
   return (
-    <section className="industries-section">
-      <h3 className="industries-title">Industries We Serve</h3>
+    <>
+      <style>{`
+        /* Mobile: drop absolute layout, show pills in a flex wrap */
+        @media (max-width: 768px) {
+          .ind-heading {
+            margin: 0 0 32px !important;
+            font-size: 28px !important;
+            line-height: 1.3 !important;
+            text-align: center;
+          }
+          .ind-eyebrow {
+            justify-content: center;
+            margin-bottom: 24px;
+          }
+        }
+      `}</style>
 
-      <div className="industries-carousel-container">
-        <button className="industries-carousel-nav industries-carousel-prev" aria-label="Previous">
-          <i className="fas fa-chevron-left"></i>
-        </button>
+      <section className="ind-section" style={{ overflow: "hidden" }}>
+        <div className="ind-container">
 
-        <div className="industries-carousel-wrapper">
-          <div className="industries-grid">
-            {industries.map((item, i) => (
-              <div className="industry-item" data-aos={item.aos} key={i}>
-                <img src={`/images/home/${item.img}`} alt={item.label} />
-                <p>{item.label}</p>
-              </div>
-            ))}
+          {/* Eyebrow */}
+          <div className="ind-eyebrow">
+            <BlurText text="• INDUSTRIES WE SERVE" />
           </div>
-        </div>
 
-        <button className="industries-carousel-nav industries-carousel-next" aria-label="Next">
-          <i className="fas fa-chevron-right"></i>
-        </button>
-      </div>
-    </section>
+          {/* Heading */}
+          <h2 className="ind-heading">
+            <BlurText text="Industry" />
+            <span className="ind-heading-highlight">
+              <BlurText text="-Specific Expertise" delay={0.3} />
+            </span>
+            <BlurText text=" to" delay={0.6} />
+            <br />
+            <BlurText text="Drive Your Success" delay={0.9} />
+          </h2>
+
+          {/* Interactive Pills (Client Component) */}
+          <IndustriesPills />
+
+        </div>
+      </section>
+    </>
   );
 }
