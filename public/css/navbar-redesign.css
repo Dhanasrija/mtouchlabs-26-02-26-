@@ -75,7 +75,7 @@ ul.nav-list.nav-pill {
   transition: transform 0.2s ease;
 }
 
-/* ── Request Quote button (Animated Border style) ── */
+/* ── Request Quote button (Solid Blue Border Outline) ── */
 .nav-quote-btn-v2 {
   display: inline-flex;
   align-items: center;
@@ -83,70 +83,33 @@ ul.nav-list.nav-pill {
   padding: 10px 28px;
   font-size: 14px;
   font-weight: 600;
-  color: #1a1a2e !important;
+  color: #3E8CFB !important;
   text-decoration: none !important;
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   white-space: nowrap;
   letter-spacing: 0.2px;
   font-family: var(--font-primary);
-  
-  /* Reset static border and prepare for animation */
+
   position: relative;
   z-index: 1;
   background: transparent !important;
   border-radius: 50px;
-  overflow: hidden;
-  border: none !important;
+  border: 2px solid #3E8CFB !important;
 }
 
-/* The rotating blue light "loop" */
-.nav-quote-btn-v2::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 200%;
-  height: 250%;
-  background: conic-gradient(
-    from 0deg,
-    transparent 0%,
-    transparent 25%,
-    #3E8CFB 40%,
-    #BEE3F8 50%,
-    #3E8CFB 60%,
-    transparent 75%,
-    transparent 100%
-  );
-  transform: translate(-50%, -50%);
-  animation: rotate-quote-border 3s linear infinite;
-  z-index: -2;
-}
-
-/* Final inner mask creating the border thickness and background */
+/* Neutralize any legacy animated pseudo-element border */
+.nav-quote-btn-v2::before,
 .nav-quote-btn-v2::after {
-  content: "";
-  position: absolute;
-  inset: 1.5px;
-  border-radius: inherit;
-  background: #ffffff;
-  z-index: -1;
-  transition: background 0.25s ease;
-}
-
-@keyframes rotate-quote-border {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to { transform: translate(-50%, -50%) rotate(360deg); }
+  content: none !important;
 }
 
 .nav-quote-btn-v2:hover {
   color: #fff !important;
+  background: #3E8CFB !important;
+  border-color: #3E8CFB !important;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(62, 140, 251, 0.4);
-}
-
-.nav-quote-btn-v2:hover::after {
-  background: #3E8CFB; /* Brand blue hover */
 }
 
 /* ── Menu header alignment tweaks ── */
@@ -175,12 +138,12 @@ ul.nav-list.nav-pill {
 }
 
 .ree-header.sticky .nav-quote-btn-v2 {
-  color: #1a1a2e !important;
-  border-color: #1a1a2e;
+  color: #3E8CFB !important;
+  border-color: #3E8CFB !important;
 }
 
 .ree-header.sticky .nav-quote-btn-v2:hover {
-  background: #1a1a2e;
+  background: #3E8CFB !important;
   color: #fff !important;
 }
 
