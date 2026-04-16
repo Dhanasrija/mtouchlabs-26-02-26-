@@ -1,0 +1,273 @@
+/* HonorsCode.module.css */
+
+.container {
+    min-height: 250vh;
+    background-color: #F3F1FF;
+    view-timeline-name: --honors-timeline;
+    view-timeline-axis: block;
+}
+
+.sticky {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: sticky;
+    top: 0;
+    overflow: hidden;
+}
+
+.content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Center Text & Button (Reveals Last) */
+.centerText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 25;
+
+    animation: revealContent linear both;
+    animation-timeline: --honors-timeline;
+    animation-range: contain 45% contain 80%;
+}
+
+@keyframes revealContent {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Spacing and weight among heading text */
+.mainHeading {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 80px !important;
+    line-height: 100px !important;
+    color: #000000 !important;
+    text-align: center;
+    margin: 10px;
+    text-transform: capitalize;
+    letter-spacing: -0.01em;
+}
+
+.blueAwards {
+    color: #3E8CFB;
+}
+
+.subText {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    line-height: 26px !important;
+    color: #626262 !important;
+    text-align: center;
+    max-width: 38rem;
+    margin: 2.5rem 0 1.5rem 0;
+}
+
+/* Contact Button */
+.contactButton {
+    background-color: var(--color-accent);;
+    color: #000000;
+    border: none;
+    border-radius: 50%;
+    width: 130px;
+    height: 130px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 1rem;
+}
+
+.contactButton:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(204, 255, 102, 0.4);
+}
+
+.contactButton .arrow {
+    font-size: 1.2rem;
+    margin-top: 4px;
+}
+
+/* Base Floating Image styling */
+.floatingImagePrimary,
+.floatingImageSecondary {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    overflow: hidden;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.2);
+    transform-origin: center;
+
+    /* Dynamically computed variables for mobile scaling */
+    --tx: var(--desktop-tx);
+    --ty: var(--desktop-ty);
+    width: var(--desktop-w);
+    height: var(--desktop-h);
+}
+
+.floatingImagePrimary img,
+.floatingImageSecondary img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* The Primary Image */
+.floatingImagePrimary {
+    animation: floatPrimary linear both;
+    animation-timeline: --honors-timeline;
+}
+
+@keyframes floatPrimary {
+    0% {
+        transform: translate(-50%, -50%) scale(1.15);
+        /* Medium size at beginning */
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(calc(-50% + var(--tx)), calc(-30% + var(--ty))) scale(1);
+        opacity: 1;
+    }
+}
+
+/* The Secondary Images */
+.floatingImageSecondary {
+    animation: floatSecondary linear both;
+    animation-timeline: --honors-timeline;
+}
+
+@keyframes floatSecondary {
+    0% {
+        transform: translate(-50%, -50%) scale(0.3);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+
+    /* Auto-shrink all layout parameters smoothly using ratios */
+    .floatingImagePrimary,
+    .floatingImageSecondary {
+        --tx: calc(var(--desktop-tx) * 0.45);
+        --ty: calc(var(--desktop-ty) * 0.45);
+        width: calc(var(--desktop-w) * 0.5);
+        height: calc(var(--desktop-h) * 0.5);
+    }
+
+    /* Ensure tight heading alignments in mobile */
+    .mainHeading {
+        font-size: clamp(2.5rem, 12vw, 4rem) !important;
+        line-height: 1.2 !important;
+    }
+
+    /* Compress the extreme margin jumps specifically on small devices avoiding cutoffs */
+    .headingTop {
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+    }
+
+    .headingBottom {
+        margin-top: 2rem;
+    }
+
+    .centerText p {
+        font-size: 0.95rem;
+        margin-top: 2rem;
+        padding: 0 1rem;
+    }
+
+    .contactButton {
+        width: 100px;
+        height: 100px;
+        font-size: 0.9rem;
+    }
+
+    @keyframes floatPrimary {
+        0% {
+            transform: translate(-50%, -50%) scale(1);
+            /* Tame down initial mobile zoom */
+            opacity: 1;
+        }
+
+        100% {
+            transform: translate(calc(-50% + var(--tx)), calc(-10% + var(--ty))) scale(1);
+            opacity: 1;
+        }
+    }
+}
+
+/* Dark mode overrides */
+@media (prefers-color-scheme: dark) {
+    .container {
+        background-color: #F3F1FF;
+    }
+
+    .mainHeading {
+        color: #000000;
+    }
+
+    .subText {
+        color: #626262;
+    }
+
+    .contactButton {
+        background-color: #3E8CFB;
+        color: #FFFFFF;
+    }
+}
+
+/* Fallback */
+@supports not (view-timeline-name: --t) {
+    .centerText {
+        opacity: 1;
+        animation: none;
+        transform: none;
+    }
+
+    .floatingImagePrimary {
+        transform: translate(calc(-50% + var(--tx)), calc(-30% + var(--ty))) scale(1);
+        opacity: 1;
+        animation: none;
+    }
+
+    .floatingImageSecondary {
+        transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1);
+        opacity: 1;
+        animation: none;
+    }
+}

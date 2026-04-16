@@ -1,0 +1,24 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "mtouchlabs.com" }],
+      "destination": "https://www.mtouchlabs.com/:path*",
+      "statusCode": 301
+    }
+  ],
+  "crons": [
+    {
+      "path": "/api/cron/publish-blogs",
+      "schedule": "0 0 * * *"
+    },
+    {
+      "path": "/api/cron/auto-publish-blog",
+      "schedule": "0 9 * * 1"
+    },
+    {
+      "path": "/api/cron/auto-publish-blog",
+      "schedule": "0 9 * * 3"
+    }
+  ]
+}
