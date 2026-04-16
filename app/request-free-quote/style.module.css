@@ -1,0 +1,180 @@
+@reference "tailwindcss";
+
+.main {
+    @apply flex min-h-screen items-start justify-center overflow-x-hidden bg-[#eef1ff] px-4 pt-32 pb-6 sm:px-6 sm:pt-36 sm:pb-8 lg:px-8 lg:pt-40 lg:pb-6 xl:px-10 xl:pt-44 xl:pb-5 2xl:px-12 2xl:pt-48 2xl:pb-6;
+}
+
+.grid {
+    @apply mx-auto grid w-full max-w-[1840px] items-start gap-8 lg:grid-cols-[minmax(0, 520px)_minmax(0, 1fr)] lg:gap-8 xl:grid-cols-[minmax(0, 660px)_minmax(0, 1fr)] xl:gap-10 2xl:grid-cols-[minmax(0, 760px)_minmax(0, 1fr)] 2xl:gap-10;
+    margin-block: auto;
+}
+
+.formCard {
+    @apply w-full max-w-[740px] justify-self-center rounded-[30px] bg-white px-5 py-6 shadow-[0_34px_90px_rgba(52, 78, 144, 0.08)] sm:px-8 sm:py-8 lg:max-w-none lg:px-6 lg:py-6 xl:px-8 xl:py-8 2xl:px-[44px] 2xl:py-[38px];
+}
+
+.formTitle {
+    @apply text-center text-[28px] font-semibold leading-[1.04] tracking-[-0.05em] text-[#0f1217] sm:text-[38px] lg:text-[36px] xl:text-[44px] 2xl:text-[52px];
+}
+
+.form {
+    @apply mt-8 space-y-5 sm:mt-10 xl:mt-9 xl:space-y-5 2xl:mt-10 2xl:space-y-6;
+}
+
+.field {
+    @apply space-y-3;
+}
+
+.label {
+    @apply block text-[17px] font-semibold tracking-[-0.03em] text-[#181818] sm:text-[19px] xl:text-[19px] 2xl:text-[21px];
+}
+
+.required {
+    @apply text-red-500;
+}
+
+.input,
+.select {
+    @apply h-[56px] w-full rounded-[18px] border border-[#d9ddea] bg-white px-5 text-[17px] tracking-[-0.02em] text-[#34363d] placeholder:text-[#6f6f76] focus:border-[#3e8cfb] focus:outline-none focus:ring-2 focus:ring-[#3e8cfb]/10 sm:h-[60px] sm:text-[18px] xl:h-[64px] xl:px-6 xl:text-[18px] 2xl:h-[72px] 2xl:px-7 2xl:text-[19px];
+}
+
+.phoneRow {
+    @apply grid grid-cols-1 gap-3 min-[420px]:grid-cols-[152px_minmax(0, 1fr)] sm:grid-cols-[172px_minmax(0, 1fr)] xl:grid-cols-[184px_minmax(0, 1fr)] xl:gap-4 2xl:gap-[18px];
+}
+
+.submitBtn {
+    @apply mt-1 h-[58px] w-full rounded-[18px] bg-[#4386ee] text-[18px] font-semibold tracking-[-0.03em] text-white transition-colors hover:bg-[#3479e5] sm:h-[60px] sm:text-[20px] xl:h-[60px] xl:text-[19px] 2xl:mt-[2px] 2xl:h-[64px] 2xl:text-[20px];
+}
+
+.badges {
+    @apply mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-5 sm:mt-10 sm:justify-between xl:mt-8 xl:flex-nowrap xl:gap-x-4 2xl:mt-9;
+}
+
+.badge {
+    @apply max-w-full w-auto object-contain h-[46px] sm:h-[52px] xl:h-[56px];
+}
+
+.rightCol {
+    @apply w-full max-w-[760px] min-w-0 justify-self-center text-center lg:max-w-none lg:text-left lg:pt-2 2xl:pt-4;
+}
+
+.logoWrap {
+    @apply mb-6 flex justify-center lg:mb-8 lg:justify-start xl:mb-10 2xl:mb-12;
+}
+
+.logo {
+    @apply h-auto w-[200px] sm:w-[280px] lg:w-[220px] xl:w-[280px] 2xl:w-[320px];
+}
+
+.headline {
+    @apply max-w-[880px] text-[34px] font-semibold leading-[0.98] tracking-[-0.065em] text-[#14161c] sm:text-[48px] lg:max-w-[460px] lg:text-[48px] xl:max-w-[560px] xl:text-[58px] 2xl:max-w-[700px] 2xl:text-[72px];
+}
+
+.headlineRow {
+    @apply xl:whitespace-nowrap;
+}
+
+.headlineBlue {
+    @apply text-[#4386ee];
+}
+
+.headlineBlock {
+    @apply block;
+}
+
+.subtext {
+    @apply mx-auto mt-5 max-w-[810px] text-[17px] leading-[1.38] tracking-[-0.02em] text-[#666a73] sm:text-[20px] lg:mx-0 lg:max-w-[470px] xl:mt-5 xl:max-w-[560px] xl:text-[22px] 2xl:mt-6 2xl:max-w-[620px] 2xl:text-[25px];
+}
+
+.statsSection {
+    @apply mt-10 sm:mt-12 xl:mt-12 2xl:mt-14;
+}
+
+.sectionLabel {
+    @apply text-[12px] font-semibold tracking-[0.16em] text-[#22252d] uppercase sm:text-[14px] xl:text-[16px];
+}
+
+.sectionLabelBlue {
+    @apply text-[12px] font-semibold tracking-[0.16em] text-[#4386ee] uppercase sm:text-[14px] xl:text-[16px];
+}
+
+.statsGrid {
+    @apply mt-4 grid gap-4 md:grid-cols-3 xl:mt-[24px] xl:gap-5 2xl:gap-6;
+}
+
+.statCard {
+    @apply rounded-[24px] bg-white/92 px-5 py-6 text-left shadow-[0_24px_64px_rgba(52, 78, 144, 0.06)] sm:px-6 sm:py-7 xl:min-h-[148px] xl:px-5 xl:py-5 2xl:min-h-[160px] 2xl:px-6 2xl:py-6;
+}
+
+.statNumber {
+    @apply text-[42px] font-semibold leading-none tracking-[-0.06em] text-[#4386ee] sm:text-[52px] xl:text-[56px] 2xl:text-[68px];
+}
+
+.statLabel {
+    @apply mt-3 text-[15px] tracking-[-0.02em] text-[#26282f] sm:text-[16px] 2xl:text-[17px];
+}
+
+.clientsSection {
+    @apply mt-10 sm:mt-12 xl:mt-9 2xl:mt-10;
+}
+
+.clientLogos {
+    @apply mt-5 flex flex-wrap items-center justify-center gap-x-6 gap-y-5 lg:justify-start xl:mt-[20px] xl:gap-x-6 2xl:flex-nowrap 2xl:gap-[28px];
+}
+
+.clientLogo {
+    @apply max-w-full w-auto object-contain;
+}
+
+.codeSelectWrap {
+    @apply relative;
+}
+
+.codeSelectBtn {
+    @apply flex h-[56px] w-full items-center justify-between rounded-[18px] border border-[#d9ddea] bg-white px-5 text-[17px] font-medium tracking-[-0.02em] text-[#1b1d22] focus:border-[#3e8cfb] focus:outline-none focus:ring-2 focus:ring-[#3e8cfb]/10 sm:h-[60px] sm:text-[18px] xl:h-[64px] xl:px-6 xl:text-[18px] 2xl:h-[72px] 2xl:px-7 2xl:text-[19px];
+}
+
+.codeSelectBtnInner {
+    @apply flex items-center gap-2;
+}
+
+.flag {
+    @apply h-6 w-8 rounded-sm object-cover shadow-sm;
+}
+
+.chevron {
+    @apply h-4 w-4 border-b-2 border-r-2 border-gray-400 transition-transform duration-200;
+    transform: rotate(45deg) translateY(-2px);
+}
+
+.chevronOpen {
+    transform: rotate(-135deg) translateY(-2px);
+}
+
+.codeDropdown {
+    @apply absolute left-0 right-0 top-full z-50 mt-2 max-h-[300px] overflow-y-auto rounded-xl border border-gray-200 bg-white p-2 shadow-xl;
+}
+
+.codeOption {
+    @apply flex w-full items-center justify-between rounded-lg px-3 py-2 text-left hover:bg-gray-50;
+}
+
+.codeOptionSelected {
+    @apply bg-blue-50 text-blue-600;
+}
+
+.codeOptionInner {
+    @apply flex items-center gap-3;
+}
+
+.codeOptionLabel {
+    @apply block text-sm font-medium;
+}
+
+.codeOptionCode {
+    @apply block text-xs text-gray-500;
+}
+
+.codeOptionCheck {
+    @apply text-xs font-bold uppercase tracking-wider text-blue-500;
+}
