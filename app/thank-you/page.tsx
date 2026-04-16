@@ -94,7 +94,6 @@
 
 
 import { Metadata } from "next";
-import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
@@ -102,16 +101,15 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default function ThankYouPage() {
-  const cookieStore = cookies();
-  const token = cookieStore.get("form_success");
-
-  if (!token || token.value !== "1") {
+export default function ThankYouPage({
+  searchParams,
+}: {
+  searchParams: { success?: string };
+}) {
+  // 🚫 Block direct access — only reachable after a successful form submission
+  if (searchParams?.success !== "true") {
     redirect("/contact-us");
   }
-
-  // Delete the cookie so the page can't be reloaded/revisited
-  cookieStore.delete("form_success");
 
   return (
     <section className="thank-you">
