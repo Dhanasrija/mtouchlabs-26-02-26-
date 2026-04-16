@@ -98,7 +98,7 @@ const data: ProductPageData = {
     { q: "Do you provide post-launch support?", a: "Yes, we provide ongoing maintenance, performance tuning, and feature enhancements." },
   ],
   cta: {
-    img: "/images/products/chef/Chef.png",
+    img: "/images/products/chef/chef.png",
     h2: "Build a Chef Management App Kitchens Love",
     body: "Launch a modern chef and kitchen management platform that is scalable, efficient, and ready for growth.",
   },

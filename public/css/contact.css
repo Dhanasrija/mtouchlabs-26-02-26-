@@ -1483,28 +1483,52 @@ button.ent-cta-banner__btn {
 
 /* ═══════ RESPONSIVE — ct- sections ═══════ */
 @media (max-width: 1024px) {
-  .ct-hero__inner { grid-template-columns: 1fr; gap: 40px; }
-  .ct-hero { padding: 120px 24px 60px; }
+  .ct-hero__inner { grid-template-columns: 1fr; gap: 32px; }
+  .ct-hero { padding: 90px 24px 48px; }
   .ct-hero__title { font-size: 40px; }
   .ct-offices__panel-grid { grid-template-columns: 1fr; }
   .ct-offices__map { height: 300px; }
 }
 
 @media (max-width: 768px) {
-  .ct-hero { padding: 100px 20px 48px; }
-  .ct-hero__title { font-size: 32px; }
-  .ct-hero__stats { flex-wrap: wrap; gap: 16px; }
-  .ct-hero__stat { border-right: none; padding: 0; width: calc(50% - 8px); margin-bottom: 8px; }
-  .ct-form__row { grid-template-columns: 1fr; }
-  .ct-form-card { padding: 28px 22px; }
-  .ct-offices { padding: 56px 20px; }
-  .ct-offices__heading { font-size: 28px; }
-  .ct-offices__tabs { flex-direction: column; align-items: center; }
+  .ct-hero { padding: 70px 18px 36px; }
+  .ct-hero__inner { gap: 24px; }
+  .ct-hero__left { padding-top: 0; }
+  .ct-hero__badge { margin-bottom: 14px; padding: 6px 14px; font-size: 11px; }
+  .ct-hero__title { font-size: 28px; line-height: 1.15; margin-bottom: 12px; }
+  .ct-hero__desc { font-size: 14px; line-height: 1.55; margin-bottom: 18px; }
+  .ct-hero__stats { flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+  .ct-hero__stat { border-right: none; padding: 0; width: calc(50% - 6px); margin-bottom: 4px; }
+  .ct-hero__stat-num { font-size: 22px; }
+  .ct-hero__stat-label { font-size: 11px; }
+  .ct-hero__tags { gap: 6px; }
+  .ct-hero__tag { padding: 4px 10px; font-size: 11px; }
+  .ct-form__row { grid-template-columns: 1fr; gap: 12px; }
+  .ct-form { gap: 14px; }
+  .ct-form-card { padding: 22px 18px; border-radius: 18px; }
+  .ct-form-card__title { font-size: 22px; }
+  .ct-form-card__sub { font-size: 13px; margin-bottom: 18px; }
+  .ct-offices { padding: 48px 18px; }
+  .ct-offices__heading { font-size: 26px; }
+  .ct-offices__sub { font-size: 14px; }
+  .ct-offices__tabs { flex-direction: column; align-items: stretch; gap: 8px; }
   .ct-offices__cards { grid-template-columns: 1fr; }
-  .ct-offices__details { padding: 24px 18px; }
+  .ct-offices__details { padding: 20px 16px; }
 }
 
 @media (max-width: 480px) {
-  .ct-hero__title { font-size: 28px; }
-  .ct-hero__stat-num { font-size: 24px; }
+  .ct-hero { padding: 60px 14px 28px; }
+  .ct-hero__inner { gap: 20px; }
+  .ct-hero__title { font-size: 24px; margin-bottom: 10px; }
+  .ct-hero__desc { font-size: 13px; margin-bottom: 14px; }
+  .ct-hero__stat-num { font-size: 20px; }
+  .ct-hero__stat-label { font-size: 10px; }
+  .ct-hero__stats { margin-bottom: 14px; gap: 8px; }
+  .ct-form-card { padding: 18px 14px; }
+  .ct-form-card__title { font-size: 20px; }
+  .ct-form { gap: 12px; }
+  .ct-form__input,
+  .ct-form__select,
+  .ct-form__textarea { font-size: 14px; }
+  .ct-form__submit { padding: 12px 18px; font-size: 14px; }
 }

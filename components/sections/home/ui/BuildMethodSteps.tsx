@@ -91,8 +91,10 @@ export function BuildMethodSteps({ steps }: BuildMethodStepsProps) {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
+                justifyContent: "flex-start",
                 width: "160px",
                 flexShrink: 0,
+                textAlign: "center",
                 animationDelay: `${stepDelay}s`,
               }}
             >
@@ -111,14 +113,31 @@ export function BuildMethodSteps({ steps }: BuildMethodStepsProps) {
                   overflow: "hidden",
                   cursor: "pointer",
                   animationDelay: `${stepDelay + 0.15}s`,
+                  margin: "0 auto 16px",
                 }}
               >
-                <div className="bm-item-icon" style={{ position: "relative", width: "100px", height: "100px" }}>
+                <div
+                  className="bm-item-icon"
+                  style={{
+                    position: "relative",
+                    width: "100px",
+                    height: "100px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    margin: "auto",
+                  }}
+                >
                   <Image
                     src={step.img}
                     alt={step.label}
                     fill
-                    style={{ objectFit: "contain", display: "block" }}
+                    sizes="100px"
+                    style={{
+                      objectFit: "contain",
+                      objectPosition: "center",
+                      display: "block",
+                    }}
                   />
                 </div>
               </div>

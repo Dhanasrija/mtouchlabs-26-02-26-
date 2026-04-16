@@ -8,12 +8,95 @@ function getRecipients(): string[] {
   return (process.env.NOTIFICATION_EMAILS || '').split(',').map(e => e.trim()).filter(Boolean);
 }
 
+// Normalize country code for CRM — accept "91", "+91", " 91 " etc. and always return "+91"
+function normalizeCountryCode(raw: string | undefined | null): string {
+  if (!raw) return '+91';
+  const t = String(raw).trim();
+  if (!t) return '+91';
+  return t.startsWith('+') ? t : `+${t.replace(/\D/g, '') || '91'}`;
+}
+
+// Push lead to CRM — fire-and-forget, never blocks main response
+async function pushToCrm(data: {
+  name: string;
+  email: string;
+  countryCode?: string;
+  mobile?: string;
+  company?: string;
+  subject?: string;
+  interest?: string;
+  message?: string;
+}) {
+  try {
+    const countryCode = normalizeCountryCode(data.countryCode);
+    const phone = (data.mobile || '').replace(/\D/g, '');
+
+    const requirement = [
+      data.subject ? `Subject: ${data.subject}` : '',
+      data.interest ? `Service: ${data.interest}` : '',
+      data.company ? `Company: ${data.company}` : '',
+      data.message ? `Message: ${data.message}` : '',
+    ].filter(Boolean).join(' | ') || 'Contact form submission from website';
+
+    const crmPayload = {
+      contactPerson: data.name,
+      email: data.email || '',
+      countryCode,
+      phone,
+      requirement,
+    };
+
+    console.log('CRM payload (contact):', JSON.stringify(crmPayload));
+
+    const crmRes = await fetch('https://crmapi.mtouchlabs.com/lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(crmPayload),
+    });
+
+    const crmText = await crmRes.text();
+    console.log('CRM response status (contact):', crmRes.status);
+    console.log('CRM response body (contact):', crmText);
+
+    if (!crmRes.ok) {
+      console.error('CRM submission failed (contact):', crmRes.status, crmText);
+    }
+  } catch (crmErr) {
+    console.error('CRM submission error (contact):', crmErr);
+  }
+}
+
 export async function POST(req: Request) {
   try {
     const data = await req.json();
+    const isPartial = !!data.partial;
 
-    if (!data.name || !data.email) {
+    // Partial leads only need name + (email OR phone) — full submissions require email.
+    if (isPartial) {
+      if (!data.name || (!data.email && !data.mobile)) {
+        return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
+      }
+    } else if (!data.name || !data.email) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
+    }
+
+    // ═══ Push lead to CRM (fire-and-forget, same pattern as /api/estimate) ═══
+    // Runs for both partial and full submissions so we never miss a lead.
+    pushToCrm({
+      name: data.name,
+      email: data.email,
+      countryCode: data.countryCode,
+      mobile: data.mobile,
+      company: data.company,
+      subject: data.subject,
+      interest: data.interest,
+      message: data.message,
+    });
+
+    // For partial leads, stop here — skip the notification email so we don't
+    // spam the inbox every time someone types in a field.
+    if (isPartial) {
+      return NextResponse.json({ success: true, partial: true });
     }
 
     const recipients = getRecipients();

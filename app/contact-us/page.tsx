@@ -183,6 +183,33 @@ export default function ContactUsPage() {
     contactTurnstileToken = token;
   };
 
+  // ── Partial lead capture (fires once when name + email/phone are present) ──
+  var partialSent = false;
+  function tryPartialLead(formEl) {
+    if (partialSent) return;
+    if (!formEl) return;
+    var fd = new FormData(formEl);
+    var name = (fd.get("name") || "").toString().trim();
+    var email = (fd.get("email") || "").toString().trim();
+    var mobile = (fd.get("mobile") || "").toString().trim();
+    if (!name) return;
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    var phoneOk = mobile.length >= 7;
+    // Fire only when name is present AND (valid email OR phone with enough digits)
+    if (!emailOk && !phoneOk) return;
+    var d = Object.fromEntries(fd.entries());
+    d.partial = true;
+    partialSent = true;
+    try {
+      fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(d),
+        keepalive: true
+      }).catch(function() { partialSent = false; });
+    } catch (e) { partialSent = false; }
+  }
+
   // ── Form + Phone Validation ──
   function init() {
     var f = document.getElementById("contactForm");
@@ -191,6 +218,12 @@ export default function ContactUsPage() {
     var ph = document.getElementById("phoneInput");
     var cc = f.querySelector('select[name="countryCode"]');
     var hint = document.getElementById("phoneHint");
+
+    // Attach partial-lead triggers on blur of key fields
+    ["name", "email", "mobile"].forEach(function(fieldName) {
+      var el = f.querySelector('[name="' + fieldName + '"]');
+      if (el) el.addEventListener("blur", function() { tryPartialLead(f); });
+    });
 
     var rules = {
       "91": { len: 10, msg: "Indian numbers must be 10 digits" },
