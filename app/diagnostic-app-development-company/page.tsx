@@ -16,7 +16,7 @@ const data: ProductPageData = {
     h1Accent: "Development Company",
     h1Tail: "in Hyderabad",
     subtitle: "Launch a feature-rich diagnostic lab app with online test booking, home sample collection, digital reports, and secure payments.",
-    demoHref: "/contact-us",
+    demoHref: "https://youtu.be/NtkXvVPIFyU?si=fO6p0X8gi4YW49zx",
     leftPhoneImg: "/images/products/diagnostic/phone1.png",
     rightPhoneImg: "/images/products/diagnostic/phone2.png",
   },

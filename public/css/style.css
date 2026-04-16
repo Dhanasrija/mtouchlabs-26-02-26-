@@ -48514,8 +48514,18 @@ body .nav-quote-btn .fa-btn {
 
 /* ── BREADCRUMB ──────────────────────────────────────────── */
 .breadcrumb {
-    background: var(--bg-card);
-    border-bottom: 1px solid var(--blue-border);
+  background: #1a1a2e !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.breadcrumb[style] {
+  background: #1a1a2e !important;
+}
+
+.breadcrumb *,
+.breadcrumbInner,
+.breadcrumb ul,
+.breadcrumb nav {
+  background: transparent !important;
 }
 
 .breadcrumbInner {
@@ -48549,6 +48559,9 @@ body .nav-quote-btn .fa-btn {
     font-size: 0.82rem;
     font-weight: 600;
     color: var(--text);
+}
+html, body {
+  background: #1a1a2e !important;
 }
 
 /* ── HERO ────────────────────────────────────────────────── */

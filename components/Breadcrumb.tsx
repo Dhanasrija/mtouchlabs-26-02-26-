@@ -129,7 +129,7 @@ export default function Breadcrumb({ pagePath, currentLabel }: BreadcrumbProps) 
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <nav aria-label="Breadcrumb">
+      <nav aria-label="Breadcrumb" style={{ position: "relative", zIndex: 5 }}>
         <ol
           style={{
             display: "flex",
@@ -141,6 +141,8 @@ export default function Breadcrumb({ pagePath, currentLabel }: BreadcrumbProps) 
             padding: 0,
             fontSize: "0.9rem",
             gap: "0",
+            background: "#1a1a2e",
+            border: "none",
           }}
         >
           {items.map((item, index) => (
@@ -152,6 +154,7 @@ export default function Breadcrumb({ pagePath, currentLabel }: BreadcrumbProps) 
                     color: "#e8a025",
                     fontSize: "0.8rem",
                     fontWeight: 700,
+                    textShadow: "0 1px 3px rgba(0,0,0,0.6)",
                   }}
                 >
                   /
@@ -164,6 +167,7 @@ export default function Breadcrumb({ pagePath, currentLabel }: BreadcrumbProps) 
                     color: "#ffffff",
                     textDecoration: "none",
                     fontWeight: 500,
+                    textShadow: "0 1px 3px rgba(0,0,0,0.6)",
                   }}
                 >
                   {item.label}
@@ -173,6 +177,7 @@ export default function Breadcrumb({ pagePath, currentLabel }: BreadcrumbProps) 
                   style={{
                     fontWeight: 700,
                     color: "#e8a025",
+                    textShadow: "0 1px 3px rgba(0,0,0,0.6)",
                   }}
                 >
                   {item.label}

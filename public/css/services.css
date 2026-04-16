@@ -3012,3 +3012,31 @@
   color: var(--color-signature-blue); /* brand blue */
   font-weight: 700;
 }
+
+
+
+/* 🔥 COMPLETE RESET for your service cards */
+.fds-card,
+.fds-card:focus,
+.fds-card:active,
+.fds-card:focus-visible,
+.fds-card:visited {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* 🔥 Also kill default anchor behavior */
+a,
+a:focus,
+a:active,
+a:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* 🔥 Remove tap highlight (mobile browsers) */
+* {
+  -webkit-tap-highlight-color: transparent;
+}

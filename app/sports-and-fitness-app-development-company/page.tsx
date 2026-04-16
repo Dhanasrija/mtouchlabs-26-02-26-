@@ -16,7 +16,7 @@ const data: ProductPageData = {
     h1Accent: "Development Company",
     h1Tail: "in Hyderabad",
     subtitle: "Launch a scalable fitness app with workout tracking, live classes, wearable integration, nutrition plans, and personalized coaching.",
-    demoHref: "/contact-us",
+    demoHref: "https://youtu.be/pQpWph29AdA?si=rUt7n3HeLiARR1z_",
     leftPhoneImg: "/images/products/sports/phone1.png",
     rightPhoneImg: "/images/products/sports/phone2.png",
   },

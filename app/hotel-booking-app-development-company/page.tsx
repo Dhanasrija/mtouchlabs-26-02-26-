@@ -15,7 +15,7 @@ const data: ProductPageData = {
     h1Accent: "Development Company",
     h1Tail: "in Hyderabad",
     subtitle: "Launch a feature-rich hotel reservation app with real-time availability, instant bookings, and secure payments.",
-    demoHref: "/contact-us",
+    demoHref: "https://youtu.be/JkyhaT9n4vM?si=cbedgYwyLIuzRny9",
     leftPhoneImg: "/images/products/hotel/phone1.png",
     rightPhoneImg: "/images/products/hotel/phone2.png",
   },

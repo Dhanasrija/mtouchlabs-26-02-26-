@@ -15,7 +15,7 @@ const data: ProductPageData = {
     h1Accent: "Development Company",
     h1Tail: "in Hyderabad",
     subtitle: "Launch a chef on-demand and kitchen management platform with booking, scheduling, order tracking, and kitchen operations in one app.",
-    demoHref: "/contact-us",
+    demoHref: "https://youtu.be/U7Jf26aXhoo?si=BkLmH3y6-nMu4t6n",
     leftPhoneImg: "/images/products/chef/phone1.png",
     rightPhoneImg: "/images/products/chef/phone2.png",
   },

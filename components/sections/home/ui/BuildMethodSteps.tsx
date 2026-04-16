@@ -108,7 +108,8 @@ export function BuildMethodSteps({ steps }: BuildMethodStepsProps) {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  marginBottom: "16px",
+                  padding: "22px",
+                  boxSizing: "border-box",
                   boxShadow: "0 4px 20px rgba(0,0,0,0.06)",
                   overflow: "hidden",
                   cursor: "pointer",
@@ -120,22 +121,18 @@ export function BuildMethodSteps({ steps }: BuildMethodStepsProps) {
                   className="bm-item-icon"
                   style={{
                     position: "relative",
-                    width: "100px",
-                    height: "100px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    margin: "auto",
+                    width: "100%",
+                    height: "100%",
                   }}
                 >
                   <Image
                     src={step.img}
                     alt={step.label}
                     fill
-                    sizes="100px"
+                    sizes="96px"
                     style={{
                       objectFit: "contain",
-                      objectPosition: "center",
+                      objectPosition: "center center",
                       display: "block",
                     }}
                   />

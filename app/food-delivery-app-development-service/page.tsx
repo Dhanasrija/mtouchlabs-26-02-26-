@@ -1573,7 +1573,7 @@ export default function Page() {
             <p className="fd-hero-sub">
               Launch a scalable, user-friendly food delivery app with advanced features, seamless ordering, real-time tracking, and secure payment integration.
             </p>
-            <a href="https://youtu.be/Zvae5N9p3Gcsi=ok-KlYDubki5hAE-" target="_blank" className="fd-btn">
+            <a href="https://youtu.be/Zvae5N9p3Gc?si=_TuMXrq_Frf1VmWh" target="_blank" className="fd-btn">
               View Demo &nbsp;▶
             </a>
           </div>

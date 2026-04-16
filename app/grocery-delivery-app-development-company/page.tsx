@@ -1153,7 +1153,7 @@ export default function Page() {
             <p className="gd-hero-sub">
               Build scalable grocery delivery apps with real-time tracking, smart inventory, and seamless checkout — custom solutions for startups and enterprises.
             </p>
-            <Link href="https://youtu.be/OG7xN9zS0nQ" target="_blank" rel="noopener noreferrer" className="gd-btn">
+            <Link href="https://youtu.be/OG7xN9zS0nQ?si=0_gnd60CIxP10yrs" target="_blank" rel="noopener noreferrer" className="gd-btn">
               View Demo &nbsp;▶
             </Link>
           </div>

@@ -16,7 +16,7 @@ const data: ProductPageData = {
     h1Accent: "Development Company",
     h1Tail: "in Hyderabad",
     subtitle: "Launch a scalable social media app with feeds, stories, reels, chat, live streaming, and creator monetization.",
-    demoHref: "/contact-us",
+    demoHref: "https://youtu.be/mWcMXqtNP30?si=sb7_j7mwndkOEJrk",
     leftPhoneImg: "/images/products/social/phone1.png",
     rightPhoneImg: "/images/products/social/phone2.png",
   },

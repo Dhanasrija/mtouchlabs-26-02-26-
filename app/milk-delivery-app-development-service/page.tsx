@@ -15,7 +15,7 @@ const data: ProductPageData = {
     h1Accent: "Development Company",
     h1Tail: "in Hyderabad",
     subtitle: "Launch a subscription-based milk and daily essentials delivery app with route planning, wallet payments, and automated recurring orders.",
-    demoHref: "/contact-us",
+    demoHref: "https://youtu.be/c68vsTArxhE?si=C43BcOC5d3ODNFJF",
     leftPhoneImg: "/images/products/milk/milk-delivery-phone-1.svg",
     rightPhoneImg: "/images/products/milk/milk-delivery-phone-3.svg",
   },
