@@ -672,25 +672,49 @@ export function FreeRequestQuoteClient() {
           throw new Error((json && json.error) || "Request failed");
         }
 
-        // ── Fast path: redirect to /thank-you immediately.
-        // The route is prefetched on mount, so navigation is instant.
-        // Fire Google Analytics event non-blockingly before navigation.
+        // ── Fire Google Analytics + Google Ads conversion, THEN redirect.
+        // Using `event_callback` guarantees the beacon is sent before the
+        // client-side navigation fires. A safety timeout ensures we never
+        // block the user for more than 1.2s if the analytics script fails.
+        const navigate = () => {
+          router.push("/thank-you?success=true");
+        };
+
         try {
-          if (typeof window !== "undefined" && (window as any).gtag) {
-            (window as any).gtag("event", "generate_quote_lead", {
+          const w = window as any;
+          if (typeof window !== "undefined" && typeof w.gtag === "function") {
+            let navigated = false;
+            const go = () => {
+              if (navigated) return;
+              navigated = true;
+              navigate();
+            };
+
+            // GA4 lead event
+            w.gtag("event", "generate_quote_lead", {
               event_category: "form",
               event_label: "request_free_quote_form",
             });
+
+            // Google Ads conversion (tied to AW- config in root layout)
+            w.gtag("event", "conversion", {
+              send_to: "AW-17755266570",
+              event_category: "form",
+              event_label: "request_free_quote_form",
+              event_callback: go,
+            });
+
+            // Hard safety-net: if gtag callback never fires (ad-blocker,
+            // network hiccup), navigate anyway after 1.2s.
+            window.setTimeout(go, 1200);
+            return;
           }
         } catch {
           /* never block redirect on analytics errors */
         }
 
-        // Navigate immediately. `?success=true` is required — the
-        // /thank-you page blocks direct access without this flag.
-        // We intentionally skip resetting local form state here — the
-        // component will unmount on navigation anyway.
-        router.push("/thank-you?success=true");
+        // Fallback when gtag is not available at all (e.g. blocked).
+        navigate();
         return;
       } catch (err: any) {
         console.error(err);
@@ -801,7 +825,7 @@ export function FreeRequestQuoteClient() {
                   type="tel"
                   inputMode="numeric"
                   autoComplete="tel-national"
-                  placeholder="0000-0000-00"
+                  placeholder="Enter Mobile Number"
                   pattern="[0-9]{6,15}"
                   minLength={selectedCountry.minLen}
                   maxLength={selectedCountry.maxLen}
