@@ -639,6 +639,13 @@ img.rq-flag {
 
 .rq-headline-row {
   display: inline;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .rq-headline-row {
+    white-space: normal;
+  }
 }
 
 .rq-headline-blue {
