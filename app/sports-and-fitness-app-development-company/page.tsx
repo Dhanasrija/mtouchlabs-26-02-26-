@@ -102,4 +102,24 @@ const data: ProductPageData = {
   },
 };
 
-export default function Page() { return <ProductPageTemplate data={data} />; }
+export default function Page() {
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: data.faqs.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+          }),
+        }}
+      />
+      <ProductPageTemplate data={data} />
+    </>
+  );
+}
