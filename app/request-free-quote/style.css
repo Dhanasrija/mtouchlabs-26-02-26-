@@ -3,11 +3,26 @@
    All classes prefixed `rq-`. Uses tokens from brand.css.
    ============================================================== */
 
+/* ─── Global safety rules (scoped to this page) ─── */
+.rq-main,
+.rq-main * {
+  box-sizing: border-box;
+  min-width: 0;                   /* prevent flex/grid children from overflowing */
+}
+
+/* Only cap max-width so responsive images never overflow.
+   DO NOT reset height here — explicit heights on logos/badges must win. */
+.rq-main img,
+.rq-main svg {
+  max-width: 100%;
+}
+
 /* ─── Page Wrapper ─── */
 .rq-main {
   position: relative;
   min-height: 100vh;
   width: 100%;
+  max-width: 100vw;
   padding: 140px 24px 48px;
   background:
     radial-gradient(1200px 600px at 85% -10%, rgba(62, 140, 251, 0.08), transparent 60%),
@@ -76,8 +91,8 @@
 
 @media (min-width: 1024px) {
   .rq-grid {
-    grid-template-columns: minmax(0, 500px) minmax(0, 1fr);
-    gap: 56px;
+    grid-template-columns: minmax(0, 540px) minmax(0, 1fr);
+    gap: 48px;
   }
 
   .rq-main {
@@ -87,8 +102,8 @@
 
 @media (min-width: 1280px) {
   .rq-grid {
-    grid-template-columns: minmax(0, 520px) minmax(0, 1fr);
-    gap: 72px;
+    grid-template-columns: minmax(0, 580px) minmax(0, 1fr);
+    gap: 64px;
   }
 
   .rq-main {
@@ -123,10 +138,13 @@
   font-size: 24px;
   font-weight: 700;
   text-align: center;
-  line-height: 1.2;
+  line-height: 1.25;
   letter-spacing: -0.015em;
   color: #0f1217;
   margin: 0 0 24px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 @media (min-width: 640px) {
@@ -336,12 +354,16 @@ img.rq-flag {
   font-size: 13px;
   font-weight: 500;
   color: #1f2430;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  line-height: 1.3;
 }
 
 .rq-code-option-code {
   display: block;
   font-size: 11px;
   color: #6b7280;
+  line-height: 1.3;
 }
 
 .rq-code-option-check {
@@ -361,6 +383,9 @@ img.rq-flag {
   padding-right: 40px;
   cursor: pointer;
   color: #9ca3af;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .rq-select:valid,
@@ -450,6 +475,9 @@ img.rq-flag {
   font-size: 13px;
   font-weight: 500;
   animation: rq-fade-up 0.35s ease-out;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  line-height: 1.45;
 }
 
 .rq-status-ok {
@@ -464,29 +492,116 @@ img.rq-flag {
   border: 1px solid #fecaca;
 }
 
+/* ─── Per-field validation error styles ─── */
+.rq-input.rq-invalid,
+.rq-select.rq-invalid {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12) !important;
+  background: #fffafa;
+}
+
+.rq-input.rq-invalid:focus,
+.rq-select.rq-invalid:focus {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.18) !important;
+}
+
+.rq-field-err {
+  font-size: 12.5px;
+  color: #dc2626;
+  font-weight: 500;
+  line-height: 1.4;
+  margin-top: 2px;
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  animation: rq-fade-up 0.25s ease-out;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.rq-field-err::before {
+  content: "⚠";
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.rq-submit:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* optgroup styling inside the select */
+.rq-select optgroup {
+  font-weight: 700;
+  color: #0C1C32;
+  background: #f5f7fb;
+}
+
+.rq-select option {
+  font-weight: 500;
+  color: #34363d;
+  background: #ffffff;
+}
+
+/* ─── Cloudflare Turnstile captcha wrapper ─── */
+.rq-captcha-wrap {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 65px;
+  margin-top: 2px;
+}
+
+.rq-turnstile {
+  /* Turnstile widget is ~300x65px; constrain so it doesn't overflow */
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.rq-turnstile iframe {
+  max-width: 100% !important;
+}
+
+@media (max-width: 380px) {
+  .rq-captcha-wrap {
+    justify-content: center;
+  }
+}
+
 /* ==============================================================
-   BADGES — icon + text composite
+   BADGES — icon + text composite (wraps gracefully on smaller screens)
    ============================================================== */
 .rq-badges {
-  margin-top: 26px;
+  margin-top: 24px;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap;                /* allow wrapping when space is tight */
   align-items: center;
   justify-content: space-between;
-  gap: 14px;
-  padding-top: 8px;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #eef1ff;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .rq-badges {
+    flex-wrap: nowrap;            /* one row on desktop where it fits */
+  }
 }
 
 .rq-badge {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   opacity: 0;
   transform: translateY(12px) scale(0.95);
   animation: rq-badge-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   transition: transform 0.25s ease, filter 0.25s ease;
-  flex: 1 1 auto;
+  flex: 0 1 auto;                 /* shrink if needed, don't grow */
   min-width: 0;
+  max-width: 100%;
 }
 
 .rq-badge:hover {
@@ -499,14 +614,16 @@ img.rq-flag {
 }
 
 .rq-badge-img-full {
-  height: 42px;
+  height: 40px;
   width: auto;
+  max-width: 120px;
   object-fit: contain;
+  flex-shrink: 0;
 }
 
 .rq-badge-icon {
-  height: 36px;
-  width: 36px;
+  height: 34px;
+  width: 34px;
   object-fit: contain;
   flex-shrink: 0;
 }
@@ -514,18 +631,24 @@ img.rq-flag {
 .rq-badge-text {
   display: flex;
   flex-direction: column;
-  line-height: 1.15;
+  line-height: 1.2;
   min-width: 0;
+  flex: 1 1 auto;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .rq-badge-line1,
 .rq-badge-line2 {
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 700;
   color: #1f2430;
   letter-spacing: 0.005em;
-  white-space: nowrap;
+  white-space: normal;            /* allow wrapping so text never gets cut */
+  overflow-wrap: break-word;
+  word-break: break-word;
   text-transform: none;
+  line-height: 1.25;
 }
 
 .rq-badge-line2 {
@@ -533,19 +656,46 @@ img.rq-flag {
   color: #2a2f3b;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
   .rq-badge-img-full {
-    height: 46px;
+    height: 42px;
+    max-width: 130px;
   }
 
   .rq-badge-icon {
-    height: 40px;
-    width: 40px;
+    height: 36px;
+    width: 36px;
   }
 
   .rq-badge-line1,
   .rq-badge-line2 {
-    font-size: 12px;
+    font-size: 11px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .rq-badge-img-full {
+    height: 44px;
+    max-width: 140px;
+  }
+
+  .rq-badge-icon {
+    height: 38px;
+    width: 38px;
+  }
+
+  .rq-badge-line1,
+  .rq-badge-line2 {
+    font-size: 11.5px;
+  }
+}
+
+/* On very narrow phones, allow wrapping gracefully */
+@media (max-width: 420px) {
+  .rq-badges {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
   }
 }
 
@@ -611,11 +761,14 @@ img.rq-flag {
   font-family: var(--font-primary, 'Poppins', sans-serif);
   font-weight: 700;
   font-size: 34px;
-  line-height: 1.05;
-  letter-spacing: -0.035em;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
   color: #14161c;
   margin: 0;
   max-width: 640px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 @media (min-width: 640px) {
@@ -639,13 +792,6 @@ img.rq-flag {
 
 .rq-headline-row {
   display: inline;
-  white-space: nowrap;
-}
-
-@media (max-width: 768px) {
-  .rq-headline-row {
-    white-space: normal;
-  }
 }
 
 .rq-headline-blue {
@@ -666,9 +812,11 @@ img.rq-flag {
   margin: 18px auto 0;
   max-width: 560px;
   font-size: 17px;
-  line-height: 1.5;
+  line-height: 1.55;
   color: #5c616e;
   letter-spacing: -0.005em;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 @media (min-width: 1024px) {
@@ -798,6 +946,9 @@ img.rq-flag {
   font-size: 13px;
   color: #26282f;
   letter-spacing: -0.005em;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  line-height: 1.35;
 }
 
 @media (min-width: 1024px) {
@@ -925,5 +1076,464 @@ img.rq-flag {
 
   .rq-submit-shine {
     display: none;
+  }
+}
+
+/* ==============================================================
+   MOBILE RESPONSIVE POLISH (< 1024px and phone sizes)
+   Ensures the page looks native on every phone, no overflow,
+   tappable inputs, readable type, correct spacing.
+   ============================================================== */
+
+/* Global: prevent horizontal scroll on small devices */
+@media (max-width: 1023px) {
+  .rq-main {
+    padding: 96px 16px 40px;
+  }
+
+  .rq-grid {
+    gap: 28px;
+  }
+
+  .rq-form-card {
+    padding: 24px 20px;
+    border-radius: 18px;
+  }
+
+  .rq-form-title {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  .rq-right {
+    max-width: 100%;
+  }
+}
+
+/* Tablet-ish (≤ 768px) */
+@media (max-width: 768px) {
+  .rq-main {
+    padding: 88px 14px 36px;
+  }
+
+  .rq-headline {
+    font-size: 34px;
+    line-height: 1.1;
+  }
+
+  .rq-subtext {
+    font-size: 15px;
+    margin-top: 14px;
+  }
+
+  .rq-stats-section {
+    margin-top: 32px;
+  }
+
+  .rq-clients-section {
+    margin-top: 30px;
+  }
+
+  .rq-logo {
+    width: 180px;
+  }
+
+  .rq-logo-wrap {
+    margin-bottom: 20px;
+  }
+
+  /* Reduce stat card height so 3 cards stack nicely */
+  .rq-stat-card {
+    padding: 18px 20px;
+    border-radius: 14px;
+  }
+
+  .rq-stat-number {
+    font-size: 32px;
+  }
+}
+
+/* Mobile (≤ 640px) */
+@media (max-width: 640px) {
+  .rq-main {
+    padding: 80px 12px 32px;
+    /* Kill horizontal overflow from blobs */
+    overflow-x: hidden;
+  }
+
+  .rq-blob {
+    opacity: 0.35;
+  }
+
+  .rq-blob-1 {
+    width: 260px;
+    height: 260px;
+    top: -80px;
+    right: -60px;
+  }
+
+  .rq-blob-2 {
+    width: 280px;
+    height: 280px;
+    bottom: -80px;
+    left: -80px;
+  }
+
+  .rq-form-card {
+    padding: 22px 16px;
+    border-radius: 16px;
+  }
+
+  .rq-form-title {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .rq-form {
+    gap: 14px;
+  }
+
+  .rq-label {
+    font-size: 13.5px;
+  }
+
+  /* 16px font on inputs prevents iOS Safari auto-zoom on focus */
+  .rq-input,
+  .rq-select,
+  .rq-code-btn {
+    height: 46px;
+    font-size: 16px;
+    padding: 0 14px;
+  }
+
+  .rq-phone-row {
+    grid-template-columns: 108px minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .rq-code-btn {
+    padding: 0 10px;
+    font-size: 14px;
+  }
+
+  .rq-code-dropdown {
+    max-height: 260px;
+    /* Make sure dropdown never exceeds viewport width */
+    max-width: calc(100vw - 32px);
+  }
+
+  .rq-submit {
+    height: 48px;
+    font-size: 14px;
+    width: 100%;
+  }
+
+  /* Headline */
+  .rq-headline {
+    font-size: 28px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  .rq-subtext {
+    font-size: 14.5px;
+    padding: 0 4px;
+    line-height: 1.55;
+  }
+
+  .rq-section-label,
+  .rq-section-label-blue {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+  }
+
+  .rq-logo {
+    width: 160px;
+  }
+
+  /* Stats: single column, tighter */
+  .rq-stats-grid {
+    gap: 12px;
+  }
+
+  .rq-stat-card {
+    padding: 16px 18px;
+  }
+
+  .rq-stat-number {
+    font-size: 30px;
+  }
+
+  .rq-stat-label {
+    font-size: 12.5px;
+  }
+
+  /* Marquee: smaller logos + faster to feel alive on small screens */
+  .rq-marquee-track {
+    gap: 32px;
+    animation-duration: 22s;
+  }
+
+  .rq-client-logo {
+    height: 26px;
+    max-width: 110px;
+  }
+
+  /* Captcha should never overflow */
+  .rq-captcha-wrap {
+    justify-content: center;
+    min-height: 70px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .rq-turnstile {
+    transform-origin: center center;
+    max-width: 100%;
+  }
+
+  /* Status messages */
+  .rq-status {
+    font-size: 12.5px;
+    padding: 9px 12px;
+  }
+
+  /* Per-field error slightly bigger for legibility */
+  .rq-field-err {
+    font-size: 12px;
+  }
+
+  /* Badges: stack comfortably, centered */
+  .rq-badges {
+    justify-content: center;
+    gap: 14px;
+    margin-top: 22px;
+  }
+
+  .rq-badge {
+    flex: 0 1 100%;
+    justify-content: center;
+    max-width: 100%;
+  }
+
+  .rq-badge-image {
+    justify-content: center;
+  }
+
+  .rq-badge-text {
+    text-align: left;
+  }
+
+  .rq-badge-line1,
+  .rq-badge-line2 {
+    font-size: 11px;
+  }
+}
+
+/* Small phones (≤ 420px) — iPhone SE, Galaxy S8 class */
+@media (max-width: 420px) {
+  .rq-main {
+    padding: 76px 10px 28px;
+  }
+
+  .rq-form-card {
+    padding: 20px 14px;
+  }
+
+  .rq-form-title {
+    font-size: 19px;
+    margin-bottom: 14px;
+  }
+
+  .rq-headline {
+    font-size: 26px;
+    line-height: 1.18;
+  }
+
+  .rq-subtext {
+    font-size: 14px;
+    padding: 0 2px;
+  }
+
+  /* Country code: narrower but still tap-friendly */
+  .rq-phone-row {
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 6px;
+  }
+
+  .rq-code-btn {
+    padding: 0 8px;
+    font-size: 13.5px;
+  }
+
+  .rq-code-inner {
+    gap: 6px;
+  }
+
+  .rq-flag {
+    width: 20px;
+    height: 15px;
+    font-size: 13px;
+  }
+
+  /* Turnstile @ 300px fits comfortably with centered alignment */
+  .rq-captcha-wrap {
+    justify-content: center;
+    padding: 0;
+  }
+
+  /* Badges: always stack on small phones, centered */
+  .rq-badges {
+    margin-top: 20px;
+    gap: 14px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .rq-badge {
+    flex: 1 1 100%;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+  }
+
+  .rq-badge-image {
+    justify-content: center;
+  }
+
+  .rq-badge-img-full {
+    height: 38px;
+    max-width: 140px;
+  }
+
+  .rq-badge-text {
+    text-align: center;
+    align-items: center;
+  }
+
+  .rq-badge-line1,
+  .rq-badge-line2 {
+    font-size: 11.5px;
+    text-align: center;
+  }
+
+  /* Stat label looks better centered on small phones */
+  .rq-stat-card {
+    text-align: center;
+  }
+
+  .rq-stat-number {
+    font-size: 28px;
+  }
+}
+
+/* Very small phones (≤ 360px) — Galaxy Fold closed, older Androids */
+@media (max-width: 360px) {
+  .rq-main {
+    padding: 72px 8px 24px;
+  }
+
+  .rq-form-card {
+    padding: 18px 12px;
+  }
+
+  .rq-form-title {
+    font-size: 17px;
+  }
+
+  .rq-headline {
+    font-size: 22px;
+    letter-spacing: -0.015em;
+  }
+
+  .rq-subtext {
+    font-size: 13.5px;
+  }
+
+  .rq-label {
+    font-size: 13px;
+  }
+
+  .rq-input,
+  .rq-select,
+  .rq-code-btn {
+    height: 44px;
+    padding: 0 10px;
+  }
+
+  .rq-phone-row {
+    grid-template-columns: 88px minmax(0, 1fr);
+    gap: 6px;
+  }
+
+  .rq-code-btn {
+    padding: 0 6px;
+    font-size: 13px;
+  }
+
+  .rq-flag {
+    width: 18px;
+    height: 13px;
+    font-size: 12px;
+  }
+
+  /* Scale Turnstile slightly so it never overflows 360px */
+  .rq-captcha-wrap {
+    overflow: hidden;
+    justify-content: center;
+  }
+
+  .rq-turnstile {
+    transform: scale(0.88);
+    transform-origin: center center;
+    max-width: 100%;
+  }
+
+  .rq-stat-card {
+    padding: 14px 14px;
+  }
+
+  .rq-stat-number {
+    font-size: 26px;
+  }
+
+  .rq-stat-label {
+    font-size: 12px;
+  }
+
+  .rq-badge-img-full {
+    height: 34px;
+    max-width: 130px;
+  }
+
+  .rq-badge-line1,
+  .rq-badge-line2 {
+    font-size: 11px;
+  }
+
+  .rq-submit {
+    height: 46px;
+    font-size: 13.5px;
+  }
+
+  /* Marquee tightens up further */
+  .rq-marquee-track {
+    gap: 24px;
+  }
+
+  .rq-client-logo {
+    height: 22px;
+    max-width: 90px;
+  }
+}
+
+/* Landscape phones — avoid tall hero padding eating the viewport */
+@media (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {
+  .rq-main {
+    padding: 72px 16px 28px;
+  }
+
+  .rq-headline {
+    font-size: 26px;
   }
 }
