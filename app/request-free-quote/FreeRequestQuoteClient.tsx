@@ -492,6 +492,16 @@ export function FreeRequestQuoteClient() {
     };
   }, []);
 
+  /* ── Prefetch the /thank-you route so post-submit redirect is instant ── */
+  useEffect(() => {
+    try {
+      router.prefetch("/thank-you?success=true");
+      router.prefetch("/thank-you");
+    } catch {
+      /* ignore — prefetch is best-effort */
+    }
+  }, [router]);
+
   /* ── Turnstile captcha (Cloudflare) ─────────────────────── */
   const turnstileRef = useRef<HTMLDivElement>(null);
   const turnstileWidgetId = useRef<string | null>(null);
@@ -662,25 +672,26 @@ export function FreeRequestQuoteClient() {
           throw new Error((json && json.error) || "Request failed");
         }
 
-        setStatus("success");
-        setFullName("");
-        setEmail("");
-        setMobile("");
-        setService("");
-        setTouched({});
-        setFieldErrors({});
-        resetCaptcha();
-
-        // Fire Google Analytics generate_quote_lead event
-        if (typeof window !== "undefined" && (window as any).gtag) {
-          (window as any).gtag("event", "generate_quote_lead", {
-            event_category: "form",
-            event_label: "request_free_quote_form",
-          });
+        // ── Fast path: redirect to /thank-you immediately.
+        // The route is prefetched on mount, so navigation is instant.
+        // Fire Google Analytics event non-blockingly before navigation.
+        try {
+          if (typeof window !== "undefined" && (window as any).gtag) {
+            (window as any).gtag("event", "generate_quote_lead", {
+              event_category: "form",
+              event_label: "request_free_quote_form",
+            });
+          }
+        } catch {
+          /* never block redirect on analytics errors */
         }
 
-        // Redirect to thank-you page
-        router.push("/thank-you");
+        // Navigate immediately. `?success=true` is required — the
+        // /thank-you page blocks direct access without this flag.
+        // We intentionally skip resetting local form state here — the
+        // component will unmount on navigation anyway.
+        router.push("/thank-you?success=true");
+        return;
       } catch (err: any) {
         console.error(err);
         setStatus("error");
@@ -835,13 +846,9 @@ export function FreeRequestQuoteClient() {
                 >
                   <option value="">Select Service Interested</option>
                   {SERVICES.map((group) => (
-                    <optgroup key={group.group} label={group.group}>
-                      {group.items.map((item) => (
-                        <option key={item} value={item}>
-                          {item}
-                        </option>
-                      ))}
-                    </optgroup>
+                    <option key={group.group} value={group.group}>
+                      {group.group}
+                    </option>
                   ))}
                 </select>
                 <span className="rq-select-chevron" aria-hidden />
