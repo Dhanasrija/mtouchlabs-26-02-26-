@@ -328,8 +328,11 @@
   font-weight: 600;
   color: var(--color-signature-blue);
   text-decoration: none;
-  letter-spacing: 4px;
+
+  letter-spacing: 1px;          /* 🔥 reduce from 4px */
   text-align: right;
+
+  padding-right: 8px;           /* 👈 THIS moves it left */
   transition: color 0.15s;
 }
 

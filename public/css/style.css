@@ -52352,13 +52352,17 @@ html, body {
           display: flex;
           width: max-content;
           animation: mtl-scroll 30s linear infinite;
+          will-change: transform;
+          backface-visibility: hidden;
+          transform: translateZ(0);
         }
+        .mtl-logo-track-outer:hover .mtl-logo-track { animation-play-state: paused; }
         @keyframes mtl-scroll {
-          from { transform: translateX(0); }
-          to { transform: translateX(-50%); }
+          from { transform: translate3d(0, 0, 0); }
+          to { transform: translate3d(-50%, 0, 0); }
         }
         .mtl-logo-item { padding: 10px 30px; flex-shrink: 0; }
-        .mtl-logo-item img { height: 60px; object-fit: contain; }
+        .mtl-logo-item img { height: 60px; object-fit: contain; display: block; }
 
         .mtl-cgallery-wrap {
           position: relative;

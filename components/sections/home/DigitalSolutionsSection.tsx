@@ -125,10 +125,10 @@
 //             >
 //               <h3 className="fds-ttl-dark">SaaS Product<br />Development</h3>
 //               <div className="fds-avatars">
-//                 <span className="fds-av fds-av1"><img src="/images/home/services/saas/image 6869.png" alt="SaaS Architecture" /></span>
-//                 <span className="fds-av fds-av2"><img src="/images/home/services/saas/image 6870.png" alt="Multi-tenant Platform" /></span>
-//                 <span className="fds-av fds-av3"><img src="/images/home/services/saas/image 6871.png" alt="Cloud Infrastructure" /></span>
-//                 <span className="fds-av fds-av4"><img src="/images/home/services/saas/image 6872.png" alt="API Integration" /></span>
+//                 <span className="fds-av fds-av1"><img src="/images/home/services/saas/image-6869.png" alt="SaaS Architecture" /></span>
+//                 <span className="fds-av fds-av2"><img src="/images/home/services/saas/image-6870.png" alt="Multi-tenant Platform" /></span>
+//                 <span className="fds-av fds-av3"><img src="/images/home/services/saas/image-6871.png" alt="Cloud Infrastructure" /></span>
+//                 <span className="fds-av fds-av4"><img src="/images/home/services/saas/image-6872.png" alt="API Integration" /></span>
 //               </div>
 //               <ul className="fds-bullet-list fds-2col">
 //                 <li>Multi-tenant SaaS platforms</li>
@@ -147,10 +147,10 @@
 //             >
 //               <h3 className="fds-ttl-dark">Web Development<br />Services</h3>
 //               <div className="fds-avatars">
-//                 <span className="fds-av fds-av1"><img src="/images/home/services/saas/image 6872.png" alt="Web Technology" /></span>
+//                 <span className="fds-av fds-av1"><img src="/images/home/services/saas/image-6872.png" alt="Web Technology" /></span>
 //                 <span className="fds-av fds-av2"><img src="/images/home/services/mobile/www.png" alt="World Wide Web" /></span>
 //                 <span className="fds-av fds-av3"><img src="/images/home/services/mobile/ecommerce.png" alt="E-commerce" /></span>
-//                 <span className="fds-av fds-av4"><img src="/images/home/services/saas/image 6869.png" alt="Web Platform" /></span>
+//                 <span className="fds-av fds-av4"><img src="/images/home/services/saas/image-6869.png" alt="Web Platform" /></span>
 //               </div>
 //               <ul className="fds-bullet-list fds-2col">
 //                 <li>Business websites</li>
@@ -169,16 +169,16 @@
 //                 <h3 className="fds-ttl-dark" style={{ margin: 0 }}>AI Development<br />Company Services</h3>
 //                 <div className="fds-ai-img-v">
 //                   <img
-//                     src="/images/we_deliver_the_best _digital_solutions/generative_ai_solutions.svg"
+//                     src="/images/we_deliver_the_best_digital_solutions/generative_ai_solutions.svg"
 //                     alt="Generative AI"
 //                   />
 //                 </div>
 //               </div>
 //               <div className="fds-avatars">
-//                 <span className="fds-av fds-av1"><img src="/images/home/services/ai_solutions/image 6873.png" alt="Machine Learning" /></span>
-//                 <span className="fds-av fds-av2"><img src="/images/home/services/ai_solutions/image 6874.png" alt="Neural Networks" /></span>
-//                 <span className="fds-av fds-av3"><img src="/images/home/services/ai_solutions/image 6876.png" alt="AI Automation" /></span>
-//                 <span className="fds-av fds-av4"><img src="/images/home/services/ai_solutions/image 6878.png" alt="Data Science" /></span>
+//                 <span className="fds-av fds-av1"><img src="/images/home/services/ai_solutions/image-6873.png" alt="Machine Learning" /></span>
+//                 <span className="fds-av fds-av2"><img src="/images/home/services/ai_solutions/image-6874.png" alt="Neural Networks" /></span>
+//                 <span className="fds-av fds-av3"><img src="/images/home/services/ai_solutions/image-6876.png" alt="AI Automation" /></span>
+//                 <span className="fds-av fds-av4"><img src="/images/home/services/ai_solutions/image-6878.png" alt="Data Science" /></span>
 //               </div>
 //               <ul className="fds-bullet-list fds-2col">
 //                 <li>Generative AI solutions</li>
@@ -207,7 +207,7 @@
 //               </ul>
 //               <div className="fds-illus">
 //                 <img
-//                   src="/images/we_deliver_the_best _digital_solutions/salesforce_development_consulting.svg"
+//                   src="/images/we_deliver_the_best_digital_solutions/salesforce_development_consulting.svg"
 //                   alt="IT Solutions"
 //                 />
 //               </div>
@@ -405,10 +405,10 @@ export default function DigitalSolutionsSection() {
             >
               <h3 className="fds-ttl-dark">SaaS Product<br />Development</h3>
               <div className="fds-avatars">
-                <span className="fds-av fds-av1"><img src="/images/home/services/saas/image 6869.png" alt="SaaS Architecture" /></span>
-                <span className="fds-av fds-av2"><img src="/images/home/services/saas/image 6870.png" alt="Multi-tenant Platform" /></span>
-                <span className="fds-av fds-av3"><img src="/images/home/services/saas/image 6871.png" alt="Cloud Infrastructure" /></span>
-                <span className="fds-av fds-av4"><img src="/images/home/services/saas/image 6872.png" alt="API Integration" /></span>
+                <span className="fds-av fds-av1"><img src="/images/home/services/saas/image-6869.png" alt="SaaS Architecture" /></span>
+                <span className="fds-av fds-av2"><img src="/images/home/services/saas/image-6870.png" alt="Multi-tenant Platform" /></span>
+                <span className="fds-av fds-av3"><img src="/images/home/services/saas/image-6871.png" alt="Cloud Infrastructure" /></span>
+                <span className="fds-av fds-av4"><img src="/images/home/services/saas/image-6872.png" alt="API Integration" /></span>
               </div>
               <ul className="fds-bullet-list fds-2col">
                 <li>Multi-tenant SaaS platforms</li>
@@ -428,10 +428,10 @@ export default function DigitalSolutionsSection() {
             >
               <h3 className="fds-ttl-dark">Web Development<br />Services</h3>
               <div className="fds-avatars">
-                <span className="fds-av fds-av1"><img src="/images/home/services/saas/image 6872.png" alt="Web Technology" /></span>
+                <span className="fds-av fds-av1"><img src="/images/home/services/saas/image-6872.png" alt="Web Technology" /></span>
                 <span className="fds-av fds-av2"><img src="/images/home/services/mobile/www.png" alt="World Wide Web" /></span>
                 <span className="fds-av fds-av3"><img src="/images/home/services/mobile/ecommerce.png" alt="E-commerce" /></span>
-                <span className="fds-av fds-av4"><img src="/images/home/services/saas/image 6869.png" alt="Web Platform" /></span>
+                <span className="fds-av fds-av4"><img src="/images/home/services/saas/image-6869.png" alt="Web Platform" /></span>
               </div>
               <ul className="fds-bullet-list fds-2col">
                 <li>Business websites</li>
@@ -451,16 +451,16 @@ export default function DigitalSolutionsSection() {
                 <h3 className="fds-ttl-dark" style={{ margin: 0 }}>AI Development<br />Company Services</h3>
                 <div className="fds-ai-img-v">
                   <img
-                    src="/images/we_deliver_the_best _digital_solutions/generative_ai_solutions.svg"
+                    src="/images/we_deliver_the_best_digital_solutions/generative_ai_solutions.svg"
                     alt="Generative AI"
                   />
                 </div>
               </div>
               <div className="fds-avatars">
-                <span className="fds-av fds-av1"><img src="/images/home/services/ai_solutions/image 6873.png" alt="Machine Learning" /></span>
-                <span className="fds-av fds-av2"><img src="/images/home/services/ai_solutions/image 6874.png" alt="Neural Networks" /></span>
-                <span className="fds-av fds-av3"><img src="/images/home/services/ai_solutions/image 6876.png" alt="AI Automation" /></span>
-                <span className="fds-av fds-av4"><img src="/images/home/services/ai_solutions/image 6878.png" alt="Data Science" /></span>
+                <span className="fds-av fds-av1"><img src="/images/home/services/ai_solutions/image-6873.png" alt="Machine Learning" /></span>
+                <span className="fds-av fds-av2"><img src="/images/home/services/ai_solutions/image-6874.png" alt="Neural Networks" /></span>
+                <span className="fds-av fds-av3"><img src="/images/home/services/ai_solutions/image-6876.png" alt="AI Automation" /></span>
+                <span className="fds-av fds-av4"><img src="/images/home/services/ai_solutions/image-6878.png" alt="Data Science" /></span>
               </div>
               <ul className="fds-bullet-list fds-2col">
                 <li>Generative AI solutions</li>
@@ -490,7 +490,7 @@ export default function DigitalSolutionsSection() {
               </ul>
               <div className="fds-illus">
                 <img
-                  src="/images/we_deliver_the_best _digital_solutions/salesforce_development_consulting.svg"
+                  src="/images/we_deliver_the_best_digital_solutions/salesforce_development_consulting.svg"
                   alt="IT Solutions"
                 />
               </div>

@@ -156,13 +156,13 @@ export default function WhyBusinessTrustSection() {
             </h2>
 
             <BlurText
-              text="Whether you're optimizing today or building for tomorrow we help you"
+              text="Trusted by enterprises to architect scalable systems, modernize legacy"
               delay={0.3}
               className="wbt-desc"
             />
             <br />
             <BlurText
-              text="move faster with confidence"
+              text="stacks, and ship with enterprise-grade quality."
               delay={0.35}
               className="wbt-desc"
             />

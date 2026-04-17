@@ -83,32 +83,37 @@ export default function LocationCarousel({ locations, locationList }: LocationCa
             style={{ transform: `translateX(${offset}px)` }}
           >
             {doubledList.map((loc, idx) => {
-              const isActive = activeKey === loc.key && idx < 3;
+              const isClone = idx >= locationList.length;
+              const isActive = activeKey === loc.key && !isClone;
               return (
                 <div
                   key={idx}
                   className="_location_we_serve_card"
-                  style={{ 
-                    width: isActive ? '400px' : '300px', 
-                    opacity: (idx >= 3) ? 0.4 : 1 
+                  aria-hidden={isClone ? true : undefined}
+                  style={{
+                    width: isActive ? '400px' : '300px',
+                    opacity: isClone ? 0.4 : 1,
+                    pointerEvents: isClone ? 'none' : 'auto'
                   }}
                   onClick={() => {
-                    if (idx < 3) setActiveKey(loc.key);
+                    if (!isClone) setActiveKey(loc.key);
                   }}
                 >
-                  <img src={loc.image} alt={loc.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-                  <div className="_location_we_serve_card-overlay">
-                    <div className="_location_we_serve_card-title">{loc.name}</div>
-                    <a
-                      className="_location_we_serve_view-map-btn"
-                      href={loc.mapLink}
-                      target="_blank"
-                      rel="noreferrer"
-                      style={{ display: isActive ? 'block' : 'none' }}
-                    >
-                      View On Map →
-                    </a>
-                  </div>
+                  <img src={loc.image} alt={isClone ? "" : loc.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                  {!isClone && (
+                    <div className="_location_we_serve_card-overlay">
+                      <div className="_location_we_serve_card-title">{loc.name}</div>
+                      <a
+                        className="_location_we_serve_view-map-btn"
+                        href={loc.mapLink}
+                        target="_blank"
+                        rel="noreferrer"
+                        style={{ display: isActive ? 'block' : 'none' }}
+                      >
+                        View On Map →
+                      </a>
+                    </div>
+                  )}
                 </div>
               );
             })}

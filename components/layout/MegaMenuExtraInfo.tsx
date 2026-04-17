@@ -18,7 +18,7 @@ export default function MegaMenuExtraInfo() {
                   <i className="fas fa-phone-alt"></i>
                 </div>
               </div>
-              <a href="tel:+919390683154" aria-label="Call us">+91 9390683154</a>
+              <a href="tel:+919390683154" aria-label="Call us">Call: +91 9390683154</a>
             </li>
             <li>
               <div className="menu-icon-ree">
@@ -26,8 +26,8 @@ export default function MegaMenuExtraInfo() {
                   <i className="fab fa-whatsapp"></i>
                 </div>
               </div>
-              <a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" aria-label="Chat on WhatsApp">
-                +91 9390683154
+              <a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp">
+                WhatsApp: +91 9390683154
               </a>
             </li>
             <li>

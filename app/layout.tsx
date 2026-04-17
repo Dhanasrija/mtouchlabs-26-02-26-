@@ -169,7 +169,7 @@ export default function RootLayout({
               </div>
             </div>
             <div className="brochure-modal-right">
-              <button id="closeBrochureModal" className="brochure-close-btn">&#10005;</button>
+              <button id="closeBrochureModal" className="brochure-close-btn" aria-label="Close brochure modal" type="button">&#10005;</button>
               <h3 className="brochure-modal-title">Request Brochure</h3>
               <div id="brochureForm">
                 <label className="brochure-form-label">Full Name</label>

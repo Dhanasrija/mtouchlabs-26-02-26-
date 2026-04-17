@@ -83,18 +83,19 @@ export default function HeroSection() {
 
   const renderWords = (words: string[], offset = 0) =>
     words.map((word, i) => (
-      <span
-        key={i}
-        className={`hero-word ${
-          highlightWords.includes(word.replace("&", "")) ? "highlight-word" : ""
-        }`}
-        style={{
-          animationDelay: h1WordDelay(offset + i),
-          display: "inline-block",
-          marginRight: "0.28em",
-        }}
-      >
-        {word}
+      <span key={i}>
+        <span
+          className={`hero-word ${
+            highlightWords.includes(word.replace("&", "")) ? "highlight-word" : ""
+          }`}
+          style={{
+            animationDelay: h1WordDelay(offset + i),
+            display: "inline-block",
+          }}
+        >
+          {word}
+        </span>
+        {i < words.length - 1 ? " " : ""}
       </span>
     ));
 
@@ -167,16 +168,17 @@ export default function HeroSection() {
 
           <p className="mtl-new-hero-sub">
             {subtitle.map((word, i) => (
-              <span
-                key={i}
-                className="hero-sub-word"
-                style={{
-                  animationDelay: subDelay(i),
-                  display: "inline-block",
-                  marginRight: "0.28em",
-                }}
-              >
-                {word}
+              <span key={i}>
+                <span
+                  className="hero-sub-word"
+                  style={{
+                    animationDelay: subDelay(i),
+                    display: "inline-block",
+                  }}
+                >
+                  {word}
+                </span>
+                {i < subtitle.length - 1 ? " " : ""}
               </span>
             ))}
           </p>

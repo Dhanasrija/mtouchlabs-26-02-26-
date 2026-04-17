@@ -103,14 +103,14 @@ export default function QuoteModal() {
                   </div>
                   <div className="rq-col">
                     <label className="rq-label">Budget</label>
-                    <select name="budget" className="rq-select">
+                    <select name="budget" className="rq-select" id="rqBudget">
                       <option value="">Select Budget</option>
-                      <option>₹80K – ₹1.5L</option>
-                      <option>₹1.5L – ₹4L</option>
-                      <option>₹4L – ₹10L</option>
-                      <option>₹10L – ₹25L</option>
-                      <option>₹25L+</option>
-                      {/* <option>Flexible</option> */}
+                      <option>Under $10K / ₹80K – ₹1.5L</option>
+                      <option>$10K – $25K / ₹1.5L – ₹4L</option>
+                      <option>$25K – $50K / ₹4L – ₹10L</option>
+                      <option>$50K – $100K / ₹10L – ₹25L</option>
+                      <option>$100K+ / ₹25L+</option>
+                      <option>Flexible / Not sure yet</option>
                     </select>
                   </div>
                 </div>

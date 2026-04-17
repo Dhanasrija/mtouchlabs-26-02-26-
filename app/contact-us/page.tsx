@@ -686,8 +686,8 @@ export const metadata: Metadata = {
   keywords: ["contact mTouch Labs","enterprise software consultation","SaaS development company contact","software development company Hyderabad","custom software consultation","hire software developers India","enterprise digital transformation","cloud engineering consultation","mobile app development inquiry","mTouch Labs offices"].join(", "),
   alternates: { canonical: "https://www.mtouchlabs.com/contact-us" },
   robots: { index: true, follow: true, "max-snippet": -1, "max-image-preview": "large" as const, "max-video-preview": -1 },
-  openGraph: { title: "Contact Us | Enterprise Software Contact mTouch Labs | Enterprise Software & SaaS Experts SaaS Experts", description: "Connect with mTouch Labs for enterprise software, SaaS platforms, cloud architecture, and AI-powered digital transformation solutions.", url: "https://www.mtouchlabs.com/contact-us", siteName: "mTouch Labs", type: "website", locale: "en_US", images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "Contact mTouch Labs" }] },
-  twitter: { card: "summary_large_image", title: "Contact Us | Enterprise Software Contact mTouch Labs | Enterprise Software & SaaS Experts SaaS Experts", description: "Speak with our enterprise solution architects. Offices in Hyderabad, Bangalore & USA.", images: [{ url: "/images/Light.png", alt: "Contact mTouch Labs" }] },
+  openGraph: { title: "Contact mTouch Labs | Enterprise Software & SaaS Development", description: "Connect with mTouch Labs for enterprise software, SaaS platforms, cloud architecture, and AI-powered digital transformation solutions.", url: "https://www.mtouchlabs.com/contact-us", siteName: "mTouch Labs", type: "website", locale: "en_US", images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "Contact mTouch Labs" }] },
+  twitter: { card: "summary_large_image", title: "Contact mTouch Labs | Enterprise Software & SaaS Development", description: "Speak with our enterprise solution architects. Offices in Hyderabad, Bangalore & USA.", images: [{ url: "/images/Light.png", alt: "Contact mTouch Labs" }] },
 };
 
 const contactPageSchema = { "@context": "https://schema.org", "@type": "ContactPage", name: "Contact mTouch Labs", description: "Request an enterprise consultation with mTouch Labs for SaaS, cloud, AI, and custom software development.", url: "https://www.mtouchlabs.com/contact-us", mainEntity: { "@type": "Organization", name: "mTouch Labs", url: "https://mtouchlabs.com", logo: "https://mtouchlabs.com/images/logo.png", contactPoint: [{ "@type": "ContactPoint", telephone: "+91-93906 83154", contactType: "customer service", areaServed: ["IN", "US"], availableLanguage: ["English"] }] } };
@@ -788,7 +788,19 @@ export default function ContactUsPage() {
           <div className="ct-hero__right" id="consultation-form">
             <div className="ct-form-card">
               <h2 className="ct-form-card__title">Send Us a Message</h2>
-              <p className="ct-form-card__sub">We&apos;ll get back to you within 24 hours.</p>
+              <p className="ct-form-card__sub">We&apos;ll get back to you within 24 hours. <span className="ct-form__required-note">Fields marked * are required.</span></p>
+              <style dangerouslySetInnerHTML={{ __html: `
+                .ct-form__optional { color: #9e9b95; font-weight: 400; font-size: 0.85em; margin-left: 4px; }
+                .ct-form__required-note { color: #6b6860; font-size: 0.9em; }
+                .ct-form__checkbox:focus-visible,
+                .ct-form__input:focus-visible,
+                .ct-form__select:focus-visible,
+                .ct-form__textarea:focus-visible,
+                .ct-form__submit:focus-visible {
+                  outline: 2px solid #1456a0;
+                  outline-offset: 2px;
+                }
+              ` }} />
               <form id="contactForm" method="post" className="ct-form">
                 <div className="ct-form__row">
                   <div className="ct-form__group">
@@ -802,7 +814,7 @@ export default function ContactUsPage() {
                 </div>
                 <div className="ct-form__row">
                   <div className="ct-form__group">
-                    <label className="ct-form__label">COMPANY</label>
+                    <label className="ct-form__label">COMPANY <span className="ct-form__optional">(Optional)</span></label>
                     <input type="text" name="company" className="ct-form__input" placeholder="Your Company" />
                   </div>
                   <div className="ct-form__group">
@@ -827,11 +839,11 @@ export default function ContactUsPage() {
                 </div>
                 <div className="ct-form__row">
                   <div className="ct-form__group">
-                    <label className="ct-form__label">SUBJECT</label>
+                    <label className="ct-form__label">SUBJECT <span className="ct-form__optional">(Optional)</span></label>
                     <input type="text" name="subject" className="ct-form__input" placeholder="How can we help?" />
                   </div>
                   <div className="ct-form__group">
-                    <label className="ct-form__label">SERVICE</label>
+                    <label className="ct-form__label">SERVICE <span className="ct-form__optional">(Optional)</span></label>
                     <select name="interest" className="ct-form__select" defaultValue="">
                       <option value="" disabled>Select a service</option>
                       {servicesOptions.map((s)=>(<option key={s} value={s}>{s}</option>))}

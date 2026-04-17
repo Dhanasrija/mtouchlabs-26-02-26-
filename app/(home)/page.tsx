@@ -454,6 +454,9 @@ export default function HomePage() {
           >
             <span
               className="js-close-logo-modal"
+              role="button"
+              tabIndex={0}
+              aria-label="Close partners modal"
               style={{
                 position: "absolute",
                 top: "15px",

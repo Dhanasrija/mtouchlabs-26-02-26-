@@ -18,12 +18,13 @@ function useInView(ref: React.RefObject<HTMLElement | null>, amount = 0.5) {
 }
 
 function useCounter(end: number, decimals: number, suffix: string, started: boolean) {
-  const [value, setValue] = useState(0);
+  // Initialize at `end` so SSR + first paint show the final value, preventing a flash of "0.0".
+  const [value, setValue] = useState(end);
+  const [hasAnimated, setHasAnimated] = useState(false);
   useEffect(() => {
-    if (!started) {
-      setValue(0);
-      return;
-    }
+    if (!started || hasAnimated) return;
+    // When animation is about to begin, reset to 0 then animate up.
+    setValue(0);
     let startTime: number | null = null;
     let rafId: number;
     const duration = 1800;
@@ -32,11 +33,15 @@ function useCounter(end: number, decimals: number, suffix: string, started: bool
       const progress = Math.min((timestamp - startTime) / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
       setValue(parseFloat((eased * end).toFixed(decimals)));
-      if (progress < 1) rafId = requestAnimationFrame(step);
+      if (progress < 1) {
+        rafId = requestAnimationFrame(step);
+      } else {
+        setHasAnimated(true);
+      }
     }
     rafId = requestAnimationFrame(step);
     return () => cancelAnimationFrame(rafId);
-  }, [started, end, decimals]);
+  }, [started, end, decimals, hasAnimated]);
   return `${value.toFixed(decimals)}${suffix}`;
 }
 

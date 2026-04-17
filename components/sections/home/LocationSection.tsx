@@ -28,7 +28,7 @@ const locations = {
     address: "1111b South Governors Avenue, Suite 48193, Dover, Delaware (DE)-19904 United States (US)",
     phone: "+1 (551) 222-0070",
     email: "contact@mtouchlabs.com",
-    image: "https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?w=1200&q=80&auto=format&fit=crop",
+    image: "/images/usa.png",
     mapLink: "https://maps.app.goo.gl/amg7vRf4qFy6BFZW9",
     index: 2
   }

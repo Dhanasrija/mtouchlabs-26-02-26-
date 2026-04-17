@@ -24,13 +24,25 @@ export default function TrustedPartnersSection() {
         <StatsBar />
 
         {/* LOGOS — pure CSS scroll */}
-        <div className="mtl-logo-track-outer">
+        <div className="mtl-logo-track-outer" aria-label="Trusted client logos">
           <div className="mtl-logo-track">
-            {[...logos, ...logos].map((l, i) => (
-              <div key={i} className="mtl-logo-item">
-                <img src={l.src} alt={l.alt} />
-              </div>
-            ))}
+            {[...logos, ...logos].map((l, i) => {
+              const isClone = i >= logos.length;
+              return (
+                <div
+                  key={i}
+                  className="mtl-logo-item"
+                  aria-hidden={isClone ? true : undefined}
+                >
+                  <img
+                    src={l.src}
+                    alt={isClone ? "" : l.alt}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

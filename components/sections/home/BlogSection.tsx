@@ -96,8 +96,7 @@ export default function BlogSection() {
                   animationDelay: "0.5s",
                 }}
               >
-                Whether you&apos;re optimizing today or building for tomorrow
-                &nbsp;we help you move faster with confidence.
+                Fresh perspectives on software, AI, and digital transformation — delivered by engineers who ship.
               </p>
             </div>
 

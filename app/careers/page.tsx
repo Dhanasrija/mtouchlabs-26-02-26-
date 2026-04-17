@@ -698,7 +698,7 @@ export default function Page() {
         {/* ===== APPLY MODAL ===== */}
         <div className="crm-overlay" id="careerFormModal">
           <div className="crm-box">
-            <button className="crm-close" id="closeCareerModal">&times;</button>
+            <button className="crm-close" id="closeCareerModal" aria-label="Close apply form" type="button">&times;</button>
             <h2 className="crm-title">Apply for this Role</h2>
             <form id="careerApplyForm" noValidate>
               <div className="crm-field">
@@ -777,7 +777,7 @@ export default function Page() {
         {/* ===== JOB DETAILS MODAL ===== */}
         <div className="crm-overlay" id="jobDetailsModal">
           <div className="crm-box crm-box-details">
-            <button className="crm-close" id="closeJobDetailsModal">&times;</button>
+            <button className="crm-close" id="closeJobDetailsModal" aria-label="Close job details" type="button">&times;</button>
             <h2 className="crm-title" id="jobDetailsTitle">Job Details</h2>
             <div id="jobDetailsContent" className="crm-details-body"></div>
             <button className="crm-apply-from-details" id="applyFromDetails">Apply for this Role <i className="fas fa-arrow-right"></i></button>

@@ -132,7 +132,7 @@ export default function ContactForm() {
       <input
         type="text"
         name="company"
-        placeholder="Company Name"
+        placeholder="Company Name (Optional)"
         value={formData.company}
         onChange={handleChange}
       />
@@ -140,7 +140,7 @@ export default function ContactForm() {
       <input
         type="text"
         name="subject"
-        placeholder="Subject"
+        placeholder="Subject (Optional)"
         value={formData.subject}
         onChange={handleChange}
       />
@@ -150,7 +150,7 @@ export default function ContactForm() {
         value={formData.interest}
         onChange={handleChange}
       >
-        <option value="">Interested In</option>
+        <option value="">Interested In (Optional)</option>
         <option value="SaaS Development">SaaS Development</option>
         <option value="Cloud Architecture">Cloud Architecture</option>
         <option value="AI / ML Solutions">AI / ML Solutions</option>

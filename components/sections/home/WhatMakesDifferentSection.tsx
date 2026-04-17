@@ -3,23 +3,23 @@ import { BlurText } from "@/components/sections/home/ui/BlurText";
 
 const row1 = [
   {
-    iconSrc: "/images/home/why/image 6900.png",
+    iconSrc: "/images/home/why/image-6900.png",
     iconAlt: "End-to-end IT solutions",
-    title: "End-to-end IT solutions",
+    title: "End-to-End IT Solutions",
     description: "Complete digital solutions from idea to launch.",
     image: "/images/home/why/End-to-end IT solutions.png",
   },
   {
-    iconSrc: "/images/home/why/image 6901.png",
+    iconSrc: "/images/home/why/image-6901.png",
     iconAlt: "AI & emerging technologies",
     title: "Strong expertise in AI & emerging technologies",
-    description: "Building smart solutions using AI and modern technologies",
+    description: "Building smart solutions using AI and modern technologies.",
     image: "/images/home/why/Strong expertise in AI & emerging technologies.png",
   },
   {
-    iconSrc: "/images/home/why/image 6899.png",
+    iconSrc: "/images/home/why/image-6899.png",
     iconAlt: "Agile development methodology",
-    title: "Agile development methodology",
+    title: "Agile & Scalable Development Approach",
     description: "Fast, flexible delivery with continuous improvements.",
     image: "/images/home/why/rear-view-programmer-working-all-night-long 1.png",
   },
@@ -27,10 +27,10 @@ const row1 = [
 
 const row2 = [
   {
-    iconSrc: "/images/home/why/image 6889 (1).png",
+    iconSrc: "/images/home/why/image-6889-1.png",
     iconAlt: "Transparent communication",
     title: "Transparent communication",
-    description: "Clear updates and seamless collaboration at every stage",
+    description: "Clear updates and seamless collaboration at every stage.",
     image: "/images/home/why/Transparent_communication.png",
   },
   {
@@ -41,7 +41,7 @@ const row2 = [
     image: "/images/home/why/Scalable and future-ready solutions.png",
   },
   {
-    iconSrc: "/images/home/why/image 6886 (1).png",
+    iconSrc: "/images/home/why/image-6886-1.png",
     iconAlt: "Proven Industry Experience",
     title: "Proven Industry Experience & Global Delivery",
     description: "Trusted by startups and enterprises worldwide.",

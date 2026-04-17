@@ -273,7 +273,7 @@ export default function Navbar() {
                                 <li><a href="/blog/top-ecommerce-niches-us"><span className="mega-link-title">Top eCommerce Niches in the US</span><span className="mega-link-desc">Most profitable eCommerce niches to explore in the US market</span></a></li>
 
                               </ul>
-                              <a href="/blog" className="home-mega-readmore">&#x2192;&#x2192;</a>
+                              <a href="/blog" className="home-mega-readmore" aria-label="View all blog posts">View all blogs &rarr;</a>
                             </div>
                           </div>
                         </div>
@@ -292,7 +292,7 @@ export default function Navbar() {
         <li><a href="/case-studies/ecommerce-retail-platform"><span className="mega-link-title">E-Commerce Platform</span><span className="mega-link-desc">Scalable retail platform with inventory, payments, and analytics</span></a></li>
         <li><a href="/case-studies/fintech-payment-platform"><span className="mega-link-title">Fintech Payment Platform</span><span className="mega-link-desc">Secure and high-performance digital payment processing platform</span></a></li>
       </ul>
-      <a href="/case-studies" className="home-mega-readmore">&#x2192;&#x2192;</a>
+      <a href="/case-studies" className="home-mega-readmore" aria-label="View all case studies">View all case studies &rarr;</a>
     </div>
   </div>
 </div>
@@ -507,7 +507,7 @@ export default function Navbar() {
                           <div className="home-mega-item-icon"><img src="/images/nav/ondemand.png" alt="On-demand services" width="28" height="28" /></div>
                           <div className="home-mega-item-text">
                             <span className="home-mega-item-label">On-Demand &amp; Delivery Apps</span>
-                            <span className="home-mega-item-desc">On Demand and Delivery apps-Transforming everyday services into on-demand success stories.</span>
+                            <span className="home-mega-item-desc">Transforming everyday services into on-demand success stories.</span>
                           </div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="prod-booking">
@@ -764,11 +764,11 @@ export default function Navbar() {
                 <li>
                   <a href="#">Blogs</a>
                   <ul>
-                    <li><a href="/ai-role-in-business-automation">AI &amp; Automation in Business</a></li>
-                    <li><a href="/top-10-free-ai-tools-for-software-developers">Top 10 Free AI Tools</a></li>
-                    <li><a href="/mobile-app-development-bangalore-tech-startups">Mobile App Dev in Bangalore</a></li>
+                    <li><a href="/blog/ai-role-in-business-automation">AI &amp; Automation in Business</a></li>
+                    <li><a href="/blog/top-10-free-ai-tools-for-software-developers">Top 10 Free AI Tools</a></li>
+                    <li><a href="/blog/mobile-app-development-bangalore-tech-startups">Mobile App Dev in Bangalore</a></li>
                     <li><a href="/blog/top-ecommerce-niches-us">Top eCommerce Niches (2024 Archive)</a></li>
-                    <li><a href="/hyderabad-startups-app-development-mtouch-labs">Why Startups Choose mTouch</a></li><li><a href="/blog" className="home-mega-readmore">Read More →</a></li>
+                    <li><a href="/blog/hyderabad-startups-app-development-mtouch-labs">Why Startups Choose mTouch</a></li><li><a href="/blog" className="home-mega-readmore" aria-label="View all blog posts">View all blogs →</a></li>
                   </ul>
                 </li>
               </ul>
@@ -982,17 +982,17 @@ export default function Navbar() {
           <ul className="bottom-nav">
             <li className="ree-hc">
               <a href="tel:+919390683154" target="_blank" rel="noreferrer" aria-label="Call us">
-                <img src="/images/nav-icon/phone-call.png" alt="Phone" width="24" height="24" />
+                <img src="/images/nav-icon/phone-call.png" alt="Call mTouch Labs" width="24" height="24" />
               </a>
             </li>
             <li className="ree-hc">
               <a href="mailto:contact@mtouchlabs.com" target="_blank" aria-label="Email us">
-                <img src="/images/nav-icon/gmail.png" alt="Email" width="24" height="24" />
+                <img src="/images/nav-icon/gmail.png" alt="Email mTouch Labs" width="24" height="24" />
               </a>
             </li>
             <li className="ree-hc">
               <a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp">
-                <img src="/images/nav-icon/whatsapp.png" alt="WhatsApp" width="24" height="24" />
+                <img src="/images/nav-icon/whatsapp.png" alt="Chat with mTouch Labs on WhatsApp" width="24" height="24" />
               </a>
             </li>
             <li className="ree-hc">
