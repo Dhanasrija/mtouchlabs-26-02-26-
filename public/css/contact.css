@@ -1663,12 +1663,17 @@ button.ent-cta-banner__btn {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   HERO COLUMN SWAP — Desktop only
-   Form visually goes to LEFT, info content goes to RIGHT.
-   Mobile/tablet (<=1024px) retains existing single-column
-   stacking order defined above — no spacing side-effects.
+   HERO COLUMN ORDER
+   Desktop (≥1025px): content on LEFT, form on RIGHT.
+   Mobile/tablet (≤1024px): form appears FIRST at top,
+   content below — single-column stacking.
    ═══════════════════════════════════════════════════════════ */
 @media (min-width: 1025px) {
+  .ct-hero__inner > .ct-hero__left  { order: 1; }
+  .ct-hero__inner > .ct-hero__right { order: 2; }
+}
+
+@media (max-width: 1024px) {
   .ct-hero__inner > .ct-hero__right { order: 1; }
   .ct-hero__inner > .ct-hero__left  { order: 2; }
 }

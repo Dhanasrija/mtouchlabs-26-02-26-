@@ -8,6 +8,7 @@ import {
   useRef,
   useState,
 } from "react";
+import { useRouter } from "next/navigation";
 import "./style.css";
 
 /* ─────────────────────────────────────────────
@@ -468,6 +469,7 @@ function StatCard({
    Main Component
    ───────────────────────────────────────────── */
 export function FreeRequestQuoteClient() {
+  const router = useRouter();
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [countryCode, setCountryCode] = useState("+91");
@@ -480,6 +482,15 @@ export function FreeRequestQuoteClient() {
   const [submitting, setSubmitting] = useState(false);
   const [status, setStatus] = useState<null | "success" | "error">(null);
   const [errorMsg, setErrorMsg] = useState("");
+
+  /* ── Standalone mode: hide global header/navbar/footer while this page is mounted ── */
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    document.body.classList.add("rq-standalone");
+    return () => {
+      document.body.classList.remove("rq-standalone");
+    };
+  }, []);
 
   /* ── Turnstile captcha (Cloudflare) ─────────────────────── */
   const turnstileRef = useRef<HTMLDivElement>(null);
@@ -659,6 +670,17 @@ export function FreeRequestQuoteClient() {
         setTouched({});
         setFieldErrors({});
         resetCaptcha();
+
+        // Fire Google Analytics generate_quote_lead event
+        if (typeof window !== "undefined" && (window as any).gtag) {
+          (window as any).gtag("event", "generate_quote_lead", {
+            event_category: "form",
+            event_label: "request_free_quote_form",
+          });
+        }
+
+        // Redirect to thank-you page
+        router.push("/thank-you");
       } catch (err: any) {
         console.error(err);
         setStatus("error");
@@ -671,7 +693,7 @@ export function FreeRequestQuoteClient() {
         setSubmitting(false);
       }
     },
-    [fullName, email, countryCode, mobile, service, captchaToken, runValidation, resetCaptcha]
+    [fullName, email, countryCode, mobile, service, captchaToken, runValidation, resetCaptcha, router]
   );
 
   // Duplicate logos for seamless marquee
@@ -898,11 +920,10 @@ export function FreeRequestQuoteClient() {
             />
           </div>
 <h2 className="rq-headline">
-  <span className="rq-headline-row" style={{ whiteSpace: "nowrap" }}>
+  <span className="rq-headline-row">
     Leading <span className="rq-headline-blue">AI Development</span>
-  </span>
-  <br />
-  <span className="rq-headline-block" style={{ whiteSpace: "nowrap" }}>
+  </span>{" "}
+  <span className="rq-headline-block">
     Company for Next-Gen
   </span>
 </h2>
@@ -942,6 +963,21 @@ export function FreeRequestQuoteClient() {
           </div>
         </div>
       </div>
+
+      {/* ───── Standalone copyright footer ───── */}
+      <footer className="rq-copyright" role="contentinfo">
+        <p>
+          © 2026{" "}
+          <a
+            href="/"
+            className="rq-copyright-link"
+            rel="noopener"
+          >
+            mTouch Labs Pvt. Ltd.
+          </a>{" "}
+          All rights reserved.
+        </p>
+      </footer>
     </main>
   );
 }

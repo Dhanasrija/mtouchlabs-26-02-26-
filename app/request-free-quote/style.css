@@ -20,10 +20,9 @@
 /* ─── Page Wrapper ─── */
 .rq-main {
   position: relative;
-  min-height: 100vh;
   width: 100%;
   max-width: 100vw;
-  padding: 140px 24px 48px;
+  padding: 140px 24px 24px;
   background:
     radial-gradient(1200px 600px at 85% -10%, rgba(62, 140, 251, 0.08), transparent 60%),
     radial-gradient(900px 500px at -10% 110%, rgba(250, 199, 89, 0.10), transparent 60%),
@@ -32,8 +31,9 @@
   font-family: var(--font-primary, 'Poppins', sans-serif);
   color: var(--color-deep-indigo, #0C1C32);
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 /* Decorative blobs */
@@ -89,27 +89,61 @@
   margin: auto;
 }
 
+/* Default (mobile / tablet, single column): FORM first, CONTENT after
+   — natural DOM order. Desktop override below places content on the LEFT
+   and form on the RIGHT for the two-column layout. */
+.rq-grid > .rq-form-card { order: 1; }
+.rq-grid > .rq-right { order: 2; }
+
+/* ── Mobile / tablet (< 1024px): LOCK the order so nothing can override it.
+   Form card MUST be first, content MUST be second. ── */
+@media (max-width: 1023.98px) {
+  .rq-main .rq-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    width: 100% !important;
+  }
+  .rq-main .rq-grid > .rq-form-card {
+    order: 1 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .rq-main .rq-grid > .rq-right {
+    order: 2 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
 @media (min-width: 1024px) {
   .rq-grid {
-    grid-template-columns: minmax(0, 540px) minmax(0, 1fr);
-    gap: 48px;
+    /* Desktop: content on LEFT (1fr), form on RIGHT (fixed width) */
+    grid-template-columns: minmax(0, 1fr) minmax(0, 480px);
+    gap: 56px;
   }
 
+  /* Desktop visual order: content (left) first, form (right) second */
+  .rq-grid > .rq-right { order: 1; }
+  .rq-grid > .rq-form-card { order: 2; }
+
   .rq-main {
-    padding: 160px 40px 56px;
+    padding: 160px 40px 20px;
   }
 }
 
 @media (min-width: 1280px) {
   .rq-grid {
-    grid-template-columns: minmax(0, 580px) minmax(0, 1fr);
-    gap: 64px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 520px);
+    gap: 72px;
   }
 
   .rq-main {
-    padding: 176px 56px 64px;
+    padding: 176px 56px 24px;
   }
 }
+
+/* Mobile/tablet (<1024px): single column — form appears first,
+   content appears below it (see default `order` rules above). */
 
 /* ==============================================================
    LEFT: Form Card
@@ -117,7 +151,7 @@
 .rq-form-card {
   background: #ffffff;
   border-radius: 20px;
-  padding: 32px 28px;
+  padding: 24px 22px;
   box-shadow:
     0 20px 60px rgba(20, 40, 96, 0.08),
     0 4px 12px rgba(20, 40, 96, 0.04);
@@ -129,7 +163,7 @@
 
 @media (min-width: 1024px) {
   .rq-form-card {
-    padding: 36px 36px;
+    padding: 26px 28px;
   }
 }
 
@@ -185,24 +219,46 @@
 }
 
 /* ─── Inputs ─── */
+/* Match the country-code button's visible outlined-box look.
+   !important guards against global stylesheets (bootstrap / style.css /
+   responsive.css) stripping the border or shrinking the height on bare
+   <input> / <select> elements. */
+.rq-form .rq-input,
+.rq-form .rq-select,
+.rq-form .rq-code-btn,
+.rq-main .rq-input,
+.rq-main .rq-select,
+.rq-main .rq-code-btn,
 .rq-input,
 .rq-select,
 .rq-code-btn {
-  height: 48px;
-  width: 100%;
-  border-radius: 10px;
-  border: 1px solid #d9ddea;
-  background: #ffffff;
-  padding: 0 16px;
-  font-size: 14px;
-  color: #34363d;
-  font-family: inherit;
+  height: 52px !important;
+  min-height: 52px !important;
+  width: 100% !important;
+  border-radius: 10px !important;
+  border: 1.5px solid #b9c2d6 !important;
+  background: #ffffff !important;
+  padding: 0 16px !important;
+  font-size: 15px !important;
+  line-height: 1.2 !important;
+  color: #34363d !important;
+  font-family: inherit !important;
   transition:
     border-color 0.22s ease,
-    box-shadow 0.22s ease;
-  outline: none;
-  appearance: none;
-  -webkit-appearance: none;
+    box-shadow 0.22s ease !important;
+  outline: none !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  box-shadow: none !important;
+  box-sizing: border-box !important;
+}
+
+/* Placeholder visibility */
+.rq-form .rq-input::placeholder,
+.rq-input::placeholder {
+  color: #9ca3af !important;
+  opacity: 1 !important;
+  font-size: 15px !important;
 }
 
 .rq-input::placeholder {
@@ -413,19 +469,21 @@ img.rq-flag {
 /* ─── Submit Button ─── */
 .rq-submit {
   position: relative;
-  margin-top: 8px;
-  height: 50px;
+  margin-top: 12px;
+  height: 54px;
   width: 100%;
+  min-width: 100%;
+  display: block;
   border: 0;
   border-radius: 10px;
   background: linear-gradient(135deg, #4386ee 0%, #3E8CFB 60%, #2e73db 100%);
   color: #fff;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   font-family: inherit;
   cursor: pointer;
   overflow: hidden;
-  letter-spacing: -0.005em;
+  letter-spacing: 0.01em;
   box-shadow: 0 10px 24px rgba(62, 140, 251, 0.32);
   transition: transform 0.2s ease, box-shadow 0.25s ease, filter 0.2s ease;
 }
@@ -1536,4 +1594,194 @@ img.rq-flag {
   .rq-headline {
     font-size: 26px;
   }
+}
+
+/* ==============================================================
+   STANDALONE PAGE MODE
+   When this page is mounted, <body> gets the `rq-standalone`
+   class. Hide all global chrome (header, navbar, footer, chat
+   widget, WhatsApp button, modal overlays, header spacer) so the
+   quote page renders on its own.
+   ============================================================== */
+body.rq-standalone header,
+body.rq-standalone nav,
+body.rq-standalone header.ree-header,
+body.rq-standalone .ree-header,
+body.rq-standalone .header-spacer,
+body.rq-standalone .mega-menu,
+body.rq-standalone .navbar,
+body.rq-standalone .navbar-wrapper,
+body.rq-standalone > footer:not(.rq-copyright),
+body.rq-standalone footer:not(.rq-copyright):not(.rq-copyright *),
+body.rq-standalone footer.ft,
+body.rq-standalone .transforming-footer,
+body.rq-standalone .whatsapp-hero-btn,
+body.rq-standalone .wa-float,
+body.rq-standalone .chat-float,
+body.rq-standalone .cw-wrapper,
+body.rq-standalone #brochureModal,
+body.rq-standalone .modal-overlay,
+body.rq-standalone .bottom-nav,
+body.rq-standalone #tawkchat-container,
+body.rq-standalone #tawkchat-minified-container,
+body.rq-standalone #tawkchat-minified-wrapper,
+body.rq-standalone div[id^="tawk"],
+body.rq-standalone div[class^="tawk"],
+body.rq-standalone iframe[title*="chat" i],
+body.rq-standalone iframe[id*="tawk" i],
+body.rq-standalone iframe[src*="tawk" i],
+body.rq-standalone iframe[src*="tidio" i],
+body.rq-standalone #tidio-chat,
+body.rq-standalone #tidio-chat-iframe {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  width: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Belt-and-suspenders: any element fixed/sticky at the edge of the viewport
+   that is NOT part of our page chrome should not render on this standalone page. */
+body.rq-standalone > *:not(main):not(.rq-main):not(footer.rq-copyright):not(script):not(style):not(#__next):not(div#__next) {
+  display: none !important;
+}
+body.rq-standalone #__next > *:not(main.rq-main):not(footer.rq-copyright) {
+  display: none !important;
+}
+/* ===== FIX: Ensure footer is visible in standalone mode ===== */
+body.rq-standalone .rq-copyright {
+  display: block !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 16px 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* ===== Page background — apply the light gradient to html AND body
+   so there is no dark default showing anywhere on the page, regardless
+   of viewport height vs. content height. The page scrolls naturally. ===== */
+html {
+  background: #eef1ff !important;
+}
+
+body.rq-standalone {
+  background: linear-gradient(180deg, #eef1ff 0%, #e8ecff 100%) !important;
+  background-attachment: fixed !important;
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 100vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+}
+
+body.rq-standalone > main.rq-main {
+  flex: 1 0 auto !important;
+  width: 100% !important;
+}
+
+/* The footer.rq-copyright sits INSIDE <main class="rq-main">.
+   Push it to the bottom of main so it sticks to the viewport edge
+   when content is short. */
+body.rq-standalone .rq-main > footer.rq-copyright {
+  margin-top: auto !important;
+}
+
+body.rq-standalone #__next {
+  display: block !important;
+  min-height: 0 !important;
+  background: transparent !important;
+}
+
+body.rq-standalone .rq-main {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  min-height: 0 !important;
+  padding-top: 48px;
+}
+
+@media (min-width: 1024px) {
+  body.rq-standalone .rq-main {
+    padding-top: 64px;
+  }
+}
+
+/* ==============================================================
+   STANDALONE FOOTER (copyright line)
+   Sibling of <main>. Rendered as a flex-child of <body> (body is a
+   flex column). Horizontally centered, text centered inside it.
+   Uses tight spacing so it visually reads like a continuation of
+   the content above rather than a distinct section.
+   ============================================================== */
+body.rq-standalone > footer.rq-copyright,
+body > footer.rq-copyright,
+footer.rq-copyright,
+.rq-copyright {
+  position: relative !important;
+  z-index: 1 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  padding: 12px 16px 16px !important;
+  text-align: center !important;
+  font-family: var(--font-primary, 'Poppins', sans-serif) !important;
+  font-size: 13px !important;
+  color: #4b5265 !important;
+  background: transparent !important;
+  border-top: none !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  float: none !important;
+  flex: 0 0 auto !important;
+}
+
+body.rq-standalone > footer.rq-copyright p,
+body > footer.rq-copyright p,
+footer.rq-copyright p,
+.rq-copyright p {
+  margin: 0 auto !important;
+  padding: 0 !important;
+  line-height: 1.6 !important;
+  text-align: center !important;
+  width: auto !important;
+  max-width: 100% !important;
+  color: #4b5265 !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+}
+
+@media (min-width: 1024px) {
+  body.rq-standalone > footer.rq-copyright,
+  footer.rq-copyright,
+  .rq-copyright {
+    font-size: 14px !important;
+    padding: 16px 24px 20px !important;
+  }
+
+  footer.rq-copyright p,
+  .rq-copyright p {
+    font-size: 14px !important;
+  }
+}
+
+.rq-copyright-link {
+  color: #0f1217;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.rq-copyright-link:hover,
+.rq-copyright-link:focus-visible {
+  color: var(--color-signature-blue, #3E8CFB);
+  text-decoration: underline;
 }
