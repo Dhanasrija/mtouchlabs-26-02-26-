@@ -3,7 +3,7 @@ import { sql } from "@/lib/db";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Case Studies | mTouch Labs",
+  title: "Case Studies",
   description: "Explore real-world case studies. See how mTouch Labs delivers results across healthcare, e-commerce, and logistics.",
   alternates: { canonical: "https://www.mtouchlabs.com/case-studies" },
   openGraph: {

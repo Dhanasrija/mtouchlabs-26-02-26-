@@ -322,17 +322,16 @@
 
 /* Read more / arrows link */
 .home-mega-readmore {
-  display: block;
-  margin-top: 15px;
-  font-size: 22px;
+  display: inline-block;
+  margin-top: 12px;
+  margin-left: 10px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--color-signature-blue);
   text-decoration: none;
-
-  letter-spacing: 1px;          /* 🔥 reduce from 4px */
-  text-align: right;
-
-  padding-right: 8px;           /* 👈 THIS moves it left */
+  letter-spacing: 0.3px;
+  text-align: left;
+  padding: 6px 10px 6px 0;
   transition: color 0.15s;
 }
 

@@ -120,7 +120,7 @@ export default function QuoteModal() {
 
                 <div className="rq-error" id="rqError"></div>
 
-                <div className="cf-turnstile" data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY} data-callback="onTurnstileSuccess"></div>
+                <div className="cf-turnstile" data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY} data-callback="onTurnstileSuccess" suppressHydrationWarning></div>
 
                 <button type="submit" className="rq-submit" id="rqSubmitBtn">SUBMIT NOW</button>
               </form>

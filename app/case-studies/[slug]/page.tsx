@@ -227,8 +227,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (r.length === 0) return { title: "Not Found" };
   const c = r[0];
   const u = `${SITE_URL}/case-studies/${slug}`;
+  // Strip any trailing "| mTouch Labs" so the root layout template doesn't duplicate it
+  const stripBrand = (s?: string) => (s || '').replace(/\s*\|\s*mTouch\s*Labs\s*$/i, '').trim();
+  const cleanMetaTitle = stripBrand(c.meta_title || c.title);
   return {
-    title: c.meta_title || c.title,
+    title: cleanMetaTitle,
     description: c.meta_description,
     keywords: c.keywords || undefined,
     alternates: { canonical: c.canonical_url || u },

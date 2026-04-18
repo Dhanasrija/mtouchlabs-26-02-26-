@@ -3,6 +3,31 @@ import { NextRequest, NextResponse } from 'next/server';
 // Force Node.js runtime instead of Edge — avoids __dirname errors on Vercel
 export const runtime = 'nodejs';
 
+// In-memory cache for blog slugs (shared across invocations in same process)
+// Refreshes every 5 minutes, so newly published blogs still get picked up automatically.
+type SlugCache = { set: Set<string>; expiresAt: number } | null;
+let SLUG_CACHE: SlugCache = null;
+const SLUG_CACHE_TTL_MS = 5 * 60 * 1000; // 5 minutes
+
+async function getBlogSlugs(): Promise<Set<string>> {
+  const now = Date.now();
+  if (SLUG_CACHE && SLUG_CACHE.expiresAt > now) {
+    return SLUG_CACHE.set;
+  }
+  try {
+    const { neon } = await import('@neondatabase/serverless');
+    const sql = neon(process.env.DATABASE_URL!);
+    const rows = (await sql`SELECT slug FROM blogs WHERE (published = true OR status = 'published')`) as { slug: string }[];
+    const set = new Set(rows.map(r => r.slug));
+    SLUG_CACHE = { set, expiresAt: now + SLUG_CACHE_TTL_MS };
+    return set;
+  } catch {
+    // On DB failure, cache an empty set briefly so we don't hammer the DB.
+    SLUG_CACHE = { set: new Set(), expiresAt: now + 30_000 };
+    return SLUG_CACHE.set;
+  }
+}
+
 export async function middleware(request: NextRequest) {
   try {
     const { pathname } = request.nextUrl;
@@ -84,18 +109,13 @@ export async function middleware(request: NextRequest) {
         !pathname.startsWith('/sitemap') &&
         !pathname.startsWith('/robots') &&
         pathname.split('/').filter(Boolean).length === 1) {
-      // Check if this slug exists as a blog via a lightweight fetch
-      try {
-        const { neon } = await import('@neondatabase/serverless');
-        const sql = neon(process.env.DATABASE_URL!);
-        const blogs = await sql`SELECT id FROM blogs WHERE slug = ${pathname.slice(1)} AND (published = true OR status = 'published') LIMIT 1`;
-        if (blogs.length > 0) {
-          const url = request.nextUrl.clone();
-          url.pathname = `/blog${pathname}`;
-          return NextResponse.redirect(url, 301);
-        }
-      } catch (e) {
-        // DB check failed — fall through to normal routing
+      // Check cached blog slug set instead of hitting DB on every request
+      const slug = pathname.slice(1);
+      const slugSet = await getBlogSlugs();
+      if (slugSet.has(slug)) {
+        const url = request.nextUrl.clone();
+        url.pathname = `/blog${pathname}`;
+        return NextResponse.redirect(url, 301);
       }
     }
 

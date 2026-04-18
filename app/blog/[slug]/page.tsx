@@ -57,8 +57,11 @@ export async function generateMetadata({
   if (blogs.length === 0) return { title: 'Blog Not Found' };
   const blog = blogs[0];
   const pageUrl = `${SITE_URL}/blog/${slug}`;
+  // Strip any trailing "| mTouch Labs" so the root layout template doesn't duplicate it
+  const stripBrand = (s?: string) => (s || '').replace(/\s*\|\s*mTouch\s*Labs\s*$/i, '').trim();
+  const cleanTitle = stripBrand(blog.meta_title || blog.title);
   return {
-    title: blog.meta_title || blog.title,
+    title: cleanTitle,
     description: blog.meta_description,
     keywords: blog.focus_keyword || undefined,
     alternates: { canonical: blog.canonical_url || pageUrl },

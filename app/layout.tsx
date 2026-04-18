@@ -65,7 +65,7 @@ export default function RootLayout({
             gtag('config', 'G-XKH5MQ5FD4');
           `}
         </Script>
-        <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" strategy="afterInteractive" />
+        <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" strategy="lazyOnload" />
 
         {/* ========== SCHEMA.ORG — Organization ========== */}
         <script
@@ -204,7 +204,7 @@ export default function RootLayout({
                   <span className="brochure-input-icon">&#128241;</span>
                   <input type="tel" id="brochure_phone" placeholder="Contact Number" aria-label="Phone Number" />
                 </div>
-                <div className="cf-turnstile" data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY} data-callback="onBrochureTurnstileSuccess"></div>
+                <div className="cf-turnstile" data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY} data-callback="onBrochureTurnstileSuccess" suppressHydrationWarning></div>
 
                 <button id="brochureSubmitBtn" className="brochure-submit-btn">Submit Now</button>
               </div>
@@ -233,8 +233,8 @@ export default function RootLayout({
         </a>
 
         {/* ========== JS — Core Libraries ========== */}
-        <Script src="/js/jquery-3.6.0.min.js" strategy="beforeInteractive" />
-        <Script src="/js/bootstrap.bundle.min.js" strategy="beforeInteractive" />
+        <Script src="/js/jquery-3.6.0.min.js" strategy="afterInteractive" />
+        <Script src="/js/bootstrap.bundle.min.js" strategy="afterInteractive" />
         {/* <Script id="app-bundle" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: `(function c(){if(typeof jQuery!=="undefined"){var s=document.createElement("script");s.src="/js/app.bundle.js";s.onload=function(){var n=document.createElement("script");n.src="/js/navbar-init.js";document.body.appendChild(n)};document.body.appendChild(s)}else{setTimeout(c,100)}})()` }} /> */}
         <Script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" strategy="afterInteractive" />
         <Script src="https://unpkg.com/aos@2.3.1/dist/aos.js" strategy="afterInteractive" />

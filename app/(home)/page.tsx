@@ -28,8 +28,7 @@ import { HonorsCode } from "@/components/sections/home/HonorsCode";
 export const metadata = {
   metadataBase: new URL("https://www.mtouchlabs.com"),
   title: {
-    default: "Software Development Company & IT Solutions",
-    template: "%s | mTouch Labs"
+    absolute: "Software Development Company & IT Solutions | mTouch Labs"
   },
   description:
     "Leading software development company offering custom software, mobile apps, web development, Salesforce solutions, UI/UX design & enterprise IT services.",

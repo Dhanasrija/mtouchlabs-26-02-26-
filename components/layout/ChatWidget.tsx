@@ -784,10 +784,15 @@ export default function ChatWidget() {
 
   const bodyRef = useRef<HTMLDivElement>(null);
   const wsRef = useRef<WebSocket | null>(null);
-  const sessionIdRef = useRef<string>(generateSessionId());
+  // Initialize session id deterministically; real id is set client-side in useEffect
+  // to avoid SSR/CSR divergence from Math.random() + Date.now() during render.
+  const sessionIdRef = useRef<string>("");
   const reconnectAttempts = useRef(0);
 
   useEffect(() => {
+    if (!sessionIdRef.current) {
+      sessionIdRef.current = generateSessionId();
+    }
     const t1 = setTimeout(() => setShowLabel(true), 2500);
     const t2 = setTimeout(() => setShowLabel(false), 9000);
     return () => { clearTimeout(t1); clearTimeout(t2); };

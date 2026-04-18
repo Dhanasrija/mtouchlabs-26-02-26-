@@ -944,11 +944,13 @@ export function FreeRequestQuoteClient() {
         {/* ───── Right: Content ───── */}
         <div className="rq-right">
           <div className="rq-logo-wrap">
-            <img
-              src="/images/logo-black.svg"
-              alt="mTouch Labs"
-              className="rq-logo"
-            />
+            <a href="/" aria-label="mTouch Labs home">
+              <img
+                src="/images/logo-black.svg"
+                alt="mTouch Labs"
+                className="rq-logo"
+              />
+            </a>
           </div>
 <h2 className="rq-headline">
   <span className="rq-headline-row">
