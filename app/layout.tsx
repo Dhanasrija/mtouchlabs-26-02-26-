@@ -49,7 +49,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         {/* ========== GOOGLE TAG (gtag.js) — Ads + Analytics ========== */}
         <Script
@@ -156,7 +156,7 @@ export default function RootLayout({
         {/* Favicon */}
         <link href="/images/favicon.png" rel="icon" />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <Analytics />
         {/* Request Quote Modal Overlay (shared) */}
         <QuoteModal />

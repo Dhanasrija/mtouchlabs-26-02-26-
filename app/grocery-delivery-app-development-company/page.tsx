@@ -664,8 +664,10 @@ export default function Page() {
           --tag: 13px;
         }
 
+        /* Global body dark-bg override — product pages use light theme. */
+        html:has(.gd), body:has(.gd) { background: #ffffff !important; }
         .gd * { box-sizing: border-box; margin: 0; padding: 0; }
-        .gd { font-family: var(--fp); color: var(--indigo); }
+        .gd { font-family: var(--fp); color: var(--indigo); background: #ffffff; }
 
         /* ════════════════════════════════
            BREADCRUMB
@@ -757,9 +759,13 @@ export default function Page() {
            SHARED TYPOGRAPHY
         ════════════════════════════════ */
         .gd-h2 { font-family:var(--fp); font-size:var(--h2); line-height:1.22; font-weight:700; color:var(--indigo); margin-bottom:14px; letter-spacing:-.3px; }
-        .gd-h3 { font-family:var(--fp); font-size:var(--h3); line-height:1.28; font-weight:700; color:var(--indigo); margin-bottom:14px; }
+        .gd-h3 { font-family:var(--fp); font-size:var(--h3); line-height:1.28; font-weight:700; color:#000; margin-bottom:14px; }
         .gd-h4 { font-family:var(--fp); font-size:var(--h4); line-height:1.34; font-weight:700; color:var(--indigo); margin-bottom:12px; }
-        .gd-body { font-family:var(--fp); font-size:var(--b3); line-height:1.75; color:#5a6480; }
+        /* Default .gd-body is used on LIGHT bg only.
+           Dark bg sections use their own selectors: .gd-custom-band, .gd-cta (white text). */
+        .gd-body { font-family:var(--fp); font-size:var(--b3); line-height:1.75; color:#1a1a2e; }
+        .gd-body-light { color:#1a1a2e; }
+        .gd-body-dark { color:#ffffff; }
 
         /* ════════════════════════════════
            KEY FEATURES (4-card grid)
@@ -796,15 +802,20 @@ export default function Page() {
         .gd-twocol-text { flex: 1; }
         .gd-twocol-text p { margin-bottom: 14px; }
         .gd-twocol-text a { color: var(--blue); font-weight: 600; text-decoration: none; }
-        .gd-twocol-text a:hover { text-decoration: underline; }
+        .gd-twocol-text a:hover,
+        .gd-twocol-text a:focus,
+        .gd-twocol-text a:visited,
+        .gd-twocol-text a:active { color: var(--blue); text-decoration: none; }
 
         /* ════════════════════════════════
            CUSTOMIZABLE BAND
         ════════════════════════════════ */
         .gd-custom-band {
           background: linear-gradient(135deg, var(--indigo) 0%, #0a2550 100%);
-          padding: 56px 80px;
+          padding: 56px 80px; color: #ffffff;
         }
+        .gd-custom-band h1, .gd-custom-band h2, .gd-custom-band h3, .gd-custom-band h4,
+        .gd-custom-band h5, .gd-custom-band h6, .gd-custom-band p, .gd-custom-band li { color: #ffffff; }
         .gd-custom-band-inner {
           display: flex; align-items: center; gap: 60px;
           max-width: 1200px; margin: 0 auto;
@@ -1070,8 +1081,11 @@ export default function Page() {
         ════════════════════════════════ */
         .gd-cta {
           background: linear-gradient(130deg, var(--navy) 0%, var(--indigo) 60%, #020b24 100%);
-          padding: 72px 80px; display: flex; align-items: center; gap: 64px;
+          padding: 72px 80px; display: flex; align-items: center; gap: 64px; color: #ffffff;
         }
+        .gd-cta h1, .gd-cta h2, .gd-cta h3, .gd-cta h4, .gd-cta h5, .gd-cta h6,
+        .gd-cta-text h2, .gd-cta-text p { color: #ffffff; }
+        .gd-cta-text p { color: rgba(255,255,255,.8); }
         .gd-cta-text { flex: 1; }
         .gd-cta-text .gd-pill { background: rgba(250,199,89,.15); color: var(--gold); }
         .gd-cta-text h2 { font-family:var(--fp); font-size:var(--h2); line-height:1.22; font-weight:700; color:var(--white); margin-bottom:16px; }
@@ -1167,9 +1181,9 @@ export default function Page() {
           <div className="gd-key-features-inner">
             <span className="gd-pill">Core Capabilities</span>
             <h2 className="gd-h2">Key Features for Seamless Functionality</h2>
-            <p className="gd-body" style={{ maxWidth: "580px", margin: "0 auto" }}>
+            {/* <p className="gd-body" style={{ maxWidth: "580px", margin: "0 auto" }}>
               Every feature is built to give your customers a smooth, reliable grocery shopping experience.
-            </p>
+            </p> */}
             <div className="gd-key-grid">
               {keyFeatures.map((f) => (
                 <div key={f.title} className="gd-key-card">
@@ -1207,14 +1221,14 @@ export default function Page() {
         </div>
 
         {/* ── CUSTOMIZABLE BAND ── */}
-        <div className="gd-custom-band">
+        {/* <div className="gd-custom-band">
           <div className="gd-custom-band-inner">
             <h4>
               Our apps are <em>fully customizable</em> to fit your brand, inventory, and business model — from a single corner store to a nationwide multi-vendor marketplace.
             </h4>
             <img src="/images/products/grocery/appfully.png" alt="Customizable Grocery App" loading="lazy" />
           </div>
-        </div>
+        </div> */}
 
         {/* ── SOLUTIONS TWO-COL ── */}
         <div className="gd-twocol reverse">
@@ -1340,7 +1354,7 @@ export default function Page() {
           <div className="gd-success-inner">
             <span className="gd-pill">Why It Works</span>
             <h2 className="gd-h2">What Makes a Grocery App Successful?</h2>
-            <p className="gd-body">A great grocery app is not just about products — it&apos;s about performance and reliability.</p>
+            {/* <p className="gd-body">A great grocery app is not just about products — it&apos;s about performance and reliability.</p> */}
             <div className="gd-success-grid">
               {successCards.map((c) => (
                 <div key={c.title} className="gd-success-card">
@@ -1357,7 +1371,7 @@ export default function Page() {
           <div className="gd-cost-inner">
             <span className="gd-pill">Pricing</span>
             <h2 className="gd-h2">Grocery Delivery App Development Cost</h2>
-            <p className="gd-body">The cost of grocery app development depends on features, integrations, and complexity.</p>
+            {/* <p className="gd-body">The cost of grocery app development depends on features, integrations, and complexity.</p> */}
             <div className="gd-cost-factors">
               {[
                 { icon: "👥", label: "Number of user panels" },

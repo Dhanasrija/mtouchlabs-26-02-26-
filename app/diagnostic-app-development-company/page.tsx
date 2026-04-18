@@ -119,6 +119,13 @@ export default function Page() {
           }),
         }}
       />
+      {/* Page-level phone mockup size override (square-aspect images) */}
+      <style dangerouslySetInnerHTML={{ __html: `
+        .fd-hero-phone img { width: 320px !important; }
+        .fd-phone-img { width: 380px !important; max-width: 100%; height: auto; }
+        @media (max-width: 1024px) { .fd-hero-phone img { width: 240px !important; } .fd-phone-img { width: 300px !important; } }
+        @media (max-width: 768px)  { .fd-phone-img { width: 260px !important; } }
+      `}} />
       <ProductPageTemplate data={data} />
     </>
   );

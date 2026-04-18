@@ -121,6 +121,18 @@ export default function Page() {
           }),
         }}
       />
+      {/* Bump the wide landscape "business model" image in the End-to-End section */}
+      <style dangerouslySetInnerHTML={{ __html: `
+        .fd-twocol.reverse .fd-phone-img {
+          width: 520px !important;
+          max-width: 100%;
+          height: auto;
+          border-radius: 16px;
+          filter: drop-shadow(0 12px 40px rgba(62,140,251,.18));
+        }
+        @media (max-width: 1024px) { .fd-twocol.reverse .fd-phone-img { width: 420px !important; } }
+        @media (max-width: 768px)  { .fd-twocol.reverse .fd-phone-img { width: 100% !important; max-width: 480px; } }
+      `}} />
       <ProductPageTemplate data={data} />
     </>
   );

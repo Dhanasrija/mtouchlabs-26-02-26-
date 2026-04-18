@@ -187,6 +187,25 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
+      {/* Force white background around the portfolio cards/filter area — overrides any inherited dark styles */}
+      <style dangerouslySetInnerHTML={{ __html: `
+        .blog-block,
+        .blog-block .container,
+        .blog-block .blog-filter-section,
+        .blog-block .blog-post,
+        .blog-block #blog-cards-container,
+        .resources-faq-wrapper {
+          background: #ffffff !important;
+        }
+        .blog-block,
+        .resources-faq-wrapper {
+          color: #1a1a2e;
+        }
+        /* Filter buttons readable on white */
+        .blog-filter-btn { background:#f3f4f6 !important; color:#374151 !important; }
+        .blog-filter-btn.active { background: linear-gradient(135deg,#3B82F6,#4f8ef7) !important; color:#ffffff !important; }
+      ` }} />
+
       {/* Hero Section */}
       <section className="portfolio-hero" style={{ backgroundImage: "url(/images/portfolio-bg.webp)", backgroundPosition: "center bottom" }} >
         <div className="container">

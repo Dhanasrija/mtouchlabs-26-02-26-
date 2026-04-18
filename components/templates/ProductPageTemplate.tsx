@@ -192,8 +192,10 @@ export default function ProductPageTemplate({ data }: { data: ProductPageData })
           --light:  #F4F7FF;
         }
 
+        /* Global body dark-bg override — product pages use light theme. */
+        html:has(.fd-root), body:has(.fd-root) { background: #ffffff !important; }
         .fd-root * { box-sizing: border-box; }
-        .fd-root { font-family: var(--fp); color: #1a1a2e; }
+        .fd-root { font-family: var(--fp); color: #1a1a2e; background: #ffffff; }
 
         .fd-breadcrumb {
           padding: 14px 48px; font-family: var(--fp); font-size: 13px;
@@ -288,12 +290,19 @@ export default function ProductPageTemplate({ data }: { data: ProductPageData })
         }
         .fd-h3 {
           font-family: var(--fp); font-size: clamp(20px, 2.8vw, 32px); line-height: 1.28;
-          font-weight: 700; color: var(--indigo); margin-bottom: 14px;
+          font-weight: 700; color: #000; margin-bottom: 14px;
         }
-        .fd-body { font-family: var(--fp); font-size: 16px; line-height: 1.75; color: #5a6480; font-weight: 400; }
+        /* Default .fd-body is used on LIGHT bg only (cards, tabs, why, cost, process, tech, two-col).
+           Dark bg sections use their own classes: .fd-ai-desc and .fd-cta-text p (white text). */
+        .fd-body { font-family: var(--fp); font-size: 16px; line-height: 1.75; color: #1a1a2e; font-weight: 400; }
+        /* Explicit light-bg class available if .fd-body needs to be reinforced */
+        .fd-body-light { color: #1a1a2e; }
+        /* Explicit dark-bg class for any future white-on-dark body copy */
+        .fd-body-dark { color: #ffffff; }
 
         .fd-features-banner { text-align: center; padding: 52px 24px 0; background: #fff; }
         .fd-features-banner img {
+          display: block; margin: 0 auto;
           width: 100%; max-width: 960px; height: 420px;
           object-fit: contain; object-position: center;
           border-radius: 16px; box-shadow: 0 4px 32px rgba(0,0,0,.08);
@@ -309,7 +318,11 @@ export default function ProductPageTemplate({ data }: { data: ProductPageData })
         .fd-phone-img { width: 230px; height: auto; border-radius: 28px; filter: drop-shadow(0 16px 48px rgba(62,140,251,.18)); }
         .fd-twocol-text { flex: 1; }
         .fd-twocol-text p { margin-bottom: 14px; }
-        .fd-twocol-text a { color: var(--blue); text-decoration: underline; text-underline-offset: 2px; }
+        .fd-twocol-text a { color: var(--blue); text-decoration: none; font-weight: 600; }
+        .fd-twocol-text a:hover,
+        .fd-twocol-text a:focus,
+        .fd-twocol-text a:visited,
+        .fd-twocol-text a:active { color: var(--blue); text-decoration: none; }
 
         .fd-section-divider {
           display: flex; align-items: center; justify-content: center; gap: 24px;
@@ -385,12 +398,20 @@ export default function ProductPageTemplate({ data }: { data: ProductPageData })
         }
         .fd-tab-panel ul li::before { content:'✓'; position:absolute; left:0; color:var(--blue); font-weight:800; font-size:14px; }
 
-        .fd-ai { background:linear-gradient(140deg,#020e3a 0%,var(--indigo) 50%,#040d1c 100%); padding:72px 24px; text-align:center; }
+        .fd-ai { background:linear-gradient(140deg,#020e3a 0%,var(--indigo) 50%,#040d1c 100%); padding:72px 24px; text-align:center; color:#ffffff; }
+        .fd-ai h1, .fd-ai h2, .fd-ai h3, .fd-ai h4, .fd-ai h5, .fd-ai h6,
+        .fd-ai p, .fd-ai li { color:#ffffff; }
+        .fd-ai .fd-ai-card p { color: rgba(255,255,255,.75); }
+        .fd-ai .fd-ai-desc { color: rgba(255,255,255,.8); }
         .fd-ai-inner { max-width:1100px; margin:0 auto; }
         .fd-ai .fd-h2 { color:var(--white); }
         .fd-ai .fd-label { background:rgba(250,199,89,.15); color:var(--gold); }
         .fd-ai-desc { font-family:var(--fp); font-size:16px; line-height:1.75; color:rgba(255,255,255,.7); max-width:680px; margin:0 auto 40px; }
-        .fd-ai-desc a { color:var(--gold); text-decoration:underline; }
+        .fd-ai-desc a { color: var(--gold); text-decoration: none; font-weight: 600; }
+        .fd-ai-desc a:hover,
+        .fd-ai-desc a:focus,
+        .fd-ai-desc a:visited,
+        .fd-ai-desc a:active { color: var(--gold); text-decoration: none; }
         .fd-ai-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; text-align:left; }
         .fd-ai-card {
           background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1);
@@ -501,8 +522,11 @@ export default function ProductPageTemplate({ data }: { data: ProductPageData })
 
         .fd-cta {
           background:linear-gradient(130deg,var(--navy) 0%,var(--indigo) 60%,#020b24 100%);
-          padding:72px 80px; display:flex; align-items:center; gap:64px;
+          padding:72px 80px; display:flex; align-items:center; gap:64px; color:#ffffff;
         }
+        .fd-cta h1, .fd-cta h2, .fd-cta h3, .fd-cta h4, .fd-cta h5, .fd-cta h6,
+        .fd-cta-text h2, .fd-cta-text p { color:#ffffff; }
+        .fd-cta-text p { color: rgba(255,255,255,.8); }
         .fd-cta-img-wrap { flex:0 0 auto; }
         .fd-cta-img {
           width: 360px; height: 360px; object-fit: cover;

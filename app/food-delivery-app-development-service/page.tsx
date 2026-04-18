@@ -985,8 +985,10 @@ export default function Page() {
           --light:  #F4F7FF;
         }
 
+        /* Global body dark-bg override — product pages use light theme. */
+        html:has(.fd-root), body:has(.fd-root) { background: #ffffff !important; }
         .fd-root * { box-sizing: border-box; }
-        .fd-root { font-family: var(--fp); color: #1a1a2e; }
+        .fd-root { font-family: var(--fp); color: #1a1a2e; background: #ffffff; }
 
         /* ── BREADCRUMB ── */
         .fd-breadcrumb {
@@ -1162,16 +1164,19 @@ export default function Page() {
           font-size: clamp(20px, 2.8vw, 32px);
           line-height: 1.28;
           font-weight: 700;
-          color: var(--indigo);
           margin-bottom: 14px;
         }
+        /* Default .fd-body is used on LIGHT bg only.
+           Dark bg sections use their own classes: .fd-ai-desc and .fd-cta-text p (white text). */
         .fd-body {
           font-family: var(--fp);
           font-size: 16px;
           line-height: 1.75;
-          color: #5a6480;
+          color: #1a1a2e;
           font-weight: 400;
         }
+        .fd-body-light { color: #1a1a2e; }
+        .fd-body-dark { color: #ffffff; }
 
         /* ── FEATURES BANNER ── */
         .fd-features-banner {
@@ -1180,9 +1185,13 @@ export default function Page() {
           background: #fff;
         }
         .fd-features-banner img {
+          display: block;
+          margin: 0 auto;
           max-width: 100%;
           width: 960px;
           height: auto;
+          object-fit: contain;
+          object-position: center;
           border-radius: 16px;
           box-shadow: 0 4px 32px rgba(0,0,0,.08);
         }
@@ -1206,7 +1215,11 @@ export default function Page() {
         }
         .fd-twocol-text { flex: 1; }
         .fd-twocol-text p { margin-bottom: 14px; }
-        .fd-twocol-text a { color: var(--blue); text-decoration: underline; text-underline-offset: 2px; }
+        .fd-twocol-text a { color: var(--blue); text-decoration: none; font-weight: 600; }
+        .fd-twocol-text a:hover,
+        .fd-twocol-text a:focus,
+        .fd-twocol-text a:visited,
+        .fd-twocol-text a:active { color: var(--blue); text-decoration: none; }
 
         /* ── SECTION DIVIDER ── */
         .fd-section-divider {
@@ -1359,7 +1372,11 @@ export default function Page() {
         .fd-tab-panel ul li::before { content:'✓'; position:absolute; left:0; color:var(--blue); font-weight:800; font-size:14px; }
 
         /* ── AI ── */
-        .fd-ai { background:linear-gradient(140deg,#020e3a 0%,var(--indigo) 50%,#040d1c 100%); padding:72px 24px; text-align:center; }
+        .fd-ai { background:linear-gradient(140deg,#020e3a 0%,var(--indigo) 50%,#040d1c 100%); padding:72px 24px; text-align:center; color:#ffffff; }
+        .fd-ai h1, .fd-ai h2, .fd-ai h3, .fd-ai h4, .fd-ai h5, .fd-ai h6,
+        .fd-ai p, .fd-ai li { color:#ffffff; }
+        .fd-ai .fd-ai-card p { color: rgba(255,255,255,.75); }
+        .fd-ai .fd-ai-desc { color: rgba(255,255,255,.8); }
         .fd-ai-inner { max-width:1100px; margin:0 auto; }
         .fd-ai .fd-h2 { color:var(--white); }
         .fd-ai .fd-label { background:rgba(250,199,89,.15); color:var(--gold); }
@@ -1367,7 +1384,11 @@ export default function Page() {
           font-family:var(--fp); font-size:16px; line-height:1.75;
           color:rgba(255,255,255,.7); max-width:680px; margin:0 auto 40px;
         }
-        .fd-ai-desc a { color:var(--gold); text-decoration:underline; }
+        .fd-ai-desc a { color: var(--gold); text-decoration: none; font-weight: 600; }
+        .fd-ai-desc a:hover,
+        .fd-ai-desc a:focus,
+        .fd-ai-desc a:visited,
+        .fd-ai-desc a:active { color: var(--gold); text-decoration: none; }
         .fd-ai-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; text-align:left; }
         .fd-ai-card {
           background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1);
@@ -1494,8 +1515,11 @@ export default function Page() {
         /* ── FINAL CTA ── */
         .fd-cta {
           background:linear-gradient(130deg,var(--navy) 0%,var(--indigo) 60%,#020b24 100%);
-          padding:72px 80px; display:flex; align-items:center; gap:64px;
+          padding:72px 80px; display:flex; align-items:center; gap:64px; color:#ffffff;
         }
+        .fd-cta h1, .fd-cta h2, .fd-cta h3, .fd-cta h4, .fd-cta h5, .fd-cta h6,
+        .fd-cta-text h2, .fd-cta-text p { color:#ffffff; }
+        .fd-cta-text p { color: rgba(255,255,255,.8); }
         .fd-cta-img-wrap { flex:0 0 auto; }
         .fd-cta-img { width:300px; height:auto; border-radius:24px; filter:drop-shadow(0 16px 48px rgba(0,0,0,.5)); }
         .fd-cta-text { flex:1; }
@@ -1612,12 +1636,12 @@ export default function Page() {
           </div>
         </div>
 
-        {/* ── SECTION DIVIDER ── */}
+        {/* ── SECTION DIVIDER ──
         <div className="fd-section-divider">
           <img src="/images/products/food11.png" loading="lazy" alt="" />
           <h2>Custom Food Delivery App Development Services</h2>
           <img src="/images/products/food11.png" loading="lazy" alt="" />
-        </div>
+        </div> */}
 
         {/* ── END-TO-END TWO-COL ── */}
         <div className="fd-twocol reverse">
@@ -1693,7 +1717,7 @@ export default function Page() {
           <div className="fd-tabs-inner">
             <span className="fd-label">Features</span>
             <h2 className="fd-h2">Core Features of Our Food Delivery App</h2>
-            <p className="fd-body">Our custom food delivery app development services cover every part of the ecosystem.</p>
+            {/* <p className="fd-body">Our custom food delivery app development services cover every part of the ecosystem.</p> */}
 
             <input type="radio" name="panel-tab" id="tab-customer" className="fd-tab-radio" defaultChecked />
             <input type="radio" name="panel-tab" id="tab-admin" className="fd-tab-radio" />
@@ -1773,7 +1797,7 @@ export default function Page() {
           <div className="fd-why-inner">
             <span className="fd-label">Why mTouch Labs</span>
             <h2 className="fd-h2">Why Choose mTouch Labs for Food Delivery App Development?</h2>
-            <p className="fd-body">Choosing the right development partner is critical when launching a food delivery platform. mTouch Labs combines mobile, software, and AI expertise to deliver reliable and growth-focused applications.</p>
+            {/* <p className="fd-body">Choosing the right development partner is critical when launching a food delivery platform. mTouch Labs combines mobile, software, and AI expertise to deliver reliable and growth-focused applications.</p> */}
             <div className="fd-why-grid">
               {[
                 { icon: "🏆", title: "NASSCOM Award-Winning",          desc: "Recognized technology company with proven excellence." },
@@ -1783,6 +1807,11 @@ export default function Page() {
                 { icon: "🔒", title: "Secure Payment Integration",      desc: "PCI-compliant payment gateways and third-party API integration." },
                 { icon: "🔄", title: "Agile Development",               desc: "Transparent communication with iterative development cycles." },
                 { icon: "🛠️", title: "Post-Launch Support",            desc: "Ongoing maintenance, updates, and feature enhancements." },
+                { 
+  icon: "🚀", 
+  title: "Fast Deployment", 
+  desc: "Quick and efficient release cycles to get your product to market faster." 
+}
               ].map((c) => (
                 <div key={c.title} className="fd-why-card">
                   <span className="fd-why-icon">{c.icon}</span>
