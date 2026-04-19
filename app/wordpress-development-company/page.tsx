@@ -26,6 +26,20 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "WordPress Development Company India", "description": "We are the Top wordpress development company in India, offering the Top customized and rich experience wordpress web development services.", "url": "https://www.mtouchlabs.com/wordpress-development-company", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "WordPress Development Company India"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "WordPress Development Company India", "item": "https://www.mtouchlabs.com/wordpress-development-company"}]}),
+        }}
+      />
+
 
 	
 	
@@ -34,7 +48,6 @@ export default function Page() {
 
 	
 	
-
 	<section className="AIservices-banner" data-bg="images/new_services/wordbg.webp">
 		<div className="AIservices-banner-container">
 			<div className="AIservices-banner-content">

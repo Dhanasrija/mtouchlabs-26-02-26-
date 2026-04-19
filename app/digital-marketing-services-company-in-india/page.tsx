@@ -26,6 +26,20 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Digital Marketing Agency in India", "description": "We are the leading digital marketing company in India. Contact our digital marketing agency in India to get industry-specific digital marketing solutions", "url": "https://www.mtouchlabs.com/digital-marketing-services-company-in-india", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "Digital Marketing Agency in India"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Digital Marketing Agency in India", "item": "https://www.mtouchlabs.com/digital-marketing-services-company-in-india"}]}),
+        }}
+      />
+
 
 	
 	
@@ -37,8 +51,7 @@ export default function Page() {
 	
 
 
-	
-	<section className="page-heading-sec r-bg-a pt85 pb120">
+		<section className="page-heading-sec r-bg-a pt85 pb120">
 		<div className="container">
 			<div className="row pt80 justify-content-center">
 				<div className="col-lg-6">

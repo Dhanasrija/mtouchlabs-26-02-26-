@@ -39,8 +39,22 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@mtouchlabs",
+    creator: "@mtouchlabs",
+    title: "Software Development Company & IT Solutions | mTouch Labs",
+    description: "mTouch Labs is a leading software development company providing mobile app development, web development, and digital marketing services.",
     images: ["/images/Light.png"]
   },
+  icons: {
+    icon: "/images/favicon.png",
+    shortcut: "/images/favicon.png",
+    apple: "/images/favicon.png",
+  },
+  manifest: "/manifest.json",
+  authors: [{ name: "mTouch Labs", url: "https://www.mtouchlabs.com" }],
+  creator: "mTouch Labs",
+  publisher: "mTouch Labs",
+  category: "Technology",
 };
 
 export default function RootLayout({
@@ -78,7 +92,7 @@ export default function RootLayout({
               "url": "https://www.mtouchlabs.com",
               "logo": "https://www.mtouchlabs.com/images/favicon.png",
               "description": "Leading software development company specializing in web and mobile app development, partnering with Telangana and Abu Dhabi Governments.",
-              "foundingDate": "2018",
+              "foundingDate": "2014",
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Hyderabad",
@@ -92,7 +106,10 @@ export default function RootLayout({
               ],
               "sameAs": [
                 "https://www.linkedin.com/company/mtouchlabs",
-                "https://www.instagram.com/mtouchlabs"
+                "https://www.instagram.com/mtouchlabs",
+                "https://twitter.com/mtouchlabs",
+                "https://www.facebook.com/mtouchlabs",
+                "https://www.youtube.com/@mtouchlabs"
               ]
             })
           }}

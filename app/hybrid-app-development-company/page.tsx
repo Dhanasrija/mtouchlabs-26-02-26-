@@ -26,10 +26,23 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Top Hybrid App Development Company in India", "description": "Hire mTouch Labs, the top hybrid app development company in India, for custom and scalable hybrid mobile applications.Top Hybrid App Development Company in Hyderabad, \\n\\tspecialized in creating custom hybrid apps", "url": "https://www.mtouchlabs.com/hybrid-app-development-company", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "Top Hybrid App Development Company in India"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Top Hybrid App Development Company in India", "item": "https://www.mtouchlabs.com/hybrid-app-development-company"}]}),
+        }}
+      />
+
 
 	
-	
-	<div>
+		<div>
 		<header className="header-dark ree-header  fixed-top">
 			<div className="top-header">
 				<span><i className="fas fa-envelope"></i> <a href="/cdn-cgi/l/email-protection" className="__cf_email__" data-cfemail="87e4e8e9f3e6e4f3c7eaf3e8f2e4efebe6e5f4a9e4e8ea">[email&#160;protected]</a></span>

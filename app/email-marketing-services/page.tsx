@@ -13,6 +13,19 @@ export const metadata: Metadata = {
 export default function EmailMarketingServices() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Email Marketing Services", "description": "mTouch Labs offers email marketing services including automation setup, lifecycle campaigns, and performance-driven subscriber engagement strategies.", "url": "https://www.mtouchlabs.com/email-marketing-services", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "Email Marketing Services"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Email Marketing Services", "item": "https://www.mtouchlabs.com/email-marketing-services"}]}),
+        }}
+      />
       <section className="em-hero"><div className="em-hero__inner">
         <Breadcrumb pagePath="/email-marketing-services" />
         <h1 className="em-hero__title">Email <span className="em-hero__title-accent">Marketing</span> Services</h1>

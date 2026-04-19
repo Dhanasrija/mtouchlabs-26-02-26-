@@ -35,6 +35,19 @@ export const metadata: Metadata = {
 export default function IPadAppDevelopment() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "iPad App Development Company", "description": "mTouch Labs is an iPad app development company delivering enterprise-ready, large-screen optimized applications built for productivity and performance.", "url": "https://www.mtouchlabs.com/ipad-app-development-company", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "iPad App Development Company"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "iPad App Development Company", "item": "https://www.mtouchlabs.com/ipad-app-development-company"}]}),
+        }}
+      />
       {/* ===== HERO ===== */}
       <section className="ip-hero">
         <div className="ip-hero__inner">

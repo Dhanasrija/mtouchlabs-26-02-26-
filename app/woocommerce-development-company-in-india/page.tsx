@@ -26,6 +26,20 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "WooCommerce Development Company", "description": "mTouch Labs leading top Woocommerce website development company in india, providing custom WooCommerce web development services for creating successful eStores, plugins and themes.", "url": "https://www.mtouchlabs.com/woocommerce-development-company-in-india", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "WooCommerce Development Company"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "WooCommerce Development Company", "item": "https://www.mtouchlabs.com/woocommerce-development-company-in-india"}]}),
+        }}
+      />
+
 
 	
 	
@@ -35,8 +49,7 @@ export default function Page() {
 	
 	
 
-	
-	<section className="AIservices-banner" data-bg="images/new_services/woocommercebg.webp">
+		<section className="AIservices-banner" data-bg="images/new_services/woocommercebg.webp">
 		<div className="AIservices-banner-container">
 			
 			<div className="AIservices-banner-content">

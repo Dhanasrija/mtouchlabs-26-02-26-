@@ -13,6 +13,19 @@ export const metadata: Metadata = {
 export default function IoTDevelopmentIndia() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Best IoT Development Company in India", "description": "mTouch Labs is a leading IoT development company in India delivering secure, scalable, and cloud-integrated IoT solutions for enterprises.", "url": "https://www.mtouchlabs.com/best-iot-development-company-in-india", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "Best IoT Development Company in India"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Best IoT Development Company in India", "item": "https://www.mtouchlabs.com/best-iot-development-company-in-india"}]}),
+        }}
+      />
       <section className="ii-hero"><div className="ii-hero__inner">
         <Breadcrumb pagePath="/best-iot-development-company-in-india" />
         <h1 className="ii-hero__title">Best <span className="ii-hero__title-accent">IoT Development</span> Company in India</h1>

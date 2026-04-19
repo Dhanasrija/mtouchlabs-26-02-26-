@@ -252,6 +252,19 @@ const whyPoints = [
 export default function ITSolutionsPage() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "IT Solutions Company | End-to-End IT Services - mTouch Labs", "description": "mTouch Labs is an IT solutions company offering software, cloud, DevOps, and support services to build and scale modern business systems.", "url": "https://www.mtouchlabs.com/it-solutions-company", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "IT Solutions Company | End-to-End IT Services - mTouch Labs"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "IT Solutions Company | End-to-End IT Services - mTouch Labs", "item": "https://www.mtouchlabs.com/it-solutions-company"}]}),
+        }}
+      />
       <Script
         id="faq-schema"
         type="application/ld+json"

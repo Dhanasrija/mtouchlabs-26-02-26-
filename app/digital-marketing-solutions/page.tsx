@@ -13,6 +13,19 @@ export const metadata: Metadata = {
 export default function DigitalMarketingSolutions() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Digital Marketing Solutions", "description": "mTouch Labs delivers digital marketing solutions including SEO, performance advertising, conversion optimization, and data-driven growth strategies.", "url": "https://www.mtouchlabs.com/digital-marketing-solutions", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "Digital Marketing Solutions"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Digital Marketing Solutions", "item": "https://www.mtouchlabs.com/digital-marketing-solutions"}]}),
+        }}
+      />
       <section className="dm-hero"><div className="dm-hero__inner">
         <Breadcrumb pagePath="/digital-marketing-solutions" />
         <h1 className="dm-hero__title">Digital <span className="dm-hero__title-accent">Marketing</span> Solutions</h1>

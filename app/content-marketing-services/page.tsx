@@ -13,6 +13,19 @@ export const metadata: Metadata = {
 export default function ContentMarketingServices() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Content Marketing Services", "description": "mTouch Labs provides content marketing services including SEO-driven content strategy, B2B content development, and conversion-focused messaging.", "url": "https://www.mtouchlabs.com/content-marketing-services", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "Content Marketing Services"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Content Marketing Services", "item": "https://www.mtouchlabs.com/content-marketing-services"}]}),
+        }}
+      />
       <section className="cm-hero"><div className="cm-hero__inner">
         <Breadcrumb pagePath="/content-marketing-services" />
         <h1 className="cm-hero__title">Content <span className="cm-hero__title-accent">Marketing</span> Services</h1>

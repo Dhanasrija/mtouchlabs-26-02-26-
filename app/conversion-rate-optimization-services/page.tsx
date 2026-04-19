@@ -13,6 +13,19 @@ export const metadata: Metadata = {
 export default function ConversionRateOptimization() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Conversion Rate Optimization Services", "description": "mTouch Labs provides conversion rate optimization services to improve website performance, increase revenue, and maximize marketing ROI.", "url": "https://www.mtouchlabs.com/conversion-rate-optimization-services", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "Conversion Rate Optimization Services"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Conversion Rate Optimization Services", "item": "https://www.mtouchlabs.com/conversion-rate-optimization-services"}]}),
+        }}
+      />
       <section className="co-hero"><div className="co-hero__inner">
         <Breadcrumb pagePath="/conversion-rate-optimization-services" />
         <h1 className="co-hero__title">Conversion Rate <span className="co-hero__title-accent">Optimization</span> Services</h1>

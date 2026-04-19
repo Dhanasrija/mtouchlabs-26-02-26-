@@ -646,6 +646,19 @@ export default function OnDemandProductsPage() {
 
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "On-Demand Products Development", "description": "Looking for an on-demand products development company in Hyderabad? mTouch Labs builds scalable, secure mobile and web applications for businesses.", "url": "https://www.mtouchlabs.com/on-demand-products-development-company-hyderabad", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "On-Demand Products Development"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "On-Demand Products Development", "item": "https://www.mtouchlabs.com/on-demand-products-development-company-hyderabad"}]}),
+        }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       {/* ===== 1. HERO ===== */}

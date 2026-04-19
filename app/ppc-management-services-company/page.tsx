@@ -26,6 +26,19 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "PPC Management Services Company", "description": "mTouch Labs is a PPC management services company offering pay-per-click campaigns, optimized ad strategies, and performance-driven results to boost ROI.", "url": "https://www.mtouchlabs.com/ppc-management-services-company", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "PPC Management Services Company"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "PPC Management Services Company", "item": "https://www.mtouchlabs.com/ppc-management-services-company"}]}),
+        }}
+      />
 <section className="AIservices-banner" data-bg="/images/new_services/ppcbg.webp">
 		<div className="AIservices-banner-container">
 			{/*  Left Content  */}

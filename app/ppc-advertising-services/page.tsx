@@ -13,6 +13,19 @@ export const metadata: Metadata = {
 export default function PPCAdvertisingServices() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "PPC Advertising Services", "description": "mTouch Labs offers PPC advertising services including Google Ads, paid search marketing, and performance-driven paid media campaigns.", "url": "https://www.mtouchlabs.com/ppc-advertising-services", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "PPC Advertising Services"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "PPC Advertising Services", "item": "https://www.mtouchlabs.com/ppc-advertising-services"}]}),
+        }}
+      />
       <section className="pp-hero"><div className="pp-hero__inner">
         <Breadcrumb pagePath="/ppc-advertising-services" />
         <h1 className="pp-hero__title">PPC <span className="pp-hero__title-accent">Advertising</span> Services</h1>

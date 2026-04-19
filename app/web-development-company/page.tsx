@@ -16,8 +16,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.mtouchlabs.com/web-development-company",
   },
-  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }],
-    title: "Web Development Company",
+  robots: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+  openGraph: {
+    images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "Custom Web Development Company — mTouch Labs" }],
+    title: "Custom Web Development Company | mTouch Labs",
     description:
       "Custom website and enterprise web application development services designed for scalability and performance.",
     url: "https://www.mtouchlabs.com/web-development-company",
@@ -26,9 +28,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Web Development Company",
+    site: "@mtouchlabs",
+    creator: "@mtouchlabs",
+    title: "Custom Web Development Company | mTouch Labs",
     description:
       "Professional web development services including custom websites and enterprise web applications.",
+    images: ["/images/Light.png"],
   },
 };
 

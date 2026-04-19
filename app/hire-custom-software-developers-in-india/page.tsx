@@ -531,6 +531,20 @@ export const metadata: Metadata = {
 export default function HireCustomSoftwareDevelopersInIndia() {
   return (
     <div className="hma-page">
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Hire Custom Software Developers in India", "description": "Hire custom software developers in India from mTouch Labs to build scalable, secure, and enterprise-grade applications tailored to your needs.", "url": "https://www.mtouchlabs.com/hire-custom-software-developers-in-india", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "Hire Custom Software Developers in India"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Hire Custom Software Developers in India", "item": "https://www.mtouchlabs.com/hire-custom-software-developers-in-india"}]}),
+        }}
+      />
+
       {/* ═══ HERO ═══ */}
       <section className="hma-hero">
         <div className="hma-heroOrb hma-heroOrb1" />

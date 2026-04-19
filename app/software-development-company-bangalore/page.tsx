@@ -14,12 +14,64 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.mtouchlabs.com/software-development-company-bangalore",
+    languages: {
+      "en-AU": "https://www.mtouchlabs.com/software-development-company-australia",
+      "en-CA": "https://www.mtouchlabs.com/software-development-company-canada",
+      "en-AE": "https://www.mtouchlabs.com/software-development-company-united-arab-emirates",
+      "en-DE": "https://www.mtouchlabs.com/software-development-company-germany",
+      "en-IN": "https://www.mtouchlabs.com/software-development-company-india",
+      "en-IE": "https://www.mtouchlabs.com/software-development-company-ireland",
+      "en-KW": "https://www.mtouchlabs.com/software-development-company-kuwait",
+      "en-NZ": "https://www.mtouchlabs.com/software-development-company-new-zealand",
+      "en-QA": "https://www.mtouchlabs.com/software-development-company-qatar",
+      "en-SA": "https://www.mtouchlabs.com/software-development-company-saudi-arabia",
+      "en-SG": "https://www.mtouchlabs.com/software-development-company-singapore",
+      "en-GB": "https://www.mtouchlabs.com/software-development-company-united-kingdom",
+      "en-US": "https://www.mtouchlabs.com/software-development-company-usa",
+      "x-default": "https://www.mtouchlabs.com/software-development-company-india"
+    }
   },
+  twitter: {
+    card: "summary_large_image",
+    site: "@mtouchlabs",
+    creator: "@mtouchlabs",
+    title: "Software Development Company in Bangalore | mTouch Labs",
+    description: "mTouch Labs — software development company serving Bangalore with custom software, cloud, AI and enterprise applications.",
+    images: [{ url: "/images/Light.png", alt: "mTouch Labs Software Development Company in Bangalore" }]
+  },
+  robots: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 }
+};
+
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "mTouch Labs — Software Development in Bangalore",
+  "url": "https://www.mtouchlabs.com/software-development-company-bangalore",
+  "description": "mTouch Labs — custom software, enterprise apps, cloud and AI for clients in Bangalore.",
+  "image": "https://www.mtouchlabs.com/images/Light.png",
+  "priceRange": "$$",
+  "areaServed": { "@type": "Country", "name": "Bangalore" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Bangalore", "addressCountry": "IN" },
+  "provider": { "@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com" },
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "150", "bestRating": "5" }
+};
+
+const locationBreadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Locations", "item": "https://www.mtouchlabs.com/services" },
+    { "@type": "ListItem", "position": 3, "name": "Software Development Company in Bangalore", "item": "https://www.mtouchlabs.com/software-development-company-bangalore" }
+  ]
 };
 
 export default function SoftwareDevelopmentCompanyBangalore() {
   return (
     <div className="loc-page">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(locationBreadcrumb) }} />
       {/* ═══ HERO ═══ */}
       <section className="loc-hero">
         <div className="loc-heroInner">

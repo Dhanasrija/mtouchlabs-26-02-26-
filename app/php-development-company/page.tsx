@@ -26,6 +26,20 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Top PHP Web Development Company in India", "description": "mTouch Labs is a trusted top PHP web development company in India, building high-performance, responsive, and scalable websites tailored to your business goals.", "url": "https://www.mtouchlabs.com/php-development-company", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "Top PHP Web Development Company in India"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Top PHP Web Development Company in India", "item": "https://www.mtouchlabs.com/php-development-company"}]}),
+        }}
+      />
+
 
 	
 
@@ -36,7 +50,6 @@ export default function Page() {
 
 	
 	
-
 
 	<section className="AIservices-banner" data-bg="images/new_services/phpbg.webp">
 		<div className="AIservices-banner-container">

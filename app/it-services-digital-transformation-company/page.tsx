@@ -28,6 +28,19 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "IT Services & Digital Transformation Company", "description": "mTouch Labs delivers scalable IT services, cloud solutions, AI integration, and enterprise digital transformation for sustainable business growth.", "url": "https://www.mtouchlabs.com/it-services-digital-transformation-company", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "IT Services & Digital Transformation Company"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "IT Services & Digital Transformation Company", "item": "https://www.mtouchlabs.com/it-services-digital-transformation-company"}]}),
+        }}
+      />
       {/* ===== HERO SECTION ===== */}
       <section className="co-hero">
         <div className="co-hero__inner">

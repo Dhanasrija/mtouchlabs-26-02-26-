@@ -26,6 +26,19 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Education App & Web Development", "description": "Boost learning with custom web & app development for education—engage students, support educators, and streamline management with digital solutions.", "url": "https://www.mtouchlabs.com/web-and-app-development-for-education-services", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "Education App & Web Development"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Education App & Web Development", "item": "https://www.mtouchlabs.com/web-and-app-development-for-education-services"}]}),
+        }}
+      />
 {/* page head */}
     <div className="port-head-sec pt85 pb120 r-bg-x">
         <div className="container">

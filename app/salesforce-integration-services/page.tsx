@@ -13,6 +13,19 @@ export const metadata: Metadata = {
 export default function SalesforceIntegration() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Salesforce Integration Services", "description": "Salesforce integration services including ERP, marketing automation, API development, and secure system connectivity.", "url": "https://www.mtouchlabs.com/salesforce-integration-services", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "Salesforce Integration Services"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Salesforce Integration Services", "item": "https://www.mtouchlabs.com/salesforce-integration-services"}]}),
+        }}
+      />
       <section className="sn-hero"><div className="sn-hero__inner">
         <Breadcrumb pagePath="/salesforce-integration-services" />
         <h1 className="sn-hero__title">Salesforce <span className="sn-hero__title-accent">Integration</span> Services</h1>

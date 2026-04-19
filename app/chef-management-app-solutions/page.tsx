@@ -107,6 +107,19 @@ const data: ProductPageData = {
 export default function Page() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Chef Management App Solutions", "description": "Chef Management App Solutions by mTouch Labs - enterprise-grade delivery.", "url": "https://www.mtouchlabs.com/chef-management-app-solutions", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "Chef Management App Solutions"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Chef Management App Solutions", "item": "https://www.mtouchlabs.com/chef-management-app-solutions"}]}),
+        }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

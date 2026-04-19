@@ -6,8 +6,9 @@ export const metadata: Metadata = {
   description: "mTouch Labs provides SEO services including technical optimization, content strategy, and authority building for sustainable organic growth.",
   keywords: ["SEO services","search engine optimization","technical SEO","enterprise SEO","content SEO strategy","SEO company"],
   alternates: { canonical: "https://www.mtouchlabs.com/seo-services" },
-  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }], title: "SEO Services", description: "Enterprise-grade search engine optimization for measurable organic growth.", url: "https://www.mtouchlabs.com/seo-services", siteName: "mTouch Labs", type: "website" },
-  twitter: { card: "summary_large_image", title: "SEO Services", description: "Data-driven SEO strategies for long-term visibility and ranking success." },
+  robots: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "Trusted SEO Services Company — mTouch Labs" }], title: "Trusted SEO Services Company | mTouch Labs", description: "Enterprise-grade search engine optimization for measurable organic growth.", url: "https://www.mtouchlabs.com/seo-services", siteName: "mTouch Labs", type: "website" },
+  twitter: { card: "summary_large_image", site: "@mtouchlabs", creator: "@mtouchlabs", title: "Trusted SEO Services Company | mTouch Labs", description: "Data-driven SEO strategies for long-term visibility and ranking success.", images: ["/images/Light.png"] },
 };
 
 export default function SEOServices() {

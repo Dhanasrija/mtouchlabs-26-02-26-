@@ -13,6 +13,19 @@ export const metadata: Metadata = {
 export default function CloudManagedServices() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Cloud Managed Services", "description": "mTouch Labs provides cloud managed services including 24/7 monitoring, performance optimization, security governance, and infrastructure management.", "url": "https://www.mtouchlabs.com/cloud-managed-services", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "Cloud Managed Services"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Cloud Managed Services", "item": "https://www.mtouchlabs.com/cloud-managed-services"}]}),
+        }}
+      />
       <section className="ms-hero"><div className="ms-hero__inner">
         <Breadcrumb pagePath="/cloud-managed-services" />
         <h1 className="ms-hero__title">Cloud <span className="ms-hero__title-accent">Managed</span> Services</h1>

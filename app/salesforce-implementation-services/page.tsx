@@ -13,6 +13,19 @@ export const metadata: Metadata = {
 export default function SalesforceImplementation() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Salesforce Implementation Services", "description": "Streamline your business with Salesforce implementation services from mTouch Labs, covering CRM setup, automation, migration, and integration.", "url": "https://www.mtouchlabs.com/salesforce-implementation-services", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "Salesforce Implementation Services"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Salesforce Implementation Services", "item": "https://www.mtouchlabs.com/salesforce-implementation-services"}]}),
+        }}
+      />
       <section className="si-hero"><div className="si-hero__inner">
         <Breadcrumb pagePath="/salesforce-implementation-services" />
         <h1 className="si-hero__title">Salesforce <span className="si-hero__title-accent">Implementation</span> Services</h1>

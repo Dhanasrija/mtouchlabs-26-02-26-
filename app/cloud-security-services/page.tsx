@@ -13,6 +13,19 @@ export const metadata: Metadata = {
 export default function CloudSecurityServices() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Cloud Security Services", "description": "mTouch Labs provides cloud security services including risk assessment, compliance management, encryption, and enterprise cloud protection solutions.", "url": "https://www.mtouchlabs.com/cloud-security-services", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "Cloud Security Services"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Cloud Security Services", "item": "https://www.mtouchlabs.com/cloud-security-services"}]}),
+        }}
+      />
       <section className="se-hero"><div className="se-hero__inner">
         <Breadcrumb pagePath="/cloud-security-services" />
         <h1 className="se-hero__title">Cloud <span className="se-hero__title-accent">Security</span> Services</h1>

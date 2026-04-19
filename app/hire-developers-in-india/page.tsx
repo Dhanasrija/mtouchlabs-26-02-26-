@@ -317,6 +317,20 @@ export const metadata: Metadata = {
 export default function HireDevelopersInIndia() {
   return (
     <div className="hd-page">
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Hire Dedicated Developers in India", "description": "Hire dedicated developers in India from mTouch Labs. Scale your business with experienced mobile, web, enterprise, and AI developers through flexible offshore hiring models.", "url": "https://www.mtouchlabs.com/hire-developers-in-india", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "Hire Dedicated Developers in India"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Hire Dedicated Developers in India", "item": "https://www.mtouchlabs.com/hire-developers-in-india"}]}),
+        }}
+      />
+
       {/* ═══ HERO ═══ */}
       <section className="hd-hero">
         <div className="hd-heroOrb hd-heroOrb1" />

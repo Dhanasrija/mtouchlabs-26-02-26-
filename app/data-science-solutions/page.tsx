@@ -13,6 +13,19 @@ export const metadata: Metadata = {
 export default function DataScienceSolutions() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Data Science Solutions", "description": "mTouch Labs delivers data science solutions including predictive analytics, business intelligence, and scalable data engineering services.", "url": "https://www.mtouchlabs.com/data-science-solutions", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "Data Science Solutions"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Data Science Solutions", "item": "https://www.mtouchlabs.com/data-science-solutions"}]}),
+        }}
+      />
       <section className="ds-hero"><div className="ds-hero__inner">
         <Breadcrumb pagePath="/data-science-solutions" />
         <h1 className="ds-hero__title">Data <span className="ds-hero__title-accent">Science</span> Solutions</h1>

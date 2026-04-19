@@ -13,6 +13,19 @@ export const metadata: Metadata = {
 export default function AWSCloudServices() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "AWS Cloud Services", "description": "mTouch Labs provides AWS cloud services including migration, infrastructure deployment, DevOps automation, and managed cloud solutions.", "url": "https://www.mtouchlabs.com/aws-cloud-services", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "AWS Cloud Services"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "AWS Cloud Services", "item": "https://www.mtouchlabs.com/aws-cloud-services"}]}),
+        }}
+      />
       <section className="aw-hero"><div className="aw-hero__inner">
         <Breadcrumb pagePath="/aws-cloud-services" />
         <h1 className="aw-hero__title">AWS <span className="aw-hero__title-accent">Cloud</span> Services</h1>

@@ -13,6 +13,19 @@ export const metadata: Metadata = {
 export default function GenerativeAIDevelopment() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Generative AI Development Company", "description": "Build secure, scalable AI-powered systems with mTouch Labs, a trusted generative AI development company for automation and enterprise intelligence.", "url": "https://www.mtouchlabs.com/generative-ai-development-company", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "Generative AI Development Company"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Generative AI Development Company", "item": "https://www.mtouchlabs.com/generative-ai-development-company"}]}),
+        }}
+      />
       <section className="ga-hero"><div className="ga-hero__inner">
         <Breadcrumb pagePath="/generative-ai-development-company" />
         <h1 className="ga-hero__title">Generative <span className="ga-hero__title-accent">AI</span> Development Company</h1>

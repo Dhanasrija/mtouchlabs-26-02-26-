@@ -13,6 +13,19 @@ export const metadata: Metadata = {
 export default function UXResearchServices() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "UX Research Services", "description": "mTouch Labs provides UX research services including usability testing, user behavior analysis, and experience validation for data-driven decisions.", "url": "https://www.mtouchlabs.com/ux-research-services", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "UX Research Services"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "UX Research Services", "item": "https://www.mtouchlabs.com/ux-research-services"}]}),
+        }}
+      />
       <section className="ur-hero"><div className="ur-hero__inner">
         <Breadcrumb pagePath="/ux-research-services" />
         <h1 className="ur-hero__title">UX <span className="ur-hero__title-accent">Research</span> Services</h1>

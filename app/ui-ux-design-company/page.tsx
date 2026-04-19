@@ -13,6 +13,19 @@ export const metadata: Metadata = {
 export default function UIUXDesignCompany() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "UI/UX Design Company", "description": "mTouch Labs is a UI/UX design company delivering user-centered design, research-driven interfaces, and conversion-focused digital experiences.", "url": "https://www.mtouchlabs.com/ui-ux-design-company", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "UI/UX Design Company"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "UI/UX Design Company", "item": "https://www.mtouchlabs.com/ui-ux-design-company"}]}),
+        }}
+      />
       <section className="ux-hero"><div className="ux-hero__inner">
         <Breadcrumb pagePath="/ui-ux-design-company" />
         <h1 className="ux-hero__title"><span className="ux-hero__title-accent">UI/UX</span> Design Company</h1>

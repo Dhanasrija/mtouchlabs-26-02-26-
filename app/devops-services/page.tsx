@@ -13,6 +13,19 @@ export const metadata: Metadata = {
 export default function DevOpsServices() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "DevOps Services and Solutions", "description": "mTouch Labs provides DevOps services including CI/CD implementation, automation, monitoring, and scalable enterprise DevOps solutions.", "url": "https://www.mtouchlabs.com/devops-services", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "DevOps Services and Solutions"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "DevOps Services and Solutions", "item": "https://www.mtouchlabs.com/devops-services"}]}),
+        }}
+      />
       <section className="do-hero"><div className="do-hero__inner">
         <Breadcrumb pagePath="/devops-services" />
         <h1 className="do-hero__title">DevOps <span className="do-hero__title-accent">Services</span></h1>

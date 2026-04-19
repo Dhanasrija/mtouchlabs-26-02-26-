@@ -13,6 +13,19 @@ export const metadata: Metadata = {
 export default function SalesforceSalesCloud() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Salesforce Sales Cloud Services", "description": "mTouch Labs provides Salesforce Sales Cloud services including CRM setup, automation, pipeline optimization, customization, and revenue forecasting.", "url": "https://www.mtouchlabs.com/salesforce-sales-cloud-services", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "Salesforce Sales Cloud Services"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Salesforce Sales Cloud Services", "item": "https://www.mtouchlabs.com/salesforce-sales-cloud-services"}]}),
+        }}
+      />
       <section className="sc-hero"><div className="sc-hero__inner">
         <Breadcrumb pagePath="/salesforce-sales-cloud-services" />
         <h1 className="sc-hero__title">Salesforce <span className="sc-hero__title-accent">Sales Cloud</span> Services</h1>

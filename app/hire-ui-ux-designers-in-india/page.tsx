@@ -881,6 +881,20 @@ export const metadata: Metadata = {
 export default function HireUiUxDesignersInIndia() {
   return (
     <div className="hma-page">
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Hire UI UX Designers in India", "description": "Hire UI UX designers in India from mTouch Labs to craft intuitive, engaging, and conversion-focused digital experiences for web and mobile platforms.", "url": "https://www.mtouchlabs.com/hire-ui-ux-designers-in-india", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "Hire UI UX Designers in India"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Hire UI UX Designers in India", "item": "https://www.mtouchlabs.com/hire-ui-ux-designers-in-india"}]}),
+        }}
+      />
+
       {/* Hero Section */}
       <section className="hma-hero">
         <div className="hma-heroOrb hma-heroOrb1" />

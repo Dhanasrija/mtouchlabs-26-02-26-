@@ -26,6 +26,19 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Web and App Development for Real Estate", "description": "Get feature-rich web and app development for real estate, enhancing user engagement, property listings, and seamless interactions for buyers and sellers", "url": "https://www.mtouchlabs.com/web-and-app-development-for-real-estate-services", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "Web and App Development for Real Estate"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Web and App Development for Real Estate", "item": "https://www.mtouchlabs.com/web-and-app-development-for-real-estate-services"}]}),
+        }}
+      />
 <div className="port-head-sec pt85 pb120 r-bg-x">
         <div className="container">
             <div className="row vcenter pt80">

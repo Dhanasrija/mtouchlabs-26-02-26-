@@ -12,6 +12,19 @@ export const metadata: Metadata = {
 export default function iOSDevelopment() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "iOS App Development Company", "description": "mTouch Labs is an iOS app development company delivering secure, scalable, and high-performance iPhone applications tailored to business needs.", "url": "https://www.mtouchlabs.com/ios-app-development-company", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "iOS App Development Company"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "iOS App Development Company", "item": "https://www.mtouchlabs.com/ios-app-development-company"}]}),
+        }}
+      />
       {/* ===== HERO ===== */}
       <section className="io-hero">
         <div className="io-hero__inner">

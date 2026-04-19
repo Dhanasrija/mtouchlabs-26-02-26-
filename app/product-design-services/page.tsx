@@ -13,6 +13,19 @@ export const metadata: Metadata = {
 export default function ProductDesignServices() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Product Design Services", "description": "mTouch Labs delivers product design services including MVP design, SaaS product UX, and scalable digital product development strategies.", "url": "https://www.mtouchlabs.com/product-design-services", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "Product Design Services"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Product Design Services", "item": "https://www.mtouchlabs.com/product-design-services"}]}),
+        }}
+      />
       <section className="pd-hero"><div className="pd-hero__inner">
         <Breadcrumb pagePath="/product-design-services" />
         <h1 className="pd-hero__title">Product <span className="pd-hero__title-accent">Design</span> Services</h1>

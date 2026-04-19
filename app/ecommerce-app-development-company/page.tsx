@@ -104,6 +104,19 @@ const data: ProductPageData = {
 export default function Page() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Ecommerce App Development Company", "description": "Ecommerce App Development Company by mTouch Labs - enterprise-grade delivery.", "url": "https://www.mtouchlabs.com/ecommerce-app-development-company", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "Ecommerce App Development Company"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Ecommerce App Development Company", "item": "https://www.mtouchlabs.com/ecommerce-app-development-company"}]}),
+        }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

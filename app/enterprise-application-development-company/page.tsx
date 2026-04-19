@@ -13,6 +13,19 @@ export const metadata: Metadata = {
 export default function EnterpriseApplicationDevelopment() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Enterprise Application Development Company", "description": "Partner with mTouch Labs, an enterprise application development company delivering scalable custom software, cloud solutions, and integration services.", "url": "https://www.mtouchlabs.com/enterprise-application-development-company", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "Enterprise Application Development Company"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Enterprise Application Development Company", "item": "https://www.mtouchlabs.com/enterprise-application-development-company"}]}),
+        }}
+      />
       <section className="ea-hero"><div className="ea-hero__inner">
         <Breadcrumb pagePath="/enterprise-application-development-company" />
         <h1 className="ea-hero__title">Enterprise <span className="ea-hero__title-accent">Application</span> Development</h1>

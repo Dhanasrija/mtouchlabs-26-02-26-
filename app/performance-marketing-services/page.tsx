@@ -13,6 +13,19 @@ export const metadata: Metadata = {
 export default function PerformanceMarketing() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Performance Marketing Services", "description": "mTouch Labs offers performance marketing services focused on measurable ROI, scalable acquisition, and revenue-driven growth strategies.", "url": "https://www.mtouchlabs.com/performance-marketing-services", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "Performance Marketing Services"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Performance Marketing Services", "item": "https://www.mtouchlabs.com/performance-marketing-services"}]}),
+        }}
+      />
       <section className="pm-hero"><div className="pm-hero__inner">
         <Breadcrumb pagePath="/performance-marketing-services" />
         <h1 className="pm-hero__title">Performance <span className="pm-hero__title-accent">Marketing</span> Services</h1>

@@ -13,12 +13,23 @@ export const metadata: Metadata = {
     "technology consulting leadership",
     "digital transformation specialists",
   ],
-  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }],
-    title: "Leadership Team",
+  alternates: { canonical: "https://www.mtouchlabs.com/leadership-team" },
+  robots: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs Leadership Team" }],
+    title: "Leadership Team | mTouch Labs",
     description:
       "Experienced technology leaders driving enterprise software and cloud innovation globally.",
     url: "https://www.mtouchlabs.com/leadership-team",
+    siteName: "mTouch Labs",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@mtouchlabs",
+    creator: "@mtouchlabs",
+    title: "Leadership Team | mTouch Labs",
+    description: "Experienced technology leaders driving enterprise software and cloud innovation globally.",
+    images: ["/images/Light.png"],
   },
 };
 
@@ -108,11 +119,48 @@ export default function LeadershipTeamPage() {
     })),
   };
 
+  const leadershipSchema = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: "Leadership Team | mTouch Labs",
+    url: "https://www.mtouchlabs.com/leadership-team",
+    about: {
+      "@type": "Organization",
+      name: "mTouch Labs",
+      url: "https://www.mtouchlabs.com",
+      employee: leaders.map((l) => ({
+        "@type": "Person",
+        jobTitle: l.role,
+        description: l.desc,
+        knowsAbout: l.expertise,
+        worksFor: { "@type": "Organization", name: "mTouch Labs", url: "https://www.mtouchlabs.com" },
+      })),
+    },
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.mtouchlabs.com/" },
+      { "@type": "ListItem", position: 2, name: "About", item: "https://www.mtouchlabs.com/about" },
+      { "@type": "ListItem", position: 3, name: "Leadership Team", item: "https://www.mtouchlabs.com/leadership-team" },
+    ],
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(leadershipSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <link rel="stylesheet" href="/css/leadership-page.css" />
 

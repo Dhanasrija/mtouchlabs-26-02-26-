@@ -26,6 +26,20 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Shopify Development Company India", "description": "mTouch Labs, a top Shopify development company, offers Shopify website services, integrations, support & maintenance in India.", "url": "https://www.mtouchlabs.com/shopify-development-company-in-india", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "Shopify Development Company India"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Shopify Development Company India", "item": "https://www.mtouchlabs.com/shopify-development-company-in-india"}]}),
+        }}
+      />
+
 
 	
 
@@ -39,8 +53,7 @@ export default function Page() {
 
 
 
-	
-	<section className="AIservices-banner" data-bg="images/new_services/shopifybg.webp">
+		<section className="AIservices-banner" data-bg="images/new_services/shopifybg.webp">
 		<div className="AIservices-banner-container">
 			
 			<div className="AIservices-banner-content">

@@ -6,8 +6,9 @@ export const metadata: Metadata = {
   description: "mTouch Labs provides cloud services including consulting, migration, infrastructure engineering, and secure enterprise cloud solutions.",
   keywords: ["cloud services","cloud consulting","cloud infrastructure engineering","cloud migration services","enterprise cloud solutions","multi-cloud architecture"],
   alternates: { canonical: "https://www.mtouchlabs.com/cloud-services" },
-  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }], title: "Cloud Services", description: "Enterprise-ready cloud solutions designed for scalability, security, and digital transformation.", url: "https://www.mtouchlabs.com/cloud-services", siteName: "mTouch Labs", type: "website" },
-  twitter: { card: "summary_large_image", title: "Cloud Services", description: "Scalable and secure cloud engineering for global businesses." },
+  robots: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+  openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "Cloud Services and Solutions — mTouch Labs" }], title: "Cloud Services and Solutions | mTouch Labs", description: "Enterprise-ready cloud solutions designed for scalability, security, and digital transformation.", url: "https://www.mtouchlabs.com/cloud-services", siteName: "mTouch Labs", type: "website" },
+  twitter: { card: "summary_large_image", site: "@mtouchlabs", creator: "@mtouchlabs", title: "Cloud Services and Solutions | mTouch Labs", description: "Scalable and secure cloud engineering for global businesses.", images: ["/images/Light.png"] },
 };
 
 export default function CloudServices() {

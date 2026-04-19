@@ -554,6 +554,20 @@ export const metadata: Metadata = {
 export default function HireReactDevelopersInIndia() {
   return (
     <div className="hma-page">
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Hire React Developers in India", "description": "Hire React developers in India from mTouch Labs to build fast, scalable, and interactive web applications for modern businesses.", "url": "https://www.mtouchlabs.com/hire-react-developers-in-india", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "Hire React Developers in India"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Hire React Developers in India", "item": "https://www.mtouchlabs.com/hire-react-developers-in-india"}]}),
+        }}
+      />
+
       {/* Hero Section */}
       <section className="hma-hero">
         <div className="hma-heroOrb hma-heroOrb1" />

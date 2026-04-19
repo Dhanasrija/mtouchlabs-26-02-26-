@@ -13,6 +13,19 @@ export const metadata: Metadata = {
 export default function CloudMigrationServices() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Cloud Migration Services", "description": "mTouch Labs provides secure cloud migration services for enterprise infrastructure, applications, and data modernization.", "url": "https://www.mtouchlabs.com/cloud-migration-services", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "Cloud Migration Services"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Cloud Migration Services", "item": "https://www.mtouchlabs.com/cloud-migration-services"}]}),
+        }}
+      />
       <section className="mi-hero"><div className="mi-hero__inner">
         <Breadcrumb pagePath="/cloud-migration-services" />
         <h1 className="mi-hero__title">Cloud <span className="mi-hero__title-accent">Migration</span> Services</h1>

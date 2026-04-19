@@ -471,6 +471,19 @@ export const metadata: Metadata = {
 export default function MobileAppDevelopment() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Mobile App Development Company", "description": "mTouch Labs delivers custom iOS, Android, and cross-platform mobile apps engineered to drive scalable growth and digital transformation.", "url": "https://www.mtouchlabs.com/mobile-app-development-company", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "Mobile App Development Company"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Mobile App Development Company", "item": "https://www.mtouchlabs.com/mobile-app-development-company"}]}),
+        }}
+      />
       {/* ===== HERO ===== */}
       <section className="ma-hero">
         <div className="ma-hero__inner">

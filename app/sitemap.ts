@@ -298,12 +298,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Auto-updates when you publish new portfolios
   // ===========================
   try {
-    const portfolios = await sql`SELECT slug, created_at FROM portfolios WHERE published = true`
+    const portfolios = await sql`SELECT slug, created_at, updated_at FROM portfolios WHERE published = true`
     portfolios.forEach((portfolio: any) => {
+      const mod = portfolio.updated_at || portfolio.created_at
       entries.push({
         url: `${baseUrl}/${portfolio.slug}`,
-        lastModified: portfolio.created_at
-          ? new Date(portfolio.created_at).toISOString().split('T')[0]
+        lastModified: mod
+          ? new Date(mod).toISOString().split('T')[0]
           : today,
         changeFrequency: 'monthly',
         priority: 0.7,
@@ -311,6 +312,26 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })
   } catch (e) {
     console.error('Sitemap: Failed to fetch portfolios', e)
+  }
+
+  // ===========================
+  // DYNAMIC: CASE STUDIES FROM DATABASE
+  // ===========================
+  try {
+    const caseStudies = await sql`SELECT slug, updated_at, created_at FROM case_studies WHERE published = true OR status = 'published'`
+    caseStudies.forEach((cs: any) => {
+      const mod = cs.updated_at || cs.created_at
+      entries.push({
+        url: `${baseUrl}/case-studies/${cs.slug}`,
+        lastModified: mod
+          ? new Date(mod).toISOString().split('T')[0]
+          : today,
+        changeFrequency: 'monthly',
+        priority: 0.7,
+      })
+    })
+  } catch (e) {
+    console.error('Sitemap: Failed to fetch case studies', e)
   }
 
   return entries

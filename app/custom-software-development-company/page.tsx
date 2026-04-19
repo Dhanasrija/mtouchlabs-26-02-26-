@@ -13,6 +13,19 @@ export const metadata: Metadata = {
 export default function CustomSoftwareDevelopment() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Custom Software Development Company", "description": "mTouch Labs is a custom software development company delivering secure, scalable, and cloud-native software solutions tailored to business needs.", "url": "https://www.mtouchlabs.com/custom-software-development-company", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "Custom Software Development Company"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Custom Software Development Company", "item": "https://www.mtouchlabs.com/custom-software-development-company"}]}),
+        }}
+      />
       <section className="sd-hero"><div className="sd-hero__inner">
         <Breadcrumb pagePath="/custom-software-development-company" />
         <h1 className="sd-hero__title">Custom <span className="sd-hero__title-accent">Software</span> Development</h1>

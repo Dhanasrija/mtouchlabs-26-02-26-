@@ -60,21 +60,32 @@ export async function generateMetadata({
   // Strip any trailing "| mTouch Labs" so the root layout template doesn't duplicate it
   const stripBrand = (s?: string) => (s || '').replace(/\s*\|\s*mTouch\s*Labs\s*$/i, '').trim();
   const cleanTitle = stripBrand(blog.meta_title || blog.title);
+  // Validate canonical: must be a non-empty absolute URL on our domain, else fall back to pageUrl.
+  const isValidCanonical = typeof blog.canonical_url === 'string'
+    && blog.canonical_url.trim().length > 0
+    && /^https?:\/\//i.test(blog.canonical_url)
+    && blog.canonical_url.includes('mtouchlabs.com');
+  const canonical = isValidCanonical ? blog.canonical_url : pageUrl;
   return {
     title: cleanTitle,
     description: blog.meta_description,
     keywords: blog.focus_keyword || undefined,
-    alternates: { canonical: blog.canonical_url || pageUrl },
+    alternates: { canonical },
+    robots: { index: true, follow: true, 'max-image-preview': 'large' as const, 'max-snippet': -1 },
     openGraph: {
       title: blog.og_title || blog.meta_title || blog.title,
       description: blog.og_description || blog.meta_description,
       url: pageUrl,
       siteName: 'mTouch Labs',
       type: 'article',
-      images: [{ url: blog.og_image || blog.image || '/images/Light.png', width: 1200, height: 630 }],
+      publishedTime: blog.created_at,
+      authors: blog.author ? [blog.author] : undefined,
+      images: [{ url: blog.og_image || blog.image || '/images/Light.png', width: 1200, height: 630, alt: blog.og_title || blog.title }],
     },
     twitter: {
       card: 'summary_large_image' as const,
+      site: '@mtouchlabs',
+      creator: '@mtouchlabs',
       title: blog.og_title || blog.title,
       description: blog.og_description || blog.meta_description,
       images: [blog.og_image || blog.image || '/images/Light.png'],

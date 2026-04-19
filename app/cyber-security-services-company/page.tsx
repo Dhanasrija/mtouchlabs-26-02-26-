@@ -13,6 +13,19 @@ export const metadata: Metadata = {
 export default function CyberSecurityServices() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Cyber Security Services Company", "description": "Protect your business with mTouch Labs, a cyber security services company offering cloud security, penetration testing, and compliance solutions.", "url": "https://www.mtouchlabs.com/cyber-security-services-company", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "Cyber Security Services Company"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Cyber Security Services Company", "item": "https://www.mtouchlabs.com/cyber-security-services-company"}]}),
+        }}
+      />
       {/* ===== HERO ===== */}
       <section className="cs-hero">
         <div className="cs-hero__inner">

@@ -13,6 +13,19 @@ export const metadata: Metadata = {
 export default function AIMLServices() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Machine Learning Development Company", "description": "mTouch Labs is a leading machine learning development company offering AI, predictive analytics, NLP, and enterprise ML solutions for scalable business growth.", "url": "https://www.mtouchlabs.com/machine-learning-development-company", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "Machine Learning Development Company"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Machine Learning Development Company", "item": "https://www.mtouchlabs.com/machine-learning-development-company"}]}),
+        }}
+      />
       {/* ===== HERO SECTION ===== */}
       <section className="ml-hero">
         <div className="ml-hero__inner">

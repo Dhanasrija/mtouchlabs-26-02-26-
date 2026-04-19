@@ -426,6 +426,20 @@ export const metadata: Metadata = {
 export default function HireQualityAnalystDevelopersInIndia() {
   return (
     <div className="hma-page">
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Hire Quality Analyst Developers in India", "description": "Hire quality analyst developers in India from mTouch Labs to ensure your applications are secure, stable, and ready for real-world usage.", "url": "https://www.mtouchlabs.com/hire-quality-analyst-developers-in-india", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "Hire Quality Analyst Developers in India"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Hire Quality Analyst Developers in India", "item": "https://www.mtouchlabs.com/hire-quality-analyst-developers-in-india"}]}),
+        }}
+      />
+
       {/* Hero Section */}
       <section className="hma-hero">
         <div className="hma-heroOrb hma-heroOrb1" />

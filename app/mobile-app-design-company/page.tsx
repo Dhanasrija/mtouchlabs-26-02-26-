@@ -13,6 +13,19 @@ export const metadata: Metadata = {
 export default function MobileAppDesignCompany() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Mobile App Design Company", "description": "mTouch Labs is a mobile app design company delivering intuitive iOS and Android app interfaces focused on usability, engagement, and performance.", "url": "https://www.mtouchlabs.com/mobile-app-design-company", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "Mobile App Design Company"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Mobile App Design Company", "item": "https://www.mtouchlabs.com/mobile-app-design-company"}]}),
+        }}
+      />
       <section className="md-hero"><div className="md-hero__inner">
         <Breadcrumb pagePath="/mobile-app-design-company" />
         <h1 className="md-hero__title">Mobile App <span className="md-hero__title-accent">Design</span> Company</h1>

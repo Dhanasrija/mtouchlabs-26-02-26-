@@ -13,6 +13,19 @@ export const metadata: Metadata = {
 export default function AppStoreOptimization() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "App Store Optimization Services", "description": "mTouch Labs offers app store optimization services to improve app visibility, increase organic downloads, and strengthen global marketplace rankings.", "url": "https://www.mtouchlabs.com/app-store-optimization-services", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "App Store Optimization Services"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "App Store Optimization Services", "item": "https://www.mtouchlabs.com/app-store-optimization-services"}]}),
+        }}
+      />
       <section className="ao-hero"><div className="ao-hero__inner">
         <Breadcrumb pagePath="/app-store-optimization-services" />
         <h1 className="ao-hero__title">App Store <span className="ao-hero__title-accent">Optimization</span> Services</h1>

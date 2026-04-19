@@ -13,6 +13,19 @@ export const metadata: Metadata = {
 export default function SocialMediaMarketing() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Social Media Marketing Services", "description": "mTouch Labs provides social media marketing services including strategy, paid social advertising, and engagement-driven brand growth.", "url": "https://www.mtouchlabs.com/social-media-marketing-services", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "Social Media Marketing Services"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Social Media Marketing Services", "item": "https://www.mtouchlabs.com/social-media-marketing-services"}]}),
+        }}
+      />
       <section className="sm-hero"><div className="sm-hero__inner">
         <Breadcrumb pagePath="/social-media-marketing-services" />
         <h1 className="sm-hero__title">Social Media <span className="sm-hero__title-accent">Marketing</span> Services</h1>

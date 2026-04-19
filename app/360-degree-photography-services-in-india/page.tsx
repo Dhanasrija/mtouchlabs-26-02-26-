@@ -33,6 +33,19 @@ export const metadata: Metadata = {
 export default function ThreeSixtyPhotography() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "360 Degree Photography Services in India", "description": "mTouch Labs offers professional 360 degree photography services in India, delivering immersive virtual tours and panoramic visual solutions.", "url": "https://www.mtouchlabs.com/360-degree-photography-services-in-india", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "360 Degree Photography Services in India"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "360 Degree Photography Services in India", "item": "https://www.mtouchlabs.com/360-degree-photography-services-in-india"}]}),
+        }}
+      />
       {/* ===== HERO ===== */}
       <section className="dp-hero">
         <div className="dp-hero__inner">

@@ -26,6 +26,20 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Native Mobile App Development", "description": "Top native app development company in India we provide high-quality native mobile app development services, from concept to launch, tailored to your business needs.", "url": "https://www.mtouchlabs.com/native-app-development-company", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "Native Mobile App Development"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Native Mobile App Development", "item": "https://www.mtouchlabs.com/native-app-development-company"}]}),
+        }}
+      />
+
 
 	
 
@@ -38,8 +52,7 @@ export default function Page() {
 	
 
 
-	
-	<section className="AIservices-banner" data-bg="images/new_services/nativebg.webp">
+		<section className="AIservices-banner" data-bg="images/new_services/nativebg.webp">
 		<div className="AIservices-banner-container">
 			
 			<div className="AIservices-banner-content">

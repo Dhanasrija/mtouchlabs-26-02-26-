@@ -115,6 +115,20 @@ export default function SocialMediaAppDevelopment() {
 
   return (
     <div className="social-page">
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Social Media App Development", "description": "mTouch Labs is a leading social media app development company specializing in custom social networking apps with real-time chat, video streaming, AI content recommendations, and scalable cloud hosting solutions.", "url": "https://www.mtouchlabs.com/social-media-app-development-company", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "Social Media App Development"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Social Media App Development", "item": "https://www.mtouchlabs.com/social-media-app-development-company"}]}),
+        }}
+      />
+
       {/* Breadcrumb */}
       <nav className="social-breadcrumb" aria-label="Breadcrumb">
         <Link href="/" style={{ color: "black" }}>Home</Link>

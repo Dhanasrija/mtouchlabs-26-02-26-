@@ -26,6 +26,20 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "On-Demand Chef Management App", "description": "Cook-a-doddle is an on-demand chef hiring app and website offering seamless cook booking with expert web and mobile app development services.", "url": "https://www.mtouchlabs.com/on-demand-chef-app-development-company", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "On-Demand Chef Management App"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "On-Demand Chef Management App", "item": "https://www.mtouchlabs.com/on-demand-chef-app-development-company"}]}),
+        }}
+      />
+
 
 	
 
@@ -37,8 +51,7 @@ export default function Page() {
 	
 	
 
-	
-	<div className="port-head-sec pt85 pb120 r-bg-x">
+		<div className="port-head-sec pt85 pb120 r-bg-x">
 		<div className="container">
 			<div className="row vcenter pt80">
 				<div className="col-lg-6">

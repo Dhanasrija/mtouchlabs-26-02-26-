@@ -32,6 +32,19 @@ export const metadata: Metadata = {
 export default function FlutterAppDevelopment() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Flutter App Development Company", "description": "mTouch Labs is a Flutter app development company delivering scalable cross-platform mobile apps for iOS and Android using a unified codebase.", "url": "https://www.mtouchlabs.com/flutter-app-development-company", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "Flutter App Development Company"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Flutter App Development Company", "item": "https://www.mtouchlabs.com/flutter-app-development-company"}]}),
+        }}
+      />
       {/* ===== HERO ===== */}
       <section className="fl-hero">
         <div className="fl-hero__inner">

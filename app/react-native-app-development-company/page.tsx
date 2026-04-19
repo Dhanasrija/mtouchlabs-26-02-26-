@@ -35,6 +35,19 @@ export const metadata: Metadata = {
 export default function ReactNativeAppDevelopment() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "React Native App Development Company", "description": "mTouch Labs is a React Native app development company delivering scalable cross-platform mobile apps with native performance and secure integrations.", "url": "https://www.mtouchlabs.com/react-native-app-development-company", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "React Native App Development Company"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "React Native App Development Company", "item": "https://www.mtouchlabs.com/react-native-app-development-company"}]}),
+        }}
+      />
       {/* ===== HERO ===== */}
       <section className="rn-hero">
         <div className="rn-hero__inner">

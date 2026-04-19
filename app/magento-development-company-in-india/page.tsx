@@ -26,6 +26,20 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
+      {/* __SERVICE_JSONLD_INJECTED__ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Magento eCommerce Development", "description": "top Magento eCommerce Development Company India we build secure, scalable, and high-performing Magento stores that deliver seamless shopping experiences and boost online sales.", "url": "https://www.mtouchlabs.com/magento-development-company-in-india", "provider": {"@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com", "logo": "https://www.mtouchlabs.com/images/mtouchlabs-logo.svg"}, "areaServed": {"@type": "Country", "name": "Worldwide"}, "serviceType": "Magento eCommerce Development"}),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Magento eCommerce Development", "item": "https://www.mtouchlabs.com/magento-development-company-in-india"}]}),
+        }}
+      />
+
 
 	
 	
@@ -36,8 +50,7 @@ export default function Page() {
 	
 	
 
-	
-	<section className="AIservices-banner" data-bg="images/new_services/Magentobg.webp">
+		<section className="AIservices-banner" data-bg="images/new_services/Magentobg.webp">
 		<div className="AIservices-banner-container">
 			
 			<div className="AIservices-banner-content">
