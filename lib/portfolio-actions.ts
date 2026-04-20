@@ -4,24 +4,38 @@ import { sql } from '@/lib/db';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 
+// Helper: safely parse JSON with fallback
+function parseJSONField<T>(raw: string | null | undefined, fallback: T): T {
+  if (!raw) return fallback;
+  try {
+    return JSON.parse(raw) as T;
+  } catch {
+    return fallback;
+  }
+}
+
 // CREATE portfolio
 export async function createPortfolio(formData: FormData): Promise<void> {
   const title = formData.get('title') as string;
   const slug = (formData.get('slug') as string) || title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   const description = formData.get('description') as string || '';
+  const subtitle = formData.get('subtitle') as string || '';
   const category = formData.get('category') as string || '';
   const image = formData.get('image') as string || '';
   const tags = formData.get('tags') as string || '';
-  const published = formData.get('published') === 'on';
+  const published = formData.get('published') === 'true' || formData.get('published') === 'on';
+
+  // Content tab
+  const about = formData.get('about') as string || '';
+  const requirements = formData.get('requirements') as string || '';
+  const business_impact = formData.get('business_impact') as string || '';
 
   // Technical tab
   const tech_stack_raw = formData.get('tech_stack') as string || '';
-  // Convert tech_stack to JSON array if it's a comma-separated string
   let tech_stack;
   try {
     tech_stack = JSON.parse(tech_stack_raw);
   } catch {
-    // If it's not valid JSON, convert comma-separated string to array
     tech_stack = tech_stack_raw ? tech_stack_raw.split(',').map(s => s.trim()).filter(Boolean) : [];
   }
   const role = formData.get('role') as string || '';
@@ -29,6 +43,20 @@ export async function createPortfolio(formData: FormData): Promise<void> {
   const team_size = formData.get('team_size') as string || '';
   const key_features = formData.get('key_features') as string || '';
   const challenges_solutions = formData.get('challenges_solutions') as string || '';
+
+  // Tech & Design tab
+  const features = parseJSONField(formData.get('features') as string, []);
+  const typography = parseJSONField(formData.get('typography') as string, {});
+  const color_palette = parseJSONField(formData.get('color_palette') as string, []);
+
+  // Screenshots & Links tab
+  const app_screens = parseJSONField(formData.get('app_screens') as string, []);
+  const web_screens = parseJSONField(formData.get('web_screens') as string, []);
+  const play_store_url = formData.get('play_store_url') as string || '';
+  const app_store_url = formData.get('app_store_url') as string || '';
+
+  // FAQ
+  const faq_schema = parseJSONField(formData.get('faq_schema') as string, []);
 
   // Links & Media tab
   const live_url = formData.get('live_url') as string || '';
@@ -60,6 +88,28 @@ export async function createPortfolio(formData: FormData): Promise<void> {
         ${live_url}, ${github_url}, ${JSON.stringify(gallery_images)},
         ${meta_title}, ${meta_description}, ${canonical_url}, ${og_title}, ${og_description}, ${og_image})
     `;
+
+    // Persist extended fields in a separate UPDATE so missing columns don't break INSERT
+    try {
+      await sql`
+        UPDATE portfolios SET
+          subtitle = ${subtitle},
+          about = ${about},
+          requirements = ${requirements},
+          business_impact = ${business_impact},
+          features = ${JSON.stringify(features)},
+          typography = ${JSON.stringify(typography)},
+          color_palette = ${JSON.stringify(color_palette)},
+          app_screens = ${JSON.stringify(app_screens)},
+          web_screens = ${JSON.stringify(web_screens)},
+          play_store_url = ${play_store_url},
+          app_store_url = ${app_store_url},
+          faq_schema = ${JSON.stringify(faq_schema)}
+        WHERE slug = ${slug}
+      `;
+    } catch (e) {
+      console.log('Some extended portfolio columns may not exist yet:', e);
+    }
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : 'Unknown error';
     if (message.includes('unique') || message.includes('duplicate')) {
@@ -70,6 +120,7 @@ export async function createPortfolio(formData: FormData): Promise<void> {
 
   revalidatePath('/admin/portfolios');
   revalidatePath('/portfolio');
+  revalidatePath(`/portfolio/${slug}`);
   redirect('/admin/portfolios');
 }
 
@@ -79,18 +130,24 @@ export async function updatePortfolio(formData: FormData): Promise<void> {
   const title = formData.get('title') as string;
   const slug = (formData.get('slug') as string) || title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   const description = formData.get('description') as string || '';
+  const subtitle = formData.get('subtitle') as string || '';
   const category = formData.get('category') as string || '';
   const image = formData.get('image') as string || '';
   const tags = formData.get('tags') as string || '';
-  const published = formData.get('published') === 'on';
+  // Checkbox sends 'true' (checked) or 'false' (hidden fallback). Accept both.
+  const publishedRaw = formData.getAll('published');
+  const published = publishedRaw.includes('true') || publishedRaw.includes('on');
+
+  // Content tab
+  const about = formData.get('about') as string || '';
+  const requirements = formData.get('requirements') as string || '';
+  const business_impact = formData.get('business_impact') as string || '';
 
   const tech_stack_raw = formData.get('tech_stack') as string || '';
-  // Convert tech_stack to JSON array if it's a comma-separated string
   let tech_stack;
   try {
     tech_stack = JSON.parse(tech_stack_raw);
   } catch {
-    // If it's not valid JSON, convert comma-separated string to array
     tech_stack = tech_stack_raw ? tech_stack_raw.split(',').map(s => s.trim()).filter(Boolean) : [];
   }
   const role = formData.get('role') as string || '';
@@ -98,6 +155,20 @@ export async function updatePortfolio(formData: FormData): Promise<void> {
   const team_size = formData.get('team_size') as string || '';
   const key_features = formData.get('key_features') as string || '';
   const challenges_solutions = formData.get('challenges_solutions') as string || '';
+
+  // Tech & Design tab
+  const features = parseJSONField(formData.get('features') as string, []);
+  const typography = parseJSONField(formData.get('typography') as string, {});
+  const color_palette = parseJSONField(formData.get('color_palette') as string, []);
+
+  // Screenshots & Links tab
+  const app_screens = parseJSONField(formData.get('app_screens') as string, []);
+  const web_screens = parseJSONField(formData.get('web_screens') as string, []);
+  const play_store_url = formData.get('play_store_url') as string || '';
+  const app_store_url = formData.get('app_store_url') as string || '';
+
+  // FAQ
+  const faq_schema = parseJSONField(formData.get('faq_schema') as string, []);
 
   const live_url = formData.get('live_url') as string || '';
   const github_url = formData.get('github_url') as string || '';
@@ -133,6 +204,28 @@ export async function updatePortfolio(formData: FormData): Promise<void> {
         WHERE id = ${parseInt(id)}
       `;
     } catch { console.log('Some portfolio columns may not exist yet.'); }
+
+    // Persist extended fields (content, screenshots, features, etc.)
+    try {
+      await sql`
+        UPDATE portfolios SET
+          subtitle = ${subtitle},
+          about = ${about},
+          requirements = ${requirements},
+          business_impact = ${business_impact},
+          features = ${JSON.stringify(features)},
+          typography = ${JSON.stringify(typography)},
+          color_palette = ${JSON.stringify(color_palette)},
+          app_screens = ${JSON.stringify(app_screens)},
+          web_screens = ${JSON.stringify(web_screens)},
+          play_store_url = ${play_store_url},
+          app_store_url = ${app_store_url},
+          faq_schema = ${JSON.stringify(faq_schema)}
+        WHERE id = ${parseInt(id)}
+      `;
+    } catch (e) {
+      console.log('Some extended portfolio columns may not exist yet:', e);
+    }
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : 'Unknown error';
     redirect('/admin/portfolios/' + id + '/edit?error=' + encodeURIComponent(message));

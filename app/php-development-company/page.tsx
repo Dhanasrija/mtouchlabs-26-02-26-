@@ -197,7 +197,7 @@ export default function Page() {
 							expectations." – Brick Berry
 						</p>
 						<div className="Aiservices-testimonial-author">
-							<span><a href="/fractional-property-ownership-web-development" target="_blank">Explore
+							<span><a href="/real-estate-app-development-company" target="_blank">Explore
 									→</a></span>
 						</div>
 					</div>

@@ -204,7 +204,7 @@ export default function Page() {
 							— Sameer J., Founder
 						</p>
 						<div className="Aiservices-testimonial-author">
-							<span><a href="/online-generic-medicine-mobile-app-development-and-web-development"
+							<span><a href="/diagnostic-app-development-company"
 									target="_blank">Explore
 									→</a></span>
 						</div>

@@ -196,6 +196,79 @@ export default function CustomSoftwareDevelopment() {
         </div>
       </div></section>
 
+      <section className="sd-commitment"><div className="sd-container"><div className="sd-commitment__inner sd-animate">
+        <h2 className="sd-commitment__heading">AI in <span className="sd-text-accent">Custom Software Development</span></h2>
+        <p className="sd-commitment__text">Software is evolving from static systems into intelligent platforms. At mTouch Labs, we integrate AI-driven capabilities into custom software to make it smarter, faster, and more adaptive. Our approach overlaps closely with our <a href="/generative-ai-development-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>generative AI development</a> work where value is clearly defined.</p>
+        <ul className="sd-checklist">
+          <li className="sd-checklist__item"><span className="sd-checklist__icon">✓</span><span><strong>Automated workflows</strong> &mdash; eliminating repetitive tasks and accelerating operations</span></li>
+          <li className="sd-checklist__item"><span className="sd-checklist__icon">✓</span><span><strong>Predictive analytics</strong> &mdash; surfacing insights from historical and real-time data</span></li>
+          <li className="sd-checklist__item"><span className="sd-checklist__icon">✓</span><span><strong>Intelligent data processing</strong> &mdash; extracting structure from unstructured sources</span></li>
+          <li className="sd-checklist__item"><span className="sd-checklist__icon">✓</span><span><strong>Personalized experiences</strong> &mdash; content and interfaces that adapt to each user</span></li>
+          <li className="sd-checklist__item"><span className="sd-checklist__icon">✓</span><span><strong>Smart recommendations</strong> &mdash; context-aware suggestions that drive engagement</span></li>
+        </ul>
+      </div></div></section>
+
+      <section className="sd-industries"><div className="sd-container">
+        <div className="sd-services__header sd-animate"><h2 className="sd-services__title">Industries <span className="sd-text-accent">We Serve</span></h2><p className="sd-services__subtitle">Custom software built for sector-specific challenges</p></div>
+        <div className="sd-services__grid sd-stagger">
+          <div className="sd-industry sd-animate--scale"><h4 className="sd-service-card__title">eCommerce</h4><p className="sd-service-card__text">Storefronts, catalog systems, and checkout flows engineered for scale, conversion, and operational efficiency.</p></div>
+          <div className="sd-industry sd-animate--scale"><h4 className="sd-service-card__title">Healthcare</h4><p className="sd-service-card__text">HIPAA-aligned patient portals, EHR integrations, telehealth tooling, and clinical workflow systems.</p></div>
+          <div className="sd-industry sd-animate--scale"><h4 className="sd-service-card__title">Finance</h4><p className="sd-service-card__text">Secure fintech platforms, payment gateways, reconciliation tools, and compliance-first data pipelines.</p></div>
+          <div className="sd-industry sd-animate--scale"><h4 className="sd-service-card__title">Education</h4><p className="sd-service-card__text">Learning management systems, assessment platforms, and student engagement tools for institutions of every size.</p></div>
+          <div className="sd-industry sd-animate--scale"><h4 className="sd-service-card__title">Logistics</h4><p className="sd-service-card__text">Fleet tracking, warehouse management, route optimization, and supply-chain visibility platforms.</p></div>
+          <div className="sd-industry sd-animate--scale"><h4 className="sd-service-card__title">Startups &amp; SMBs</h4><p className="sd-service-card__text">MVPs, product pivots, and rapid iterations that help early-stage teams ship and validate quickly.</p></div>
+        </div>
+      </div></section>
+
+      <section className="sd-why"><div className="sd-container"><div className="sd-why__inner sd-animate">
+        <h2 className="sd-why__heading">Cost of <span className="sd-text-accent">Custom Software Development</span></h2>
+        <p className="sd-why__text">One of the most common questions businesses have is how much custom software costs. The honest answer: it depends on what you&apos;re building. Unlike off-the-shelf pricing, custom software is shaped by your specific workflows, integrations, and scale targets.</p>
+        <ul className="sd-checklist">
+          <li className="sd-checklist__item"><span className="sd-checklist__icon">✓</span><span><strong>Complexity</strong> &mdash; number of features, business rules, and user roles</span></li>
+          <li className="sd-checklist__item"><span className="sd-checklist__icon">✓</span><span><strong>Integrations</strong> &mdash; third-party systems, internal APIs, and legacy connectors</span></li>
+          <li className="sd-checklist__item"><span className="sd-checklist__icon">✓</span><span><strong>Scalability</strong> &mdash; expected user load, data volume, and future growth</span></li>
+          <li className="sd-checklist__item"><span className="sd-checklist__icon">✓</span><span><strong>Design</strong> &mdash; UI polish, interaction depth, and brand expression</span></li>
+          <li className="sd-checklist__item"><span className="sd-checklist__icon">✓</span><span><strong>Timeline</strong> &mdash; delivery speed, team size, and release cadence</span></li>
+        </ul>
+        <p className="sd-why__text">A simple internal tool can launch in a few weeks, while a complex enterprise SaaS platform may take several months. We provide a clear estimate based on scope so you can plan with confidence.</p>
+      </div></div></section>
+
+      <section className="sd-commitment"><div className="sd-container"><div className="sd-commitment__inner sd-animate">
+        <h2 className="sd-commitment__heading">Benefits of <span className="sd-text-accent">Custom Software</span></h2>
+        <p className="sd-commitment__text">Custom software isn&apos;t just about building something &ldquo;different&rdquo; &mdash; it&apos;s about building something that gives your business a real advantage.</p>
+        <div className="sd-reliable__pillars">
+          <div className="sd-pillar"><span className="sd-pillar__dot"></span><span className="sd-pillar__label"><strong>Tailored functionality</strong> designed around your exact workflows</span></div>
+          <div className="sd-pillar"><span className="sd-pillar__dot"></span><span className="sd-pillar__label"><strong>Improved efficiency</strong> by removing manual, repetitive work</span></div>
+          <div className="sd-pillar"><span className="sd-pillar__dot"></span><span className="sd-pillar__label"><strong>Better scalability</strong> as users, data, and features grow</span></div>
+          <div className="sd-pillar"><span className="sd-pillar__dot"></span><span className="sd-pillar__label"><strong>Enhanced security</strong> with controls tuned to your risk profile</span></div>
+          <div className="sd-pillar"><span className="sd-pillar__dot"></span><span className="sd-pillar__label"><strong>Competitive advantage</strong> from capabilities competitors can&apos;t copy</span></div>
+        </div>
+      </div></div></section>
+
+      <section className="sd-tech"><div className="sd-container">
+        <div className="sd-services__header sd-animate"><h2 className="sd-services__title">Technologies <span className="sd-text-accent">We Use</span></h2><p className="sd-services__subtitle">A proven stack chosen to match the problem, not the trend</p></div>
+        <div className="sd-tech__tags sd-animate">
+          <span className="sd-tag">React</span>
+          <span className="sd-tag">Next.js</span>
+          <span className="sd-tag">Node.js</span>
+          <span className="sd-tag">TypeScript</span>
+          <span className="sd-tag">Python</span>
+          <span className="sd-tag">Django</span>
+          <span className="sd-tag">.NET</span>
+          <span className="sd-tag">Java</span>
+          <span className="sd-tag">PostgreSQL</span>
+          <span className="sd-tag">MongoDB</span>
+          <span className="sd-tag">Redis</span>
+          <span className="sd-tag">AWS</span>
+          <span className="sd-tag">Azure</span>
+          <span className="sd-tag">GCP</span>
+          <span className="sd-tag">Docker</span>
+          <span className="sd-tag">Kubernetes</span>
+          <span className="sd-tag">GraphQL</span>
+          <span className="sd-tag">REST APIs</span>
+        </div>
+      </div></section>
+
       <section className="sd-delivery"><div className="sd-container">
         <h2 className="sd-delivery__heading sd-animate">Our Development <span className="sd-text-accent">Approach</span></h2>
         <p className="sd-delivery__text">We don&apos;t just build software — we build systems that are designed to last. Wondering about <a href="/blog" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>software development cost</a>? Get a tailored estimate.</p>
@@ -221,6 +294,16 @@ export default function CustomSoftwareDevelopment() {
           <div className="sd-pillar"><span className="sd-pillar__dot"></span><span className="sd-pillar__label">Tailored functionality, improved efficiency, better scalability</span></div>
         </div>
       </div></div></section>
+
+      <section className="sd-services"><div className="sd-container">
+        <div className="sd-services__header sd-animate"><h2 className="sd-services__title">Explore Related <span className="sd-text-accent">Services</span></h2><p className="sd-services__subtitle">Keep exploring complementary capabilities from our team</p></div>
+        <div className="sd-services__grid sd-stagger">
+          <div className="sd-service-card sd-animate--scale"><h4 className="sd-service-card__title"><a href="/web-development-company" style={{color: "inherit", textDecoration: "none"}}>Web Development Services</a></h4><p className="sd-service-card__text">High-performance websites and web apps engineered for speed, SEO, and scale.</p></div>
+          <div className="sd-service-card sd-animate--scale"><h4 className="sd-service-card__title"><a href="/mobile-app-development-company" style={{color: "inherit", textDecoration: "none"}}>Mobile App Development</a></h4><p className="sd-service-card__text">Native and hybrid apps for iOS and Android, built for performance and retention.</p></div>
+          <div className="sd-service-card sd-animate--scale"><h4 className="sd-service-card__title"><a href="/generative-ai-development-company" style={{color: "inherit", textDecoration: "none"}}>Generative AI Development</a></h4><p className="sd-service-card__text">LLM-powered assistants, copilots, and AI features integrated into your products.</p></div>
+          <div className="sd-service-card sd-animate--scale"><h4 className="sd-service-card__title"><a href="/ui-ux-design-company" style={{color: "inherit", textDecoration: "none"}}>UI/UX Design</a></h4><p className="sd-service-card__text">Research-driven product design that turns complex workflows into intuitive experiences.</p></div>
+        </div>
+      </div></section>
 
       <section className="sd-faq"><div className="sd-container"><div className="sd-faq__wrapper">
         <h3 className="sd-faq__heading sd-animate">Frequently Asked <span className="sd-text-accent">Questions</span></h3>

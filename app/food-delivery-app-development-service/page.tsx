@@ -1622,7 +1622,7 @@ export default function Page() {
             <h3 className="fd-h3">Food Delivery App Development</h3>
             <p className="fd-body">
               mTouch Labs is a NASSCOM award-winning{" "}
-              <a href="https://mtouchlabs.com/online-food-ordering-mobile-app-development" target="_blank">food delivery app development service</a>{" "}
+              <a href="/food-delivery-app-development-service" target="_blank">food delivery app development service</a>{" "}
               provider in Hyderabad, helping startups, restaurants, cloud kitchens, and enterprises build powerful digital ordering and delivery platforms.
             </p>
             <p className="fd-body">
@@ -1653,7 +1653,7 @@ export default function Page() {
             <h3 className="fd-h3">Complete Food Delivery Development</h3>
             <p className="fd-body">
               We provide end-to-end{" "}
-              <a href="https://mtouchlabs.com/on-demand-service-providers-web-and-mobile-app-development" target="_blank">food delivery app development services</a>{" "}
+              <a href="/on-demand-service-mobile-app-development" target="_blank">food delivery app development services</a>{" "}
               for businesses looking to streamline food ordering, improve customer experience, and increase revenue.
             </p>
             <p className="fd-body">

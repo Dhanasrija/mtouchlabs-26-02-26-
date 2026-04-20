@@ -53,6 +53,24 @@ const COUNTRY_OPTIONS: readonly CountryOption[] = [
 
 /* Full catalog of services offered by mTouch Labs (grouped for clarity) */
 const SERVICES: readonly { group: string; items: readonly string[] }[] = [
+
+  // <option value="">Select Service</option>
+  //                     <option>Mobile App Development</option>
+  //                     <option>Web Application Development</option>
+  //                     <option>AI &amp; Automation</option>
+  //                     <option>Enterprise Software</option>
+  //                     <option>E-commerce Development</option>
+  //                     <option>UI/UX Design</option>
+  //                     <option>Salesforce Solutions</option>
+  //                     <option>Digital Marketing</option>
+  //                     <option>Cloud &amp; DevOps</option>
+  //                     <option>Data &amp; Infrastructure</option>
+  //                   </select>
+
+
+
+
+
   {
     group: "Mobile App Development",
     items: [
@@ -69,7 +87,7 @@ const SERVICES: readonly { group: string; items: readonly string[] }[] = [
     ],
   },
   {
-    group: "Web Development",
+    group: "Web Application Development",
     items: [
       "Web Development",
       "Web Application Development",
@@ -85,7 +103,7 @@ const SERVICES: readonly { group: string; items: readonly string[] }[] = [
     ],
   },
   {
-    group: "AI & Emerging Tech",
+    group: "AI & Automation",
     items: [
       "AI Development",
       "Generative AI Development",
@@ -149,7 +167,7 @@ const SERVICES: readonly { group: string; items: readonly string[] }[] = [
     ],
   },
   {
-    group: "Industry Solutions",
+    group: "Data and Infrastructure",
     items: [
       "E-commerce App Development",
       "Food Delivery App Development",
@@ -170,9 +188,14 @@ const SERVICES: readonly { group: string; items: readonly string[] }[] = [
     ],
   },
   {
+    group: "Custom Software Services",
+    items: ["IT Services & Digital Transformation", "Other / Not Sure Yet"],
+  },
+  {
     group: "Other",
     items: ["IT Services & Digital Transformation", "Other / Not Sure Yet"],
   },
+  
 ] as const;
 
 const STATS = [

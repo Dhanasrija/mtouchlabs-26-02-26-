@@ -433,9 +433,9 @@ export default function Page() {
 			<div className="row justify-content-center mt60">
 				<div className="col-lg-6">
 					<div className="center-btn big-txt">
-						<a href="/telangana-ecommerce-mobile-app-development" className="ree-btn  ree-btn-grdt2"><i
+						<a href="/ecommerce-app-development-company" className="ree-btn  ree-btn-grdt2"><i
 								className="fas fa-arrow-left fa-btn mr5"></i> Previous Project </a>
-						<a href="/multi-vendor-ecommerce-mobile-app-development" className="ree-btn  ree-btn-grdt2"> Next
+						<a href="/multi-vendor-marketplace-app-builder" className="ree-btn  ree-btn-grdt2"> Next
 							Project <i className="fas fa-arrow-right fa-btn"></i></a>
 
 					</div>

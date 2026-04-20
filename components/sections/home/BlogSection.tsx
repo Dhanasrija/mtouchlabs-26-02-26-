@@ -1,18 +1,18 @@
 const blogs = [
   {
-    href: "/top-generative-ai-tools-for-developers",
+    href: "/blog/top-generative-ai-tools-for-developers",
     img: "/images/home/blogs/blog-img-1.png",
     imgAlt: "Best Generative AI Tools and Platforms",
     caption: ["Best Generative AI Tools and Platforms"],
   },
   {
-    href: "/ai-role-in-business-automation",
+    href: "/blog/ai-role-in-business-automation",
     img: "/images/home/blogs/blog-img-2.png",
     imgAlt: "The Role of AI in Enhancing Business Automation and Efficiency",
     caption: ["The Role of AI in Enhancing Business Automation and Efficiency"],
   },
   {
-    href: "/artificial-intelligence-transforming-mobile-technology",
+    href: "/blog/artificial-intelligence-transforming-mobile-technology",
     img: "/images/home/blogs/blog-img-3.png",
     imgAlt: "AI & Automation The Future of AI Automation in Business",
     caption: ["AI & Automation The Future of AI Automation in Business"],
