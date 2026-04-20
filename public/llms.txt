@@ -92,7 +92,6 @@
 - [DevOps Services](https://www.mtouchlabs.com/devops-services): CI/CD automation & infrastructure as code.
 - [DevOps Consulting](https://www.mtouchlabs.com/devops-consulting-services): Strategic DevOps advisory.
 - [Cyber Security](https://www.mtouchlabs.com/cyber-security-services-company): Enterprise security solutions.
-- [Cybersecurity Development](https://www.mtouchlabs.com/cybersecurity-development-company): Cybersecurity application development.
 
 ## AI & Data Intelligence
 
@@ -121,7 +120,6 @@
 
 - [Digital Marketing Solutions](https://www.mtouchlabs.com/digital-marketing-solutions): Full-funnel growth strategies.
 - [Digital Marketing Services](https://www.mtouchlabs.com/digital-marketing-services): Comprehensive marketing solutions.
-- [Digital Marketing Company](https://www.mtouchlabs.com/digital-marketing-services-company-in-india): Marketing agency in India.
 - [SEO Services](https://www.mtouchlabs.com/seo-services): Rank higher, drive organic traffic.
 - [PPC Advertising](https://www.mtouchlabs.com/ppc-advertising-services): Targeted paid campaigns.
 - [Social Media Marketing](https://www.mtouchlabs.com/social-media-marketing-services): Social strategies for engagement.

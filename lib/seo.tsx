@@ -95,44 +95,10 @@ export function JsonLd({ data }: { data: Record<string, unknown> }) {
 // ================================
 // PRE-BUILT JSON-LD SCHEMAS
 // ================================
-
-/** Organization schema — add to homepage or layout */
-export const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "mTouch Labs",
-  url: BASE_URL,
-  logo: `${BASE_URL}/images/logo.png`,
-  description:
-    "Global software development company delivering scalable digital solutions including custom software, SaaS, Salesforce consulting, and cloud services.",
-  foundingDate: "2014",
-  sameAs: [
-    "https://www.linkedin.com/company/mtouchlabs/",
-    "https://twitter.com/mtouchlabs",
-    "https://www.facebook.com/mtouchlabs",
-    "https://www.instagram.com/mtouchlabs/",
-  ],
-  contactPoint: [
-    {
-      "@type": "ContactPoint",
-      telephone: "+91-9100070039",
-      contactType: "sales",
-      areaServed: ["IN", "US", "AE", "GB", "AU", "CA", "QA", "KW"],
-      availableLanguage: ["English"],
-    },
-  ],
-  address: [
-    {
-      "@type": "PostalAddress",
-      streetAddress:
-        "4th Floor, Manjeera Trinity Corporate, JNTU - Hitech City Rd, KPHB Colony",
-      addressLocality: "Hyderabad",
-      addressRegion: "Telangana",
-      postalCode: "500085",
-      addressCountry: "IN",
-    },
-  ],
-};
+// NOTE: Organization schema is rendered site-wide in app/layout.tsx with a
+// richer variant on app/(home)/page.tsx. Do not duplicate Organization here —
+// having 3 divergent copies causes Google entity-confusion. Single source of
+// truth for Organization = app/layout.tsx.
 
 /** LocalBusiness schema — add to location pages */
 export function localBusinessSchema(location: {

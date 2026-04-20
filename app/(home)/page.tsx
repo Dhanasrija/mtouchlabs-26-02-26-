@@ -101,15 +101,16 @@ const organizationSchema = {
   "@type": "Organization",
   name: "mTouch Labs",
   url: "https://www.mtouchlabs.com",
-  logo: "https://www.mtouchlabs.com/images/Light.png",
+  logo: "https://www.mtouchlabs.com/images/favicon.png",
   description:
     "mTouch Labs is a global software development company specializing in custom software development, SaaS product engineering, Salesforce consulting, cloud & DevOps solutions, and enterprise digital transformation.",
-  foundingDate: "2011",
+  foundingDate: "2014",
   sameAs: [
     "https://www.linkedin.com/company/mtouchlabs",
+    "https://www.instagram.com/mtouchlabs",
     "https://twitter.com/mtouchlabs",
     "https://www.facebook.com/mtouchlabs",
-    "https://www.instagram.com/mtouchlabs",
+    "https://www.youtube.com/@mtouchlabs",
   ],
 
 
