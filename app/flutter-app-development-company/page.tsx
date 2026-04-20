@@ -260,9 +260,60 @@ export default function FlutterAppDevelopment() {
             </div>
             <div className="fl-service-card fl-service-card--wide fl-animate--scale">
               <span className="fl-service-card__badge">05</span>
-              <h4 className="fl-service-card__title">AI-Powered Flutter Applications</h4>
+              <h4 className="fl-service-card__title">Maintenance &amp; Optimization</h4>
               <p className="fl-service-card__text">
-                Mobile apps are evolving from static tools into intelligent systems. We integrate AI into Flutter apps for smart chat interfaces, personalized experiences, predictive features, and automated workflows&mdash;building on our <a href="/generative-ai-development-company" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>generative AI expertise</a>.
+                We continuously monitor and improve your app&apos;s performance, ensuring it evolves with your business. From bug fixes to performance tuning, we keep your Flutter app running at its best long after launch.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== AI-POWERED FLUTTER APPLICATIONS ===== */}
+      <section className="fl-services">
+        <div className="fl-container">
+          <div className="fl-services__header fl-animate">
+            <h2 className="fl-services__title">
+              AI-Powered <span className="fl-text-accent">Flutter Applications</span>
+            </h2>
+            <p className="fl-services__subtitle">
+              Mobile apps are evolving from static tools into intelligent systems. We integrate AI into Flutter apps to enhance usability and automation.
+            </p>
+          </div>
+          <div className="fl-services__grid fl-stagger">
+            <div className="fl-service-card fl-animate--scale">
+              <span className="fl-service-card__badge fl-service-card__badge--icon">💬</span>
+              <h4 className="fl-service-card__title">Smart Chat Interfaces</h4>
+              <p className="fl-service-card__text">
+                AI-powered chat experiences for user support, FAQs, and in-app guidance that feel natural and responsive.
+              </p>
+            </div>
+            <div className="fl-service-card fl-animate--scale">
+              <span className="fl-service-card__badge fl-service-card__badge--icon">✨</span>
+              <h4 className="fl-service-card__title">Personalized Experiences</h4>
+              <p className="fl-service-card__text">
+                Tailor each user&apos;s journey based on behavior, preferences, and context to drive engagement and retention.
+              </p>
+            </div>
+            <div className="fl-service-card fl-animate--scale">
+              <span className="fl-service-card__badge fl-service-card__badge--icon">📊</span>
+              <h4 className="fl-service-card__title">Predictive Features</h4>
+              <p className="fl-service-card__text">
+                Anticipate user needs with predictive models built on in-app behavior patterns and historical data.
+              </p>
+            </div>
+            <div className="fl-service-card fl-animate--scale">
+              <span className="fl-service-card__badge fl-service-card__badge--icon">⚙️</span>
+              <h4 className="fl-service-card__title">Automated Workflows</h4>
+              <p className="fl-service-card__text">
+                Reduce manual steps within the app experience with intelligent automation triggered by user actions.
+              </p>
+            </div>
+            <div className="fl-service-card fl-service-card--wide fl-animate--scale">
+              <span className="fl-service-card__badge fl-service-card__badge--icon">🤖</span>
+              <h4 className="fl-service-card__title">Adaptive AI Applications</h4>
+              <p className="fl-service-card__text">
+                By combining Flutter with AI, we build applications that not only respond&mdash;but adapt&mdash;backed by our <a href="/generative-ai-development-company" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>generative AI expertise</a>.
               </p>
             </div>
           </div>
@@ -331,48 +382,93 @@ export default function FlutterAppDevelopment() {
         </div>
       </section>
 
-      {/* ===== TECH / COST ===== */}
-      <section className="fl-tech">
+      {/* ===== COST OF FLUTTER APP DEVELOPMENT ===== */}
+      <section className="fl-services">
         <div className="fl-container">
-          <div className="fl-tech__grid">
-            <div className="fl-tech__content fl-animate--left">
-              <h2 className="fl-tech__heading">
-                Cost of <span className="fl-text-accent">Flutter Development</span>
-              </h2>
-              <p className="fl-tech__text">
-                One of Flutter&apos;s biggest advantages is cost efficiency&mdash;but actual cost depends on feature complexity, integrations (payments, APIs, AI), design requirements, and timeline. Simple apps are faster and more affordable, while complex apps require higher investment but deliver better long-term ROI.
+          <div className="fl-services__header fl-animate">
+            <h2 className="fl-services__title">
+              Cost of <span className="fl-text-accent">Flutter App Development</span>
+            </h2>
+            <p className="fl-services__subtitle">
+              One of Flutter&apos;s biggest advantages is cost efficiency&mdash;but actual cost depends on your requirements. At mTouch Labs, we focus on building solutions that balance cost with long-term value.
+            </p>
+          </div>
+          <div className="fl-services__grid fl-stagger">
+            <div className="fl-service-card fl-animate--scale">
+              <span className="fl-service-card__badge fl-service-card__badge--icon">🧩</span>
+              <h4 className="fl-service-card__title">Feature Complexity</h4>
+              <p className="fl-service-card__text">
+                Simple apps with essential features cost less. Complex apps with advanced functionality require deeper engineering investment.
               </p>
-              <div className="fl-tech__tags">
-                {[
-                  "Flutter",
-                  "Dart",
-                  "Firebase",
-                  "REST APIs",
-                  "GraphQL",
-                  "BLoC",
-                  "Riverpod",
-                  "Provider",
-                  "SQLite",
-                  "Hive",
-                  "AWS",
-                  "Google Cloud",
-                  "Stripe",
-                  "Payment Gateways",
-                  "Push Notifications",
-                  "Analytics",
-                ].map((t) => (
-                  <span key={t} className="fl-tag">
-                    {t}
-                  </span>
-                ))}
-              </div>
             </div>
-            <div className="fl-tech__stats fl-animate--right">
-              <div className="fl-stat fl-stat--dark"><span className="fl-stat__number">15+</span><span className="fl-stat__label">Flutter Tools</span></div>
-              <div className="fl-stat fl-stat--dark"><span className="fl-stat__number">AI</span><span className="fl-stat__label">Integrations</span></div>
-              <div className="fl-stat fl-stat--dark"><span className="fl-stat__number">ROI</span><span className="fl-stat__label">Focused Builds</span></div>
-              <div className="fl-stat fl-stat--dark"><span className="fl-stat__number">2</span><span className="fl-stat__label">Cloud Platforms</span></div>
+            <div className="fl-service-card fl-animate--scale">
+              <span className="fl-service-card__badge fl-service-card__badge--icon">🔗</span>
+              <h4 className="fl-service-card__title">Integrations</h4>
+              <p className="fl-service-card__text">
+                Payment gateways, third-party APIs, AI services, and analytics tools each add scope to the build.
+              </p>
             </div>
+            <div className="fl-service-card fl-animate--scale">
+              <span className="fl-service-card__badge fl-service-card__badge--icon">🎨</span>
+              <h4 className="fl-service-card__title">Design Requirements</h4>
+              <p className="fl-service-card__text">
+                Custom UI/UX, animations, and branded interactions influence both design and implementation effort.
+              </p>
+            </div>
+            <div className="fl-service-card fl-animate--scale">
+              <span className="fl-service-card__badge fl-service-card__badge--icon">⏱️</span>
+              <h4 className="fl-service-card__title">Timeline</h4>
+              <p className="fl-service-card__text">
+                Shorter delivery windows often demand larger teams. A well-planned timeline protects both quality and budget.
+              </p>
+            </div>
+            <div className="fl-service-card fl-service-card--wide fl-animate--scale">
+              <span className="fl-service-card__badge fl-service-card__badge--icon">📊</span>
+              <h4 className="fl-service-card__title">Long-Term ROI</h4>
+              <p className="fl-service-card__text">
+                Simple apps are faster and more affordable; complex apps require higher investment but deliver better long-term ROI through scalability, retention, and platform reach.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== EXPLORE RELATED SERVICES ===== */}
+      <section className="fl-services">
+        <div className="fl-container">
+          <div className="fl-services__header fl-animate">
+            <h2 className="fl-services__title">
+              Explore <span className="fl-text-accent">Related Services</span>
+            </h2>
+            <p className="fl-services__subtitle">
+              To build a complete digital ecosystem, you may also need these services&mdash;we connect all these capabilities to deliver cohesive solutions.
+            </p>
+          </div>
+          <div className="fl-services__grid fl-stagger">
+            <a href="/web-development-company" className="fl-service-card fl-animate--scale" style={{ color: "inherit", textDecoration: "none", display: "block", position: "relative" }}>
+              <h4 className="fl-service-card__title">Web Development Services <span style={{ float: "right", color: "#2563eb", fontWeight: 700 }} aria-hidden>→</span></h4>
+              <p className="fl-service-card__text">
+                Scalable, secure web platforms that complement your Flutter mobile apps with robust backends and web experiences.
+              </p>
+            </a>
+            <a href="/generative-ai-development-company" className="fl-service-card fl-animate--scale" style={{ color: "inherit", textDecoration: "none", display: "block", position: "relative" }}>
+              <h4 className="fl-service-card__title">Generative AI Development <span style={{ float: "right", color: "#2563eb", fontWeight: 700 }} aria-hidden>→</span></h4>
+              <p className="fl-service-card__text">
+                LLM-powered assistants, content generation, and intelligent workflows that plug directly into your Flutter apps.
+              </p>
+            </a>
+            <a href="/custom-software-development-company" className="fl-service-card fl-animate--scale" style={{ color: "inherit", textDecoration: "none", display: "block", position: "relative" }}>
+              <h4 className="fl-service-card__title">Custom Software Development <span style={{ float: "right", color: "#2563eb", fontWeight: 700 }} aria-hidden>→</span></h4>
+              <p className="fl-service-card__text">
+                Tailor-made software that aligns with your workflows, integrates with your systems, and scales with your business.
+              </p>
+            </a>
+            <a href="/mobile-app-development-company" className="fl-service-card fl-animate--scale" style={{ color: "inherit", textDecoration: "none", display: "block", position: "relative" }}>
+              <h4 className="fl-service-card__title">Mobile App Development <span style={{ float: "right", color: "#2563eb", fontWeight: 700 }} aria-hidden>→</span></h4>
+              <p className="fl-service-card__text">
+                End-to-end mobile app delivery across native and cross-platform technologies for Android and iOS.
+              </p>
+            </a>
           </div>
         </div>
       </section>

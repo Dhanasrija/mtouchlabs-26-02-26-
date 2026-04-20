@@ -232,38 +232,89 @@ export default function GenerativeAIDevelopment() {
           </div>
           <div className="ga-services__grid ga-stagger">
             <div className="ga-service-card ga-animate--scale">
-              <span className="ga-service-card__badge">01</span>
+              <span className="ga-service-card__badge ga-service-card__badge--icon">🧠</span>
               <h4 className="ga-service-card__title">Custom Generative AI Solutions</h4>
               <p className="ga-service-card__text">
                 We create tailored AI models and applications designed around your business requirements&mdash;from <a href="/ecommerce-app-development-company" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>ecommerce personalization</a> to enterprise workflows.
               </p>
             </div>
             <div className="ga-service-card ga-animate--scale">
-              <span className="ga-service-card__badge">02</span>
+              <span className="ga-service-card__badge ga-service-card__badge--icon">💬</span>
               <h4 className="ga-service-card__title">LLM-Based Application Development</h4>
               <p className="ga-service-card__text">
                 From chat interfaces to internal tools, we build applications powered by large language models that understand context and generate meaningful outputs.
               </p>
             </div>
             <div className="ga-service-card ga-animate--scale">
-              <span className="ga-service-card__badge">03</span>
+              <span className="ga-service-card__badge ga-service-card__badge--icon">⚙️</span>
               <h4 className="ga-service-card__title">AI-Powered Automation</h4>
               <p className="ga-service-card__text">
                 We automate processes such as document handling, support responses, and internal workflows using AI-driven systems. Read our <a href="/blog" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>LLM vs machine learning</a> primer.
               </p>
             </div>
             <div className="ga-service-card ga-animate--scale">
-              <span className="ga-service-card__badge">04</span>
+              <span className="ga-service-card__badge ga-service-card__badge--icon">🔍</span>
               <h4 className="ga-service-card__title">Retrieval-Augmented Generation (RAG)</h4>
               <p className="ga-service-card__text">
                 We implement RAG pipelines to connect AI models with your business data, enabling accurate and context-aware responses.
               </p>
             </div>
             <div className="ga-service-card ga-service-card--wide ga-animate--scale">
-              <span className="ga-service-card__badge">05</span>
+              <span className="ga-service-card__badge ga-service-card__badge--icon">🔗</span>
               <h4 className="ga-service-card__title">AI Integration with Web &amp; Mobile Apps</h4>
               <p className="ga-service-card__text">
                 We embed AI capabilities into digital products, enhancing functionality without disrupting user experience across your <a href="/web-development-company" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>web platforms</a> and mobile applications.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== AI USE CASES WE BUILD ===== */}
+      <section className="ga-services">
+        <div className="ga-container">
+          <div className="ga-services__header ga-animate">
+            <h2 className="ga-services__title">
+              AI Use Cases <span className="ga-text-accent">We Build</span>
+            </h2>
+            <p className="ga-services__subtitle">
+              Our approach is use-case driven. Instead of generic solutions, we focus on solving specific business challenges.
+            </p>
+          </div>
+          <div className="ga-services__grid ga-stagger">
+            <div className="ga-service-card ga-animate--scale">
+              <span className="ga-service-card__badge ga-service-card__badge--icon">💬</span>
+              <h4 className="ga-service-card__title">Intelligent Chat Assistants</h4>
+              <p className="ga-service-card__text">
+                AI-powered systems that handle customer queries, internal support, and knowledge retrieval with natural, context-aware conversations.
+              </p>
+            </div>
+            <div className="ga-service-card ga-animate--scale">
+              <span className="ga-service-card__badge ga-service-card__badge--icon">✍️</span>
+              <h4 className="ga-service-card__title">Content Generation Systems</h4>
+              <p className="ga-service-card__text">
+                Tools that generate marketing content, product descriptions, and documentation efficiently &mdash; at the quality your brand demands.
+              </p>
+            </div>
+            <div className="ga-service-card ga-animate--scale">
+              <span className="ga-service-card__badge ga-service-card__badge--icon">⚡</span>
+              <h4 className="ga-service-card__title">Business Process Automation</h4>
+              <p className="ga-service-card__text">
+                AI solutions that reduce manual effort in operations like reporting, data entry, and analysis &mdash; freeing teams to focus on higher-value work.
+              </p>
+            </div>
+            <div className="ga-service-card ga-animate--scale">
+              <span className="ga-service-card__badge ga-service-card__badge--icon">🎯</span>
+              <h4 className="ga-service-card__title">Recommendation Engines</h4>
+              <p className="ga-service-card__text">
+                Personalized systems that improve user engagement and conversion rates by surfacing the right content, products, or actions at the right moment.
+              </p>
+            </div>
+            <div className="ga-service-card ga-service-card--wide ga-animate--scale">
+              <span className="ga-service-card__badge ga-service-card__badge--icon">📚</span>
+              <h4 className="ga-service-card__title">Knowledge Management Platforms</h4>
+              <p className="ga-service-card__text">
+                Centralized AI systems that organize and retrieve business knowledge instantly &mdash; turning scattered documents, data, and tribal knowledge into a searchable, intelligent asset.
               </p>
             </div>
           </div>
@@ -380,6 +431,46 @@ export default function GenerativeAIDevelopment() {
               <div className="ga-stat ga-stat--dark"><span className="ga-stat__number">RAG</span><span className="ga-stat__label">Architecture</span></div>
               <div className="ga-stat ga-stat--dark"><span className="ga-stat__number">2</span><span className="ga-stat__label">Cloud Platforms</span></div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== EXPLORE RELATED SERVICES ===== */}
+      <section className="ga-services">
+        <div className="ga-container">
+          <div className="ga-services__header ga-animate">
+            <h2 className="ga-services__title">
+              Explore <span className="ga-text-accent">Related Services</span>
+            </h2>
+            <p className="ga-services__subtitle">
+              To build a complete digital ecosystem, you may also need these services&mdash;we connect all these capabilities to deliver cohesive solutions.
+            </p>
+          </div>
+          <div className="ga-services__grid ga-stagger">
+            <a href="/custom-software-development-company" className="ga-service-card ga-animate--scale" style={{ color: "inherit", textDecoration: "none", display: "block", position: "relative" }}>
+              <h4 className="ga-service-card__title">Custom Software Development <span style={{ float: "right", color: "#2563eb", fontWeight: 700 }} aria-hidden>→</span></h4>
+              <p className="ga-service-card__text">
+                Tailor-made software that aligns with your workflows, integrates with your systems, and scales with your business.
+              </p>
+            </a>
+            <a href="/web-development-company" className="ga-service-card ga-animate--scale" style={{ color: "inherit", textDecoration: "none", display: "block", position: "relative" }}>
+              <h4 className="ga-service-card__title">Web Development Services <span style={{ float: "right", color: "#2563eb", fontWeight: 700 }} aria-hidden>→</span></h4>
+              <p className="ga-service-card__text">
+                Scalable, secure web platforms and SaaS products that pair perfectly with AI-powered capabilities.
+              </p>
+            </a>
+            <a href="/mobile-app-development-company" className="ga-service-card ga-animate--scale" style={{ color: "inherit", textDecoration: "none", display: "block", position: "relative" }}>
+              <h4 className="ga-service-card__title">Mobile App Development <span style={{ float: "right", color: "#2563eb", fontWeight: 700 }} aria-hidden>→</span></h4>
+              <p className="ga-service-card__text">
+                End-to-end mobile delivery for Android and iOS, ready to embed AI assistants, automation, and intelligent workflows.
+              </p>
+            </a>
+            <a href="/ui-ux-design-company" className="ga-service-card ga-animate--scale" style={{ color: "inherit", textDecoration: "none", display: "block", position: "relative" }}>
+              <h4 className="ga-service-card__title">UI/UX Design Services <span style={{ float: "right", color: "#2563eb", fontWeight: 700 }} aria-hidden>→</span></h4>
+              <p className="ga-service-card__text">
+                Human-centered design that makes AI features feel natural, trustworthy, and easy to adopt.
+              </p>
+            </a>
           </div>
         </div>
       </section>

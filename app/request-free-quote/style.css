@@ -849,7 +849,28 @@ img.rq-flag {
 }
 
 .rq-headline-row {
-  display: inline;
+  display: block;
+}
+
+/* Strict 2-line headline layout.
+   Keeps the original Poppins + weight 700 + gradient from .rq-headline.
+   Only the font-size is scaled (via clamp) so "Leading Mobile App Development"
+   fits on line 1 without wrapping, regardless of which word is showing. */
+.rq-headline-2l {
+  font-size: clamp(24px, 3.6vw, 44px);
+  line-height: 1.15;
+  max-width: none;
+}
+.rq-headline-2l .rq-headline-row {
+  white-space: nowrap;
+}
+.rq-headline-2l .rq-headline-block {
+  white-space: nowrap;
+}
+@media (min-width: 1280px) {
+  .rq-headline-2l {
+    font-size: clamp(28px, 3.2vw, 52px);
+  }
 }
 
 .rq-headline-blue {
@@ -863,6 +884,45 @@ img.rq-flag {
 
 .rq-headline-block {
   display: block;
+}
+
+/* Rotating word — single inline word driven by React state.
+   Takes its own natural width so the space between it and "Development"
+   matches whichever word is showing (no fixed widest-word reservation).
+   The same gradient-clip as .rq-headline-blue is applied directly so the
+   word paints reliably in the signature blue. */
+.rq-rotator-inline {
+  display: inline-block;
+  vertical-align: baseline;
+  line-height: inherit;
+  white-space: nowrap;
+  background: linear-gradient(135deg, #3E8CFB 0%, #2e73db 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  transition: opacity 220ms ease, transform 220ms ease;
+  will-change: opacity, transform;
+}
+
+.rq-rotator-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.rq-rotator-hide {
+  opacity: 0;
+  transform: translateY(-6px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rq-rotator-inline {
+    transition: none;
+  }
+  .rq-rotator-hide {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* Subtext */

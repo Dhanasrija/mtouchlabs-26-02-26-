@@ -48541,3 +48541,46 @@ button.aw-cta__button { border: none; cursor: pointer; font-family: inherit; }
   .ma-process__circle { width: 48px; height: 48px; font-size: 14px; }
   .ma-process__title { font-size: 24px; }
 }
+
+/* ============================================================
+   ICON-ONLY SERVICE CARD BADGES (no blue box, larger icons)
+   Applies to sd-, fl-, wd-, ga- prefixed pages
+   ============================================================ */
+.sd-service-card__badge--icon,
+.fl-service-card__badge--icon,
+.wd-service-card__badge--icon,
+.ga-service-card__badge--icon {
+  background: transparent !important;
+  background-image: none !important;
+  background-size: auto !important;
+  color: inherit !important;
+  width: auto !important;
+  height: auto !important;
+  line-height: 1 !important;
+  font-size: 2.5rem !important;
+  padding: 0 !important;
+  margin-bottom: 16px !important;
+  border-radius: 0 !important;
+  display: inline-block !important;
+  text-align: left !important;
+  -webkit-text-fill-color: initial !important;
+}
+
+.sd-service-card:hover .sd-service-card__badge--icon,
+.fl-service-card:hover .fl-service-card__badge--icon,
+.wd-service-card:hover .wd-service-card__badge--icon,
+.ga-service-card:hover .ga-service-card__badge--icon {
+  animation: none !important;
+  transform: scale(1.08) !important;
+  transition: transform 0.3s ease !important;
+}
+
+@media (max-width: 640px) {
+  .sd-service-card__badge--icon,
+  .fl-service-card__badge--icon,
+  .wd-service-card__badge--icon,
+  .ga-service-card__badge--icon {
+    font-size: 2.1rem !important;
+    padding: 0 !important;
+  }
+}

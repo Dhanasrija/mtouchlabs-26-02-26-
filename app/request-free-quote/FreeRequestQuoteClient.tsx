@@ -296,6 +296,56 @@ function validateService(v: string): string | undefined {
 }
 
 /* ─────────────────────────────────────────────
+   RotatingWord — single inline word that swaps on a timer.
+   The word takes its own natural width, so "Development" sits right
+   next to it regardless of whether the current word is short ("AI")
+   or long ("Mobile App"). No ghost reservation — spacing flexes to
+   whichever word is currently showing.
+   ───────────────────────────────────────────── */
+const ROTATING_WORDS = ["AI", "Software", "Mobile App", "Web App"] as const;
+const ROTATE_HOLD_MS = 1300; // time each word stays visible
+const ROTATE_FADE_MS = 220;  // fade-out duration between words
+
+function RotatingWord({ words = ROTATING_WORDS }: { words?: readonly string[] }) {
+  const [index, setIndex] = useState(0);
+  const [phase, setPhase] = useState<"in" | "out">("in");
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const reduced =
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) return;
+
+    let fadeTimer: ReturnType<typeof setTimeout> | null = null;
+
+    const cycle = setInterval(() => {
+      setPhase("out");
+      fadeTimer = setTimeout(() => {
+        setIndex((i) => (i + 1) % words.length);
+        setPhase("in");
+      }, ROTATE_FADE_MS);
+    }, ROTATE_HOLD_MS);
+
+    return () => {
+      clearInterval(cycle);
+      if (fadeTimer) clearTimeout(fadeTimer);
+    };
+  }, [words.length]);
+
+  return (
+    <span
+      className={`rq-rotator-inline ${
+        phase === "in" ? "rq-rotator-show" : "rq-rotator-hide"
+      }`}
+      aria-live="polite"
+    >
+      {words[index]}
+    </span>
+  );
+}
+
+/* ─────────────────────────────────────────────
    CountUp — animated number with IntersectionObserver
    ───────────────────────────────────────────── */
 const nf = new Intl.NumberFormat("en-US");
@@ -975,10 +1025,13 @@ export function FreeRequestQuoteClient() {
               />
             </a>
           </div>
-<h2 className="rq-headline">
+<h2 className="rq-headline rq-headline-2l">
   <span className="rq-headline-row">
-    Leading <span className="rq-headline-blue">AI Development</span>
-  </span>{" "}
+    Leading{" "}
+    <span className="rq-headline-blue">
+      <RotatingWord /> Development
+    </span>
+  </span>
   <span className="rq-headline-block">
     Company for Next-Gen
   </span>

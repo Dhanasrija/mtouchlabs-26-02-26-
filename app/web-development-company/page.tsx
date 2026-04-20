@@ -232,35 +232,35 @@ export default function WebDevelopment() {
           </div>
           <div className="wd-services__grid wd-stagger">
             <div className="wd-service-card wd-animate--scale">
-              <span className="wd-service-card__badge">01</span>
+              <span className="wd-service-card__badge wd-service-card__badge--icon">✨</span>
               <h4 className="wd-service-card__title">Personalized User Experiences</h4>
               <p className="wd-service-card__text">
                 Adaptive platforms that tailor content, products, and journeys based on user behavior and preferences in real time&mdash;ideal for <a href="/ecommerce-app-development-company" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>ecommerce development</a> and SaaS portals.
               </p>
             </div>
             <div className="wd-service-card wd-animate--scale">
-              <span className="wd-service-card__badge">02</span>
+              <span className="wd-service-card__badge wd-service-card__badge--icon">💬</span>
               <h4 className="wd-service-card__title">AI-Powered Chatbots</h4>
               <p className="wd-service-card__text">
                 Intelligent assistants that handle support, guide users, and answer queries 24/7 without increasing operational load.
               </p>
             </div>
             <div className="wd-service-card wd-animate--scale">
-              <span className="wd-service-card__badge">03</span>
+              <span className="wd-service-card__badge wd-service-card__badge--icon">📊</span>
               <h4 className="wd-service-card__title">Predictive Analytics</h4>
               <p className="wd-service-card__text">
                 Data-driven insights that help you make better decisions, identify trends, and optimize conversion paths.
               </p>
             </div>
             <div className="wd-service-card wd-animate--scale">
-              <span className="wd-service-card__badge">04</span>
+              <span className="wd-service-card__badge wd-service-card__badge--icon">⚙️</span>
               <h4 className="wd-service-card__title">Automated Workflows</h4>
               <p className="wd-service-card__text">
                 AI-driven automation that reduces manual effort across forms, notifications, approvals, and internal processes.
               </p>
             </div>
             <div className="wd-service-card wd-service-card--wide wd-animate--scale">
-              <span className="wd-service-card__badge">05</span>
+              <span className="wd-service-card__badge wd-service-card__badge--icon">🎯</span>
               <h4 className="wd-service-card__title">Smart Recommendation Systems</h4>
               <p className="wd-service-card__text">
                 Dynamic product and content recommendations that increase engagement and conversions, powered by our <a href="/generative-ai-development-company" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>generative AI capabilities</a>.
@@ -374,6 +374,97 @@ export default function WebDevelopment() {
               <div className="wd-stat wd-stat--dark"><span className="wd-stat__number">2</span><span className="wd-stat__label">Cloud Platforms</span></div>
               <div className="wd-stat wd-stat--dark"><span className="wd-stat__number">Full</span><span className="wd-stat__label">Stack Coverage</span></div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== BENEFITS OF PROFESSIONAL WEB DEVELOPMENT ===== */}
+      <section className="wd-services">
+        <div className="wd-container">
+          <div className="wd-services__header wd-animate">
+            <h2 className="wd-services__title">
+              Benefits of a <span className="wd-text-accent">Professional Web Development Company</span>
+            </h2>
+            <p className="wd-services__subtitle">
+              Working with an experienced web development company offers clear, compounding advantages for your business
+            </p>
+          </div>
+          <div className="wd-services__grid wd-stagger">
+            <div className="wd-service-card wd-animate--scale">
+              <span className="wd-service-card__badge wd-service-card__badge--icon">🎯</span>
+              <h4 className="wd-service-card__title">Tailored Business Solutions</h4>
+              <p className="wd-service-card__text">
+                Every solution we ship is aligned with your business goals, workflows, and customer expectations &mdash; not forced into a one-size-fits-all template.
+              </p>
+            </div>
+            <div className="wd-service-card wd-animate--scale">
+              <span className="wd-service-card__badge wd-service-card__badge--icon">⚡</span>
+              <h4 className="wd-service-card__title">Performance &amp; Speed</h4>
+              <p className="wd-service-card__text">
+                Fast load times and optimized Core Web Vitals so your users stay engaged and search engines reward you with visibility.
+              </p>
+            </div>
+            <div className="wd-service-card wd-animate--scale">
+              <span className="wd-service-card__badge wd-service-card__badge--icon">😊</span>
+              <h4 className="wd-service-card__title">Improved User Experience</h4>
+              <p className="wd-service-card__text">
+                Thoughtful UI/UX that drives engagement, reduces drop-offs, and turns visitors into loyal customers.
+              </p>
+            </div>
+            <div className="wd-service-card wd-animate--scale">
+              <span className="wd-service-card__badge wd-service-card__badge--icon">🔒</span>
+              <h4 className="wd-service-card__title">Stronger Security</h4>
+              <p className="wd-service-card__text">
+                Secure coding practices, data protection, and infrastructure hardening so your platform and users stay safe.
+              </p>
+            </div>
+            <div className="wd-service-card wd-service-card--wide wd-animate--scale">
+              <span className="wd-service-card__badge wd-service-card__badge--icon">📈</span>
+              <h4 className="wd-service-card__title">Scalability for Future Growth</h4>
+              <p className="wd-service-card__text">
+                Architectures designed to grow with your traffic, users, and feature depth &mdash; so you&apos;re never rebuilding from scratch as you scale.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== EXPLORE RELATED SERVICES ===== */}
+      <section className="wd-services">
+        <div className="wd-container">
+          <div className="wd-services__header wd-animate">
+            <h2 className="wd-services__title">
+              Explore <span className="wd-text-accent">Related Services</span>
+            </h2>
+            <p className="wd-services__subtitle">
+              To build a complete digital ecosystem, you may also need these services&mdash;we connect all these capabilities to deliver cohesive solutions.
+            </p>
+          </div>
+          <div className="wd-services__grid wd-stagger">
+            <a href="/mobile-app-development-company" className="wd-service-card wd-animate--scale" style={{ color: "inherit", textDecoration: "none", display: "block", position: "relative" }}>
+              <h4 className="wd-service-card__title">Mobile App Development <span style={{ float: "right", color: "#2563eb", fontWeight: 700 }} aria-hidden>→</span></h4>
+              <p className="wd-service-card__text">
+                Native and cross-platform mobile apps that extend your web experiences to Android and iOS seamlessly.
+              </p>
+            </a>
+            <a href="/generative-ai-development-company" className="wd-service-card wd-animate--scale" style={{ color: "inherit", textDecoration: "none", display: "block", position: "relative" }}>
+              <h4 className="wd-service-card__title">Generative AI Development <span style={{ float: "right", color: "#2563eb", fontWeight: 700 }} aria-hidden>→</span></h4>
+              <p className="wd-service-card__text">
+                LLM-powered assistants, content generation, and intelligent workflows embedded directly into your web products.
+              </p>
+            </a>
+            <a href="/custom-software-development-company" className="wd-service-card wd-animate--scale" style={{ color: "inherit", textDecoration: "none", display: "block", position: "relative" }}>
+              <h4 className="wd-service-card__title">Custom Software Development <span style={{ float: "right", color: "#2563eb", fontWeight: 700 }} aria-hidden>→</span></h4>
+              <p className="wd-service-card__text">
+                Tailor-made software that aligns with your workflows, integrates with your systems, and scales with your business.
+              </p>
+            </a>
+            <a href="/ui-ux-design-company" className="wd-service-card wd-animate--scale" style={{ color: "inherit", textDecoration: "none", display: "block", position: "relative" }}>
+              <h4 className="wd-service-card__title">UI/UX Design Services <span style={{ float: "right", color: "#2563eb", fontWeight: 700 }} aria-hidden>→</span></h4>
+              <p className="wd-service-card__text">
+                Human-centered design that turns complex workflows into clear, intuitive, and engaging user experiences.
+              </p>
+            </a>
           </div>
         </div>
       </section>
