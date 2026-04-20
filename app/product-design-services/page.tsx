@@ -37,8 +37,8 @@ export default function ProductDesignServices() {
         <div className="pd-about__content pd-animate--left">
           <h2 className="pd-about__heading">What Are <span className="pd-text-accent">Product Design</span> Services?</h2>
           <p className="pd-about__text">Product design services involve the structured process of defining, designing, validating, and refining digital products to ensure usability, performance, and market fit — including problem validation, user behavior analysis, feature prioritization, experience architecture, and iterative refinement.</p>
-          <p className="pd-about__text">Our <a href="/ui-ux-design-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>UI/UX design</a> expertise combined with <a href="/ux-research-services" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>UX research</a> ensures products are intuitive, scalable, and commercially viable.</p>
-          <p className="pd-about__text">We create products with <a href="/design-system-development" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>scalable design systems</a> that support long-term growth and <a href="/custom-software-development-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>custom software development</a> alignment.</p>
+          <p className="pd-about__text">Our <a href="/ui-ux-design-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>UI/UX design</a> expertise combined with UX research ensures products are intuitive, scalable, and commercially viable.</p>
+          <p className="pd-about__text">We create products with <a href="/design-system-development" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>scalable design systems</a> that support long-term growth and custom software development alignment.</p>
         </div>
         <div className="pd-stats pd-animate--right">
           <div className="pd-stat"><span className="pd-stat__icon">🎯</span><span className="pd-stat__label">Product Strategy</span></div>

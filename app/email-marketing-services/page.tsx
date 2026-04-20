@@ -37,8 +37,8 @@ export default function EmailMarketingServices() {
         <div className="em-about__content em-animate--left">
           <h2 className="em-about__heading">What Are <span className="em-text-accent">Email Marketing</span> Services?</h2>
           <p className="em-about__text">Email marketing services involve planning, designing, automating, and optimizing email campaigns to engage subscribers and guide them toward conversion — including segmentation, automation workflows, behavioral triggers, and continuous optimization.</p>
-          <p className="em-about__text">Our email campaigns integrate with <a href="/content-marketing-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>content marketing</a> and <a href="/conversion-rate-optimization-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>CRO strategies</a> for maximum engagement.</p>
-          <p className="em-about__text">Combined with <a href="/digital-marketing-solutions" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>digital marketing</a> and <a href="/performance-marketing-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>performance marketing</a>, email becomes a strategic growth asset driving long-term customer value.</p>
+          <p className="em-about__text">Our email campaigns integrate with <a href="/content-marketing-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>content marketing</a> and CRO strategies for maximum engagement.</p>
+          <p className="em-about__text">Combined with <a href="/digital-marketing-solutions" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>digital marketing</a> and performance marketing, email becomes a strategic growth asset driving long-term customer value.</p>
         </div>
         <div className="em-stats em-animate--right">
           <div className="em-stat"><span className="em-stat__icon">📧</span><span className="em-stat__label">Lifecycle Campaigns</span></div>

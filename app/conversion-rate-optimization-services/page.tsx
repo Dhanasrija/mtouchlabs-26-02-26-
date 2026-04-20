@@ -37,7 +37,7 @@ export default function ConversionRateOptimization() {
         <div className="co-about__content co-animate--left">
           <h2 className="co-about__heading">What Are <span className="co-text-accent">CRO Services</span>?</h2>
           <p className="co-about__text">CRO services analyze user behavior and improve digital touchpoints to increase the percentage of visitors who complete desired actions — including funnel analysis, A/B testing, landing page refinement, and performance monitoring.</p>
-          <p className="co-about__text">Our CRO integrates with <a href="/seo-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>SEO</a> and <a href="/ppc-advertising-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>PPC strategies</a> to maximize campaign ROI and overall digital performance.</p>
+          <p className="co-about__text">Our CRO integrates with <a href="/seo-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>SEO</a> and PPC strategies to maximize campaign ROI and overall digital performance.</p>
           <p className="co-about__text">Combined with <a href="/ui-ux-design-company" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>UX design</a> expertise, we create data-driven optimization frameworks that increase conversions without increasing traffic costs.</p>
         </div>
         <div className="co-stats co-animate--right">

@@ -63,7 +63,7 @@ export default function iOSDevelopment() {
               <p className="io-about__text">
                 We combine intuitive interface design, optimized backend architecture, and App Store-compliant engineering standards to deliver solutions built to scale. Whether you need a consumer app, an{" "}
                 <a href="/enterprise-application-development-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>enterprise mobility solution</a>, or a{" "}
-                <a href="/cross-platform-app-development-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>cross-platform application</a>, our iOS expertise covers it all.
+                cross-platform application, our iOS expertise covers it all.
               </p>
             </div>
             <div className="io-stats io-animate--right">

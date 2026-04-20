@@ -46,7 +46,7 @@ export default function CyberSecurityServices() {
               <h2 className="cs-about__heading">Why <span className="cs-text-accent">Cyber Security</span> Is Critical</h2>
               <p className="cs-about__text">With increasing digital adoption, organizations face risks such as data breaches, ransomware attacks, phishing, cloud vulnerabilities, API security risks, and insider threats.</p>
               <p className="cs-about__text">A proactive cyber security strategy ensures data protection, business continuity, regulatory compliance, customer trust, and risk mitigation. Our <a href="/cloud-security-services" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>cloud security services</a> provide comprehensive protection across all major cloud platforms.</p>
-              <p className="cs-about__text">We integrate security into every stage of development — from secure architecture design to <a href="/cloud-services" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>cloud infrastructure</a> protection and continuous threat monitoring with our <a href="/devops-services" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>DevOps integration</a>.</p>
+              <p className="cs-about__text">We integrate security into every stage of development — from secure architecture design to <a href="/cloud-services" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>cloud infrastructure</a> protection and continuous threat monitoring with our DevOps integration.</p>
             </div>
             <div className="cs-stats cs-animate--right">
               <div className="cs-stat"><span className="cs-stat__icon">🛡️</span><span className="cs-stat__label">Data Protection</span></div>

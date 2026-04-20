@@ -66,8 +66,8 @@
 //               <p className="am-about__text">
 //                 Without proper maintenance, applications risk downtime, security breaches, and performance degradation that directly impact user trust and business revenue. Whether your app was built with{" "}
 //                 <a href="/mobile-app-development-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>mobile development</a>,{" "}
-//                 <a href="/web-development-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>web development</a>, or{" "}
-//                 <a href="/enterprise-application-development-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>enterprise platforms</a> — ongoing maintenance is essential.
+//                 web development, or{" "}
+//                 enterprise platforms — ongoing maintenance is essential.
 //               </p>
 //               <p className="am-about__text">
 //                 As a trusted IT Services and Digital Transformation Company, we help businesses maintain application stability, improve performance, and continuously optimize features to adapt to evolving user expectations.

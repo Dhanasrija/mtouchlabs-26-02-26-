@@ -66,8 +66,8 @@
 //               <p className="ma-about__text">
 //                 We prioritize security and performance, deliver predictable timelines using agile methodology, and provide long-term support beyond launch. Our focus is on building mobile solutions that are sustainable, secure, and future-ready. Whether you need{" "}
 //                 <a href="/android-app-development-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>native Android development</a>,{" "}
-//                 <a href="/ios-app-development-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>iOS app development</a>, or{" "}
-//                 <a href="/cross-platform-app-development-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>cross-platform solutions</a>, we deliver excellence at every stage.
+//                 iOS app development, or{" "}
+//                 cross-platform solutions, we deliver excellence at every stage.
 //               </p>
 //               <p className="ma-about__text">
 //                 We combine strategic thinking, modern engineering, and user-centered design to create mobile ecosystems that evolve with your business. Our{" "}
@@ -515,7 +515,7 @@ export default function MobileAppDevelopment() {
               <span className="ma-service-card__badge">01</span>
               <h4 className="ma-service-card__title">Custom Mobile App Development</h4>
               <p className="ma-service-card__text">
-                Every organization has unique requirements. Our custom mobile app development services focus on creating solutions tailored to specific business workflows, user needs, and operational goals.
+                Every organization has unique requirements. Our custom mobile app development services focus on creating solutions tailored to specific business workflows, user needs, and operational goals&mdash;built on our <a href="/custom-software-development-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>custom software development</a> foundation.
               </p>
             </div>
             <div className="ma-service-card ma-animate--scale">
@@ -540,11 +540,9 @@ export default function MobileAppDevelopment() {
               <span className="ma-service-card__badge">04</span>
               <h4 className="ma-service-card__title">Cross-Platform App Development</h4>
               <p className="ma-service-card__text">
-                To help businesses reach wider audiences efficiently, we build{" "}
-                <a href="/cross-platform-app-development-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>cross-platform mobile applications</a>{" "}
-                using frameworks such as{" "}
-                <a href="/flutter-app-development-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>Flutter</a> and{" "}
-                <a href="/react-native-app-development-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>React Native</a>. These technologies allow us to develop applications faster while maintaining strong performance.
+                To help businesses reach wider audiences efficiently, we build cross-platform mobile applications using frameworks such as{" "}
+                <a href="/flutter-app-development-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>Flutter</a>{" "}
+                and React Native. These technologies allow us to develop applications faster while maintaining strong performance.
               </p>
             </div>
           </div>
@@ -715,7 +713,7 @@ export default function MobileAppDevelopment() {
                 In today&apos;s competitive digital landscape, an app is not just a product — it is a business asset. Companies choose mTouch Labs because we align technology with business objectives and build scalable architectures from day one.
               </p>
               <p className="ma-about__text">
-                We prioritize security and performance, deliver predictable timelines using agile methodology, and provide long-term support beyond launch. Our focus is on building mobile solutions that are sustainable, secure, and future-ready.
+                We prioritize security and performance, deliver predictable timelines using agile methodology, and provide long-term support beyond launch. Our focus is on building mobile solutions that are sustainable, secure, and future-ready&mdash;including apps powered by our <a href="/generative-ai-development-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>generative AI development</a> capabilities.
               </p>
             </div>
             <div className="ma-stats ma-animate--right">

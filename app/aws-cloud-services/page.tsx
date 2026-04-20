@@ -37,8 +37,8 @@ export default function AWSCloudServices() {
         <div className="aw-about__content aw-animate--left">
           <h2 className="aw-about__heading">What Are <span className="aw-text-accent">AWS Cloud</span> Services?</h2>
           <p className="aw-about__text">AWS Cloud Services involve designing, deploying, and managing cloud infrastructure using Amazon Web Services to improve scalability, reliability, and operational efficiency — including migration planning, architecture, DevOps automation, cost optimization, security, and ongoing management.</p>
-          <p className="aw-about__text">Our AWS solutions integrate with <a href="/cloud-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>cloud services</a> and <a href="/cloud-migration-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>cloud migration</a> for comprehensive infrastructure modernization.</p>
-          <p className="aw-about__text">Combined with <a href="/devops-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>DevOps services</a> and <a href="/cloud-security-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>cloud security</a>, we build environments optimized for performance, resilience, and long-term growth.</p>
+          <p className="aw-about__text">Our AWS solutions integrate with <a href="/cloud-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>cloud services</a> and cloud migration for comprehensive infrastructure modernization.</p>
+          <p className="aw-about__text">Combined with <a href="/devops-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>DevOps services</a> and cloud security, we build environments optimized for performance, resilience, and long-term growth.</p>
         </div>
         <div className="aw-stats aw-animate--right">
           <div className="aw-stat"><span className="aw-stat__icon">☁️</span><span className="aw-stat__label">Cloud Migration</span></div>

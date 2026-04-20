@@ -38,7 +38,7 @@ export default function CloudMigrationServices() {
           <h2 className="mi-about__heading">What Are <span className="mi-text-accent">Cloud Migration</span> Services?</h2>
           <p className="mi-about__text">Cloud migration services involve transferring applications, databases, workloads, and infrastructure from on-premise or legacy systems to modern cloud environments — including infrastructure assessment, dependency mapping, risk mitigation, security validation, and post-migration optimization.</p>
           <p className="mi-about__text">The objective is to modernize systems while maintaining operational integrity. Our <a href="/cloud-services" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>comprehensive cloud services</a> provide the foundation for successful migration across all major platforms.</p>
-          <p className="mi-about__text">Post-migration, our <a href="/cloud-managed-services" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>cloud managed services</a> ensure continuous performance optimization and <a href="/cloud-security-services" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>security governance</a>.</p>
+          <p className="mi-about__text">Post-migration, our <a href="/cloud-managed-services" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>cloud managed services</a> ensure continuous performance optimization and security governance.</p>
         </div>
         <div className="mi-stats mi-animate--right">
           <div className="mi-stat"><span className="mi-stat__icon">🔄</span><span className="mi-stat__label">Zero-Downtime Migration</span></div>

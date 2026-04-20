@@ -37,8 +37,8 @@ export default function SocialMediaMarketing() {
         <div className="sm-about__content sm-animate--left">
           <h2 className="sm-about__heading">What Are <span className="sm-text-accent">Social Media Marketing</span> Services?</h2>
           <p className="sm-about__text">Social media marketing services involve planning, managing, and optimizing brand presence across platforms to increase awareness, engagement, and conversions — including audience research, content planning, paid advertising, and performance analytics.</p>
-          <p className="sm-about__text">Our social strategies integrate with <a href="/content-marketing-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>content marketing</a> and <a href="/seo-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>SEO</a> for comprehensive digital growth.</p>
-          <p className="sm-about__text">Combined with <a href="/ppc-advertising-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>paid media</a> and <a href="/performance-marketing-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>performance marketing</a>, social campaigns amplify high-value audiences and drive measurable business outcomes.</p>
+          <p className="sm-about__text">Our social strategies integrate with <a href="/content-marketing-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>content marketing</a> and SEO for comprehensive digital growth.</p>
+          <p className="sm-about__text">Combined with <a href="/ppc-advertising-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>paid media</a> and performance marketing, social campaigns amplify high-value audiences and drive measurable business outcomes.</p>
         </div>
         <div className="sm-stats sm-animate--right">
           <div className="sm-stat"><span className="sm-stat__icon">📱</span><span className="sm-stat__label">Platform Strategy</span></div>

@@ -37,7 +37,7 @@ export default function UIUXDesignCompany() {
         <div className="ux-about__content ux-animate--left">
           <h2 className="ux-about__heading">What Does a <span className="ux-text-accent">UI/UX Design</span> Company Do?</h2>
           <p className="ux-about__text">A professional UI/UX design company focuses on understanding user behavior, mapping user journeys, and creating intuitive interfaces that enhance digital experiences — including user research, wireframing, prototyping, interaction design, visual interface design, and usability testing.</p>
-          <p className="ux-about__text">Our <a href="/ux-research-services" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>UX research services</a> ensure design decisions are backed by evidence, while our <a href="/design-system-development" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>design systems</a> maintain consistency across platforms.</p>
+          <p className="ux-about__text">Our <a href="/ux-research-services" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>UX research services</a> ensure design decisions are backed by evidence, while our design systems maintain consistency across platforms.</p>
           <p className="ux-about__text">We combine strategic research with <a href="/product-design-services" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>product design</a> expertise to create seamless digital interactions across web, mobile, and enterprise platforms.</p>
         </div>
         <div className="ux-stats ux-animate--right">

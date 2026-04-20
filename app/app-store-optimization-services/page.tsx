@@ -37,8 +37,8 @@ export default function AppStoreOptimization() {
         <div className="ao-about__content ao-animate--left">
           <h2 className="ao-about__heading">What Are <span className="ao-text-accent">ASO Services</span>?</h2>
           <p className="ao-about__text">App Store Optimization services improve a mobile app&apos;s ranking and visibility within Apple App Store and Google Play Store through keyword research, metadata refinement, visual asset optimization, and conversion rate improvement.</p>
-          <p className="ao-about__text">Our ASO integrates with <a href="/mobile-app-development-company" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>mobile app development</a> and <a href="/mobile-app-design-company" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>mobile design</a> for end-to-end app growth.</p>
-          <p className="ao-about__text">Combined with <a href="/performance-marketing-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>performance marketing</a> and <a href="/digital-marketing-solutions" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>digital marketing</a>, ASO reduces reliance on paid installs for sustainable organic growth.</p>
+          <p className="ao-about__text">Our ASO integrates with <a href="/mobile-app-development-company" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>mobile app development</a> and mobile design for end-to-end app growth.</p>
+          <p className="ao-about__text">Combined with <a href="/performance-marketing-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>performance marketing</a> and digital marketing, ASO reduces reliance on paid installs for sustainable organic growth.</p>
         </div>
         <div className="ao-stats ao-animate--right">
           <div className="ao-stat"><span className="ao-stat__icon">🔍</span><span className="ao-stat__label">Keyword Strategy</span></div>

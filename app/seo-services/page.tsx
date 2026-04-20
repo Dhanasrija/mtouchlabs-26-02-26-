@@ -25,7 +25,7 @@ export default function SEOServices() {
         <div className="se-about__content se-animate--left">
           <h2 className="se-about__heading">What Are <span className="se-text-accent">SEO Services</span>?</h2>
           <p className="se-about__text">SEO services involve optimizing a website&apos;s technical structure, content relevance, and authority signals to improve search engine rankings — including technical auditing, on-page optimization, content strategy, authority development, and performance monitoring.</p>
-          <p className="se-about__text">Our SEO work integrates with <a href="/content-marketing-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>content marketing</a> and <a href="/conversion-rate-optimization-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>conversion optimization</a> for comprehensive digital growth.</p>
+          <p className="se-about__text">Our SEO work integrates with <a href="/content-marketing-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>content marketing</a> and conversion optimization for comprehensive digital growth.</p>
           <p className="se-about__text">Combined with <a href="/web-development-company" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>web development</a> expertise, we ensure technical foundations support long-term ranking stability.</p>
         </div>
         <div className="se-stats se-animate--right">

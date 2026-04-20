@@ -37,7 +37,7 @@ export default function UXResearchServices() {
         <div className="ur-about__content ur-animate--left">
           <h2 className="ur-about__heading">What Are <span className="ur-text-accent">UX Research</span> Services?</h2>
           <p className="ur-about__text">UX research services involve studying user behavior, interaction habits, and usability challenges to inform product strategy and experience design — including behavioral analysis, contextual inquiry, user interviews, usability testing, and experience validation.</p>
-          <p className="ur-about__text">Our research directly powers <a href="/product-design-services" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>product design</a> decisions and <a href="/ui-ux-design-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>UI/UX design</a> strategies that are grounded in real-world usage.</p>
+          <p className="ur-about__text">Our research directly powers <a href="/product-design-services" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>product design</a> decisions and UI/UX design strategies that are grounded in real-world usage.</p>
           <p className="ur-about__text">Combined with <a href="/design-system-development" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>design system development</a>, our research ensures consistent, user-validated experiences across all digital touchpoints.</p>
         </div>
         <div className="ur-stats ur-animate--right">

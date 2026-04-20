@@ -37,8 +37,8 @@ export default function ContentMarketingServices() {
         <div className="cm-about__content cm-animate--left">
           <h2 className="cm-about__heading">What Are <span className="cm-text-accent">Content Marketing</span> Services?</h2>
           <p className="cm-about__text">Content marketing services involve creating and distributing strategically planned content that attracts qualified audiences and guides them toward conversion — including search-aligned strategy, topic authority, multi-format creation, and funnel mapping.</p>
-          <p className="cm-about__text">Our content work directly supports <a href="/seo-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>SEO</a> rankings and <a href="/conversion-rate-optimization-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>CRO</a> performance for comprehensive digital growth.</p>
-          <p className="cm-about__text">Combined with <a href="/social-media-marketing-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>social media marketing</a> and <a href="/email-marketing-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>email marketing</a>, we create content ecosystems that build long-term digital equity.</p>
+          <p className="cm-about__text">Our content work directly supports <a href="/seo-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>SEO</a> rankings and CRO performance for comprehensive digital growth.</p>
+          <p className="cm-about__text">Combined with <a href="/social-media-marketing-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>social media marketing</a> and email marketing, we create content ecosystems that build long-term digital equity.</p>
         </div>
         <div className="cm-stats cm-animate--right">
           <div className="cm-stat"><span className="cm-stat__icon">📝</span><span className="cm-stat__label">Content Strategy</span></div>

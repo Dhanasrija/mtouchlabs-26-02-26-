@@ -112,7 +112,7 @@ export default function AboutPage() {
                 Who We <span className="abt-accent">Are</span>
               </h2>
               <p className="abt-who__text">
-                <strong>mTouch Labs</strong> is a top-tier software development company founded in 2011, providing a comprehensive range of <a href="/web-development-company" style={{ color: '#3E8CFB', textDecoration: 'none' }}>web development</a>, <a href="/mobile-app-development-company" style={{ color: '#3E8CFB', textDecoration: 'none' }}>mobile app development</a>, and digital transformation services from our offices in Hyderabad, Bangalore, and the USA.
+                <strong>mTouch Labs</strong> is a top-tier software development company founded in 2011, providing a comprehensive range of <a href="/web-development-company" style={{ color: '#3E8CFB', textDecoration: 'none' }}>web development</a>, mobile app development, and digital transformation services from our offices in Hyderabad, Bangalore, and the USA.
               </p>
               <p className="abt-who__text">
                 We specialize in building <a href="/custom-software-development-company" style={{ color: '#3E8CFB', textDecoration: 'none' }}>custom software solutions</a>, scalable web platforms, and enterprise-grade solutions that help businesses grow. Our team of 100+ engineers, designers, and strategists brings deep expertise across iOS, Android, Flutter, React Native, cloud infrastructure, AI, and Salesforce ecosystems.

@@ -37,8 +37,8 @@ export default function PerformanceMarketing() {
         <div className="pm-about__content pm-animate--left">
           <h2 className="pm-about__heading">What Are <span className="pm-text-accent">Performance Marketing</span> Services?</h2>
           <p className="pm-about__text">Performance marketing services focus on achieving measurable business results — leads, sales, subscriptions, or app installs — using data-driven advertising, audience targeting, conversion funnel alignment, and continuous ROI monitoring.</p>
-          <p className="pm-about__text">Our performance strategies integrate with <a href="/ppc-advertising-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>PPC campaigns</a> and <a href="/conversion-rate-optimization-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>CRO</a> for maximum revenue efficiency.</p>
-          <p className="pm-about__text">Combined with <a href="/seo-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>SEO</a> and <a href="/digital-marketing-solutions" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>digital marketing</a>, we build scalable, predictable revenue growth systems across all channels.</p>
+          <p className="pm-about__text">Our performance strategies integrate with <a href="/ppc-advertising-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>PPC campaigns</a> and CRO for maximum revenue efficiency.</p>
+          <p className="pm-about__text">Combined with <a href="/seo-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>SEO</a> and digital marketing, we build scalable, predictable revenue growth systems across all channels.</p>
         </div>
         <div className="pm-stats pm-animate--right">
           <div className="pm-stat"><span className="pm-stat__icon">💰</span><span className="pm-stat__label">Revenue Focus</span></div>

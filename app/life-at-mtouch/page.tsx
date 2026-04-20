@@ -77,7 +77,7 @@ export default function LifeAtMtouch() {
         <div className="lam-intro__content">
           <h2 className="lam-intro__heading">Our Culture. Our People. <span className="lam-accent">Our Pride.</span></h2>
           <p className="lam-intro__text">At <strong>mTouch Labs</strong>, we believe that great ideas are born from great minds. We don&apos;t just hire talent; we invest in people and empower them to reach their full potential.</p>
-          <p className="lam-intro__text">Our people are our strongest asset. From <a href="/web-development-company" style={{ color: '#3E8CFB', textDecoration: 'none' }}>web development</a> to <a href="/mobile-app-development-company" style={{ color: '#3E8CFB', textDecoration: 'none' }}>mobile app development</a>, our teams deliver excellence by promoting work-life balance, mutual respect, and continuous feedback.</p>
+          <p className="lam-intro__text">Our people are our strongest asset. From <a href="/web-development-company" style={{ color: '#3E8CFB', textDecoration: 'none' }}>web development</a> to mobile app development, our teams deliver excellence by promoting work-life balance, mutual respect, and continuous feedback.</p>
         </div>
         <div className="lam-intro__image-wrap">
           <img src="/images/about/life_at_mtouch1.png" alt="mTouch Labs team" className="lam-intro__image" />

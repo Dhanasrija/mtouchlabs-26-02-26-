@@ -37,7 +37,7 @@ export default function PPCAdvertisingServices() {
         <div className="pp-about__content pp-animate--left">
           <h2 className="pp-about__heading">What Are <span className="pp-text-accent">PPC Advertising</span> Services?</h2>
           <p className="pp-about__text">PPC advertising services involve managing paid digital campaigns where advertisers pay only when users click — across search engines, social platforms, and display networks with keyword targeting, audience segmentation, bid optimization, and ROI analysis.</p>
-          <p className="pp-about__text">Our PPC campaigns integrate with <a href="/seo-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>SEO strategies</a> for comprehensive visibility and <a href="/conversion-rate-optimization-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>CRO</a> for maximum conversion rates.</p>
+          <p className="pp-about__text">Our PPC campaigns integrate with <a href="/seo-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>SEO strategies</a> for comprehensive visibility and CRO for maximum conversion rates.</p>
           <p className="pp-about__text">Combined with <a href="/performance-marketing-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>performance marketing</a>, we ensure every ad dollar drives measurable business outcomes.</p>
         </div>
         <div className="pp-stats pp-animate--right">

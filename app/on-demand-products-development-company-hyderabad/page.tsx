@@ -797,7 +797,7 @@ export default function OnDemandProductsPage() {
               </div>
             ))}
           </div>
-          <p className="odm-closing odm-closing--light">Our expertise ensures your on-demand platform is built for performance, growth, and long-term success. Explore our <a href="/custom-software-development-company" className="odm-link--light">custom software development services</a> and <a href="/cloud-services" className="odm-link--light">cloud services for scalable apps</a>.</p>
+          <p className="odm-closing odm-closing--light">Our expertise ensures your on-demand platform is built for performance, growth, and long-term success. Explore our <a href="/custom-software-development-company" className="odm-link--light">custom software development services</a> and cloud services for scalable apps.</p>
         </div>
       </section>
 

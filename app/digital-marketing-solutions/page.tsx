@@ -37,8 +37,8 @@ export default function DigitalMarketingSolutions() {
         <div className="dm-about__content dm-animate--left">
           <h2 className="dm-about__heading">What Are <span className="dm-text-accent">Digital Marketing</span> Solutions?</h2>
           <p className="dm-about__text">Digital marketing solutions encompass a coordinated set of strategies designed to increase online visibility, generate qualified leads, and improve conversion outcomes — including search optimization, paid acquisition, audience targeting, conversion funnels, and analytics.</p>
-          <p className="dm-about__text">Our <a href="/seo-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>SEO services</a> build sustainable organic authority, while <a href="/ppc-advertising-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>PPC campaigns</a> drive immediate qualified traffic.</p>
-          <p className="dm-about__text">Combined with <a href="/conversion-rate-optimization-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>conversion optimization</a> and <a href="/content-marketing-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>content marketing</a>, we create scalable digital growth systems that deliver long-term, measurable performance.</p>
+          <p className="dm-about__text">Our <a href="/seo-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>SEO services</a> build sustainable organic authority, while PPC campaigns drive immediate qualified traffic.</p>
+          <p className="dm-about__text">Combined with <a href="/conversion-rate-optimization-services" style={{color:"#2563eb",textDecoration:"none",fontWeight:600}}>conversion optimization</a> and content marketing, we create scalable digital growth systems that deliver long-term, measurable performance.</p>
         </div>
         <div className="dm-stats dm-animate--right">
           <div className="dm-stat"><span className="dm-stat__icon">🔍</span><span className="dm-stat__label">Search Optimization</span></div>
