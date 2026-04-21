@@ -46,8 +46,12 @@ export function BuildMethodSteps({ steps }: BuildMethodStepsProps) {
           margin: 0 auto;
           gap: 8px;
           overflow-x: auto;
-          padding: 20px 0;
+          overflow-y: visible;
+          padding: 30px 0 40px;
+          touch-action: pan-y;
+          -webkit-overflow-scrolling: touch;
         }
+        .bm-steps-container::-webkit-scrollbar { display: none; }
         .bm-step-label {
           min-height: 44px;
           display: flex;

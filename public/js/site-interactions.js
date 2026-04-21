@@ -69,7 +69,7 @@
   //       });
   //       if (res.ok) {
   //         e.target.reset();
-  //         window.location.href = "/thank-you";
+  //         window.location.href = "/thank-you?success=true";
   //       } else {
   //         alert("Something went wrong. Please try again.");
   //       }
@@ -153,7 +153,7 @@
         return;
       }
 
-      window.location.href = "/thank-you";
+      window.location.href = "/thank-you?success=true";
     });
   }
 })();
@@ -172,7 +172,7 @@ if (quoteForm) {
       var modal = document.getElementById("requestQuoteModal");
       if (modal) modal.classList.add("hide");
       e.target.reset();
-      window.location.href = "/thank-you";
+      window.location.href = "/thank-you?success=true";
     }, 1000);
   });
 }

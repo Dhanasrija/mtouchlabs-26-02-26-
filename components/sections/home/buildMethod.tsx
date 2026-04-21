@@ -44,7 +44,7 @@ export default function BuildMethod() {
         }
       `}</style>
       <section
-        style={{ background: "#F3F1FF", padding: "80px 24px", textAlign: "center", overflow: "hidden" }}
+        style={{ background: "#F3F1FF", padding: "80px 24px", textAlign: "center", overflowX: "hidden" }}
       >
         <BuildMethodWrapper>
           <p className="bm-title-item" style={{

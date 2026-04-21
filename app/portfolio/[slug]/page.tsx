@@ -87,7 +87,18 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const fullImg = p.og_image || p.image ? (p.og_image || p.image).startsWith('http') ? (p.og_image || p.image) : `https://www.mtouchlabs.com${imgUrl(p.og_image || p.image)}` : '';
   // Strip any trailing "| mTouch Labs" so the root layout template doesn't duplicate it
   const stripBrand = (s?: string) => (s || '').replace(/\s*\|\s*mTouch\s*Labs\s*$/i, '').trim();
-  const cleanMetaTitle = stripBrand(p.meta_title || `${cleanTitle(p.title)} Portfolio`);
+  // Prefer a descriptive title derived from the slug so tab titles always
+  // match page content (fixes generic titles like "Only shop" for the
+  // onlyshop-mobile-shopping-app-development project).
+  const slugTitle = cleanTitle(p.title || '', slug);
+  const dbMetaTitle = stripBrand(p.meta_title || '');
+  const rawCleanTitle = stripBrand(p.title ? cleanTitle(p.title) : '');
+  // Treat the DB meta_title as "generic" when it's too short or obviously
+  // abbreviated compared to the slug-derived title.
+  const isGeneric = dbMetaTitle.length > 0 && dbMetaTitle.split(' ').length < 3 && slugTitle.split(' ').length >= 3;
+  const cleanMetaTitle = isGeneric
+    ? `${slugTitle} | Portfolio`
+    : (dbMetaTitle || `${rawCleanTitle || slugTitle} | Portfolio`);
   return {
     title: cleanMetaTitle,
     description: p.meta_description || p.subtitle || `${p.title} — a ${p.category} project by mTouch Labs.`,

@@ -51,10 +51,23 @@ export default function TocScrollHighlight() {
 
     entries.forEach((e) => observer.observe(e.el));
 
+    // Activate the first TOC item initially so the indicator starts at the
+    // top of the content (and not an arbitrary middle section when the page
+    // is first painted before any scroll has happened).
+    activate(entries[0].id);
+
     let rafId = 0;
+    let userHasScrolled = false;
     function onScroll() {
       cancelAnimationFrame(rafId);
       rafId = requestAnimationFrame(() => {
+        // Keep the first item active until the user actually scrolls past the
+        // top of the page — this avoids the initial jump to a later section.
+        if (!userHasScrolled && window.scrollY < 80) {
+          activate(entries[0].id);
+          return;
+        }
+        userHasScrolled = true;
         if (visible.size > 0) return;
         const mid = window.scrollY + window.innerHeight * 0.3;
         let best = '';

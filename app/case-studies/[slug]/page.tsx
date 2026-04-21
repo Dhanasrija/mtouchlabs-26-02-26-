@@ -180,6 +180,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
 import TocScrollHighlight from '@/components/TocScrollHighlight';
+import ImageWithFallback from '@/components/ImageWithFallback';
 export const dynamic = "force-dynamic";
 
 const SITE_URL = "https://www.mtouchlabs.com";
@@ -391,7 +392,7 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
 
           {cs.image && (
             <div className="blv3-hero-img">
-              <img src={cs.image} alt={cs.image_alt || cs.title} />
+              <ImageWithFallback src={cs.image} alt={cs.image_alt || cs.title} />
             </div>
           )}
         </div>
@@ -557,7 +558,7 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
                   </div>
                   <div className="csx-gallery-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1rem", marginTop: "1rem" }}>
                     {gi.map((img, i) => (
-                      <img
+                      <ImageWithFallback
                         key={i}
                         src={img}
                         alt={`${cs.title} — screenshot ${i + 1}`}

@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
           { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) }
         );
         if (response.ok) {
-          window.location.href = "/thank-you";
+          window.location.href = "/thank-you?success=true";
           event.target.reset();
         }
       } catch (error) {

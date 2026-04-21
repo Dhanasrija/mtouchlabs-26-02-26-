@@ -204,21 +204,14 @@ const EC_CONTENT_HTML = `
   <li>Deliver high-performance user experiences</li>
 </ul>
 <p>Our focus is on long-term growth and performance.</p>
-
-<h2 id="faqs">❓ FAQs</h2>
-<h3>What is ecommerce mobile app development?</h3>
-<p>It is the process of building mobile applications that allow users to browse, purchase, and manage products online.</p>
-<h3>What features should an ecommerce app include?</h3>
-<p>Essential features include product listings, payments, order tracking, and user profiles.</p>
-<h3>How long does it take to develop an ecommerce app?</h3>
-<p>Typically 3 to 6 months depending on features and complexity.</p>
-<h3>Why are mobile apps better than ecommerce websites?</h3>
-<p>Mobile apps offer faster performance, better engagement, and higher conversion rates.</p>
-<h3>Why choose mTouch Labs for ecommerce app development?</h3>
-<p>mTouch Labs provides scalable ecommerce solutions with advanced features and seamless integrations.</p>
-<h3>Can ecommerce apps use AI features?</h3>
-<p>Yes, AI is used for recommendations, personalization, and automation.</p>
 `.trim();
+/*
+ * NOTE: The inline FAQs <h2>/<h3> block has been removed from the body content.
+ * The blog page template already renders a dedicated FAQ section from the
+ * `faq_schema` column (see EC_FAQ_SCHEMA below), so keeping a second copy inside
+ * the HTML body produced a duplicate. `faq_schema` is preserved unchanged —
+ * that one powers the page's FAQ accordion + the FAQPage JSON-LD schema.
+ */
 
 const EC_FAQ_SCHEMA = [
   { question: 'What is ecommerce mobile app development?',            answer: 'Ecommerce mobile app development is the process of creating mobile applications that allow users to browse, purchase, and manage products online.' },

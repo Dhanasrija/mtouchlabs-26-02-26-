@@ -26,6 +26,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
+<link rel="stylesheet" href="/css/policy-pages.css" />
 {/* portfolio items */}
 	<div className="sec-pad">
 		<div className="container">

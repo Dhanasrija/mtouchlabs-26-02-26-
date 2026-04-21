@@ -76,7 +76,7 @@ export default function ContactForm() {
         }
 
         // Redirect to thank-you page
-        router.push("/thank-you");
+        router.push("/thank-you?success=true");
       } else {
         const data = await res.json();
         setError(data?.error || "Something went wrong. Please try again.");

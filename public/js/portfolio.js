@@ -524,7 +524,9 @@ const blogCards = [
       btn.addEventListener('click', function () {
         const filterValue = this.getAttribute('data-filter') || 'all';
         currentFilter = filterValue;
-        // update active class handled elsewhere, but ensure we start at page 1
+        // Highlight the active filter button and clear highlight from the rest.
+        document.querySelectorAll('.blog-filter-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
         renderCards(1);
       });
     });

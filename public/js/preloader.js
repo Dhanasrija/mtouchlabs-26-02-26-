@@ -4,7 +4,9 @@
   //Preloader
   window.addEventListener( 'load', function () {
         var preloadpage = document.getElementById( "page-load" );
-        preloadpage.style.display = "none";
+        if (preloadpage) {
+          preloadpage.style.display = "none";
+        }
   });
 
-})(jQuery);
+})(typeof jQuery !== 'undefined' ? jQuery : null);

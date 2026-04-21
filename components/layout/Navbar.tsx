@@ -144,8 +144,56 @@ export default function Navbar() {
     "/hire-shopify-developers-in-india",
   ]);
 
-  const isHome = pathname === "/";
-  const isServices = SERVICE_PATHS.has(pathname);
+  // Home submenu pages — About Us, Blogs, Case Studies etc. should all
+  // keep the Home menu active in the navbar.
+  const HOME_SUBMENU_PATHS = new Set([
+    "/",
+    "/about",
+    "/about-us",
+    "/our-journey",
+    "/our-vision",
+    "/vision-mission",
+    "/leadership-team",
+    "/life-at-mtouch",
+    "/awards-recognition",
+    "/nasscom-membership",
+    "/clutch",
+    "/blogs",
+    "/blog",
+    "/case-studies",
+    "/it-services-digital-transformation-company",
+  ]);
+
+  const isHome =
+    pathname === "/" ||
+    HOME_SUBMENU_PATHS.has(pathname) ||
+    pathname.startsWith("/blog/") ||
+    pathname.startsWith("/blogs/") ||
+    pathname.startsWith("/case-studies/");
+
+  // Also activate "Services" for dynamic/additional service pages that may
+  // not be explicitly enumerated in SERVICE_PATHS (they follow predictable
+  // slug patterns like *-services, *-development-company, *-solutions).
+  const isServiceByPattern =
+    !isHome &&
+    !PRODUCT_PATHS.has(pathname) &&
+    !RESOURCE_PATHS.has(pathname) &&
+    !pathname.startsWith("/hire-") &&
+    !pathname.startsWith("/portfolio") &&
+    !pathname.startsWith("/careers") &&
+    !pathname.startsWith("/contact-us") &&
+    !pathname.startsWith("/about") &&
+    !pathname.startsWith("/blog") &&
+    !pathname.startsWith("/case-studies") &&
+    (pathname.endsWith("-services") ||
+      pathname.endsWith("-solutions") ||
+      pathname.endsWith("-development-company") ||
+      pathname.endsWith("-development-services") ||
+      pathname.endsWith("-consulting-services") ||
+      pathname.includes("-services-") ||
+      pathname.includes("-software-") ||
+      pathname.includes("-design-company"));
+  const isServices = SERVICE_PATHS.has(pathname) || isServiceByPattern;
   const isProducts = PRODUCT_PATHS.has(pathname);
   const isResources = RESOURCE_PATHS.has(pathname) || pathname.startsWith("/hire-");
   const isPortfolio = pathname === "/portfolio" || pathname.startsWith("/portfolio/");
@@ -204,7 +252,7 @@ export default function Navbar() {
           <ul className="nav-list nav-pill">
             {/* HOME */}
            <li className="megamenu">
-              <a href="/" className="menu-links">Home<i id="menu-linkicon" className="fas fa-angle-down"></i></a>
+              <a href="/" className={`menu-links${isHome ? " active-link" : ""}`}>Home<i id="menu-linkicon" className="fas fa-angle-down"></i></a>
               <div className="menu-dropdown">
                 <div className="menu-block-set">
                   <div className="container">

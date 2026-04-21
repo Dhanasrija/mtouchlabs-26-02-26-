@@ -1,0 +1,65 @@
+/* ===============================================
+   POLICY PAGES — Responsive heading fixes
+   Applies to: Privacy Policy, Terms & Conditions,
+   Refund Policy. Prevents heading clipping on
+   narrow / mobile viewports.
+   =============================================== */
+
+.sec-pad {
+  padding: 80px 0;
+  overflow-x: hidden;
+}
+
+.sec-pad .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  box-sizing: border-box;
+}
+
+.sec-pad h1,
+.sec-pad .refund-title {
+  font-size: clamp(1.5rem, 4.5vw, 2.5rem);
+  line-height: 1.25;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+  margin: 0 0 20px 0;
+  padding: 0 4px;
+  max-width: 100%;
+  display: block;
+  white-space: normal;
+}
+
+.sec-pad h2,
+.sec-pad h3,
+.sec-pad h4 {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  max-width: 100%;
+}
+
+.sec-pad p,
+.sec-pad li {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+  .sec-pad {
+    padding: 50px 0 40px;
+  }
+  .sec-pad h1,
+  .sec-pad .refund-title {
+    font-size: clamp(1.25rem, 6vw, 1.75rem);
+    padding: 0 8px;
+  }
+}
+
+@media (max-width: 380px) {
+  .sec-pad h1,
+  .sec-pad .refund-title {
+    font-size: 1.15rem;
+  }
+}

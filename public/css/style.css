@@ -32764,14 +32764,42 @@ select.new_contact_input {
 
 .crm-title {
     font-family: var(--font-primary);
-    font-size: 20px;
+    font-size: clamp(16px, 3.5vw, 20px);
     font-weight: 700;
     color: var(--color-white);
     text-align: center;
-    padding: 22px 24px;
+    padding: 22px 54px 22px 24px;
     background: linear-gradient(135deg, var(--color-signature-blue), #2563eb);
     border-radius: 16px 16px 0 0;
     margin: 0;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    line-height: 1.3;
+}
+
+@media (max-width: 480px) {
+    .crm-title {
+        padding: 18px 48px 18px 16px;
+        font-size: 15px;
+        line-height: 1.35;
+    }
+    .crm-close {
+        top: 12px !important;
+        right: 12px !important;
+        width: 32px !important;
+        height: 32px !important;
+    }
+    .crm-box form {
+        padding: 18px 14px 16px !important;
+    }
+    .crm-field label {
+        font-size: 13px;
+    }
+    .crm-field input,
+    .crm-field select,
+    .crm-field textarea {
+        font-size: 14px;
+    }
 }
 
 /* form fields */

@@ -60,6 +60,17 @@ export async function generateMetadata({
   // Strip any trailing "| mTouch Labs" so the root layout template doesn't duplicate it
   const stripBrand = (s?: string) => (s || '').replace(/\s*\|\s*mTouch\s*Labs\s*$/i, '').trim();
   const cleanTitle = stripBrand(blog.meta_title || blog.title);
+  /*
+   * Browser tabs + SERP usually show ~60 chars. Once we add " | mTouch Labs"
+   * (14 chars), anything over ~45 chars for the core title gets cut off.
+   * So: if the title is already long, skip the brand suffix entirely by
+   * returning `{ absolute: ... }` which bypasses the root layout template.
+   */
+  const TITLE_LENGTH_LIMIT = 45;
+  const titleField =
+    cleanTitle.length > TITLE_LENGTH_LIMIT
+      ? { absolute: cleanTitle }
+      : cleanTitle;
   // Validate canonical: must be a non-empty absolute URL on our domain, else fall back to pageUrl.
   const isValidCanonical = typeof blog.canonical_url === 'string'
     && blog.canonical_url.trim().length > 0
@@ -67,7 +78,7 @@ export async function generateMetadata({
     && blog.canonical_url.includes('mtouchlabs.com');
   const canonical = isValidCanonical ? blog.canonical_url : pageUrl;
   return {
-    title: cleanTitle,
+    title: titleField,
     description: blog.meta_description,
     keywords: blog.focus_keyword || undefined,
     alternates: { canonical },
@@ -266,7 +277,7 @@ export async function generateMetadata({
 //           <span className="blv3-breadcrumb-sep">/</span>
 //           <Link href="/blog">Blog</Link>
 //           <span className="blv3-breadcrumb-sep">/</span>
-//           <span className="blv3-breadcrumb-current">{blog.breadcrumb_title || blog.category || 'Article'}</span>
+//           <span className="blv3-breadcrumb-current">{blog.breadcrumb_title || blog.title || blog.category || 'Article'}</span>
 //         </div>
 //       </nav>
 
@@ -682,7 +693,7 @@ export async function generateMetadata({
 //           <span className="blv3-breadcrumb-sep">/</span>
 //           <Link href="/blog">Blog</Link>
 //           <span className="blv3-breadcrumb-sep">/</span>
-//           <span className="blv3-breadcrumb-current">{blog.breadcrumb_title || blog.category || 'Article'}</span>
+//           <span className="blv3-breadcrumb-current">{blog.breadcrumb_title || blog.title || blog.category || 'Article'}</span>
 //         </div>
 //       </nav>
 
@@ -1125,7 +1136,7 @@ export default async function BlogPostPage({
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
       { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_URL}/blog` },
-      { '@type': 'ListItem', position: 3, name: blog.breadcrumb_title || blog.title, item: pageUrl },
+      { '@type': 'ListItem', position: 3, name: blog.breadcrumb_title || blog.title || blog.category || 'Article', item: pageUrl },
     ],
   };
 
@@ -1158,7 +1169,7 @@ export default async function BlogPostPage({
           <span className="blv3-breadcrumb-sep">/</span>
           <Link href="/blog">Blog</Link>
           <span className="blv3-breadcrumb-sep">/</span>
-          <span className="blv3-breadcrumb-current">{blog.breadcrumb_title || blog.category || 'Article'}</span>
+          <span className="blv3-breadcrumb-current">{blog.breadcrumb_title || blog.title || blog.category || 'Article'}</span>
         </div>
       </nav>
 
@@ -1204,13 +1215,13 @@ export default async function BlogPostPage({
 
           {(blog.image || blog.og_image) && (
             <div className="blv3-hero-img">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={blog.image || blog.og_image}
-                alt={blog.title}
+                src={blog.image || blog.og_image || '/images/Light.png'}
+                alt={blog.title || 'Blog image'}
                 width={1200}
                 height={630}
                 loading="eager"
-                fetchPriority="high"
                 style={{ width: '100%', height: 'auto' }}
               />
             </div>

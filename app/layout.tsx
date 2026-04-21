@@ -293,7 +293,7 @@ export default function RootLayout({
                   mobile: d.mobile, service: d.service, budget: d.budget, message: d.message
                 })
               }).then(function(r) {
-                if (r.ok) { window.location.href = '/thank-you'; }
+                if (r.ok) { window.location.href = '/thank-you?success=true'; }
                 else { alert('Something went wrong. Please try again.'); if (btn) btn.disabled = false; if (icon) icon.style.display = 'none'; }
               }).catch(function(err) {
                 console.error(err); alert('Something went wrong. Please try again.');
@@ -328,8 +328,8 @@ export default function RootLayout({
                   method: 'POST',
                   headers: { 'Content-Type': 'application/json' },
                   body: JSON.stringify({ name: name, email: email, countryCode: countryCode, mobile: mobile, 'cf-turnstile-response': brochureTurnstileToken })
-                }).then(function() { window.location.href = '/thank-you'; })
-                  .catch(function() { window.location.href = '/thank-you'; });
+                }).then(function() { window.location.href = '/thank-you?success=true'; })
+                  .catch(function() { window.location.href = '/thank-you?success=true'; });
               });
             }
             if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initBrochure); }

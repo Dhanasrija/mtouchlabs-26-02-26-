@@ -141,7 +141,7 @@ export default function LifeAtMtouch() {
         <p className="lam-cta__text">Explore career opportunities and become part of a team that&apos;s shaping the future of technology.</p>
         <div className="lam-cta__buttons">
           <a href="/careers" className="lam-cta__btn lam-cta__btn--primary">Explore Careers</a>
-          <a className="lam-cta__btn lam-cta__btn--outline js-open-modal">Get in Touch</a>
+          <a href="/contact-us" className="lam-cta__btn lam-cta__btn--outline">Get in Touch</a>
         </div>
       </div></div></section>
     </>
