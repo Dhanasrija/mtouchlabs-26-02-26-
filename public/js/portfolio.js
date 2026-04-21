@@ -519,17 +519,21 @@ const blogCards = [
       paginationContainer.appendChild(row);
     }
 
-    // Wire up filter buttons to re-render pages
-    document.querySelectorAll('.blog-filter-btn').forEach(btn => {
-      btn.addEventListener('click', function () {
-        const filterValue = this.getAttribute('data-filter') || 'all';
+    // Wire up filter buttons to re-render pages using event delegation —
+    // robust against Next.js hydration, late DOM availability, and re-renders.
+    if (!window.__mtl_portfolio_filter_bound) {
+      window.__mtl_portfolio_filter_bound = true;
+      document.addEventListener('click', function (e) {
+        const btn = e.target && e.target.closest && e.target.closest('.blog-filter-btn');
+        if (!btn) return;
+        const filterValue = btn.getAttribute('data-filter') || 'all';
         currentFilter = filterValue;
         // Highlight the active filter button and clear highlight from the rest.
         document.querySelectorAll('.blog-filter-btn').forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
+        btn.classList.add('active');
         renderCards(1);
       });
-    });
+    }
 
     // Initial render
     renderCards(1);

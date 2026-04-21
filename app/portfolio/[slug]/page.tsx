@@ -93,14 +93,34 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const slugTitle = cleanTitle(p.title || '', slug);
   const dbMetaTitle = stripBrand(p.meta_title || '');
   const rawCleanTitle = stripBrand(p.title ? cleanTitle(p.title) : '');
-  // Treat the DB meta_title as "generic" when it's too short or obviously
-  // abbreviated compared to the slug-derived title.
-  const isGeneric = dbMetaTitle.length > 0 && dbMetaTitle.split(' ').length < 3 && slugTitle.split(' ').length >= 3;
-  const cleanMetaTitle = isGeneric
-    ? `${slugTitle} | Portfolio`
-    : (dbMetaTitle || `${rawCleanTitle || slugTitle} | Portfolio`);
+
+  // Pick the richest title: prefer a multi-word DB meta title, otherwise use
+  // the slug-derived descriptive title (fixes cases like "Only shop" for the
+  // onlyshop-mobile-shopping-app-development project where both p.title and
+  // p.meta_title are truncated).
+  const dbWordCount = dbMetaTitle.split(' ').filter(Boolean).length;
+  const rawWordCount = rawCleanTitle.split(' ').filter(Boolean).length;
+  const slugWordCount = slugTitle.split(' ').filter(Boolean).length;
+
+  let cleanMetaTitle: string;
+  if (dbMetaTitle && dbWordCount >= 3) {
+    cleanMetaTitle = dbMetaTitle;
+  } else if (rawCleanTitle && rawWordCount >= 3 && rawWordCount >= slugWordCount) {
+    cleanMetaTitle = `${rawCleanTitle} | Portfolio`;
+  } else {
+    cleanMetaTitle = `${slugTitle} | Portfolio`;
+  }
+
+  // If appending "| mTouch Labs" (Next.js root template) would make the browser
+  // tab title longer than 60 chars (hard to read), return an absolute title
+  // so the template is not applied.
+  const projectedFull = `${cleanMetaTitle} | mTouch Labs`;
+  const titleField = projectedFull.length > 60
+    ? ({ absolute: cleanMetaTitle } as const)
+    : cleanMetaTitle;
+
   return {
-    title: cleanMetaTitle,
+    title: titleField,
     description: p.meta_description || p.subtitle || `${p.title} — a ${p.category} project by mTouch Labs.`,
     keywords: [`${p.category} app development`, ...tags, 'mTouch Labs', 'app development Hyderabad'],
     openGraph: { title: p.og_title || p.title, description: p.og_description || p.subtitle, url: p.canonical_url || `/portfolio/${p.slug}`, siteName: 'mTouch Labs', type: 'article', images: fullImg ? [{ url: fullImg, width: 1200, height: 630 }] : [] },

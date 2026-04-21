@@ -1,30 +1,35 @@
+// Minimal, non-blocking loading indicator.
+// Previously a full-screen overlay with a blur — that was too visible on
+// fast routes and showed a noticeable "loading flash" on Home.
+// Now: a thin 3px top progress bar that doesn't cover the page content.
 export default function Loading() {
   return (
     <div
       role="status"
       aria-live="polite"
+      aria-label="Loading"
       style={{
         position: "fixed",
-        inset: 0,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        background: "rgba(255,255,255,0.85)",
+        top: 0,
+        left: 0,
+        right: 0,
+        height: 3,
         zIndex: 9999,
-        backdropFilter: "blur(2px)",
+        pointerEvents: "none",
+        overflow: "hidden",
+        background: "transparent",
       }}
     >
       <div
         style={{
-          width: 48,
-          height: 48,
-          border: "4px solid #e6edf7",
-          borderTopColor: "#3E8CFB",
-          borderRadius: "50%",
-          animation: "mtl-spin 0.9s linear infinite",
+          height: "100%",
+          width: "40%",
+          background:
+            "linear-gradient(90deg, transparent, #3E8CFB 50%, transparent)",
+          animation: "mtl-topbar 1.1s ease-in-out infinite",
         }}
       />
-      <style>{`@keyframes mtl-spin { to { transform: rotate(360deg); } }`}</style>
+      <style>{`@keyframes mtl-topbar { 0% { transform: translateX(-100%);} 100% { transform: translateX(350%);} }`}</style>
     </div>
   );
 }

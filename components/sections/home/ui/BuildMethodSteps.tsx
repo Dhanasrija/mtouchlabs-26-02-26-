@@ -15,13 +15,14 @@ export function BuildMethodSteps({ steps }: BuildMethodStepsProps) {
   return (
     <div className="bm-steps-container no-scrollbar">
       <style>{`
+        /* ⭐ Smaller travel & no overshoot — prevents the section
+           looking like it "jumps up" / cards being cut off on scroll. */
         @keyframes bmAntiGravityCard {
-          0%   { opacity: 0; transform: translateY(70px) scale(0.93); }
-          70%  { opacity: 1; transform: translateY(-10px) scale(1.02); }
+          0%   { opacity: 0; transform: translateY(20px) scale(0.98); }
           100% { opacity: 1; transform: translateY(0) scale(1); }
         }
         @keyframes bmAntiGravityFloat {
-          0%   { opacity: 0; transform: translateY(40px); }
+          0%   { opacity: 0; transform: translateY(12px); }
           100% { opacity: 1; transform: translateY(0); }
         }
 
@@ -112,7 +113,6 @@ export function BuildMethodSteps({ steps }: BuildMethodStepsProps) {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  padding: "22px",
                   boxSizing: "border-box",
                   boxShadow: "0 4px 20px rgba(0,0,0,0.06)",
                   overflow: "hidden",
@@ -124,19 +124,24 @@ export function BuildMethodSteps({ steps }: BuildMethodStepsProps) {
                 <div
                   className="bm-item-icon"
                   style={{
-                    position: "relative",
-                    width: "100%",
-                    height: "100%",
+                    width: "96px",
+                    height: "96px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    margin: "auto",
                   }}
                 >
                   <Image
                     src={step.img}
                     alt={step.label}
-                    fill
-                    sizes="96px"
+                    width={96}
+                    height={96}
                     style={{
                       objectFit: "contain",
                       objectPosition: "center center",
+                      maxWidth: "100%",
+                      maxHeight: "100%",
                       display: "block",
                     }}
                   />

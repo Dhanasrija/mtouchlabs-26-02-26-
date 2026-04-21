@@ -1130,13 +1130,23 @@ export default async function BlogPostPage({
     ...(readingTime > 0 && { timeRequired: `PT${readingTime}M` }),
   };
 
+  /*
+   * Breadcrumb leaf should always match the post's actual title — which is
+   * what users see in the hero and in navbar links. Historically some blog
+   * rows had `breadcrumb_title` mistakenly populated with a CATEGORY string
+   * like "Digital Transformation" or "Web Development", causing breadcrumbs
+   * to show the category rather than the blog title. Prefer `title` first,
+   * then fall back to `breadcrumb_title`, then category, then "Article".
+   */
+  const breadcrumbLeaf = blog.title || blog.breadcrumb_title || blog.category || 'Article';
+
   const breadcrumbJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
       { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_URL}/blog` },
-      { '@type': 'ListItem', position: 3, name: blog.breadcrumb_title || blog.title || blog.category || 'Article', item: pageUrl },
+      { '@type': 'ListItem', position: 3, name: breadcrumbLeaf, item: pageUrl },
     ],
   };
 
@@ -1169,7 +1179,7 @@ export default async function BlogPostPage({
           <span className="blv3-breadcrumb-sep">/</span>
           <Link href="/blog">Blog</Link>
           <span className="blv3-breadcrumb-sep">/</span>
-          <span className="blv3-breadcrumb-current">{blog.breadcrumb_title || blog.title || blog.category || 'Article'}</span>
+          <span className="blv3-breadcrumb-current">{breadcrumbLeaf}</span>
         </div>
       </nav>
 

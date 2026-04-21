@@ -77,7 +77,12 @@ function ResourcesCTA() {
 export default function Navbar() {
   const headersList = headers();
 
-  let pathname = headersList.get("x-pathname") || "/";
+  // Prefer the middleware-injected header. Normalise defensively so we don't
+  // miss a match because of stray trailing slashes, casing, or query strings.
+  const rawPath = headersList.get("x-pathname") || "/";
+  let pathname = rawPath.split("?")[0].split("#")[0].toLowerCase();
+  if (!pathname.startsWith("/")) pathname = "/" + pathname;
+  if (pathname.length > 1 && pathname.endsWith("/")) pathname = pathname.slice(0, -1);
   /* ═══════════════════════════════════════════════════════
      PASTE THIS — Replace the existing active state block
      in your Navbar.tsx (the part after pathname detection
@@ -106,7 +111,23 @@ export default function Navbar() {
     "/progressive-web-app-development-company-in-india", "/quality-assurance-and-testing-services",
     "/digital-marketing-solutions", "/seo-services", "/ppc-advertising-services", "/app-store-optimization-services",
     "/social-media-marketing-services", "/conversion-rate-optimization-services", "/content-marketing-services",
-    "/email-marketing-services",
+    "/email-marketing-services", "/performance-marketing-services",
+    // Alt / legacy slugs that also belong under Services
+    "/digital-marketing-company", "/digital-marketing-services-company-in-india",
+    "/it-solutions-company", "/custom-crm-software-development-company",
+    "/cybersecurity-development-company", "/native-app-development-company",
+    "/hybrid-app-development-company", "/on-demand-service-mobile-app-development",
+    "/ppc-management-services-company", "/saas-development-services",
+    "/web-and-app-development-for-education-services",
+    "/web-and-app-development-for-real-estate-services",
+    "/web-and-app-development-for-temple-services",
+    "/app-and-web-development-for-ecommerce-services",
+    "/best-iot-development-company-in-india",
+    "/progressive-web-app-development-company-in-india",
+    // E-commerce development is surfaced from the homepage "Custom Software
+    // Development & IT Services" section, so we treat it as a Service so the
+    // Services tab highlights when users land on it from that card.
+    "/ecommerce-app-development-company",
   ]);
 
   // ── All product page URLs ──
@@ -116,7 +137,7 @@ export default function Navbar() {
     "/milk-delivery-app-development-service", "/car-wash-app-development-company", "/chef-management-app-solutions",
     "/taxi-booking-app-development-company", "/hotel-booking-app-development-company",
     "/tickets-booking-app-development-company", "/real-estate-app-development-company",
-    "/ecommerce-app-development-company", "/online-shopping-app-development-company",
+    "/online-shopping-app-development-company",
     "/multi-vendor-marketplace-app-builder",
     "/e-learning-app-development-company", "/gaming-apps-development-company", "/ott-app-development-company",
     "/diagnostic-app-development-company", "/sports-and-fitness-app-development-company",
@@ -170,7 +191,17 @@ export default function Navbar() {
     HOME_SUBMENU_PATHS.has(pathname) ||
     pathname.startsWith("/blog/") ||
     pathname.startsWith("/blogs/") ||
-    pathname.startsWith("/case-studies/");
+    pathname.startsWith("/case-studies/") ||
+    pathname.startsWith("/about/") ||
+    pathname.startsWith("/about-us/") ||
+    pathname.startsWith("/vision-mission/") ||
+    pathname.startsWith("/leadership-team/") ||
+    pathname.startsWith("/our-journey/") ||
+    pathname.startsWith("/life-at-mtouch/") ||
+    pathname.startsWith("/awards-recognition/") ||
+    pathname.startsWith("/nasscom-membership/") ||
+    pathname.startsWith("/clutch/") ||
+    pathname.startsWith("/it-services-digital-transformation-company/");
 
   // Also activate "Services" for dynamic/additional service pages that may
   // not be explicitly enumerated in SERVICE_PATHS (they follow predictable
@@ -188,12 +219,16 @@ export default function Navbar() {
     !pathname.startsWith("/case-studies") &&
     (pathname.endsWith("-services") ||
       pathname.endsWith("-solutions") ||
+      pathname.endsWith("-company") ||               // catches -marketing-company, -solutions-company, …
       pathname.endsWith("-development-company") ||
       pathname.endsWith("-development-services") ||
       pathname.endsWith("-consulting-services") ||
+      pathname.endsWith("-development") ||           // on-demand-service-mobile-app-development
       pathname.includes("-services-") ||
       pathname.includes("-software-") ||
-      pathname.includes("-design-company"));
+      pathname.includes("-design-company") ||
+      pathname.includes("-marketing-") ||
+      pathname.includes("-development-company-"));   // -in-india suffixed slugs
   const isServices = SERVICE_PATHS.has(pathname) || isServiceByPattern;
   const isProducts = PRODUCT_PATHS.has(pathname);
   const isResources = RESOURCE_PATHS.has(pathname) || pathname.startsWith("/hire-");

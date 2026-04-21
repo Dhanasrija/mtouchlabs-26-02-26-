@@ -10,15 +10,20 @@ export function BuildMethodWrapper({ children }: BuildMethodWrapperProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // ⭐ Fire animation only ONCE — stop re-triggering on every scroll
+    // that passes the section (was causing visible "jump/flicker").
+    if (!containerRef.current) return;
+    const el = containerRef.current;
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setInView(entry.isIntersecting);
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect(); // lock the visible state in
+        }
       },
       { threshold: 0.1 }
     );
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
+    observer.observe(el);
     return () => observer.disconnect();
   }, []);
 

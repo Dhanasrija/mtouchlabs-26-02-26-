@@ -304,7 +304,15 @@ export default function Footer() {
                   title="mTouch Labs Office Location"
                 />
               </div>
-              <button className="ft-brochure-btn js-brochure-modal">Download Brochure →</button>
+              {/*
+                Brochure CTA — navigates to /brochure (dedicated page that
+                auto-opens the shared brochure modal). Using an <a> instead
+                of a <button> so the URL bar updates to /brochure, matching
+                the canonical URL and avoiding the previous behaviour where
+                the modal opened in-place (leading users to confuse the
+                resulting URL with contact-us redirects).
+              */}
+              <a href="/brochure" className="ft-brochure-btn" aria-label="Download Brochure">Download Brochure →</a>
             </div>
           </div>
         </div>

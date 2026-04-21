@@ -223,7 +223,7 @@ export default function RootLayout({
                 </div>
                 <div className="cf-turnstile" data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY} data-callback="onBrochureTurnstileSuccess" suppressHydrationWarning></div>
 
-                <button id="brochureSubmitBtn" className="brochure-submit-btn">Submit Now</button>
+                <button type="button" id="brochureSubmitBtn" className="brochure-submit-btn">Submit Now</button>
               </div>
             </div>
           </div>
