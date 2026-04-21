@@ -37,17 +37,22 @@ interface BlogRow {
   reading_time: number;
   publish_date: string;
   created_at: string;
+  updated_at: string;
 }
 
 export const revalidate = 60;
 
 export default async function BlogPage() {
+  // ⭐ Sort by whichever date is most recent for each blog:
+  //    updated_at (if the post was edited after publishing),
+  //    otherwise publish_date, otherwise created_at.
+  //    GREATEST ignores NULLs in Postgres, so NULL updated_at falls back cleanly.
   const blogs = await sql`
     SELECT id, slug, title, description, image, author, category, tags, reading_time,
-           publish_date, created_at
+           publish_date, created_at, updated_at
     FROM blogs
     WHERE published = true OR status = 'published'
-    ORDER BY COALESCE(publish_date, created_at) DESC
+    ORDER BY GREATEST(updated_at, publish_date, created_at) DESC NULLS LAST
   ` as BlogRow[];
 
   const categories = [...new Set(blogs.map(b => b.category).filter(Boolean))];
@@ -85,9 +90,21 @@ export default async function BlogPage() {
           <div className="blog-post">
             <div className="row" id="blog-cards-container">
               {blogs.map((blog) => {
-                const displayDate = blog.publish_date || blog.created_at;
-                const dateStr = displayDate
-                  ? new Date(displayDate).toISOString().split("T")[0]
+                // ⭐ Date logic:
+                //    - If the blog was edited > 1h after its publish date, show "Last Updated: <date>"
+                //    - Otherwise show the publish date as-is
+                const publishedAt = blog.publish_date || blog.created_at;
+                const updatedAt = blog.updated_at;
+                const publishedMs = publishedAt ? new Date(publishedAt).getTime() : 0;
+                const updatedMs = updatedAt ? new Date(updatedAt).getTime() : 0;
+                const ONE_HOUR = 60 * 60 * 1000;
+                const wasUpdated = updatedMs > 0 && publishedMs > 0 && (updatedMs - publishedMs) > ONE_HOUR;
+                const dateSource = wasUpdated ? updatedAt : publishedAt;
+                const datePlain = dateSource
+                  ? new Date(dateSource).toISOString().split("T")[0]
+                  : "";
+                const dateStr = datePlain
+                  ? (wasUpdated ? `Last Updated: ${datePlain}` : datePlain)
                   : "";
                 const readTime = Number(blog.reading_time) || 0;
                 const desc = blog.description

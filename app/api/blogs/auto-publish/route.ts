@@ -38,6 +38,44 @@ function slugify(text: string): string {
     .slice(0, 80);
 }
 
+/* Canonical 5-category vocabulary — must match app/blogs/create/page.tsx dropdown */
+const CANONICAL_CATEGORIES = [
+  'AI & Automation',
+  'Web Development',
+  'Mobile App',
+  'Cloud & DevOps',
+  'Digital Transformation',
+] as const;
+
+/* Coerce any free-form category Claude returns into the canonical 5. */
+function normalizeCategory(raw: string | undefined | null): string {
+  if (!raw) return 'Digital Transformation';
+  const s = String(raw).toLowerCase().trim();
+
+  // Direct canonical match (case-insensitive)
+  const direct = CANONICAL_CATEGORIES.find((c) => c.toLowerCase() === s);
+  if (direct) return direct;
+
+  // Keyword-based mapping
+  if (/\b(ai|ml|machine learning|llm|chatbot|automation|automate|gpt|genai|generative)\b/.test(s)) {
+    return 'AI & Automation';
+  }
+  if (/\b(mobile|ios|android|flutter|react native|swift|kotlin|app dev)\b/.test(s)) {
+    return 'Mobile App';
+  }
+  if (/\b(cloud|devops|aws|azure|gcp|kubernetes|docker|ci\/cd|infra|infrastructure)\b/.test(s)) {
+    return 'Cloud & DevOps';
+  }
+  if (/\b(web|frontend|backend|fullstack|full-stack|node|react|next|angular|vue|php|wordpress|shopify|magento|cms|saas)\b/.test(s)) {
+    return 'Web Development';
+  }
+  if (/\b(digital transformation|enterprise|business|strategy|consulting|modernization|design|ux|ui|technology)\b/.test(s)) {
+    return 'Digital Transformation';
+  }
+  // Fallback
+  return 'Digital Transformation';
+}
+
 export async function POST(request: NextRequest) {
   try {
     // Auth check — use a simple secret or skip in dev
@@ -74,8 +112,8 @@ Return ONLY valid JSON (no markdown, no code blocks) with this exact structure:
   "meta_title": "SEO title with keyword (60-70 chars)",
   "meta_description": "Compelling meta description (150-160 chars)",
   "focus_keyword": "primary keyword phrase",
-  "category": "one of: Technology, Development, AI, Cloud, Design, Business",
-  "tags": "comma-separated tags",
+  "category": "MUST be exactly one of: AI & Automation, Web Development, Mobile App, Cloud & DevOps, Digital Transformation",
+  "tags": "comma-separated tags (pick 3-5 from this fixed list only: AI, Automation, SaaS, Mobile, Web, Cloud, DevOps, Ecommerce, Security, Startup, Enterprise, UX)",
   "og_title": "Open Graph title",
   "og_description": "Open Graph description",
   "content": "Full HTML blog content with h2, h3 headings, paragraphs, lists. Minimum 1500 words. Use proper HTML tags. Include practical tips and examples. Reference mTouch Labs naturally.",
@@ -124,20 +162,19 @@ Requirements:
     const slug = slugify(blogData.slug || blogData.title);
     const canonicalUrl = `${SITE_URL}/blog/${slug}`;
 
-    // Pick a category-relevant image
+    // ⭐ Coerce Claude's category output into the canonical 5-category vocab
+    const normalizedCategory = normalizeCategory(blogData.category);
+    blogData.category = normalizedCategory;
+
+    // Pick a category-relevant image (mapped to the canonical 5)
     const categoryImages: Record<string, string> = {
-      'Technology': '/images/blog/technology-blog.png',
-      'Development': '/images/blog/development-blog.png',
-      'AI': '/images/blog/ai-app-development-guide.png',
-      'Cloud': '/images/blog/cloud-devops-blog.png',
-      'Design': '/images/blog/design-blog.png',
-      'Business': '/images/blog/business-blog.png',
-      'Mobile': '/images/blog/mobile-app-development-cost-india.png',
-      'Web': '/images/blog/custom-web-application-development.png',
-      'SaaS': '/images/blog/saas-blog.png',
-      'Ecommerce': '/images/blog/ecommerce-blog.png',
+      'AI & Automation': '/images/blog/ai-app-development-guide.png',
+      'Web Development': '/images/blog/custom-web-application-development.png',
+      'Mobile App': '/images/blog/mobile-app-development-cost-india.png',
+      'Cloud & DevOps': '/images/blog/cloud-devops-blog.png',
+      'Digital Transformation': '/images/blog/technology-blog.png',
     };
-    const blogImage = categoryImages[blogData.category] || '/images/Light.png';
+    const blogImage = categoryImages[normalizedCategory] || '/images/Light.png';
 
     // Check if slug already exists
     const existing = await sql`SELECT id FROM blogs WHERE slug = ${slug}`;
@@ -156,7 +193,7 @@ Requirements:
         )
         VALUES (
           ${uniqueSlug}, ${blogData.title}, ${blogData.description}, ${blogData.content},
-          ${blogImage}, ${'mTouch Labs'}, ${blogData.category || 'Technology'},
+          ${blogImage}, ${'mTouch Labs'}, ${blogData.category || 'Digital Transformation'},
           ${blogData.tags ? `{${blogData.tags}}` : null}, ${blogData.meta_title || blogData.title},
           ${blogData.meta_description || blogData.description},
           ${blogData.og_title || blogData.title}, ${blogData.og_description || blogData.description},
@@ -186,7 +223,7 @@ Requirements:
       )
       VALUES (
         ${slug}, ${blogData.title}, ${blogData.description}, ${blogData.content},
-        ${blogImage}, ${'mTouch Labs'}, ${blogData.category || 'Technology'},
+        ${blogImage}, ${'mTouch Labs'}, ${blogData.category || 'Digital Transformation'},
         ${blogData.tags ? `{${blogData.tags}}` : null}, ${blogData.meta_title || blogData.title},
         ${blogData.meta_description || blogData.description},
         ${blogData.og_title || blogData.title}, ${blogData.og_description || blogData.description},

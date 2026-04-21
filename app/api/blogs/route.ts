@@ -100,29 +100,29 @@ export async function GET(request: NextRequest) {
     let countResult;
 
     // ⭐ Updated: supports both old `published` column AND new `status` column
-    // ⭐ Order by publish_date first (for scheduled posts), fallback to created_at
+    // ⭐ Order by updated_at first (so refreshed posts rise), then publish_date, then created_at.
     if (category) {
       blogs = await sql`
-        SELECT id, slug, title, description, image, author, category, tags, 
-               publish_date, created_at
+        SELECT id, slug, title, description, image, author, category, tags,
+               publish_date, created_at, updated_at
         FROM blogs
         WHERE (published = true OR status = 'published')
           AND category = ${category}
-        ORDER BY COALESCE(publish_date, created_at) DESC
+        ORDER BY GREATEST(updated_at, publish_date, created_at) DESC NULLS LAST
         LIMIT ${limit} OFFSET ${offset}
       `;
       countResult = await sql`
-        SELECT COUNT(*) as total FROM blogs 
-        WHERE (published = true OR status = 'published') 
+        SELECT COUNT(*) as total FROM blogs
+        WHERE (published = true OR status = 'published')
           AND category = ${category}
       `;
     } else {
       blogs = await sql`
-        SELECT id, slug, title, description, image, author, category, tags, 
-               publish_date, created_at
+        SELECT id, slug, title, description, image, author, category, tags,
+               publish_date, created_at, updated_at
         FROM blogs
         WHERE (published = true OR status = 'published')
-        ORDER BY COALESCE(publish_date, created_at) DESC
+        ORDER BY GREATEST(updated_at, publish_date, created_at) DESC NULLS LAST
         LIMIT ${limit} OFFSET ${offset}
       `;
       countResult = await sql`

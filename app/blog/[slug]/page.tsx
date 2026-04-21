@@ -970,33 +970,21 @@ interface Blog {
 // ── Helpers ──
 function extractHeadings(html: string): { id: string; text: string; level: number }[] {
   const headings: { id: string; text: string; level: number }[] = [];
-  // First pass: h2/h3/h4 WITH id attributes
-  const regex = /<(h[2-4])[^>]*id=["']([^"']+)["'][^>]*>([\s\S]*?)<\/\1>/gi;
+  // ⭐ TOC contains H2s ONLY. H3/H4 are subsections (step items, FAQ questions, etc.)
+  //    and should never appear in the sidebar TOC.
+  const regex = /<h2([^>]*)>([\s\S]*?)<\/h2>/gi;
   let match;
+  let idx = 0;
   while ((match = regex.exec(html)) !== null) {
-    const text = match[3].replace(/<[^>]+>/g, '').trim();
-    if (!text) continue;
-    headings.push({
-      id: match[2],
-      text,
-      level: match[1] === 'h2' ? 2 : 3,
-    });
-  }
-  // Second pass: ALL h2/h3/h4 (with or without id)
-  if (headings.length < 3) {
-    headings.length = 0; // reset and redo
-    const regex2 = /<(h[2-6])[^>]*>([\s\S]*?)<\/\1>/gi;
-    let idx = 0;
-    while ((match = regex2.exec(html)) !== null) {
-      const text = match[2].replace(/<[^>]+>/g, '').trim();
-      if (!text || text.length < 3) continue;
-      const level = parseInt(match[1][1]);
-      // Only include h2, h3, h4 in TOC (skip h5, h6 unless few headings)
-      if (level > 4 && headings.length >= 4) continue;
-      const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || `section-${idx}`;
-      headings.push({ id, text, level: level <= 3 ? level : 3 });
-      idx++;
-    }
+    const attrs = match[1];
+    const text = match[2].replace(/<[^>]+>/g, '').trim();
+    if (!text || text.length < 3) continue;
+    const idMatch = attrs.match(/id=["']([^"']+)["']/);
+    const id = idMatch
+      ? idMatch[1]
+      : (text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || `section-${idx}`);
+    headings.push({ id, text, level: 2 });
+    idx++;
   }
   return headings;
 }

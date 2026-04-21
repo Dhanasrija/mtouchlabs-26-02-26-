@@ -241,7 +241,7 @@ export default function Navbar() {
                           <div className="menu-inner-block-a">
                             <div className="inner-blockss">
                               <ul className="menu-li-link">
-                                <li><a href="/it-services-digital-transformation-company"><span className="mega-link-title">Company Overview</span><span className="mega-link-desc">mTouch Labs delivers innovative mobile and web app solutions for modern businesses</span></a></li>
+                                <li><a href="/it-services-digital-transformation-company"><span className="mega-link-title">It Services</span><span className="mega-link-desc">mTouch Labs delivers innovative mobile and web app solutions for modern businesses</span></a></li>
                                 <li><a href="/vision-mission"><span className="mega-link-title">Vision &amp; Mission</span><span className="mega-link-desc">Driving digital innovation with purpose and empowering businesses globally</span></a></li>
                                 <li><a href="/leadership-team"><span className="mega-link-title">Leadership Team</span><span className="mega-link-desc">Meet the experienced minds leading mTouch Labs to digital excellence</span></a></li>
                                 <li><a href="/our-journey"><span className="mega-link-title">Our Journey</span><span className="mega-link-desc">14+ years of building world-class digital products across 20+ industries</span></a></li>
