@@ -310,6 +310,33 @@
   color: #6b7280;
 }
 
+/* ⭐ Remove underlines on all home mega-menu links — keep only color highlight */
+.home-mega-panel .menu-li-link li a,
+.home-mega-panel .menu-li-link li a:link,
+.home-mega-panel .menu-li-link li a:visited,
+.home-mega-panel .menu-li-link li a:hover,
+.home-mega-panel .menu-li-link li a:active,
+.home-mega-panel .menu-li-link li a:focus,
+.home-mega-panel .menu-li-link li a .mega-link-title,
+.home-mega-panel .menu-li-link li a:hover .mega-link-title,
+.home-mega-panel .menu-li-link li a .mega-link-desc,
+.home-mega-panel .menu-li-link li a:hover .mega-link-desc,
+.home-mega-item,
+.home-mega-item:hover,
+.home-mega-item .home-mega-item-label,
+.home-mega-item:hover .home-mega-item-label,
+.home-mega-readmore,
+.home-mega-readmore:hover,
+.home-mega-readmore:focus,
+.home-mega-readmore:active,
+.home-mega-content a,
+.home-mega-content a:hover,
+.home-mega-content a:focus,
+.home-mega-content a:active {
+  text-decoration: none !important;
+  text-underline-offset: 0 !important;
+}
+
 /* No arrow on links — Vulpo style */
 .home-mega-panel .menu-li-link li a::after {
   display: none;

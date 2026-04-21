@@ -47763,7 +47763,7 @@ button.aw-cta__button { border: none; cursor: pointer; font-family: inherit; }
 .ldr-intro h2 { font-size: 32px !important; font-weight: 800 !important; color: #1a1a2e !important; margin: 0 0 16px !important; }
 .ldr-intro p { font-size: 16px !important; color: #475569 !important; line-height: 1.8 !important; }
 .ldr-intro a { color: var(--color-signature-blue) !important; text-decoration: none !important; font-weight: 600 !important; }
-.ldr-intro a:hover { text-decoration: underline !important; }
+.ldr-intro a:hover { text-decoration: none !important; color: #60a5fa !important; }
 
 /* ─── CARD GRID ─── */
 .ldr-grid { display: grid !important; gap: 24px !important; }
@@ -48304,7 +48304,7 @@ button.aw-cta__button { border: none; cursor: pointer; font-family: inherit; }
   .xp-cta h2 { font-size: 1.3rem !important; }
   .xp-btn { padding: 12px 22px !important; font-size: 0.85rem !important; }
 }
-/* Internal links in service pages */
+/* Internal links in service pages — color highlight only, no underline */
 .co-service-card__text a,
 .co-about__text a,
 .vm-about__text a,
@@ -48315,8 +48315,7 @@ button.aw-cta__button { border: none; cursor: pointer; font-family: inherit; }
 .jrn-section__desc a,
 .jrn-hero__sub a {
   color: #3e8cfb;
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  text-decoration: none !important;
   font-weight: 600;
   transition: color 0.2s ease;
 }
@@ -48330,6 +48329,7 @@ button.aw-cta__button { border: none; cursor: pointer; font-family: inherit; }
 .jrn-section__desc a:hover,
 .jrn-hero__sub a:hover {
   color: #60a5fa;
+  text-decoration: none !important;
 }
 
 /* Remove blue line from delivery section */

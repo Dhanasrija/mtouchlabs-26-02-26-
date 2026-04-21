@@ -92,7 +92,8 @@ export default function Navbar() {
     "/cross-platform-app-development-company", "/web-development-company", "/custom-software-development-company",
     "/custom-cms-development-company-in-india", "/360-degree-photography-services-in-india",
     "/enterprise-application-development-company", "/app-maintenance-support-services",
-    "/it-services-digital-transformation-company",
+    // NOTE: "/it-services-digital-transformation-company" is intentionally NOT here —
+    // it belongs to HOME_SUBMENU_PATHS so only the Home tab activates, not Services.
     "/cloud-services", "/devops-services", "/cloud-migration-services", "/devops-consulting-services",
     "/cloud-security-services", "/cloud-managed-services", "/best-iot-development-company-in-india",
     "/aws-cloud-services", "/amazon-web-services-company",

@@ -90,6 +90,9 @@ const SLUG_LABELS: Record<string, string> = {
 // Non-service pages (no "Services" middle breadcrumb)
 const NON_SERVICE_SLUGS = new Set([
   "about-us", "contact-us", "vision-mission", "company-overview", "careers",
+  // The IT Services page is itself a top-level company offering, not a sub-service,
+  // so render `Home / IT Services & Digital Transformation` (skip the Services middle crumb).
+  "it-services-digital-transformation-company",
 ]);
 
 export default function Breadcrumb({ pagePath, currentLabel }: BreadcrumbProps) {
