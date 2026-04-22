@@ -565,15 +565,11 @@ export function FreeRequestQuoteClient() {
     };
   }, []);
 
-  /* ── Prefetch the /thank-you route so post-submit redirect is instant ── */
-  useEffect(() => {
-    try {
-      router.prefetch("/thank-you?success=true");
-      router.prefetch("/thank-you");
-    } catch {
-      /* ignore — prefetch is best-effort */
-    }
-  }, [router]);
+  /* ── /thank-you is guarded by a one-time cookie set by /api/request-quote,
+     so we intentionally do NOT prefetch it. A prefetch runs before the form
+     is submitted (no cookie yet) and would cache the middleware redirect,
+     which then hijacks the post-submit `router.push`. We use a hard
+     navigation on submit instead — see handleSubmit below. ── */
 
   /* ── Turnstile captcha (Cloudflare) ─────────────────────── */
   const turnstileRef = useRef<HTMLDivElement>(null);
@@ -749,8 +745,15 @@ export function FreeRequestQuoteClient() {
         // Using `event_callback` guarantees the beacon is sent before the
         // client-side navigation fires. A safety timeout ensures we never
         // block the user for more than 1.2s if the analytics script fails.
+        //
+        // IMPORTANT: we use a hard navigation (window.location.href) instead
+        // of `router.push` because the /thank-you page is guarded by a
+        // one-time cookie set by /api/request-quote. A soft navigation can
+        // be served from the router cache (bypassing middleware), whereas a
+        // hard navigation guarantees the browser sends a fresh request that
+        // carries the newly-set cookie.
         const navigate = () => {
-          router.push("/thank-you?success=true");
+          window.location.href = "/thank-you";
         };
 
         try {

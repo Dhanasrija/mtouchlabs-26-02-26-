@@ -75,8 +75,11 @@ export default function ContactForm() {
           });
         }
 
-        // Redirect to thank-you page
-        router.push("/thank-you?success=true");
+        // Redirect to thank-you page.
+        // Hard navigation (not router.push) so the browser sends a fresh
+        // request carrying the one-time cookie that /api/contact just set;
+        // middleware.ts reads that cookie to authorize /thank-you.
+        window.location.href = "/thank-you";
       } else {
         const data = await res.json();
         setError(data?.error || "Something went wrong. Please try again.");
