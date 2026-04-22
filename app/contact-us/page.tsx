@@ -1040,8 +1040,10 @@ export default function ContactUsPage() {
                 event_label: "contact_form"
               });
             }
-            // ✅ Redirect to thank-you page with success flag (guards /thank-you against direct access)
-            window.location.href = "/thank-you?success=true";
+            // Redirect to thank-you page. Guard lives in middleware via the
+            // one-time cookie set by /api/contact. The source=contact query
+            // param lets GTM / GA4 / Google Ads triggers distinguish this form.
+            window.location.href = "/thank-you?source=contact";
           } else {
             errEl.textContent = (res.body && res.body.error) || "Something went wrong. Please try again.";
             resetBtn();

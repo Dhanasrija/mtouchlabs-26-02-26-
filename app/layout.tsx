@@ -314,7 +314,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   mobile: d.mobile, service: d.service, budget: d.budget, message: d.message
                 })
               }).then(function(r) {
-                if (r.ok) { window.location.href = '/thank-you?success=true'; }
+                if (r.ok) { window.location.href = '/thank-you?source=quote'; }
                 else { alert('Something went wrong. Please try again.'); if (btn) btn.disabled = false; if (icon) icon.style.display = 'none'; }
               }).catch(function(err) {
                 console.error(err); alert('Something went wrong. Please try again.');
@@ -349,8 +349,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   method: 'POST',
                   headers: { 'Content-Type': 'application/json' },
                   body: JSON.stringify({ name: name, email: email, countryCode: countryCode, mobile: mobile, 'cf-turnstile-response': brochureTurnstileToken })
-                }).then(function() { window.location.href = '/thank-you?success=true'; })
-                  .catch(function() { window.location.href = '/thank-you?success=true'; });
+                }).then(function() { window.location.href = '/thank-you?source=brochure'; })
+                  .catch(function() { window.location.href = '/thank-you?source=brochure'; });
               });
             }
             if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initBrochure); }

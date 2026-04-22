@@ -79,7 +79,9 @@ export default function ContactForm() {
         // Hard navigation (not router.push) so the browser sends a fresh
         // request carrying the one-time cookie that /api/contact just set;
         // middleware.ts reads that cookie to authorize /thank-you.
-        window.location.href = "/thank-you";
+        // `?source=contact` tags this submission so GTM / GA4 / Google Ads
+        // can trigger a conversion specifically for the contact form.
+        window.location.href = "/thank-you?source=contact";
       } else {
         const data = await res.json();
         setError(data?.error || "Something went wrong. Please try again.");

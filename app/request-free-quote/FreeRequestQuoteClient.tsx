@@ -741,56 +741,47 @@ export function FreeRequestQuoteClient() {
           throw new Error((json && json.error) || "Request failed");
         }
 
-        // ── Fire Google Analytics + Google Ads conversion, THEN redirect.
-        // Using `event_callback` guarantees the beacon is sent before the
-        // client-side navigation fires. A safety timeout ensures we never
-        // block the user for more than 1.2s if the analytics script fails.
+        // ── Fire analytics + redirect.
         //
-        // IMPORTANT: we use a hard navigation (window.location.href) instead
-        // of `router.push` because the /thank-you page is guarded by a
-        // one-time cookie set by /api/request-quote. A soft navigation can
-        // be served from the router cache (bypassing middleware), whereas a
-        // hard navigation guarantees the browser sends a fresh request that
-        // carries the newly-set cookie.
-        const navigate = () => {
-          window.location.href = "/thank-you";
-        };
-
+        // Mobile-safe flow:
+        //   1. Fire gtag events synchronously (they use navigator.sendBeacon
+        //      under the hood and survive the subsequent page navigation).
+        //   2. Navigate IMMEDIATELY via location.assign(). We no longer wait
+        //      on `event_callback` or a setTimeout safety net, because on
+        //      mobile browsers (iOS Safari in particular) navigation calls
+        //      made >1 second after the user's tap can be silently dropped
+        //      once the user-gesture window has closed.
+        //   3. We intentionally DO NOT call setSubmitting(false) on success
+        //      — leaving the button in its "Sending..." state guarantees
+        //      the form can't visually reappear before the browser has
+        //      committed the navigation to /thank-you.
+        //
+        // Hard navigation (location.assign) is required because the
+        // /thank-you page is guarded by a one-time cookie set by
+        // /api/request-quote. A soft client-side navigation (router.push)
+        // can be served from the router cache and bypass middleware.
         try {
           const w = window as any;
-          if (typeof window !== "undefined" && typeof w.gtag === "function") {
-            let navigated = false;
-            const go = () => {
-              if (navigated) return;
-              navigated = true;
-              navigate();
-            };
-
+          if (typeof w.gtag === "function") {
             // GA4 lead event
             w.gtag("event", "generate_quote_lead", {
               event_category: "form",
               event_label: "request_free_quote_form",
             });
-
             // Google Ads conversion (tied to AW- config in root layout)
             w.gtag("event", "conversion", {
               send_to: "AW-17755266570",
               event_category: "form",
               event_label: "request_free_quote_form",
-              event_callback: go,
             });
-
-            // Hard safety-net: if gtag callback never fires (ad-blocker,
-            // network hiccup), navigate anyway after 1.2s.
-            window.setTimeout(go, 1200);
-            return;
           }
         } catch {
           /* never block redirect on analytics errors */
         }
 
-        // Fallback when gtag is not available at all (e.g. blocked).
-        navigate();
+        // `?source=quote` lets /thank-you + GTM / GA4 / Google Ads
+        // distinguish this form from /contact, /brochure, etc.
+        window.location.assign("/thank-you?source=quote");
         return;
       } catch (err: any) {
         console.error(err);
@@ -800,7 +791,10 @@ export function FreeRequestQuoteClient() {
             "Could not send your request. Please try again."
         );
         resetCaptcha();
-      } finally {
+        // Only re-enable the submit button on the ERROR path. On success we
+        // deliberately keep it disabled to prevent double-submits and to
+        // avoid the form flashing back to life before the mobile browser
+        // has committed the navigation to /thank-you.
         setSubmitting(false);
       }
     },

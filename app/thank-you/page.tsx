@@ -94,10 +94,34 @@
 
 
 import { Metadata } from "next";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Thank You",
   robots: { index: false, follow: false },
+};
+
+// Whitelist of valid ?source= values. Anything else is treated as "unknown"
+// so we never inject arbitrary strings into GTM's dataLayer.
+const VALID_SOURCES = ["quote", "contact", "brochure", "careers"] as const;
+type FormSource = (typeof VALID_SOURCES)[number] | "unknown";
+
+function normalizeSource(raw: string | string[] | undefined): FormSource {
+  const value = Array.isArray(raw) ? raw[0] : raw;
+  if (value && (VALID_SOURCES as readonly string[]).includes(value)) {
+    return value as FormSource;
+  }
+  return "unknown";
+}
+
+// Human-readable form name + event label (one event per source so GTM
+// triggers can be written as simple Custom Event = form_submit_<source>).
+const SOURCE_META: Record<FormSource, { label: string; event: string }> = {
+  quote:    { label: "Request Free Quote", event: "form_submit_quote" },
+  contact:  { label: "Contact Us",         event: "form_submit_contact" },
+  brochure: { label: "Brochure Download",  event: "form_submit_brochure" },
+  careers:  { label: "Careers Application", event: "form_submit_careers" },
+  unknown:  { label: "Unknown Form",       event: "form_submit_unknown" },
 };
 
 // 🚫 Direct access is blocked at the edge by middleware.ts — it requires a
@@ -107,9 +131,39 @@ export const metadata: Metadata = {
 // on the very first /thank-you visit so refresh / back-button revisits also
 // redirect to /request-free-quote. The old `?success=true` query check was
 // removed because it was trivially spoofable by typing the URL.
-export default function ThankYouPage() {
+//
+// The `?source=<form>` query param is NOT a security gate — middleware is.
+// It exists purely so GTM / GA4 / Google Ads can attribute the conversion
+// to the specific form (quote / contact / brochure / careers).
+export default function ThankYouPage({
+  searchParams,
+}: {
+  searchParams: { source?: string | string[] };
+}) {
+  const source = normalizeSource(searchParams?.source);
+  const meta = SOURCE_META[source];
+
+  // Safe JSON — `source` comes from a whitelist, but we still JSON.stringify
+  // so the inline script is never vulnerable to quote-escape breakouts.
+  const dataLayerPayload = JSON.stringify({
+    event: meta.event,
+    form_source: source,
+    form_label: meta.label,
+    page_path: "/thank-you",
+  });
+
   return (
     <section className="thank-you">
+      {/* ========== GTM / GA4 conversion event ==========
+          Fires once per /thank-you render. GTM triggers can listen for the
+          Custom Event name (e.g. `form_submit_quote`) OR read the
+          `form_source` dataLayer variable. Google Ads conversions can be
+          wired to these events in GTM too. ============================= */}
+      <Script id="thank-you-datalayer" strategy="afterInteractive">
+        {`window.dataLayer = window.dataLayer || [];
+window.dataLayer.push(${dataLayerPayload});`}
+      </Script>
+
       <img src="/images/logo-black.svg" alt="Logo" className="logo-thankyou" />
 
       <div className="thank-you-container-msg">
