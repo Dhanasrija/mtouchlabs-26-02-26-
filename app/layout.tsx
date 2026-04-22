@@ -65,6 +65,16 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* ========== GOOGLE TAG MANAGER (GTM) — Global, all pages ========== */}
+        <Script id="gtm-init" strategy="afterInteractive">
+          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K2PX82J8');`}
+        </Script>
+        {/* ========== END GOOGLE TAG MANAGER ========== */}
+
         {/* ========== GOOGLE TAG (gtag.js) — Ads + Analytics ========== */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=G-XKH5MQ5FD4`}
@@ -174,6 +184,17 @@ export default function RootLayout({
         <link href="/images/favicon.png" rel="icon" />
       </head>
       <body suppressHydrationWarning>
+        {/* ========== GOOGLE TAG MANAGER (noscript) — Global, all pages ========== */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-K2PX82J8"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
+        {/* ========== END GOOGLE TAG MANAGER (noscript) ========== */}
+
         <Analytics />
         {/* Request Quote Modal Overlay (shared) */}
         <QuoteModal />
