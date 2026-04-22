@@ -1,6 +1,18 @@
 // Minimal, non-blocking loading indicator.
 // Previously a full-screen overlay with a blur — that was too visible on
 // fast routes and showed a noticeable "loading flash" on Home.
+// Now: a thin 3px top progress bar that doesn't cover the page content.\
+// Minimal, non-blocking loading indicator.
+// Previously a full-screen overlay with a blur — that was too visible on
+// fast routes and showed a noticeable "loading flash" on Home.
+// Now: a thin 3px top progress bar that doesn't cover the page content.
+// Minimal, non-blocking loading indicator.
+// Previously a full-screen overlay with a blur — that was too visible on
+// fast routes and showed a noticeable "loading flash" on Home.
+// Now: a thin 3px top progress bar that doesn't cover the page content.
+// Minimal, non-blocking loading indicator.
+// Previously a full-screen overlay with a blur — that was too visible on
+// fast routes and showed a noticeable "loading flash" on Home.
 // Now: a thin 3px top progress bar that doesn't cover the page content.
 export default function Loading() {
   return (
