@@ -694,7 +694,7 @@ const contactPageSchema = { "@context": "https://schema.org", "@type": "ContactP
 
 const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: [{ "@type": "Question", name: "How soon can we begin an enterprise software project with mTouch Labs?", acceptedAnswer: { "@type": "Answer", text: "Once you submit your request, our solution architects schedule a discovery call within 24-48 hours." } },{ "@type": "Question", name: "Does mTouch Labs work with global enterprises?", acceptedAnswer: { "@type": "Answer", text: "Yes. mTouch Labs collaborates with clients across the USA, Europe, the Middle East, and APAC regions." } }] };
 
-const servicesOptions = ["Enterprise Software Development","SaaS Product Development","Mobile App Development","Cloud & DevOps Engineering","AI & Automation Solutions","UI/UX & Product Design","Legacy System Modernization","Web Application Development","Digital Marketing"];
+const servicesOptions = ["Enterprise Software Development","SaaS Product Development","Mobile App Development","Cloud & DevOps Engineering","AI & Automation Solutions","UI/UX & Product Design","Legacy System Modernization","Web Application Development","Digital Marketing","Job Enquiry"];
 
 const offices = [
   {
@@ -843,8 +843,8 @@ export default function ContactUsPage() {
                     <input type="text" name="subject" className="ct-form__input" placeholder="How can we help?" />
                   </div>
                   <div className="ct-form__group">
-                    <label className="ct-form__label">SERVICE <span className="ct-form__optional">(Optional)</span></label>
-                    <select name="interest" className="ct-form__select" defaultValue="">
+                    <label className="ct-form__label">SERVICE *</label>
+                    <select name="interest" className="ct-form__select" defaultValue="" required>
                       <option value="" disabled>Select a service</option>
                       {servicesOptions.map((s)=>(<option key={s} value={s}>{s}</option>))}
                     </select>

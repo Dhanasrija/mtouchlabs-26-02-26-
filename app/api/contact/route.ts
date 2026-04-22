@@ -71,12 +71,14 @@ export async function POST(req: Request) {
     const data = await req.json();
     const isPartial = !!data.partial;
 
-    // Partial leads only need name + (email OR phone) — full submissions require email.
+    // Partial leads only need name + (email OR phone) — full submissions require
+    // name, email, AND a selected service (`interest`). Service is mandatory on
+    // the full form so every lead carries a clear intent for the sales team.
     if (isPartial) {
       if (!data.name || (!data.email && !data.mobile)) {
         return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
       }
-    } else if (!data.name || !data.email) {
+    } else if (!data.name || !data.email || !data.interest || !String(data.interest).trim()) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
