@@ -105,8 +105,8 @@ export const metadata: Metadata = {
 // API routes (`/api/contact`, `/api/request-quote`, `/api/brochure`,
 // `/api/careers`) set on a successful submission, and the cookie is deleted
 // on the very first /thank-you visit so refresh / back-button revisits also
-// redirect to /contact-us. The old `?success=true` query check was removed
-// because it was trivially spoofable by typing the URL.
+// redirect to /request-free-quote. The old `?success=true` query check was
+// removed because it was trivially spoofable by typing the URL.
 export default function ThankYouPage() {
   return (
     <section className="thank-you">

@@ -52,7 +52,7 @@ export async function middleware(request: NextRequest) {
     if (pathname === '/thank-you' || pathname.startsWith('/thank-you/')) {
       const submitted = request.cookies.get(FORM_SUBMITTED_COOKIE);
       if (!submitted) {
-        return NextResponse.redirect(new URL('/contact-us', request.url));
+        return NextResponse.redirect(new URL('/request-free-quote', request.url));
       }
       const passthrough = NextResponse.next();
       passthrough.cookies.delete(FORM_SUBMITTED_COOKIE);
