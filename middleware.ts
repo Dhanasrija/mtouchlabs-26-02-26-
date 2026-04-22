@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { FORM_SUBMITTED_COOKIE } from '@/lib/formSubmissionGuard';
 
 // Force Node.js runtime instead of Edge — avoids __dirname errors on Vercel
 export const runtime = 'nodejs';
@@ -34,12 +35,28 @@ export async function middleware(request: NextRequest) {
 
     // 1. Explicitly skip API routes, Next.js internals, and static files
     if (
-      pathname.startsWith('/api') || 
-      pathname.startsWith('/_next') || 
+      pathname.startsWith('/api') ||
+      pathname.startsWith('/_next') ||
       pathname.includes('.') ||
       pathname === '/favicon.ico'
     ) {
       return NextResponse.next();
+    }
+
+    // 1.5 THANK-YOU GUARD
+    // The /thank-you page must only be reachable as a redirect target after a
+    // successful form submission. The form-submission API routes set the
+    // `mtl_form_submitted` HttpOnly cookie on success; this block enforces
+    // its presence. The cookie is consumed (deleted) on the same response so
+    // a refresh / direct revisit of /thank-you redirects away too.
+    if (pathname === '/thank-you' || pathname.startsWith('/thank-you/')) {
+      const submitted = request.cookies.get(FORM_SUBMITTED_COOKIE);
+      if (!submitted) {
+        return NextResponse.redirect(new URL('/contact-us', request.url));
+      }
+      const passthrough = NextResponse.next();
+      passthrough.cookies.delete(FORM_SUBMITTED_COOKIE);
+      return passthrough;
     }
 
     const host = request.headers.get('host') || '';

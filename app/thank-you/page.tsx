@@ -94,23 +94,20 @@
 
 
 import { Metadata } from "next";
-import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "Thank You",
   robots: { index: false, follow: false },
 };
 
-export default function ThankYouPage({
-  searchParams,
-}: {
-  searchParams: { success?: string };
-}) {
-  // 🚫 Block direct access — only reachable after a successful form submission
-  if (searchParams?.success !== "true") {
-    redirect("/contact-us");
-  }
-
+// 🚫 Direct access is blocked at the edge by middleware.ts — it requires a
+// one-time HttpOnly `mtl_form_submitted` cookie that only the form-submission
+// API routes (`/api/contact`, `/api/request-quote`, `/api/brochure`,
+// `/api/careers`) set on a successful submission, and the cookie is deleted
+// on the very first /thank-you visit so refresh / back-button revisits also
+// redirect to /contact-us. The old `?success=true` query check was removed
+// because it was trivially spoofable by typing the URL.
+export default function ThankYouPage() {
   return (
     <section className="thank-you">
       <img src="/images/logo-black.svg" alt="Logo" className="logo-thankyou" />

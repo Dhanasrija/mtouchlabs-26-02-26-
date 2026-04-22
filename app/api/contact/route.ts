@@ -1,6 +1,7 @@
 // app/api/contact/route.ts
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
+import { setFormSubmittedCookie } from '@/lib/formSubmissionGuard';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -136,7 +137,10 @@ export async function POST(req: Request) {
       console.error('Resend send error:', sendErr);
     }
 
-    return NextResponse.json({ success: true });
+    // Full (non-partial) submission — stamp the one-time cookie that
+    // authorizes /thank-you. Partial submissions intentionally do NOT
+    // get the cookie since the user hasn't actually completed the form.
+    return setFormSubmittedCookie(NextResponse.json({ success: true }));
   } catch (err) {
     console.error('Contact API error:', err);
     return NextResponse.json({ error: 'Server error' }, { status: 500 });

@@ -1,6 +1,7 @@
 // app/api/careers/route.ts
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
+import { setFormSubmittedCookie } from '@/lib/formSubmissionGuard';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -118,7 +119,8 @@ export async function POST(req: Request) {
       console.error('Resend send error:', sendErr);
     }
 
-    return NextResponse.json({ success: true });
+    // Stamp the response with the one-time cookie that authorizes /thank-you.
+    return setFormSubmittedCookie(NextResponse.json({ success: true }));
   } catch (err) {
     console.error('Careers API error:', err);
     return NextResponse.json({ error: 'Server error' }, { status: 500 });
