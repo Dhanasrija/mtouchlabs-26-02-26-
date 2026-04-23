@@ -1803,7 +1803,7 @@ export default function Page() {
                 { icon: "🏆", title: "NASSCOM Award-Winning",          desc: "Recognized technology company with proven excellence." },
                 { icon: "📱", title: "Mobile, Software & AI Expertise", desc: "Full-stack capabilities across all technology domains." },
                 { icon: "⚡", title: "Scalable Architecture",           desc: "Solutions built to grow with startups and enterprises." },
-                { icon: "🎨", title: "Custom UI/UX Design",             desc: <span>Engaging interfaces crafted by our <a href="/ui-ux-design-services" target="_blank">UI/UX design team</a>.</span> },
+                { icon: "🎨", title: "Custom UI/UX Design",             desc: <span>Engaging interfaces crafted by our <a href="/ui-ux-design-company" target="_blank">UI/UX design team</a>.</span> },
                 { icon: "🔒", title: "Secure Payment Integration",      desc: "PCI-compliant payment gateways and third-party API integration." },
                 { icon: "🔄", title: "Agile Development",               desc: "Transparent communication with iterative development cycles." },
                 { icon: "🛠️", title: "Post-Launch Support",            desc: "Ongoing maintenance, updates, and feature enhancements." },

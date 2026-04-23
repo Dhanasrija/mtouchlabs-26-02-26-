@@ -1227,7 +1227,7 @@ export default function Page() {
             <p className="gd-body">
               Every grocery business has unique needs. We build solutions that adapt to your model and scale as your business grows.
             </p>
-            <a href="/contact" className="gd-btn" style={{ marginTop: "12px" }}>
+            <a href="/contact-us" className="gd-btn" style={{ marginTop: "12px" }}>
               Request a Quote &nbsp;→
             </a>
           </div>
