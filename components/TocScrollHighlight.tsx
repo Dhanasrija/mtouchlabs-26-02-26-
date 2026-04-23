@@ -105,7 +105,10 @@ export default function TocScrollHighlight() {
       const handler = (e: Event) => {
         e.preventDefault();
         const top = el.getBoundingClientRect().top + window.scrollY - 130;
-        window.scrollTo({ top, behavior: 'instant' });
+        // Smooth scroll so the reader visually connects the TOC click
+        // with the section that scrolls into view. `behavior: 'smooth'`
+        // respects the user's OS reduced-motion setting automatically.
+        window.scrollTo({ top, behavior: 'smooth' });
         activate(id);
         history.replaceState(null, '', `#${id}`);
       };

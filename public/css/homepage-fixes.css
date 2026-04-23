@@ -1691,3 +1691,266 @@ html.aos-loaded [data-aos] { opacity: 1; }
   }
 }
 
+/* ═══════════════════════════════════════════════════════════════════
+   HIGH-SPECIFICITY RE-OVERRIDES (v2) — Mobile Bugs Id_01 → Id_05
+   These rules use body-prefixed + combined-class selectors so they
+   outrank competing rules in responsive.css / style.css that carry
+   !important (responsive.css forces `.mobile-menu2 .toggle.hc-nav-trigger
+   { width:30px!important; height:30px!important }` which was winning
+   against our earlier Bug #01 fix because of higher specificity).
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ───── Id_01: Hamburger clipped at 320px ───── */
+@media (max-width: 480px) {
+  body .mobile-menu2 .toggle,
+  body .mobile-menu2 .toggle.hc-nav-trigger,
+  body .mobile-menu2 .hc-nav-trigger {
+    width: 28px !important;
+    height: 26px !important;
+    padding: 3px !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+    box-sizing: content-box !important;
+  }
+  body .menu-header {
+    padding: 8px 10px !important;
+    gap: 6px !important;
+  }
+}
+@media (max-width: 360px) {
+  body .mobile-menu2 .toggle,
+  body .mobile-menu2 .toggle.hc-nav-trigger,
+  body .mobile-menu2 .hc-nav-trigger {
+    width: 24px !important;
+    height: 22px !important;
+  }
+  body .mobile-menu2 .toggle span,
+  body .mobile-menu2 .toggle.hc-nav-trigger span,
+  body .mobile-menu2 .toggle span::before,
+  body .mobile-menu2 .toggle span::after,
+  body .mobile-menu2 .toggle.hc-nav-trigger span::before,
+  body .mobile-menu2 .toggle.hc-nav-trigger span::after {
+    width: 20px !important;
+  }
+  body .menu-header {
+    padding: 6px 8px !important;
+    gap: 4px !important;
+  }
+}
+@media (max-width: 320px) {
+  body .mobile-menu2 .toggle,
+  body .mobile-menu2 .toggle.hc-nav-trigger,
+  body .mobile-menu2 .hc-nav-trigger {
+    width: 22px !important;
+    height: 20px !important;
+  }
+  body .mobile-menu2 .toggle span,
+  body .mobile-menu2 .toggle.hc-nav-trigger span,
+  body .mobile-menu2 .toggle span::before,
+  body .mobile-menu2 .toggle span::after,
+  body .mobile-menu2 .toggle.hc-nav-trigger span::before,
+  body .mobile-menu2 .toggle.hc-nav-trigger span::after {
+    width: 18px !important;
+  }
+  body .menu-logo .nav-brand img {
+    max-height: 28px !important;
+  }
+  body .menu-header {
+    padding: 6px !important;
+  }
+}
+
+/* ───── Id_02: Mobile phone numbers missing in TopBar ─────
+   Responsive.css overrides .top-header at 768px with flex-wrap:wrap;
+   gap:0 — which hides/crushes the phone block. Force the whole TopBar
+   to keep both email + phones visible and laid out cleanly on mobile. */
+@media (max-width: 1150px) {
+  body .top-header {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 6px 10px !important;
+    gap: 8px 16px !important;
+    height: auto !important;
+    min-height: 38px !important;
+    font-size: 12px !important;
+  }
+  body .top-header .tb-phone-center {
+    display: inline-flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important;
+    transform: none !important;
+    flex-wrap: nowrap !important;
+    flex-shrink: 0 !important;
+    margin: 0 !important;
+    gap: 14px !important;
+  }
+  body .top-header .tb-phone-center span {
+    display: inline-flex !important;
+    margin-right: 0 !important;
+  }
+  body .top-header .tb-phone-center a {
+    font-size: 12px !important;
+  }
+  body .top-header .tb-phone-center img {
+    width: 16px !important;
+    height: 11px !important;
+  }
+}
+@media (max-width: 768px) {
+  body .top-header {
+    padding: 5px 10px !important;
+    gap: 6px 12px !important;
+    font-size: 11px !important;
+  }
+  body .top-header .tb-phone-center a {
+    font-size: 11.5px !important;
+  }
+}
+@media (max-width: 480px) {
+  body .top-header {
+    justify-content: center !important;
+    padding: 5px 8px !important;
+  }
+  body .top-header > div:first-child {
+    flex-basis: 100% !important;
+    justify-content: center !important;
+  }
+  body .top-header .tb-email-text {
+    font-size: 11px !important;
+    display: inline-block !important;
+  }
+  body .top-header .tb-phone-center {
+    flex-basis: 100% !important;
+    justify-content: center !important;
+    gap: 12px !important;
+  }
+  body .top-header .tb-phone-center a {
+    font-size: 11px !important;
+  }
+}
+@media (max-width: 360px) {
+  body .top-header .tb-email-text {
+    display: none !important;
+  }
+  body .top-header .tb-phone-center a {
+    font-size: 10.5px !important;
+  }
+  body .top-header .tb-phone-center {
+    gap: 8px !important;
+  }
+}
+
+/* ───── Id_03: Uneven stats gap ─────
+   style.css lines 52466 + 52557 set gap/margin-right:80px. Force
+   equal horizontal columns centered on mobile. */
+@media (max-width: 768px) {
+  body .mtl-stats-items {
+    justify-content: center !important;
+    align-items: flex-start !important;
+    gap: 48px !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    flex-wrap: nowrap !important;
+    width: 100% !important;
+  }
+  body .mtl-stats-items > .mtl-stat-item {
+    flex: 0 1 auto !important;
+    min-width: 130px !important;
+    max-width: 180px !important;
+    text-align: left !important;
+  }
+}
+@media (max-width: 480px) {
+  body .mtl-stats-items {
+    gap: 28px !important;
+  }
+  body .mtl-stats-items > .mtl-stat-item {
+    min-width: 110px !important;
+  }
+  body .mtl-stat-number {
+    font-size: 30px !important;
+    line-height: 36px !important;
+  }
+}
+
+/* ───── Id_04: Build method card gap ───── */
+@media (max-width: 1024px) {
+  body .bm-steps-container {
+    gap: 10px !important;
+    padding: 14px 0 24px !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  body .bm-steps-container .bm-step-arrow {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin: 0 !important;
+    font-size: 20px !important;
+    line-height: 1 !important;
+    transform: rotate(90deg) !important;
+  }
+  body .bm-steps-container .bm-step-card {
+    width: 200px !important;
+    margin: 0 !important;
+  }
+  body .bm-steps-container .bm-step-img-box {
+    margin: 0 auto 8px !important;
+  }
+}
+@media (max-width: 480px) {
+  body .bm-steps-container {
+    gap: 6px !important;
+  }
+  body .bm-steps-container .bm-step-img-box {
+    width: 108px !important;
+    height: 108px !important;
+  }
+  body .bm-steps-container .bm-step-card {
+    width: 170px !important;
+  }
+}
+
+/* ───── Id_05: Technologies heading wrap + padding ───── */
+@media (max-width: 768px) {
+  body .tech-section {
+    padding: 60px 20px !important;
+  }
+  body .tech-inner {
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+  }
+  body .tech-heading {
+    font-size: clamp(26px, 6vw, 32px) !important;
+    line-height: 1.2 !important;
+    white-space: normal !important;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    padding-left: 0 !important;
+  }
+  body .tech-heading .tech-char {
+    white-space: nowrap !important;
+  }
+  body .tech-right {
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+  }
+}
+@media (max-width: 480px) {
+  body .tech-section {
+    padding: 48px 18px !important;
+  }
+  body .tech-heading {
+    font-size: 24px !important;
+    letter-spacing: -0.01em !important;
+  }
+}
+@media (max-width: 360px) {
+  body .tech-heading {
+    font-size: 21px !important;
+    letter-spacing: -0.02em !important;
+  }
+}
+

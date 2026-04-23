@@ -388,22 +388,35 @@
   gap: 36px;
   align-items: flex-start;
   position: relative;
+  /* Reserve 260px (TOC width) + 36px (gap) on the left for the
+     `position: fixed` TOC below. Without this the article would
+     flow underneath the fixed TOC. Overridden back to 0 on mobile
+     where the TOC returns to normal flow. */
+  padding-left: 296px;
 }
 
-/* ===== STICKY TOC ===== */
+/* ===== FIXED TOC =====
+   Anchored to the viewport so it is ALWAYS visible while reading the
+   article — it never scrolls away with the content. `left` is a
+   viewport-math expression that aligns the TOC with the left edge of
+   the centered `.blv3-container` (max-width: 1200px, padding: 0 24px).
+   On viewports narrower than 1248px the container hugs the left with
+   24px padding; the `max(24px, …)` floor handles that automatically. */
 .blv3-toc {
   width: 260px;
   flex-shrink: 0;
-  position: sticky;
+  position: fixed;
   top: 120px;
-  max-height: calc(100vh - 180px);
+  left: max(24px, calc((100vw - 1200px) / 2 + 24px));
+  max-height: calc(100vh - 160px);
   overflow-y: auto;
-  align-self: flex-start;
+  overscroll-behavior: contain;
   background: #fafaff;
   border: 1px solid #e8e8f4;
   border-radius: 16px;
   padding: 24px 20px;
   box-shadow: 0 2px 12px rgba(99, 102, 241, 0.06);
+  z-index: 5;
 }
 
 /* Scrollbar styling */
@@ -949,25 +962,33 @@
 @media (max-width: 1024px) {
   .blv3-grid {
     flex-direction: column;
+    /* Undo the desktop padding-left that was reserving space
+       for the fixed TOC — on tablet/mobile the TOC flows
+       above the article instead. */
+    padding-left: 0;
   }
 
   .blv3-toc {
     position: static;
+    left: auto;
     width: 100%;
     max-height: none;
     border-bottom: 1px solid #e5e7eb;
     padding-bottom: 20px;
     margin-bottom: 32px;
+    z-index: auto;
   }
 
   .blv3-toc {
     position: static;
+    left: auto;
     width: 100%;
     max-height: none;
     border-bottom: 1px solid #e5e7eb;
     padding: 16px;
     margin-bottom: 32px;
     border-radius: 12px;
+    z-index: auto;
   }
 
   .blv3-toc-heading {
@@ -1227,24 +1248,41 @@ body:has(.blv3-page) {
   flex-shrink: 0;
 }
 
-/* ── TOC final fixes ── */
+/* ── TOC final fixes ──
+   Final !important-scoped desktop rules. These override the base
+   block above, so the `position: fixed` + viewport-math `left`
+   must be repeated here or sticky will come back and the TOC will
+   scroll away with the article. */
 @media (min-width: 1025px) {
   .blv3-toc {
     width: 300px !important;
     max-height: calc(100vh - 140px) !important;
     overflow-y: auto !important;
     overflow-x: hidden !important;
-    position: sticky !important;
+    position: fixed !important;
     top: 120px !important;
+    left: max(24px, calc((100vw - 1200px) / 2 + 24px)) !important;
     align-self: flex-start !important;
     flex-shrink: 0 !important;
+    z-index: 5 !important;
+  }
+
+  /* Reserve space so the article doesn't slide under the fixed TOC.
+     300px TOC + 36px gap = 336px. */
+  .blv3-grid {
+    padding-left: 336px !important;
   }
 }
 @media (max-width: 1024px) {
   .blv3-toc {
     position: static !important;
+    left: auto !important;
     width: 100% !important;
     max-height: none !important;
+  }
+
+  .blv3-grid {
+    padding-left: 0 !important;
   }
 }
 

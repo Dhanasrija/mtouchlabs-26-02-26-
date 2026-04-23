@@ -83,9 +83,10 @@ const SERVICE_PATHS = new Set<string>([
   "/web-and-app-development-for-real-estate-services",
   "/web-and-app-development-for-temple-services",
   "/app-and-web-development-for-ecommerce-services",
-  // E-commerce development is surfaced from the homepage "Custom Software
-  // Development & IT Services" section, so treat it as a Service.
-  "/ecommerce-app-development-company",
+  // NOTE: "/ecommerce-app-development-company" is NOT here on purpose —
+  // it lives in PRODUCT_PATHS (below) so the Products tab highlights when
+  // users land on it. Keeping it in both sets causes a flicker between
+  // Products (SSR) → Services (client override) → Products (navbar-init.js).
 ]);
 
 const PRODUCT_PATHS = new Set<string>([
@@ -94,6 +95,12 @@ const PRODUCT_PATHS = new Set<string>([
   "/milk-delivery-app-development-service", "/car-wash-app-development-company", "/chef-management-app-solutions",
   "/taxi-booking-app-development-company", "/hotel-booking-app-development-company",
   "/tickets-booking-app-development-company", "/real-estate-app-development-company",
+  // IMPORTANT: /ecommerce-app-development-company MUST be in PRODUCT_PATHS here
+  // (it's also in PRODUCT_PATHS in Navbar.tsx). The slug ends in "-company" so
+  // if it's missing here, the pattern-based Services fallback below will wrongly
+  // classify it and the client will override the correct SSR Products highlight
+  // — producing a Products→Services flicker ~1s after the page loads.
+  "/ecommerce-app-development-company",
   "/online-shopping-app-development-company",
   "/multi-vendor-marketplace-app-builder",
   "/e-learning-app-development-company", "/gaming-apps-development-company", "/ott-app-development-company",

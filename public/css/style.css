@@ -47338,7 +47338,16 @@ main,
 section {
   background-color: #ffffff;
 }
-.aw-container {
+/* NOTE: The AwardsSection styles below use the `.aw-*` prefix, which
+   collides with the `/aws-cloud-services` page (which also uses the
+   `.aw-*` prefix for its own layout classes — `.aw-container`,
+   `.aw-stats`, `.aw-stat`, etc.). To prevent those rules from leaking
+   into the AWS page and breaking its layout (specifically, the
+   `display: grid; grid-template-columns: 420px 1fr` on `.aw-container`
+   was pushing all AWS page content into a cramped 420px left column),
+   every rule that could collide is scoped to `.aw-section` — the
+   wrapper class only AwardsSection uses. */
+.aw-section .aw-container {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
@@ -47348,13 +47357,13 @@ section {
 }
 
 /* ── LEFT ── */
-.aw-left {
+.aw-section .aw-left {
     display: flex;
     flex-direction: column;
     gap: 22px;
 }
 
-.aw-eyebrow {
+.aw-section .aw-eyebrow {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -47366,7 +47375,7 @@ section {
     margin: 0;
 }
 
-.aw-eyebrow-dot {
+.aw-section .aw-eyebrow-dot {
     width: 6px;
     height: 6px;
     background: #374151;
@@ -47374,7 +47383,7 @@ section {
     flex-shrink: 0;
 }
 
-.aw-heading {
+.aw-section .aw-heading {
     font-size: clamp(30px, 3.5vw, 36px);
     font-weight: 800;
     color: #0a0a0a;
@@ -47383,11 +47392,11 @@ section {
     margin: 0;
 }
 
-.aw-heading-blue {
+.aw-section .aw-heading-blue {
     color: #06b6d4;
 }
 
-.aw-desc {
+.aw-section .aw-desc {
     font-size: 16px;
     color: #6b7280;
     line-height: 1.7;
@@ -47396,14 +47405,14 @@ section {
 }
 
 /* Stat badges */
-.aw-stats {
+.aw-section .aw-stats {
     display: flex;
     flex-direction: column;
     gap: 12px;
     margin-top: 8px;
 }
 
-.aw-stat {
+.aw-section .aw-stat {
     display: flex;
     align-items: center;
     gap: 16px;
@@ -47416,19 +47425,19 @@ section {
     transition: transform 0.22s ease, box-shadow 0.22s ease;
 }
 
-.aw-stat:nth-child(1) {
+.aw-section .aw-stat:nth-child(1) {
     animation-delay: 0.1s;
 }
 
-.aw-stat:nth-child(2) {
+.aw-section .aw-stat:nth-child(2) {
     animation-delay: 0.2s;
 }
 
-.aw-stat:nth-child(3) {
+.aw-section .aw-stat:nth-child(3) {
     animation-delay: 0.3s;
 }
 
-.aw-stat:hover {
+.aw-section .aw-stat:hover {
     transform: translateX(6px);
     box-shadow: 0 4px 16px rgba(6, 182, 212, 0.1);
 }
@@ -47609,12 +47618,12 @@ section {
 
 /* ── Responsive ── */
 @media (max-width: 1024px) {
-    .aw-container {
+    .aw-section .aw-container {
         grid-template-columns: 1fr;
         gap: 48px;
     }
 
-    .aw-left {
+    .aw-section .aw-left {
         max-width: 540px;
     }
 }
@@ -47624,23 +47633,23 @@ section {
         padding: 64px 20px;
     }
 
-    .aw-grid {
+    .aw-section .aw-grid {
         grid-template-columns: 1fr 1fr;
         gap: 10px;
         padding: 12px;
     }
 
-    .aw-card {
+    .aw-section .aw-card {
         min-height: 160px;
         padding: 20px 16px 14px;
     }
 
-    .aw-stats {
+    .aw-section .aw-stats {
         flex-direction: row;
         flex-wrap: wrap;
     }
 
-    .aw-stat {
+    .aw-section .aw-stat {
         flex: 1 1 calc(50% - 6px);
     }
 }

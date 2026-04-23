@@ -307,7 +307,7 @@ const nextConfig = {
 
       // --- Content / digital marketing ----------------------------------
       { source: "/content-marketing", destination: "/content-marketing-services", permanent: true },
-      { source: "/best-digital-", destination: "/digital-marketing-services", permanent: true },
+      { source: "/best-digital-", destination: "/digital-marketing-solutions", permanent: true },
 
       // --- Android / iOS / case variants --------------------------------
       { source: "/Android", destination: "/android-app-development-company", permanent: true },
@@ -319,6 +319,7 @@ const nextConfig = {
       { source: "/mobile-app-development-companyTop", destination: "/mobile-app-development-company", permanent: true },
       { source: "/mobile-app-", destination: "/mobile-app-development-company", permanent: true },
       { source: "/mobile-app-development-business", destination: "/mobile-app-development-company", permanent: true },
+            { source: "/mobile-app-development-company😍", destination: "/mobile-app-development-company", permanent: true },
 
       // --- Portfolio / project detail pages & legacy portfolio routes ---
       { source: "/portfolio-2", destination: "/portfolio", permanent: true },
@@ -327,7 +328,7 @@ const nextConfig = {
       { source: "/oltoffers-mobile-app-development", destination: "/portfolio", permanent: true },
       { source: "/mcartify", destination: "/portfolio", permanent: true },
       { source: "/effortless-wedding-planning-app-website", destination: "/portfolio", permanent: true },
-      { source: "/featured-products", destination: "/portfolio", permanent: true },
+      { source: "/featured-products", destination: "/on-demand-products-development-company-hyderabad", permanent: true },
       { source: "/details/ntik-app-made-in-india-short-video-sharing-app", destination: "/portfolio", permanent: true },
       { source: "/details/khidkee-an-e-commerce-retail-store-mobile-app", destination: "/portfolio", permanent: true },
       { source: "/case-study-apexthink", destination: "/case-studies", permanent: true },
@@ -335,8 +336,8 @@ const nextConfig = {
       // --- Healthcare / Industry variants --------------------------------
       { source: "/health-care-app-development-services", destination: "/diagnostic-app-development-company", permanent: true },
       { source: "/custom-beauty-wellness-apps", destination: "/mobile-app-development-company", permanent: true },
-      { source: "/custom-app-development-for-temple-services", destination: "/web-and-app-development-for-temple-services", permanent: true },
-      { source: "/Slug-web-and-app-development-for-education-services", destination: "/web-and-app-development-for-education-services", permanent: true },
+      { source: "/custom-app-development-for-temple-services", destination: "custom-software-development-company", permanent: true },
+      { source: "/Slug-web-and-app-development-for-education-services", destination: "/e-learning-app-development-company", permanent: true },
       { source: "/education-app-development-company-in-india", destination: "/e-learning-app-development-company", permanent: true },
       { source: "/audio-streaming-and-video-streaming-app-development-company-in-india", destination: "/ott-app-development-company", permanent: true },
       { source: "/media-and-entertainment-app-development-company-in-india", destination: "/ott-app-development-company", permanent: true },
@@ -354,7 +355,7 @@ const nextConfig = {
       { source: "/custom-crm-tool-development", destination: "/custom-crm-software-development-company", permanent: true },
       { source: "/custom-cms-development-company", destination: "/custom-cms-development-company-in-india", permanent: true },
       { source: "/cross-platform-development", destination: "/cross-platform-app-development-company", permanent: true },
-      { source: "/progressive-web-apps", destination: "/progressive-web-app-development-company-in-india", permanent: true },
+      { source: "/progressive-web-apps", destination: "/web-development-company", permanent: true },
 
       // --- Maintenance / testing / modernization ------------------------
       { source: "/software-maintenance-support", destination: "/app-maintenance-support-services", permanent: true },
@@ -365,6 +366,9 @@ const nextConfig = {
 
       // --- Location / case typos ----------------------------------------
       { source: "/top-mobile-app-development-company-in", destination: "/", permanent: true },
+      { source: "/favicon.ico", destination: "/", permanent: true },
+    // { source: "/search?q=%7Bsearch_term_string%7D", destination: "/", permanent: true },
+
       { source: "/best-mobile-app-development-company-in-canada", destination: "/software-development-company-canada", permanent: true },
       { source: "/best-mobile-app-development-company-in-usa", destination: "/software-development-company-usa", permanent: true },
 

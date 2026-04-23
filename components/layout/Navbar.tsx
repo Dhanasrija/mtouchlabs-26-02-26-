@@ -839,13 +839,15 @@ export default function Navbar() {
 
         {/* ============================================================
             MOBILE MENU — ALL LINKS MATCHING DESKTOP MEGA MENU
-            Removed: Home link, Case Studies, Careers (as requested)
-            Fixed: All URL mismatches now match desktop URLs
-            Added: All 35 previously missing links
+            Structure mirrors desktop: Home (with About Us, Blogs,
+            Case Studies nested) → Services → Products → Resources →
+            Portfolio → Careers → Contact Us. Case Studies lives
+            inside the Home dropdown to match the desktop mega menu
+            layout where it's a tab in the Home mega panel.
             ============================================================ */}
         <nav id="main-nav">
           <ul>
-            {/* HOME — About Us & Blogs are dropdowns, each with their own sub-dropdown links */}
+            {/* HOME — About Us, Blogs, and Case Studies are dropdowns, each with their own sub-dropdown links */}
             <li>
               <a href="/">Home</a>
               <ul className="menu-li-link">
@@ -861,14 +863,29 @@ export default function Navbar() {
                     <li><a href="/life-at-mtouch">Life at mTouch Labs</a></li>
                   </ul>
                 </li>
+                {/* BLOGS — mirrors the Blogs tab inside the desktop Home mega menu (see ~lines 359-378). */}
                 <li>
                   <a href="#">Blogs</a>
                   <ul>
-                    <li><a href="/blog/ai-role-in-business-automation">AI &amp; Automation in Business</a></li>
+                    <li><a href="/blog/mtouch-labs-wins-nasscom-sme-inspire-award-2026-mumbai">NASSCOM SME Inspire Award 2026</a></li>
+                    <li><a href="/blog/next-js-16-the-best-enterprise-web-framework-in-2026">Next.js 16 for Enterprise</a></li>
+                    <li><a href="/blog/building-future-of-digital-india">Building Future of Digital India</a></li>
+                    <li><a href="/blog/digital-transformation-journey-from-2025-achievements-and-the-road-to-2026">Digital Transformation Journey</a></li>
                     <li><a href="/blog/top-10-free-ai-tools-for-software-developers">Top 10 Free AI Tools</a></li>
-                    <li><a href="/blog/mobile-app-development-bangalore-tech-startups">Mobile App Dev in Bangalore</a></li>
-                    <li><a href="/blog/top-ecommerce-niches-us">Top eCommerce Niches (2024 Archive)</a></li>
-                    <li><a href="/blog/hyderabad-startups-app-development-mtouch-labs">Why Startups Choose mTouch</a></li><li><a href="/blog" className="home-mega-readmore" aria-label="View all blog posts">View all blogs →</a></li>
+                    <li><a href="/blog/top-ecommerce-niches-us">Top eCommerce Niches in the US</a></li>
+                    <li><a href="/blog" className="home-mega-readmore" aria-label="View all blog posts">View all blogs →</a></li>
+                  </ul>
+                </li>
+                {/* CASE STUDIES — mirrors the Case Studies tab inside the desktop Home mega menu (see lines ~380-395). */}
+                <li>
+                  <a href="#">Case Studies</a>
+                  <ul>
+                    <li><a href="/case-studies/healthcare-mobile-app-development">Healthcare Mobile App</a></li>
+                    <li><a href="/case-studies/logistics-fleet-tracking">Fleet Tracking Platform</a></li>
+                    <li><a href="/case-studies/saas-team-collaboration-platform">SaaS Collaboration Platform</a></li>
+                    <li><a href="/case-studies/ecommerce-retail-platform">E-Commerce Platform</a></li>
+                    <li><a href="/case-studies/fintech-payment-platform">Fintech Payment Platform</a></li>
+                    <li><a href="/case-studies" className="home-mega-readmore" aria-label="View all case studies">View all case studies →</a></li>
                   </ul>
                 </li>
               </ul>
