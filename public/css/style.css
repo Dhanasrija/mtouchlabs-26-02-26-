@@ -52602,8 +52602,41 @@ html, body {
         }
 
         @media (max-width: 768px) {
-          .tb-phone-center { display: none; }
+          /* Keep phone numbers visible on mobile — users want click-to-call access */
+          .tb-phone-center {
+            display: flex;
+            gap: 10px;
+            flex-wrap: nowrap;
+            position: static;
+            transform: none;
+            margin: 0;
+            flex-shrink: 0;
+          }
+          .tb-phone-center > span {
+            margin-right: 0 !important;
+          }
+          .tb-phone-center a {
+            font-size: 11.5px !important;
+          }
+          .tb-phone-center img {
+            width: 16px !important;
+            height: 11px !important;
+          }
           .tb-email-text { font-size: 12px; }
+          .top-header { padding: 6px 14px; height: auto; min-height: 36px; gap: 12px; }
+        }
+
+        @media (max-width: 480px) {
+          /* At very small widths, hide email to keep the two phone numbers on one line */
+          .tb-email-text { display: none; }
+          .top-header > div:first-child a svg { width: 16px; height: 16px; }
+          .top-header { justify-content: center; }
+          .tb-phone-center { margin: 0 auto; gap: 14px; }
+        }
+
+        @media (max-width: 360px) {
+          .tb-phone-center a { font-size: 10.5px !important; }
+          .tb-phone-center { gap: 8px; }
         }
       
         /* UPDATED: move content UP */
@@ -53247,3 +53280,5 @@ html, body {
 .refund-contact-email:hover {
   color: #0056b3;
 }
+
+

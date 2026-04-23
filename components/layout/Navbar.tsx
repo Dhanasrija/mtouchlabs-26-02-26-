@@ -83,6 +83,11 @@ export default function Navbar() {
   let pathname = rawPath.split("?")[0].split("#")[0].toLowerCase();
   if (!pathname.startsWith("/")) pathname = "/" + pathname;
   if (pathname.length > 1 && pathname.endsWith("/")) pathname = pathname.slice(0, -1);
+
+  // Middleware can positively assert the active top-level nav tab (used for
+  // root-level portfolio slugs that would otherwise be confused with Services
+  // because they end with "-development" / "-company").
+  const activeNavHint = (headersList.get("x-active-nav") || "").toLowerCase();
   /* ═══════════════════════════════════════════════════════
      PASTE THIS — Replace the existing active state block
      in your Navbar.tsx (the part after pathname detection
@@ -127,7 +132,7 @@ export default function Navbar() {
     // E-commerce development is surfaced from the homepage "Custom Software
     // Development & IT Services" section, so we treat it as a Service so the
     // Services tab highlights when users land on it from that card.
-    "/ecommerce-app-development-company",
+   
   ]);
 
   // ── All product page URLs ──
@@ -136,7 +141,7 @@ export default function Navbar() {
     "/food-delivery-app-development-service", "/grocery-delivery-app-development-company",
     "/milk-delivery-app-development-service", "/car-wash-app-development-company", "/chef-management-app-solutions",
     "/taxi-booking-app-development-company", "/hotel-booking-app-development-company",
-    "/tickets-booking-app-development-company", "/real-estate-app-development-company",
+    "/tickets-booking-app-development-company", "/real-estate-app-development-company", "/ecommerce-app-development-company",
     "/online-shopping-app-development-company",
     "/multi-vendor-marketplace-app-builder",
     "/e-learning-app-development-company", "/gaming-apps-development-company", "/ott-app-development-company",
@@ -187,7 +192,8 @@ export default function Navbar() {
   ]);
 
   const isHome =
-    pathname === "/" ||
+    activeNavHint !== "portfolio" &&
+    (pathname === "/" ||
     HOME_SUBMENU_PATHS.has(pathname) ||
     pathname.startsWith("/blog/") ||
     pathname.startsWith("/blogs/") ||
@@ -201,7 +207,7 @@ export default function Navbar() {
     pathname.startsWith("/awards-recognition/") ||
     pathname.startsWith("/nasscom-membership/") ||
     pathname.startsWith("/clutch/") ||
-    pathname.startsWith("/it-services-digital-transformation-company/");
+    pathname.startsWith("/it-services-digital-transformation-company/"));
 
   // Also activate "Services" for dynamic/additional service pages that may
   // not be explicitly enumerated in SERVICE_PATHS (they follow predictable
@@ -229,12 +235,22 @@ export default function Navbar() {
       pathname.includes("-design-company") ||
       pathname.includes("-marketing-") ||
       pathname.includes("-development-company-"));   // -in-india suffixed slugs
-  const isServices = SERVICE_PATHS.has(pathname) || isServiceByPattern;
-  const isProducts = PRODUCT_PATHS.has(pathname);
-  const isResources = RESOURCE_PATHS.has(pathname) || pathname.startsWith("/hire-");
-  const isPortfolio = pathname === "/portfolio" || pathname.startsWith("/portfolio/");
-  const isCareers = pathname === "/careers" || pathname.startsWith("/careers/");
-  const isContact = pathname === "/contact-us" || pathname.startsWith("/contact-us");
+  // When middleware has positively identified the active nav, honour it and
+  // suppress all other detections so only that tab lights up.
+  const forcePortfolio = activeNavHint === "portfolio";
+
+  const isPortfolio =
+    forcePortfolio ||
+    pathname === "/portfolio" ||
+    pathname.startsWith("/portfolio/");
+  const isServices =
+    !forcePortfolio && (SERVICE_PATHS.has(pathname) || isServiceByPattern);
+  const isProducts = !forcePortfolio && PRODUCT_PATHS.has(pathname);
+  const isResources =
+    !forcePortfolio &&
+    (RESOURCE_PATHS.has(pathname) || pathname.startsWith("/hire-"));
+  const isCareers = !forcePortfolio && (pathname === "/careers" || pathname.startsWith("/careers/"));
+  const isContact = !forcePortfolio && (pathname === "/contact-us" || pathname.startsWith("/contact-us"));
 
   return (
     <div className="">

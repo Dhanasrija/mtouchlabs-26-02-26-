@@ -8,6 +8,7 @@ export const runtime = 'nodejs';
 // Refreshes every 5 minutes, so newly published blogs still get picked up automatically.
 type SlugCache = { set: Set<string>; expiresAt: number } | null;
 let SLUG_CACHE: SlugCache = null;
+let PORTFOLIO_SLUG_CACHE: SlugCache = null;
 const SLUG_CACHE_TTL_MS = 5 * 60 * 1000; // 5 minutes
 
 async function getBlogSlugs(): Promise<Set<string>> {
@@ -26,6 +27,24 @@ async function getBlogSlugs(): Promise<Set<string>> {
     // On DB failure, cache an empty set briefly so we don't hammer the DB.
     SLUG_CACHE = { set: new Set(), expiresAt: now + 30_000 };
     return SLUG_CACHE.set;
+  }
+}
+
+async function getPortfolioSlugs(): Promise<Set<string>> {
+  const now = Date.now();
+  if (PORTFOLIO_SLUG_CACHE && PORTFOLIO_SLUG_CACHE.expiresAt > now) {
+    return PORTFOLIO_SLUG_CACHE.set;
+  }
+  try {
+    const { neon } = await import('@neondatabase/serverless');
+    const sql = neon(process.env.DATABASE_URL!);
+    const rows = (await sql`SELECT slug FROM portfolios WHERE published = true`) as { slug: string }[];
+    const set = new Set(rows.map(r => r.slug));
+    PORTFOLIO_SLUG_CACHE = { set, expiresAt: now + SLUG_CACHE_TTL_MS };
+    return set;
+  } catch {
+    PORTFOLIO_SLUG_CACHE = { set: new Set(), expiresAt: now + 30_000 };
+    return PORTFOLIO_SLUG_CACHE.set;
   }
 }
 
@@ -138,6 +157,43 @@ export async function middleware(request: NextRequest) {
 
     const requestHeaders = new Headers(request.headers);
     requestHeaders.set('x-pathname', pathname);
+
+    // 6. ACTIVE NAV HINT — tell Navbar which top-level tab to highlight.
+    // Individual portfolio pages open at root-level slugs (e.g. /otloffers-mobile-app-development),
+    // many of which end with "-development" or "-company" and would otherwise be
+    // wrongly classified as Services by pattern matching. Here we positively
+    // identify them as portfolios by DB lookup and pass a header to Navbar.
+    if (pathname.startsWith('/portfolio')) {
+      requestHeaders.set('x-active-nav', 'portfolio');
+    } else if (
+      !pathname.startsWith('/blog') &&
+      !pathname.startsWith('/admin') &&
+      !pathname.startsWith('/contact') &&
+      !pathname.startsWith('/services') &&
+      !pathname.startsWith('/careers') &&
+      !pathname.startsWith('/case-studies') &&
+      !pathname.startsWith('/thank-you') &&
+      !pathname.startsWith('/privacy') &&
+      !pathname.startsWith('/terms') &&
+      !pathname.startsWith('/refund') &&
+      !pathname.startsWith('/hire-') &&
+      !pathname.startsWith('/on-demand') &&
+      !pathname.startsWith('/sitemap') &&
+      !pathname.startsWith('/robots') &&
+      !pathname.startsWith('/about') &&
+      pathname.split('/').filter(Boolean).length === 1
+    ) {
+      const slug = pathname.slice(1);
+      try {
+        const portfolioSet = await getPortfolioSlugs();
+        if (portfolioSet.has(slug)) {
+          requestHeaders.set('x-active-nav', 'portfolio');
+        }
+      } catch {
+        // swallow — highlighting is non-critical
+      }
+    }
+
     return NextResponse.next({ request: { headers: requestHeaders } });
   } catch (err) {
     console.error('Middleware Critical Error:', err);

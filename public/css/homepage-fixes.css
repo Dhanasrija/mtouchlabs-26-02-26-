@@ -1439,4 +1439,255 @@ html.aos-loaded [data-aos] { opacity: 1; }
   }
 }
 
+/* ═══════════════════════════════════════════════════════════════════
+   MOBILE RESPONSIVE QA BUG FIXES (Bug IDs 01–06)
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────────────────────────
+   Bug #01 — Hamburger menu crops at 320px mobile width.
+   Root cause: at very small widths the menu-header row overflows
+   because the logo + email-CTA + hamburger compete for space.
+   Fix: tighten paddings/gaps at ≤480px and ≤360px and ensure
+   the toggle has a guaranteed clickable area.
+   ───────────────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .menu-header {
+    padding: 8px 10px !important;
+    gap: 6px !important;
+    align-items: center !important;
+  }
+  .menu-logo .nav-brand img {
+    max-height: 34px !important;
+  }
+  .mobile-menu2 {
+    gap: 6px !important;
+    flex-shrink: 0 !important;
+    margin-left: auto !important;
+  }
+  .mobile-menu2 .toggle {
+    width: 28px !important;
+    height: 22px !important;
+    flex-shrink: 0 !important;
+    padding: 4px !important;
+    box-sizing: content-box !important;
+  }
+  .mobile-menu2 .ree-btn2 {
+    padding: 8px 10px !important;
+    font-size: 13px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .menu-header {
+    padding: 8px 8px !important;
+  }
+  .menu-logo .nav-brand img {
+    max-height: 30px !important;
+  }
+  .mobile-menu2 .toggle {
+    width: 26px !important;
+    height: 20px !important;
+  }
+  .mobile-menu2 .ree-btn2 {
+    padding: 7px 9px !important;
+    font-size: 12px !important;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Bug #03 — Stats horizontal gap: "14+ Years…" and "4.9 Rating"
+   had unequal horizontal spacing because justify-content:
+   space-between expanded the gap to the container edges and
+   the two items have very different content widths. Make them
+   equal columns with a balanced centered gap instead.
+   ───────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .mtl-stats-items {
+    justify-content: center !important;
+    gap: 48px !important;
+  }
+  .mtl-stats-items > .mtl-stat-item {
+    flex: 0 0 auto !important;
+    min-width: 130px !important;
+    max-width: 160px !important;
+    text-align: left !important;
+  }
+}
+@media (max-width: 480px) {
+  .mtl-stats-items {
+    gap: 32px !important;
+  }
+  .mtl-stats-items > .mtl-stat-item {
+    min-width: 115px !important;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Bug #04 — Excessive vertical gap between Build Method cards.
+   Root cause: at ≤1024px the flex flips to column with gap:24px
+   AND each rotated arrow keeps a paddingTop:62px (desktop-era)
+   AND margins top/bottom. That stacks up to ~90px of whitespace
+   between every card. Tighten the column-mode rhythm.
+   ───────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .bm-steps-container {
+    gap: 10px !important;
+    padding: 14px 0 24px !important;
+  }
+  .bm-steps-container .bm-step-arrow {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin: 0 !important;
+    font-size: 20px !important;
+    line-height: 1 !important;
+  }
+  .bm-steps-container .bm-step-card {
+    width: 180px !important;
+  }
+  .bm-steps-container .bm-step-img-box {
+    margin: 0 auto 10px !important;
+  }
+}
+@media (max-width: 480px) {
+  .bm-steps-container {
+    gap: 8px !important;
+  }
+  .bm-steps-container .bm-step-img-box {
+    width: 112px !important;
+    height: 112px !important;
+  }
+  .bm-steps-container .bm-step-card {
+    width: 160px !important;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Bug #05 — "Technologies We Work With" title wraps on two
+   lines unexpectedly AND section has no left padding on mobile.
+   The heading has an explicit <br/> between "Technologies" and
+   "We Work With" — that's fine — but at <480px "Technologies"
+   itself was wrapping because of letter-spacing + font-weight
+   at clamp(30px,…). Also ensure the .tech-right column has
+   breathing padding at the very narrowest widths.
+   ───────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .tech-section {
+    padding: 60px 20px !important;
+  }
+  .tech-inner {
+    padding: 0 4px !important;
+  }
+  .tech-heading {
+    font-size: clamp(26px, 6vw, 34px) !important;
+    line-height: 1.15 !important;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    white-space: normal !important;
+  }
+  .tech-heading .tech-char {
+    white-space: nowrap;
+  }
+  .tech-right {
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+  }
+}
+@media (max-width: 480px) {
+  .tech-section {
+    padding: 48px 18px !important;
+  }
+  .tech-heading {
+    font-size: clamp(22px, 7vw, 28px) !important;
+  }
+  .tech-right {
+    padding-left: 2px !important;
+  }
+}
+@media (max-width: 360px) {
+  .tech-heading {
+    font-size: 21px !important;
+    letter-spacing: -0.02em !important;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Bug #06 — Mobile navbar styling polish. Align the mobile
+   slide-out nav (#main-nav) visual tone with the desktop brand
+   so it doesn't look like a different product: consistent font,
+   spacing, chevron treatment, and hover states. Also gives the
+   top strip (email + phone) sensible small-screen presentation
+   so the entire header area reads cohesively on mobile.
+   ───────────────────────────────────────────────────────────── */
+@media (max-width: 1150px) {
+  #main-nav {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #ffffff;
+  }
+  #main-nav > ul {
+    padding: 12px 0 !important;
+  }
+  #main-nav ul li a {
+    padding: 14px 20px !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    color: #0F141E !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+    transition: background-color 0.18s ease, color 0.18s ease !important;
+  }
+  #main-nav ul li a:hover,
+  #main-nav ul li a:focus {
+    background-color: #F3F1FF !important;
+    color: #3E8CFB !important;
+  }
+  #main-nav > ul > li > a {
+    font-weight: 600 !important;
+    letter-spacing: -0.01em !important;
+  }
+  #main-nav ul ul li a {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    color: #3E4656 !important;
+    padding-left: 32px !important;
+  }
+  #main-nav ul ul ul li a {
+    font-size: 13px !important;
+    color: #5B6573 !important;
+    padding-left: 48px !important;
+  }
+  /* Bottom nav — icon row spacing & visual consistency */
+  #main-nav .bottom-nav {
+    display: flex !important;
+    justify-content: space-around !important;
+    padding: 18px 16px !important;
+    margin-top: 24px !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+    background: #F3F1FF !important;
+  }
+  #main-nav .bottom-nav li {
+    list-style: none !important;
+  }
+  #main-nav .bottom-nav li a {
+    padding: 6px !important;
+    border: none !important;
+    border-radius: 10px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: transform 0.2s ease, background-color 0.2s ease !important;
+  }
+  #main-nav .bottom-nav li a:hover {
+    background: #ffffff !important;
+    transform: translateY(-2px) !important;
+  }
+  #main-nav .bottom-nav li a img {
+    width: 22px !important;
+    height: 22px !important;
+  }
+
+  /* Keep the TopBar (email + phones) visible on mobile so users have
+     a consistent way to reach us above the collapsed mobile navbar. */
+  .top-header {
+    display: flex !important;
+  }
+}
 

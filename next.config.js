@@ -226,6 +226,156 @@ const nextConfig = {
       // ===========================
       { source: "/empowering-businesses-with-data-science", destination: "/data-science-solutions", permanent: true },
       { source: "/company-overview", destination: "/it-services-digital-transformation-company", permanent: true },
+
+      // =========================================================================
+      // CRAWL-ERROR RESCUE (Search Console) — 404s mapped to canonical sitemap URLs
+      // =========================================================================
+
+      // --- Legacy .html files → clean URLs ---------------------------------
+      { source: "/index.html", destination: "/", permanent: true },
+      { source: "/about.html", destination: "/about", permanent: true },
+      { source: "/blog.html", destination: "/blog", permanent: true },
+      { source: "/portfolio.html", destination: "/portfolio", permanent: true },
+      { source: "/coming-soon", destination: "/", permanent: true },
+      { source: "/coming-soon.html", destination: "/", permanent: true },
+      { source: "/mobile-app-development-company.html", destination: "/mobile-app-development-company", permanent: true },
+      { source: "/web-development-company.html", destination: "/web-development-company", permanent: true },
+      { source: "/ecommerce-app-development-company.html", destination: "/ecommerce-app-development-company", permanent: true },
+      { source: "/mobile-app-design-company.html", destination: "/mobile-app-design-company", permanent: true },
+      { source: "/social-media-app-development-company.html", destination: "/social-media-app-development-company", permanent: true },
+      { source: "/social-community-mobile-app-development.html", destination: "/social-media-app-development-company", permanent: true },
+      { source: "/lip-sync-video-dubbing-mobile-app-development.html", destination: "/social-media-app-development-company", permanent: true },
+      { source: "/diagnostic-app-development-company.html", destination: "/diagnostic-app-development-company", permanent: true },
+      { source: "/custom-cms-development-company-in-india.html", destination: "/custom-cms-development-company-in-india", permanent: true },
+      { source: "/custom-crm-software-development-company.html", destination: "/custom-crm-software-development-company", permanent: true },
+      { source: "/360-degree-photography-services-in-india.html", destination: "/360-degree-photography-services-in-india", permanent: true },
+      { source: "/aws-cloud-services.html", destination: "/aws-cloud-services", permanent: true },
+      { source: "/best-iot-development-company-in-india.html", destination: "/best-iot-development-company-in-india", permanent: true },
+      { source: "/devops-services-and-solutions.html", destination: "/devops-services", permanent: true },
+      { source: "/ai-machine-learning-services.html", destination: "/machine-learning-development-company", permanent: true },
+      { source: "/ai-machine-learning-services", destination: "/machine-learning-development-company", permanent: true },
+      { source: "/generative-ai-development-company.html", destination: "/generative-ai-development-company", permanent: true },
+      { source: "/telangana-ecommerce-mobile-app-development.html", destination: "/ecommerce-app-development-company", permanent: true },
+      { source: "/education-app-development-company-in-india.html", destination: "/e-learning-app-development-company", permanent: true },
+      { source: "/top-mobile-app-development-company-in-hyderabad.html", destination: "/software-development-company-hyderabad", permanent: true },
+      { source: "/social-media-marketing-company-in-india.html", destination: "/social-media-marketing-services", permanent: true },
+      { source: "/hire-developers-in-india.html", destination: "/hire-developers-in-india", permanent: true },
+      { source: "/hire-fullstack-developers-in-india.html", destination: "/hire-fullstack-developers-in-india", permanent: true },
+      { source: "/hire-angular-developers-in-india.html", destination: "/hire-angular-developers-in-india", permanent: true },
+      { source: "/hire-react-developers-in-india.html", destination: "/hire-react-developers-in-india", permanent: true },
+      { source: "/hire-node-js-developers-in-india.html", destination: "/hire-node-js-developers-in-india", permanent: true },
+      { source: "/hire-ui-ux-designers-in-india.html", destination: "/hire-ui-ux-designers-in-india", permanent: true },
+      { source: "/hire-salesforce-developers-in-india.html", destination: "/hire-salesforce-developers-in-india", permanent: true },
+      { source: "/hire-web-developers-in-india.html", destination: "/hire-web-developers-in-india", permanent: true },
+
+      // --- Legacy .html blog URLs → /blog/<slug> --------------------------
+      { source: "/building-future-of-digital-india.html", destination: "/blog/building-future-of-digital-india", permanent: true },
+      { source: "/top-10-free-ai-tools-for-software-developers.html", destination: "/blog/top-10-free-ai-tools-for-software-developers", permanent: true },
+      { source: "/top-ecommerce-niches-us.html", destination: "/blog/top-ecommerce-niches-us", permanent: true },
+      { source: "/blog/top-mobile-app-development-companies-in-hyderabad", destination: "/software-development-company-hyderabad", permanent: true },
+
+      // --- AI / ML / Data variants → AI canonicals -----------------------
+      { source: "/ai-and-ml-development-company", destination: "/generative-ai-development-company", permanent: true },
+      { source: "/ai-consulting-strategy", destination: "/generative-ai-development-company", permanent: true },
+      { source: "/ai-enabled-web-application", destination: "/generative-ai-development-company", permanent: true },
+      { source: "/ai-powered-mobile-application", destination: "/generative-ai-development-company", permanent: true },
+      { source: "/ai-model-deployment", destination: "/generative-ai-development-company", permanent: true },
+      { source: "/ai-data-intelligence-services", destination: "/data-science-solutions", permanent: true },
+
+      // --- SaaS variants -------------------------------------------------
+      { source: "/saas-future-of-ecommerce", destination: "/saas-development-services", permanent: true },
+      { source: "/saas-product-development", destination: "/saas-development-services", permanent: true },
+      { source: "/saas-development", destination: "/saas-development-services", permanent: true },
+      { source: "/saas-web-platforms", destination: "/saas-development-services", permanent: true },
+
+      // --- Cloud / DevOps variants --------------------------------------
+      { source: "/cloud-native-application-development", destination: "/cloud-services", permanent: true },
+      { source: "/cloud-devops-services", destination: "/cloud-services", permanent: true },
+      { source: "/marketing-cloud", destination: "/salesforce-sales-cloud-services", permanent: true },
+      { source: "/salesforce-service-cloud-services", destination: "/salesforce-sales-cloud-services", permanent: true },
+      { source: "/salesforce-consulting-services", destination: "/salesforce-consulting-services-company", permanent: true },
+      { source: "/services/sales-force/salesforce-consulting-services", destination: "/salesforce-consulting-services-company", permanent: true },
+
+      // --- Design / UI-UX variants --------------------------------------
+      { source: "/ui-ux-design-services", destination: "/ui-ux-design-company", permanent: true },
+      { source: "/branding-visual-identity", destination: "/ui-ux-design-company", permanent: true },
+
+      // --- eCommerce variants -------------------------------------------
+      { source: "/top-ecommerce-development-company-in-india", destination: "/ecommerce-app-development-company", permanent: true },
+      { source: "/ecommerce-development-company", destination: "/ecommerce-app-development-company", permanent: true },
+      { source: "/e-commerce-app-development-company", destination: "/ecommerce-app-development-company", permanent: true },
+
+      // --- Content / digital marketing ----------------------------------
+      { source: "/content-marketing", destination: "/content-marketing-services", permanent: true },
+      { source: "/best-digital-", destination: "/digital-marketing-services", permanent: true },
+
+      // --- Android / iOS / case variants --------------------------------
+      { source: "/Android", destination: "/android-app-development-company", permanent: true },
+      { source: "/iPad-app-development-company", destination: "/ipad-app-development-company", permanent: true },
+      { source: "/hire-iOS-app-developers-in-india", destination: "/hire-ios-app-developers-in-india", permanent: true },
+      { source: "/ios-app-development-", destination: "/ios-app-development-company", permanent: true },
+      { source: "/android-app-development-companymtouchlabs.com/ios-app-development-company", destination: "/android-app-development-company", permanent: true },
+      { source: "/services/mobile-app-development-company", destination: "/mobile-app-development-company", permanent: true },
+      { source: "/mobile-app-development-companyTop", destination: "/mobile-app-development-company", permanent: true },
+      { source: "/mobile-app-", destination: "/mobile-app-development-company", permanent: true },
+      { source: "/mobile-app-development-business", destination: "/mobile-app-development-company", permanent: true },
+
+      // --- Portfolio / project detail pages & legacy portfolio routes ---
+      { source: "/portfolio-2", destination: "/portfolio", permanent: true },
+      { source: "/portfolio/otloffers-mobile-app-development", destination: "/portfolio", permanent: true },
+      { source: "/otloffers-mobile-app-development", destination: "/portfolio", permanent: true },
+      { source: "/oltoffers-mobile-app-development", destination: "/portfolio", permanent: true },
+      { source: "/mcartify", destination: "/portfolio", permanent: true },
+      { source: "/effortless-wedding-planning-app-website", destination: "/portfolio", permanent: true },
+      { source: "/featured-products", destination: "/portfolio", permanent: true },
+      { source: "/details/ntik-app-made-in-india-short-video-sharing-app", destination: "/portfolio", permanent: true },
+      { source: "/details/khidkee-an-e-commerce-retail-store-mobile-app", destination: "/portfolio", permanent: true },
+      { source: "/case-study-apexthink", destination: "/case-studies", permanent: true },
+
+      // --- Healthcare / Industry variants --------------------------------
+      { source: "/health-care-app-development-services", destination: "/diagnostic-app-development-company", permanent: true },
+      { source: "/custom-beauty-wellness-apps", destination: "/mobile-app-development-company", permanent: true },
+      { source: "/custom-app-development-for-temple-services", destination: "/web-and-app-development-for-temple-services", permanent: true },
+      { source: "/Slug-web-and-app-development-for-education-services", destination: "/web-and-app-development-for-education-services", permanent: true },
+      { source: "/education-app-development-company-in-india", destination: "/e-learning-app-development-company", permanent: true },
+      { source: "/audio-streaming-and-video-streaming-app-development-company-in-india", destination: "/ott-app-development-company", permanent: true },
+      { source: "/media-and-entertainment-app-development-company-in-india", destination: "/ott-app-development-company", permanent: true },
+      { source: "/top-social-networking-app-development-company-in-india", destination: "/social-media-app-development-company", permanent: true },
+      { source: "/chef-management-app-development-hyderabad", destination: "/chef-management-app-solutions", permanent: true },
+
+      // --- Dev stack / hire variants ------------------------------------
+      { source: "/node-js-development-company-in-india", destination: "/hire-node-js-developers-in-india", permanent: true },
+      { source: "/express-js-development-company-in-india", destination: "/hire-node-js-developers-in-india", permanent: true },
+      { source: "/react-js-development-company-in-india", destination: "/hire-react-developers-in-india", permanent: true },
+      { source: "/vue-js-development-company-in-india", destination: "/hire-vue-js-developers-in-india", permanent: true },
+      { source: "/vue-js-development-services", destination: "/hire-vue-js-developers-in-india", permanent: true },
+      { source: "/angular-development-company-in-india", destination: "/hire-angular-developers-in-india", permanent: true },
+      { source: "/custom-software-development", destination: "/custom-software-development-company", permanent: true },
+      { source: "/custom-crm-tool-development", destination: "/custom-crm-software-development-company", permanent: true },
+      { source: "/custom-cms-development-company", destination: "/custom-cms-development-company-in-india", permanent: true },
+      { source: "/cross-platform-development", destination: "/cross-platform-app-development-company", permanent: true },
+      { source: "/progressive-web-apps", destination: "/progressive-web-app-development-company-in-india", permanent: true },
+
+      // --- Maintenance / testing / modernization ------------------------
+      { source: "/software-maintenance-support", destination: "/app-maintenance-support-services", permanent: true },
+      { source: "/app-maintenance-support", destination: "/app-maintenance-support-services", permanent: true },
+      { source: "/web-maintenance-support-services", destination: "/app-maintenance-support-services", permanent: true },
+      { source: "/software-testing-qa-automation", destination: "/quality-assurance-and-testing-services", permanent: true },
+      { source: "/legacy-software-modernization", destination: "/custom-software-development-company", permanent: true },
+
+      // --- Location / case typos ----------------------------------------
+      { source: "/top-mobile-app-development-company-in", destination: "/", permanent: true },
+      { source: "/best-mobile-app-development-company-in-canada", destination: "/software-development-company-canada", permanent: true },
+      { source: "/best-mobile-app-development-company-in-usa", destination: "/software-development-company-usa", permanent: true },
+
+      // --- Misc / careers / business ------------------------------------
+      { source: "/career-opportunities-web-mobile-development", destination: "/careers", permanent: true },
+      { source: "/business-solutions", destination: "/it-solutions-company", permanent: true },
+      { source: "/e-learning-app-", destination: "/e-learning-app-development-company", permanent: true },
+      { source: "/real-estate-app-", destination: "/real-estate-app-development-company", permanent: true },
+      { source: "/gaming-apps-delopment-company", destination: "/gaming-apps-development-company", permanent: true },
+      { source: "/custom-cms-development-company-in-ind", destination: "/custom-cms-development-company-in-india", permanent: true },
+      { source: "/1000", destination: "/", permanent: true },
     ];
   },
 };

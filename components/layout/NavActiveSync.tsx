@@ -17,7 +17,30 @@
  */
 
 import { usePathname } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+
+// Module-level cache for portfolio slugs so we only hit the API once per
+// browser session (list rarely changes; staleness is acceptable).
+let PORTFOLIO_SLUGS_CACHE: Set<string> | null = null;
+let PORTFOLIO_SLUGS_PROMISE: Promise<Set<string>> | null = null;
+
+function loadPortfolioSlugs(): Promise<Set<string>> {
+  if (PORTFOLIO_SLUGS_CACHE) return Promise.resolve(PORTFOLIO_SLUGS_CACHE);
+  if (PORTFOLIO_SLUGS_PROMISE) return PORTFOLIO_SLUGS_PROMISE;
+  PORTFOLIO_SLUGS_PROMISE = fetch('/api/portfolio-slugs', { cache: 'force-cache' })
+    .then(r => r.ok ? r.json() : { slugs: [] })
+    .then((data: { slugs?: string[] }) => {
+      const set = new Set<string>(Array.isArray(data?.slugs) ? data.slugs : []);
+      PORTFOLIO_SLUGS_CACHE = set;
+      return set;
+    })
+    .catch(() => {
+      const set = new Set<string>();
+      PORTFOLIO_SLUGS_CACHE = set;
+      return set;
+    });
+  return PORTFOLIO_SLUGS_PROMISE;
+}
 
 // ── Top-level nav targets — keep in lock-step with Navbar.tsx <a href=...> ──
 const NAV_TARGETS = {
@@ -116,8 +139,22 @@ function normalisePath(raw: string): string {
   return p;
 }
 
-function computeActiveTab(pathname: string): keyof typeof NAV_TARGETS | null {
+function computeActiveTab(
+  pathname: string,
+  portfolioSlugs: Set<string>
+): keyof typeof NAV_TARGETS | null {
   const p = normalisePath(pathname);
+
+  // Single-segment root-level portfolio slugs (e.g. /otloffers-mobile-app-development)
+  // must be classified as Portfolio — otherwise pattern-matching below would
+  // wrongly flag them as Services (they often end with "-development" /
+  // "-company"). Do this check BEFORE the Home / Services logic.
+  if (portfolioSlugs.size > 0) {
+    const segments = p.split('/').filter(Boolean);
+    if (segments.length === 1 && portfolioSlugs.has(segments[0])) {
+      return 'portfolio';
+    }
+  }
 
   const isHome =
     p === '/' ||
@@ -175,13 +212,71 @@ function computeActiveTab(pathname: string): keyof typeof NAV_TARGETS | null {
   return null;
 }
 
+// Paths we are CERTAIN about without needing portfolio DB data. For these we
+// can safely overwrite the server-rendered active-link immediately.
+function isExplicitRoute(p: string): boolean {
+  if (
+    p === '/' ||
+    p === '/services' ||
+    p === '/portfolio' || p.startsWith('/portfolio/') ||
+    p === '/careers' || p.startsWith('/careers/') ||
+    p === '/contact-us' || p.startsWith('/contact-us/') ||
+    p.startsWith('/blog') ||
+    p.startsWith('/case-studies') ||
+    p.startsWith('/hire-')
+  ) return true;
+  if (HOME_SUBMENU_PATHS.has(p)) return true;
+  if (SERVICE_PATHS.has(p)) return true;
+  if (PRODUCT_PATHS.has(p)) return true;
+  if (RESOURCE_PATHS.has(p)) return true;
+  return false;
+}
+
 export default function NavActiveSync() {
   const pathname = usePathname();
+  const [portfolioSlugs, setPortfolioSlugs] = useState<Set<string>>(
+    PORTFOLIO_SLUGS_CACHE || new Set()
+  );
+  const [slugsLoaded, setSlugsLoaded] = useState<boolean>(
+    PORTFOLIO_SLUGS_CACHE !== null
+  );
+
+  // Fetch portfolio slugs once on mount. Needed so we can recognise
+  // root-level portfolio URLs (e.g. /otloffers-mobile-app-development)
+  // that would otherwise be mis-highlighted as Services.
+  useEffect(() => {
+    if (slugsLoaded) return;
+    let cancelled = false;
+    loadPortfolioSlugs().then((set) => {
+      if (!cancelled) {
+        setPortfolioSlugs(set);
+        setSlugsLoaded(true);
+      }
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [slugsLoaded]);
 
   useEffect(() => {
     if (typeof document === 'undefined') return;
 
-    const active = computeActiveTab(pathname || '/');
+    const p = normalisePath(pathname || '/');
+
+    // Anti-flash guard: if the pathname is a single-segment slug that isn't
+    // obviously a known static route, it COULD be a portfolio. Leave the
+    // server-rendered active-link (set by middleware's x-active-nav header)
+    // untouched until the portfolio slug API has returned. Without this
+    // guard, pattern-matching would briefly flip the highlight to "Services"
+    // and then flip it back, producing a visible flash.
+    if (!slugsLoaded) {
+      const segments = p.split('/').filter(Boolean);
+      if (segments.length === 1 && !isExplicitRoute(p)) {
+        return; // wait for portfolio slugs to load
+      }
+    }
+
+    const active = computeActiveTab(p, portfolioSlugs);
 
     // Grab every top-level nav link we manage.
     const allLinks = Array.from(
@@ -201,7 +296,7 @@ export default function NavActiveSync() {
       (link) => (link.getAttribute('href') || '') === targetHref
     );
     if (activeLink) activeLink.classList.add('active-link');
-  }, [pathname]);
+  }, [pathname, portfolioSlugs, slugsLoaded]);
 
   return null;
 }
