@@ -136,26 +136,11 @@
   }
 
   // ===== Brochure Form Submit =====
-  var brochureSubmitBtn = document.getElementById("brochureSubmitBtn");
-  if (brochureSubmitBtn) {
-    brochureSubmitBtn.addEventListener("click", function () {
-      var name = document.getElementById("brochure_name").value.trim();
-      var email = document.getElementById("brochure_email").value.trim();
-      var phone = document.getElementById("brochure_phone").value.trim();
-
-      if (!name || !email || !phone) {
-        alert("Please fill in all required fields.");
-        return;
-      }
-
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        alert("Please enter a valid email address.");
-        return;
-      }
-
-      window.location.href = "/thank-you?success=true";
-    });
-  }
+  // NOTE: brochure form submission + validation is handled by the
+  // `brochure-form-handler` inline Script in app/layout.tsx which wires
+  // up per-field validation and posts to /api/brochure. Do NOT attach
+  // a second handler here or the submit will fire twice (and the old
+  // alert()-based validator would race the new one).
 })();
 
 // ===== Request Quote Form Submit =====

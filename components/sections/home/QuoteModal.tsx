@@ -85,33 +85,37 @@ export default function QuoteModal() {
 
                 <div className="rq-row">
                   <div className="rq-col">
-                    <label className="rq-label">For <span className="rq-required">*</span></label>
-                    <select name="service" className="rq-select" required>
-                      <option value="">Select Service</option>
-                      <option>Mobile App Development</option>
-                      <option>Web Application Development</option>
-                      <option>AI &amp; Automation</option>
-                      <option>Enterprise Software</option>
-                      <option>E-commerce Development</option>
-                      <option>UI/UX Design</option>
-                      <option>Salesforce Solutions</option>
-                      <option>Digital Marketing</option>
-                      <option>Cloud &amp; DevOps</option>
-                      <option>Data &amp; Infrastructure</option>
-                    </select>
+                    <label className="rq-label" htmlFor="rqService">For <span className="rq-required">*</span></label>
+                    <div className="rq-select-wrap rq-select-wrap--service">
+                      <select id="rqService" name="service" className="rq-select rq-select--boxed" required defaultValue="">
+                        <option value="" disabled>Select Service</option>
+                        <option>Mobile App Development</option>
+                        <option>Web Application Development</option>
+                        <option>AI &amp; Automation</option>
+                        <option>Enterprise Software</option>
+                        <option>E-commerce Development</option>
+                        <option>UI/UX Design</option>
+                        <option>Salesforce Solutions</option>
+                        <option>Digital Marketing</option>
+                        <option>Cloud &amp; DevOps</option>
+                        <option>Data &amp; Infrastructure</option>
+                      </select>
+                    </div>
                     <div className="rq-field-error" data-error-for="service"></div>
                   </div>
                   <div className="rq-col">
-                    <label className="rq-label">Budget</label>
-                    <select name="budget" className="rq-select" id="rqBudget">
-                      <option value="">Select Budget</option>
-                      <option>Under $10K / ₹80K – ₹1.5L</option>
-                      <option>$10K – $25K / ₹1.5L – ₹4L</option>
-                      <option>$25K – $50K / ₹4L – ₹10L</option>
-                      <option>$50K – $100K / ₹10L – ₹25L</option>
-                      <option>$100K+ / ₹25L+</option>
-                      <option>Flexible / Not sure yet</option>
-                    </select>
+                    <label className="rq-label" htmlFor="rqBudget">Budget</label>
+                    <div className="rq-select-wrap">
+                      <select id="rqBudget" name="budget" className="rq-select rq-select--boxed" defaultValue="">
+                        <option value="">Select Budget</option>
+                        <option>Under $10K / ₹80K – ₹1.5L</option>
+                        <option>$10K – $25K / ₹1.5L – ₹4L</option>
+                        <option>$25K – $50K / ₹4L – ₹10L</option>
+                        <option>$50K – $100K / ₹10L – ₹25L</option>
+                        <option>$100K+ / ₹25L+</option>
+                        <option>Flexible / Not sure yet</option>
+                      </select>
+                    </div>
                   </div>
                 </div>
 
@@ -140,32 +144,207 @@ export default function QuoteModal() {
       </div>
 
       {/* ── Inline styles for validation errors ── */}
-      <style dangerouslySetInnerHTML={{ __html: `
-        .rq-required {
-          color: #ef4444;
-          margin-left: 2px;
-        }
-        .rq-field-error {
-          color: #ef4444;
-          font-size: 12px;
-          min-height: 0;
-          margin-top: 2px;
-          margin-bottom: 2px;
-          transition: all 0.2s ease;
-        }
-        .rq-field-error.show {
-          min-height: 16px;
-        }
-        .rq-input.rq-invalid,
-        .rq-select.rq-invalid {
-          border-color: #ef4444 !important;
-          box-shadow: 0 0 0 2px rgba(239,68,68,0.15) !important;
-        }
-        .rq-input.rq-valid,
-        .rq-select.rq-valid {
-          border-color: #22c55e !important;
-        }
-      `}} />
+<style dangerouslySetInnerHTML={{ __html: `
+  .rq-required {
+    color: #ef4444;
+    margin-left: 2px;
+  }
+
+  .rq-field-error {
+    color: #ef4444;
+    font-size: 12px;
+    min-height: 0;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    transition: all 0.2s ease;
+  }
+
+  .rq-field-error.show {
+    min-height: 16px;
+  }
+
+  /* ✅ Wrapper = ONLY box for inputs */
+  .rq-input-wrap {
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+    padding: 0 10px;
+    height: 42px;
+  }
+
+  /* ❌ Remove inner input box */
+  #rqForm input {
+    border: none !important;
+    outline: none;
+    box-shadow: none !important;
+    background: transparent;
+    flex: 1;
+    height: 100%;
+    padding: 0;
+  }
+
+  /* Focus effect */
+  .rq-input-wrap:focus-within {
+    border-color: #3b82f6;
+  }
+
+  /* ✅ DEFAULT: dropdowns look clean inside wrapper */
+  .rq-input-wrap select.rq-select {
+    border: none !important;
+    background: transparent;
+    height: 100%;
+    width: 100%;
+    padding: 0 10px;
+    appearance: none;
+    cursor: pointer;
+  }
+
+  /* ✅ FIX: FORCE BOX for ALL dropdowns (including FOR) */
+  .rq-select {
+    border: 1px solid #ccc !important;
+    border-radius: 6px;
+    height: 42px;
+    padding: 0 12px;
+    background-color: #fff;
+    width: 100%;
+    appearance: none;
+    cursor: pointer;
+
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%233b82f6' height='20' viewBox='0 0 20 20' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M5.5 7l4.5 5 4.5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+  }
+
+  /* ✅ Ensure FOR dropdown box even inside wrapper */
+  .rq-input-wrap select[name="service"] {
+    border: 1px solid #ccc !important;
+    border-radius: 6px;
+    background-color: #fff;
+    height: 42px;
+    padding: 0 12px;
+  }
+
+  /* Focus for dropdown */
+  .rq-select:focus,
+  .rq-input-wrap select[name="service"]:focus {
+    border-color: #3b82f6 !important;
+  }
+
+  /* Fix dropdown text */
+  .rq-select option {
+    white-space: normal;
+  }
+
+  /* ❌ Remove ALL error borders */
+  .rq-input.rq-invalid,
+  .rq-select.rq-invalid {
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  /* 🚫 Disable browser validation styles */
+  #rqForm input:invalid,
+  #rqForm textarea:invalid,
+  #rqForm select:invalid {
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+
+  /* 🚫 Fix Chrome autofill */
+  #rqForm input:-webkit-autofill,
+  #rqForm textarea:-webkit-autofill,
+  #rqForm select:-webkit-autofill {
+    box-shadow: 0 0 0 1000px white inset !important;
+    -webkit-text-fill-color: #000 !important;
+  }
+    /* ✅ FORCE BOX FOR "FOR" DROPDOWN */
+select[name="service"] {
+  border: 1px solid #ccc !important;
+  border-radius: 6px;
+  height: 42px;
+  padding: 0 12px;
+  width: 100%;
+  background-color: #fff;
+  appearance: none;
+  cursor: pointer;
+
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%233b82f6' height='20' viewBox='0 0 20 20' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M5.5 7l4.5 5 4.5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+}
+
+/* ✅ GUARANTEED boxed wrapper for BOTH "For" and "Budget" dropdowns
+   — mirrors the look of .rq-input-wrap used by text inputs so the
+   fields render as visible boxes on every browser / every override. */
+#requestQuoteModal .rq-select-wrap {
+  position: relative;
+  display: block;
+  width: 100%;
+  border: 1.5px solid #d1d5db !important;
+  border-radius: 8px !important;
+  background: #fff !important;
+  height: 44px;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+#requestQuoteModal .rq-select-wrap:focus-within {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12) !important;
+}
+#requestQuoteModal .rq-select-wrap::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  width: 10px;
+  height: 10px;
+  transform: translateY(-65%) rotate(45deg);
+  border-right: 2px solid #3b82f6;
+  border-bottom: 2px solid #3b82f6;
+  pointer-events: none;
+}
+#requestQuoteModal .rq-select--boxed {
+  border: none !important;
+  outline: none !important;
+  background: transparent !important;
+  background-image: none !important;
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 34px 0 12px !important;
+  font-size: 13px;
+  color: #1f2937;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow: none !important;
+  line-height: 44px;
+}
+#requestQuoteModal .rq-select--boxed option { color: #1f2937; }
+#requestQuoteModal .rq-select--boxed:required:invalid { color: #9ca3af; }
+
+/* Error state lifts the border colour on the wrapper (works in browsers
+   supporting :has(); falls back silently otherwise). */
+#requestQuoteModal .rq-select-wrap:has(.rq-invalid) {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12) !important;
+}
+#requestQuoteModal .rq-select-wrap:has(.rq-invalid)::after {
+  border-right-color: #ef4444;
+  border-bottom-color: #ef4444;
+}
+
+/* Responsive: full-width rows on phones */
+@media (max-width: 560px) {
+  #requestQuoteModal .rq-row { flex-direction: column !important; gap: 10px !important; }
+  #requestQuoteModal .rq-col { width: 100% !important; }
+}
+`}} />
 
       {/* ── Open + Close modal delegation (single source of truth) ── */}
       <script dangerouslySetInnerHTML={{ __html: `

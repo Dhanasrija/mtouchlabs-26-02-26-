@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function CloudServices() {
   return (
-    <>
+    <div className="cloud-services-page">
       <section className="cs-hero"><div className="cs-hero__inner">
         <Breadcrumb pagePath="/cloud-services" />
         <h1 className="cs-hero__title">Cloud <span className="cs-hero__title-accent">Services</span></h1>
@@ -47,7 +47,7 @@ export default function CloudServices() {
           <h2 className="cs-whoweare__heading">Cloud Platforms <span className="cs-text-accent">We Support</span></h2>
           <p className="cs-whoweare__text">Our cloud expertise spans all major platforms:</p>
           <ul className="cs-checklist">
-            <li className="cs-checklist__item"><span className="cs-checklist__icon">✓</span><span><a href="/amazon-web-services" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>Amazon Web Services (AWS)</a> — compute, storage &amp; AI services</span></li>
+            <li className="cs-checklist__item"><span className="cs-checklist__icon">✓</span><span><a href="/amazon-web-services-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>Amazon Web Services (AWS)</a> — compute, storage &amp; AI services</span></li>
             <li className="cs-checklist__item"><span className="cs-checklist__icon">✓</span><span>Microsoft Azure — enterprise integration &amp; hybrid cloud</span></li>
             <li className="cs-checklist__item"><span className="cs-checklist__icon">✓</span><span>Google Cloud Platform (GCP) — data analytics &amp; ML workloads</span></li>
             <li className="cs-checklist__item"><span className="cs-checklist__icon">✓</span><span>Hybrid &amp; private cloud environments for regulated industries</span></li>
@@ -138,6 +138,6 @@ export default function CloudServices() {
         <p className="cs-cta__text">Let&apos;s discuss how our cloud services can modernize your infrastructure and accelerate business growth.</p>
         <button type="button" className="cs-cta__button js-open-modal">Start Your Cloud Project</button>
       </div></div></section>
-    </>
+    </div>
   );
 }

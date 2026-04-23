@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-
+import Link from "next/link";
 export const metadata: Metadata = {
   title: "Terms and Conditions",
   description: "Read the Terms and Conditions of mTouch Labs to understand your rights, responsibilities, and our service policies. Stay informed and protected.",
@@ -89,10 +89,16 @@ export default function Page() {
 
 				<li><strong>10. Contact Us</strong>
 					<p>If you have any questions about these Terms, reach out to us:</p>
-					<ul className="ul-list-icon mt10">
-						<li><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection" className="__cf_email__" data-cfemail="54373b3a203537201439203b21373c383536277a373b39">[email&#160;protected]</a></li>
-						<li><strong>Phone:</strong> +91-9390683154</li>
-					</ul>
+				
+
+<ul className="ul-list-icon mt10">
+  <li>
+    <strong>Contact:</strong>{" "}
+    <a href="/contact-us" className="refund-contact-email">
+      Contact Us
+    </a>
+  </li>
+</ul>
 				</li>
 			</ul>
 		</div>

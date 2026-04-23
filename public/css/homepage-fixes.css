@@ -1,4 +1,413 @@
 /* ═══════════════════════════════════════════════════
+   AOS safety fallback — ensure animated elements never
+   stay invisible forever if AOS fails to initialise
+   (important for client-side route changes in Next.js)
+   ═══════════════════════════════════════════════════ */
+html.aos-loaded [data-aos] { opacity: 1; }
+[data-aos] { transition: opacity .5s ease, transform .5s ease; }
+/* If AOS hasn't animated element within 1.5s, force it visible */
+@keyframes aos-safety-fallback-kf { to { opacity: 1 !important; transform: none !important; } }
+[data-aos]:not(.aos-animate) { animation: aos-safety-fallback-kf 0.6s ease 1.5s forwards; }
+
+/* Safety fallback for AWS/Cloud/IoT scroll-timeline animations which can
+   fail to trigger on client-side navigation, leaving elements invisible. */
+.aw-animate, .aw-animate--left, .aw-animate--right, .aw-animate--scale,
+.cs-animate, .cs-animate--left, .cs-animate--right, .cs-animate--scale,
+.ii-animate, .ii-animate--left, .ii-animate--right, .ii-animate--scale {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* ───── AWS Cloud Services page alignment normalisation ───── */
+.aw-hero__inner,
+.aw-about__grid,
+.aw-whoweare__grid,
+.aw-services__grid,
+.aw-delivery__steps,
+.aw-reliable__inner,
+.aw-industries__grid,
+.aw-tech__grid,
+.aw-faq__wrapper,
+.aw-cta__inner { width: 100%; box-sizing: border-box; }
+.aw-container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; box-sizing: border-box; }
+.aw-hero { padding: 140px 24px 120px !important; }
+.aw-hero__inner { max-width: 820px; margin-left: auto; margin-right: auto; text-align: center; }
+.aw-delivery__steps { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px; }
+.aw-services__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+.aw-industries__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 18px; }
+.aw-tech__grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; }
+.aw-reliable__pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px 18px; }
+.aw-faq__wrapper { max-width: 880px; margin: 0 auto; }
+.aw-cta__inner { text-align: center; max-width: 760px; margin: 0 auto; }
+
+@media (max-width: 900px) {
+  .aw-about__grid,
+  .aw-whoweare__grid,
+  .aw-tech__grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+  .aw-hero { padding: 110px 20px 90px !important; }
+}
+
+/* ═══════════════════════════════════════════════════
+   /cloud-services page — alignment reset
+   Reason: case-study.css defines many .cs-* rules with
+   !important, which hijack the Cloud Services page
+   (same class names used by portfolio case studies).
+   The markup on this page is wrapped in .cloud-services-page
+   so we can scope high-specificity overrides here.
+   ═══════════════════════════════════════════════════ */
+.cloud-services-page { width: 100%; overflow-x: clip; }
+.cloud-services-page .cs-container {
+  width: 100% !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 24px !important;
+  box-sizing: border-box !important;
+}
+.cloud-services-page .cs-hero {
+  padding: 140px 24px 100px !important;
+  background: linear-gradient(135deg, #0a1330 0%, #152050 50%, #1e2c6b 100%) !important;
+  color: #fff !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+.cloud-services-page .cs-hero__inner {
+  max-width: 900px !important;
+  margin: 0 auto !important;
+  padding: 0 24px !important;
+  text-align: center !important;
+  display: block !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+.cloud-services-page .cs-hero__title,
+.cloud-services-page .cs-hero__subtitle,
+.cloud-services-page .cs-hero__desc {
+  color: #fff !important;
+  max-width: 100% !important;
+}
+.cloud-services-page .cs-hero__title { font-size: clamp(2rem, 4.5vw, 3rem) !important; font-weight: 800 !important; line-height: 1.15 !important; margin: 12px 0 16px !important; }
+.cloud-services-page .cs-hero__subtitle { font-size: clamp(1rem, 1.6vw, 1.15rem) !important; opacity: 0.9 !important; margin: 0 0 12px !important; }
+.cloud-services-page .cs-hero__desc { font-size: 0.98rem !important; line-height: 1.7 !important; opacity: 0.85 !important; margin: 0 auto !important; }
+
+.cloud-services-page section { width: 100% !important; box-sizing: border-box !important; }
+.cloud-services-page .cs-about,
+.cloud-services-page .cs-whoweare,
+.cloud-services-page .cs-services,
+.cloud-services-page .cs-delivery,
+.cloud-services-page .cs-reliable,
+.cloud-services-page .cs-industries,
+.cloud-services-page .cs-tech,
+.cloud-services-page .cs-faq,
+.cloud-services-page .cs-cta { padding: 72px 0 !important; }
+
+.cloud-services-page .cs-about__grid,
+.cloud-services-page .cs-whoweare__grid,
+.cloud-services-page .cs-tech__grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 50px !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+.cloud-services-page .cs-whoweare__grid { grid-template-columns: 0.9fr 1.1fr !important; }
+
+.cloud-services-page .cs-stats {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 18px !important;
+}
+.cloud-services-page .cs-whoweare__stats,
+.cloud-services-page .cs-tech__stats {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 18px !important;
+}
+
+.cloud-services-page .cs-stat {
+  background: #fff !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 12px !important;
+  padding: 18px 14px !important;
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+.cloud-services-page .cs-stat--dark {
+  background: linear-gradient(135deg, #1a1a2e 0%, #2d3656 100%) !important;
+  color: #fff !important;
+  border-color: transparent !important;
+}
+.cloud-services-page .cs-stat__icon { font-size: 1.8rem !important; line-height: 1 !important; }
+.cloud-services-page .cs-stat__number { font-size: 1.6rem !important; font-weight: 800 !important; color: inherit !important; }
+.cloud-services-page .cs-stat__label { font-size: 0.82rem !important; font-weight: 600 !important; color: inherit !important; }
+
+.cloud-services-page .cs-services__header { text-align: center !important; margin-bottom: 40px !important; }
+.cloud-services-page .cs-services__title { font-size: clamp(1.6rem, 3vw, 2.2rem) !important; font-weight: 700 !important; color: #1a1a2e !important; margin: 0 0 10px !important; }
+.cloud-services-page .cs-services__subtitle { color: #64748b !important; font-size: 1rem !important; margin: 0 !important; }
+
+.cloud-services-page .cs-services__grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+  gap: 24px !important;
+  width: 100% !important;
+}
+.cloud-services-page .cs-service-card {
+  background: #fff !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 14px !important;
+  padding: 26px 22px !important;
+  position: relative !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04) !important;
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease !important;
+}
+.cloud-services-page .cs-service-card:hover { transform: translateY(-4px) !important; box-shadow: 0 8px 28px rgba(37,99,235,0.12) !important; border-color: #3b82f6 !important; }
+.cloud-services-page .cs-service-card__badge {
+  display: inline-block !important;
+  background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%) !important;
+  color: #fff !important;
+  font-size: 0.75rem !important;
+  font-weight: 800 !important;
+  padding: 4px 10px !important;
+  border-radius: 999px !important;
+  margin-bottom: 12px !important;
+}
+.cloud-services-page .cs-service-card__title { font-size: 1.05rem !important; font-weight: 700 !important; color: #1a1a2e !important; margin: 0 0 8px !important; }
+.cloud-services-page .cs-service-card__text { font-size: 0.9rem !important; color: #475569 !important; line-height: 1.6 !important; margin: 0 !important; }
+.cloud-services-page .cs-service-card--wide { grid-column: auto !important; }
+
+.cloud-services-page .cs-delivery { background: linear-gradient(180deg, #f8faff 0%, #eef2ff 100%) !important; text-align: center !important; }
+.cloud-services-page .cs-delivery__heading { font-size: clamp(1.6rem, 3vw, 2.2rem) !important; font-weight: 700 !important; color: #1a1a2e !important; margin: 0 0 10px !important; }
+.cloud-services-page .cs-delivery__text { color: #475569 !important; margin: 0 0 32px !important; }
+.cloud-services-page .cs-delivery__steps {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 10px !important;
+  row-gap: 16px !important;
+}
+.cloud-services-page .cs-step { display: flex !important; flex-direction: column !important; align-items: center !important; }
+.cloud-services-page .cs-step__circle {
+  width: 100px !important; height: 100px !important;
+  border-radius: 16px !important;
+  background: #fff !important;
+  border: 2px solid #e0e7ff !important;
+  color: #1a1a2e !important;
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 8px !important;
+  line-height: 1.25 !important;
+  word-break: break-word !important;
+  overflow-wrap: anywhere !important;
+  box-shadow: 0 2px 10px rgba(37,99,235,0.06) !important;
+}
+.cloud-services-page .cs-step__arrow { color: #3b82f6 !important; font-size: 1.1rem !important; font-weight: 300 !important; margin: 0 2px !important; }
+
+.cloud-services-page .cs-reliable { background: linear-gradient(180deg, #f8f9fb 0%, #eef1f8 100%) !important; }
+.cloud-services-page .cs-reliable__inner { max-width: 900px !important; margin: 0 auto !important; text-align: center !important; }
+.cloud-services-page .cs-reliable__heading { font-size: clamp(1.6rem, 3vw, 2.2rem) !important; font-weight: 700 !important; color: #1a1a2e !important; margin: 0 0 12px !important; }
+.cloud-services-page .cs-reliable__text { color: #475569 !important; margin: 0 0 28px !important; }
+.cloud-services-page .cs-reliable__pillars {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 12px !important;
+}
+.cloud-services-page .cs-pillar {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  background: #fff !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 30px !important;
+  padding: 9px 18px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;
+}
+.cloud-services-page .cs-pillar__dot { width: 8px !important; height: 8px !important; background: #3b82f6 !important; border-radius: 50% !important; flex-shrink: 0 !important; }
+.cloud-services-page .cs-pillar__label { font-size: 0.88rem !important; color: #1a1a2e !important; font-weight: 500 !important; }
+
+.cloud-services-page .cs-industries { background: #f8fafc !important; text-align: center !important; }
+.cloud-services-page .cs-industries__title { font-size: clamp(1.6rem, 3vw, 2.2rem) !important; font-weight: 700 !important; color: #1a1a2e !important; margin: 0 0 36px !important; }
+.cloud-services-page .cs-industries__grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) !important;
+  gap: 18px !important;
+  width: 100% !important;
+}
+.cloud-services-page .cs-industry {
+  background: #fff !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 14px !important;
+  padding: 28px 18px !important;
+  text-align: center !important;
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease !important;
+}
+.cloud-services-page .cs-industry:hover { transform: translateY(-4px) !important; box-shadow: 0 8px 28px rgba(37,99,235,0.1) !important; border-color: #3b82f6 !important; }
+.cloud-services-page .cs-industry__icon { font-size: 1.9rem !important; margin-bottom: 10px !important; display: block !important; }
+.cloud-services-page .cs-industry__title { font-size: 0.95rem !important; font-weight: 600 !important; color: #1a1a2e !important; margin: 0 !important; }
+
+.cloud-services-page .cs-tech__tags {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  margin-top: 18px !important;
+}
+.cloud-services-page .cs-tag {
+  display: inline-block !important;
+  background: #f1f5f9 !important;
+  color: #1a1a2e !important;
+  font-size: 0.78rem !important;
+  font-weight: 600 !important;
+  padding: 5px 12px !important;
+  border-radius: 20px !important;
+  border: 1px solid #e5e7eb !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+
+.cloud-services-page .cs-about__heading,
+.cloud-services-page .cs-whoweare__heading,
+.cloud-services-page .cs-tech__heading { font-size: clamp(1.5rem, 2.6vw, 2rem) !important; font-weight: 700 !important; color: #1a1a2e !important; margin: 0 0 14px !important; line-height: 1.25 !important; }
+.cloud-services-page .cs-about__text,
+.cloud-services-page .cs-whoweare__text,
+.cloud-services-page .cs-tech__text { font-size: 0.98rem !important; color: #475569 !important; line-height: 1.75 !important; margin: 0 0 12px !important; }
+.cloud-services-page .cs-text-accent { color: #3b82f6 !important; }
+
+.cloud-services-page .cs-checklist { list-style: none !important; padding: 0 !important; margin: 16px 0 0 !important; }
+.cloud-services-page .cs-checklist__item { display: flex !important; align-items: flex-start !important; gap: 10px !important; padding: 8px 0 !important; color: #1a1a2e !important; font-size: 0.95rem !important; line-height: 1.5 !important; }
+.cloud-services-page .cs-checklist__icon { color: #22c55e !important; font-weight: 800 !important; flex-shrink: 0 !important; }
+
+.cloud-services-page .cs-faq { background: #f8fafc !important; }
+.cloud-services-page .cs-faq__wrapper { max-width: 820px !important; margin: 0 auto !important; text-align: center !important; }
+.cloud-services-page .cs-faq__heading { font-size: clamp(1.4rem, 2.6vw, 1.9rem) !important; font-weight: 700 !important; color: #1a1a2e !important; margin: 0 0 8px !important; }
+.cloud-services-page .cs-faq__subtext { color: #64748b !important; margin: 0 0 28px !important; }
+.cloud-services-page .cs-faq__list { text-align: left !important; }
+.cloud-services-page .cs-faq__item { border-bottom: 1px solid #e5e7eb !important; }
+.cloud-services-page .cs-faq__question {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
+  padding: 18px 12px 18px 0 !important;
+  cursor: pointer !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  color: #1a1a2e !important;
+  list-style: none !important;
+  gap: 16px !important;
+}
+.cloud-services-page .cs-faq__question::-webkit-details-marker { display: none !important; }
+.cloud-services-page .cs-faq__chevron {
+  flex-shrink: 0 !important;
+  width: 18px !important; height: 18px !important;
+  position: relative !important;
+  transition: transform .3s ease !important;
+  margin-right: 6px !important;
+}
+.cloud-services-page .cs-faq__chevron::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 50% !important; left: 50% !important;
+  width: 9px !important; height: 9px !important;
+  border-right: 2.5px solid #1a1a2e !important;
+  border-bottom: 2.5px solid #1a1a2e !important;
+  transform: translate(-50%, -25%) rotate(45deg) !important;
+  transition: transform .3s ease !important;
+}
+.cloud-services-page .cs-faq__item[open] .cs-faq__chevron::before { transform: translate(-50%, -25%) rotate(-135deg) !important; }
+.cloud-services-page .cs-faq__answer { padding: 0 0 18px !important; }
+.cloud-services-page .cs-faq__answer p { font-size: 0.92rem !important; color: #475569 !important; line-height: 1.7 !important; margin: 0 !important; }
+
+.cloud-services-page .cs-cta { background: linear-gradient(135deg, #0a1330 0%, #1e2c6b 100%) !important; color: #fff !important; text-align: center !important; }
+.cloud-services-page .cs-cta__inner { max-width: 760px !important; margin: 0 auto !important; padding: 16px 24px !important; }
+.cloud-services-page .cs-cta__heading { font-size: clamp(1.6rem, 3vw, 2.2rem) !important; font-weight: 800 !important; color: #fff !important; margin: 0 0 12px !important; }
+.cloud-services-page .cs-cta__text { color: rgba(255,255,255,0.85) !important; margin: 0 0 22px !important; font-size: 1rem !important; line-height: 1.7 !important; }
+.cloud-services-page .cs-cta__button {
+  display: inline-block !important;
+  background: #fff !important;
+  color: #1a1a2e !important;
+  font-weight: 700 !important;
+  padding: 14px 30px !important;
+  border: none !important;
+  border-radius: 10px !important;
+  cursor: pointer !important;
+  font-size: 0.95rem !important;
+  transition: transform .25s ease, box-shadow .25s ease !important;
+}
+.cloud-services-page .cs-cta__button:hover { transform: translateY(-2px) !important; box-shadow: 0 10px 30px rgba(0,0,0,0.25) !important; }
+
+/* Safety: neutralise .cs global overrides that case-study.css applies. */
+.cloud-services-page { color: #0f172a; background: #fff; }
+
+@media (max-width: 900px) {
+  .cloud-services-page .cs-about__grid,
+  .cloud-services-page .cs-whoweare__grid,
+  .cloud-services-page .cs-tech__grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+  .cloud-services-page .cs-hero { padding: 110px 20px 80px !important; }
+  .cloud-services-page .cs-about,
+  .cloud-services-page .cs-whoweare,
+  .cloud-services-page .cs-services,
+  .cloud-services-page .cs-delivery,
+  .cloud-services-page .cs-reliable,
+  .cloud-services-page .cs-industries,
+  .cloud-services-page .cs-tech,
+  .cloud-services-page .cs-faq,
+  .cloud-services-page .cs-cta { padding: 56px 0 !important; }
+}
+@media (max-width: 600px) {
+  .cloud-services-page .cs-stats,
+  .cloud-services-page .cs-whoweare__stats,
+  .cloud-services-page .cs-tech__stats { grid-template-columns: 1fr !important; }
+  .cloud-services-page .cs-industries__grid { grid-template-columns: 1fr 1fr !important; gap: 14px !important; }
+  .cloud-services-page .cs-step__circle { width: 90px !important; height: 90px !important; font-size: 0.66rem !important; }
+}
+
+/* ───── CRO FAQ — remove duplicate pseudo-element chevron ─────
+   Markup uses <span class="co-faq__chevron"> for the indicator, but
+   .co-faq__question::after also draws a chevron, producing a double
+   indicator. Neutralise the pseudo-element here. */
+.co-faq__question::after,
+.co-faq__item[open] .co-faq__question::after {
+  content: none !important;
+  display: none !important;
+  border: none !important;
+  margin: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* ───── UX Research Methodology — fit long labels like "Recommendations" ───── */
+.ur-step__circle {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+  padding: 10px 8px !important;
+  line-height: 1.25 !important;
+}
+.ur-delivery__steps {
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+  row-gap: 18px !important;
+}
+/* Slightly more horizontal room for the longest labels */
+.ur-delivery__steps > .ur-step:last-child .ur-step__circle,
+.ur-delivery__steps > .ur-step:nth-child(5) .ur-step__circle {
+  width: 110px;
+  font-size: 0.66rem;
+}
+@media (max-width: 600px) {
+  .ur-step__circle { width: 95px !important; height: 95px !important; font-size: 0.65rem !important; }
+  .ur-delivery__steps > .ur-step:last-child .ur-step__circle,
+  .ur-delivery__steps > .ur-step:nth-child(5) .ur-step__circle { width: 105px !important; }
+}
+
+/* ═══════════════════════════════════════════════════
    Portfolio carousel — 1 card at a time on mobile
    ═══════════════════════════════════════════════════ */
 @media (max-width: 768px) {
@@ -489,21 +898,156 @@
   }
 }
 
-/* ── Brochure modal mobile ── */
+/* ═══════════════════════════════════════════════════
+   Brochure Modal — full rework
+   • in-page modal (no navigation / no loader page)
+   • heading never cuts (wraps, responsive size)
+   • fully responsive across devices
+   • inline field validation with error states
+   ═══════════════════════════════════════════════════ */
+
+/* Overlay scroll + pointer handling */
+#brochureModal {
+  padding: 20px !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+#brochureModal.hide { display: none !important; }
+
+/* Modal container — responsive */
+.brochure-modal-box {
+  width: min(920px, 100%) !important;
+  max-width: 100% !important;
+  max-height: calc(100vh - 40px) !important;
+  height: auto !important;
+  margin: 0 auto !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+}
+.brochure-modal-right {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  padding: 32px 36px !important;
+  overflow-y: auto !important;
+  max-height: calc(100vh - 40px) !important;
+  box-sizing: border-box !important;
+}
+
+/* Heading never cuts */
+.brochure-modal-title {
+  font-size: clamp(1rem, 3.2vw, 1.3rem) !important;
+  line-height: 1.25 !important;
+  letter-spacing: 0.3px !important;
+  word-break: break-word !important;
+  overflow-wrap: anywhere !important;
+  white-space: normal !important;
+  padding-right: 28px !important; /* keep clear of close button */
+  margin-bottom: 18px !important;
+  max-width: 100% !important;
+}
+
+/* Validation error states */
+.brochure-error {
+  display: block;
+  color: #dc2626;
+  font-size: 12px;
+  line-height: 1.4;
+  margin: -12px 0 14px;
+  min-height: 1em;
+}
+.brochure-error:empty { margin: 0; min-height: 0; }
+.brochure-error--form {
+  margin-top: 14px;
+  font-weight: 600;
+}
+.brochure-input-group--error {
+  border-color: #dc2626 !important;
+  background: #fef2f2 !important;
+  box-shadow: 0 0 0 3px rgba(220,38,38,0.08) !important;
+}
+.brochure-input-group--error .brochure-input-icon { color: #dc2626 !important; }
+#brochureForm input[aria-invalid="true"],
+#brochureForm select[aria-invalid="true"] {
+  color: #1a1a2e !important;
+}
+#brochureForm input:focus,
+#brochureForm select:focus {
+  outline: none !important;
+}
+#brochureForm .brochure-input-group:focus-within:not(.brochure-input-group--error) {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.08) !important;
+}
+
+/* Submit button states */
+.brochure-submit-btn:disabled {
+  opacity: 0.65 !important;
+  cursor: not-allowed !important;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .brochure-modal-box { max-width: 720px !important; }
+  .brochure-modal-left { flex: 0 0 38% !important; }
+  .brochure-modal-circle { width: 220px !important; height: 220px !important; }
+  .brochure-modal-right { padding: 28px 28px !important; }
+}
+
+/* Phone */
 @media (max-width: 768px) {
+  #brochureModal { padding: 12px !important; align-items: flex-start !important; }
   .brochure-modal-box {
     flex-direction: column !important;
-    width: 95% !important;
-    max-height: 90vh !important;
-    overflow-y: auto !important;
+    width: 100% !important;
+    max-height: calc(100vh - 24px) !important;
+    margin: 0 auto !important;
+    border-radius: 14px !important;
   }
   .brochure-modal-left {
-    display: none !important;
+    flex: 0 0 auto !important;
+    padding: 18px !important;
+  }
+  .brochure-modal-circle {
+    width: 140px !important;
+    height: 140px !important;
   }
   .brochure-modal-right {
     width: 100% !important;
-    padding: 20px !important;
+    padding: 22px 20px 24px !important;
+    max-height: none !important;
   }
+  .brochure-modal-title {
+    font-size: clamp(0.95rem, 4.4vw, 1.15rem) !important;
+    margin-bottom: 14px !important;
+    padding-right: 30px !important;
+  }
+  .brochure-close-btn { top: 10px !important; right: 12px !important; font-size: 22px !important; }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+  .brochure-modal-right { padding: 18px 14px 20px !important; }
+  .brochure-modal-title {
+    font-size: 0.95rem !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important; /* avoid clipped uppercase */
+  }
+  .brochure-form-label { font-size: 12px !important; }
+  .brochure-input-group input,
+  .brochure-form-select { font-size: 13px !important; }
+  .brochure-submit-btn {
+    width: 100% !important;
+    padding: 12px !important;
+    font-size: 13px !important;
+  }
+}
+
+/* Landscape phones */
+@media (max-height: 600px) and (max-width: 768px) {
+  #brochureModal { align-items: flex-start !important; padding-top: 12px !important; }
+  .brochure-modal-box { max-height: calc(100vh - 24px) !important; }
+  .brochure-modal-left { display: none !important; }
 }
 
 /* ── General section padding mobile ── */

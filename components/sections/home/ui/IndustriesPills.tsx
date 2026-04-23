@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 // ── pill definitions ──────────────────────────────────────────────────────────
 const PILLS = [
   { label: "Real Estate",     color: "blue",   fcx: 0.278, fcy: 0.700, stagger: 0 },
-  { label: "Real Estate",   color: "yellow", fcx: 0.590, fcy: 0.635, stagger: 1 },
+  // { label: "Real Estate",   color: "yellow", fcx: 0.590, fcy: 0.635, stagger: 1 },
   { label: "Education", color: "navy",   fcx: 0.620, fcy: 0.762, stagger: 2 },
   { label: "Healthcare",        color: "salmon", fcx: 0.222, fcy: 0.895, stagger: 3 },
   { label: "Fintech",        color: "pink",   fcx: 0.333, fcy: 0.895, stagger: 4 },

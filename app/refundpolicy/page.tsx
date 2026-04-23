@@ -88,8 +88,10 @@ export default function Page() {
                                 <h2 className="refund-contact-title">Contact</h2>
                                 <p className="refund-contact">
                                         For refund-related inquiries or to report exceptional cases, please contact our
-                                        support
-                                        team at: <a href="/cdn-cgi/l/email-protection#ea8985849e8b899eaa879e859f8982868b8899c4898587" className="refund-contact-email"><span className="__cf_email__" data-cfemail="c8aba7a6bca9abbc88a5bca7bdaba0a4a9aabbe6aba7a5">[email&#160;protected]</span></a>
+                                        support.  
+                                        {/* team at: <a href="/cdn-cgi/l/email-protection#ea8985849e8b899eaa879e859f8982868b8899c4898587" className="refund-contact-email"><span className="__cf_email__" data-cfemail="c8aba7a6bca9abbc88a5bca7bdaba0a4a9aabbe6aba7a5">[email&#160;protected]</span></a> */}
+                               <a href="/contact-us" className="refund-contact-email">
+  Contact our team </a>
                                 </p>
 
 

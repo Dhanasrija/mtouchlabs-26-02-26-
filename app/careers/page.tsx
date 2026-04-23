@@ -974,6 +974,103 @@ function init(){
 
   function applyFilters(){var loc=document.getElementById('opFilterLocation').value,role=document.getElementById('opFilterRole').value;filteredJobs=jobs.filter(function(j){return(!loc||j.location===loc)&&(!role||j.role===role);});currentPage=0;renderCards();}
   document.getElementById('opApplyFilter').addEventListener('click',applyFilters);
+
+  /* ── Viewport-aware custom dropdown (replaces native <select> in filter bar) ── */
+  function initCustomDropdowns(){
+    var targets = document.querySelectorAll('#opFilterLocation, #opFilterRole');
+    targets.forEach(function(sel){
+      if(sel.dataset.customized === '1') return;
+      sel.dataset.customized = '1';
+      sel.classList.add('cr-custom-dd-native');
+
+      var wrap = document.createElement('div');
+      wrap.className = 'cr-custom-dd';
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'cr-custom-dd-btn';
+      btn.setAttribute('aria-haspopup','listbox');
+      btn.setAttribute('aria-expanded','false');
+      btn.innerHTML = '<span class="cr-custom-dd-label"></span><i class="fas fa-chevron-down" aria-hidden="true"></i>';
+      var list = document.createElement('div');
+      list.className = 'cr-custom-dd-list';
+      list.setAttribute('role','listbox');
+      list.setAttribute('hidden','');
+
+      Array.from(sel.options).forEach(function(opt){
+        var li = document.createElement('div');
+        li.className = 'cr-custom-dd-item' + (opt.selected ? ' selected' : '');
+        li.setAttribute('role','option');
+        li.dataset.value = opt.value;
+        li.textContent = opt.textContent;
+        list.appendChild(li);
+      });
+
+      wrap.appendChild(btn);
+      wrap.appendChild(list);
+      sel.parentNode.insertBefore(wrap, sel);
+      wrap.appendChild(sel);
+
+      function setLabel(){
+        var selOpt = sel.options[sel.selectedIndex];
+        wrap.querySelector('.cr-custom-dd-label').textContent = selOpt ? selOpt.textContent : '';
+      }
+      setLabel();
+
+      function closeAll(){
+        document.querySelectorAll('.cr-custom-dd-list').forEach(function(l){ l.setAttribute('hidden',''); l.removeAttribute('data-position'); l.style.maxHeight=''; });
+        document.querySelectorAll('.cr-custom-dd').forEach(function(w){ w.classList.remove('open'); });
+        document.querySelectorAll('.cr-custom-dd-btn').forEach(function(b){ b.setAttribute('aria-expanded','false'); });
+      }
+
+      function positionList(){
+        list.removeAttribute('data-position');
+        list.style.maxHeight = '';
+        var btnRect = btn.getBoundingClientRect();
+        var vh = window.innerHeight || document.documentElement.clientHeight;
+        var spaceBelow = vh - btnRect.bottom - 16;
+        var spaceAbove = btnRect.top - 16;
+        var prefer = spaceBelow >= 200 || spaceBelow >= spaceAbove ? 'down' : 'up';
+        if(prefer === 'up') list.setAttribute('data-position','up');
+        var avail = prefer === 'up' ? spaceAbove : spaceBelow;
+        list.style.maxHeight = Math.max(160, Math.min(avail, 320)) + 'px';
+      }
+
+      btn.addEventListener('click', function(e){
+        e.stopPropagation();
+        var isOpen = !list.hasAttribute('hidden');
+        closeAll();
+        if(!isOpen){
+          wrap.classList.add('open');
+          btn.setAttribute('aria-expanded','true');
+          list.removeAttribute('hidden');
+          positionList();
+        }
+      });
+
+      list.addEventListener('click', function(e){
+        var item = e.target.closest('.cr-custom-dd-item');
+        if(!item) return;
+        sel.value = item.dataset.value;
+        list.querySelectorAll('.cr-custom-dd-item').forEach(function(i){ i.classList.remove('selected'); });
+        item.classList.add('selected');
+        setLabel();
+        try { sel.dispatchEvent(new Event('change', { bubbles: true })); } catch(err){ var ev = document.createEvent('HTMLEvents'); ev.initEvent('change', true, false); sel.dispatchEvent(ev); }
+        closeAll();
+      });
+
+      window.addEventListener('resize', function(){ if(!list.hasAttribute('hidden')) positionList(); });
+      window.addEventListener('scroll', function(){ if(!list.hasAttribute('hidden')) positionList(); }, true);
+    });
+
+    document.addEventListener('click', function(e){
+      if(!e.target.closest('.cr-custom-dd')){
+        document.querySelectorAll('.cr-custom-dd-list').forEach(function(l){ l.setAttribute('hidden',''); });
+        document.querySelectorAll('.cr-custom-dd').forEach(function(w){ w.classList.remove('open'); });
+        document.querySelectorAll('.cr-custom-dd-btn').forEach(function(b){ b.setAttribute('aria-expanded','false'); });
+      }
+    });
+  }
+  initCustomDropdowns();
   document.addEventListener('click',function(e){if(e.target.classList.contains('cr-dot')){currentPage=parseInt(e.target.getAttribute('data-page'));renderCards();}});
 
   document.addEventListener('click',function(e){var btn=e.target.closest('.cr-btn-details');if(!btn)return;var idx=parseInt(btn.getAttribute('data-idx')),job=filteredJobs[idx];if(!job)return;currentDetailsRole=job.role;document.getElementById('jobDetailsTitle').textContent=job.role;document.getElementById('jobDetailsContent').innerHTML='<div class="crm-detail-row"><span class="crm-detail-label">Location</span><span>'+job.location+'</span></div><div class="crm-detail-row"><span class="crm-detail-label">Experience</span><span>'+job.exp+'</span></div><div class="crm-detail-row"><span class="crm-detail-label">Open Positions</span><span>0'+job.positions+'</span></div><div class="crm-detail-desc"><p><strong>Description</strong></p><p>'+job.desc+'</p></div>';detailsModal.classList.add('active');document.body.style.overflow='hidden';});

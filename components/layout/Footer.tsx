@@ -305,14 +305,19 @@ export default function Footer() {
                 />
               </div>
               {/*
-                Brochure CTA — navigates to /brochure (dedicated page that
-                auto-opens the shared brochure modal). Using an <a> instead
-                of a <button> so the URL bar updates to /brochure, matching
-                the canonical URL and avoiding the previous behaviour where
-                the modal opened in-place (leading users to confuse the
-                resulting URL with contact-us redirects).
+                Brochure CTA — opens the shared brochure modal in-place on
+                the current screen (no intermediate /brochure page). The
+                modal is mounted once globally in app/layout.tsx; this
+                button toggles its visibility via the `.js-brochure-modal`
+                hook wired up in /js/site-interactions.js.
               */}
-              <a href="/brochure" className="ft-brochure-btn" aria-label="Download Brochure">Download Brochure →</a>
+              <button
+                type="button"
+                className="ft-brochure-btn js-brochure-modal"
+                aria-label="Download Brochure"
+              >
+                Download Brochure →
+              </button>
             </div>
           </div>
         </div>

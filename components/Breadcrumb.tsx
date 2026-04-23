@@ -144,8 +144,9 @@ export default function Breadcrumb({ pagePath, currentLabel }: BreadcrumbProps) 
             padding: 0,
             fontSize: "0.9rem",
             gap: "0",
-            background: "#1a1a2e",
+            background: "transparent",
             border: "none",
+            boxShadow: "none",
           }}
         >
           {items.map((item, index) => (

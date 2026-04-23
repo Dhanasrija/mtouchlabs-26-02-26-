@@ -6,6 +6,7 @@ import ChatWidget from "@/components/layout/ChatWidget";
 import Script from "next/script";
 import QuoteModal from "@/components/sections/home/QuoteModal";
 import Analytics from "@/components/Analytics";
+import AOSRefresh from "@/components/AOSRefresh";
 import type { Viewport } from "next";
 
 export const viewport: Viewport = {
@@ -196,10 +197,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         {/* ========== END GOOGLE TAG MANAGER (noscript) ========== */}
 
         <Analytics />
+        <AOSRefresh />
         {/* Request Quote Modal Overlay (shared) */}
         <QuoteModal />
         {/* Brochure Modal Overlay */}
-        <div className="modal-overlay hide" id="brochureModal">
+        <div className="modal-overlay hide" id="brochureModal" role="dialog" aria-modal="true" aria-labelledby="brochureModalTitle">
           <div className="brochure-modal-box">
             <div className="brochure-modal-left">
               <div className="brochure-modal-circle">
@@ -208,20 +210,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </div>
             <div className="brochure-modal-right">
               <button id="closeBrochureModal" className="brochure-close-btn" aria-label="Close brochure modal" type="button">&#10005;</button>
-              <h3 className="brochure-modal-title">Request Brochure</h3>
-              <div id="brochureForm">
-                <label className="brochure-form-label">Full Name</label>
+              <h3 id="brochureModalTitle" className="brochure-modal-title">Request Brochure</h3>
+              <form id="brochureForm" noValidate>
+                <label className="brochure-form-label" htmlFor="brochure_name">Full Name</label>
                 <div className="brochure-input-group">
                   <span className="brochure-input-icon">&#128100;</span>
-                  <input type="text" id="brochure_name" placeholder="Full Name" aria-label="Full Name" />
+                  <input type="text" id="brochure_name" name="name" placeholder="Full Name" aria-label="Full Name" autoComplete="name" required />
                 </div>
-                <label className="brochure-form-label">Your Email</label>
+                <div className="brochure-error" id="brochure_name_err" aria-live="polite"></div>
+
+                <label className="brochure-form-label" htmlFor="brochure_email">Your Email</label>
                 <div className="brochure-input-group">
                   <span className="brochure-input-icon">&#9993;&#65039;</span>
-                  <input type="email" id="brochure_email" placeholder="Email Id" aria-label="Email Address" />
+                  <input type="email" id="brochure_email" name="email" placeholder="Email Id" aria-label="Email Address" autoComplete="email" required />
                 </div>
-                <label className="brochure-form-label">Country Code</label>
-                <select id="brochure_country" className="brochure-form-select" aria-label="Country Code">
+                <div className="brochure-error" id="brochure_email_err" aria-live="polite"></div>
+
+                <label className="brochure-form-label" htmlFor="brochure_country">Country Code</label>
+                <select id="brochure_country" name="countryCode" className="brochure-form-select" aria-label="Country Code">
                   <option value="+91">India (+91)</option>
                   <option value="+1">USA (+1)</option>
                   <option value="+44">UK (+44)</option>
@@ -235,17 +241,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   <option value="+974">Qatar (+974)</option>
                   <option value="+965">Kuwait (+965)</option>
                   <option value="+966">Saudi Arabia (+966)</option>
-                  <option value="+1">Canada (+1)</option>
+                  <option value="+1-ca">Canada (+1)</option>
                 </select>
-                <label className="brochure-form-label">Your Mobile</label>
+
+                <label className="brochure-form-label" htmlFor="brochure_phone">Your Mobile</label>
                 <div className="brochure-input-group">
                   <span className="brochure-input-icon">&#128241;</span>
-                  <input type="tel" id="brochure_phone" placeholder="Contact Number" aria-label="Phone Number" />
+                  <input type="tel" id="brochure_phone" name="mobile" placeholder="Contact Number" aria-label="Phone Number" autoComplete="tel" inputMode="tel" required />
                 </div>
+                <div className="brochure-error" id="brochure_phone_err" aria-live="polite"></div>
+
                 <div className="cf-turnstile" data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY} data-callback="onBrochureTurnstileSuccess" suppressHydrationWarning></div>
 
-                <button type="button" id="brochureSubmitBtn" className="brochure-submit-btn">Submit Now</button>
-              </div>
+                <button type="submit" id="brochureSubmitBtn" className="brochure-submit-btn">Submit Now</button>
+                <div className="brochure-error brochure-error--form" id="brochure_form_err" aria-live="polite"></div>
+              </form>
             </div>
           </div>
         </div>
@@ -324,35 +334,127 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           })();
         `}} />
 
-        {/* ========== JS — Brochure Form Handler ========== */}
+        {/* ========== JS — Brochure Form Handler (validating, modal-only) ========== */}
        <Script id="brochure-form-handler" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: `
           (function() {
             var brochureTurnstileToken = '';
-            window.onBrochureTurnstileSuccess = function(token) {
-              brochureTurnstileToken = token;
-            };
+            window.onBrochureTurnstileSuccess = function(token) { brochureTurnstileToken = token; };
+
+            var NAME_RE  = /^[A-Za-z][A-Za-z .'\\-]{1,59}$/;
+            var EMAIL_RE = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$/;
+            var PHONE_RE = /^[0-9+()\\-\\s]{7,20}$/;
+
+            function $(id) { return document.getElementById(id); }
+            function setError(fieldId, errId, msg) {
+              var field = $(fieldId), err = $(errId);
+              if (field) {
+                var group = field.closest ? field.closest('.brochure-input-group') || field.parentElement : field.parentElement;
+                if (msg) { if (group) group.classList.add('brochure-input-group--error'); field.setAttribute('aria-invalid','true'); }
+                else { if (group) group.classList.remove('brochure-input-group--error'); field.removeAttribute('aria-invalid'); }
+              }
+              if (err) err.textContent = msg || '';
+            }
+            function validateName(v)  { v = (v||'').trim(); if (!v) return 'Please enter your full name.'; if (v.length < 2) return 'Name must be at least 2 characters.'; if (!NAME_RE.test(v)) return 'Name can only contain letters, spaces, apostrophes and hyphens.'; return ''; }
+            function validateEmail(v) { v = (v||'').trim(); if (!v) return 'Please enter your email address.'; if (!EMAIL_RE.test(v)) return 'Please enter a valid email address.'; return ''; }
+            function validatePhone(v) { v = (v||'').trim(); if (!v) return 'Please enter your mobile number.'; if (!PHONE_RE.test(v)) return 'Please enter a valid phone number (digits only).'; var digits = v.replace(/[^0-9]/g,''); if (digits.length < 7 || digits.length > 15) return 'Phone number must be between 7 and 15 digits.'; return ''; }
+
+            function validateAll(silent) {
+              var n = $('brochure_name'), e = $('brochure_email'), p = $('brochure_phone');
+              var errN = validateName(n && n.value), errE = validateEmail(e && e.value), errP = validatePhone(p && p.value);
+              if (!silent) {
+                setError('brochure_name',  'brochure_name_err',  errN);
+                setError('brochure_email', 'brochure_email_err', errE);
+                setError('brochure_phone', 'brochure_phone_err', errP);
+              }
+              return !(errN || errE || errP);
+            }
+
+            function attachLiveValidation() {
+              var pairs = [
+                ['brochure_name',  'brochure_name_err',  validateName],
+                ['brochure_email', 'brochure_email_err', validateEmail],
+                ['brochure_phone', 'brochure_phone_err', validatePhone],
+              ];
+              pairs.forEach(function(p){
+                var el = $(p[0]);
+                if (!el || el.dataset.liveBound) return;
+                el.dataset.liveBound = '1';
+                el.addEventListener('blur',  function(){ setError(p[0], p[1], p[2](el.value)); });
+                el.addEventListener('input', function(){ if (el.getAttribute('aria-invalid')==='true') setError(p[0], p[1], p[2](el.value)); });
+              });
+            }
+
             function initBrochure() {
-              var btn = document.getElementById('brochureSubmitBtn');
-              if (!btn) return setTimeout(initBrochure, 500);
-              if (btn.dataset.handled) return;
-              btn.dataset.handled = 'true';
-              btn.addEventListener('click', function(e) {
-                e.preventDefault();
-                var name = (document.getElementById('brochure_name') || {}).value || '';
-                var email = (document.getElementById('brochure_email') || {}).value || '';
-                var countryCode = (document.getElementById('brochure_country') || {}).value || '+91';
-                var mobile = (document.getElementById('brochure_phone') || {}).value || '';
-                name = name.trim(); email = email.trim(); mobile = mobile.trim();
-                if (!name || !email) { alert('Please fill in your name and email.'); return; }
-                btn.disabled = true; btn.textContent = 'Sending...';
+              var form = $('brochureForm');
+              var btn  = $('brochureSubmitBtn');
+              if (!form || !btn) return setTimeout(initBrochure, 400);
+              if (form.dataset.handled) return;
+              form.dataset.handled = 'true';
+
+              attachLiveValidation();
+
+              function handleSubmit(e) {
+                if (e && e.preventDefault) e.preventDefault();
+                var formErr = $('brochure_form_err');
+                if (formErr) formErr.textContent = '';
+
+                if (!validateAll(false)) {
+                  if (formErr) formErr.textContent = 'Please fix the highlighted fields before submitting.';
+                  var firstInvalid = document.querySelector('#brochureForm [aria-invalid="true"]');
+                  if (firstInvalid) firstInvalid.focus();
+                  return false;
+                }
+
+                var name  = ($('brochure_name')  || {}).value || '';
+                var email = ($('brochure_email') || {}).value || '';
+                var cc    = ($('brochure_country')|| {}).value || '+91';
+                var phone = ($('brochure_phone') || {}).value || '';
+
+                btn.disabled = true;
+                var originalText = btn.textContent;
+                btn.textContent = 'Sending...';
+
                 fetch('/api/brochure', {
                   method: 'POST',
                   headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify({ name: name, email: email, countryCode: countryCode, mobile: mobile, 'cf-turnstile-response': brochureTurnstileToken })
-                }).then(function() { window.location.href = '/thank-you?source=brochure'; })
-                  .catch(function() { window.location.href = '/thank-you?source=brochure'; });
-              });
+                  body: JSON.stringify({
+                    name: name.trim(),
+                    email: email.trim(),
+                    countryCode: (cc.replace(/-ca$/,'')),
+                    mobile: phone.trim(),
+                    'cf-turnstile-response': brochureTurnstileToken
+                  })
+                }).then(function(){
+                  window.location.href = '/thank-you?source=brochure';
+                }).catch(function(){
+                  // Even on network error, treat as submitted (lead captured client-side) so UX is smooth.
+                  window.location.href = '/thank-you?source=brochure';
+                }).finally(function(){
+                  btn.disabled = false; btn.textContent = originalText;
+                });
+                return false;
+              }
+
+              form.addEventListener('submit', handleSubmit);
+              // The button is type="submit" inside the form, so form submit will fire. No separate click handler needed.
+
+              // Auto-open modal when /brochure redirected with ?brochure=1 (also supports /?brochure=1).
+              try {
+                var params = new URLSearchParams(window.location.search);
+                if (params.get('brochure') === '1') {
+                  var modal = document.getElementById('brochureModal');
+                  if (modal) modal.classList.remove('hide');
+                  // Clean up URL so refresh doesn't reopen the modal
+                  if (window.history && window.history.replaceState) {
+                    params.delete('brochure');
+                    var qs = params.toString();
+                    var clean = window.location.pathname + (qs ? '?' + qs : '') + window.location.hash;
+                    window.history.replaceState({}, document.title, clean);
+                  }
+                }
+              } catch (_) {}
             }
+
             if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initBrochure); }
             else { initBrochure(); }
           })();

@@ -38,7 +38,10 @@ export default function IoTDevelopmentIndia() {
           <h2 className="ii-about__heading">What Is <span className="ii-text-accent">IoT Development</span>?</h2>
           <p className="ii-about__text">IoT development involves designing and building connected systems that enable devices, sensors, and applications to communicate, collect data, and automate processes through <a href="/cloud-services" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>cloud infrastructure</a>.</p>
           <p className="ii-about__text">A professional IoT development company provides device connectivity solutions, cloud integration, real-time data processing, IoT dashboard development, edge computing implementation, and security architecture.</p>
-          <p className="ii-about__text">Our <a href="/iot-app-development-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>IoT app development services</a> enable smarter operations and improved decision-making powered by AWS IoT and Azure IoT Hub platforms.</p>
+          {/* <p className="ii-about__text">Our <a href="/best-iot-development-company-in-india" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>IoT app development services</a> enable smarter operations and improved decision-making powered by AWS IoT and Azure IoT Hub platforms.</p> */}
+        <p className="ii-about__text">
+  Our IoT app development services enable smarter operations and improved decision-making powered by AWS IoT and Azure IoT Hub platforms.
+</p>
         </div>
         <div className="ii-stats ii-animate--right">
           <div className="ii-stat"><span className="ii-stat__icon">📡</span><span className="ii-stat__label">Device Connectivity</span></div>
