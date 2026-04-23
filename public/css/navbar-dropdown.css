@@ -29380,10 +29380,12 @@ button.ma-cta__button {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: nowrap;
-  gap: 6px;
+  flex-wrap: wrap;
+  row-gap: 24px;
+  column-gap: 6px;
   position: relative;
   z-index: 1;
+  max-width: 100%;
 }
 
 .aw-step {
@@ -29485,8 +29487,6 @@ button.ma-cta__button {
   0%, 100% { opacity: 0.4; transform: translateX(0); }
   50% { opacity: 0.8; transform: translateX(3px); }
 }
-  font-weight: 700;
-}
 
 /* ============================================================
    6. WHY CHOOSE US SECTION
@@ -29502,6 +29502,7 @@ button.ma-cta__button {
   gap: 50px;
   align-items: center;
   max-width: 800px;
+  margin: 0 auto;
 }
 
 .aw-why__heading {
@@ -29534,11 +29535,13 @@ button.ma-cta__button {
   text-align: center;
 }
 
-.aw-industries__heading {
+.aw-industries__heading,
+.aw-industries__title {
   font-size: 2rem;
   font-weight: 700;
   color: var(--aw-text);
   margin-bottom: 48px;
+  text-align: center;
 }
 
 .aw-industries__grid {
@@ -29844,11 +29847,14 @@ button.ma-cta__button {
 }
 
 /* Services subtitle */
+/* Services subtitle */
 .aw-services__subtitle {
   font-size: 1rem;
   color: var(--aw-gray);
-  margin-top: 12px;
+  margin: 12px auto 0;
   line-height: 1.6;
+  text-align: center;
+  max-width: 640px;
 }
 
 /* ============================================================

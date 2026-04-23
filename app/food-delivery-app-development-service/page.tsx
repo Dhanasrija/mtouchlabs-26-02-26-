@@ -560,7 +560,7 @@
 //             <h6>Custom UI/UX Design</h6>
 //             <p>
 //               Engaging interfaces crafted by our{" "}
-//               <a href="/ui-ux-design-services" target="_blank">
+//               <a href="/ui-ux-design-company" target="_blank">
 //                 UI/UX design team
 //               </a>
 //               .

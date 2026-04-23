@@ -475,10 +475,10 @@ export default function HireWordpressDevelopersInIndia() {
               <h1 className="hma-heroTitle">
               <span className="hma-hl">Hire WordPress Developers in India</span>
             </h1>
-              <p className="hma-heroSubtitle">
+              {/* <p className="hma-heroSubtitle">
                 Build secure, scalable WordPress websites tailored to your
                 business
-              </p>
+              </p> */}
               <div className="hma-heroCtas">
                 <Link href="/contact-us" className="hma-heroBtnPrimary">
                   Get Started

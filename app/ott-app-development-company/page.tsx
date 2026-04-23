@@ -25,7 +25,7 @@ const data: ProductPageData = {
     h3: "OTT App Development",
     body: [
       <>mTouch Labs is a NASSCOM award-winning <a href="/mobile-app-development-company" target="_blank">OTT app development company</a> in Hyderabad, helping broadcasters, content owners, and startups launch scalable streaming platforms.</>,
-      <>We build video-on-demand platforms, live-TV streaming apps, audio streaming services, smart-TV apps, and <a href="/ai-and-ml-development-company" target="_blank">AI-powered recommendation engines</a> tailored to your audience.</>,
+      <>We build video-on-demand platforms, live-TV streaming apps, audio streaming services, smart-TV apps, and <a href="/generative-ai-development-company" target="_blank">AI-powered recommendation engines</a> tailored to your audience.</>,
     ],
   },
   dividerTitle: "Custom OTT App Development Services",

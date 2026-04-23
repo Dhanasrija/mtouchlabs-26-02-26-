@@ -27,8 +27,7 @@ const data: ProductPageData = {
     h3: "Gaming App Development",
     body: [
       <>mTouch Labs is a NASSCOM award-winning <a href="/mobile-app-development-company" target="_blank">gaming app development company</a> in Hyderabad, helping studios, publishers, and startups launch immersive game titles.</>,
-      <>We build casual mobile games, multiplayer online games, <a href="/ar-vr-development-company" target="_blank">AR/VR experiences</a>, fantasy sports platforms, and cross-platform gaming apps tailored to your audience.</>,
-    ],
+<>We build casual mobile games, multiplayer online games, AR/VR experiences, fantasy sports platforms, and cross-platform gaming apps tailored to your audience.</>    ],
   },
   dividerTitle: "Custom Gaming App Development Services",
   dividerImg: "/images/products/gaming/service1.png",
@@ -62,8 +61,8 @@ const data: ProductPageData = {
       "/images/products/gaming/appscreen1.png",
       "/images/products/gaming/appscreen2.png",
       "/images/products/gaming/appscreen3.png",
-      "/images/products/gaming/appscreen4.png",
-      "/images/products/gaming/appscreen5.png",
+      "/images/products/gaming/appscreen4.png"
+      // "/images/products/gaming/appscreen5.png",
     ],
   },
   tabs: {
