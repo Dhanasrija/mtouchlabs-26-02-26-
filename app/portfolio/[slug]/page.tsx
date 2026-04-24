@@ -1722,14 +1722,162 @@ export default async function PortfolioDetailPage({
 
       </div>
 
-      {/* TOC scroll spy + FAQ accordion */}
+      {/* TOC scroll spy + pin-to-viewport + FAQ accordion */}
       <script dangerouslySetInnerHTML={{ __html: `
 (function initCsToc() {
   var desktopLinks = document.querySelectorAll('.cs-toc__link');
   var mobileLinks = document.querySelectorAll('.cs-toc-mobile__link');
   var allLinks = [].slice.call(desktopLinks).concat([].slice.call(mobileLinks));
   if (!allLinks.length) { setTimeout(initCsToc, 200); return; }
-  var HEADER_OFFSET = 80;
+  var HEADER_OFFSET = 100;
+
+  // ── TOC Pinning via FLOATING CLONE: we clone the TOC into <body> and
+  // ── pin it with position:fixed. This decouples it from the grid and
+  // ── any ancestor CSS (overflow-x: clip, transforms, etc.) so it is
+  // ── guaranteed to stay on-screen while scrolling the content.
+  (function pinToc() {
+    var layout = document.querySelector('.cs-layout');
+    var originalToc = document.querySelector('.cs-toc');
+    if (!layout || !originalToc) return;
+
+    var PIN_TOP = 100;
+    var BOTTOM_PAD = 20;
+
+    // Create the floating clone, attach to <body>, keep hidden until needed.
+    var floatToc = originalToc.cloneNode(true);
+    floatToc.classList.add('cs-toc--float');
+    // The clone mustn't be seen by a11y tech as a second TOC.
+    floatToc.setAttribute('aria-hidden', 'true');
+    floatToc.setAttribute('role', 'presentation');
+    // Remove ids inside the clone to prevent duplicate-id warnings.
+    floatToc.querySelectorAll('[id]').forEach(function(el){ el.removeAttribute('id'); });
+
+    function setStyle(el, prop, value) {
+      el.style.setProperty(prop, value, 'important');
+    }
+
+    setStyle(floatToc, 'position', 'fixed');
+    setStyle(floatToc, 'top', PIN_TOP + 'px');
+    setStyle(floatToc, 'width', '260px');
+    setStyle(floatToc, 'max-height', 'calc(100vh - ' + (PIN_TOP + 20) + 'px)');
+    setStyle(floatToc, 'overflow-y', 'auto');
+    setStyle(floatToc, 'overflow-x', 'hidden');
+    setStyle(floatToc, 'z-index', '90');
+    setStyle(floatToc, 'background', '#fff');
+    setStyle(floatToc, 'display', 'none');
+    setStyle(floatToc, 'margin', '0');
+    setStyle(floatToc, 'padding', '0');
+    document.body.appendChild(floatToc);
+
+    // Sync clicks on the clone to the real anchors (use hash navigation).
+    floatToc.querySelectorAll('a[href^="#"]').forEach(function(a) {
+      a.addEventListener('click', function(e) {
+        e.preventDefault();
+        var id = a.getAttribute('href').substring(1);
+        var el = document.getElementById(id);
+        if (!el) return;
+        window.scrollTo({
+          top: el.getBoundingClientRect().top + window.pageYOffset - PIN_TOP - 20,
+          behavior: 'smooth'
+        });
+        history.pushState(null, '', '#' + id);
+      });
+    });
+
+    // Mirror active-class changes from the original TOC to the clone.
+    var origLinks = originalToc.querySelectorAll('.cs-toc__link');
+    var cloneLinks = floatToc.querySelectorAll('.cs-toc__link');
+    function mirrorActive() {
+      for (var i = 0; i < origLinks.length && i < cloneLinks.length; i++) {
+        if (origLinks[i].classList.contains('cs-toc__link--active')) {
+          cloneLinks[i].classList.add('cs-toc__link--active');
+        } else {
+          cloneLinks[i].classList.remove('cs-toc__link--active');
+        }
+      }
+    }
+    // Observe class changes on the original so the clone stays in sync.
+    try {
+      var mo = new MutationObserver(mirrorActive);
+      origLinks.forEach(function(l) {
+        mo.observe(l, { attributes: true, attributeFilter: ['class'] });
+      });
+    } catch (_) { /* older browsers */ }
+
+    // Use the content column (not the layout) as the pin boundary. The
+    // content ends exactly where we want the floating TOC to disappear
+    // — just before the CTA/footer begins. This is far more reliable
+    // than any height-based threshold (which breaks when the clone is
+    // display:none and its offsetHeight reads as 0).
+    var contentEl = document.querySelector('.cs-content') || layout;
+
+    function update() {
+      var isMobile = window.innerWidth < 1025;
+      if (isMobile) {
+        setStyle(floatToc, 'display', 'none');
+        originalToc.style.removeProperty('visibility');
+        return;
+      }
+      var contentRect = contentEl.getBoundingClientRect();
+      var layoutRect = layout.getBoundingClientRect();
+
+      // Measure the actual rendered height of the floating TOC so we can
+      // hide it BEFORE its bottom edge would overlap the CTA/footer. We
+      // must temporarily make it measurable if currently hidden.
+      var prevDisplay = floatToc.style.display;
+      if (prevDisplay === 'none') {
+        setStyle(floatToc, 'visibility', 'hidden');
+        setStyle(floatToc, 'display', 'block');
+      }
+      var tocHeight = floatToc.offsetHeight || 0;
+      if (prevDisplay === 'none') {
+        setStyle(floatToc, 'display', 'none');
+        floatToc.style.removeProperty('visibility');
+      }
+
+      // Active only while the content is actually on screen near the
+      // pin line: top has scrolled above the pin line, AND the bottom
+      // of the content is still below where the floating TOC would end
+      // (PIN_TOP + tocHeight + a small margin). This guarantees the
+      // TOC disappears BEFORE it would ever overlap the CTA / footer.
+      var END_BUFFER = tocHeight + 40; // TOC height + breathing room
+      var pinActive =
+        contentRect.top < PIN_TOP &&
+        contentRect.bottom > PIN_TOP + END_BUFFER &&
+        layoutRect.top < PIN_TOP &&
+        layoutRect.bottom > PIN_TOP + END_BUFFER;
+
+      if (pinActive) {
+        setStyle(floatToc, 'display', 'block');
+        setStyle(floatToc, 'left', layoutRect.left + 'px');
+        setStyle(floatToc, 'top', PIN_TOP + 'px');
+        // Hide the in-flow original so it doesn't double up visually.
+        setStyle(originalToc, 'visibility', 'hidden');
+      } else {
+        setStyle(floatToc, 'display', 'none');
+        // Restore the in-flow original.
+        originalToc.style.removeProperty('visibility');
+      }
+      mirrorActive();
+    }
+
+    var ticking = false;
+    function onScroll() {
+      if (!ticking) {
+        window.requestAnimationFrame(function() { update(); ticking = false; });
+        ticking = true;
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', update, { passive: true });
+    update();
+    setTimeout(update, 100);
+    setTimeout(update, 400);
+    setTimeout(update, 1000);
+    if (document.readyState !== 'complete') {
+      window.addEventListener('load', update);
+    }
+  })();
   var sectionIds = [], linkMap = {};
   desktopLinks.forEach(function(link) {
     var href = link.getAttribute('href');
@@ -1751,7 +1899,12 @@ export default async function PortfolioDetailPage({
   });
   var sectionEls = [];
   sectionIds.forEach(function(id) { var el = document.getElementById(id); if (el) sectionEls.push(el); });
+  if (!sectionEls.length) return;
+
   var currentActive = null;
+  var tocContainer = document.querySelector('.cs-toc');
+  var mobileBar = document.querySelector('.cs-toc-mobile__scroll');
+
   function setActive(id) {
     if (id === currentActive) return;
     allLinks.forEach(function(l) { l.classList.remove('cs-toc__link--active','cs-toc-mobile__link--active'); });
@@ -1760,13 +1913,65 @@ export default async function PortfolioDetailPage({
         if (l.classList.contains('cs-toc__link')) l.classList.add('cs-toc__link--active');
         if (l.classList.contains('cs-toc-mobile__link')) l.classList.add('cs-toc-mobile__link--active');
       });
+      // Keep the active desktop TOC link visible inside the sticky sidebar
+      // if the TOC itself has scrolled internally (long TOC on short screens).
+      if (tocContainer) {
+        var desk = linkMap[id].filter(function(l){ return l.classList.contains('cs-toc__link'); })[0];
+        if (desk) {
+          var cRect = tocContainer.getBoundingClientRect();
+          var lRect = desk.getBoundingClientRect();
+          if (lRect.top < cRect.top || lRect.bottom > cRect.bottom) {
+            tocContainer.scrollTo({ top: desk.offsetTop - 40, behavior: 'smooth' });
+          }
+        }
+      }
+      // Scroll mobile horizontal bar to keep active pill visible.
+      if (mobileBar) {
+        var pill = linkMap[id].filter(function(l){ return l.classList.contains('cs-toc-mobile__link'); })[0];
+        if (pill) {
+          var bRect = mobileBar.getBoundingClientRect();
+          var pRect = pill.getBoundingClientRect();
+          if (pRect.left < bRect.left || pRect.right > bRect.right) {
+            mobileBar.scrollTo({ left: pill.offsetLeft - 20, behavior: 'smooth' });
+          }
+        }
+      }
     }
     currentActive = id;
   }
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) { if (entry.isIntersecting) setActive(entry.target.id); });
-  }, { root: null, rootMargin: '-' + (HEADER_OFFSET + 40) + 'px 0px -60% 0px', threshold: 0 });
-  sectionEls.forEach(function(el) { observer.observe(el); });
+
+  // Robust scroll-spy: pick the section whose top is closest-to-but-not-past
+  // the reference line (viewport top + header offset). Runs on every scroll
+  // frame via rAF. This is more reliable than IntersectionObserver for
+  // sections of varying heights.
+  var ticking = false;
+  function updateActive() {
+    ticking = false;
+    var ref = window.scrollY + HEADER_OFFSET + 40;
+    // If scrolled to the very bottom of the page, force-activate the last section.
+    if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 2)) {
+      setActive(sectionIds[sectionIds.length - 1]);
+      return;
+    }
+    var activeId = sectionIds[0];
+    for (var i = 0; i < sectionEls.length; i++) {
+      if (sectionEls[i].offsetTop <= ref) {
+        activeId = sectionEls[i].id;
+      } else {
+        break;
+      }
+    }
+    setActive(activeId);
+  }
+  function onScroll() {
+    if (!ticking) {
+      window.requestAnimationFrame(updateActive);
+      ticking = true;
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+
   allLinks.forEach(function(link) {
     link.addEventListener('click', function(e) {
       e.preventDefault();
@@ -1778,24 +1983,18 @@ export default async function PortfolioDetailPage({
       history.pushState(null, '', '#' + id);
     });
   });
-  window.addEventListener('scroll', function() {
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100) {
-      var lastId = sectionIds[sectionIds.length - 1];
-      if (lastId) setActive(lastId);
-    }
-  });
-  setTimeout(function() {
-    var triggerLine = window.scrollY + HEADER_OFFSET + 60;
-    for (var i = sectionEls.length - 1; i >= 0; i--) {
-      if (sectionEls[i].offsetTop <= triggerLine) { setActive(sectionEls[i].id); break; }
-    }
-  }, 300);
+
+  // Initial sync (after layout settles).
+  setTimeout(updateActive, 50);
+  setTimeout(updateActive, 400);
+
   if (window.location.hash) {
     var hashEl = document.getElementById(window.location.hash.substring(1));
     if (hashEl) setTimeout(function() {
       window.scrollTo({ top: hashEl.getBoundingClientRect().top + window.pageYOffset - HEADER_OFFSET - 20, behavior: 'smooth' });
     }, 400);
   }
+
   document.querySelectorAll('.cs-app-screens-scroll').forEach(function(el) {
     var d=false,sx,sl;
     el.addEventListener('mousedown',function(e){d=true;el.style.cursor='grabbing';sx=e.pageX-el.offsetLeft;sl=el.scrollLeft});

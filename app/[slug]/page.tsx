@@ -101,14 +101,9 @@ export async function generateMetadata({
     const resolvedParams = await params;
     const type = await getSlugType(resolvedParams.slug);
 
-    // Blog will redirect — skip metadata
+    // Blog and portfolio will both redirect — skip metadata
     if (type === 'blog') return {};
-
-    if (type === 'portfolio') {
-      const childParams = Promise.resolve(resolvedParams);
-      const { generateMetadata: portfolioMeta } = await import('../portfolio/[slug]/page');
-      return portfolioMeta({ params: childParams });
-    }
+    if (type === 'portfolio') return {};
 
     return { title: 'Page Not Found' };
   } catch (err) {
@@ -131,10 +126,11 @@ export default async function CatchAllSlugPage({
       redirect(`/blog/${resolvedParams.slug}`);
     }
 
+    // 301 redirect: /slug → /portfolio/slug
+    // (middleware normally handles this, but this is a safety net in case the
+    // middleware portfolio-slug cache missed a newly-published entry.)
     if (type === 'portfolio') {
-      const childParams = Promise.resolve(resolvedParams);
-      const PortfolioPage = (await import('../portfolio/[slug]/page')).default;
-      return <PortfolioPage params={childParams} />;
+      redirect(`/portfolio/${resolvedParams.slug}`);
     }
 
     notFound();

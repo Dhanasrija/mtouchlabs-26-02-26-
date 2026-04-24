@@ -1880,3 +1880,101 @@ html {
 .blog-content-v3 h3[id] {
   scroll-margin-top: 120px !important;
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   FINAL TOC FIX — Floating clone approach.
+   A runtime script clones the TOC into <body> with position:fixed
+   so it is always visible while the reader is inside the content.
+   The original in-flow TOC is hidden (visibility: hidden) while
+   the clone is pinned, and revealed again otherwise.
+   ═══════════════════════════════════════════════════════════════ */
+@media (min-width: 1025px) {
+  .cs-layout {
+    align-items: start !important;
+  }
+
+  /* In-flow TOC — default sticky fallback. The runtime pinning script
+     overrides this with visibility:hidden while the floating clone is
+     active, so the user only sees one TOC at a time. */
+  .cs-toc {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 100px;
+    align-self: start !important;
+    max-height: calc(100vh - 120px) !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    width: 260px !important;
+    min-width: 260px !important;
+    flex-shrink: 0 !important;
+    height: auto !important;
+    z-index: 10 !important;
+    background: #fff;
+  }
+
+  .cs-toc > nav {
+    position: static !important;
+    max-height: none !important;
+    overflow-y: visible !important;
+    height: auto !important;
+  }
+
+  /* Floating clone appended to <body>. Style should match the original
+     TOC exactly — it is a clone, so the inner class names already do
+     most of the work. These rules just ensure correct box/chrome. */
+  .cs-toc.cs-toc--float {
+    position: fixed !important;
+    top: 100px !important;
+    width: 260px !important;
+    max-height: calc(100vh - 120px) !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    z-index: 90 !important;
+    background: #fff !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Parent section MUST NOT clip (belt & braces). */
+  .cs { overflow: visible !important; overflow-x: clip !important; }
+
+  /* Thin subtle scrollbar. */
+  .cs-toc::-webkit-scrollbar,
+  .cs-toc--float::-webkit-scrollbar { width: 4px !important; }
+  .cs-toc::-webkit-scrollbar-track,
+  .cs-toc--float::-webkit-scrollbar-track { background: transparent !important; }
+  .cs-toc::-webkit-scrollbar-thumb,
+  .cs-toc--float::-webkit-scrollbar-thumb { background: #e2e8f0 !important; border-radius: 4px !important; }
+  .cs-toc,
+  .cs-toc--float { scrollbar-width: thin !important; scrollbar-color: #e2e8f0 transparent !important; }
+}
+
+/* The floating clone should never appear on mobile — mobile has its own bar. */
+@media (max-width: 1024px) {
+  .cs-toc.cs-toc--float { display: none !important; }
+}
+
+/* Active TOC link — unmistakable highlight of the current section. */
+.cs-toc__link--active {
+  color: #2563eb !important;
+  font-weight: 600 !important;
+  background: rgba(37, 99, 235, 0.08) !important;
+  border-left-color: #2563eb !important;
+}
+.cs-toc__link--active .cs-toc__icon svg,
+.cs-toc__link--active svg {
+  color: #2563eb !important;
+}
+
+/* ═══ TOC must NEVER appear over the CTA/footer ═══
+   The floating clone is toggled by JS, but defensively cap its visibility
+   so it cannot render outside the case-study layout bounds. */
+.cs-cta ~ .cs-toc--float,
+.cs-cta + .cs-toc--float { display: none \!important; }
+/* When the clone is inside <body>, use a CSS-only safety: limit its
+   max-height so its bottom can never reach the viewport bottom. */
+.cs-toc--float {
+  max-height: calc(100vh - 140px) \!important;
+  overflow-y: auto \!important;
+}

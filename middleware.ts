@@ -127,8 +127,10 @@ export async function middleware(request: NextRequest) {
       }
     }
 
-    // 5. BLOG REDIRECT: /slug → /blog/slug for known blog slugs
-    // Only for paths that could be blog slugs (single segment, no known static routes)
+    // 5. BLOG / PORTFOLIO REDIRECT
+    //    /slug → /blog/slug      (for known blog slugs)
+    //    /slug → /portfolio/slug (for known portfolio slugs)
+    // Only for paths that could be blog/portfolio slugs (single segment, no known static routes)
     if (!pathname.startsWith('/blog') &&
         !pathname.startsWith('/admin') &&
         !pathname.startsWith('/portfolio') &&
@@ -147,10 +149,21 @@ export async function middleware(request: NextRequest) {
         pathname.split('/').filter(Boolean).length === 1) {
       // Check cached blog slug set instead of hitting DB on every request
       const slug = pathname.slice(1);
-      const slugSet = await getBlogSlugs();
-      if (slugSet.has(slug)) {
+      const blogSlugSet = await getBlogSlugs();
+      if (blogSlugSet.has(slug)) {
         const url = request.nextUrl.clone();
         url.pathname = `/blog${pathname}`;
+        return NextResponse.redirect(url, 301);
+      }
+
+      // 5b. PORTFOLIO REDIRECT: /slug → /portfolio/slug for known portfolio slugs
+      // This permanently moves portfolios from the bare root-level URL to the
+      // canonical /portfolio/<slug> path. Old inbound links (external SEO /
+      // bookmarks) will 301 to the new URL.
+      const portfolioSlugSet = await getPortfolioSlugs();
+      if (portfolioSlugSet.has(slug)) {
+        const url = request.nextUrl.clone();
+        url.pathname = `/portfolio${pathname}`;
         return NextResponse.redirect(url, 301);
       }
     }
