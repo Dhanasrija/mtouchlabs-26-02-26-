@@ -820,7 +820,7 @@ export default function Page() {
                     <i className="fa-solid fa-paper-plane" />
                     View Open Positions
                   </a>
-                  <a href="#why-work" className="itsc-btn itsc-btn-ghost">
+                  <a href="/about" className="itsc-btn itsc-btn-ghost">
                     Our Culture
                     <i className="fa-solid fa-arrow-right" />
                   </a>
