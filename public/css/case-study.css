@@ -1043,10 +1043,10 @@
 .cs-sec:nth-child(3) { animation-delay: 0.1s; }
 
 /* Hover effects on cards */
-.cs-feat-card, .cs-tech-card, .cs-sp-card, .cs-impact-card, .cs-challenge-card, .cs-obj-card, .cs-future-item, .cs-hero__card, .cs-color-card, .cs-related__card {
+.cs-feat-card, .cs-tech-card, .cs-sp-card, .cs-impact-card, .cs-challenge-card, .cs-obj-card, .cs-future-item, .cs-hero__card, .cs-related__card {
   transition: transform 0.25s ease, box-shadow 0.25s ease !important;
 }
-.cs-feat-card:hover, .cs-tech-card:hover, .cs-sp-card:hover, .cs-impact-card:hover, .cs-challenge-card:hover, .cs-obj-card:hover, .cs-hero__card:hover, .cs-color-card:hover {
+.cs-feat-card:hover, .cs-tech-card:hover, .cs-sp-card:hover, .cs-impact-card:hover, .cs-challenge-card:hover, .cs-obj-card:hover, .cs-hero__card:hover {
   transform: translateY(-4px) !important;
   box-shadow: 0 8px 24px rgba(0,0,0,0.1) !important;
 }
@@ -1971,10 +1971,60 @@ html {
    The floating clone is toggled by JS, but defensively cap its visibility
    so it cannot render outside the case-study layout bounds. */
 .cs-cta ~ .cs-toc--float,
-.cs-cta + .cs-toc--float { display: none \!important; }
+.cs-cta + .cs-toc--float { display: none !important; }
 /* When the clone is inside <body>, use a CSS-only safety: limit its
    max-height so its bottom can never reach the viewport bottom. */
 .cs-toc--float {
-  max-height: calc(100vh - 140px) \!important;
-  overflow-y: auto \!important;
+  max-height: calc(100vh - 140px) !important;
+  overflow-y: auto !important;
+}
+
+/* ═══ COLOR PALETTE — glow only the swatch, never the labels ═══ */
+.cs-color-card { transition: none !important; transform: none !important; }
+.cs-color-card:hover { transform: none !important; }
+
+.cs-color-swatch {
+  position: relative !important;
+  transition: box-shadow 0.35s ease, transform 0.35s ease, filter 0.35s ease !important;
+  box-shadow:
+    0 6px 22px rgba(0, 0, 0, 0.10),
+    0 0 18px rgba(255, 255, 255, 0.18) inset !important;
+  animation: csSwatchGlow 3.2s ease-in-out infinite !important;
+  will-change: box-shadow, transform, filter !important;
+}
+
+/* Gentle idle pulse — the swatch itself "breathes" light */
+@keyframes csSwatchGlow {
+  0%, 100% {
+    box-shadow:
+      0 6px 22px rgba(0, 0, 0, 0.10),
+      0 0 18px rgba(255, 255, 255, 0.18) inset;
+    filter: brightness(1) saturate(1);
+  }
+  50% {
+    box-shadow:
+      0 10px 30px rgba(0, 0, 0, 0.14),
+      0 0 28px rgba(255, 255, 255, 0.30) inset;
+    filter: brightness(1.06) saturate(1.08);
+  }
+}
+
+/* Strong glow on hover (the "glow up" moment) — swatch only */
+.cs-color-swatch:hover {
+  transform: translateY(-4px) scale(1.04) !important;
+  filter: brightness(1.12) saturate(1.18) !important;
+  box-shadow:
+    0 16px 44px rgba(0, 0, 0, 0.18),
+    0 0 50px rgba(59, 130, 246, 0.35),
+    0 0 90px rgba(59, 130, 246, 0.22),
+    0 0 36px rgba(255, 255, 255, 0.45) inset !important;
+  animation-play-state: paused !important;
+}
+
+/* Labels stay put — no animation, no transform */
+.cs-color-name,
+.cs-color-hex {
+  transition: none !important;
+  transform: none !important;
+  animation: none !important;
 }
