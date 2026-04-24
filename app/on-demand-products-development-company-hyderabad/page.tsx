@@ -626,6 +626,7 @@
 
 
 import type { Metadata } from "next";
+import "../it-solutions-company/style.css";
 
 export const metadata: Metadata = {
   title: "On-Demand Products Development",
@@ -661,41 +662,69 @@ export default function OnDemandProductsPage() {
       />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      {/* ===== 1. HERO ===== */}
-      <section className="odm-hero">
-        <div className="odm-hero__bg">
-          <div className="odm-hero__gradient"></div>
-          <div className="odm-hero__grid-pattern"></div>
-          <div className="odm-hero__glow odm-hero__glow--1"></div>
-          <div className="odm-hero__glow odm-hero__glow--2"></div>
-        </div>
-        <div className="odm-hero__content odm-container">
-          {/* <nav className="odm-crumb" aria-label="Breadcrumb">
-            <ol>
-              <li><a href="/">Home</a></li>
-              <li><span className="odm-crumb__sep">/</span></li>
-              <li><a href="/services">Services</a></li>
-              <li><span className="odm-crumb__sep">/</span></li>
-              <li className="odm-crumb__current">On-Demand Products</li>
-            </ol>
-          </nav> */}
-          <span className="odm-hero__badge odm-anim-fade">Hyderabad&apos;s Leading Partner</span>
-<h1 className="odm-hero__title odm-anim-slide">
-  On-Demand Product <span className="odm-accent-glow">Development Company</span> in Hyderabad
-</h1>          <p className="odm-hero__sub odm-anim-slide odm-anim-delay-1">mTouch Labs is a leading On-Demand Products Development, specializing in building scalable, secure, and high-performance on-demand applications for startups, enterprises, and growing businesses.</p>
-          <div className="odm-hero__btns odm-anim-slide odm-anim-delay-2">
-            <a href="/contact-us" className="odm-btn odm-btn--primary odm-btn--glow">Get Started <i className="fas fa-arrow-right"></i></a>
-            <a href="/mobile-app-development-company" className="odm-btn odm-btn--ghost">Mobile App Services</a>
+      {/* ═══════════ HERO (itsc-hero style) ═══════════ */}
+      <div className="itsc-page">
+        <section className="itsc-hero">
+          <div className="itsc-hero-grid" aria-hidden="true" />
+          <div className="itsc-blob itsc-blob-a" aria-hidden="true" />
+          <div className="itsc-blob itsc-blob-b" aria-hidden="true" />
+          <div className="itsc-blob itsc-blob-c" aria-hidden="true" />
+
+          <div className="itsc-container">
+            <div className="itsc-hero-content">
+              <div className="itsc-badge">
+                <span className="itsc-badge-dot" />
+                Hyderabad&apos;s Leading Partner
+              </div>
+
+              <h1 className="itsc-h1">
+                On-Demand Product Development Company
+                <br />
+                in <span className="itsc-h1-gradient">Hyderabad</span>
+              </h1>
+
+              <p className="itsc-hero-sub">
+                mTouch Labs is a leading on-demand products development company, specializing in building
+                scalable, secure, and high-performance{" "}
+                <a className="itsc-inline-link" href="/mobile-app-development-company">
+                  on-demand applications
+                </a>{" "}
+                for startups, enterprises, and growing businesses worldwide.
+              </p>
+
+              <div className="itsc-ctas">
+                <a href="/contact-us" className="itsc-btn itsc-btn-primary">
+                  <i className="fa-solid fa-paper-plane" />
+                  Get Started
+                </a>
+                <a href="/mobile-app-development-company" className="itsc-btn itsc-btn-ghost">
+                  Mobile App Services
+                  <i className="fa-solid fa-arrow-right" />
+                </a>
+              </div>
+
+              <div className="itsc-stats-grid">
+                <div className="itsc-stat-card">
+                  <span className="itsc-stat-val">200+</span>
+                  <span className="itsc-stat-lbl">On-Demand Apps Launched</span>
+                </div>
+                <div className="itsc-stat-card">
+                  <span className="itsc-stat-val">2M+</span>
+                  <span className="itsc-stat-lbl">End Users Served</span>
+                </div>
+                <div className="itsc-stat-card">
+                  <span className="itsc-stat-val">10</span>
+                  <span className="itsc-stat-lbl">Industries Covered</span>
+                </div>
+                <div className="itsc-stat-card">
+                  <span className="itsc-stat-val">24/7</span>
+                  <span className="itsc-stat-lbl">Real-Time Support</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="odm-hero__stats odm-anim-slide odm-anim-delay-3">
-            <div className="odm-hero__stat"><span className="odm-hero__stat-num">2000+</span><span className="odm-hero__stat-label">Projects Delivered</span></div>
-            <div className="odm-hero__stat-divider"></div>
-            <div className="odm-hero__stat"><span className="odm-hero__stat-num">1000+</span><span className="odm-hero__stat-label">Global Clients</span></div>
-            <div className="odm-hero__stat-divider"></div>
-            <div className="odm-hero__stat"><span className="odm-hero__stat-num">14+</span><span className="odm-hero__stat-label">Years Experience</span></div>
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       {/* ===== 2. INTRO ===== */}
       <section className="odm-section odm-scroll-reveal">

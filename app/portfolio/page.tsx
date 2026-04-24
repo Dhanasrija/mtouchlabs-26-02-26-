@@ -178,6 +178,7 @@
 // }
 
 import type { Metadata } from "next";
+import "../it-solutions-company/style.css";
 
 export const metadata: Metadata = {
   title: "Portfolio | Web And Mobile App Development",
@@ -227,24 +228,69 @@ export default function Page() {
         .blog-filter-btn.active { background: linear-gradient(135deg,#3B82F6,#4f8ef7) !important; color:#ffffff !important; }
       ` }} />
 
-      {/* Hero Section */}
-      <section className="portfolio-hero" style={{ backgroundImage: "url(/images/portfolio-bg.webp)", backgroundPosition: "center bottom" }} >
-        <div className="container">
-          <div className="row align-items-center">
-            <div className="col-lg-7">
-              <div className="portfolio-hero-content">
-                <h1 data-aos="fade-up" data-aos-delay="200">
-                  Our <span className="highlight-orange">Portfolio</span>
-                </h1>
-                <p data-aos="fade-up" data-aos-delay="400">
-                  See how we transform ideas into powerful digital experiences.
-                </p>
+      {/* ═══════════ HERO (itsc-hero style) ═══════════ */}
+      <div className="itsc-page">
+        <section className="itsc-hero">
+          <div className="itsc-hero-grid" aria-hidden="true" />
+          <div className="itsc-blob itsc-blob-a" aria-hidden="true" />
+          <div className="itsc-blob itsc-blob-b" aria-hidden="true" />
+          <div className="itsc-blob itsc-blob-c" aria-hidden="true" />
+
+          <div className="itsc-container">
+            <div className="itsc-hero-content">
+              <div className="itsc-badge">
+                <span className="itsc-badge-dot" />
+                Our Portfolio
+              </div>
+
+              <h1 className="itsc-h1">
+                Our Portfolio of
+                <br />
+                <span className="itsc-h1-gradient">Digital Experiences</span>
+              </h1>
+
+              <p className="itsc-hero-sub">
+                See how we transform ideas into powerful digital experiences across web, mobile, and
+                enterprise platforms — crafted by our expert{" "}
+                <a className="itsc-inline-link" href="/mobile-app-development-company">
+                  Android, iOS and full-stack teams
+                </a>
+                .
+              </p>
+
+              <div className="itsc-ctas">
+                <a href="/contact-us" className="itsc-btn itsc-btn-primary">
+                  <i className="fa-solid fa-paper-plane" />
+                  Start Your Project
+                </a>
+                <a href="/case-studies" className="itsc-btn itsc-btn-ghost">
+                  View Case Studies
+                  <i className="fa-solid fa-arrow-right" />
+                </a>
+              </div>
+
+              <div className="itsc-stats-grid">
+                <div className="itsc-stat-card">
+                  <span className="itsc-stat-val">500+</span>
+                  <span className="itsc-stat-lbl">Case Studies</span>
+                </div>
+                <div className="itsc-stat-card">
+                  <span className="itsc-stat-val">12</span>
+                  <span className="itsc-stat-lbl">Industry Verticals</span>
+                </div>
+                <div className="itsc-stat-card">
+                  <span className="itsc-stat-val">30+</span>
+                  <span className="itsc-stat-lbl">Tech Stacks Mastered</span>
+                </div>
+                <div className="itsc-stat-card">
+                  <span className="itsc-stat-val">4.9★</span>
+                  <span className="itsc-stat-lbl">Avg. Client Rating</span>
+                </div>
               </div>
             </div>
-            <div className="col-lg-5"></div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       {/* Portfolio Items */}
       <div className="blog-block sec-pad pt80">

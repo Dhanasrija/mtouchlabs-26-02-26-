@@ -345,6 +345,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FAQSchema from "@/components/seo/FAQSchema";
+import "../it-solutions-company/style.css";
 
 export const metadata: Metadata = {
   title: "Software Development Services",
@@ -428,20 +429,69 @@ export default function ServicesPage() {
     <>
       <link href="/css/services.css" rel="stylesheet" />
 
-      {/* ═══ HERO ═══ */}
-      <section className="srv-hero">
-        <div className="srv-inner">
-          <div className="srv-hero-content">
-            <h1 className="srv-hero-title">
-              End-to-End <span className="srv-highlight">Software Development</span><br />Services
-            </h1>
-            <p className="srv-hero-desc">
-              Comprehensive software development services designed to help startups, growing businesses, and enterprise organizations build scalable, secure, and high-performance digital systems.
-            </p>
-            <Link href="/contact-us" className="srv-hero-btn">Let&apos;s Discuss →</Link>
+      {/* ═══════════ HERO (itsc-hero style) ═══════════ */}
+      <div className="itsc-page">
+        <section className="itsc-hero">
+          <div className="itsc-hero-grid" aria-hidden="true" />
+          <div className="itsc-blob itsc-blob-a" aria-hidden="true" />
+          <div className="itsc-blob itsc-blob-b" aria-hidden="true" />
+          <div className="itsc-blob itsc-blob-c" aria-hidden="true" />
+
+          <div className="itsc-container">
+            <div className="itsc-hero-content">
+              <div className="itsc-badge">
+                <span className="itsc-badge-dot" />
+                Software Development Services
+              </div>
+
+              <h1 className="itsc-h1">
+                End-to-End Software Development
+                <br />
+                <span className="itsc-h1-gradient">Services</span>
+              </h1>
+
+              <p className="itsc-hero-sub">
+                Comprehensive software development services designed to help startups, growing businesses,
+                and enterprise organizations build scalable, secure, and high-performance{" "}
+                <Link className="itsc-inline-link" href="/it-services-digital-transformation-company">
+                  digital systems
+                </Link>
+                .
+              </p>
+
+              <div className="itsc-ctas">
+                <Link href="/contact-us" className="itsc-btn itsc-btn-primary">
+                  <i className="fa-solid fa-paper-plane" />
+                  Let&apos;s Discuss
+                </Link>
+                <Link href="/portfolio" className="itsc-btn itsc-btn-ghost">
+                  View Our Work
+                  <i className="fa-solid fa-arrow-right" />
+                </Link>
+              </div>
+
+              <div className="itsc-stats-grid">
+                <div className="itsc-stat-card">
+                  <span className="itsc-stat-val">1500+</span>
+                  <span className="itsc-stat-lbl">Projects Delivered</span>
+                </div>
+                <div className="itsc-stat-card">
+                  <span className="itsc-stat-val">14+</span>
+                  <span className="itsc-stat-lbl">Years of Expertise</span>
+                </div>
+                <div className="itsc-stat-card">
+                  <span className="itsc-stat-val">40+</span>
+                  <span className="itsc-stat-lbl">Global Clients</span>
+                </div>
+                <div className="itsc-stat-card">
+                  <span className="itsc-stat-val">99%</span>
+                  <span className="itsc-stat-lbl">Client Satisfaction</span>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       {/* ═══ LEADING COMPANY ═══ */}
       <section className="srv-leading">

@@ -630,6 +630,7 @@
 
 import type { Metadata } from "next";
 import Script from "next/script";
+import "../it-solutions-company/style.css";
 
 export const metadata: Metadata = {
   title: "Careers | Join Our Software Development Team",
@@ -784,24 +785,69 @@ export default function Page() {
           </div>
         </div>
 
-        {/* ===== 1 · HERO ===== */}
-        <section className="cr-hero">
-          <div className="cr-hero-particles"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-          <div className="cr-hero-inner">
-            <div className="cr-hero-badge cr-anim-up" style={{ animationDelay: "0.15s" }}>
-              <span className="cr-badge-dot"></span> We&apos;re Hiring
+        {/* ═══════════ HERO (itsc-hero style) ═══════════ */}
+        <div className="itsc-page">
+          <section className="itsc-hero">
+            <div className="itsc-hero-grid" aria-hidden="true" />
+            <div className="itsc-blob itsc-blob-a" aria-hidden="true" />
+            <div className="itsc-blob itsc-blob-b" aria-hidden="true" />
+            <div className="itsc-blob itsc-blob-c" aria-hidden="true" />
+
+            <div className="itsc-container">
+              <div className="itsc-hero-content">
+                <div className="itsc-badge">
+                  <span className="itsc-badge-dot" />
+                  We&apos;re Hiring
+                </div>
+
+                <h1 className="itsc-h1">
+                  Build Your Career
+                  <br />
+                  with <span className="itsc-h1-gradient">mTouch Labs</span>
+                </h1>
+
+                <p className="itsc-hero-sub">
+                  Join a passionate team of developers, designers, engineers, and innovators building
+                  world-class software, AI, and{" "}
+                  <a className="itsc-inline-link" href="/it-services-digital-transformation-company">
+                    enterprise solutions
+                  </a>{" "}
+                  for global businesses.
+                </p>
+
+                <div className="itsc-ctas">
+                  <a href="#open-positions" className="itsc-btn itsc-btn-primary">
+                    <i className="fa-solid fa-paper-plane" />
+                    View Open Positions
+                  </a>
+                  <a href="#why-work" className="itsc-btn itsc-btn-ghost">
+                    Our Culture
+                    <i className="fa-solid fa-arrow-right" />
+                  </a>
+                </div>
+
+                <div className="itsc-stats-grid">
+                  <div className="itsc-stat-card">
+                    <span className="itsc-stat-val">50+</span>
+                    <span className="itsc-stat-lbl">Open Positions</span>
+                  </div>
+                  <div className="itsc-stat-card">
+                    <span className="itsc-stat-val">4.8★</span>
+                    <span className="itsc-stat-lbl">Glassdoor Rating</span>
+                  </div>
+                  <div className="itsc-stat-card">
+                    <span className="itsc-stat-val">6</span>
+                    <span className="itsc-stat-lbl">Office Locations</span>
+                  </div>
+                  <div className="itsc-stat-card">
+                    <span className="itsc-stat-val">100%</span>
+                    <span className="itsc-stat-lbl">Learning Budget</span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <h1 className="cr-hero-h1 cr-anim-up" style={{ animationDelay: "0.3s" }}>
-              Build Your <span className="cr-hero-gold">Career</span>
-              <br />
-              with <span className="cr-hero-accent">mTouch Labs</span>
-            </h1>
-            <a href="#open-positions" className="cr-hero-cta cr-anim-up" style={{ animationDelay: "0.5s" }}>
-              View Open Positions <i className="fas fa-chevron-down"></i>
-            </a>
-          </div>
-          <div className="cr-hero-line"></div>
-        </section>
+          </section>
+        </div>
 
         {/* ===== 2 · INTRO ===== */}
         <section className="cr-intro scroll-reveal">

@@ -293,6 +293,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FAQSchema from "@/components/seo/FAQSchema";
+import "../it-solutions-company/style.css";
 
 export const metadata: Metadata = {
   title: "Hire Dedicated Developers in India",
@@ -331,49 +332,69 @@ export default function HireDevelopersInIndia() {
         }}
       />
 
-      {/* ═══ HERO ═══ */}
-      <section className="hd-hero">
-        <div className="hd-heroOrb hd-heroOrb1" />
-        <div className="hd-heroOrb hd-heroOrb2" />
-        <div className="hd-heroOrb hd-heroOrb3" />
-        <div className="hd-heroInner">
-          <div className="hd-heroContent">
-            <div className="hd-heroBadge">
-              <span className="hd-heroBadgeDot" />
-              OFFSHORE DEVELOPMENT · INDIA
-            </div>
-            <h1 className="hd-heroTitle">
-              Hire Dedicated Developers in India —{" "}
-              <span className="hd-hl">Scale Faster</span> with mTouch Labs
-            </h1>
-            <p className="hd-heroDesc">
-              Build your offshore engineering team with pre-vetted developers who integrate seamlessly with your workflow. From MVPs to enterprise platforms — we deliver.
-            </p>
-            <div className="hd-heroCtas">
-              <Link href="/contact-us" className="hd-heroBtnPrimary">Hire Developers →</Link>
-              <Link href="/portfolio" className="hd-heroBtnOutline">View Our Work</Link>
+      {/* ═══════════ HERO (itsc-hero style) ═══════════ */}
+      <div className="itsc-page">
+        <section className="itsc-hero">
+          <div className="itsc-hero-grid" aria-hidden="true" />
+          <div className="itsc-blob itsc-blob-a" aria-hidden="true" />
+          <div className="itsc-blob itsc-blob-b" aria-hidden="true" />
+          <div className="itsc-blob itsc-blob-c" aria-hidden="true" />
+
+          <div className="itsc-container">
+            <div className="itsc-hero-content">
+              <div className="itsc-badge">
+                <span className="itsc-badge-dot" />
+                Offshore Development · India
+              </div>
+
+              <h1 className="itsc-h1">
+                Hire Dedicated Developers in India
+                <br />
+                to <span className="itsc-h1-gradient">Scale Faster</span>
+              </h1>
+
+              <p className="itsc-hero-sub">
+                Build your offshore engineering team with pre-vetted developers who integrate
+                seamlessly with your workflow. From MVPs to{" "}
+                <Link className="itsc-inline-link" href="/it-services-digital-transformation-company">
+                  enterprise platforms
+                </Link>{" "}
+                — we deliver scalable, secure, performance-optimized results.
+              </p>
+
+              <div className="itsc-ctas">
+                <Link href="/contact-us" className="itsc-btn itsc-btn-primary">
+                  <i className="fa-solid fa-paper-plane" />
+                  Hire Developers
+                </Link>
+                <Link href="/portfolio" className="itsc-btn itsc-btn-ghost">
+                  View Our Work
+                  <i className="fa-solid fa-arrow-right" />
+                </Link>
+              </div>
+
+              <div className="itsc-stats-grid">
+                <div className="itsc-stat-card">
+                  <span className="itsc-stat-val">150+</span>
+                  <span className="itsc-stat-lbl">Dedicated Developers</span>
+                </div>
+                <div className="itsc-stat-card">
+                  <span className="itsc-stat-val">60%</span>
+                  <span className="itsc-stat-lbl">Cost Savings</span>
+                </div>
+                <div className="itsc-stat-card">
+                  <span className="itsc-stat-val">48 hr</span>
+                  <span className="itsc-stat-lbl">Team Onboarding</span>
+                </div>
+                <div className="itsc-stat-card">
+                  <span className="itsc-stat-val">95%</span>
+                  <span className="itsc-stat-lbl">Developer Retention</span>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="hd-heroTrust">
-            <div className="hd-heroTrustItem">
-              <div className="hd-heroTrustNum">2000+</div>
-              <div className="hd-heroTrustLabel">Projects</div>
-            </div>
-            <div className="hd-heroTrustItem">
-              <div className="hd-heroTrustNum">1050+</div>
-              <div className="hd-heroTrustLabel">Clients</div>
-            </div>
-            <div className="hd-heroTrustItem">
-              <div className="hd-heroTrustNum">14+</div>
-              <div className="hd-heroTrustLabel">Years</div>
-            </div>
-            <div className="hd-heroTrustItem">
-              <div className="hd-heroTrustNum">99%</div>
-              <div className="hd-heroTrustLabel">Retention</div>
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       {/* ═══ WHY INDIA ═══ */}
       <section className="hd-section hd-whySection">
