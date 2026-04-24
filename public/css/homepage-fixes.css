@@ -1058,8 +1058,53 @@ html.aos-loaded [data-aos] { opacity: 1; }
 }
 
 /* ═══════════════════════════════════════════════════
-   FIX #1: Hero section — NASSCOM badge fully visible
+   FIX #1: Hero section — NASSCOM badge fully visible on ALL devices
+   SVG intrinsic size: 266 × 70  (aspect-ratio ~3.8:1)
+   Strategy: never use fixed max-height + max-width combos that clip;
+   instead let width drive, preserve aspect-ratio via object-fit:contain,
+   and ensure parents never clip the badge.
    ═══════════════════════════════════════════════════ */
+
+/* Base / desktop safety net — applies at all widths */
+.mtl-new-hero {
+  overflow: visible !important;
+}
+.hero-inner {
+  overflow: visible !important;
+}
+.mtl-new-hero-badge {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  max-width: 320px !important;
+  margin: 0 auto 14px !important;
+  padding: 0 !important;
+  overflow: visible !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+.mtl-new-hero-badge img {
+  display: block !important;
+  width: auto !important;
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: 70px !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .mtl-new-hero-badge {
+    max-width: 300px !important;
+  }
+  .mtl-new-hero-badge img {
+    max-height: 64px !important;
+  }
+}
+
+/* Mobile landscape / small tablet */
 @media (max-width: 768px) {
   .mtl-new-hero {
     padding-top: 20px !important;
@@ -1068,33 +1113,57 @@ html.aos-loaded [data-aos] { opacity: 1; }
     overflow: visible !important;
   }
   .mtl-new-hero-badge {
-    margin-bottom: 16px !important;
-    display: inline-flex !important;
+    margin: 0 auto 16px !important;
+    display: flex !important;
     visibility: visible !important;
     opacity: 1 !important;
     animation: none !important;
-    max-width: 95% !important;
+    max-width: 280px !important;
+    width: 100% !important;
+    padding: 0 12px !important;
+    box-sizing: border-box !important;
   }
   .mtl-new-hero-badge img {
-    max-height: 55px !important;
+    width: 100% !important;
     max-width: 260px !important;
-    width: auto !important;
+    max-height: 68px !important;
+    height: auto !important;
     display: block !important;
     object-fit: contain !important;
+    margin: 0 auto !important;
   }
   .hero-inner {
     transform: none !important;
     padding-top: 0 !important;
+    overflow: visible !important;
   }
 }
+
+/* Small phones */
 @media (max-width: 480px) {
   .mtl-new-hero {
     padding-top: 16px !important;
     padding-bottom: 30px !important;
   }
+  .mtl-new-hero-badge {
+    max-width: 240px !important;
+    padding: 0 8px !important;
+  }
   .mtl-new-hero-badge img {
-    max-height: 48px !important;
     max-width: 220px !important;
+    max-height: 58px !important;
+  }
+}
+
+/* Very small phones (iPhone SE, Galaxy Fold, etc.) */
+@media (max-width: 360px) {
+  .mtl-new-hero-badge {
+    max-width: 200px !important;
+    padding: 0 6px !important;
+  }
+  .mtl-new-hero-badge img {
+    max-width: 184px !important;
+    max-height: 48px !important;
   }
 }
 
