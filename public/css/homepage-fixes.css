@@ -2023,3 +2023,84 @@ html.aos-loaded [data-aos] { opacity: 1; }
   }
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   FINAL HERO — NASSCOM badge bullet-proof sizing (top of cascade)
+   ───────────────────────────────────────────────────────────────
+   Earlier blocks (lines 829-848 vs 1108-1140 vs 1142-1168) fight
+   each other — one says max-height:40px, another 68px. Result on
+   real devices is the badge sometimes rendering cropped because the
+   image gets sized by max-height alone instead of by width with the
+   correct aspect ratio.
+
+   Rules below win because they appear last in source order and use
+   !important. Strategy:
+     • Drive sizing by max-width only.
+     • Lock proportions with aspect-ratio: 266 / 70 (the SVG's intrinsic
+       viewBox), so height auto-derives correctly on every viewport.
+     • Never set max-height (it fights aspect-ratio).
+     • Guarantee no ancestor clips and the sticky navbar can't overlap
+       the badge on small screens.
+   =============================================================== */
+body .mtl-new-hero,
+body .mtl-new-hero .hero-inner,
+body .mtl-new-hero-badge {
+  overflow: visible !important;
+}
+
+body .mtl-new-hero-badge {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  margin: 0 auto 14px !important;
+  padding: 0 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+body .mtl-new-hero-badge img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;       /* ← critical: lets aspect-ratio drive the height cleanly */
+  aspect-ratio: 266 / 70 !important; /* matches the SVG viewBox so it never distorts or crops */
+  object-fit: contain !important;
+  object-position: center !important;
+  margin: 0 auto !important;
+}
+
+/* Per-breakpoint width caps (height auto-follows from aspect-ratio) */
+body .mtl-new-hero-badge { max-width: 320px !important; }
+
+@media (max-width: 1024px) {
+  body .mtl-new-hero-badge { max-width: 300px !important; }
+}
+
+@media (max-width: 768px) {
+  body .mtl-new-hero {
+    /* On mobile the sticky/fixed navbar can sit ~60-72px tall — make sure
+       the hero starts well below it so the badge isn't covered. */
+    padding-top: 80px !important;
+    padding-bottom: 40px !important;
+  }
+  body .mtl-new-hero-badge {
+    max-width: 280px !important;
+    margin-bottom: 16px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  body .mtl-new-hero {
+    padding-top: 72px !important;
+    padding-bottom: 32px !important;
+  }
+  body .mtl-new-hero-badge { max-width: 240px !important; }
+}
+
+@media (max-width: 360px) {
+  body .mtl-new-hero {
+    padding-top: 64px !important;
+  }
+  body .mtl-new-hero-badge { max-width: 200px !important; }
+}
+

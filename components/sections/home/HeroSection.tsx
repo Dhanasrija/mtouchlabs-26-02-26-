@@ -67,7 +67,10 @@
 import Link from "next/link";
 
 export default function HeroSection() {
-  const line1 = "A Software Development Company Delivering".split(" ");
+  // Strictly two lines on the homepage hero.
+  // Line 1: "Software Development Company Delivering"
+  // Line 2: "Scalable IT Solutions & AI Innovation"
+  const line1 = "Software Development Company Delivering".split(" ");
   const line2 = "Scalable IT Solutions & AI Innovation".split(" ");
 
   const subtitle =
