@@ -73,6 +73,7 @@ export default function ClutchPage() {
 
       {/* ════════ HERO ════════ */}
       <ServiceHero
+        badge="Clutch Reviews"
         titleLead="Love What We Do?"
         titleAccent="Rate Us!"
         description={<>Your honest feedback helps us improve and helps other businesses find the right technology partner.</>}
