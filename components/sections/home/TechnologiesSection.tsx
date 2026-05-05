@@ -95,11 +95,11 @@ const tabs = [
   { id: "devops",          label: "DevOps" },
   { id: "platforms",       label: "Platforms" },
   { id: "databases",       label: "Relational Database" },
-  { id: "bigdata",         label: "Bigdata" },
+  { id: "bigdata",         label: "Big Data" },
   { id: "cloud",           label: "Cloud" },
   { id: "automation",      label: "Automation tools" },
   { id: "machinelearning", label: "Machine Learning" },
-  { id: "security",        label: "Information security" },
+  { id: "security",        label: "Information Security" },
 ];
 
 const tabIconPaths: Record<string, string> = {

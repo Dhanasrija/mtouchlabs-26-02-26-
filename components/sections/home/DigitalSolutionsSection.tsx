@@ -327,7 +327,7 @@ export default function DigitalSolutionsSection() {
           </h2>
 
           <p className="fds-subtitle fds-fade-up" style={{ animationDelay: "0.9s" }}>
-            ISO-Certified Enterprise IT company
+            ISO-Certified Enterprise IT Company
           </p>
         </div>
 

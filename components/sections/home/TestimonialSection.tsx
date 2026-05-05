@@ -272,7 +272,7 @@ const testimonials = [
   {
     flag: "/images/testimonial/testimonial_ind.png",
     flagAlt: "India flag",
-    text: "Have partnered with mTouch Labs for the development of the Sacchi application, and I'm pleased to share that the project went exceptionally well from start to finish.",
+    text: "We have partnered with mTouch Labs for the development of the Sacchi application, and I'm pleased to share that the project went exceptionally well from start to finish.",
     name: "Pavan HK",
     role: "General Manager",
     logo: "/images/testimonial/testimonial_saachi.png",
@@ -292,7 +292,7 @@ const testimonials = [
   {
     flag: "/images/testimonial/testimonial_ind.png",
     flagAlt: "India flag",
-    text: "mTouch Labs made the Dr.Pick App development seamless. They understood our healthcare vision and delivered an intuitive, and patient-friendly platform with great commitment and timely execution.",
+    text: "mTouch Labs made the Dr. Pick app development seamless. They understood our healthcare vision and delivered an intuitive, and patient-friendly platform with great commitment and timely execution.",
     name: "Dr.Vishnu",
     role: "Managing Director",
     logo: "/images/testimonial/drpick.png",

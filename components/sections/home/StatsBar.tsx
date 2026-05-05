@@ -150,7 +150,7 @@ export default function StatsBar() {
           <div className="mtl-stat-number">
             <DigitBlurCounter value={yearsVal} end={14} suffix="+" delay={0.5} />
           </div>
-          <div className="mtl-stat-label">Years Industry<br />Experience</div>
+          <div className="mtl-stat-label">Years of Industry<br />Experience</div>
         </div>
 
         <div className={`mtl-stat-item mtl-stat-fade${isStatsInView ? " in-view" : ""}`} style={{ animationDelay: "0.4s" }}>
@@ -174,7 +174,7 @@ export default function StatsBar() {
               </span>
             ))}
           </div>
-          <div className="mtl-stat-label">3,595 Rating</div>
+          <div className="mtl-stat-label">3,595 Ratings</div>
         </div>
       </div>
     </div>

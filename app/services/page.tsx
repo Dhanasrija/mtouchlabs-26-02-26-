@@ -58,7 +58,7 @@
 //   { icon: "education.png", label: "Education" },
 //   { icon: "events.png", label: "Events" },
 //   { icon: "home.png", label: "Real Estate" },
-//   { icon: "game.png", label: "Game" },
+//   { icon: "game.png", label: "Gaming" },
 //   { icon: "restaurant.png", label: "Restaurant" },
 //   { icon: "grocery.png", label: "Grocery" },
 //   { icon: "toursandtrvel.png", label: "Manufacturing" },
@@ -117,7 +117,7 @@
 //           <div className="services_design_header" style={{ textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
 //             <div className="services_design_title_group" style={{ maxWidth: "800px", margin: "0 auto" }}>
 //               <h2 className="services_design_title" style={{ textAlign: "center" }}><span className="highlight-blue">Design</span> Services</h2>
-//               <p className="services_design_subtitle" style={{ textAlign: "center" }}>We create <b>customer-centric</b> designs for web and mobile applications focused on clarity, usability, and conversion optimization.</p>
+//               <p className="services_design_subtitle" style={{ textAlign: "center" }}>We create <b>customer-centric</b> designs for web and mobile applications, focusing on clarity, usability, and conversion optimization.</p>
 //             </div>
 //           </div>
 //           <div className="services_design_grid">
@@ -141,7 +141,7 @@
 //         <div className="container">
 //           <div className="services_dev_header" style={{ textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
 //             <h2 className="services_dev_title" style={{ textAlign: "center" }}><span className="highlight-blue">Development</span> Services</h2>
-//             <p className="services_dev_subtitle" style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto" }}>We deliver result-driven, customized web application development, mobile app development, custom software engineering, and SaaS platform services with utmost professionalism.</p>
+//             <p className="services_dev_subtitle" style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto" }}>We deliver results-driven, customized web application development, mobile app development, custom software engineering, and SaaS platform services with utmost professionalism.</p>
 //           </div>
 //           <div className="dev_cards_grid">
 //             <div className="dev_card">
@@ -217,7 +217,7 @@
 //           <div className="sec-header">
 //             <h2 className="section-title">Software Development<br /><span className="highlight">Process We Follow</span></h2>
 //             <div className="process_subtitle_wrapper">
-//               <p className="section-sub"><b>Our software development team</b> follows an agile methodology to ensure a successful, on-time launch of your application to market.</p>
+//               <p className="section-sub"><b>Our software development team</b> follows an agile methodology to ensure a successful, on-time launch of your application to the market.</p>
 //             </div>
 //           </div>
 //           <div className="process-wrapper">
@@ -409,7 +409,7 @@ const industries = [
   { icon: "education.png", label: "Education" },
   { icon: "events.png", label: "Events" },
   { icon: "home.png", label: "Real Estate" },
-  { icon: "game.png", label: "Game" },
+  { icon: "game.png", label: "Gaming" },
   { icon: "restaurant.png", label: "Restaurant" },
   { icon: "grocery.png", label: "Grocery" },
   { icon: "toursandtrvel.png", label: "Manufacturing" },
@@ -441,7 +441,7 @@ export default function ServicesPage() {
             <div className="itsc-hero-content">
               <div className="itsc-badge">
                 <span className="itsc-badge-dot" />
-                Software Development Services
+                Our Services
               </div>
 
               <h1 className="itsc-h1">
@@ -487,7 +487,7 @@ export default function ServicesPage() {
             <h3 className="srv-leading-subtitle">Proven Track Record</h3>
           </div>
           <div className="srv-stats-row">
-            <div className="srv-stat-box"><div className="srv-stat-num">1500+</div><div className="srv-stat-label">Mobile Apps<br/>Developed</div></div>
+            <div className="srv-stat-box"><div className="srv-stat-num">1,500+</div><div className="srv-stat-label">Mobile Apps<br/>Developed</div></div>
             <div className="srv-stat-box"><div className="srv-stat-num">820+</div><div className="srv-stat-label">Websites<br/>Developed</div></div>
             <div className="srv-stat-box"><div className="srv-stat-num">700+</div><div className="srv-stat-label">Unique Features<br/>Implemented</div></div>
           </div>
@@ -499,7 +499,7 @@ export default function ServicesPage() {
         <div className="srv-inner">
           <div className="srv-section-header">
             <h2 className="srv-section-title"><span className="srv-highlight-blue">Design</span> Services</h2>
-            <p className="srv-section-desc">We create <b>customer-centric</b> designs for web and mobile applications focused on clarity, usability, and conversion optimization.</p>
+            <p className="srv-section-desc">We create <b>customer-centric</b> designs for web and mobile applications, focusing on clarity, usability, and conversion optimization.</p>
           </div>
           <div className="srv-design-grid">
             <div><img src="/images/serviceImg/design_services.png" alt="Design Services — mTouch Labs" className="srv-design-img" /></div>
@@ -520,7 +520,7 @@ export default function ServicesPage() {
         <div className="srv-inner">
           <div className="srv-section-header">
             <h2 className="srv-section-title"><span className="srv-highlight-blue">Development</span> Services</h2>
-            <p className="srv-section-desc">We deliver result-driven, customized web application development, mobile app development, custom software engineering, and SaaS platform services.</p>
+            <p className="srv-section-desc">We deliver results-driven, customized web application development, mobile app development, custom software engineering, and SaaS platform services.</p>
           </div>
           <div className="srv-dev-grid">
             {devServices.map((s) => (
@@ -561,7 +561,7 @@ export default function ServicesPage() {
         <div className="srv-inner">
           <div className="srv-section-header">
             <h2 className="srv-section-title"><span className="srv-highlight">Software Development</span> Process We Follow</h2>
-            <p className="srv-section-desc"><b>Our software development team</b> follows an agile methodology to ensure a successful, on-time launch of your application to market.</p>
+            <p className="srv-section-desc"><b>Our software development team</b> follows an agile methodology to ensure a successful, on-time launch of your application to the market.</p>
           </div>
           <div className="srv-process-row">
             <button className="srv-process-scroll-btn" id="srvScrollLeft"><i className="fas fa-chevron-left"></i></button>

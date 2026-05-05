@@ -370,7 +370,6 @@ export default function Footer() {
                 <li><a href="/software-development-company-singapore">Singapore</a></li>
                 <li><a href="/software-development-company-australia">Australia</a></li>
                 <li><a href="/software-development-company-new-zealand">New Zealand</a></li>
-                <li><a href="/software-development-company-india">India</a></li>
               </ul>
             </div>
             <div className="ft-region">

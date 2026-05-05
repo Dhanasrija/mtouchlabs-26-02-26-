@@ -92,16 +92,20 @@ export default function AISolutionsSection() {
 
               {/* Title and Description Below Image */}
               <div style={{ flexGrow: 1 }}>
-                <BlurText
-                  text={card.title}
-                  delay={0.1 + i * 0.08}
-                  className="ais-card-title"
-                />
-                <BlurText
-                  text={card.desc}
-                  delay={0.15 + i * 0.08}
-                  className="ais-card-desc"
-                />
+                <div style={{ display: "block" }}>
+                  <BlurText
+                    text={card.title}
+                    delay={0.1 + i * 0.08}
+                    className="ais-card-title"
+                  />
+                </div>
+                <div style={{ display: "block", marginTop: "8px" }}>
+                  <BlurText
+                    text={card.desc}
+                    delay={0.15 + i * 0.08}
+                    className="ais-card-desc"
+                  />
+                </div>
               </div>
             </div>
           ))}

@@ -702,6 +702,8 @@ export default function Page() {
             <button className="crm-close" id="closeCareerModal" aria-label="Close apply form" type="button">&times;</button>
             <h2 className="crm-title">Apply for this Role</h2>
             <form id="careerApplyForm" noValidate>
+              {/* Hidden — captured from the job card the user clicks "Apply Now" on. Sent to xCRM /hr/apply. */}
+              <input type="hidden" name="openingId" id="applyOpeningId" defaultValue="" />
               <div className="crm-field">
                 <label>Full Name <span className="crm-req">*</span></label>
                 <div className="crm-input-wrap">
@@ -747,14 +749,22 @@ export default function Page() {
                 <span className="crm-error" id="err-role"></span>
               </div>
               <div className="crm-field">
-                <label>Resume <span className="crm-hint">(PDF, DOC, DOCX — max 5 MB)</span></label>
+                <label>Resume <span className="crm-req">*</span> <span className="crm-hint">(PDF, DOC, DOCX — max 5 MB)</span></label>
                 <div className="crm-file-wrap" id="fileDropZone">
                   <i className="fas fa-cloud-upload-alt"></i>
                   <p>Drag &amp; drop or <span className="crm-file-browse">browse</span></p>
                   <p className="crm-file-name" id="fileName"></p>
-                  <input type="file" name="resume" accept=".pdf,.doc,.docx" id="resumeInput" />
+                  <input type="file" name="resume" accept=".pdf,.doc,.docx" id="resumeInput" required />
                 </div>
                 <span className="crm-error" id="err-resume"></span>
+              </div>
+              <div className="crm-field">
+                <label>Total Experience (Years) <span className="crm-req">*</span></label>
+                <div className="crm-input-wrap">
+                  <i className="fas fa-briefcase"></i>
+                  <input type="number" name="experience" placeholder="e.g. 3" required min={0} max={50} step="0.5" />
+                </div>
+                <span className="crm-error" id="err-experience"></span>
               </div>
               <div className="crm-field">
                 <label>Message <span className="crm-req">*</span></label>
@@ -983,19 +993,88 @@ function init(){
   var modal=document.getElementById('careerFormModal'),closeBtn=document.getElementById('closeCareerModal'),detailsModal=document.getElementById('jobDetailsModal'),closeDetailsBtn=document.getElementById('closeJobDetailsModal'),applyFromDetailsBtn=document.getElementById('applyFromDetails');
   if(!modal||!closeBtn)return setTimeout(init,300);
 
-  var jobs=[
-    {role:'Full Stack Developer',positions:2,exp:'1-3 Years',location:'Hyderabad',desc:'Build end-to-end web applications using React/Next.js frontend and Node.js/Java backend technologies.'},
-    {role:'React & Node.js Developer',positions:2,exp:'1-3 Years',location:'Hyderabad',desc:'Create interactive user interfaces using React.js with Node.js backend, state management, and component-based architecture.'},
-    {role:'Mobile App Developer (iOS, Android, Hybrid)',positions:2,exp:'1+ Years',location:'Bangalore',desc:'Develop cross-platform mobile applications using Flutter, React Native, or native iOS/Android frameworks.'},
-    {role:'Salesforce Developer',positions:1,exp:'2-4 Years',location:'Bangalore',desc:'Develop and customize Salesforce solutions including Apex, Lightning components, and integration with enterprise systems.'},
-    {role:'DevOps Engineer',positions:1,exp:'2-4 Years',location:'Hyderabad',desc:'Manage CI/CD pipelines, cloud infrastructure (AWS/Azure/GCP), containerization, and deployment automation.'},
-    {role:'QA & Automation Engineer',positions:1,exp:'0-2 Years',location:'Hyderabad',desc:'Execute test cases, develop automation scripts, and ensure software quality through manual and automated testing.'},
-    {role:'AI / Machine Learning Engineer',positions:1,exp:'2-4 Years',location:'Remote',desc:'Design and implement AI/ML models, work with NLP, computer vision, and deploy intelligent solutions at scale.'},
-    {role:'UI/UX Designer',positions:1,exp:'1-3 Years',location:'Hyderabad',desc:'Design intuitive user experiences and pixel-perfect interfaces using Figma and modern design principles.'},
-    {role:'Project Manager',positions:1,exp:'4-6 Years',location:'Hyderabad',desc:'Oversee project delivery, coordinate cross-functional teams, and ensure timely completion of milestones.'}
-  ];
+  /* Live data — populated from xCRM GET /hr/getallopening on init() */
+  var jobs = [];
 
-  var PAGE_SIZE=6,currentPage=0,filteredJobs=jobs.slice(),currentDetailsRole='';
+  var OPENINGS_API_URL = 'https://xcrmapi.mtouchlabs.com/hr/getallopening';
+  var PAGE_SIZE=6,currentPage=0,filteredJobs=jobs.slice(),currentDetailsRole='',currentDetailsOpeningId='';
+
+  /* Strip HTML tags for safe display in card preview */
+  function stripHtml(html){
+    if(!html) return '';
+    var tmp = document.createElement('div');
+    tmp.innerHTML = html;
+    var text = (tmp.textContent || tmp.innerText || '').replace(/\\s+/g,' ').trim();
+    return text;
+  }
+
+  /* Build "exp_from-exp_to Years" label, with sensible fallbacks */
+  function formatExperience(from, to){
+    if(from == null && to == null) return 'Experience not specified';
+    if(from == null) return '0-' + to + ' Years';
+    if(to == null || to === from) return from + '+ Years';
+    return from + '-' + to + ' Years';
+  }
+
+  /* Map a raw xCRM opening into the shape the rest of the script already understands */
+  function mapOpening(o){
+    return {
+      id: o.id,
+      role: o.title || 'Untitled Role',
+      positions: typeof o.positions === 'number' ? o.positions : (parseInt(o.positions,10) || 1),
+      exp: formatExperience(o.exp_from, o.exp_to),
+      expFrom: o.exp_from,
+      expTo: o.exp_to,
+      location: (o.location || '').trim() || 'Hyderabad',
+      descHtml: o.description || '',
+      descText: stripHtml(o.description || '').slice(0, 180) + (stripHtml(o.description || '').length > 180 ? '…' : ''),
+      salaryFrom: o.salary_from,
+      salaryTo: o.salary_to,
+      closingDate: o.closingdate
+    };
+  }
+
+  /* Populate the location & role filter dropdowns from live data so user can filter
+     by whatever the xCRM is actually returning instead of stale hardcoded values. */
+  function rebuildFilterOptions(){
+    var locSel = document.getElementById('opFilterLocation');
+    var roleSel = document.getElementById('opFilterRole');
+    if(!locSel || !roleSel) return;
+    var locs = {}, roles = {};
+    jobs.forEach(function(j){
+      if(j.location) locs[j.location] = true;
+      if(j.role) roles[j.role] = true;
+    });
+    locSel.innerHTML = '<option value="">All Locations</option>' +
+      Object.keys(locs).map(function(l){ return '<option value="' + l.replace(/"/g,'&quot;') + '">' + l + '</option>'; }).join('');
+    roleSel.innerHTML = '<option value="">All Roles</option>' +
+      Object.keys(roles).map(function(r){ return '<option value="' + r.replace(/"/g,'&quot;') + '">' + r + '</option>'; }).join('');
+  }
+
+  function fetchOpenings(){
+    var grid = document.getElementById('opCardsGrid');
+    var noRes = document.getElementById('opNoResults');
+    if(grid){ grid.innerHTML = '<div class="cr-jobs-loading" style="grid-column:1/-1;padding:40px;text-align:center;color:#6b7280;"><i class="fas fa-spinner fa-spin"></i> Loading open positions…</div>'; }
+    return fetch(OPENINGS_API_URL, { method: 'GET', cache: 'no-store' })
+      .then(function(r){ if(!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function(payload){
+        var list = (payload && payload.data) ? payload.data : [];
+        /* Drop archived / soft-deleted / disabled entries defensively */
+        list = list.filter(function(o){ return o && o.status !== false && !o.isdeleted && !o.isArchived; });
+        jobs = list.map(mapOpening);
+        filteredJobs = jobs.slice();
+        currentPage = 0;
+        rebuildFilterOptions();
+        /* Re-init custom dropdowns to pick up the new <option>s */
+        try { initCustomDropdowns(); } catch(e){}
+        renderCards();
+      })
+      .catch(function(err){
+        console.error('[Careers] Failed to fetch openings:', err);
+        if(grid){ grid.innerHTML = ''; }
+        if(noRes){ noRes.textContent = 'Unable to load open positions right now. Please try again later.'; noRes.style.display = 'block'; }
+      });
+  }
 
   function renderCards(){
     var grid=document.getElementById('opCardsGrid'),noRes=document.getElementById('opNoResults'),pag=document.getElementById('opPagination');
@@ -1005,12 +1084,14 @@ function init(){
     noRes.style.display='none';
     var h='';
     pageJobs.forEach(function(job,idx){
+      var posStr = (job.positions < 10 ? '0' : '') + job.positions;
+      var safeRole = String(job.role).replace(/"/g,'&quot;');
       h+='<div class="cr-job-card">';
       h+='<div class="cr-job-card-top"><div class="cr-job-card-logo"><img src="/images/favicon.png" alt="mTouch Labs"/></div><span class="cr-job-card-loc"><i class="fas fa-map-marker-alt"></i> '+job.location+'</span></div>';
       h+='<h3 class="cr-job-card-title">'+job.role+'</h3>';
-      h+='<div class="cr-job-card-meta"><span><i class="fas fa-users"></i> 0'+job.positions+' Position'+(job.positions>1?'s':'')+'</span><span><i class="fas fa-briefcase"></i> '+job.exp+'</span></div>';
-      h+='<p class="cr-job-card-desc">'+job.desc+'</p>';
-      h+='<div class="cr-job-card-actions"><button class="cr-btn-details" data-idx="'+(start+idx)+'">View Details</button><button class="cr-btn-apply" data-role="'+job.role+'">Apply Now</button></div>';
+      h+='<div class="cr-job-card-meta"><span><i class="fas fa-users"></i> '+posStr+' Position'+(job.positions>1?'s':'')+'</span><span><i class="fas fa-briefcase"></i> '+job.exp+'</span></div>';
+      h+='<p class="cr-job-card-desc">'+job.descText+'</p>';
+      h+='<div class="cr-job-card-actions"><button class="cr-btn-details" data-idx="'+(start+idx)+'">View Details</button><button class="cr-btn-apply" data-role="'+safeRole+'" data-opening-id="'+job.id+'">Apply Now</button></div>';
       h+='</div>';
     });
     grid.innerHTML=h;
@@ -1119,11 +1200,45 @@ function init(){
   initCustomDropdowns();
   document.addEventListener('click',function(e){if(e.target.classList.contains('cr-dot')){currentPage=parseInt(e.target.getAttribute('data-page'));renderCards();}});
 
-  document.addEventListener('click',function(e){var btn=e.target.closest('.cr-btn-details');if(!btn)return;var idx=parseInt(btn.getAttribute('data-idx')),job=filteredJobs[idx];if(!job)return;currentDetailsRole=job.role;document.getElementById('jobDetailsTitle').textContent=job.role;document.getElementById('jobDetailsContent').innerHTML='<div class="crm-detail-row"><span class="crm-detail-label">Location</span><span>'+job.location+'</span></div><div class="crm-detail-row"><span class="crm-detail-label">Experience</span><span>'+job.exp+'</span></div><div class="crm-detail-row"><span class="crm-detail-label">Open Positions</span><span>0'+job.positions+'</span></div><div class="crm-detail-desc"><p><strong>Description</strong></p><p>'+job.desc+'</p></div>';detailsModal.classList.add('active');document.body.style.overflow='hidden';});
-  document.addEventListener('click',function(e){var btn=e.target.closest('.cr-btn-apply');if(!btn)return;openApplyModal(btn.getAttribute('data-role')||'');});
-  applyFromDetailsBtn.addEventListener('click',function(){detailsModal.classList.remove('active');openApplyModal(currentDetailsRole);});
+  document.addEventListener('click',function(e){
+    var btn=e.target.closest('.cr-btn-details'); if(!btn) return;
+    var idx=parseInt(btn.getAttribute('data-idx')), job=filteredJobs[idx]; if(!job) return;
+    currentDetailsRole = job.role;
+    currentDetailsOpeningId = job.id;
+    var posStr = (job.positions < 10 ? '0' : '') + job.positions;
+    document.getElementById('jobDetailsTitle').textContent = job.role;
+    document.getElementById('jobDetailsContent').innerHTML =
+      '<div class="crm-detail-row"><span class="crm-detail-label">Location</span><span>'+job.location+'</span></div>'+
+      '<div class="crm-detail-row"><span class="crm-detail-label">Experience</span><span>'+job.exp+'</span></div>'+
+      '<div class="crm-detail-row"><span class="crm-detail-label">Open Positions</span><span>'+posStr+'</span></div>'+
+      '<div class="crm-detail-desc">'+(job.descHtml || '<p>'+job.descText+'</p>')+'</div>';
+    detailsModal.classList.add('active');
+    document.body.style.overflow='hidden';
+  });
+  document.addEventListener('click',function(e){
+    var btn=e.target.closest('.cr-btn-apply'); if(!btn) return;
+    openApplyModal(btn.getAttribute('data-role')||'', btn.getAttribute('data-opening-id')||'');
+  });
+  applyFromDetailsBtn.addEventListener('click',function(){
+    detailsModal.classList.remove('active');
+    openApplyModal(currentDetailsRole, currentDetailsOpeningId);
+  });
 
-  function openApplyModal(role){var rs=modal.querySelector('select[name="role"]');if(rs&&role)rs.value=role;clearAllErrors();modal.classList.add('active');document.body.style.overflow='hidden';}
+  function openApplyModal(role, openingId){
+    var rs = modal.querySelector('select[name="role"]');
+    if(rs && role){
+      /* Make sure the option exists (live data may bring titles not in the static <option> list). */
+      var has = false;
+      for(var i=0;i<rs.options.length;i++){ if(rs.options[i].value === role){ has = true; break; } }
+      if(!has){ var opt = document.createElement('option'); opt.value = role; opt.textContent = role; rs.appendChild(opt); }
+      rs.value = role;
+    }
+    var oid = document.getElementById('applyOpeningId');
+    if(oid) oid.value = openingId || '';
+    clearAllErrors();
+    modal.classList.add('active');
+    document.body.style.overflow='hidden';
+  }
   closeBtn.addEventListener('click',function(){modal.classList.remove('active');document.body.style.overflow='';});
   modal.addEventListener('click',function(e){if(e.target===modal){modal.classList.remove('active');document.body.style.overflow='';}});
   closeDetailsBtn.addEventListener('click',function(){detailsModal.classList.remove('active');document.body.style.overflow='';});
@@ -1216,7 +1331,7 @@ function init(){
 
   function showErr(id,msg){var el=document.getElementById(id);if(el){el.textContent=msg;el.style.display='block';}}
   function hideErr(id){var el=document.getElementById(id);if(el){el.textContent='';el.style.display='none';}}
-  function clearAllErrors(){['err-name','err-email','err-mobile','err-role','err-resume','err-message','err-captcha'].forEach(hideErr);}
+  function clearAllErrors(){['err-name','err-email','err-mobile','err-role','err-resume','err-experience','err-message','err-captcha'].forEach(hideErr);}
   function shakeField(name){var w=modal.querySelector('[name="'+name+'"]');if(w){var p=w.closest('.crm-input-wrap')||w.closest('.crm-field')||w;p.classList.add('shake');setTimeout(function(){p.classList.remove('shake');},500);}}
 
   var emailRe=/^[a-zA-Z0-9._%+\\-]+@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]{2,}$/;
@@ -1313,14 +1428,40 @@ function init(){
     /* Role */
     if(!role){ showErr('err-role','Please select a role'); valid = false; }
 
-    /* Resume */
-    if(resume){
+    /* Resume — REQUIRED */
+    if(!resume){
+      showErr('err-resume','Please upload your resume (PDF, DOC, or DOCX)');
+      valid = false;
+    } else {
       var ext = resume.name.split('.').pop().toLowerCase();
       if(['pdf','doc','docx'].indexOf(ext)===-1){
         showErr('err-resume','Only PDF, DOC, DOCX files allowed'); valid = false;
       } else if(resume.size > 5*1024*1024){
         showErr('err-resume','File size must be under 5 MB'); valid = false;
+      } else if(resume.size === 0){
+        showErr('err-resume','The file appears to be empty. Please upload a valid resume.');
+        valid = false;
       }
+    }
+
+    /* Experience — required by xCRM /hr/apply */
+    var expRaw = f.experience.value.trim();
+    if(!expRaw){
+      showErr('err-experience','Please enter your total experience in years');
+      shakeField('experience'); valid = false;
+    } else {
+      var expNum = parseFloat(expRaw);
+      if(isNaN(expNum) || expNum < 0 || expNum > 50){
+        showErr('err-experience','Experience must be a number between 0 and 50');
+        shakeField('experience'); valid = false;
+      }
+    }
+
+    /* openingId — set when user clicks "Apply Now" on a card. Should never be empty. */
+    var oid = document.getElementById('applyOpeningId');
+    if(!oid || !oid.value){
+      showErr('err-role','Please choose a role from the open positions list above');
+      valid = false;
     }
 
     /* Message */
@@ -1446,7 +1587,8 @@ function init(){
 
   function showToast(msg,type){var t=document.createElement('div');t.className='cr-toast cr-toast-'+type;t.innerHTML='<i class="fas fa-'+(type==='success'?'check-circle':'exclamation-circle')+'"></i><span>'+msg+'</span>';document.body.appendChild(t);setTimeout(function(){t.classList.add('show');},10);setTimeout(function(){t.classList.remove('show');setTimeout(function(){t.remove();},400);},3500);}
 
-  renderCards();
+  /* Fetch live openings from xCRM on first load. */
+  fetchOpenings();
 
   var revSections=document.querySelectorAll('.scroll-reveal');
   if(revSections.length){var sObs=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('revealed');entry.target.querySelectorAll('.sr-card').forEach(function(c){c.classList.add('sr-card-visible');});sObs.unobserve(entry.target);}});},{threshold:0.1,rootMargin:'0px 0px -30px 0px'});revSections.forEach(function(s){sObs.observe(s);});}

@@ -230,7 +230,7 @@ export default function WhoWeWorkWithSection() {
 
             <div className="target-audience-content">
               <h3 className="target-audience-title">Businesses <br /> Migrating to the Cloud</h3>
-              <p className="target-audience-description">Companies moving workloads to AWS, Azure, or GCP seeking secure, scalable cloud architecture.</p>
+              <p className="target-audience-description">Companies moving workloads to AWS, Azure, or GCP and seeking secure, scalable cloud architecture.</p>
             </div>
           </div>
 

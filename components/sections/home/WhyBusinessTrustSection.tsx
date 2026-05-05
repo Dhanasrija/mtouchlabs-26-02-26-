@@ -8,7 +8,7 @@ const features = [
   },
   {
     image: "/images/home/whybusineess/image8.png",
-    title: "Trusted by startups, SMEs & enterprises globally",
+    title: "Trusted by startups, SMEs, and enterprises globally",
   },
   {
     image: "/images/home/whybusineess/image6.png",

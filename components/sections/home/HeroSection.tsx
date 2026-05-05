@@ -67,7 +67,7 @@
 import Link from "next/link";
 
 export default function HeroSection() {
-  const line1 = "Software Development Company Delivering".split(" ");
+  const line1 = "A Software Development Company Delivering".split(" ");
   const line2 = "Scalable IT Solutions & AI Innovation".split(" ");
 
   const subtitle =
@@ -156,7 +156,7 @@ export default function HeroSection() {
           <div className="mtl-new-hero-badge">
             <img
               src="/images/brand-logo/nasscom.svg"
-              alt="Nasscom Award Winner 2026"
+              alt="NASSCOM Award Winner 2026"
             />
           </div>
 

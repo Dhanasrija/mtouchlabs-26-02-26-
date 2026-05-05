@@ -5,7 +5,7 @@ import React, { useEffect, useRef, useCallback } from "react";
 const galleryImages = [
   { src: "/images/hero/Devops.png", alt: "development" },
   { src: "/images/hero/DigitalMarketing.png", alt: "Digital Marketing" },
-  { src: "/images/hero/MobileappDevelopment.png", alt: "Mobile app Development" },
+  { src: "/images/hero/MobileappDevelopment.png", alt: "Mobile App Development" },
   { src: "/images/hero/Salesforce.png", alt: "Software Development" },
   { src: "/images/hero/SMEINSPIRE.png", alt: "SME Inspire" },
   { src: "/images/hero/WebDevelopment.png", alt: "Web Development" },
