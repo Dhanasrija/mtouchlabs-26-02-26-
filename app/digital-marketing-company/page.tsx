@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Digital Marketing Agency in India",
@@ -51,29 +52,14 @@ export default function Page() {
 	
 
 
-		<section className="page-heading-sec r-bg-a pt85 pb120">
-		<div className="container">
-			<div className="row pt80 justify-content-center">
-				<div className="col-lg-6">
-					<div className="page-headings">
-						<span className="sub-heading mb15" data-aos="fade-up" data-aos-delay="200">Best Digital Marketing
-							Company In India</span>
-						<h1 data-aos="fade-up" data-aos-delay="400">Best Digital Marketing Company In India <span
-								className="ree-text rt45">That Increases Your Brand Value </span></h1>
-						<p className="mt20 h-light" data-aos="fade-up" data-aos-delay="400">Strengthen your online presence
-							with our innovative Digital Marketing Services in India</p>
-						<a href="/contact-us" className="ree-btn  ree-btn-grdt1 mt40" data-aos="fade-up"
-							data-aos-delay="800">Let’s discuss <i className="fas fa-arrow-right fa-btn"></i></a>
-					</div>
-				</div>
-				<div className="col-lg-6">
-					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img
-							src="/images/others/strengthen-your-online-presence-with-our-innovative-digital-marketing-services-in-india.svg"
-							alt="mTouch Labs" className="img-fluid" /></div>
-				</div>
-			</div>
-		</div>
-	</section>
+		<ServiceHero
+        badge="That Increases Your Brand Value"
+        titleLead="Best Digital Marketing Company In India"
+        titleAccent="That Increases Your Brand Value"
+        titleTail=""
+        description={<>Strengthen your online presence
+							with our innovative Digital Marketing Services in India</>}
+      />
 	
 
 	

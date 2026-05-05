@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
-
+import ServiceHero from "@/components/sections/ServiceHero";
 export const metadata: Metadata = {
   title: "React Native App Development Company",
   description:
@@ -49,20 +48,13 @@ export default function ReactNativeAppDevelopment() {
         }}
       />
       {/* ===== HERO ===== */}
-      <section className="rn-hero">
-        <div className="rn-hero__inner">
-          <Breadcrumb pagePath="/react-native-app-development-company" />
-          <h1 className="rn-hero__title">
-            React Native <span className="rn-hero__title-accent">App Development</span> Company
-          </h1>
-          <p className="rn-hero__subtitle">
-            High-Performance Cross-Platform Apps with Native Precision
-          </p>
-          <p className="rn-hero__desc">
-            mTouch Labs is a results-oriented React Native app development company delivering scalable, high-performance mobile applications for businesses seeking efficient cross-platform deployment. We build hybrid mobile apps using React Native&apos;s component-based architecture, enabling rapid development while maintaining near-native performance.
-          </p>
-        </div>
-      </section>
+      <ServiceHero
+        badge="React Native"
+        titleLead="React Native"
+        titleAccent="App Development"
+        titleTail="Company"
+        description={<>High-Performance Cross-Platform Apps with Native Precision</>}
+      />
 
       {/* ===== ABOUT ===== */}
       <section className="rn-about">

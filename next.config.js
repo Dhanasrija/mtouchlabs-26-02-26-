@@ -166,7 +166,13 @@ const nextConfig = {
       { source: "/tips-and-trends-to-improve-your-web-design-in-2023", destination: "/blog/tips-and-trends-to-improve-your-web-design-in-2023", permanent: true },
       { source: "/impacts-of-apples-ios-14-app-clips-on-features-and-tools", destination: "/blog/impacts-of-apples-ios-14-app-clips-on-features-and-tools", permanent: true },
       { source: "/key-advantages-of-cross-platform-mobile-app-development", destination: "/blog/key-advantages-of-cross-platform-mobile-app-development", permanent: true },
-      { source: "/navigating-future-custom-software-development-2025", destination: "/blog/navigating-future-custom-software-development-2025", permanent: true },
+      // ── 2026-04-30: legacy custom-software slugs now point to the new comparison article ──
+      { source: "/navigating-future-custom-software-development-2025", destination: "/blog/custom-software-vs-saas", permanent: true },
+      { source: "/blog/navigating-future-custom-software-development-2025", destination: "/blog/custom-software-vs-saas", permanent: true },
+      { source: "/future-of-custom-software-development", destination: "/blog/custom-software-vs-saas", permanent: true },
+      { source: "/blog/future-of-custom-software-development", destination: "/blog/custom-software-vs-saas", permanent: true },
+      // legacy AI-mobile slug — keep the dynamic /slug → /blog/slug behaviour for the refreshed 2026 article
+      { source: "/how-artificial-intelligence-is-transforming-mobile-app-development", destination: "/blog/how-artificial-intelligence-is-transforming-mobile-app-development", permanent: true },
       { source: "/impact-of-ai-on-mobile-app-development-by-2025", destination: "/blog/impact-of-ai-on-mobile-app-development-by-2025", permanent: true },
       { source: "/does-my-business-need-a-mobile-app", destination: "/blog/does-my-business-need-a-mobile-app", permanent: true },
       { source: "/go-crazy-with-smart-phone-mobile-application-development", destination: "/blog/go-crazy-with-smart-phone-mobile-application-development", permanent: true },
@@ -289,6 +295,9 @@ const nextConfig = {
       { source: "/saas-web-platforms", destination: "/saas-development-services", permanent: true },
 
       // --- Cloud / DevOps variants --------------------------------------
+      { source: "/amazon-web-services", destination: "/amazon-web-services-company", permanent: true },
+      { source: "/aws", destination: "/aws-cloud-services", permanent: true },
+      { source: "/aws-services", destination: "/aws-cloud-services", permanent: true },
       { source: "/cloud-native-application-development", destination: "/cloud-services", permanent: true },
       { source: "/cloud-devops-services", destination: "/cloud-services", permanent: true },
       { source: "/marketing-cloud", destination: "/salesforce-sales-cloud-services", permanent: true },
@@ -311,8 +320,10 @@ const nextConfig = {
 
       // --- Android / iOS / case variants --------------------------------
       { source: "/Android", destination: "/android-app-development-company", permanent: true },
-      { source: "/iPad-app-development-company", destination: "/ipad-app-development-company", permanent: true },
-      { source: "/hire-iOS-app-developers-in-india", destination: "/hire-ios-app-developers-in-india", permanent: true },
+      // /iPad-app-development-company case-fix — already handled by middleware lowercasing,
+      // and re-introducing it here causes ERR_TOO_MANY_REDIRECTS because path-to-regexp
+      // matches case-insensitively, so the lowercase target also matches the source.
+      // /hire-iOS-app-developers-in-india case-fix removed — same redirect-loop reason as iPad above.
       { source: "/ios-app-development-", destination: "/ios-app-development-company", permanent: true },
       { source: "/android-app-development-companymtouchlabs.com/ios-app-development-company", destination: "/android-app-development-company", permanent: true },
       { source: "/services/mobile-app-development-company", destination: "/mobile-app-development-company", permanent: true },

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Top PHP Web Development Company in India",
@@ -51,7 +52,13 @@ export default function Page() {
 	
 	
 
-	<section className="AIservices-banner" data-bg="images/new_services/phpbg.webp">
+	<ServiceHero
+		badge="PHP Web Development"
+		titleLead="PHP Web"
+		titleAccent="Development"
+		titleTail="Company"
+		description={<>mTouch Labs is a trusted PHP web development company in India, building high-performance, responsive, and scalable websites tailored to your business goals.</>}
+	/>{/* OLD SECTION
 		<div className="AIservices-banner-container">
 			<div className="AIservices-banner-content">
 
@@ -78,9 +85,9 @@ export default function Page() {
 
 				</p>
 			</div>
-			
+
 		</div>
-	</section>
+	*/}
 
 	<section className="AIservices-info-section">
 		<div className="AIservices-info-card">

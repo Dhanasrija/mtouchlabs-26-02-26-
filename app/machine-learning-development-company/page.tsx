@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Machine Learning Development Company",
@@ -27,22 +27,13 @@ export default function AIMLServices() {
         }}
       />
       {/* ===== HERO SECTION ===== */}
-      <section className="ml-hero">
-        <div className="ml-hero__inner">
-          <Breadcrumb pagePath="/machine-learning-development-company" />
-          <h1 className="ml-hero__title">
-            Enterprise AI &amp;{" "}
-            <span className="ml-hero__title-accent">Machine Learning</span>{" "}
-            Development Company
-          </h1>
-          <p className="ml-hero__subtitle">
-            Scalable, Data-Driven AI &amp; ML Solutions for Business Growth
-          </p>
-          <p className="ml-hero__desc">
-            mTouch Labs is a results-driven Machine Learning Development Company delivering scalable AI &amp; ML solutions that help businesses automate processes, improve decision-making, and unlock predictive insights.
-          </p>
-        </div>
-      </section>
+      <ServiceHero
+        badge="Machine Learning"
+        titleLead="Enterprise AI &"
+        titleAccent="Machine Learning"
+        titleTail="Development Company"
+        description={<>mTouch Labs is a results-driven Machine Learning Development Company delivering scalable AI &amp; ML solutions that help businesses automate processes, improve decision-making, and unlock predictive insights.</>}
+      />
 
       {/* ===== WHAT ARE ML SERVICES — About Section ===== */}
       <section className="ml-about">

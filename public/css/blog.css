@@ -58,12 +58,21 @@
   transform: scale(1.05) !important;
 }
 
+/* ⭐ Category pill: high-contrast dark backdrop + white text so the
+   category is legible on ANY hero image background — light, dark,
+   blue, beige, gradient, busy, etc. Uses the YouTube-thumbnail
+   pattern (almost-opaque black + white text + subtle ring + small
+   text-shadow) which has been industry-tested to stay readable
+   over arbitrary imagery. */
 .blog-category-tag {
   position: absolute !important;
   top: 16px !important;
   left: 16px !important;
-  background: rgba(59, 130, 246, 0.15) !important; backdrop-filter: blur(8px) !important; -webkit-backdrop-filter: blur(8px) !important; border: 1px solid rgba(59, 130, 246, 0.3) !important;
-  color: #3b82f6 !important;
+  background: rgba(15, 23, 42, 0.85) !important;
+  backdrop-filter: blur(10px) saturate(1.1) !important;
+  -webkit-backdrop-filter: blur(10px) saturate(1.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  color: #ffffff !important;
   padding: 6px 12px !important;
   border-radius: 20px !important;
   font-size: 12px !important;
@@ -71,7 +80,8 @@
   text-transform: uppercase !important;
   letter-spacing: 0.5px !important;
   z-index: 2 !important;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45) !important;
 }
 
 .rpl-contt {
@@ -388,26 +398,22 @@
   gap: 36px;
   align-items: flex-start;
   position: relative;
-  /* Reserve 260px (TOC width) + 36px (gap) on the left for the
-     `position: fixed` TOC below. Without this the article would
-     flow underneath the fixed TOC. Overridden back to 0 on mobile
-     where the TOC returns to normal flow. */
-  padding-left: 296px;
 }
 
-/* ===== FIXED TOC =====
-   Anchored to the viewport so it is ALWAYS visible while reading the
-   article — it never scrolls away with the content. `left` is a
-   viewport-math expression that aligns the TOC with the left edge of
-   the centered `.blv3-container` (max-width: 1200px, padding: 0 24px).
-   On viewports narrower than 1248px the container hugs the left with
-   24px padding; the `max(24px, …)` floor handles that automatically. */
+/* ===== STICKY TOC =====
+   Sticky inside the article body so the TOC stays visible while reading,
+   but never overlaps the hero (above) or the footer (below). When the
+   user scrolls past the article, the TOC scrolls away with it — same
+   behaviour as case-studies/portfolio.
+   ⭐ position is !important here to defeat any other stylesheet that
+       previously pinned the TOC with position: fixed. */
 .blv3-toc {
   width: 260px;
   flex-shrink: 0;
-  position: fixed;
-  top: 120px;
-  left: max(24px, calc((100vw - 1200px) / 2 + 24px));
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 120px !important;
+  align-self: flex-start !important;
   max-height: calc(100vh - 160px);
   overflow-y: auto;
   overscroll-behavior: contain;
@@ -1249,28 +1255,28 @@ body:has(.blv3-page) {
 }
 
 /* ── TOC final fixes ──
-   Final !important-scoped desktop rules. These override the base
-   block above, so the `position: fixed` + viewport-math `left`
-   must be repeated here or sticky will come back and the TOC will
-   scroll away with the article. */
+   Desktop sticky rules. The TOC is sticky inside the article body so it
+   never overlaps the hero (above) or footer (below). It scrolls away with
+   the article when the user reaches the end of the content. */
 @media (min-width: 1025px) {
   .blv3-toc {
     width: 300px !important;
     max-height: calc(100vh - 140px) !important;
     overflow-y: auto !important;
     overflow-x: hidden !important;
-    position: fixed !important;
+    position: -webkit-sticky !important;
+    position: sticky !important;
     top: 120px !important;
-    left: max(24px, calc((100vw - 1200px) / 2 + 24px)) !important;
+    left: auto !important;
     align-self: flex-start !important;
     flex-shrink: 0 !important;
     z-index: 5 !important;
   }
 
-  /* Reserve space so the article doesn't slide under the fixed TOC.
-     300px TOC + 36px gap = 336px. */
+  /* No padding-left hack needed: the TOC takes its natural space in the
+     flex grid since it's sticky (not fixed). */
   .blv3-grid {
-    padding-left: 336px !important;
+    padding-left: 0 !important;
   }
 }
 @media (max-width: 1024px) {

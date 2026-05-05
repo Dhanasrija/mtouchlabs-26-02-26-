@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ServiceHero from "@/components/sections/ServiceHero";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -135,37 +136,12 @@ export default function AWSCompanyPage() {
       <link rel="stylesheet" href="/css/service-page.css" />
 
       {/* Hero */}
-      <section className="srv-hero">
-        <div className="srv-hero__bg">
-          <div className="srv-hero__gradient"></div>
-        </div>
-        <div className="srv-hero__content container">
-          <nav className="srv-breadcrumb" aria-label="Breadcrumb">
-            <ol>
-              <li><Link href="/">Home</Link></li>
-              <li><span className="srv-breadcrumb__sep">/</span></li>
-              <li><Link href="/services">Services</Link></li>
-              <li><span className="srv-breadcrumb__sep">/</span></li>
-              <li className="srv-breadcrumb__current">Amazon Web Services</li>
-            </ol>
-          </nav>
-          <span className="srv-hero__badge">Cloud Infrastructure</span>
-          <h1 className="srv-hero__title">
-            Amazon Web Services <span className="srv-accent">Company</span>
-          </h1>
-          <p className="srv-hero__sub">
-            mTouch Labs is an experienced Amazon Web Services company helping businesses modernize infrastructure, strengthen system reliability, and accelerate digital transformation through AWS-powered ecosystems.
-          </p>
-          <div className="srv-hero__btns">
-            <Link href="/contact-us" className="srv-btn srv-btn--primary">
-              Get Started <i className="fas fa-arrow-right"></i>
-            </Link>
-            <Link href="/cloud-services" className="srv-btn srv-btn--ghost">
-              Cloud Services
-            </Link>
-          </div>
-        </div>
-      </section>
+      <ServiceHero
+        badge="Cloud Infrastructure"
+        titleLead="Amazon Web Services"
+        titleAccent="Company"
+        description={<>mTouch Labs is an experienced Amazon Web Services company helping businesses modernize infrastructure, strengthen system reliability, and accelerate digital transformation through AWS-powered ecosystems.</>}
+      />
 
       {/* Intro */}
       <section className="srv-section">

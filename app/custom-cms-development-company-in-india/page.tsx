@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Custom CMS Development Company in India",
@@ -47,20 +47,15 @@ export default function CustomCMSDevelopment() {
         }}
       />
       {/* ===== HERO ===== */}
-      <section className="cm-hero">
-        <div className="cm-hero__inner">
-          <Breadcrumb pagePath="/custom-cms-development-company-in-india" />
-          <h1 className="cm-hero__title">
-            Custom <span className="cm-hero__title-accent">CMS</span> Development Company
-          </h1>
-          <p className="cm-hero__subtitle">
-            Scalable, Secure &amp; Business-Driven Content Management Solutions
-          </p>
-          <p className="cm-hero__desc">
-            mTouch Labs is a leading custom CMS development company in India delivering scalable and flexible content management systems tailored to business workflows. We design and build custom CMS platforms that empower organizations to manage digital content efficiently, streamline publishing processes, and maintain full control over their digital ecosystem. Content management should enable growth — not restrict it.
-          </p>
-        </div>
-      </section>
+      <ServiceHero
+        badge="Custom CMS Development"
+        titleLead="Custom"
+        titleAccent="CMS"
+        titleTail="Development Company"
+        description={<>
+          <strong>Scalable, Secure &amp; Business-Driven Content Management Solutions</strong> — mTouch Labs is a leading custom CMS development company in India delivering scalable and flexible content management systems tailored to business workflows. We design and build custom CMS platforms that empower organizations to manage digital content efficiently, streamline publishing processes, and maintain full control over their digital ecosystem. Content management should enable growth — not restrict it.
+        </>}
+      />
 
       {/* ===== ABOUT ===== */}
       <section className="cm-about">

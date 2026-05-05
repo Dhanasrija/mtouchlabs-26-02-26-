@@ -366,6 +366,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FAQSchema from "@/components/seo/FAQSchema";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Hire Full Stack Developers in India",
@@ -429,30 +430,17 @@ export default function HireFullstackDevelopersInIndia() {
       />
 
       {/* Hero Section */}
-      <section className="hma-hero">
-        <div className="hma-heroOrb hma-heroOrb1" />
-        <div className="hma-heroOrb hma-heroOrb2" />
-        <div className="hma-heroOrb hma-heroOrb3" />
-        <div className="hma-heroInner">
-          <div className="hma-heroContent">
-            <div className="hma-heroBadge">
-              <span className="hma-heroBadgeDot" />
-              FULL STACK DEVELOPMENT · INDIA
-            </div>
-            <h1 className="hma-heroTitle">
-              <span className="hma-hl">Hire Full Stack Developers in India</span>
-            </h1>
-            <div className="hma-heroCtas">
-              <Link href="/contact-us" className="hma-heroBtnPrimary">
-                Hire Developers →
-              </Link>
-              <Link href="/portfolio" className="hma-heroBtnOutline">
-                View Our Work
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServiceHero
+        badge="Full Stack Development · India"
+        titleLead="Hire"
+        titleAccent="Full Stack"
+        titleTail="Developers in India"
+        description={
+          <>
+            Full stack developers bridge the gap between frontend UI and backend infrastructure. They handle databases, servers, APIs, and client interfaces—delivering complete, integrated solutions.
+          </>
+        }
+      />
 
       {/* Intro Section */}
       <section className="hma-section hma-introSection">

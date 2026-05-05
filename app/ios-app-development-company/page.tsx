@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "iOS App Development Company",
@@ -26,23 +26,16 @@ export default function iOSDevelopment() {
         }}
       />
       {/* ===== HERO ===== */}
-      <section className="io-hero">
-        <div className="io-hero__inner">
-          <p className="io-hero__breadcrumb">
-            Home / Services /{" "}
-            <span className="io-hero__breadcrumb-active">iOS App Development</span>
-          </p>
-          <h1 className="io-hero__title">
-            iOS <span className="io-hero__title-accent">App Development</span> Company
-          </h1>
-          <p className="io-hero__subtitle">
-            Secure, Scalable &amp; High-Performance iPhone Applications
-          </p>
-          <p className="io-hero__desc">
-            mTouch Labs is a professional iOS app development company delivering custom iPhone and iPad applications engineered for performance, security, and seamless user experience — from startup MVPs to enterprise-grade applications.
-          </p>
-        </div>
-      </section>
+      <ServiceHero
+        badge="Secure &middot; Scalable &middot; High-Performance"
+        titleLead="iOS"
+        titleAccent="App Development"
+        titleTail="Company"
+        description={<>
+          <p>Secure, Scalable &amp; High-Performance iPhone Applications</p>
+          <p>mTouch Labs is a professional iOS app development company delivering custom iPhone and iPad applications engineered for performance, security, and seamless user experience — from startup MVPs to enterprise-grade applications.</p>
+        </>}
+      />
 
       {/* ===== ABOUT ===== */}
       <section className="io-about">

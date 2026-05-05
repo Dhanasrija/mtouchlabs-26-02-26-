@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Web and App Development for temple services",
@@ -46,7 +47,7 @@ export default function Page() {
 				<div className="col-lg-6">
 					<div className="page-headings">
 						<span className="sub-heading mb15" data-aos="fade-up" data-aos-delay="200"><i
-								className="fas fa-briefcase mr5"></i> Roboride</span>
+								className="fas fa-briefcase mr5"></i> Temple Services</span>
 						<h1 className="mb15" data-aos="fade-up" data-aos-delay="400">On-Demand <span
 								className="ree-text rt40">Cab Booking</span> Mobile App Development</h1>
 						<p className="h-light" data-aos="fade-up" data-aos-delay="600">Roboride is your go-to app for

@@ -833,6 +833,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FAQSchema from "@/components/seo/FAQSchema";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Hire UI UX Designers in India",
@@ -896,30 +897,17 @@ export default function HireUiUxDesignersInIndia() {
       />
 
       {/* Hero Section */}
-      <section className="hma-hero">
-        <div className="hma-heroOrb hma-heroOrb1" />
-        <div className="hma-heroOrb hma-heroOrb2" />
-        <div className="hma-heroOrb hma-heroOrb3" />
-        <div className="hma-heroInner">
-          <div className="hma-heroContent">
-            <div className="hma-heroBadge">
-              <span className="hma-heroBadgeDot" />
-              UI UX DESIGN · INDIA
-            </div>
-            <h1 className="hma-heroTitle">
-              <span className="hma-hl">Hire UI UX Designers in India</span>
-            </h1>
-            <div className="hma-heroCtas">
-              <Link href="/contact-us" className="hma-heroBtnPrimary">
-                Hire Designers →
-              </Link>
-              <Link href="/portfolio" className="hma-heroBtnOutline">
-                View Our Work
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServiceHero
+        badge="UI UX Design · India"
+        titleLead="Hire"
+        titleAccent="UI UX"
+        titleTail="Designers in India"
+        description={
+          <>
+            Great digital products are not just built — they are experienced. A beautiful interface paired with thoughtful user flows creates products users love to return to.
+          </>
+        }
+      />
 
       {/* Intro Section */}
       <section className="hma-section hma-introSection">

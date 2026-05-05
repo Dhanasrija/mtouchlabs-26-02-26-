@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Cloud Migration Services",
@@ -26,12 +26,15 @@ export default function CloudMigrationServices() {
           __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Cloud Migration Services", "item": "https://www.mtouchlabs.com/cloud-migration-services"}]}),
         }}
       />
-      <section className="mi-hero"><div className="mi-hero__inner">
-        <Breadcrumb pagePath="/cloud-migration-services" />
-        <h1 className="mi-hero__title">Cloud <span className="mi-hero__title-accent">Migration</span> Services</h1>
-        <p className="mi-hero__subtitle">Secure, Structured &amp; Zero-Disruption Cloud Transformation</p>
-        <p className="mi-hero__desc">mTouch Labs delivers enterprise-grade cloud migration services that enable organizations to transition from legacy infrastructure to scalable cloud environments with minimal risk and operational disruption. Migration should improve efficiency, not introduce instability.</p>
-      </div></section>
+      <ServiceHero
+        badge="Cloud Migration Services"
+        titleLead="Cloud"
+        titleAccent="Migration"
+        titleTail="Services"
+        description={<>
+          <strong>Secure, Structured &amp; Zero-Disruption Cloud Transformation</strong> — mTouch Labs delivers enterprise-grade cloud migration services that enable organizations to transition from legacy infrastructure to scalable cloud environments with minimal risk and operational disruption. Migration should improve efficiency, not introduce instability.
+        </>}
+      />
 
       <section className="mi-about"><div className="mi-container"><div className="mi-about__grid">
         <div className="mi-about__content mi-animate--left">

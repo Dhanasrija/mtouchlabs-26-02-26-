@@ -411,6 +411,7 @@
 
 import type { Metadata } from "next";
 import Link from "next/link";
+import ServiceHero from "@/components/sections/ServiceHero";
 import FAQSchema from "@/components/seo/FAQSchema";
 
 export const metadata: Metadata = {
@@ -475,30 +476,15 @@ export default function HireShopifyDevelopersInIndia() {
       />
 
       {/* Hero Section */}
-      <section className="hma-hero">
-        <div className="hma-heroOrb hma-heroOrb1" />
-        <div className="hma-heroOrb hma-heroOrb2" />
-        <div className="hma-heroOrb hma-heroOrb3" />
-        <div className="hma-heroInner">
-          <div className="hma-heroContent">
-            <div className="hma-heroBadge">
-              <span className="hma-heroBadgeDot" />
-              SHOPIFY DEVELOPMENT · INDIA
-            </div>
-            <h1 className="hma-heroTitle">
-              <span className="hma-hl">Hire Shopify Developers in India</span>
-            </h1>
-            <div className="hma-heroCtas">
-              <Link href="/contact-us" className="hma-heroBtnPrimary">
-                Hire Developers →
-              </Link>
-              <Link href="/portfolio" className="hma-heroBtnOutline">
-                View Our Work
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServiceHero
+        badge="Hire Shopify Developers"
+        titleAccent="Shopify Developers in India"
+        description={
+          <>
+            Shopify is the leading e-commerce platform enabling entrepreneurs and businesses to build, launch, and scale online stores. From storefronts to custom apps, Shopify solutions drive commerce growth. At mTouch Labs, our Shopify developers in India create optimized, high-converting online stores and custom integrations designed to boost your e-commerce success.
+          </>
+        }
+      />
 
       {/* Intro Section */}
       <section className="hma-section hma-introSection">

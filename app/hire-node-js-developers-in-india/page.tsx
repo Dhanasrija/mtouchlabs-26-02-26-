@@ -452,6 +452,7 @@
 
 import type { Metadata } from "next";
 import Link from "next/link";
+import ServiceHero from "@/components/sections/ServiceHero";
 import FAQSchema from "@/components/seo/FAQSchema";
 
 export const metadata: Metadata = {
@@ -516,30 +517,15 @@ export default function HireNodeJsDevelopersInIndia() {
       />
 
       {/* Hero Section */}
-      <section className="hma-hero">
-        <div className="hma-heroOrb hma-heroOrb1" />
-        <div className="hma-heroOrb hma-heroOrb2" />
-        <div className="hma-heroOrb hma-heroOrb3" />
-        <div className="hma-heroInner">
-          <div className="hma-heroContent">
-            <div className="hma-heroBadge">
-              <span className="hma-heroBadgeDot" />
-              NODE.JS DEVELOPMENT · INDIA
-            </div>
-            <h1 className="hma-heroTitle">
-              <span className="hma-hl">Hire Node.js Developers in India</span>
-            </h1>
-            <div className="hma-heroCtas">
-              <Link href="/contact-us" className="hma-heroBtnPrimary">
-                Hire Developers →
-              </Link>
-              <Link href="/portfolio" className="hma-heroBtnOutline">
-                View Our Work
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServiceHero
+        badge="Hire Node.js Developers"
+        titleAccent="Node.js Developers in India"
+        description={
+          <>
+            Node.js powers scalable, event-driven backend systems and real-time applications. From APIs to streaming services, Node.js enables developers to build efficient, JavaScript-powered solutions. At mTouch Labs, our Node.js developers in India create high-performance, scalable server-side applications designed for modern web architecture.
+          </>
+        }
+      />
 
       {/* Intro Section */}
       <section className="hma-section hma-introSection">

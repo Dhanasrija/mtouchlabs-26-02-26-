@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Custom Software Development Company | Scalable Solutions",
@@ -141,12 +141,15 @@ export default function CustomSoftwareDevelopment() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      <section className="sd-hero"><div className="sd-hero__inner">
-        <Breadcrumb pagePath="/custom-software-development-company" />
-        <h1 className="sd-hero__title">Custom <span className="sd-hero__title-accent">Software</span> Development Company</h1>
-        <p className="sd-hero__subtitle">Software Built Specifically for Your Business — Not Adapted Around It</p>
-        <p className="sd-hero__desc">Off-the-shelf software can take you only so far. At some point, every growing business faces limitations &mdash; rigid workflows, unnecessary features, or tools that simply don&apos;t adapt to how the business actually operates. That&apos;s where custom software becomes essential. At mTouch Labs, we design and develop custom software solutions built specifically for your business processes, goals, and scalability needs. As a custom software development company, we focus on creating systems that don&apos;t just work &mdash; but evolve with your organization, extending seamlessly into our <a href="/web-development-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>web development services</a> where needed. Whether you&apos;re building a new digital product, automating internal operations, or replacing outdated systems, we help you turn complex requirements into reliable, scalable software.</p>
-      </div></section>
+      <ServiceHero
+        badge="Custom Software Development"
+        titleLead="Custom"
+        titleAccent="Software"
+        titleTail="Development Company"
+        description={<>
+          <strong>Software Built Specifically for Your Business — Not Adapted Around It</strong> — Off-the-shelf software can take you only so far. At some point, every growing business faces limitations — rigid workflows, unnecessary features, or tools that simply don&apos;t adapt to how the business actually operates. That&apos;s where custom software becomes essential. At mTouch Labs, we design and develop custom software solutions built specifically for your business processes, goals, and scalability needs. As a custom software development company, we focus on creating systems that don&apos;t just work — but evolve with your organization, extending seamlessly into our <a href="/web-development-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>web development services</a> where needed. Whether you&apos;re building a new digital product, automating internal operations, or replacing outdated systems, we help you turn complex requirements into reliable, scalable software.
+        </>}
+      />
 
       <section className="sd-about"><div className="sd-container"><div className="sd-about__grid">
         <div className="sd-about__content sd-animate--left">

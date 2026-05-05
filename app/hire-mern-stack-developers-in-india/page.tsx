@@ -361,6 +361,7 @@
 
 import type { Metadata } from "next";
 import Link from "next/link";
+import ServiceHero from "@/components/sections/ServiceHero";
 import FAQSchema from "@/components/seo/FAQSchema";
 
 export const metadata: Metadata = {
@@ -444,30 +445,15 @@ export default function HireMernStackDevelopersInIndia() {
       />
 
       {/* Hero Section */}
-      <section className="hma-hero">
-        <div className="hma-heroOrb hma-heroOrb1" />
-        <div className="hma-heroOrb hma-heroOrb2" />
-        <div className="hma-heroOrb hma-heroOrb3" />
-        <div className="hma-heroInner">
-          <div className="hma-heroContent">
-            <div className="hma-heroBadge">
-              <span className="hma-heroBadgeDot"></span>
-              MERN STACK DEVELOPMENT · INDIA
-            </div>
-            <h1 className="hma-heroTitle">
-              <span className="hma-hl">Hire MERN Stack Developers in India</span>
-            </h1>
-            <div className="hma-heroCtas">
-              <Link href="/contact-us" className="hma-heroBtnPrimary">
-                Get Started
-              </Link>
-              <Link href="/portfolio" className="hma-heroBtnOutline">
-                View Portfolio
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServiceHero
+        badge="Hire MERN Stack Developers"
+        titleAccent="MERN Stack Developers in India"
+        description={
+          <>
+            The MERN stack (MongoDB, Express, React, Node.js) combines modern technologies to deliver high-performance, interactive web applications. From dynamic user interfaces to scalable backend systems, MERN enables developers to build full-stack solutions efficiently. At mTouch Labs, our MERN stack developers in India create responsive, feature-rich applications designed for user engagement and business growth.
+          </>
+        }
+      />
 
       {/* Intro Section */}
       <section className="hma-section hma-introSection">

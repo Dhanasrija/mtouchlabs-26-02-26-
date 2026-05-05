@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, ReactNode } from "react";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 /* ───────────────────────── Types ───────────────────────── */
 
@@ -592,24 +593,14 @@ export default function ProductPageTemplate({ data }: { data: ProductPageData })
           <a className="active">{data.crumbLabel}</a>
         </div>
 
-        {/* Hero */}
-        <section className="fd-hero">
-          <div className="fd-hero-phone left">
-            <img src={leftPhone} alt={`${data.crumbLabel} app screen`} loading="lazy" />
-          </div>
-          <div className="fd-hero-center">
-            <h1 className="fd-h1">
-              {data.hero.h1Top}<br />
-              <span className="accent">{data.hero.h1Accent}</span>
-              {data.hero.h1Tail ? <><br />{data.hero.h1Tail}</> : null}
-            </h1>
-            <p className="fd-hero-sub">{data.hero.subtitle}</p>
-            <a href={data.hero.demoHref} target="_blank" className="fd-btn">View Demo &nbsp;▶</a>
-          </div>
-          <div className="fd-hero-phone right">
-            <img src={rightPhone} alt={`${data.crumbLabel} app screen`} loading="lazy" />
-          </div>
-        </section>
+        {/* Hero — unified ServiceHero (matches /services page) */}
+        <ServiceHero
+          badge={data.crumbLabel}
+          titleLead={data.hero.h1Top}
+          titleAccent={data.hero.h1Accent}
+          titleTail={data.hero.h1Tail}
+          description={data.hero.subtitle}
+        />
 
         {/* Features banner */}
         {data.featuresBannerImg ? (

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Conversion Rate Optimization Services",
@@ -26,12 +26,15 @@ export default function ConversionRateOptimization() {
           __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Conversion Rate Optimization Services", "item": "https://www.mtouchlabs.com/conversion-rate-optimization-services"}]}),
         }}
       />
-      <section className="co-hero"><div className="co-hero__inner">
-        <Breadcrumb pagePath="/conversion-rate-optimization-services" />
-        <h1 className="co-hero__title">Conversion Rate <span className="co-hero__title-accent">Optimization</span> Services</h1>
-        <p className="co-hero__subtitle">Turning Website Traffic Into Measurable Revenue Growth</p>
-        <p className="co-hero__desc">mTouch Labs delivers strategic CRO services designed to maximize the value of existing website traffic. Traffic without conversion is wasted potential.</p>
-      </div></section>
+      <ServiceHero
+        badge="Conversion Rate Optimization"
+        titleLead="Conversion Rate"
+        titleAccent="Optimization"
+        titleTail="Services"
+        description={<>
+          <strong>Turning Website Traffic Into Measurable Revenue Growth</strong> — mTouch Labs delivers strategic CRO services designed to maximize the value of existing website traffic. Traffic without conversion is wasted potential.
+        </>}
+      />
 
       <section className="co-about"><div className="co-container"><div className="co-about__grid">
         <div className="co-about__content co-animate--left">

@@ -359,6 +359,7 @@
 
 import type { Metadata } from "next";
 import Link from "next/link";
+import ServiceHero from "@/components/sections/ServiceHero";
 import FAQSchema from "@/components/seo/FAQSchema";
 
 export const metadata: Metadata = {
@@ -423,30 +424,15 @@ export default function HireVueJsDevelopersInIndia() {
       />
 
       {/* Hero Section */}
-      <section className="hma-hero">
-        <div className="hma-heroOrb hma-heroOrb1" />
-        <div className="hma-heroOrb hma-heroOrb2" />
-        <div className="hma-heroOrb hma-heroOrb3" />
-        <div className="hma-heroInner">
-          <div className="hma-heroContent">
-            <div className="hma-heroBadge">
-              <span className="hma-heroBadgeDot" />
-              VUE.JS DEVELOPMENT · INDIA
-            </div>
-            <h1 className="hma-heroTitle">
-              <span className="hma-hl">Hire Vue.js Developers in India</span>
-            </h1>
-            <div className="hma-heroCtas">
-              <Link href="/contact-us" className="hma-heroBtnPrimary">
-                Hire Developers →
-              </Link>
-              <Link href="/portfolio" className="hma-heroBtnOutline">
-                View Our Work
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServiceHero
+        badge="Hire Vue.js Developers"
+        titleAccent="Vue.js Developers in India"
+        description={
+          <>
+            Vue.js is the progressive JavaScript framework that makes building interactive user interfaces simple and elegant. From single-page applications to full-stack solutions, Vue.js enables rapid, productive development. At mTouch Labs, our Vue.js developers in India create responsive, interactive applications designed for user engagement and performance.
+          </>
+        }
+      />
 
       {/* Intro Section */}
       <section className="hma-section hma-introSection">

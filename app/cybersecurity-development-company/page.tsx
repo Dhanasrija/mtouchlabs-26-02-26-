@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Advanced Cybersecurity Solutions",
@@ -41,32 +42,18 @@ export default function Page() {
       />
       <div className="ai-templet-datascience">
         <div className="ai-templet-cybersecurity">
-          <div className="aitemplet-header-one">
-            <div className="AIservices-breadcrumb">
-              {"\u00a0"}<a href="/">Home {"\u00a0"}</a>
-              <span className="AIservices-separator">/</span>
-              {"\u00a0"} <a href="/services">Services {"\u00a0"}</a>
-              <span className="AIservices-separator">/</span>
-              {"\u00a0"} <a className="active"> Protect Your Business with Cyber security Experts</a>
-            </div>
-            <h1 className="aitemplet-header-h1tag">
-              Protect Your Business with <span> Cyber security</span> Experts
-            </h1>
-            <img src="/images/new_home/ai-product-pages/cybersecurity/bannerbgImg.png" alt="Cyber Security" className="ai-templet-video" />
-          </div>
+          <ServiceHero
+            badge="Cybersecurity"
+            titleLead="Protect Your Business"
+            titleAccent="with Cybersecurity"
+            titleTail="Experts"
+            description={
+              <>
+                Make sure your company is safe with cybersecurity solutions that shield your information, resources, and reputation from ever-changing online threats.
+              </>
+            }
+          />
         </div>
-
-        <section className="aitemplet-section-one">
-          <h3 className="aitemplet-heading-h3tag">Building a Secure Future for Your Business<br /> with <span>Cyber security</span></h3>
-          <div className="aitemplet-robo-section">
-            <div className="aitemplet-info-img">
-              <img src="/images/new_home/ai-product-pages/cybersecurity/cybersecurity1.png" className="ai-roboimg" alt="Cybersecurity" />
-            </div>
-            <div className="aitemplet-info-box">
-              <p>Make sure your company is safe with cybersecurity solutions that shield your information, resources, and reputation from ever-changing online threats.</p>
-            </div>
-          </div>
-        </section>
 
         <section className="aitemplet-section-two">
           <div className="aitemplet-div-heading">

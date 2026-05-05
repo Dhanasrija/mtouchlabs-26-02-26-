@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Generative AI Development Company | LLM & AI Solutions",
@@ -143,20 +143,13 @@ export default function GenerativeAIDevelopment() {
       />
 
       {/* ===== HERO ===== */}
-      <section className="ga-hero">
-        <div className="ga-hero__inner">
-          <Breadcrumb pagePath="/generative-ai-development-company" />
-          <h1 className="ga-hero__title">
-            Generative <span className="ga-hero__title-accent">AI</span> Development Company
-          </h1>
-          <p className="ga-hero__subtitle">
-            Production-Ready AI Solutions That Go Beyond Demos
-          </p>
-          <p className="ga-hero__desc">
-            Generative AI is no longer experimental&mdash;it&apos;s becoming the foundation of how modern digital products think, respond, and evolve. At mTouch Labs, we build practical, production-ready generative AI solutions that help businesses transform ideas into intelligent systems that can generate content, automate workflows, and deliver context-aware experiences at scale&mdash;embedded directly into your <a href="/mobile-app-development-company" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>mobile apps</a> where relevant.
-          </p>
-        </div>
-      </section>
+      <ServiceHero
+        badge="AI"
+        titleLead="Generative"
+        titleAccent="AI"
+        titleTail="Development Company"
+        description={<>Production-Ready AI Solutions That Go Beyond Demos Generative AI is no longer experimental—it's becoming the foundation of how modern digital products think, respond, and evolve. At mTouch Labs, we build practical, production-ready generative AI solutions that help businesses transform ideas into intelligent systems that can generate content, automate workflows, and deliver context-aware experiences at scale—embedded directly into your <a href="/mobile-app-development-company" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>mobile apps</a> where relevant.</>}
+      />
 
       {/* ===== ABOUT ===== */}
       <section className="ga-about">

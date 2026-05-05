@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "NASSCOM Membership – Industry Recognition",
@@ -117,27 +118,16 @@ export default function NasscomPage() {
       <link rel="stylesheet" href="/css/nasscom-page.css" />
 
       {/* Hero */}
-      <section className="nsc-hero">
-        <div className="nsc-hero__bg"><div className="nsc-hero__gradient"></div></div>
-        <div className="nsc-hero__content container">
-          <nav className="nsc-crumb" aria-label="Breadcrumb">
-            <ol>
-              <li><Link href="/">Home</Link></li>
-              <li><span className="nsc-crumb__sep">/</span></li>
-              <li className="nsc-crumb__current">NASSCOM Membership</li>
-            </ol>
-          </nav>
-          <span className="nsc-hero__badge">Industry Recognition</span>
-          <h1 className="nsc-hero__title">NASSCOM <span className="nsc-accent">Membership</span></h1>
-          <p className="nsc-hero__sub">
-            Proud NASSCOM member driving innovation and contributing to India&apos;s evolving tech ecosystem.
-          </p>
-          <div className="nsc-hero__btns">
-            <Link href="/contact-us" className="nsc-btn nsc-btn--primary">Get In Touch <i className="fas fa-arrow-right"></i></Link>
-            <Link href="/leadership-team" className="nsc-btn nsc-btn--ghost">Our Team</Link>
-          </div>
-        </div>
-      </section>
+      <ServiceHero
+        badge="Industry Recognition"
+        titleLead="NASSCOM"
+        titleAccent="Membership"
+        description={<>Proud NASSCOM member driving innovation and contributing to India&apos;s evolving tech ecosystem.</>}
+        primaryHref="/contact-us"
+        primaryLabel="Get In Touch"
+        secondaryHref="/leadership-team"
+        secondaryLabel="Our Team"
+      />
 
       {/* Commitment */}
       <section className="nsc-section">

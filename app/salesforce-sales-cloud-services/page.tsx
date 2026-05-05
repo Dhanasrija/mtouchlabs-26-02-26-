@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Salesforce Sales Cloud Services",
@@ -26,12 +26,13 @@ export default function SalesforceSalesCloud() {
           __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Salesforce Sales Cloud Services", "item": "https://www.mtouchlabs.com/salesforce-sales-cloud-services"}]}),
         }}
       />
-      <section className="sc-hero"><div className="sc-hero__inner">
-        <Breadcrumb pagePath="/salesforce-sales-cloud-services" />
-        <h1 className="sc-hero__title">Salesforce <span className="sc-hero__title-accent">Sales Cloud</span> Services</h1>
-        <p className="sc-hero__subtitle">Transforming Sales Operations with Intelligent CRM Automation</p>
-        <p className="sc-hero__desc">Modern sales teams need more than a CRM — they need visibility, automation, and predictive insights to close deals faster. We deliver specialized Sales Cloud Services designed to optimize pipelines, automate processes, and improve forecasting accuracy.</p>
-      </div></section>
+      <ServiceHero
+        badge="Salesforce Sales Cloud"
+        titleLead="Salesforce"
+        titleAccent="Sales Cloud"
+        titleTail="Services"
+        description={<>Transforming Sales Operations with Intelligent CRM Automation. Modern sales teams need more than a CRM — they need visibility, automation, and predictive insights to close deals faster. We deliver specialized Sales Cloud Services designed to optimize pipelines, automate processes, and improve forecasting accuracy.</>}
+      />
 
       <section className="sc-about"><div className="sc-container"><div className="sc-about__grid">
         <div className="sc-about__content sc-animate--left">

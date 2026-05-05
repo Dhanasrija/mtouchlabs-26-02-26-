@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Content Marketing Services",
@@ -26,12 +26,15 @@ export default function ContentMarketingServices() {
           __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Content Marketing Services", "item": "https://www.mtouchlabs.com/content-marketing-services"}]}),
         }}
       />
-      <section className="cm-hero"><div className="cm-hero__inner">
-        <Breadcrumb pagePath="/content-marketing-services" />
-        <h1 className="cm-hero__title">Content <span className="cm-hero__title-accent">Marketing</span> Services</h1>
-        <p className="cm-hero__subtitle">Strategic Content That Drives Authority, Engagement &amp; Revenue</p>
-        <p className="cm-hero__desc">mTouch Labs delivers structured content marketing services designed to build brand authority, improve search visibility, and generate measurable business growth. Authority is earned through value-driven communication.</p>
-      </div></section>
+      <ServiceHero
+        badge="Content Marketing Services"
+        titleLead="Content"
+        titleAccent="Marketing"
+        titleTail="Services"
+        description={<>
+          <strong>Strategic Content That Drives Authority, Engagement &amp; Revenue</strong> — mTouch Labs delivers structured content marketing services designed to build brand authority, improve search visibility, and generate measurable business growth. Authority is earned through value-driven communication.
+        </>}
+      />
 
       <section className="cm-about"><div className="cm-container"><div className="cm-about__grid">
         <div className="cm-about__content cm-animate--left">

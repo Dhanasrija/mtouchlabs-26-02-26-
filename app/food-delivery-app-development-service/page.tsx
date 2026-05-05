@@ -932,6 +932,7 @@
 
 import type { Metadata } from "next";
 import { useState } from "react";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 // export const metadata: Metadata = { ... }  // move to a separate layout or page meta file when using "use client"
 
@@ -1582,30 +1583,14 @@ export default function Page() {
           <a className="active">Food Delivery App Development Service</a>
         </div>
 
-        {/* ── HERO with phone mockups on both sides ── */}
-        <section className="fd-hero">
-          <div className="fd-hero-phone left">
-            <img src="/images/products/phoneframe1.png" alt="Food delivery app screen" loading="lazy" />
-          </div>
-
-          <div className="fd-hero-center">
-            <h1 className="fd-h1">
-              Food Delivery App<br />
-              <span className="accent">Development Company</span><br />
-              in Hyderabad
-            </h1>
-            <p className="fd-hero-sub">
-              Launch a scalable, user-friendly food delivery app with advanced features, seamless ordering, real-time tracking, and secure payment integration.
-            </p>
-            <a href="https://youtu.be/Zvae5N9p3Gc?si=_TuMXrq_Frf1VmWh" target="_blank" className="fd-btn">
-              View Demo &nbsp;▶
-            </a>
-          </div>
-
-          <div className="fd-hero-phone right">
-            <img src="/images/products/phoneframe2.png" alt="Food delivery app screen" loading="lazy" />
-          </div>
-        </section>
+        {/* ── HERO ── */}
+        <ServiceHero
+          badge="Food Delivery App Development"
+          titleLead="Food Delivery App"
+          titleAccent="Development Company"
+          titleTail="in Hyderabad"
+          description={<>Launch a scalable, user-friendly food delivery app with advanced features, seamless ordering, real-time tracking, and secure payment integration.</>}
+        />
 
         {/* ── FEATURES BANNER ── */}
         <div className="fd-features-banner">

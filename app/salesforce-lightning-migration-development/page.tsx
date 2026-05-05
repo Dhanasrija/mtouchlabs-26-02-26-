@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Salesforce Lightning Migration & Development",
@@ -13,12 +13,13 @@ export const metadata: Metadata = {
 export default function SalesforceLightning() {
   return (
     <>
-      <section className="sl-hero"><div className="sl-hero__inner">
-        <Breadcrumb pagePath="/salesforce-lightning-migration-development" />
-        <h1 className="sl-hero__title">Salesforce <span className="sl-hero__title-accent">Lightning</span> Migration &amp; Development</h1>
-        <p className="sl-hero__subtitle">Modernizing Salesforce for Performance, Productivity &amp; Scalability</p>
-        <p className="sl-hero__desc">Salesforce Lightning is more than a visual upgrade — it is a productivity platform designed for speed, automation, and enhanced user experience. We help organizations seamlessly transition from Classic to Lightning while optimizing workflows and scalability.</p>
-      </div></section>
+      <ServiceHero
+        badge="Salesforce Lightning"
+        titleLead="Salesforce"
+        titleAccent="Lightning"
+        titleTail="Migration &amp; Development"
+        description={<>Modernizing Salesforce for Performance, Productivity &amp; Scalability. Salesforce Lightning is more than a visual upgrade — it is a productivity platform designed for speed, automation, and enhanced user experience. We help organizations seamlessly transition from Classic to Lightning while optimizing workflows and scalability.</>}
+      />
 
       <section className="sl-about"><div className="sl-container"><div className="sl-about__grid">
         <div className="sl-about__content sl-animate--left">

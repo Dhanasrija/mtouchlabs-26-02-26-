@@ -495,12 +495,12 @@ select[name="service"] {
             var rule = getPhoneRule();
             var min = rule.digits[0];
             var max = rule.digits[1];
-            if(!phoneVal){ return 'Phone number is required.'; }
+            if(!phoneVal){ return 'Mobile number is required.'; }
             if(phoneVal.length < min || phoneVal.length > max){
               if(min === max){
-                return rule.label + ' numbers must be exactly ' + min + ' digits.';
+                return rule.label + ' mobile numbers must be exactly ' + min + ' digits.';
               }
-              return rule.label + ' numbers must be ' + min + '\\u2013' + max + ' digits.';
+              return rule.label + ' mobile numbers must be ' + min + '\\u2013' + max + ' digits.';
             }
             return '';
           }
@@ -618,10 +618,12 @@ select[name="service"] {
             } else { clearFieldError('service'); }
 
             if(hasError){
-              errEl.textContent='Please fill in all required fields.';
-              errEl.style.display='block';
+              /* Field-level errors are already shown above — no need for an
+                 extra global error line. Just focus the first invalid field
+                 so the user can correct it immediately. */
+              errEl.style.display='none'; errEl.textContent='';
               var firstInvalid = form.querySelector('.rq-invalid');
-              if(firstInvalid) firstInvalid.focus();
+              if(firstInvalid && typeof firstInvalid.focus === 'function') firstInvalid.focus();
               return;
             }
 

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Progressive Web App (PWA) Development",
@@ -49,39 +50,13 @@ export default function Page() {
 	
 	
 
-		<section className="AIservices-banner" data-bg="images/new_services/pwpbg.webp">
-		<div className="AIservices-banner-container">
-			
-			<div className="AIservices-banner-content">
-
-				
-				<div className="AIservices-breadcrumb">
-					 <a href="/">Home  </a>
-					<span className="AIservices-separator">/</span>
-					  <a href="/services">Services  </a>
-					<span className="AIservices-separator">/</span>
-					  <a className="active"> Progressive Web App Development
-						Company</a>
-				</div>
-
-				<p className="AIservices-description" id="mobile-AIservices-description"> Top <span style={{color: "#fece9a"}}>
-						Progressive Web App </span> Development Company
-					In India
-				</p>
-
-				<h1 className="AIservices-title" id="mobile-AIservices-title">Top <span style={{color: "#fece9a"}}> Progressive
-						Web App </span> Development Company
-				</h1>
-				<p className="AIservices-description" id="mobile-AIservices-description">
-					mTouch Labs builds blazing-fast, offline-ready PWAs that perform like native
-					apps and accelerate business growth.
-				</p>
-			</div>
-
-			
-			
-		</div>
-	</section>
+		      <ServiceHero
+        badge="Progressive Web Apps"
+        titleLead="Top"
+        titleAccent="Progressive Web App"
+        titleTail="Development Company"
+        description={<>Expert PWA development services building fast, reliable, and engaging web applications that work seamlessly across all devices.</>}
+      />
 
 	
 	<section className="AIservices-info-section">

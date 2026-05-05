@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Cloud Services and Solutions",
@@ -14,12 +14,15 @@ export const metadata: Metadata = {
 export default function CloudServices() {
   return (
     <div className="cloud-services-page">
-      <section className="cs-hero"><div className="cs-hero__inner">
-        <Breadcrumb pagePath="/cloud-services" />
-        <h1 className="cs-hero__title">Cloud <span className="cs-hero__title-accent">Services</span></h1>
-        <p className="cs-hero__subtitle">Scalable, Secure &amp; Enterprise-Ready Cloud Solutions for Modern Businesses</p>
-        <p className="cs-hero__desc">mTouch Labs provides comprehensive cloud services designed to help organizations modernize infrastructure, improve operational agility, and scale digital operations securely. Cloud transformation requires architecture, not just migration.</p>
-      </div></section>
+      <ServiceHero
+        badge="Cloud Services"
+        titleLead="Cloud"
+        titleAccent="Services"
+        titleTail=""
+        description={<>
+          <strong>Scalable, Secure &amp; Enterprise-Ready Cloud Solutions for Modern Businesses</strong> — mTouch Labs provides comprehensive cloud services designed to help organizations modernize infrastructure, improve operational agility, and scale digital operations securely. Cloud transformation requires architecture, not just migration.
+        </>}
+      />
 
       <section className="cs-about"><div className="cs-container"><div className="cs-about__grid">
         <div className="cs-about__content cs-animate--left">

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Performance Marketing Services",
@@ -26,12 +26,13 @@ export default function PerformanceMarketing() {
           __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Performance Marketing Services", "item": "https://www.mtouchlabs.com/performance-marketing-services"}]}),
         }}
       />
-      <section className="pm-hero"><div className="pm-hero__inner">
-        <Breadcrumb pagePath="/performance-marketing-services" />
-        <h1 className="pm-hero__title">Performance <span className="pm-hero__title-accent">Marketing</span> Services</h1>
-        <p className="pm-hero__subtitle">Revenue-Focused Digital Growth Built on Data, Precision &amp; Scalability</p>
-        <p className="pm-hero__desc">mTouch Labs delivers advanced performance marketing services designed to drive measurable business growth through strategic campaign execution, intelligent targeting, and continuous optimization. Growth must be measurable to be meaningful.</p>
-      </div></section>
+      <ServiceHero
+        badge="Performance Marketing"
+        titleLead="Performance"
+        titleAccent="Marketing"
+        titleTail="Services"
+        description={<>mTouch Labs delivers advanced performance marketing services designed to drive measurable business growth through strategic campaign execution, intelligent targeting, and continuous optimization. Growth must be measurable to be meaningful.</>}
+      />
 
       <section className="pm-about"><div className="pm-container"><div className="pm-about__grid">
         <div className="pm-about__content pm-animate--left">

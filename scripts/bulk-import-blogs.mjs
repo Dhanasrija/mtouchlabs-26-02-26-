@@ -132,8 +132,11 @@ async function upsertBlog(blog) {
         featured = ${blog.featured === true},
         allow_comments = ${blog.allow_comments !== false},
         publish_date = ${publishDate},
-        updated_at = ${new Date()}
+        updated_at = ${publishDate}
       WHERE slug = ${blog.slug}`;
+    // ⭐ updated_at is set to publishDate (not NOW) so the listing keeps showing the
+    //    original publish date instead of switching to "Last Updated: <today>" each
+    //    time we re-import. The backdated date in the data file is the source of truth.
     console.log(`♻️  Updated : ${blog.slug}  —  ${blog.title}`);
     return 'updated';
   }

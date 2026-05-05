@@ -1,6 +1,7 @@
 
 import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "About Us | Leading Software Company",
@@ -83,25 +84,12 @@ export default function AboutPage() {
   return (
     <>
       {/* ===== HERO ===== */}
-      <section className="abt-hero">
-        <div className="abt-hero__inner">
-          <Breadcrumb pagePath="/about" />
-          <h1 className="abt-hero__title">
-            About <span className="abt-hero__accent">mTouch Labs</span>
-          </h1>
-          <p className="abt-hero__subtitle">
-            14+ Years of Building World-Class Digital Products Across 12+ Countries
-          </p>
-          <div className="abt-hero__stats">
-            {stats.map((s, i) => (
-              <div className="abt-hero__stat" key={i}>
-                <span className="abt-hero__stat-num">{s.num}</span>
-                <span className="abt-hero__stat-label">{s.label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ServiceHero
+        badge="About Us"
+        titleLead="About"
+        titleAccent="mTouch Labs"
+        description={<>14+ Years of Building World-Class Digital Products Across 12+ Countries</>}
+      />
 
       {/* ===== WHO WE ARE ===== */}
       <section className="abt-who">

@@ -268,25 +268,6 @@ export default function Page() {
                   <i className="fa-solid fa-arrow-right" />
                 </a>
               </div>
-
-              <div className="itsc-stats-grid">
-                <div className="itsc-stat-card">
-                  <span className="itsc-stat-val">500+</span>
-                  <span className="itsc-stat-lbl">Case Studies</span>
-                </div>
-                <div className="itsc-stat-card">
-                  <span className="itsc-stat-val">12</span>
-                  <span className="itsc-stat-lbl">Industry Verticals</span>
-                </div>
-                <div className="itsc-stat-card">
-                  <span className="itsc-stat-val">30+</span>
-                  <span className="itsc-stat-lbl">Tech Stacks Mastered</span>
-                </div>
-                <div className="itsc-stat-card">
-                  <span className="itsc-stat-val">4.9★</span>
-                  <span className="itsc-stat-lbl">Avg. Client Rating</span>
-                </div>
-              </div>
             </div>
           </div>
         </section>

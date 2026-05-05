@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Shopify Development Company India",
@@ -53,38 +54,13 @@ export default function Page() {
 
 
 
-		<section className="AIservices-banner" data-bg="images/new_services/shopifybg.webp">
-		<div className="AIservices-banner-container">
-			
-			<div className="AIservices-banner-content">
-
-				
-				<div className="AIservices-breadcrumb">
-					 <a href="/">Home  </a>
-					<span className="AIservices-separator">/</span>
-					  <a href="/services">Services  </a>
-					<span className="AIservices-separator">/</span>
-					  <a className="active"> Shopify
-						Development Company</a>
-				</div>
-
-				<p className="AIservices-description" id="mobile-AIservices-description"> Top <span style={{color: "#66c7ec"}}>
-						Shopify </span> Development Company In India
-				</p>
-
-				<h1 className="AIservices-title" id="mobile-AIservices-title"><span style={{color: "#66c7ec"}}>Trusted
-						Shopify</span> Development Company </h1>
-				<p className="AIservices-description" id="mobile-AIservices-description">
-					mTouch Labs is a top Shopify Development Company in India, creating fast,
-					functional, and custom eCommerce stores that boost sales and enhance user
-					experience.
-				</p>
-			</div>
-
-			
-			
-		</div>
-	</section>
+      <ServiceHero
+        badge="Shopify Development"
+        titleLead="Trusted"
+        titleAccent="Shopify"
+        titleTail="Development Company"
+        description={<>Top Shopify Development Company In India. mTouch Labs is a top Shopify Development Company in India, creating fast, functional, and custom eCommerce stores that boost sales and enhance user experience.</>}
+      />
 
 	
 	<section className="AIservices-info-section">

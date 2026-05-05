@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./style.css";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 /* ─────────────────────────────────────────────────────────────
    METADATA (SEO-Optimized)
@@ -349,60 +350,13 @@ export default function ITSolutionsPage() {
 
       <main className="itsc-page">
         {/* ══════════ HERO ══════════ */}
-        <section className="itsc-hero">
-          <div className="itsc-hero-grid" aria-hidden="true" />
-          <div className="itsc-blob itsc-blob-a" aria-hidden="true" />
-          <div className="itsc-blob itsc-blob-b" aria-hidden="true" />
-          <div className="itsc-blob itsc-blob-c" aria-hidden="true" />
-
-          <div className="itsc-container">
-            <div className="itsc-hero-content">
-              <div className="itsc-badge">
-                <span className="itsc-badge-dot" />
-                Leading IT Solutions Company
-              </div>
-
-              <h1 className="itsc-h1">
-                Leading IT Solutions Company
-                <br />
-                for <span className="itsc-h1-gradient">Modern Businesses</span>
-              </h1>
-
-              <p className="itsc-hero-sub">
-                Businesses today need more than technology vendors — they need a dependable IT
-                solutions company that understands growth, efficiency, and{" "}
-                <a
-                  className="itsc-inline-link"
-                  href="/it-services-digital-transformation-company"
-                >
-                  digital transformation
-                </a>
-                . At mTouch Labs, we deliver custom IT solutions services for startups, SMEs, and
-                enterprises looking to scale faster and modernize operations.
-              </p>
-
-              <div className="itsc-ctas">
-                <a href="/contact-us" className="itsc-btn itsc-btn-primary">
-                  <i className="fa-solid fa-paper-plane" />
-                  Request a Free Consultation
-                </a>
-                <a href="#services" className="itsc-btn itsc-btn-ghost">
-                  Explore Services
-                  <i className="fa-solid fa-arrow-right" />
-                </a>
-              </div>
-
-              <div className="itsc-stats-grid">
-                {stats.map((s) => (
-                  <div key={s.label} className="itsc-stat-card">
-                    <span className="itsc-stat-val">{s.value}</span>
-                    <span className="itsc-stat-lbl">{s.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
+        <ServiceHero
+          badge="IT Solutions Company"
+          titleLead="Leading IT Solutions"
+          titleAccent="Company"
+          titleTail="for Modern Businesses"
+          description={<>Businesses today need more than technology vendors — they need a dependable IT solutions company that understands growth, efficiency, and <a className="itsc-inline-link" href="/it-services-digital-transformation-company">digital transformation</a>. At mTouch Labs, we deliver custom IT solutions services for startups, SMEs, and enterprises looking to scale faster and modernize operations.</>}
+        />
 
         {/* ══════════ SERVICES (with internal links per PDF map) ══════════ */}
         <section className="itsc-section" id="services">

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "IT Services & Digital Transformation Company",
@@ -42,19 +42,13 @@ export default function Page() {
         }}
       />
       {/* ===== HERO SECTION ===== */}
-      <section className="co-hero">
-        <div className="co-hero__inner">
-          <Breadcrumb pagePath="/it-services-digital-transformation-company" />
-          <h1 className="co-hero__title">
-            Trusted <span className="co-hero__title-accent">IT Services</span>{" "}
-            &amp; Digital Transformation Company
-          </h1>
-          <p className="co-hero__subtitle">Delivering Measurable Results</p>
-          <p className="co-hero__desc">
-            Enterprise-Grade IT Services Backed by Real-World Experience
-          </p>
-        </div>
-      </section>
+      <ServiceHero
+        badge="IT Services"
+        titleLead="Trusted"
+        titleAccent="IT Services"
+        titleTail="& Digital Transformation Company"
+        description={<>Enterprise-Grade IT Services Backed by Real-World Experience</>}
+      />
 
       {/* ===== INTRO SECTION ===== */}
       <section className="co-about">

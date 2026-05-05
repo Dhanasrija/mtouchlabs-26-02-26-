@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "PPC Management Services Company",
@@ -39,39 +40,13 @@ export default function Page() {
           __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "PPC Management Services Company", "item": "https://www.mtouchlabs.com/ppc-management-services-company"}]}),
         }}
       />
-<section className="AIservices-banner" data-bg="/images/new_services/ppcbg.webp">
-		<div className="AIservices-banner-container">
-			{/*  Left Content  */}
-			<div className="AIservices-banner-content">
-
-				{/*  Breadcrumb  */}
-				<div className="AIservices-breadcrumb">
-					&nbsp;<a href="/">Home &nbsp;</a>
-					<span className="AIservices-separator">/</span>
-					&nbsp; <a href="/services">Services &nbsp;</a>
-					<span className="AIservices-separator">/</span>
-					&nbsp; <a className="active"> PPC Management Services
-						Company</a>
-				</div>
-
-				<p className="AIservices-description" id="mobile-AIservices-description"> Best <span style={{color: "#75a1ff"}}>
-						PPC Management Services </span> in Hyderabad
-				</p>
-
-				<h1 className="AIservices-title" id="mobile-AIservices-title"><span style={{color: "#75a1ff"}}>PPC Management
-						Services </span> Company </h1>
-				<p className="AIservices-description" id="mobile-AIservices-description">
-					mTouch Labs drives instant traffic, leads, and sales with result-focused PPC campaigns. From Google
-					Ads to Facebook and YouTube, we deliver tailored strategies for business growth.
-				</p>
-			</div>
-
-			{/*  Right Side Image  */}
-			{/*  <div className="AIservices-banner-image">
-      <img src="/images/new_services/ppc_hero.png" alt="PPC Services in India" />
-    </div>  */}
-		</div>
-	</section>
+      <ServiceHero
+        badge="PPC Management"
+        titleLead="PPC"
+        titleAccent="Management Services"
+        titleTail="Company"
+        description={<>mTouch Labs drives instant traffic, leads, and sales with result-focused PPC campaigns. From Google Ads to Facebook and YouTube, we deliver tailored strategies for business growth.</>}
+      />
 
 	{/*  🟪 Service Highlights  */}
 	<section className="AIservices-info-section">

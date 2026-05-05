@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "App Store Optimization Services",
@@ -26,12 +26,15 @@ export default function AppStoreOptimization() {
           __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "App Store Optimization Services", "item": "https://www.mtouchlabs.com/app-store-optimization-services"}]}),
         }}
       />
-      <section className="ao-hero"><div className="ao-hero__inner">
-        <Breadcrumb pagePath="/app-store-optimization-services" />
-        <h1 className="ao-hero__title">App Store <span className="ao-hero__title-accent">Optimization</span> Services</h1>
-        <p className="ao-hero__subtitle">Increasing App Visibility, Downloads &amp; Long-Term Store Performance</p>
-        <p className="ao-hero__desc">mTouch Labs provides professional ASO services designed to improve app discoverability, increase organic downloads, and enhance user acquisition performance across global marketplaces. App growth begins with discoverability.</p>
-      </div></section>
+      <ServiceHero
+        badge="App Store Optimization"
+        titleLead="App Store"
+        titleAccent="Optimization"
+        titleTail="Services"
+        description={<>
+          <strong>Increasing App Visibility, Downloads &amp; Long-Term Store Performance</strong> — mTouch Labs provides professional ASO services designed to improve app discoverability, increase organic downloads, and enhance user acquisition performance across global marketplaces. App growth begins with discoverability.
+        </>}
+      />
 
       <section className="ao-about"><div className="ao-container"><div className="ao-about__grid">
         <div className="ao-about__content ao-animate--left">

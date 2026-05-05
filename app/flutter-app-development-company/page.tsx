@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Flutter App Development Company | Cross-Platform Apps",
@@ -142,20 +142,13 @@ export default function FlutterAppDevelopment() {
       />
 
       {/* ===== HERO ===== */}
-      <section className="fl-hero">
-        <div className="fl-hero__inner">
-          <Breadcrumb pagePath="/flutter-app-development-company" />
-          <h1 className="fl-hero__title">
-            Flutter <span className="fl-hero__title-accent">App</span> Development Company
-          </h1>
-          <p className="fl-hero__subtitle">
-            Speed, Consistency &amp; Scalability in a Single Codebase
-          </p>
-          <p className="fl-hero__desc">
-            Speed, consistency, and scalability&mdash;those are the three things modern mobile apps are judged on. At mTouch Labs, we build Flutter applications that go beyond cross-platform compatibility, creating products that are stable under real-world usage, easy to scale, and aligned with business growth. Whether you&apos;re launching a new app or rebuilding an existing one powered by <a href="/custom-software-development-company" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>custom software</a>, we help you move faster without compromising on quality.
-          </p>
-        </div>
-      </section>
+      <ServiceHero
+        badge="App"
+        titleLead="Flutter"
+        titleAccent="App"
+        titleTail="Development Company"
+        description={<>Speed, Consistency & Scalability in a Single Codebase Speed, consistency, and scalability—those are the three things modern mobile apps are judged on. At mTouch Labs, we build Flutter applications that go beyond cross-platform compatibility, creating products that are stable under real-world usage, easy to scale, and aligned with business growth. Whether you're launching a new app or rebuilding an existing one powered by <a href="/custom-software-development-company" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>custom software</a>, we help you move faster without compromising on quality.</>}
+      />
 
       {/* ===== ABOUT ===== */}
       <section className="fl-about">

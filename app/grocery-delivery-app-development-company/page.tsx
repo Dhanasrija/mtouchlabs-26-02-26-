@@ -544,6 +544,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 const faqs = [
   { q: "Which is the best grocery delivery app development company in Hyderabad?", a: "mTouch Labs is a trusted grocery delivery app development company in Hyderabad, offering scalable solutions with real-time tracking, smart inventory, and seamless user experience for startups and enterprises." },
@@ -1167,27 +1168,12 @@ export default function Page() {
         </div>
 
         {/* ── HERO ── */}
-        <section className="gd-hero">
-          <div className="gd-hero-phone left">
-            <img src="/images/products/grocery/ondemandgrocery.png" alt="Grocery app screen" loading="lazy" />
-          </div>
-          <div className="gd-hero-center">
-            <span className="gd-pill green">GROCERY APP</span>
-            <h1 className="gd-h1">
-              Grocery Delivery<br />
-              <span className="accent">App Development</span>
-            </h1>
-            <p className="gd-hero-sub">
-              Build scalable grocery delivery apps with real-time tracking, smart inventory, and seamless checkout — custom solutions for startups and enterprises.
-            </p>
-            <Link href="https://youtu.be/OG7xN9zS0nQ?si=0_gnd60CIxP10yrs" target="_blank" rel="noopener noreferrer" className="gd-btn">
-              View Demo &nbsp;▶
-            </Link>
-          </div>
-          <div className="gd-hero-phone right">
-            <img src="/images/products/grocery/ondemandgrocery2.png" alt="Grocery app screen 2" loading="lazy" />
-          </div>
-        </section>
+        <ServiceHero
+          badge="Grocery App"
+          titleLead="Grocery Delivery"
+          titleAccent="App Development"
+          description={<>Build scalable grocery delivery apps with real-time tracking, smart inventory, and seamless checkout &mdash; custom solutions for startups and enterprises.</>}
+        />
 
         {/* ── KEY FEATURES ── */}
         <section className="gd-key-features">

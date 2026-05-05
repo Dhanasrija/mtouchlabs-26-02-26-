@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Social Media Marketing Services",
@@ -26,12 +26,13 @@ export default function SocialMediaMarketing() {
           __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Social Media Marketing Services", "item": "https://www.mtouchlabs.com/social-media-marketing-services"}]}),
         }}
       />
-      <section className="sm-hero"><div className="sm-hero__inner">
-        <Breadcrumb pagePath="/social-media-marketing-services" />
-        <h1 className="sm-hero__title">Social Media <span className="sm-hero__title-accent">Marketing</span> Services</h1>
-        <p className="sm-hero__subtitle">Strategic Brand Growth Across Global Social Platforms</p>
-        <p className="sm-hero__desc">mTouch Labs delivers structured social media marketing services designed to strengthen brand visibility, audience engagement, and measurable growth across digital platforms. Strategy creates impact.</p>
-      </div></section>
+      <ServiceHero
+        badge="Social Media Marketing"
+        titleLead="Social Media"
+        titleAccent="Marketing"
+        titleTail="Services"
+        description={<>Strategic Brand Growth Across Global Social Platforms. mTouch Labs delivers structured social media marketing services designed to strengthen brand visibility, audience engagement, and measurable growth across digital platforms. Strategy creates impact.</>}
+      />
 
       <section className="sm-about"><div className="sm-container"><div className="sm-about__grid">
         <div className="sm-about__content sm-animate--left">

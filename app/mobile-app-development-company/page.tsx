@@ -433,7 +433,7 @@
 
 
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Mobile App Development Company",
@@ -485,18 +485,16 @@ export default function MobileAppDevelopment() {
         }}
       />
       {/* ===== HERO ===== */}
-      <section className="ma-hero">
-        <div className="ma-hero__inner">
-          <Breadcrumb pagePath="/mobile-app-development-company" />
-          <h1 className="ma-hero__title">
-            Mobile <span className="ma-hero__title-accent">App Development</span> Company
-          </h1>
-          <p style={{ fontSize: "16px", color: "rgba(255,255,255,0.7)", maxWidth: "600px", margin: "16px auto 32px", lineHeight: 1.7, textAlign: "center" }}>Custom iOS, Android, and cross-platform apps built for scalable growth.</p>
-
-
-          <div style={{ marginTop: "32px" }}><a href="/contact-us" className="ma-cta__button" style={{ textDecoration: "none" }}>Contact Us →</a></div>
-        </div>
-      </section>
+      <ServiceHero
+        badge="Custom &middot; Scalable &middot; Growth-Focused"
+        titleLead="Mobile"
+        titleAccent="App Development"
+        titleTail="Company"
+        description={<>
+          <p>Engineering Mobile Experiences That Drive Real Business Growth</p>
+          <p>At mTouch Labs, we don&apos;t just build mobile apps — we engineer scalable digital products that solve real business problems. We partner with startups, growth-stage companies, and enterprises to design high-performance mobile applications that deliver measurable outcomes.</p>
+        </>}
+      />
 
       {/* ===== SERVICES ===== */}
       <section className="ma-services">

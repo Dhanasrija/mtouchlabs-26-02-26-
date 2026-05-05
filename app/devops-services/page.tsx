@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "DevOps Services and Solutions",
@@ -26,12 +26,13 @@ export default function DevOpsServices() {
           __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "DevOps Services and Solutions", "item": "https://www.mtouchlabs.com/devops-services"}]}),
         }}
       />
-      <section className="do-hero"><div className="do-hero__inner">
-        <Breadcrumb pagePath="/devops-services" />
-        <h1 className="do-hero__title">DevOps <span className="do-hero__title-accent">Services</span></h1>
-        <p className="do-hero__subtitle">Accelerating Software Delivery Through Automation, Reliability &amp; Continuous Innovation</p>
-        <p className="do-hero__desc">mTouch Labs delivers structured DevOps services that streamline development workflows, automate infrastructure, and improve deployment reliability across cloud environments. Speed without control creates risk. DevOps creates balance.</p>
-      </div></section>
+      <ServiceHero
+        badge="Services"
+        titleLead="DevOps"
+        titleAccent="Services"
+        titleTail=""
+        description={<>Accelerating Software Delivery Through Automation, Reliability & Continuous Innovation mTouch Labs delivers structured DevOps services that streamline development workflows, automate infrastructure, and improve deployment reliability across cloud environments. Speed without control creates risk. DevOps creates balance.</>}
+      />
 
       <section className="do-about"><div className="do-container"><div className="do-about__grid">
         <div className="do-about__content do-animate--left">

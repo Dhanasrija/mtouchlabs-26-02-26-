@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Custom CRM Software Development Company",
@@ -40,36 +41,14 @@ export default function Page() {
         }}
       />
 {/* page head */}
-	<div className="port-head-sec pt85 pb120 r-bg-x">
-		<div className="container">
-			<div className="row vcenter pt80">
-				<div className="col-lg-6">
-					<div className="page-headings">
-						<span className="sub-heading mb15" data-aos="fade-up" data-aos-delay="200"><i
-								className="fas fa-briefcase mr5"></i> Traders Ground</span>
-						<h1 className="mb15" data-aos="fade-up" data-aos-delay="400">Traders Ground : Your<span
-								className="ree-text rt40"> Retail CRM </span> Solution for Success</h1>
-						<p className="h-light" data-aos="fade-up" data-aos-delay="600">A CRM App that connects innovative
-							Manufacturers, Distributors, Retailers, Marketers, and Agents to enhance growth and
-							efficiency.</p>
-						<a href="https://play.google.com/store/apps/details?id=com.tanyya.tradersground&pcampaignid=web_share"
-							target="_blank" className="port-links mt40" data-aos="fade-up" data-aos-delay="800">Go to Play
-							Store <i className="fas fa-arrow-right fa-btn"></i></a>
-						&nbsp;
-						&nbsp;
-						<a href="https://tradersground.com/" target="_blank" className="port-links mt40" data-aos="fade-up"
-							data-aos-delay="800">Go to Website <i className="fas fa-arrow-right fa-btn"></i></a>
-					</div>
-				</div>
-				<div className="col-lg-6">
-					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img
-							src="/images/portfolio/tanyya-detail.jpg" alt="crm software development company"
-							className="img-fluid" /></div>
-				</div>
-			</div>
-		</div>
-	</div>
-	{/* end page head */}
+      <ServiceHero
+        badge="Custom CRM"
+        titleLead="Traders Ground:"
+        titleAccent="Retail CRM"
+        titleTail="Solution for Success"
+        description={<>A CRM App that connects innovative Manufacturers, Distributors, Retailers, Marketers, and Agents to enhance growth and efficiency.</>}
+      />
+      {/* end page head */}
 
 	{/* about items */}
 	<section className="r-bg-a sec-pad">

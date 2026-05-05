@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Enterprise Application Development Company",
@@ -26,12 +26,13 @@ export default function EnterpriseApplicationDevelopment() {
           __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Enterprise Application Development Company", "item": "https://www.mtouchlabs.com/enterprise-application-development-company"}]}),
         }}
       />
-      <section className="ea-hero"><div className="ea-hero__inner">
-        <Breadcrumb pagePath="/enterprise-application-development-company" />
-        <h1 className="ea-hero__title">Enterprise <span className="ea-hero__title-accent">Application</span> Development</h1>
-        <p className="ea-hero__subtitle">Scalable, Secure &amp; Cloud-Native Enterprise Software Solutions</p>
-        <p className="ea-hero__desc">mTouch Labs is a leading Enterprise Application Development Company delivering secure, scalable, and high-performance enterprise software solutions. We architect systems that streamline operations, unify data, automate workflows, and support long-term digital transformation.</p>
-      </div></section>
+      <ServiceHero
+        badge="Application"
+        titleLead="Enterprise"
+        titleAccent="Application"
+        titleTail="Development"
+        description={<>Scalable, Secure & Cloud-Native Enterprise Software Solutions mTouch Labs is a leading Enterprise Application Development Company delivering secure, scalable, and high-performance enterprise software solutions. We architect systems that streamline operations, unify data, automate workflows, and support long-term digital transformation.</>}
+      />
 
       <section className="ea-about"><div className="ea-container"><div className="ea-about__grid">
         <div className="ea-about__content ea-animate--left">

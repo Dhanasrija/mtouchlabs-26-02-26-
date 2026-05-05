@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "iPad App Development Company",
@@ -49,20 +49,13 @@ export default function IPadAppDevelopment() {
         }}
       />
       {/* ===== HERO ===== */}
-      <section className="ip-hero">
-        <div className="ip-hero__inner">
-          <Breadcrumb pagePath="/ipad-app-development-company" />
-          <h1 className="ip-hero__title">
-            iPad <span className="ip-hero__title-accent">App Development</span> Company
-          </h1>
-          <p className="ip-hero__subtitle">
-            Enterprise-Ready iPad Applications Built for Productivity
-          </p>
-          <p className="ip-hero__desc">
-            mTouch Labs is a specialized iPad app development company delivering high-performance, large-screen optimized applications designed for productivity, enterprise operations, and immersive digital experiences. Unlike standard mobile apps, iPad applications require structured layout engineering, advanced interaction models, and optimized performance for multitasking environments.
-          </p>
-        </div>
-      </section>
+      <ServiceHero
+        badge="iPad App Development"
+        titleLead="iPad"
+        titleAccent="App Development"
+        titleTail="Company"
+        description={<>mTouch Labs is a specialized iPad app development company delivering high-performance, large-screen optimized applications designed for productivity, enterprise operations, and immersive digital experiences. Unlike standard mobile apps, iPad applications require structured layout engineering, advanced interaction models, and optimized performance for multitasking environments.</>}
+      />
 
       {/* ===== ABOUT ===== */}
       <section className="ip-about">

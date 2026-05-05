@@ -423,6 +423,7 @@
 
 
 import type { Metadata } from "next";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "App Maintenance & Support Services",
@@ -508,53 +509,16 @@ export default function AppMaintenancePage() {
       />
 
       {/* HERO */}
-      <section className="xp-hero">
-        <div className="xp-hero__bg" />
-        <div className="xp-w xp-hero__body">
-          <nav className="xp-crumb" aria-label="Breadcrumb">
-            <a href="/">Home</a>
-            <span className="xp-crumb__sep">/</span>
-            <a href="/services">Services</a>
-            <span className="xp-crumb__sep">/</span>
-            <span className="xp-crumb__cur">App Maintenance</span>
-          </nav>
-          <div className="xp-hero__pill">Reliable &middot; Scalable &middot; Secure</div>
-          <h1 className="xp-hero__h1">
-            <span className="xp-glow">App Maintenance</span> &amp; Support
-            Services
-          </h1>
-          <p className="xp-hero__sub">
-            Long-Term Performance Optimization &amp; Reliable Application
-            Support
-          </p>
-          <p className="xp-hero__desc">
-            mTouch Labs provides comprehensive App Maintenance and Support
-            Services to ensure your mobile and web applications remain secure,
-            scalable, and high-performing long after launch.
-          </p>
-          <div className="xp-hero__row">
-            <div className="xp-hero__kpi">
-              <strong>99.9%</strong>
-              <span>Uptime SLA</span>
-            </div>
-            <div className="xp-hero__div" />
-            <div className="xp-hero__kpi">
-              <strong>24/7</strong>
-              <span>Monitoring</span>
-            </div>
-            <div className="xp-hero__div" />
-            <div className="xp-hero__kpi">
-              <strong>200+</strong>
-              <span>Apps Maintained</span>
-            </div>
-            <div className="xp-hero__div" />
-            <div className="xp-hero__kpi">
-              <strong>4hr</strong>
-              <span>Avg Response Time</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServiceHero
+        badge="Reliable &middot; Scalable &middot; Secure"
+        titleLead="App"
+        titleAccent="Maintenance"
+        titleTail="&amp; Support Services"
+        description={<>
+          <p>Long-Term Performance Optimization &amp; Reliable Application Support</p>
+          <p>mTouch Labs provides comprehensive App Maintenance and Support Services to ensure your mobile and web applications remain secure, scalable, and high-performing long after launch.</p>
+        </>}
+      />
 
       {/* WHY MAINTENANCE */}
       <section className="xp-sec">

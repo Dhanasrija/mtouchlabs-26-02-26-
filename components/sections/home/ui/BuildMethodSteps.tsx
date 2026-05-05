@@ -76,13 +76,32 @@ export function BuildMethodSteps({ steps }: BuildMethodStepsProps) {
         @media (max-width: 1024px) {
           .bm-steps-container {
             flex-direction: column;
-            gap: 24px;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 16px;
             overflow-x: visible;
+            padding: 16px 0 24px;
+          }
+          .bm-step-card {
+            width: 100% !important;
+            max-width: 240px;
+            flex-shrink: 0 !important;
           }
           .bm-step-arrow {
             transform: rotate(90deg);
+            padding-top: 0 !important;
             padding-bottom: 0 !important;
-            margin: 12px 0 !important;
+            margin: 4px 0 !important;
+            line-height: 1 !important;
+          }
+        }
+        @media (max-width: 600px) {
+          .bm-steps-container {
+            gap: 12px;
+            padding: 12px 0 20px;
+          }
+          .bm-step-arrow {
+            margin: 2px 0 !important;
           }
         }
       `}</style>
@@ -119,17 +138,17 @@ export function BuildMethodSteps({ steps }: BuildMethodStepsProps) {
                   cursor: "pointer",
                   animationDelay: `${stepDelay + 0.15}s`,
                   margin: "0 auto 16px",
+                  padding: "22px",
                 }}
               >
                 <div
                   className="bm-item-icon"
                   style={{
-                    width: "96px",
-                    height: "96px",
+                    width: "100%",
+                    height: "100%",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    margin: "auto",
                   }}
                 >
                   <Image
@@ -140,9 +159,12 @@ export function BuildMethodSteps({ steps }: BuildMethodStepsProps) {
                     style={{
                       objectFit: "contain",
                       objectPosition: "center center",
+                      width: "auto",
+                      height: "auto",
                       maxWidth: "100%",
                       maxHeight: "100%",
                       display: "block",
+                      margin: "auto",
                     }}
                   />
                 </div>

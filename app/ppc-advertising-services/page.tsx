@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
-
+import ServiceHero from "@/components/sections/ServiceHero";
 export const metadata: Metadata = {
   title: "PPC Advertising Services",
   description: "mTouch Labs offers PPC advertising services including Google Ads, paid search marketing, and performance-driven paid media campaigns.",
@@ -26,12 +25,13 @@ export default function PPCAdvertisingServices() {
           __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "PPC Advertising Services", "item": "https://www.mtouchlabs.com/ppc-advertising-services"}]}),
         }}
       />
-      <section className="pp-hero"><div className="pp-hero__inner">
-        <Breadcrumb pagePath="/ppc-advertising-services" />
-        <h1 className="pp-hero__title">PPC <span className="pp-hero__title-accent">Advertising</span> Services</h1>
-        <p className="pp-hero__subtitle">Performance-Driven Paid Campaigns Focused on Measurable ROI</p>
-        <p className="pp-hero__desc">mTouch Labs delivers strategic PPC advertising services designed to generate qualified traffic, increase conversions, and optimize advertising spend. Paid traffic should produce measurable growth — not wasted spend.</p>
-      </div></section>
+            <ServiceHero
+        badge="PPC Services"
+        titleLead="PPC"
+        titleAccent="Advertising"
+        titleTail="Services"
+        description={<>Performance-Driven Paid Campaigns Focused on Measurable ROI</>}
+      />
 
       <section className="pp-about"><div className="pp-container"><div className="pp-about__grid">
         <div className="pp-about__content pp-animate--left">

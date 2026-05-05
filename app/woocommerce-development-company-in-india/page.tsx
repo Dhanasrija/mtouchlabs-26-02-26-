@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "WooCommerce Development Company",
@@ -49,40 +50,12 @@ export default function Page() {
 	
 	
 
-		<section className="AIservices-banner" data-bg="images/new_services/woocommercebg.webp">
-		<div className="AIservices-banner-container">
-			
-			<div className="AIservices-banner-content">
-				
-				<div className="AIservices-breadcrumb" style={{color: "#131313"}}>
-					 <a href="/" style={{color: "#131313"}}>Home  </a>
-					<span className="AIservices-separator">/</span>
-					  <a href="/services" style={{color: "#131313"}}>Services  </a>
-					<span className="AIservices-separator">/</span>
-					  <a className="active" style={{color: "#131313"}}> WooCommerce
-						Development Company</a>
-				</div>
-
-				<p className="AIservices-description" id="mobile-AIservices-description" style={{color: "#131313"}}> Top <span
-						style={{color: "#ff532f"}}> WooCommerce </span>
-					Development Company In India
-				</p>
-				<h1 className="AIservices-title" id="mobile-AIservices-title" style={{color: "#131313"}}>
-					<span style={{color: "#ff532f"}}> WooCommerce </span> Development Company
-				</h1>
-				<p className="AIservices-description" id="mobile-AIservices-description" style={{color: "#131313"}}>
-					mTouch Labs is a trusted top WooCommerce development company in India, building
-					high-performance, responsive, and scalable eCommerce websites tailored to your
-					goals.
-
-				</p>
-			</div>
-
-			
-			
-
-		</div>
-	</section>
+	<ServiceHero
+		badge="WooCommerce Development"
+		titleAccent="WooCommerce"
+		titleTail="Development Company"
+		description="mTouch Labs is a trusted top WooCommerce development company in India, building high-performance, responsive, and scalable eCommerce websites tailored to your goals."
+	/>
 
 	
 	<section className="AIservices-info-section">

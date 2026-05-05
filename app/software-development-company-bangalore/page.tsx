@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FAQSchema from "@/components/seo/FAQSchema";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Software Development Company in Bangalore",
@@ -73,44 +74,12 @@ export default function SoftwareDevelopmentCompanyBangalore() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(locationBreadcrumb) }} />
       {/* ═══ HERO ═══ */}
-      <section className="loc-hero">
-        <div className="loc-heroInner">
-          <div className="loc-heroContent">
-            <div className="loc-heroBadge">
-              <span className="loc-heroBadgeDot" />
-              mTouch Labs · Bangalore
-            </div>
-            <h1 className="loc-heroTitle">
-              Software Development Company in{" "}
-              <span className="loc-highlight">Bangalore</span>
-            </h1>
-            <p className="loc-heroDesc">
-              Building innovative digital products from India's Silicon Valley for fast-growing businesses and SaaS companies.
-            </p>
-            <Link href="/contact-us" className="loc-heroCta">
-              Get a Free Consultation →
-            </Link>
-          </div>
-          <div className="loc-heroStats">
-            <div className="loc-heroStat">
-              <div className="loc-heroStatNum">2000+</div>
-              <div className="loc-heroStatLabel">Projects</div>
-            </div>
-            <div className="loc-heroStat">
-              <div className="loc-heroStatNum">1050+</div>
-              <div className="loc-heroStatLabel">Clients</div>
-            </div>
-            <div className="loc-heroStat">
-              <div className="loc-heroStatNum">14+</div>
-              <div className="loc-heroStatLabel">Years</div>
-            </div>
-            <div className="loc-heroStat">
-              <div className="loc-heroStatNum">99%</div>
-              <div className="loc-heroStatLabel">Retention</div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServiceHero
+        badge="mTouch Labs · Bangalore"
+        titleLead="Software Development Company in"
+        titleAccent="Bangalore"
+        description={<>Building innovative digital products from India&apos;s Silicon Valley for fast-growing businesses and SaaS companies.</>}
+      />
 
       {/* ═══ INTRO ═══ */}
       <section className="loc-section loc-introSection">

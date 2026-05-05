@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "WordPress Development Company India",
@@ -48,40 +49,13 @@ export default function Page() {
 
 	
 	
-	<section className="AIservices-banner" data-bg="images/new_services/wordbg.webp">
-		<div className="AIservices-banner-container">
-			<div className="AIservices-banner-content">
-
-				
-				<div className="AIservices-breadcrumb">
-					 <a href="/">Home  </a>
-					<span className="AIservices-separator">/</span>
-					  <a href="/services">Services  </a>
-					<span className="AIservices-separator">/</span>
-					  <a className="active"> WordPress
-						Development Company</a>
-				</div>
-
-				<p className="AIservices-description" id="mobile-AIservices-description">
-
-					Top <span style={{color: "#61dfea"}}>
-						WordPress </span> Development Company In India
-				</p>
-
-
-				<h1 className="AIservices-title" id="mobile-AIservices-title"> <span style={{color: "#61dfea"}}>Top-Rated
-						WordPress </span> Development Company
-				</h1>
-				<p className="AIservices-description" id="mobile-AIservices-description">
-					mTouch Labs is a top WordPress development company in Hyderabad, delivering
-					fast, scalable, SEO-friendly websites with custom themes and plugin
-					integrations.
-
-				</p>
-			</div>
-			
-		</div>
-	</section>
+	<ServiceHero
+		badge="WordPress Development"
+		titleLead="Top-Rated"
+		titleAccent="WordPress"
+		titleTail="Development Company"
+		description="mTouch Labs is a top WordPress development company in Hyderabad, delivering fast, scalable, SEO-friendly websites with custom themes and plugin integrations."
+	/>
 	<section className="AIservices-info-section">
 		<div className="AIservices-info-card">
 			<h2>Custom WordPress Solutions for Your Business</h2>

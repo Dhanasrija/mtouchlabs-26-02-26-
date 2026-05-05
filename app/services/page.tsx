@@ -469,25 +469,6 @@ export default function ServicesPage() {
                   <i className="fa-solid fa-arrow-right" />
                 </Link>
               </div>
-
-              <div className="itsc-stats-grid">
-                <div className="itsc-stat-card">
-                  <span className="itsc-stat-val">1500+</span>
-                  <span className="itsc-stat-lbl">Projects Delivered</span>
-                </div>
-                <div className="itsc-stat-card">
-                  <span className="itsc-stat-val">14+</span>
-                  <span className="itsc-stat-lbl">Years of Expertise</span>
-                </div>
-                <div className="itsc-stat-card">
-                  <span className="itsc-stat-val">40+</span>
-                  <span className="itsc-stat-lbl">Global Clients</span>
-                </div>
-                <div className="itsc-stat-card">
-                  <span className="itsc-stat-val">99%</span>
-                  <span className="itsc-stat-lbl">Client Satisfaction</span>
-                </div>
-              </div>
             </div>
           </div>
         </section>

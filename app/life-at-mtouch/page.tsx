@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Life at mTouch – Work Environment",
@@ -59,19 +60,12 @@ const faqs = [
 export default function LifeAtMtouch() {
   return (
     <>
-      <section className="lam-hero"><div className="lam-hero__inner">
-        <Breadcrumb pagePath="/life-at-mtouch" />
-        <h1 className="lam-hero__title">Life at <span className="lam-hero__accent">mTouch Labs</span></h1>
-        <p className="lam-hero__subtitle">A culture where creativity thrives, talent grows, and people build meaningful careers</p>
-        <div className="lam-hero__stats">
-          {numbers.map((n, i) => (
-            <div className="lam-hero__stat" key={i}>
-              <span className="lam-hero__stat-num">{n.num}</span>
-              <span className="lam-hero__stat-label">{n.label}</span>
-            </div>
-          ))}
-        </div>
-      </div></section>
+      <ServiceHero
+        badge="Our Culture"
+        titleLead="Life at"
+        titleAccent="mTouch Labs"
+        description={<>A culture where creativity thrives, talent grows, and people build meaningful careers</>}
+      />
 
       <section className="lam-intro"><div className="lam-container"><div className="lam-intro__grid">
         <div className="lam-intro__content">

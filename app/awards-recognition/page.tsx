@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Awards-Winning Software Development Company",
@@ -108,35 +109,16 @@ export default function AwardsRecognitionPage() {
       <link rel="stylesheet" href="/css/service-page.css" />
 
       {/* Hero */}
-      <section className="srv-hero">
-        <div className="srv-hero__bg">
-          <div className="srv-hero__gradient"></div>
-        </div>
-        <div className="srv-hero__content container">
-          <nav className="srv-breadcrumb" aria-label="Breadcrumb">
-            <ol>
-              <li><Link href="/">Home</Link></li>
-              <li><span className="srv-breadcrumb__sep">/</span></li>
-              <li className="srv-breadcrumb__current">Awards &amp; Recognition</li>
-            </ol>
-          </nav>
-          <span className="srv-hero__badge">Recognition</span>
-          <h1 className="srv-hero__title">
-            Awards & <span className="srv-accent">Recognition</span>
-          </h1>
-          <p className="srv-hero__sub">
-            Recognized for excellence in software development and digital innovation. Our commitment to delivering scalable, secure, and innovative solutions has earned us recognition across industries.
-          </p>
-          <div className="srv-hero__btns">
-            <Link href="/contact-us" className="srv-btn srv-btn--primary">
-              Work With Us <i className="fas fa-arrow-right"></i>
-            </Link>
-            <Link href="/leadership-team" className="srv-btn srv-btn--ghost">
-              Our Team
-            </Link>
-          </div>
-        </div>
-      </section>
+      <ServiceHero
+        badge="Recognition"
+        titleLead="Awards &"
+        titleAccent="Recognition"
+        description={<>Recognized for excellence in software development and digital innovation. Our commitment to delivering scalable, secure, and innovative solutions has earned us recognition across industries.</>}
+        primaryHref="/contact-us"
+        primaryLabel="Work With Us"
+        secondaryHref="/leadership-team"
+        secondaryLabel="Our Team"
+      />
 
       {/* Awards */}
       <section className="srv-section">

@@ -36995,13 +36995,22 @@ hero section compamny overview*/
 }
 
 /* ─── SCROLL REVEAL ANIMATION ─── */
+/* Default = visible. The observer in the page only animates the entry; if
+   the inline observer script fails to run, content must still be readable. */
 .odm-scroll-reveal {
-    opacity: 0 !important;
-    transform: translateY(32px) !important;
-    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.odm-scroll-reveal--right {
+/* Only hide elements once JS has explicitly opted them in by adding
+   .odm-pre-reveal alongside .odm-scroll-reveal. Until that happens, content
+   stays visible. */
+.odm-scroll-reveal.odm-pre-reveal {
+    opacity: 0 !important;
+    transform: translateY(32px) !important;
+}
+.odm-scroll-reveal.odm-pre-reveal.odm-scroll-reveal--right {
     transform: translateX(40px) !important;
 }
 

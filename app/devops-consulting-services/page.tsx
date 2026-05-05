@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "DevOps Consulting Services",
@@ -26,12 +26,15 @@ export default function DevOpsConsultingServices() {
           __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "DevOps Consulting Services", "item": "https://www.mtouchlabs.com/devops-consulting-services"}]}),
         }}
       />
-      <section className="dc-hero"><div className="dc-hero__inner">
-        <Breadcrumb pagePath="/devops-consulting-services" />
-        <h1 className="dc-hero__title">DevOps <span className="dc-hero__title-accent">Consulting</span> Services</h1>
-        <p className="dc-hero__subtitle">Strategic DevOps Advisory for Scalable, High-Performance Software Delivery</p>
-        <p className="dc-hero__desc">mTouch Labs provides expert DevOps Consulting Services designed to help organizations design, optimize, and scale modern DevOps frameworks. Transformation begins with strategy, not scripts.</p>
-      </div></section>
+      <ServiceHero
+        badge="DevOps Consulting Services"
+        titleLead="DevOps"
+        titleAccent="Consulting"
+        titleTail="Services"
+        description={<>
+          <strong>Strategic DevOps Advisory for Scalable, High-Performance Software Delivery</strong> — mTouch Labs provides expert DevOps Consulting Services designed to help organizations design, optimize, and scale modern DevOps frameworks. Transformation begins with strategy, not scripts.
+        </>}
+      />
 
       <section className="dc-about"><div className="dc-container"><div className="dc-about__grid">
         <div className="dc-about__content dc-animate--left">

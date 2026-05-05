@@ -73,44 +73,17 @@ export default function SoftwareDevelopmentCompanyDubai() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(locationBreadcrumb) }} />
       {/* ═══ HERO ═══ */}
-      <section className="loc-hero">
-        <div className="loc-heroInner">
-          <div className="loc-heroContent">
-            <div className="loc-heroBadge">
-              <span className="loc-heroBadgeDot" />
-              mTouch Labs · Dubai
-            </div>
-            <h1 className="loc-heroTitle">
-              Software Development Company in{" "}
-              <span className="loc-highlight">Dubai</span>
-            </h1>
-            <p className="loc-heroDesc">
-              Driving smart digital innovation across Dubai's business landscape with intelligent software platforms.
-            </p>
-            <Link href="/contact-us" className="loc-heroCta">
-              Get a Free Consultation →
-            </Link>
-          </div>
-          <div className="loc-heroStats">
-            <div className="loc-heroStat">
-              <div className="loc-heroStatNum">2000+</div>
-              <div className="loc-heroStatLabel">Projects</div>
-            </div>
-            <div className="loc-heroStat">
-              <div className="loc-heroStatNum">1050+</div>
-              <div className="loc-heroStatLabel">Clients</div>
-            </div>
-            <div className="loc-heroStat">
-              <div className="loc-heroStatNum">14+</div>
-              <div className="loc-heroStatLabel">Years</div>
-            </div>
-            <div className="loc-heroStat">
-              <div className="loc-heroStatNum">99%</div>
-              <div className="loc-heroStatLabel">Retention</div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServiceHero
+        badge="mTouch Labs · Dubai"
+        titleLead="Software Development"
+        titleAccent="Company in"
+        titleTail="Dubai"
+        description={
+          <>
+            Driving smart digital innovation across Dubai's business landscape with intelligent software platforms.
+          </>
+        }
+      />
 
       {/* ═══ INTRO ═══ */}
       <section className="loc-section loc-introSection">

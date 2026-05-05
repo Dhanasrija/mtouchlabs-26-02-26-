@@ -1919,21 +1919,12 @@ html {
     height: auto !important;
   }
 
-  /* Floating clone appended to <body>. Style should match the original
-     TOC exactly — it is a clone, so the inner class names already do
-     most of the work. These rules just ensure correct box/chrome. */
+  /* ⭐ Floating clone DISABLED — it was leaking onto the hero and footer
+     because the runtime visibility check could race with scroll events.
+     The in-flow `.cs-toc` above is `position: sticky` and stays scoped
+     to the article container, which is the correct behaviour. */
   .cs-toc.cs-toc--float {
-    position: fixed !important;
-    top: 100px !important;
-    width: 260px !important;
-    max-height: calc(100vh - 120px) !important;
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
-    z-index: 90 !important;
-    background: #fff !important;
-    box-shadow: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
+    display: none !important;
   }
 
   /* Parent section MUST NOT clip (belt & braces). */

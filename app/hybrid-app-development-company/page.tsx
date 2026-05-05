@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Top Hybrid App Development Company in India",
@@ -1305,41 +1306,13 @@ export default function Page() {
 
 
 	
-	<section className="AIservices-banner" data-bg="images/new_services/hydridbg.webp">
-		<div className="AIservices-banner-container">
-
-			
-			<div className="AIservices-banner-content">
-
-				
-				<div className="AIservices-breadcrumb">
-					 <a href="/">Home  </a>
-					<span className="AIservices-separator">/</span>
-					  <a href="/services">Services  </a>
-					<span className="AIservices-separator">/</span>
-					  <a className="active"> Hybrid App
-						Development Company</a>
-				</div>
-
-				<p className="AIservices-description" id="mobile-AIservices-description"> Top <span style={{color: "#77cdff"}}>
-						Hybrid App </span> Development Company In India</p>
-
-				<h1 className="AIservices-title" id="mobile-AIservices-title">
-					<span style={{color: "#6cc1ff"}}>Hybrid App </span> Development <br /> Company in India
-				</h1>
-				<p className="AIservices-description" id="mobile-AIservices-description">
-					mTouch Labs builds high-performance, scalable, and affordable hybrid mobile apps with cutting-edge
-					technology.
-
-				</p>
-
-			</div>
-
-			
-			
-
-		</div>
-	</section>
+	<ServiceHero
+		badge="Hybrid App Development"
+		titleLead="Hybrid App"
+		titleAccent="Development"
+		titleTail="Company in India"
+		description={<>mTouch Labs builds high-performance, scalable, and affordable hybrid mobile apps with cutting-edge technology.</>}
+	/>
 
 	
 

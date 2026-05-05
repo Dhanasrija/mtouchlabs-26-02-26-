@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Global Software & AI Solutions",
@@ -106,21 +107,16 @@ export default function OurJourneyPage() {
       <link rel="stylesheet" href="/css/journey-page.css" />
 
       {/* Hero */}
-      <section className="jrn-hero">
-        <div className="jrn-hero__bg"><div className="jrn-hero__gradient"></div></div>
-        <div className="jrn-hero__content container" style={{ paddingTop: "140px" }}>
-          <Breadcrumb pagePath="/our-journey" currentLabel="Our Journey" />
-          <span className="jrn-hero__badge">Since 2012</span>
-          <h1 className="jrn-hero__title">Our <span className="jrn-accent">Journey</span></h1>
-          <p className="jrn-hero__sub">
-            From a passionate startup to a global software &amp; AI solutions partner. Founded in 2012, mTouch Labs began as a small team of developers driven by curiosity, creativity, and a desire to make technology more accessible and impactful.
-          </p>
-          <div className="jrn-hero__btns">
-            <Link href="/contact-us" className="jrn-btn jrn-btn--primary">Get In Touch <i className="fas fa-arrow-right"></i></Link>
-            <Link href="/leadership-team" className="jrn-btn jrn-btn--ghost">Our Team</Link>
-          </div>
-        </div>
-      </section>
+      <ServiceHero
+        badge="Since 2012"
+        titleLead="Our"
+        titleAccent="Journey"
+        description={<>From a passionate startup to a global software &amp; AI solutions partner. Founded in 2012, mTouch Labs began as a small team of developers driven by curiosity, creativity, and a desire to make technology more accessible and impactful.</>}
+        primaryHref="/contact-us"
+        primaryLabel="Get In Touch"
+        secondaryHref="/leadership-team"
+        secondaryLabel="Our Team"
+      />
 
       {/* Timeline */}
       <section className="jrn-section">

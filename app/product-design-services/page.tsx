@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
-
+import ServiceHero from "@/components/sections/ServiceHero";
 export const metadata: Metadata = {
   title: "Product Design Services",
   description: "mTouch Labs delivers product design services including MVP design, SaaS product UX, and scalable digital product development strategies.",
@@ -26,12 +25,13 @@ export default function ProductDesignServices() {
           __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Product Design Services", "item": "https://www.mtouchlabs.com/product-design-services"}]}),
         }}
       />
-      <section className="pd-hero"><div className="pd-hero__inner">
-        <Breadcrumb pagePath="/product-design-services" />
-        <h1 className="pd-hero__title">Product <span className="pd-hero__title-accent">Design</span> Services</h1>
-        <p className="pd-hero__subtitle">Designing Digital Products That Solve Real Business Problems</p>
-        <p className="pd-hero__desc">mTouch Labs provides strategic product design services that transform ideas into scalable, user-centered digital products. Design is not decoration — it&apos;s product strategy in action.</p>
-      </div></section>
+            <ServiceHero
+        badge="Product Design"
+        titleLead="Product"
+        titleAccent="Design"
+        titleTail="Services"
+        description={<>Designing Digital Products That Solve Real Business Problems</>}
+      />
 
       <section className="pd-about"><div className="pd-container"><div className="pd-about__grid">
         <div className="pd-about__content pd-animate--left">

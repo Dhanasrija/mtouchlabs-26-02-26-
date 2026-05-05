@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Digital Marketing Solutions",
@@ -26,12 +26,13 @@ export default function DigitalMarketingSolutions() {
           __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Digital Marketing Solutions", "item": "https://www.mtouchlabs.com/digital-marketing-solutions"}]}),
         }}
       />
-      <section className="dm-hero"><div className="dm-hero__inner">
-        <Breadcrumb pagePath="/digital-marketing-solutions" />
-        <h1 className="dm-hero__title">Digital <span className="dm-hero__title-accent">Marketing</span> Solutions</h1>
-        <p className="dm-hero__subtitle">Integrated Growth Strategies Powered by Data, Performance &amp; Technology</p>
-        <p className="dm-hero__desc">mTouch Labs delivers structured digital marketing solutions designed to help businesses attract, convert, and retain customers through measurable performance strategies. Marketing should generate predictable growth, not unpredictable spending.</p>
-      </div></section>
+      <ServiceHero
+        badge="Marketing"
+        titleLead="Digital"
+        titleAccent="Marketing"
+        titleTail="Solutions"
+        description={<>Integrated Growth Strategies Powered by Data, Performance & Technology mTouch Labs delivers structured digital marketing solutions designed to help businesses attract, convert, and retain customers through measurable performance strategies. Marketing should generate predictable growth, not unpredictable spending.</>}
+      />
 
       <section className="dm-about"><div className="dm-container"><div className="dm-about__grid">
         <div className="dm-about__content dm-animate--left">

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Data Science Solutions",
@@ -26,12 +26,15 @@ export default function DataScienceSolutions() {
           __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Data Science Solutions", "item": "https://www.mtouchlabs.com/data-science-solutions"}]}),
         }}
       />
-      <section className="ds-hero"><div className="ds-hero__inner">
-        <Breadcrumb pagePath="/data-science-solutions" />
-        <h1 className="ds-hero__title">Data <span className="ds-hero__title-accent">Science</span> Solutions</h1>
-        <p className="ds-hero__subtitle">Turning Complex Data into Strategic Business Intelligence</p>
-        <p className="ds-hero__desc">mTouch Labs delivers advanced data science solutions that help organizations transform raw data into actionable intelligence. Data is valuable — only when it becomes insight.</p>
-      </div></section>
+      <ServiceHero
+        badge="Data Science Solutions"
+        titleLead="Data"
+        titleAccent="Science"
+        titleTail="Solutions"
+        description={<>
+          <strong>Turning Complex Data into Strategic Business Intelligence</strong> — mTouch Labs delivers advanced data science solutions that help organizations transform raw data into actionable intelligence. Data is valuable — only when it becomes insight.
+        </>}
+      />
 
       <section className="ds-about"><div className="ds-container"><div className="ds-about__grid">
         <div className="ds-about__content ds-animate--left">

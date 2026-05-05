@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Magento eCommerce Development",
@@ -50,7 +51,13 @@ export default function Page() {
 	
 	
 
-		<section className="AIservices-banner" data-bg="images/new_services/Magentobg.webp">
+		<ServiceHero
+		badge="Magento Development"
+		titleLead="Best"
+		titleAccent="Magento"
+		titleTail="Development Company"
+		description={<>mTouch Labs is a leading Magento Development Company in India, delivering secure, scalable, and customized Magento eCommerce solutions to boost performance and ROI.</>}
+	/>{/* OLD SECTION
 		<div className="AIservices-banner-container">
 			
 			<div className="AIservices-banner-content">
@@ -81,9 +88,9 @@ export default function Page() {
 			
 			
 		</div>
-	</section>
+	*/}
 
-	
+
 	<section className="AIservices-info-section">
 		<div className="AIservices-info-card">
 			<div className="AIservices-info-card-height">

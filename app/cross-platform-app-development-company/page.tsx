@@ -433,6 +433,7 @@
 //   );
 // }
 import type { Metadata } from "next";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Cross Platform App Development Company",
@@ -518,52 +519,16 @@ export default function CrossPlatformDevelopment() {
       />
 
       {/* HERO */}
-      <section className="xp-hero">
-        <div className="xp-hero__bg" />
-        <div className="xp-w xp-hero__body">
-          <nav className="xp-crumb" aria-label="Breadcrumb">
-            <a href="/">Home</a>
-            <span className="xp-crumb__sep">/</span>
-            <a href="/services">Services</a>
-            <span className="xp-crumb__sep">/</span>
-            <span className="xp-crumb__cur">Cross-Platform Development</span>
-          </nav>
-          <div className="xp-hero__pill">Build Once &middot; Deploy Everywhere</div>
-          <h1 className="xp-hero__h1">
-            <span className="xp-glow">Cross-Platform</span> App Development
-            Company
-          </h1>
-          <p className="xp-hero__sub">
-            Scalable &amp; Cost-Efficient Mobile Solutions
-          </p>
-          <p className="xp-hero__desc">
-            mTouch Labs is a trusted Cross Platform App Development Company
-            delivering high-performance mobile applications that run seamlessly
-            on iOS, Android, and web platforms using a single codebase.
-          </p>
-          <div className="xp-hero__row">
-            <div className="xp-hero__kpi">
-              <strong>60%</strong>
-              <span>Faster Development</span>
-            </div>
-            <div className="xp-hero__div" />
-            <div className="xp-hero__kpi">
-              <strong>40%</strong>
-              <span>Cost Savings</span>
-            </div>
-            <div className="xp-hero__div" />
-            <div className="xp-hero__kpi">
-              <strong>200+</strong>
-              <span>Apps Delivered</span>
-            </div>
-            <div className="xp-hero__div" />
-            <div className="xp-hero__kpi">
-              <strong>99%</strong>
-              <span>Code Reusability</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServiceHero
+        badge="Build Once &middot; Deploy Everywhere"
+        titleLead="Cross-Platform"
+        titleAccent="App"
+        titleTail="Development Company"
+        description={<>
+          <p>Scalable &amp; Cost-Efficient Mobile Solutions</p>
+          <p>mTouch Labs is a trusted Cross Platform App Development Company delivering high-performance mobile applications that run seamlessly on iOS, Android, and web platforms using a single codebase.</p>
+        </>}
+      />
 
       {/* WHAT IS */}
       <section className="xp-sec">

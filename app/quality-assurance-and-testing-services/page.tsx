@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ServiceHero from "@/components/sections/ServiceHero";
 import Link from "next/link";
 import FAQSchema from "@/components/seo/FAQSchema";
 
@@ -60,40 +61,13 @@ export default function QualityEngineeringTestingPage() {
       />
 
       {/* ═══ HERO ═══ */}
-      <section className="loc-hero">
-        <div className="loc-heroInner">
-          <div className="loc-heroContent">
-            <div className="loc-heroBadge">
-              <span className="loc-heroBadgeDot" />
-              mTouch Labs · Quality Assurance
-            </div>
-            <h1 className="loc-heroTitle">
-              Quality Assurance &amp;{" "}
-              <span className="loc-highlight">Testing Services</span>
-            </h1>
-            <p className="loc-heroDesc">
-              Delivering enterprise-grade quality assurance, test automation, and performance engineering to ensure your software is reliable, secure, and scalable from day one.
-            </p>
-            <Link href="/contact-us" className="loc-heroCta">
-              Request a QA Consultation →
-            </Link>
-          </div>
-          <div className="loc-heroStats">
-            <div className="loc-heroStat">
-              <div className="loc-heroStatNum">1500+</div>
-              <div className="loc-heroStatLabel">Projects Tested</div>
-            </div>
-            <div className="loc-heroStat">
-              <div className="loc-heroStatNum">99.9%</div>
-              <div className="loc-heroStatLabel">Defect Detection</div>
-            </div>
-            <div className="loc-heroStat">
-              <div className="loc-heroStatNum">60%</div>
-              <div className="loc-heroStatLabel">Faster Releases</div>
-            </div>
-          </div>
-        </div>
-      </section>
+            <ServiceHero
+        badge="QA & Testing"
+        titleLead="Quality Assurance &"
+        titleAccent="Testing"
+        titleTail="Services"
+        description={<>Comprehensive QA and testing services including manual testing, automation testing, performance testing, and security testing to ensure product quality and reliability.</>}
+      />
 
       {/* ═══ INTRO ═══ */}
       <section className="loc-section loc-introSection">

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FAQSchema from "@/components/seo/FAQSchema";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Software Development Company in Kochi",
@@ -73,26 +74,12 @@ export default function SoftwareDevelopmentCompanyKochi() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(locationBreadcrumb) }} />
       {/* ═══ HERO ═══ */}
-      <section className="loc-hero">
-        <div className="loc-heroInner">
-          <div className="loc-heroContent">
-            <div className="loc-heroBadge">
-              <span className="loc-heroBadgeDot" />
-              mTouch Labs · Kochi
-            </div>
-            <h1 className="loc-heroTitle">
-              Software Development Company in{" "}
-              <span className="loc-highlight">Kochi</span>
-            </h1>
-            <p className="loc-heroDesc">
-              Scalable software &amp; AI solutions for businesses in Kochi — empowering enterprises, startups, and growing businesses with secure, intelligent digital platforms.
-            </p>
-            <Link href="/contact-us" className="loc-heroCta">
-              Get a Free Consultation →
-            </Link>
-          </div>
-        </div>
-      </section>
+      <ServiceHero
+        badge="mTouch Labs · Kochi"
+        titleLead="Software Development Company in"
+        titleAccent="Kochi"
+        description={<>Scalable software &amp; AI solutions for businesses in Kochi — empowering enterprises, startups, and growing businesses with secure, intelligent digital platforms.</>}
+      />
 
       {/* ═══ INTRO ═══ */}
       <section className="loc-section loc-introSection">

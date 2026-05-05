@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "AWS Cloud Services",
@@ -26,12 +26,13 @@ export default function AWSCloudServices() {
           __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "AWS Cloud Services", "item": "https://www.mtouchlabs.com/aws-cloud-services"}]}),
         }}
       />
-      <section className="aw-hero"><div className="aw-hero__inner">
-        <Breadcrumb pagePath="/aws-cloud-services" />
-        <h1 className="aw-hero__title">AWS <span className="aw-hero__title-accent">Cloud</span> Services</h1>
-        <p className="aw-hero__subtitle">Secure, Scalable &amp; High-Performance Amazon Web Services Solutions</p>
-        <p className="aw-hero__desc">mTouch Labs provides professional AWS Cloud Services designed to help businesses migrate, modernize, and scale their infrastructure. From cloud migration to infrastructure optimization, we help organizations unlock the full potential of AWS.</p>
-      </div></section>
+      <ServiceHero
+        badge="AWS Cloud Services"
+        titleLead="AWS"
+        titleAccent="Cloud"
+        titleTail="Services"
+        description={<>Secure, Scalable &amp; High-Performance Amazon Web Services Solutions &mdash; mTouch Labs provides professional AWS Cloud Services designed to help businesses migrate, modernize, and scale their infrastructure. From cloud migration to infrastructure optimization, we help organizations unlock the full potential of AWS.</>}
+      />
 
       <section className="aw-about"><div className="aw-container"><div className="aw-about__grid">
         <div className="aw-about__content aw-animate--left">

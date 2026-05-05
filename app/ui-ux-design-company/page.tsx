@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "UI/UX Design Company",
@@ -26,12 +26,12 @@ export default function UIUXDesignCompany() {
           __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "UI/UX Design Company", "item": "https://www.mtouchlabs.com/ui-ux-design-company"}]}),
         }}
       />
-      <section className="ux-hero"><div className="ux-hero__inner">
-        <Breadcrumb pagePath="/ui-ux-design-company" />
-        <h1 className="ux-hero__title"><span className="ux-hero__title-accent">UI/UX</span> Design Company</h1>
-        <p className="ux-hero__subtitle">Designing Intuitive Digital Experiences That Convert</p>
-        <p className="ux-hero__desc">mTouch Labs is a performance-focused UI/UX design company delivering user-centered digital experiences that improve engagement, usability, and conversion rates. Great design is not just visual — it&apos;s functional, measurable, and aligned with business outcomes.</p>
-      </div></section>
+      <ServiceHero
+        badge="UI/UX Design"
+        titleLead="UI/UX"
+        titleAccent="Design Company"
+        description={<>mTouch Labs is a performance-focused UI/UX design company delivering user-centered digital experiences that improve engagement, usability, and conversion rates. Great design is not just visual &mdash; it&apos;s functional, measurable, and aligned with business outcomes.</>}
+      />
 
       <section className="ux-about"><div className="ux-container"><div className="ux-about__grid">
         <div className="ux-about__content ux-animate--left">

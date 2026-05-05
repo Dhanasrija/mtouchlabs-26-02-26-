@@ -397,6 +397,7 @@
 // }
 import type { Metadata } from "next";
 import Link from "next/link";
+import ServiceHero from "@/components/sections/ServiceHero";
 import FAQSchema from "@/components/seo/FAQSchema";
 
 export const metadata: Metadata = {
@@ -461,36 +462,15 @@ export default function HireWordpressDevelopersInIndia() {
       />
 
       {/* Hero Section */}
-      <section className="hma-hero">
-        <div className="hma-heroOrb hma-heroOrb1" />
-        <div className="hma-heroOrb hma-heroOrb2" />
-        <div className="hma-heroOrb hma-heroOrb3" />
-        <div className="hma-inner">
-          <div className="hma-heroInner">
-            <div className="hma-heroBadge">
-              <span className="hma-heroBadgeDot"></span>
-              WORDPRESS DEVELOPMENT · INDIA
-            </div>
-            <div className="hma-heroContent">
-              <h1 className="hma-heroTitle">
-              <span className="hma-hl">Hire WordPress Developers in India</span>
-            </h1>
-              {/* <p className="hma-heroSubtitle">
-                Build secure, scalable WordPress websites tailored to your
-                business
-              </p> */}
-              <div className="hma-heroCtas">
-                <Link href="/contact-us" className="hma-heroBtnPrimary">
-                  Get Started
-                </Link>
-                <Link href="/portfolio" className="hma-heroBtnOutline">
-                  View Portfolio
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServiceHero
+        badge="Hire WordPress Developers"
+        titleAccent="WordPress Developers in India"
+        description={
+          <>
+            WordPress is the world&apos;s most popular content management system, powering websites, blogs, and digital experiences. From custom themes to plugin development, WordPress solutions enable powerful digital presence. At mTouch Labs, our WordPress developers in India create engaging, SEO-optimized websites and custom solutions designed for your business growth.
+          </>
+        }
+      />
 
       <div className="hma-inner">
         {/* Intro Section */}

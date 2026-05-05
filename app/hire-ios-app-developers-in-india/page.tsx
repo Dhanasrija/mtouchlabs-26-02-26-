@@ -458,6 +458,7 @@
 
 import type { Metadata } from "next";
 import Link from "next/link";
+import ServiceHero from "@/components/sections/ServiceHero";
 import FAQSchema from "@/components/seo/FAQSchema";
 
 export const metadata: Metadata = {
@@ -513,26 +514,15 @@ export default function HireIosAppDevelopersInIndia() {
         }}
       />
 
-      <section className="hma-hero">
-        <div className="hma-heroOrb hma-heroOrb1" />
-        <div className="hma-heroOrb hma-heroOrb2" />
-        <div className="hma-heroOrb hma-heroOrb3" />
-        <div className="hma-heroInner">
-          <div className="hma-heroContent">
-            <div className="hma-heroBadge">
-              <span className="hma-heroBadgeDot" />
-              IOS APP DEVELOPMENT · INDIA
-            </div>
-            <h1 className="hma-heroTitle">
-              <span className="hma-hl">Hire iOS App Developers in India</span>
-            </h1>
-            <div className="hma-heroCtas">
-              <Link href="/contact-us" className="hma-heroBtnPrimary">Hire Developers →</Link>
-              <Link href="/portfolio" className="hma-heroBtnOutline">View Our Work</Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServiceHero
+        badge="Hire iOS App Developers"
+        titleAccent="iOS App Developers in India"
+        description={
+          <>
+            Building an iOS application is about more than writing code — it&apos;s about crafting a refined user experience that meets Apple&apos;s high standards and delights users from the first interaction. At mTouch Labs, our iOS app developers in India create secure, high-performance applications designed specifically for the Apple ecosystem — including iPhone, iPad, and Apple-integrated services.
+          </>
+        }
+      />
 
       <section className="hma-section hma-introSection">
         <div className="hma-inner">

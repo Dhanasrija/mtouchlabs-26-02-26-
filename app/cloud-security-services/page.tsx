@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Cloud Security Services",
@@ -26,12 +26,15 @@ export default function CloudSecurityServices() {
           __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Cloud Security Services", "item": "https://www.mtouchlabs.com/cloud-security-services"}]}),
         }}
       />
-      <section className="se-hero"><div className="se-hero__inner">
-        <Breadcrumb pagePath="/cloud-security-services" />
-        <h1 className="se-hero__title">Cloud <span className="se-hero__title-accent">Security</span> Services</h1>
-        <p className="se-hero__subtitle">Protecting Cloud Environments with Advanced Security &amp; Compliance Frameworks</p>
-        <p className="se-hero__desc">mTouch Labs provides enterprise-grade Cloud Security Services designed to safeguard cloud infrastructure, applications, and data against evolving cyber threats. Cloud performance means nothing without cloud protection.</p>
-      </div></section>
+      <ServiceHero
+        badge="Cloud Security Services"
+        titleLead="Cloud"
+        titleAccent="Security"
+        titleTail="Services"
+        description={<>
+          <strong>Protecting Cloud Environments with Advanced Security &amp; Compliance Frameworks</strong> — mTouch Labs provides enterprise-grade Cloud Security Services designed to safeguard cloud infrastructure, applications, and data against evolving cyber threats. Cloud performance means nothing without cloud protection.
+        </>}
+      />
 
       <section className="se-about"><div className="se-container"><div className="se-about__grid">
         <div className="se-about__content se-animate--left">

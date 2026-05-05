@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Native Mobile App Development",
@@ -52,7 +53,13 @@ export default function Page() {
 	
 
 
-		<section className="AIservices-banner" data-bg="images/new_services/nativebg.webp">
+		<ServiceHero
+		badge="Native App Development"
+		titleLead="Native App"
+		titleAccent="Development"
+		titleTail="Company in India"
+		description={<>mTouch Labs is a top native app development company in India, creating fast, secure, and optimized Android and iOS apps.</>}
+	/>{/* OLD SECTION
 		<div className="AIservices-banner-container">
 			
 			<div className="AIservices-banner-content">
@@ -79,12 +86,12 @@ export default function Page() {
 				</p>
 			</div>
 
-			
-			
-		</div>
-	</section>
 
-	
+
+		</div>
+	*/}
+
+
 	<section className="AIservices-info-section">
 		<div className="AIservices-info-card">
 			<div className="AIservices-info-card-height">

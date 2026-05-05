@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Android App Development Company",
@@ -45,16 +45,15 @@ export default function AndroidAppDevelopment() {
           __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Android App Development Company", "item": "https://www.mtouchlabs.com/android-app-development-company"}]}),
         }}
       />
-      <section className="ad-hero">
-        <div className="ad-hero__inner">
-          <Breadcrumb pagePath="/android-app-development-company" />
-          <h1 className="ad-hero__title">
-            Native <span className="ad-hero__title-accent">Android App</span> Development Company
-          </h1>
-          <p className="ad-hero__subtitle">Secure, Scalable &amp; Performance-Optimized Android Applications</p>
-          <p className="ad-hero__desc">mTouch Labs is a trusted Android app development company delivering secure, scalable, and performance-optimized mobile applications tailored for the Android ecosystem.</p>
-        </div>
-      </section>
+      <ServiceHero
+        badge="Android App Development"
+        titleLead="Native"
+        titleAccent="Android App"
+        titleTail="Development Company"
+        description={<>
+          <strong>Secure, Scalable &amp; Performance-Optimized Android Applications</strong> — mTouch Labs is a trusted Android app development company delivering secure, scalable, and performance-optimized mobile applications tailored for the Android ecosystem.
+        </>}
+      />
 
       <section className="ad-about">
         <div className="ad-container">

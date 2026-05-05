@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Best IoT Development Company in India",
@@ -26,12 +26,15 @@ export default function IoTDevelopmentIndia() {
           __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Best IoT Development Company in India", "item": "https://www.mtouchlabs.com/best-iot-development-company-in-india"}]}),
         }}
       />
-      <section className="ii-hero"><div className="ii-hero__inner">
-        <Breadcrumb pagePath="/best-iot-development-company-in-india" />
-        <h1 className="ii-hero__title">Best <span className="ii-hero__title-accent">IoT Development</span> Company in India</h1>
-        <p className="ii-hero__subtitle">Secure, Scalable &amp; Intelligent IoT Solutions</p>
-        <p className="ii-hero__desc">mTouch Labs is a leading IoT development company in India delivering intelligent, secure, and scalable Internet of Things solutions for enterprises. We design, develop, and deploy IoT ecosystems that connect devices, collect real-time data, automate workflows, and enable predictive decision-making.</p>
-      </div></section>
+      <ServiceHero
+        badge="IoT Development Company"
+        titleLead="Best"
+        titleAccent="IoT Development"
+        titleTail="Company in India"
+        description={<>
+          <strong>Secure, Scalable &amp; Intelligent IoT Solutions</strong> — mTouch Labs is a leading IoT development company in India delivering intelligent, secure, and scalable Internet of Things solutions for enterprises. We design, develop, and deploy IoT ecosystems that connect devices, collect real-time data, automate workflows, and enable predictive decision-making.
+        </>}
+      />
 
       <section className="ii-about"><div className="ii-container"><div className="ii-about__grid">
         <div className="ii-about__content ii-animate--left">

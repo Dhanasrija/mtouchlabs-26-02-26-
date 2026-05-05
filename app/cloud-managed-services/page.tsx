@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Cloud Managed Services",
@@ -26,12 +26,15 @@ export default function CloudManagedServices() {
           __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Cloud Managed Services", "item": "https://www.mtouchlabs.com/cloud-managed-services"}]}),
         }}
       />
-      <section className="ms-hero"><div className="ms-hero__inner">
-        <Breadcrumb pagePath="/cloud-managed-services" />
-        <h1 className="ms-hero__title">Cloud <span className="ms-hero__title-accent">Managed</span> Services</h1>
-        <p className="ms-hero__subtitle">Proactive Cloud Operations &amp; Continuous Infrastructure Management</p>
-        <p className="ms-hero__desc">mTouch Labs provides comprehensive Cloud Managed Services designed to ensure continuous performance, operational stability, and long-term scalability of cloud environments. Cloud success depends on sustained management.</p>
-      </div></section>
+      <ServiceHero
+        badge="Cloud Managed Services"
+        titleLead="Cloud"
+        titleAccent="Managed"
+        titleTail="Services"
+        description={<>
+          <strong>Proactive Cloud Operations &amp; Continuous Infrastructure Management</strong> — mTouch Labs provides comprehensive Cloud Managed Services designed to ensure continuous performance, operational stability, and long-term scalability of cloud environments. Cloud success depends on sustained management.
+        </>}
+      />
 
       <section className="ms-about"><div className="ms-container"><div className="ms-about__grid">
         <div className="ms-about__content ms-animate--left">

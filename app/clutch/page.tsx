@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Review Us on Clutch",
@@ -71,12 +72,15 @@ export default function ClutchPage() {
       <link href="/css/clutch.css" rel="stylesheet" />
 
       {/* ════════ HERO ════════ */}
-      <section className="clutch-hero">
-        <div className="clutch-hero__inner">
-          <h1 className="clutch-hero__title">Love What We Do? <span>Rate Us!</span></h1>
-          <p className="clutch-hero__subtitle">Your honest feedback helps us improve and helps other businesses find the right technology partner.</p><div style={{display:"flex",justifyContent:"center",marginTop:"32px",gap:"14px",flexWrap:"wrap"}}><a href="/contact-us" className="clutch-cta__btn">Get in Touch →</a><a href="https://review.clutch.co/review/?provider_id=1209509" target="_blank" rel="noopener noreferrer" className="clutch-cta__btn">Review Us on Clutch →</a></div>
-        </div>
-      </section>
+      <ServiceHero
+        titleLead="Love What We Do?"
+        titleAccent="Rate Us!"
+        description={<>Your honest feedback helps us improve and helps other businesses find the right technology partner.</>}
+        primaryHref="/contact-us"
+        primaryLabel="Get in Touch"
+        secondaryHref="https://review.clutch.co/review/?provider_id=1209509"
+        secondaryLabel="Review Us on Clutch"
+      />
 
       {/* ════════ STATS ════════ */}
       <section className="clutch-stats">

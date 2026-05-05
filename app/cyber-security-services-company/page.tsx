@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Cyber Security Services Company",
@@ -27,16 +27,15 @@ export default function CyberSecurityServices() {
         }}
       />
       {/* ===== HERO ===== */}
-      <section className="cs-hero">
-        <div className="cs-hero__inner">
-          <Breadcrumb pagePath="/cyber-security-services-company" />
-          <h1 className="cs-hero__title">
-            Enterprise <span className="cs-hero__title-accent">Cyber Security</span> Services
-          </h1>
-          <p className="cs-hero__subtitle">Secure Application Development &amp; Infrastructure Protection</p>
-          <p className="cs-hero__desc">mTouch Labs delivers advanced Cyber Security Services designed to protect digital assets, secure enterprise infrastructure, and ensure compliance in today&apos;s evolving threat landscape.</p>
-        </div>
-      </section>
+      <ServiceHero
+        badge="Cyber Security Services"
+        titleLead="Enterprise"
+        titleAccent="Cyber Security"
+        titleTail="Services"
+        description={<>
+          <strong>Secure Application Development &amp; Infrastructure Protection</strong> — mTouch Labs delivers advanced Cyber Security Services designed to protect digital assets, secure enterprise infrastructure, and ensure compliance in today&apos;s evolving threat landscape.
+        </>}
+      />
 
       {/* ===== ABOUT ===== */}
       <section className="cs-about">

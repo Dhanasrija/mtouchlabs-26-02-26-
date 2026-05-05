@@ -293,6 +293,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FAQSchema from "@/components/seo/FAQSchema";
+import ServiceHero from "@/components/sections/ServiceHero";
 import "../it-solutions-company/style.css";
 
 export const metadata: Metadata = {
@@ -332,68 +333,19 @@ export default function HireDevelopersInIndia() {
         }}
       />
 
-      {/* ═══════════ HERO (itsc-hero style) ═══════════ */}
+      {/* ═══════════ HERO ═══════════ */}
       <div className="itsc-page">
-        <section className="itsc-hero">
-          <div className="itsc-hero-grid" aria-hidden="true" />
-          <div className="itsc-blob itsc-blob-a" aria-hidden="true" />
-          <div className="itsc-blob itsc-blob-b" aria-hidden="true" />
-          <div className="itsc-blob itsc-blob-c" aria-hidden="true" />
-
-          <div className="itsc-container">
-            <div className="itsc-hero-content">
-              <div className="itsc-badge">
-                <span className="itsc-badge-dot" />
-                Offshore Development · India
-              </div>
-
-              <h1 className="itsc-h1">
-                Hire Dedicated Developers in India
-                <br />
-                to <span className="itsc-h1-gradient">Scale Faster</span>
-              </h1>
-
-              <p className="itsc-hero-sub">
-                Build your offshore engineering team with pre-vetted developers who integrate
-                seamlessly with your workflow. From MVPs to{" "}
-                <Link className="itsc-inline-link" href="/it-services-digital-transformation-company">
-                  enterprise platforms
-                </Link>{" "}
-                — we deliver scalable, secure, performance-optimized results.
-              </p>
-
-              <div className="itsc-ctas">
-                <Link href="/contact-us" className="itsc-btn itsc-btn-primary">
-                  <i className="fa-solid fa-paper-plane" />
-                  Hire Developers
-                </Link>
-                <Link href="/portfolio" className="itsc-btn itsc-btn-ghost">
-                  View Our Work
-                  <i className="fa-solid fa-arrow-right" />
-                </Link>
-              </div>
-
-              <div className="itsc-stats-grid">
-                <div className="itsc-stat-card">
-                  <span className="itsc-stat-val">150+</span>
-                  <span className="itsc-stat-lbl">Dedicated Developers</span>
-                </div>
-                <div className="itsc-stat-card">
-                  <span className="itsc-stat-val">60%</span>
-                  <span className="itsc-stat-lbl">Cost Savings</span>
-                </div>
-                <div className="itsc-stat-card">
-                  <span className="itsc-stat-val">48 hr</span>
-                  <span className="itsc-stat-lbl">Team Onboarding</span>
-                </div>
-                <div className="itsc-stat-card">
-                  <span className="itsc-stat-val">95%</span>
-                  <span className="itsc-stat-lbl">Developer Retention</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <ServiceHero
+          badge="Offshore Development · India"
+          titleLead="Hire Dedicated"
+          titleAccent="Developers in India"
+          titleTail="to Scale Faster"
+          description={
+            <>
+              Build your offshore engineering team with pre-vetted developers who integrate seamlessly with your workflow. From MVPs to enterprise platforms — we deliver scalable, secure, performance-optimized results.
+            </>
+          }
+        />
       </div>
 
       {/* ═══ WHY INDIA ═══ */}

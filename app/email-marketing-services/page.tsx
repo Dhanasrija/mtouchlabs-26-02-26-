@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Email Marketing Services",
@@ -26,12 +26,13 @@ export default function EmailMarketingServices() {
           __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Email Marketing Services", "item": "https://www.mtouchlabs.com/email-marketing-services"}]}),
         }}
       />
-      <section className="em-hero"><div className="em-hero__inner">
-        <Breadcrumb pagePath="/email-marketing-services" />
-        <h1 className="em-hero__title">Email <span className="em-hero__title-accent">Marketing</span> Services</h1>
-        <p className="em-hero__subtitle">Intelligent Email Campaigns Designed to Nurture, Convert &amp; Retain</p>
-        <p className="em-hero__desc">mTouch Labs delivers structured email marketing services that transform email communication into a measurable revenue channel. Effective email marketing is systematic, not sporadic.</p>
-      </div></section>
+      <ServiceHero
+        badge="Marketing"
+        titleLead="Email"
+        titleAccent="Marketing"
+        titleTail="Services"
+        description={<>Intelligent Email Campaigns Designed to Nurture, Convert & Retain mTouch Labs delivers structured email marketing services that transform email communication into a measurable revenue channel. Effective email marketing is systematic, not sporadic.</>}
+      />
 
       <section className="em-about"><div className="em-container"><div className="em-about__grid">
         <div className="em-about__content em-animate--left">

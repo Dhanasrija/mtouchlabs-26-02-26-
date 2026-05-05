@@ -626,6 +626,7 @@
 
 
 import type { Metadata } from "next";
+import ServiceHero from "@/components/sections/ServiceHero";
 import "../it-solutions-company/style.css";
 
 export const metadata: Metadata = {
@@ -662,69 +663,16 @@ export default function OnDemandProductsPage() {
       />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      {/* ═══════════ HERO (itsc-hero style) ═══════════ */}
-      <div className="itsc-page">
-        <section className="itsc-hero">
-          <div className="itsc-hero-grid" aria-hidden="true" />
-          <div className="itsc-blob itsc-blob-a" aria-hidden="true" />
-          <div className="itsc-blob itsc-blob-b" aria-hidden="true" />
-          <div className="itsc-blob itsc-blob-c" aria-hidden="true" />
-
-          <div className="itsc-container">
-            <div className="itsc-hero-content">
-              <div className="itsc-badge">
-                <span className="itsc-badge-dot" />
-                Hyderabad&apos;s Leading Partner
-              </div>
-
-              <h1 className="itsc-h1">
-                On-Demand Product Development Company
-                <br />
-                in <span className="itsc-h1-gradient">Hyderabad</span>
-              </h1>
-
-              <p className="itsc-hero-sub">
-                mTouch Labs is a leading on-demand products development company, specializing in building
-                scalable, secure, and high-performance{" "}
-                <a className="itsc-inline-link" href="/mobile-app-development-company">
-                  on-demand applications
-                </a>{" "}
-                for startups, enterprises, and growing businesses worldwide.
-              </p>
-
-              <div className="itsc-ctas">
-                <a href="/contact-us" className="itsc-btn itsc-btn-primary">
-                  <i className="fa-solid fa-paper-plane" />
-                  Get Started
-                </a>
-                <a href="/mobile-app-development-company" className="itsc-btn itsc-btn-ghost">
-                  Mobile App Services
-                  <i className="fa-solid fa-arrow-right" />
-                </a>
-              </div>
-
-              <div className="itsc-stats-grid">
-                <div className="itsc-stat-card">
-                  <span className="itsc-stat-val">200+</span>
-                  <span className="itsc-stat-lbl">On-Demand Apps Launched</span>
-                </div>
-                <div className="itsc-stat-card">
-                  <span className="itsc-stat-val">2M+</span>
-                  <span className="itsc-stat-lbl">End Users Served</span>
-                </div>
-                <div className="itsc-stat-card">
-                  <span className="itsc-stat-val">10</span>
-                  <span className="itsc-stat-lbl">Industries Covered</span>
-                </div>
-                <div className="itsc-stat-card">
-                  <span className="itsc-stat-val">24/7</span>
-                  <span className="itsc-stat-lbl">Real-Time Support</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
+      {/* ═══════════ HERO ═══════════ */}
+      <ServiceHero
+        badge="Hyderabad&apos;s Leading Partner"
+        titleLead="On-Demand Product Development"
+        titleAccent="Company"
+        titleTail="in Hyderabad"
+        description={<>
+          <p>mTouch Labs is a leading on-demand products development company, specializing in building scalable, secure, and high-performance on-demand applications for startups, enterprises, and growing businesses worldwide.</p>
+        </>}
+      />
 
       {/* ===== 2. INTRO ===== */}
       <section className="odm-section odm-scroll-reveal">

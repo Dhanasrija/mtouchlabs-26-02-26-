@@ -1731,11 +1731,15 @@ export default async function PortfolioDetailPage({
   if (!allLinks.length) { setTimeout(initCsToc, 200); return; }
   var HEADER_OFFSET = 100;
 
-  // ── TOC Pinning via FLOATING CLONE: we clone the TOC into <body> and
-  // ── pin it with position:fixed. This decouples it from the grid and
-  // ── any ancestor CSS (overflow-x: clip, transforms, etc.) so it is
-  // ── guaranteed to stay on-screen while scrolling the content.
+  // ⭐ TOC Pinning DISABLED — the floating-clone approach was overlapping
+  //    the hero and the footer. The in-flow `.cs-toc` is now `position:
+  //    sticky` in CSS, which keeps the TOC visible while reading and
+  //    naturally scopes it to the article container. Returning early
+  //    here skips clone creation and any `visibility: hidden` writes to
+  //    the original TOC.
   (function pinToc() {
+    return; // disabled — sticky CSS handles it
+    // eslint-disable-next-line no-unreachable
     var layout = document.querySelector('.cs-layout');
     var originalToc = document.querySelector('.cs-toc');
     if (!layout || !originalToc) return;

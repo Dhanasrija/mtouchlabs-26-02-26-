@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Salesforce Implementation Services",
@@ -26,12 +26,13 @@ export default function SalesforceImplementation() {
           __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Salesforce Implementation Services", "item": "https://www.mtouchlabs.com/salesforce-implementation-services"}]}),
         }}
       />
-      <section className="si-hero"><div className="si-hero__inner">
-        <Breadcrumb pagePath="/salesforce-implementation-services" />
-        <h1 className="si-hero__title">Salesforce <span className="si-hero__title-accent">Implementation</span> Services</h1>
-        <p className="si-hero__subtitle">Structured CRM Deployment Built for Scalable Growth</p>
-        <p className="si-hero__desc">Salesforce implementation is not about installing software — it is about designing a centralized intelligence system that aligns people, processes, and performance. We deliver outcome-driven Salesforce Implementation Services that help organizations streamline operations and gain real-time visibility into customer lifecycles.</p>
-      </div></section>
+      <ServiceHero
+        badge="Salesforce Implementation"
+        titleLead="Salesforce"
+        titleAccent="Implementation"
+        titleTail="Services"
+        description={<>Structured CRM Deployment Built for Scalable Growth. Salesforce implementation is not about installing software — it is about designing a centralized intelligence system that aligns people, processes, and performance. We deliver outcome-driven Salesforce Implementation Services that help organizations streamline operations and gain real-time visibility into customer lifecycles.</>}
+      />
 
       <section className="si-about"><div className="si-container"><div className="si-about__grid">
         <div className="si-about__content si-animate--left">

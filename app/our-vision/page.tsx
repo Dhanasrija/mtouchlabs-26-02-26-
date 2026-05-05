@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Our Vision – Driving Digital Innovation",
@@ -26,15 +27,12 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <section className="hero-section_company_overview company_overview">
-    <div className="hero-content">
-<h1 className="hero-title">Vision & Mission</h1>
-
-      <p className="hero-subtitle">Shaping a smarter digital future with technology that inspires, empowers, and transforms businesses.</p>
-
-      
-    </div>
-  </section>
+      <ServiceHero
+        badge="Vision & Mission"
+        titleLead="Vision & "
+        titleAccent="Mission"
+        description={<>Shaping a smarter digital future with technology that inspires, empowers, and transforms businesses.</>}
+      />
 
   
   <section className="our_vision_mission_section">

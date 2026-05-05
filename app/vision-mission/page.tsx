@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Vision & Mission",
@@ -38,21 +38,17 @@ export default function VisionMission() {
   return (
     <>
       {/* ===== HERO SECTION ===== */}
-      <section className="vm-hero">
-        <div className="vm-hero__inner">
-          <Breadcrumb pagePath="/vision-mission" />
-          <h1 className="vm-hero__title">
-            Our <span className="vm-hero__title-accent">Vision</span> &amp;{" "}
-            <span className="vm-hero__title-accent">Mission</span>
-          </h1>
-          <p className="vm-hero__subtitle">
-            mTouch Labs — Global IT Services &amp; Digital Transformation Company
-          </p>
-          <p className="vm-hero__desc">
-            Empowering businesses to innovate, scale, and lead confidently in the digital era
-          </p>
-        </div>
-      </section>
+      <ServiceHero
+        badge="Vision & Mission"
+        titleLead="Our"
+        titleAccent="Vision & Mission"
+        description={
+          <>
+            <strong>mTouch Labs &mdash; Global IT Services &amp; Digital Transformation Company.</strong>{" "}
+            Empowering businesses to innovate, scale, and lead confidently in the digital era.
+          </>
+        }
+      />
 
       {/* ===== OUR VISION SECTION ===== */}
       <section className="vm-about">

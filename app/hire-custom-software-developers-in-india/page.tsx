@@ -487,6 +487,7 @@
 
 import type { Metadata } from "next";
 import Link from "next/link";
+import ServiceHero from "@/components/sections/ServiceHero";
 import FAQSchema from "@/components/seo/FAQSchema";
 
 export const metadata: Metadata = {
@@ -546,30 +547,17 @@ export default function HireCustomSoftwareDevelopersInIndia() {
       />
 
       {/* ═══ HERO ═══ */}
-      <section className="hma-hero">
-        <div className="hma-heroOrb hma-heroOrb1" />
-        <div className="hma-heroOrb hma-heroOrb2" />
-        <div className="hma-heroOrb hma-heroOrb3" />
-        <div className="hma-heroInner">
-          <div className="hma-heroContent">
-            <div className="hma-heroBadge">
-              <span className="hma-heroBadgeDot" />
-              CUSTOM SOFTWARE · INDIA
-            </div>
-            <h1 className="hma-heroTitle">
-              <span className="hma-hl">Hire Custom Software Developers in India</span>
-            </h1>
-            <div className="hma-heroCtas">
-              <Link href="/contact-us" className="hma-heroBtnPrimary">
-                Hire Developers →
-              </Link>
-              <Link href="/portfolio" className="hma-heroBtnOutline">
-                View Our Work
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServiceHero
+        badge="Custom Software · India"
+        titleLead="Hire Custom"
+        titleAccent="Software"
+        titleTail="Developers in India"
+        description={
+          <>
+            Off-the-shelf software often limits flexibility, scalability, and performance. Custom software solutions are built specifically for your business needs, workflows, and growth strategy.
+          </>
+        }
+      />
 
       {/* ═══ INTRO ═══ */}
       <section className="hma-section hma-introSection">

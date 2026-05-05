@@ -361,6 +361,7 @@
 
 import type { Metadata } from "next";
 import Link from "next/link";
+import ServiceHero from "@/components/sections/ServiceHero";
 import FAQSchema from "@/components/seo/FAQSchema";
 
 export const metadata: Metadata = {
@@ -444,30 +445,15 @@ export default function HireMeanStackDevelopersInIndia() {
       />
 
       {/* Hero Section */}
-      <section className="hma-hero">
-        <div className="hma-heroOrb hma-heroOrb1" />
-        <div className="hma-heroOrb hma-heroOrb2" />
-        <div className="hma-heroOrb hma-heroOrb3" />
-        <div className="hma-heroInner">
-          <div className="hma-heroContent">
-            <div className="hma-heroBadge">
-              <span className="hma-heroBadgeDot"></span>
-              MEAN STACK DEVELOPMENT · INDIA
-            </div>
-            <h1 className="hma-heroTitle">
-              <span className="hma-hl">Hire MEAN Stack Developers in India</span>
-            </h1>
-            <div className="hma-heroCtas">
-              <Link href="/contact-us" className="hma-heroBtnPrimary">
-                Get Started
-              </Link>
-              <Link href="/portfolio" className="hma-heroBtnOutline">
-                View Portfolio
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServiceHero
+        badge="Hire MEAN Stack Developers"
+        titleAccent="MEAN Stack Developers in India"
+        description={
+          <>
+            The MEAN stack (MongoDB, Express, Angular, Node.js) offers a unified JavaScript environment for building full-stack web applications. From real-time data platforms to interactive single-page applications, MEAN empowers developers to create modern, scalable solutions. At mTouch Labs, our MEAN stack developers in India build comprehensive, JavaScript-powered applications designed for performance and scalability.
+          </>
+        }
+      />
 
       {/* Intro Section */}
       <section className="hma-section hma-introSection">

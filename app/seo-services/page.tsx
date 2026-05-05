@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Trusted SEO Services Company",
@@ -14,12 +14,12 @@ export const metadata: Metadata = {
 export default function SEOServices() {
   return (
     <>
-      <section className="se-hero"><div className="se-hero__inner">
-        <Breadcrumb pagePath="/seo-services" />
-        <h1 className="se-hero__title"><span className="se-hero__title-accent">SEO</span> Services</h1>
-        <p className="se-hero__subtitle">Strategic Search Engine Optimization for Sustainable Organic Growth</p>
-        <p className="se-hero__desc">mTouch Labs provides performance-driven SEO services designed to increase search visibility, strengthen domain authority, and generate high-intent organic traffic. Organic visibility is not accidental — it is engineered.</p>
-      </div></section>
+      <ServiceHero
+        badge="SEO Services"
+        titleAccent="SEO"
+        titleTail="Services"
+        description={<>Strategic Search Engine Optimization for Sustainable Organic Growth. mTouch Labs provides performance-driven SEO services designed to increase search visibility, strengthen domain authority, and generate high-intent organic traffic. Organic visibility is not accidental — it is engineered.</>}
+      />
 
       <section className="se-about"><div className="se-container"><div className="se-about__grid">
         <div className="se-about__content se-animate--left">

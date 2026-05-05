@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Top Web Design Development Company In India",
@@ -52,36 +53,12 @@ export default function Page() {
 
 
 
-		<section className="AIservices-banner" data-bg="images/new_services/webdesignbg.webp">
-		<div className="AIservices-banner-container">
-			
-			<div className="AIservices-banner-content">
-
-				
-				<div className="AIservices-breadcrumb">
-					 <a href="/">Home  </a>
-					<span className="AIservices-separator">/</span>
-					  <a href="/services">Services  </a>
-					<span className="AIservices-separator">/</span>
-					  <a className="active"> Web Design
-						Development Company</a>
-				</div>
-				<p className="AIservices-description" id="mobile-AIservices-description"> Top <span style={{color: "#FFBA50"}}>
-						Web Design </span> Development Company In India
-				</p>
-
-				<h1 className="AIservices-title" id="mobile-AIservices-title">Award-Winning <span
-						style={{color: "#FFBA50"}}><br />Web Design </span>Company </h1>
-				<p className="AIservices-description" id="mobile-AIservices-description">
-					mTouch Labs creates responsive, visually stunning web designs that reflect your brand and drive
-					customer engagement.
-				</p>
-			</div>
-
-			
-			
-		</div>
-	</section>
+		<ServiceHero
+		badge="Web Design"
+		titleLead="Award-Winning"
+		titleAccent="Web Design Company"
+		description="mTouch Labs creates responsive, visually stunning web designs that reflect your brand and drive customer engagement."
+	/>
 
 	
 	<section className="AIservices-info-section">

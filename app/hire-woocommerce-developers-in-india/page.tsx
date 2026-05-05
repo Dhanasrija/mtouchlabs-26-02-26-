@@ -393,6 +393,7 @@
 
 import type { Metadata } from "next";
 import Link from "next/link";
+import ServiceHero from "@/components/sections/ServiceHero";
 import FAQSchema from "@/components/seo/FAQSchema";
 
 export const metadata: Metadata = {
@@ -457,30 +458,15 @@ export default function HireWoocommerceDevelopersInIndia() {
       />
 
       {/* ═══ HERO ═══ */}
-      <section className="hma-hero">
-        <div className="hma-heroOrb hma-heroOrb1" />
-        <div className="hma-heroOrb hma-heroOrb2" />
-        <div className="hma-heroOrb hma-heroOrb3" />
-        <div className="hma-heroInner">
-          <div className="hma-heroContent">
-            <div className="hma-heroBadge">
-              <span className="hma-heroBadgeDot" />
-              WOOCOMMERCE DEVELOPMENT · INDIA
-            </div>
-            <h1 className="hma-heroTitle">
-              <span className="hma-hl">Hire WooCommerce Developers in India</span>
-            </h1>
-            <div className="hma-heroCtas">
-              <Link href="/contact-us" className="hma-heroBtnPrimary">
-                Hire Developers →
-              </Link>
-              <Link href="/portfolio" className="hma-heroBtnOutline">
-                View Our Work
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServiceHero
+        badge="Hire WooCommerce Developers"
+        titleAccent="WooCommerce Developers in India"
+        description={
+          <>
+            WooCommerce is the leading open-source e-commerce platform powering millions of online stores. From product catalogs to payment integration, WooCommerce enables flexible, scalable e-commerce. At mTouch Labs, our WooCommerce developers in India create custom, high-converting online stores designed to drive sales growth.
+          </>
+        }
+      />
 
       {/* ═══ INTRO ═══ */}
       <section className="hma-section hma-introSection">

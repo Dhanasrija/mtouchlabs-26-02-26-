@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "On-Demand App & Web Development",
@@ -27,32 +28,13 @@ export default function Page() {
   return (
     <>
 {/* page head */}
-    <div className="port-head-sec pt85 pb120 r-bg-x">
-        <div className="container">
-            <div className="row vcenter pt80">
-                <div className="col-lg-6">
-                    <div className="page-headings">
-                        <span className="sub-heading mb15" data-aos="fade-up" data-aos-delay="200"><i
-                                className="fas fa-briefcase mr5"></i>Adifie</span>
-                        <h1 className="mb15" data-aos="fade-up" data-aos-delay="400">Streamlined Mobile App Development for
-                            On-Demand Services</h1>
-                        <p className="h-light" data-aos="fade-up" data-aos-delay="600">Create intuitive, feature-rich mobile
-                            apps that connect customers and vendors for seamless on-demand service delivery, ensuring a
-                            smooth experience from start to finish.
-                        </p>
-                        <a href="https://play.google.com/store/apps/details?id=com.adifie.user&hl=en" target="_blank"
-                            className="port-links mt40" data-aos="fade-up" data-aos-delay="800">Go to Play Store <i
-                                className="fas fa-arrow-right fa-btn"></i></a>
-                        {/*  <a href="https://apps.apple.com/us/app/khidkee-marketplace/id1546476049" target="_blank" className="port-links mt40" data-aos="fade-up" data-aos-delay="800">Go to App Store <i className="fas fa-arrow-right fa-btn"></i></a>  */}
-                    </div>
-                </div>
-                <div className="col-lg-6">
-                    <div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img
-                            src="/images/case-study/adifie.svg" alt="On demand Services" className="img-fluid" /></div>
-                </div>
-            </div>
-        </div>
-    </div>
+          <ServiceHero
+        badge="Adifie"
+        titleLead="Streamlined"
+        titleAccent="Mobile App Development"
+        titleTail="for On-Demand Services"
+        description={<>Create intuitive, feature-rich mobile apps that connect customers and vendors for seamless on-demand service delivery, ensuring a smooth experience from start to finish.</>}
+      />
     {/* end page head */}
 
     {/* about items */}

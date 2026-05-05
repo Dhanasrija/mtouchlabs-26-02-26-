@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Salesforce Consulting Services Company",
@@ -26,12 +26,13 @@ export default function SalesforceConsultingServices() {
           __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Salesforce Consulting Services Company", "item": "https://www.mtouchlabs.com/salesforce-consulting-services-company"}]}),
         }}
       />
-      <section className="sf-hero"><div className="sf-hero__inner">
-        <Breadcrumb pagePath="/salesforce-consulting-services-company" />
-        <h1 className="sf-hero__title">Salesforce <span className="sf-hero__title-accent">Consulting</span> Services</h1>
-        <p className="sf-hero__subtitle">Strategic Salesforce Implementation &amp; CRM Transformation Experts</p>
-        <p className="sf-hero__desc">At mTouch Labs, we help businesses unlock the full potential of Salesforce by aligning CRM technology with strategic growth objectives. We don&apos;t just deploy Salesforce — we design scalable CRM ecosystems that improve sales performance, automate workflows, and enhance customer lifecycle management.</p>
-      </div></section>
+      <ServiceHero
+        badge="Salesforce Consulting"
+        titleLead="Salesforce"
+        titleAccent="Consulting"
+        titleTail="Services"
+        description={<>Strategic Salesforce Implementation &amp; CRM Transformation Experts. At mTouch Labs, we help businesses unlock the full potential of Salesforce by aligning CRM technology with strategic growth objectives. We don&apos;t just deploy Salesforce — we design scalable CRM ecosystems that improve sales performance, automate workflows, and enhance customer lifecycle management.</>}
+      />
 
       <section className="sf-about"><div className="sf-container"><div className="sf-about__grid">
         <div className="sf-about__content sf-animate--left">

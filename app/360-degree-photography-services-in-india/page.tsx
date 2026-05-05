@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "360 Degree Photography Services in India",
@@ -47,20 +47,15 @@ export default function ThreeSixtyPhotography() {
         }}
       />
       {/* ===== HERO ===== */}
-      <section className="dp-hero">
-        <div className="dp-hero__inner">
-          <Breadcrumb pagePath="/360-degree-photography-services-in-india" />
-          <h1 className="dp-hero__title">
-            360° <span className="dp-hero__title-accent">Photography</span> Services
-          </h1>
-          <p className="dp-hero__subtitle">
-            Immersive Visual Experiences That Capture Every Angle
-          </p>
-          <p className="dp-hero__desc">
-            mTouch Labs provides professional 360 degree photography services in India, helping businesses showcase their spaces, products, and environments through interactive panoramic visuals. From real estate and hospitality to retail and corporate spaces, we capture environments with precision and clarity. Visual storytelling is evolving — 360-degree photography leads the way.
-          </p>
-        </div>
-      </section>
+      <ServiceHero
+        badge="360 Degree Photography"
+        titleLead="360°"
+        titleAccent="Photography"
+        titleTail="Services"
+        description={<>
+          <strong>Immersive Visual Experiences That Capture Every Angle</strong> — mTouch Labs provides professional 360 degree photography services in India, helping businesses showcase their spaces, products, and environments through interactive panoramic visuals. From real estate and hospitality to retail and corporate spaces, we capture environments with precision and clarity. Visual storytelling is evolving — 360-degree photography leads the way.
+        </>}
+      />
 
       {/* ===== ABOUT ===== */}
       <section className="dp-about">

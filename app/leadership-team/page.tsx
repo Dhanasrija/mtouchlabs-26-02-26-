@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Leadership Team",
@@ -165,27 +166,15 @@ export default function LeadershipTeamPage() {
       <link rel="stylesheet" href="/css/leadership-page.css" />
 
       {/* Hero */}
-      <section className="ldr-hero">
-        <div className="ldr-hero__bg">
-          <div className="ldr-hero__gradient"></div>
-        </div>
-        <div className="ldr-hero__content container" style={{ paddingTop: "140px" }}>
-          <Breadcrumb pagePath="/leadership-team" currentLabel="Leadership Team" />
-          <span className="ldr-hero__badge">Our People</span>
-          <h1 className="ldr-hero__title">
-            Leadership <span className="ldr-accent">Team</span>
-          </h1>
-          <p className="ldr-hero__sub">
-            Global technology leaders driving digital innovation. Our leadership team consists of experienced technology strategists, enterprise architects, and{" "}
-            <Link href="/it-services-digital-transformation-company">digital transformation</Link> experts committed to delivering scalable software solutions.
-          </p>
-          <div className="ldr-hero__btns">
-            <Link href="/contact-us" className="ldr-btn ldr-btn--primary">
-              Get In Touch <i className="fas fa-arrow-right"></i>
-            </Link>
-          </div>
-        </div>
-      </section>
+      <ServiceHero
+        badge="Our People"
+        titleLead="Leadership"
+        titleAccent="Team"
+        description={<>Global technology leaders driving digital innovation. Our leadership team consists of experienced technology strategists, enterprise architects, and{" "}
+            <Link href="/it-services-digital-transformation-company">digital transformation</Link> experts committed to delivering scalable software solutions.</>}
+        primaryHref="/contact-us"
+        primaryLabel="Get In Touch"
+      />
 
       {/* Vision */}
       <section className="ldr-section">

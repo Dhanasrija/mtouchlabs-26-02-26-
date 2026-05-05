@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Education App & Web Development",
@@ -40,28 +41,12 @@ export default function Page() {
         }}
       />
 {/* page head */}
-    <div className="port-head-sec pt85 pb120 r-bg-x">
-        <div className="container">
-            <div className="row vcenter pt80">
-                <div className="col-lg-6">
-                    <div className="page-headings">
-                        <span className="sub-heading mb15" data-aos="fade-up" data-aos-delay="200"><i
-                                className="fas fa-briefcase mr5"></i>Learn2read</span>
-                        <h1 className="mb15" data-aos="fade-up" data-aos-delay="400">Empowering Early Literacy with Engaging
-                            Digital Learning Tools
-                        </h1>
-                        <p className="h-light" data-aos="fade-up" data-aos-delay="600">Unlocking the Power of Reading with
-                            Digital Innovation
-                        </p>
-                    </div>
-                </div>
-                <div className="col-lg-6">
-                    <div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img
-                            src="/images/case-study/l2r-main.svg" alt="education Services" className="img-fluid" /></div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <ServiceHero
+      badge="Education Services"
+      titleLead="Empowering Early Literacy with"
+      titleAccent="Engaging Digital Learning Tools"
+      description="Unlocking the Power of Reading with Digital Innovation"
+    />
     {/* end page head */}
 
     {/* about items */}

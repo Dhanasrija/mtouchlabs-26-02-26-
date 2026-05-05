@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Web Development Company in Hyderabad | AI Web Solutions",
@@ -143,20 +143,13 @@ export default function WebDevelopment() {
       />
 
       {/* ===== HERO ===== */}
-      <section className="wd-hero">
-        <div className="wd-hero__inner">
-          <Breadcrumb pagePath="/web-development-company" />
-          <h1 className="wd-hero__title">
-            Web <span className="wd-hero__title-accent">Development</span> Company in Hyderabad
-          </h1>
-          <p className="wd-hero__subtitle">
-            High-Performance Websites &amp; Intelligent Web Applications
-          </p>
-          <p className="wd-hero__desc">
-            Building a website today is no longer just about having an online presence&mdash;it&apos;s about creating a digital experience that performs, scales, and drives measurable business outcomes. At mTouch Labs, we design and build high-performance websites and intelligent web applications that help businesses grow, automate operations, and stay ahead in a competitive digital landscape. Whether you are a startup launching your first product or an enterprise looking to modernize your systems with <a href="/custom-software-development-company" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>custom software development</a>, our solutions are built to deliver long-term value.
-          </p>
-        </div>
-      </section>
+      <ServiceHero
+        badge="Web Development"
+        titleLead="Web"
+        titleAccent="Development"
+        titleTail="Company in Hyderabad"
+        description={<>Building a website today is no longer just about having an online presence&mdash;it&apos;s about creating a digital experience that performs, scales, and drives measurable business outcomes. At mTouch Labs, we design and build high-performance websites and intelligent web applications that help businesses grow, automate operations, and stay ahead in a competitive digital landscape. Whether you are a startup launching your first product or an enterprise looking to modernize your systems with <a href="/custom-software-development-company" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>custom software development</a>, our solutions are built to deliver long-term value.</>}
+      />
 
       {/* ===== ABOUT ===== */}
       <section className="wd-about">

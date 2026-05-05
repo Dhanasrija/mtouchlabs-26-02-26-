@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Salesforce Integration Services",
@@ -26,12 +26,13 @@ export default function SalesforceIntegration() {
           __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Salesforce Integration Services", "item": "https://www.mtouchlabs.com/salesforce-integration-services"}]}),
         }}
       />
-      <section className="sn-hero"><div className="sn-hero__inner">
-        <Breadcrumb pagePath="/salesforce-integration-services" />
-        <h1 className="sn-hero__title">Salesforce <span className="sn-hero__title-accent">Integration</span> Services</h1>
-        <p className="sn-hero__subtitle">Enterprise Salesforce Integration for Unified Business Systems</p>
-        <p className="sn-hero__desc">Salesforce delivers its true power when it operates as the central intelligence layer of your organization — connected, automated, and synchronized with every critical business system. We eliminate data silos and create secure, real-time data ecosystems.</p>
-      </div></section>
+      <ServiceHero
+        badge="Salesforce Integration"
+        titleLead="Salesforce"
+        titleAccent="Integration"
+        titleTail="Services"
+        description={<>Enterprise Salesforce Integration for Unified Business Systems. Salesforce delivers its true power when it operates as the central intelligence layer of your organization — connected, automated, and synchronized with every critical business system. We eliminate data silos and create secure, real-time data ecosystems.</>}
+      />
 
       <section className="sn-about"><div className="sn-container"><div className="sn-about__grid">
         <div className="sn-about__content sn-animate--left">

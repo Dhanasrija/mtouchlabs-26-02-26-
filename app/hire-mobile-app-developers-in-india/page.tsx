@@ -488,6 +488,7 @@
 
 import type { Metadata } from "next";
 import Link from "next/link";
+import ServiceHero from "@/components/sections/ServiceHero";
 import FAQSchema from "@/components/seo/FAQSchema";
 
 export const metadata: Metadata = {
@@ -555,30 +556,15 @@ export default function HireMobileAppDevelopersInIndia() {
       />
 
       {/* ═══ HERO (clean — badge + title + CTAs only) ═══ */}
-      <section className="hma-hero">
-        <div className="hma-heroOrb hma-heroOrb1" />
-        <div className="hma-heroOrb hma-heroOrb2" />
-        <div className="hma-heroOrb hma-heroOrb3" />
-        <div className="hma-heroInner">
-          <div className="hma-heroContent">
-            <div className="hma-heroBadge">
-              <span className="hma-heroBadgeDot" />
-              MOBILE APP DEVELOPMENT · INDIA
-            </div>
-            <h1 className="hma-heroTitle">
-              <span className="hma-hl">Hire Mobile App Developers in India</span>
-            </h1>
-            <div className="hma-heroCtas">
-              <Link href="/contact-us" className="hma-heroBtnPrimary">
-                Hire Developers →
-              </Link>
-              <Link href="/portfolio" className="hma-heroBtnOutline">
-                View Our Work
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServiceHero
+        badge="Hire Mobile App Developers"
+        titleAccent="Mobile App Developers in India"
+        description={
+          <>
+            Mobile app development requires expertise in cross-platform technologies, native frameworks, and user-centric design principles. From iOS and Android to emerging platforms, mobile solutions drive business growth and user engagement. At mTouch Labs, our mobile app developers in India build high-performance, secure applications that deliver measurable results for your business.
+          </>
+        }
+      />
 
       {/* ═══ INTRO (moved from hero) ═══ */}
       <section className="hma-section hma-introSection">

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FAQSchema from "@/components/seo/FAQSchema";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Software Development Company in Australia",
@@ -73,27 +74,12 @@ export default function SoftwareDevelopmentCompanyAustralia() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(locationBreadcrumb) }} />
       {/* ═══ HERO ═══ */}
-      <section className="loc-hero">
-        <div className="loc-heroInner">
-          <div className="loc-heroContent">
-            <div className="loc-heroBadge">
-              <span className="loc-heroBadgeDot" />
-              mTouch Labs · Australia
-            </div>
-            <h1 className="loc-heroTitle">
-              Software Development Company in{" "}
-              <span className="loc-highlight">Australia</span>
-            </h1>
-            <p className="loc-heroDesc">
-              Helping Australian businesses build future-ready digital platforms with reliable, high-performance solutions.
-            </p>
-            <Link href="/contact-us" className="loc-heroCta">
-              Get a Free Consultation →
-            </Link>
-          </div>
-
-        </div>
-      </section>
+      <ServiceHero
+        badge="mTouch Labs · Australia"
+        titleLead="Software Development Company in"
+        titleAccent="Australia"
+        description={<>Helping Australian businesses build future-ready digital platforms with reliable, high-performance solutions.</>}
+      />
 
       {/* ═══ INTRO ═══ */}
       <section className="loc-section loc-introSection">

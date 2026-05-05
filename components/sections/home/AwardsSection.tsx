@@ -43,6 +43,7 @@ function AwardColumn({ items, reverse = false }: { items: typeof awards; reverse
     <div className="aw-column-wrapper" style={{
       overflow: "hidden",
       height: "450px",
+      width: "100%",
       WebkitMaskImage: "linear-gradient(to bottom, transparent 0, #000 12%, #000 88%, transparent 100%)",
       maskImage: "linear-gradient(to bottom, transparent 0, #000 12%, #000 88%, transparent 100%)",
     }}>
@@ -61,16 +62,18 @@ function AwardColumn({ items, reverse = false }: { items: typeof awards; reverse
             style={{
               width: "100%",
               maxWidth: "100%",
-              minHeight: "210px",
-              padding: "16px",
+              aspectRatio: "1 / 1",
+              minHeight: "180px",
+              padding: "20px",
               boxSizing: "border-box",
               backgroundColor: "#fff",
+              borderRadius: "16px",
               flexShrink: 0,
               opacity: 1,
               transform: "none",
               animation: "none",
               backgroundImage: `url(${encodeURI(aw.img)})`,
-              backgroundSize: "80% auto",
+              backgroundSize: "contain",
               backgroundPosition: "center center",
               backgroundRepeat: "no-repeat",
               backgroundOrigin: "content-box",
@@ -146,6 +149,24 @@ export default function AwardsSection() {
 
       {/* Scoped CSS animations */}
       <style>{`
+        /* ── Responsive — keep award images uncropped on every screen ── */
+        @media (max-width: 1024px) {
+          .aw-section .aw-grid-marquee {
+            height: 420px !important;
+            padding: 12px !important;
+          }
+          .aw-column-wrapper { height: 396px !important; }
+        }
+        @media (max-width: 640px) {
+          .aw-section .aw-grid-marquee {
+            height: 360px !important;
+            padding: 10px !important;
+            gap: 10px !important;
+          }
+          .aw-column-wrapper { height: 340px !important; }
+          .aw-card { min-height: 140px !important; padding: 14px !important; }
+        }
+
         /* ── Marquee ────────────────────────────────────── */
         @keyframes aw-scroll-up {
           from { transform: translateY(0); }

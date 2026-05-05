@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "On-Demand Chef Management App",
@@ -51,32 +52,13 @@ export default function Page() {
 	
 	
 
-		<div className="port-head-sec pt85 pb120 r-bg-x">
-		<div className="container">
-			<div className="row vcenter pt80">
-				<div className="col-lg-6">
-					<div className="page-headings">
-						<span className="sub-heading mb15" data-aos="fade-up" data-aos-delay="200"><i
-								className="fas fa-briefcase mr5"></i> Cook-a-doddle</span>
-						<h1 className="mb15" data-aos="fade-up" data-aos-delay="400">On-Demand <span className="ree-text rt40">
-								Chef Management Web Development</span></h1>
-						<p className="h-light" data-aos="fade-up" data-aos-delay="600">Cook-a-doddle is the UK’s leading
-							Chef Management Web Development for the restaurant business.</p>
-						<a href="https://cookadoddle.com/" target="_blank" className="port-links mt40" data-aos="fade-up"
-							data-aos-delay="800">Go to Website <i className="fas fa-arrow-right fa-btn"></i></a>
-					</div>
-				</div>
-				<div className="col-lg-6">
-					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img
-							src="/images/portfolio/cook-a-doddle-detail.png" alt="Chef Management App" className="img-fluid" />
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	
+		      <ServiceHero
+        badge="Cook-a-doddle"
+        titleLead="On-Demand"
+        titleAccent="Chef Management Web Development"
+        description={<>Cook-a-doddle is the UK's leading Chef Management Web Development for the restaurant business.</>}
+      />
 
-	
 	<section className="r-bg-a sec-pad">
 		<div className="container">
 			<div className="row">

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Mobile App Design Company",
@@ -26,12 +26,13 @@ export default function MobileAppDesignCompany() {
           __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "Mobile App Design Company", "item": "https://www.mtouchlabs.com/mobile-app-design-company"}]}),
         }}
       />
-      <section className="md-hero"><div className="md-hero__inner">
-        <Breadcrumb pagePath="/mobile-app-design-company" />
-        <h1 className="md-hero__title">Mobile App <span className="md-hero__title-accent">Design</span> Company</h1>
-        <p className="md-hero__subtitle">Crafting High-Impact Mobile Experiences That Drive Engagement</p>
-        <p className="md-hero__desc">mTouch Labs is a specialized mobile app design company delivering intuitive, high-performance app interfaces tailored for iOS and Android platforms. Mobile app success begins with intelligent design.</p>
-      </div></section>
+      <ServiceHero
+        badge="Mobile App Design"
+        titleLead="Mobile App"
+        titleAccent="Design"
+        titleTail="Company"
+        description={<>mTouch Labs is a specialized mobile app design company delivering intuitive, high-performance app interfaces tailored for iOS and Android platforms. Mobile app success begins with intelligent design.</>}
+      />
 
       <section className="md-about"><div className="md-container"><div className="md-about__grid">
         <div className="md-about__content md-animate--left">

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "UX Research Services",
@@ -26,12 +26,12 @@ export default function UXResearchServices() {
           __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com"}, {"@type": "ListItem", "position": 2, "name": "UX Research Services", "item": "https://www.mtouchlabs.com/ux-research-services"}]}),
         }}
       />
-      <section className="ur-hero"><div className="ur-hero__inner">
-        <Breadcrumb pagePath="/ux-research-services" />
-        <h1 className="ur-hero__title">UX <span className="ur-hero__title-accent">Research</span> Services</h1>
-        <p className="ur-hero__subtitle">Evidence-Driven Insights That Shape Better Digital Experiences</p>
-        <p className="ur-hero__desc">mTouch Labs delivers professional UX research services that uncover real user behavior, decision patterns, and usability barriers before development begins. Research reduces risk. Insight increases impact.</p>
-      </div></section>
+      <ServiceHero
+        badge="UX Research"
+        titleLead="UX"
+        titleAccent="Research Services"
+        description="mTouch Labs delivers professional UX research services that uncover real user behavior, decision patterns, and usability barriers before development begins. Research reduces risk. Insight increases impact."
+      />
 
       <section className="ur-about"><div className="ur-container"><div className="ur-about__grid">
         <div className="ur-about__content ur-animate--left">

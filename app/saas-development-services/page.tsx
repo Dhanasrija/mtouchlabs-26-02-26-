@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Scalable SaaS Development Services",
@@ -53,26 +53,13 @@ export default function SaaSDevelopmentServices() {
         }}
       />
       {/* ════════ HERO ════════ */}
-      <section className="ss-hero">
-        <div className="ss-hero__inner">
-          <Breadcrumb pagePath="/saas-development-services" />
-          <h1 className="ss-hero__title">
-            End-to-End{" "}
-            <span className="ss-hero__title-accent">SaaS Development</span>{" "}
-            Services
-          </h1>
-          <p className="ss-hero__subtitle">
-            Scalable, Secure &amp; Subscription-Ready Platforms
-          </p>
-          <p className="ss-hero__desc">
-            mTouch Labs delivers scalable and secure SaaS development services
-            for startups, product companies, and enterprises looking to build
-            high-performance cloud-based platforms. From MVP development to
-            enterprise-scale SaaS ecosystems, we design and engineer
-            subscription-driven software platforms built for growth.
-          </p>
-        </div>
-      </section>
+      <ServiceHero
+        badge="SaaS Development"
+        titleLead="End-to-End"
+        titleAccent="SaaS Development"
+        titleTail="Services"
+        description={<>Scalable, Secure &amp; Subscription-Ready Platforms. mTouch Labs delivers scalable and secure SaaS development services for startups, product companies, and enterprises looking to build high-performance cloud-based platforms. From MVP development to enterprise-scale SaaS ecosystems, we design and engineer subscription-driven software platforms built for growth.</>}
+      />
 
       {/* ════════ WHAT IS SAAS ════════ */}
       <section className="ss-about">

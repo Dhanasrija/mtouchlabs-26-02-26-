@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
+import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Design System Development",
@@ -13,12 +13,15 @@ export const metadata: Metadata = {
 export default function DesignSystemDevelopment() {
   return (
     <>
-      <section className="dd-hero"><div className="dd-hero__inner">
-        <Breadcrumb pagePath="/design-system-development" />
-        <h1 className="dd-hero__title">Design System <span className="dd-hero__title-accent">Development</span></h1>
-        <p className="dd-hero__subtitle">Building Structured UI Foundations for Scalable Digital Products</p>
-        <p className="dd-hero__desc">mTouch Labs offers professional design system development services that establish unified visual and interaction standards across digital products. Consistency is not repetition — it is structured efficiency.</p>
-      </div></section>
+      <ServiceHero
+        badge="Design System Development"
+        titleLead="Design System"
+        titleAccent="Development"
+        titleTail=""
+        description={<>
+          <strong>Building Structured UI Foundations for Scalable Digital Products</strong> — mTouch Labs offers professional design system development services that establish unified visual and interaction standards across digital products. Consistency is not repetition — it is structured efficiency.
+        </>}
+      />
 
       <section className="dd-about"><div className="dd-container"><div className="dd-about__grid">
         <div className="dd-about__content dd-animate--left">

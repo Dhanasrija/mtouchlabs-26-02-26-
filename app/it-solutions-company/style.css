@@ -276,42 +276,49 @@ main.itsc-page {
   margin-bottom: 56px;
 }
 
-.itsc-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 14px 26px;
-  border-radius: 999px;
-  font-family: var(--font-primary, 'Poppins', sans-serif);
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 1.2;
-  text-decoration: none;
-  transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
-  border: 1px solid transparent;
-  cursor: pointer;
-  white-space: nowrap;
+.itsc-page a.itsc-btn,
+.itsc-page .itsc-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  padding: 14px 26px !important;
+  border-radius: 999px !important;
+  font-family: var(--font-primary, 'Poppins', sans-serif) !important;
+  font-weight: 600 !important;
+  font-size: 15px !important;
+  line-height: 1.2 !important;
+  text-decoration: none !important;
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease, border-color .25s ease !important;
+  border: 1px solid transparent !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
 }
-.itsc-btn i { font-size: 14px; }
-.itsc-btn-primary {
-  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%);
-  color: #fff;
-  box-shadow: var(--shadow-md);
+.itsc-page .itsc-btn i { font-size: 14px !important; line-height: 1 !important; }
+.itsc-page a.itsc-btn-primary,
+.itsc-page .itsc-btn-primary {
+  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%) !important;
+  color: #fff !important;
+  box-shadow: var(--shadow-md) !important;
+  border-color: transparent !important;
 }
-.itsc-btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-  color: #fff;
+.itsc-page a.itsc-btn-primary:hover,
+.itsc-page .itsc-btn-primary:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: var(--shadow-lg) !important;
+  color: #fff !important;
 }
-.itsc-btn-ghost {
-  background: #fff;
-  color: var(--ink);
-  border-color: var(--line);
+.itsc-page a.itsc-btn-ghost,
+.itsc-page .itsc-btn-ghost {
+  background: #ffffff !important;
+  color: var(--ink) !important;
+  border: 1px solid var(--line) !important;
 }
-.itsc-btn-ghost:hover {
-  transform: translateY(-2px);
-  border-color: var(--brand);
-  color: var(--brand);
+.itsc-page a.itsc-btn-ghost:hover,
+.itsc-page .itsc-btn-ghost:hover {
+  transform: translateY(-2px) !important;
+  border-color: var(--brand) !important;
+  color: var(--brand) !important;
+  background: #ffffff !important;
 }
 
 /* Stats grid */
