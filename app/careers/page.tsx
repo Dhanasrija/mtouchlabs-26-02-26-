@@ -996,7 +996,9 @@ function init(){
   /* Live data — populated from xCRM GET /hr/getallopening on init() */
   var jobs = [];
 
-  var OPENINGS_API_URL = 'https://xcrmapi.mtouchlabs.com/hr/getallopening';
+  /* xCRM HR API — single source of truth, used in both local dev and production. */
+  var XCRM_BASE_URL = 'https://crmapi.mtouchlabs.com';
+  var OPENINGS_API_URL = XCRM_BASE_URL + '/hr/getallopening';
   var PAGE_SIZE=6,currentPage=0,filteredJobs=jobs.slice(),currentDetailsRole='',currentDetailsOpeningId='';
 
   /* Strip HTML tags for safe display in card preview */

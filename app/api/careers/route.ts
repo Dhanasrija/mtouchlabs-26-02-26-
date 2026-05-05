@@ -3,7 +3,7 @@
 // Forwards career applications to the xCRM HR API.
 //
 //   Inbound  : multipart/form-data POST from /careers apply form
-//   Outbound : multipart/form-data POST to https://xcrmapi.mtouchlabs.com/hr/apply
+//   Outbound : multipart/form-data POST to https://crmapi.mtouchlabs.com/hr/apply
 //
 // Cloudflare Turnstile is verified server-side BEFORE we forward, so the xCRM
 // endpoint never sees bot traffic. The previous Resend email-notification flow
@@ -14,8 +14,11 @@ import { setFormSubmittedCookie } from '@/lib/formSubmissionGuard';
 
 export const runtime = 'nodejs';
 
-const XCRM_APPLY_URL =
-  process.env.XCRM_APPLY_URL || 'https://xcrmapi.mtouchlabs.com/hr/apply';
+/**
+ * xCRM HR API — single source of truth, used in both local dev and production.
+ */
+const XCRM_BASE_URL = 'https://crmapi.mtouchlabs.com';
+const XCRM_APPLY_URL = `${XCRM_BASE_URL}/hr/apply`;
 
 async function verifyTurnstile(token: string): Promise<boolean> {
   if (!process.env.TURNSTILE_SECRET_KEY) {
