@@ -154,48 +154,111 @@ export default function LocationSection() {
           background: #FFFFFF;
           border-top-left-radius: 120px;
           border-bottom-left-radius: 120px;
-          padding: 80px 20px 80px 80px;
+          padding: 60px 40px 60px 60px;
           box-shadow: -20px 0 50px rgba(0,0,0,0.03);
           margin-left: 20px;
-          margin-right: -100px; /* Slight breakout to ensure overlap with screen edge */
-          padding-right: 150px; /* Buffer for the curve */
         }
         @media (max-width: 1024px) {
           ._location_we_serve_right-section {
             border-radius: 40px;
-            padding: 40px 0 40px 20px;
+            padding: 24px 16px;
             margin-left: 0;
           }
         }
+        @media (max-width: 600px) {
+          ._location_we_serve_right-section {
+            border-radius: 24px;
+            padding: 16px 12px;
+          }
+        }
 
+        /* ── Two-card paired layout ──
+           LEFT  — active card (larger, full overlay + View on Map)
+           RIGHT — next-in-cycle preview (smaller, name label only).
+           Cards size by flex ratio so they always fill the right-section
+           pane edge to edge — no horizontal cutting on any breakpoint. */
         ._location_we_serve_carousel-container {
-          width: 100%;
-          overflow: hidden;
-          padding: 20px 0;
+          width: 100% !important;
+          max-width: 100% !important;
+          overflow: hidden !important;
+          padding: 12px 0 !important;
         }
 
         ._location_we_serve_carousel-wrapper {
-          display: flex;
-          gap: 12px;
-          transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-          width: max-content;
+          display: flex !important;
+          gap: 16px !important;
+          width: 100% !important;
+          align-items: stretch !important;
+          transition: none !important;
+          transform: none !important;
         }
 
         ._location_we_serve_card {
-          position: relative;
-          height: 400px;
-          border-radius: 24px;
-          overflow: hidden;
-          cursor: pointer;
-          transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s ease;
-          flex-shrink: 0;
+          position: relative !important;
+          min-width: 0 !important;
+          width: auto !important;
+          height: 460px !important;
+          border-radius: 24px !important;
+          overflow: hidden !important;
+          cursor: pointer !important;
+          transition:
+            flex-grow 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+            flex-basis 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+            box-shadow 0.3s ease,
+            transform 0.3s ease,
+            filter 0.4s ease !important;
+        }
+
+        /* Active = ~62% of the row */
+        ._location_we_serve_card.is-active {
+          flex: 1.7 1 0% !important;
+          box-shadow: 0 24px 48px rgba(0, 0, 0, 0.18) !important;
+        }
+
+        /* Preview (next-in-cycle) = ~38% of the row */
+        ._location_we_serve_card.is-preview {
+          flex: 1 1 0% !important;
+        }
+
+        ._location_we_serve_card.is-preview:hover {
+          transform: translateY(-3px) !important;
         }
 
         ._location_we_serve_card img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          transition: transform 0.4s ease;
+          width: 100% !important;
+          height: 100% !important;
+          object-fit: cover !important;
+          object-position: center center !important;
+          display: block !important;
+          transition: transform 0.4s ease, filter 0.4s ease !important;
+        }
+
+        ._location_we_serve_card.is-preview img {
+          filter: brightness(0.92) saturate(0.95);
+        }
+
+        ._location_we_serve_card:focus-visible {
+          outline: 3px solid #3E8CFB;
+          outline-offset: 3px;
+        }
+
+        /* Preview overlay only shows the city name — no View on Map */
+        ._location_we_serve_card-overlay--preview .\_location_we_serve_view-map-btn {
+          display: none !important;
+        }
+
+        @media (max-width: 1024px) {
+          ._location_we_serve_carousel-wrapper { gap: 12px !important; }
+          ._location_we_serve_card { height: 360px !important; }
+        }
+
+        @media (max-width: 600px) {
+          ._location_we_serve_carousel-wrapper { gap: 10px !important; }
+          ._location_we_serve_card { height: 260px !important; border-radius: 18px !important; }
+        }
+
+        @media (max-width: 380px) {
+          ._location_we_serve_card { height: 220px !important; }
         }
 
         ._location_we_serve_card-overlay {

@@ -1,6 +1,5 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
-import Image from "next/image";
+import React, { useState } from "react";
 
 interface Location {
   key: string;
@@ -18,37 +17,27 @@ interface LocationCarouselProps {
   locationList: Location[];
 }
 
+/**
+ * LocationCarousel — two-card paired display.
+ *
+ * Renders exactly two cards at a time:
+ *   • LEFT  — the active location (larger, full overlay + View on Map)
+ *   • RIGHT — the next location in the cycle (smaller thumbnail, name label)
+ *
+ * Cycle order matches `locationList`:
+ *   hyderabad → bangalore → usa → hyderabad → ...
+ *
+ * Each card is bound directly to its own `loc.image`, so there is no way
+ * for the displayed image to desync from the label. No carousel offsets,
+ * no transforms, no clones.
+ */
 export default function LocationCarousel({ locations, locationList }: LocationCarouselProps) {
   const [activeKey, setActiveKey] = useState("hyderabad");
-  const [offset, setOffset] = useState(0);
-  const wrapperRef = useRef<HTMLDivElement | null>(null);
-  const cardRefs = useRef<Array<HTMLDivElement | null>>([]);
 
-  // Clones for loop animation
-  const doubledList = [...locationList, ...locationList];
-
-  useEffect(() => {
-    const loc = locations[activeKey];
-    if (!loc) return;
-
-    // Measure the active card's actual offsetLeft and slide the wrapper so
-    // the active card sits at the left edge of the visible window. Using
-    // measured offsetLeft (instead of `-index * 300`) handles every case:
-    //   • desktop (active 400px vs idle 300px → 100px width difference)
-    //   • tablet  (idle 220 vs active 280 from the responsive overrides)
-    //   • mobile  (idle 180 vs active 240 from the small-screen overrides)
-    // Previously the carousel used a hard-coded 300px step which mismatched
-    // the actual card layout on mobile, so tapping "Bangalore" appeared to
-    // show "Hyderabad". Measuring the DOM is bulletproof.
-    const node = cardRefs.current[loc.index];
-    if (node) {
-      setOffset(-node.offsetLeft);
-    } else {
-      setOffset(-loc.index * 300);
-    }
-  }, [activeKey, locations]);
-
-  const activeLoc = locations[activeKey];
+  const activeLoc = locations[activeKey] ?? locationList[0];
+  const activeIndex = locationList.findIndex((l) => l.key === activeLoc.key);
+  const nextLoc =
+    locationList[(activeIndex + 1) % locationList.length] ?? locationList[0];
 
   return (
     <>
@@ -66,14 +55,14 @@ export default function LocationCarousel({ locations, locationList }: LocationCa
         <div className="_location_we_serve_contact-info">
           <div className="_location_we_serve_contact-item">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
             </svg>
             {activeLoc?.phone}
           </div>
           <div className="_location_we_serve_contact-item">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-              <polyline points="22,6 12,13 2,6"/>
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
             </svg>
             {activeLoc?.email}
           </div>
@@ -83,8 +72,9 @@ export default function LocationCarousel({ locations, locationList }: LocationCa
           {locationList.map((loc) => (
             <button
               key={loc.key}
-              className={`_location_we_serve_location-btn ${activeKey === loc.key ? 'active' : ''}`}
+              className={`_location_we_serve_location-btn ${activeKey === loc.key ? "active" : ""}`}
               onClick={() => setActiveKey(loc.key)}
+              type="button"
             >
               {loc.name}
             </button>
@@ -94,52 +84,58 @@ export default function LocationCarousel({ locations, locationList }: LocationCa
 
       <div className="_location_we_serve_right-section">
         <div className="_location_we_serve_carousel-container">
-          <div
-            ref={wrapperRef}
-            className="_location_we_serve_carousel-wrapper"
-            style={{ transform: `translateX(${offset}px)` }}
-          >
-            {doubledList.map((loc, idx) => {
-              const isClone = idx >= locationList.length;
-              const isActive = activeKey === loc.key && !isClone;
-              return (
-                <div
-                  key={idx}
-                  ref={(el) => { if (!isClone) cardRefs.current[loc.index] = el; }}
-                  className="_location_we_serve_card"
-                  aria-hidden={isClone ? true : undefined}
-                  style={{
-                    width: isActive ? '400px' : '300px',
-                    opacity: isClone ? 0.4 : 1,
-                    pointerEvents: isClone ? 'none' : 'auto'
-                  }}
-                  onClick={() => {
-                    if (!isClone) setActiveKey(loc.key);
-                  }}
+          <div className="_location_we_serve_carousel-wrapper">
+            {/* LEFT (active) */}
+            <div
+              key={`active-${activeLoc.key}`}
+              className="_location_we_serve_card is-active"
+              role="button"
+              tabIndex={0}
+              aria-pressed
+              aria-label={`${activeLoc.name} office details`}
+            >
+              <img
+                src={activeLoc.image}
+                alt={activeLoc.name}
+                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+              />
+              <div className="_location_we_serve_card-overlay">
+                <div className="_location_we_serve_card-title">{activeLoc.name}</div>
+                <a
+                  className="_location_we_serve_view-map-btn"
+                  href={activeLoc.mapLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <img src={loc.image} alt={isClone ? "" : loc.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-                  {!isClone && (
-                    <div className="_location_we_serve_card-overlay">
-                      <div className="_location_we_serve_card-title">{loc.name}</div>
-                      <a
-                        className="_location_we_serve_view-map-btn"
-                        href={loc.mapLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        /* Stop the click bubbling up to the card's onClick
-                           handler which would call setActiveKey instead of
-                           letting the link navigate. Without this, on some
-                           mobile browsers the parent's onClick wins and the
-                           anchor never fires its navigation. */
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        View On Map →
-                      </a>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
+                  View On Map →
+                </a>
+              </div>
+            </div>
+
+            {/* RIGHT (next-in-cycle preview) */}
+            <div
+              key={`preview-${nextLoc.key}`}
+              className="_location_we_serve_card is-preview"
+              onClick={() => setActiveKey(nextLoc.key)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  setActiveKey(nextLoc.key);
+                }
+              }}
+              aria-label={`Show ${nextLoc.name} office details`}
+            >
+              <img
+                src={nextLoc.image}
+                alt={nextLoc.name}
+                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+              />
+              <div className="_location_we_serve_card-overlay _location_we_serve_card-overlay--preview">
+                <div className="_location_we_serve_card-title">{nextLoc.name}</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
