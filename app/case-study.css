@@ -424,6 +424,7 @@
   .cse_study_design_row { grid-template-columns: 1fr !important; }
   .cse_study_sidebar { width: 100% !important; max-width: 100% !important; position: static !important; margin-top: 20px !important; }
   .cse_study_screens_grid { grid-template-columns: repeat(3, 1fr) !important; }
+  .cse_study_breadcrumb { margin-bottom: 16px !important; }
 }
 
 @media (max-width: 640px) {
@@ -433,5 +434,17 @@
   .cse_study_screens_grid { grid-template-columns: repeat(2, 1fr) !important; }
   .cse_study_web_screens_grid { grid-template-columns: 1fr !important; }
   .cse_study_features_grid { grid-template-columns: 1fr !important; }
+  .cse_study_breadcrumb { margin-bottom: 16px !important; }
+}
+
+@media (max-width: 480px) {
+  .cse_study_breadcrumb {
+    margin-bottom: 20px !important;
+    font-size: 12px !important;
+  }
+  .cse_study_title {
+    margin-top: 16px !important;
+    margin-bottom: 12px !important;
+  }
 }
 

@@ -58,8 +58,10 @@ export default function DigitalProductSection() {
           }
           .dp-right {
             max-width: 100% !important;
-            aspect-ratio: 16/10 !important;
-            max-height: 350px !important;
+            aspect-ratio: auto !important;
+            max-height: none !important;
+            width: 100% !important;
+            height: auto !important;
           }
         }
       `}</style>
@@ -206,7 +208,7 @@ export default function DigitalProductSection() {
               src="/images/home/Digitalproduct_img.png"
               alt="Two professionals collaborating on a tablet"
               fill
-              style={{ objectFit: "cover", objectPosition: "center top" }}
+              style={{ objectFit: "contain", objectPosition: "center center" }}
               priority
             />
           </div>

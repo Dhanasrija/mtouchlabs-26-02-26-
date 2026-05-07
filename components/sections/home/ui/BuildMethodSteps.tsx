@@ -80,7 +80,7 @@ export function BuildMethodSteps({ steps }: BuildMethodStepsProps) {
             justify-content: flex-start;
             gap: 16px;
             overflow-x: visible;
-            padding: 16px 0 24px;
+            padding: 16px 0 20px;
           }
           .bm-step-card {
             width: 100% !important;
@@ -91,17 +91,17 @@ export function BuildMethodSteps({ steps }: BuildMethodStepsProps) {
             transform: rotate(90deg);
             padding-top: 0 !important;
             padding-bottom: 0 !important;
-            margin: 4px 0 !important;
+            margin: 2px 0 !important;
             line-height: 1 !important;
           }
         }
         @media (max-width: 600px) {
           .bm-steps-container {
-            gap: 12px;
-            padding: 12px 0 20px;
+            gap: 16px;
+            padding: 16px 0 20px;
           }
           .bm-step-arrow {
-            margin: 2px 0 !important;
+            margin: 0 0 !important;
           }
         }
       `}</style>
@@ -129,45 +129,40 @@ export function BuildMethodSteps({ steps }: BuildMethodStepsProps) {
                   height: "140px",
                   background: "#fff",
                   borderRadius: "24px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
+                  /* Use grid place-items:center for true geometric centering.
+                     A grid container with a single child treats the child as
+                     a sized item placed at the exact center of the container,
+                     so the icon sits with EQUAL gap on top, bottom, left, right
+                     regardless of the icon's intrinsic aspect ratio. */
+                  display: "grid",
+                  placeItems: "center",
                   boxSizing: "border-box",
                   boxShadow: "0 4px 20px rgba(0,0,0,0.06)",
                   overflow: "hidden",
                   cursor: "pointer",
                   animationDelay: `${stepDelay + 0.15}s`,
                   margin: "0 auto 16px",
-                  padding: "22px",
+                  /* No padding — the icon's own fixed size + grid centering
+                     guarantees symmetric whitespace. */
+                  padding: 0,
                 }}
               >
-                <div
+                <Image
+                  src={step.img}
+                  alt={step.label}
+                  width={80}
+                  height={80}
                   className="bm-item-icon"
                   style={{
-                    width: "100%",
-                    height: "100%",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
+                    /* Fixed square box for the icon — same dimensions on every
+                       card means every icon visually centers identically. */
+                    width: "80px",
+                    height: "80px",
+                    objectFit: "contain",
+                    objectPosition: "center center",
+                    display: "block",
                   }}
-                >
-                  <Image
-                    src={step.img}
-                    alt={step.label}
-                    width={96}
-                    height={96}
-                    style={{
-                      objectFit: "contain",
-                      objectPosition: "center center",
-                      width: "auto",
-                      height: "auto",
-                      maxWidth: "100%",
-                      maxHeight: "100%",
-                      display: "block",
-                      margin: "auto",
-                    }}
-                  />
-                </div>
+                />
               </div>
               <span
                 className="bm-step-label"

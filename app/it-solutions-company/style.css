@@ -300,25 +300,40 @@ main.itsc-page {
   color: #fff !important;
   box-shadow: var(--shadow-md) !important;
   border-color: transparent !important;
+  cursor: pointer !important;
 }
 .itsc-page a.itsc-btn-primary:hover,
 .itsc-page .itsc-btn-primary:hover {
   transform: translateY(-2px) !important;
-  box-shadow: var(--shadow-lg) !important;
+  box-shadow: 0 8px 20px rgba(62, 140, 251, 0.3) !important;
   color: #fff !important;
+  background: linear-gradient(135deg, var(--brand-dark) 0%, var(--brand) 100%) !important;
 }
 .itsc-page a.itsc-btn-ghost,
 .itsc-page .itsc-btn-ghost {
   background: #ffffff !important;
-  color: var(--ink) !important;
-  border: 1px solid var(--line) !important;
+  /* Use brand colour for the secondary button so it reads clearly as an
+     interactive control rather than plain text. Pairs with the gradient
+     primary as a primary/secondary CTA pair. */
+  color: var(--brand) !important;
+  border: 2px solid var(--brand) !important;
+  cursor: pointer !important;
+  box-shadow: 0 2px 6px rgba(62, 140, 251, 0.08) !important;
 }
 .itsc-page a.itsc-btn-ghost:hover,
 .itsc-page .itsc-btn-ghost:hover {
   transform: translateY(-2px) !important;
-  border-color: var(--brand) !important;
-  color: var(--brand) !important;
-  background: #ffffff !important;
+  border-color: var(--brand-dark) !important;
+  color: #ffffff !important;
+  background: var(--brand) !important;
+  box-shadow: 0 6px 18px rgba(62, 140, 251, 0.28) !important;
+}
+.itsc-page a.itsc-btn-ghost:active,
+.itsc-page .itsc-btn-ghost:active {
+  transform: translateY(0) !important;
+  background: var(--brand-dark) !important;
+  border-color: var(--brand-dark) !important;
+  color: #ffffff !important;
 }
 
 /* Stats grid */

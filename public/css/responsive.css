@@ -1448,6 +1448,26 @@ File Description: Responsive css of template*/
     }
 }
 
+/* ── Footer Brochure Button Responsive ── */
+@media (max-width: 768px) {
+    .ft-brochure-btn {
+        font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+        padding: clamp(10px, 1.5vh, 13px) clamp(14px, 2vw, 24px);
+        min-height: 40px;
+        white-space: normal;
+        overflow-wrap: break-word;
+        word-break: break-word;
+    }
+}
+
+@media (max-width: 480px) {
+    .ft-brochure-btn {
+        font-size: 0.75rem;
+        padding: 10px 12px;
+        min-height: 36px;
+    }
+}
+
 /**width under 370**/
 @media only screen and (max-width: 370px) {
     .footer-rowset {
@@ -6856,6 +6876,34 @@ html, body {
   }
 }
 
+/* ===== SCROLL-TO-TOP BUTTON — Mobile Fix (prevent overlap with chat widget) ===== */
+@media (max-width: 768px) {
+  .go-top,
+  .scroll-to-top,
+  [class*="scroll-top"],
+  [class*="scrollTop"],
+  [class*="back-to-top"] {
+    bottom: 90px !important;
+  }
+}
+
+/* ===== CLOUDFLARE TURNSTILE CAPTCHA — Mobile Responsive ===== */
+.cf-turnstile,
+.turnstile-container,
+[data-sitekey] {
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+@media (max-width: 380px) {
+  .cf-turnstile,
+  [data-sitekey] {
+    transform: scale(0.85) !important;
+    transform-origin: left center !important;
+    width: 302px !important;
+  }
+}
+
 /* ===== SERVICES PAGE — Mobile Fixes ===== */
 @media (max-width: 1024px) {
   .services_hero_content,
@@ -7727,6 +7775,56 @@ body.hc-nav-open {
 }
 
 /* ── Hide scroll gallery on mobile ── */
+
+/* ─────────────────────────────────────────────────────────── */
+/* BLOG PAGE MOBILE FIX — add bottom padding to hero section  */
+/* ─────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .blogid-hero-enhanced {
+    padding-bottom: 60px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .blogid-hero {
+    padding-bottom: 60px !important;
+    margin-bottom: 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .blogid-hero-enhanced {
+    padding-bottom: 60px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .blogid-hero {
+    padding-bottom: 60px !important;
+    margin-bottom: 20px !important;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────── */
+/* CASE STUDIES PAGE BREADCRUMB MOBILE FIX                    */
+/* ─────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .breadcrumb-list,
+  [role="navigation"],
+  .cse_study_breadcrumb {
+    margin-bottom: 20px !important;
+  }
+
+  .cse_study_hero_content h1,
+  .cse_study_title {
+    margin-top: 12px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .breadcrumb-list,
+  [role="navigation"] {
+    margin-bottom: 20px !important;
+  }
+}
 @media (max-width: 768px) {
   .mtl-cgallery-wrap {
     display: none !important;

@@ -401,6 +401,23 @@ positionDropdowns();
       }
     });
 
+    // ─── DEFENSIVE: Direct toggle binding for slow/failed mobile init ───
+    // If hcOffcanvasNav fails or initializes late on slow mobile,
+    // this ensures the hamburger works directly.
+    document.querySelectorAll('.toggle').forEach(function(t) {
+      if (t.dataset.directBound) return;
+      t.dataset.directBound = '1';
+      t.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (window._mobileNav && typeof window._mobileNav.open === 'function') {
+          window._mobileNav.open();
+        } else {
+          // Fallback: toggle body class that library uses
+          document.body.classList.toggle('hc-nav-open');
+        }
+      });
+    });
+
     // Set active state for navigation links
     setActiveNavLink();
 

@@ -62,16 +62,18 @@ export default function HomeFAQSection() {
           <div className="_faq_header">
             <h2 className="_faq_title">
               <span style={{ animation: "faqBlurIn 0.5s ease-out both", animationDelay: "0s", display: "inline-block" }}>
-                Your Questions{" "}
+                Your Questions
               </span>
+              {" "}
               <span
                 className="_faq_title_highlight"
                 style={{ animation: "faqBlurIn 0.5s ease-out both", animationDelay: "0.4s", display: "inline-block" }}
               >
                 Answered
               </span>
+              {" "}
               <span style={{ animation: "faqBlurIn 0.5s ease-out both", animationDelay: "0.8s", display: "inline-block" }}>
-                {" "}Clearly
+                Clearly
               </span>
             </h2>
 

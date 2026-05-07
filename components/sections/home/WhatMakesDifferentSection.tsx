@@ -122,6 +122,34 @@ export default function WhatMakesDifferentSection() {
         .wm-apart-card:hover .wm-apart-icon-box svg {
           stroke: inherit !important;
         }
+
+        /* ── Mobile responsive: stack cards vertically and hide image panel ── */
+        @media (max-width: 768px) {
+          .wm-apart-grid {
+            grid-template-columns: 1fr !important;
+            gap: 24px !important;
+          }
+          .wm-apart-row {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 24px !important;
+          }
+          .wm-apart-card {
+            flex: 1 !important;
+            position: static !important;
+          }
+          .wm-apart-row--first .wm-apart-card:first-child {
+            flex: 1 !important;
+          }
+          .wm-apart-card-content {
+            width: 100% !important;
+            position: static !important;
+          }
+          .wm-apart-img-panel {
+            display: none !important;
+            position: static !important;
+          }
+        }
       `}</style>
       <section className="wm-apart-section">
         <div className="wm-apart-container">

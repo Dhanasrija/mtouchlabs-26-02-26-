@@ -124,7 +124,9 @@ export default function QuoteModal() {
 
                 <div className="rq-error" id="rqError"></div>
 
-                <div className="cf-turnstile" data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY} data-callback="onTurnstileSuccess" suppressHydrationWarning></div>
+                <div style={{ overflow: "hidden" }}>
+                  <div className="cf-turnstile" data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY} data-callback="onTurnstileSuccess" suppressHydrationWarning></div>
+                </div>
 
                 <button type="submit" className="rq-submit" id="rqSubmitBtn">SUBMIT NOW</button>
               </form>
@@ -156,14 +158,38 @@ export default function QuoteModal() {
     min-height: 0;
     margin-top: 2px;
     margin-bottom: 2px;
-    transition: all 0.2s ease;
+    transition: opacity 0.2s ease;
+    line-height: 1.35;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
   .rq-field-error.show {
     min-height: 16px;
   }
 
-  /* ✅ Wrapper = ONLY box for inputs */
+  /* ════════════════════════════════════════════════════════════
+     CRITICAL FIX: the .rq-field-error <div> is rendered INSIDE the
+     .rq-input-wrap flex row (next to the icon + <input>). When the
+     error text appears, it claims horizontal space inside the row
+     and the <input> shrinks toward 0 width — making it look like
+     the field has stopped accepting keystrokes (it has actually
+     just been squeezed off-screen).
+     Float the error out of the flex flow so it sits BELOW the wrap
+     and never competes with the input for width. ════════════════ */
+  .rq-input-wrap > .rq-field-error {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: 1;
+    pointer-events: none;
+    flex: 0 0 auto;
+    width: auto;
+  }
+
+  /* ✅ Wrapper = ONLY box for inputs (relative anchors the abs error) */
   .rq-input-wrap {
     border: 1px solid #ccc;
     display: flex;
@@ -171,6 +197,10 @@ export default function QuoteModal() {
     border-radius: 6px;
     padding: 0 10px;
     height: 42px;
+    position: relative;
+    /* Reserve space below the input so the next form row doesn't
+       jump up under the absolutely-positioned error message. */
+    margin-bottom: 18px;
   }
 
   /* ❌ Remove inner input box */
@@ -623,7 +653,15 @@ select[name="service"] {
                  so the user can correct it immediately. */
               errEl.style.display='none'; errEl.textContent='';
               var firstInvalid = form.querySelector('.rq-invalid');
-              if(firstInvalid && typeof firstInvalid.focus === 'function') firstInvalid.focus();
+              if(firstInvalid){
+                try { firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch(e) {}
+                /* Defer focus so the keyboard reliably re-opens on iOS Safari
+                   and the field remains immediately typable after the error. */
+                setTimeout(function(){
+                  try { firstInvalid.focus({ preventScroll: true }); }
+                  catch(e) { try { firstInvalid.focus(); } catch(_){} }
+                }, 50);
+              }
               return;
             }
 

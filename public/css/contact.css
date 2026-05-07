@@ -1136,6 +1136,19 @@
   background: #fff;
 }
 
+.ct-form__input:invalid:not(:placeholder-shown),
+.ct-form__select:invalid:not(:placeholder-shown),
+.ct-form__textarea:invalid:not(:placeholder-shown) {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+.ct-form__input:invalid:not(:focus):not(:placeholder-shown),
+.ct-form__select:invalid:not(:focus):not(:placeholder-shown),
+.ct-form__textarea:invalid:not(:focus):not(:placeholder-shown) {
+  border-color: #dc2626;
+}
+
 .ct-form__select {
   appearance: none;
   -webkit-appearance: none;
@@ -1150,6 +1163,10 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  max-width: calc(100vw - 32px);
+  max-height: 300px;
+  z-index: 1000;
+  position: relative;
 }
 
 .ct-form__textarea { resize: vertical; min-height: 100px; height: auto; }
@@ -1427,6 +1444,22 @@
   height: 38px;
   min-height: 38px;
   background-position: right 4px center;
+  max-width: calc(100vw - 32px);
+  z-index: 1001;
+  position: relative;
+  /* Ensure the closed select control itself stays inside the viewport.
+     Native browsers manage the popup list position automatically and will
+     flip it upward / clip its height when there isn't enough room below. */
+  box-sizing: border-box;
+}
+
+/* Some platforms (older Chromium) ignore the native flip and render an
+   over-tall option list anchored at the bottom. Limit the size of native
+   <option> rows so the list never exceeds the viewport when expanded. */
+.ct-form__country-code option,
+.ct-form__select option {
+  font-size: 13px;
+  padding: 4px 8px;
 }
 
 .ct-form__phone-row .ct-form__input { height: 38px; min-height: 38px; }
@@ -1712,5 +1745,24 @@ button.ent-cta-banner__btn {
     font-size: 12px;
     padding: 10px 20px 10px 6px;
     background-position: right 4px center;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CLOUDFLARE CAPTCHA (Turnstile) RESPONSIVE FIX
+   The turnstile widget is ~300px wide. On 320px viewports,
+   it overflows. Scale down on very small screens.
+   ═══════════════════════════════════════════════════════════ */
+.cf-turnstile,
+[data-sitekey] {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+@media (max-width: 380px) {
+  .cf-turnstile,
+  [data-sitekey] {
+    transform: scale(0.85);
+    transform-origin: left center;
   }
 }

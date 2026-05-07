@@ -176,6 +176,22 @@ export default function TechnologiesSection() {
         .tech-section {
           background-color: #FFFFFF !important;
           padding: 80px 0;
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+        @media (max-width: 768px) {
+          .tech-section {
+            padding-left: 16px;
+            padding-right: 16px;
+          }
+          .tech-right {
+            padding: 0 0;
+          }
+        }
+        @media (max-width: 480px) {
+          .tech-heading {
+            font-size: clamp(1.25rem, 5vw, 2rem) !important;
+          }
         }
         .tech-logo-card {
           background: linear-gradient(116.72deg, #F3F0FF 0%, #F0F6FF 100%) !important;
@@ -257,7 +273,7 @@ export default function TechnologiesSection() {
               {/* <span className="tech-eyebrow-dot" aria-hidden="true" /> */}
               <AnimatedText text="• SPECIALIZATION" startDelay={0} />
             </p>
-            <h2 className="tech-heading" aria-label="Technologies We Work With">
+            <h2 className="tech-heading" style={{ fontSize: "clamp(1.5rem, 4vw, 2.5rem)" }} aria-label="Technologies We Work With">
               <AnimatedText text="Technologies" startDelay={80} className="tech-heading-blue" />
               <br />
               <AnimatedText text="We Work With" startDelay={headingLine2Start} />

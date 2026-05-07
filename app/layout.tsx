@@ -888,8 +888,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             }
             function lengthLabel(rule, cc) {
               var ccClean = (cc || '').replace('-ca','');
-              if (Array.isArray(rule.len)) return 'Phone number must be ' + rule.len[0] + '-' + rule.len[1] + ' digits for ' + ccClean + '.';
-              return 'Phone number must be exactly ' + rule.len + ' digits for ' + ccClean + '.';
+              if (Array.isArray(rule.len)) return 'Mobile number must be ' + rule.len[0] + '-' + rule.len[1] + ' digits for ' + ccClean + '.';
+              return 'Mobile number must be exactly ' + rule.len + ' digits for ' + ccClean + '.';
             }
 
             function setError(fieldId, errId, msg) {
@@ -934,12 +934,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
               var rule = PHONE_RULES[countryCode];
               if (!rule) {
-                if (digits.length < 7 || digits.length > 15) return 'Phone number must be between 7 and 15 digits.';
+                if (digits.length < 7 || digits.length > 15) return 'Mobile number must be between 7 and 15 digits.';
                 return '';
               }
               var minL = minAllowed(rule), maxL = maxAllowed(rule);
               if (digits.length < minL || digits.length > maxL) return lengthLabel(rule, countryCode);
-              if (rule.starts && !rule.starts.test(digits)) return 'Phone number is not valid for ' + countryCode.replace('-ca','') + '.';
+              if (rule.starts && !rule.starts.test(digits)) return 'Mobile number is not valid for ' + countryCode.replace('-ca','') + '.';
               return '';
             }
 
@@ -1034,7 +1034,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               if (!validateAll(false)) {
                 if (formErr) formErr.textContent = 'Please fix the highlighted fields before submitting.';
                 var firstInvalid = document.querySelector('#brochureForm [aria-invalid="true"]');
-                if (firstInvalid) firstInvalid.focus();
+                if (firstInvalid) {
+                  try { firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch(e) {}
+                  // Defer focus slightly so the keyboard reliably opens on iOS Safari
+                  // and the input remains tappable/typable after the error appears.
+                  setTimeout(function(){ try { firstInvalid.focus({ preventScroll: true }); } catch(e) { firstInvalid.focus(); } }, 50);
+                }
                 return;
               }
 

@@ -934,17 +934,29 @@ html.aos-loaded [data-aos] { opacity: 1; }
   box-sizing: border-box !important;
 }
 
-/* Heading never cuts */
+/* Heading never cuts — fluid font + soft wrap on every viewport.
+   Drop uppercase + letter-spacing on small screens so the title can
+   collapse cleanly even on a 320px iPhone SE. */
 .brochure-modal-title {
-  font-size: clamp(1rem, 3.2vw, 1.3rem) !important;
+  font-size: clamp(0.95rem, 3.2vw, 1.3rem) !important;
   line-height: 1.25 !important;
   letter-spacing: 0.3px !important;
   word-break: break-word !important;
   overflow-wrap: anywhere !important;
   white-space: normal !important;
-  padding-right: 28px !important; /* keep clear of close button */
+  padding-right: 36px !important; /* keep clear of close button */
   margin-bottom: 18px !important;
-  max-width: 100% !important;
+  max-width: calc(100% - 36px) !important;
+  box-sizing: border-box !important;
+  text-transform: none !important;
+}
+@media (max-width: 480px) {
+  .brochure-modal-title {
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+    font-size: 1rem !important;
+    line-height: 1.3 !important;
+  }
 }
 
 /* Validation error states */
@@ -1095,6 +1107,28 @@ html.aos-loaded [data-aos] { opacity: 1; }
 }
 
 /* Tablet */
+/* ═══════════════════════════════════════════════════
+   SELECT DROPDOWN OVERFLOW FIX — prevent viewport overflow
+   For native <select> on Quote Modal / Contact Forms
+   ═══════════════════════════════════════════════════ */
+select.rq-select {
+  max-width: 100% !important;
+}
+
+/* Prevent select dropdown from overflowing on mobile */
+@media (max-width: 768px) {
+  select {
+    max-width: calc(100vw - 32px) !important;
+  }
+
+  /* For form inputs with select dropdowns */
+  .rq-select,
+  .brochure-form-select {
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+}
+
 @media (max-width: 1024px) {
   .mtl-new-hero-badge {
     max-width: 300px !important;
@@ -1202,6 +1236,21 @@ html.aos-loaded [data-aos] { opacity: 1; }
     font-size: clamp(22px, 7vw, 30px) !important;
   }
 }
+
+/* ═══════════════════════════════════════════════════
+   FIX: WhyChooseSection — Text/image overlap on mobile
+   ═══════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .wcs2-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  .wcs2-image-wrap {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+}
+
 @media (max-width: 600px) {
   .wcs2-stats {
     grid-template-columns: 1fr 1fr !important;

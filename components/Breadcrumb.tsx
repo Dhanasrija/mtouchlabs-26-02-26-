@@ -148,6 +148,7 @@ export default function Breadcrumb({ pagePath, currentLabel }: BreadcrumbProps) 
             border: "none",
             boxShadow: "none",
           }}
+          className="breadcrumb-list"
         >
           {items.map((item, index) => (
             <li key={index} style={{ display: "flex", alignItems: "center" }}>
@@ -191,6 +192,13 @@ export default function Breadcrumb({ pagePath, currentLabel }: BreadcrumbProps) 
           ))}
         </ol>
       </nav>
+      <style>{`
+        @media (max-width: 640px) {
+          .breadcrumb-list {
+            margin-bottom: 16px !important;
+          }
+        }
+      `}</style>
     </>
   );
 }

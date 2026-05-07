@@ -1,19 +1,11 @@
 // Minimal, non-blocking loading indicator.
-// Previously a full-screen overlay with a blur — that was too visible on
-// fast routes and showed a noticeable "loading flash" on Home.
-// Now: a thin 3px top progress bar that doesn't cover the page content.\
-// Minimal, non-blocking loading indicator.
-// Previously a full-screen overlay with a blur — that was too visible on
-// fast routes and showed a noticeable "loading flash" on Home.
-// Now: a thin 3px top progress bar that doesn't cover the page content.
-// Minimal, non-blocking loading indicator.
-// Previously a full-screen overlay with a blur — that was too visible on
-// fast routes and showed a noticeable "loading flash" on Home.
-// Now: a thin 3px top progress bar that doesn't cover the page content.
-// Minimal, non-blocking loading indicator.
-// Previously a full-screen overlay with a blur — that was too visible on
-// fast routes and showed a noticeable "loading flash" on Home.
-// Now: a thin 3px top progress bar that doesn't cover the page content.
+//
+// Behaviour:
+//   • Stays HIDDEN for the first 200ms so quick route transitions never
+//     produce a visible flash.
+//   • If the navigation is still in flight after 200ms, fades a 2px brand
+//     bar in at the very top of the viewport.
+//   • Bar never covers page content (height = 2px, pointerEvents = none).
 export default function Loading() {
   return (
     <div
@@ -25,11 +17,13 @@ export default function Loading() {
         top: 0,
         left: 0,
         right: 0,
-        height: 3,
+        height: 2,
         zIndex: 9999,
         pointerEvents: "none",
         overflow: "hidden",
         background: "transparent",
+        opacity: 0,
+        animation: "mtl-loading-fade 0.3s ease-out 0.2s forwards",
       }}
     >
       <div
@@ -41,7 +35,15 @@ export default function Loading() {
           animation: "mtl-topbar 1.1s ease-in-out infinite",
         }}
       />
-      <style>{`@keyframes mtl-topbar { 0% { transform: translateX(-100%);} 100% { transform: translateX(350%);} }`}</style>
+      <style>{`
+        @keyframes mtl-topbar {
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(350%); }
+        }
+        @keyframes mtl-loading-fade {
+          to { opacity: 1; }
+        }
+      `}</style>
     </div>
   );
 }

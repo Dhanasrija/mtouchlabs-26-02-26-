@@ -1360,8 +1360,8 @@ function init(){
   };
 
   function validatePhone(mobile, cc){
-    if(!mobile) return 'Phone number is required';
-    if(!/^\\d+$/.test(mobile)) return 'Phone number must contain only digits';
+    if(!mobile) return 'Mobile number is required';
+    if(!/^\\d+$/.test(mobile)) return 'Mobile number must contain only digits';
     /* Strip leading 0 if present (common in UK, France, Japan, etc.) */
     var cleaned = mobile;
     if(cleaned.charAt(0)==='0' && cc!=='91') cleaned = cleaned.substring(1);
@@ -1376,7 +1376,7 @@ function init(){
       return null; /* valid */
     }
     /* Fallback for unknown country codes */
-    if(cleaned.length < 7 || cleaned.length > 15) return 'Phone number must be 7-15 digits';
+    if(cleaned.length < 7 || cleaned.length > 15) return 'Mobile number must be 7-15 digits';
     return null;
   }
 

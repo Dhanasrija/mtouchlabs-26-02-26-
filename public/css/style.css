@@ -3984,6 +3984,33 @@ ul.pagination li:last-child {
     color: #999;
 }
 
+/* ═══════════════════════════════════════════════════════
+   Cloudflare Turnstile CAPTCHA Mobile Fixes
+   ═══════════════════════════════════════════════════════ */
+
+.cf-turnstile,
+.cf-turnstile > iframe,
+[data-sitekey] {
+    max-width: 100% !important;
+    overflow: hidden !important;
+}
+
+@media (max-width: 380px) {
+    .cf-turnstile {
+        transform: scale(0.85);
+        transform-origin: left center;
+        width: calc(100% / 0.85);
+    }
+}
+
+@media (max-width: 320px) {
+    .cf-turnstile {
+        transform: scale(0.78);
+        transform-origin: left center;
+        width: calc(100% / 0.78);
+    }
+}
+
 /**out team page**/
 .team-img {
     height: 400px;
@@ -25408,6 +25435,7 @@ main {
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     gap: 40px;
     margin-top: 50px;
+    align-items: stretch;
 }
 
 .testimonial-card {
@@ -25416,6 +25444,7 @@ main {
     padding: 0;
     border-radius: 16px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
 }
 
 .testimonial-card:hover {
@@ -25438,6 +25467,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    flex: 1;
 }
 
 .testimonial-stars {
@@ -26279,9 +26309,14 @@ span.hero-h1-highlight {
         font-size: 26px;
     }
 
+    /* Keep overflow:hidden on mobile so the JS-driven `transform: translateX()`
+       slide controls which card is visible. Previously this used overflow-x:auto
+       (free scroll) which let the displayed image fall out of sync with the
+       active location button — tapping "Bangalore" still showed the
+       Hyderabad image because the scroll position wasn't programmatically
+       updated. Transform-based positioning is deterministic. */
     ._location_we_serve_carousel-container {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
+        overflow: hidden;
     }
 
     ._location_we_serve_carousel-wrapper {
@@ -27332,6 +27367,25 @@ span.hero-h1-highlight {
 /* Fallback: if Owl sets inline heights, make card fill that height */
 .testimonial-cards.owl-carousel .owl-item .testimonial-card {
     height: 100%;
+}
+
+/* ── BUG FIX: Equalize ALL testimonial card heights ──
+   Previously the 3rd card rendered shorter than cards 1 & 2 because each
+   card's height was determined by its own content (driven by
+   `min-height: 220px`). Force every card to a uniform min-height and let
+   flex stretch take over so all 3 cards visually match regardless of text
+   length. */
+.testimonial-cards.owl-carousel {
+    align-items: stretch !important;
+}
+.testimonial-cards .testimonial-card {
+    min-height: 320px;
+    height: auto;
+    align-self: stretch;
+}
+.testimonial-cards .testimonial-card .testimonial-text {
+    min-height: 0;
+    flex: 1 1 auto;
 }
 
 .digital-solutions-view-btn:focus,
@@ -32698,24 +32752,47 @@ select.new_contact_input {
     background: var(--color-signature-blue);
     color: var(--color-white) !important;
     border: 2px solid var(--color-signature-blue);
+    cursor: pointer;
 }
 
-.cr-cta-btn-primary:hover {
-    background: transparent;
-    border-color: var(--color-white);
+/* Primary button hover: deepen the brand colour, lift, and add shadow.
+   This keeps it visually distinct from the secondary while sharing the
+   lift+shadow motion the secondary uses (consistent design system). */
+.cr-cta-btn-primary:hover,
+.cr-cta-btn-primary:focus-visible {
+    background: var(--color-heritage-navy, #011D80);
+    border-color: var(--color-heritage-navy, #011D80);
+    color: var(--color-white) !important;
     transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(1, 29, 128, 0.35);
+}
+.cr-cta-btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(1, 29, 128, 0.25);
 }
 
 .cr-cta-btn-secondary {
     background: transparent;
     color: var(--color-white) !important;
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    cursor: pointer;
 }
 
-.cr-cta-btn-secondary:hover {
+/* Secondary button hover: fill with translucent white, lift, shadow.
+   Mirrors the primary's motion but uses the inverted colour treatment
+   appropriate for a secondary CTA. */
+.cr-cta-btn-secondary:hover,
+.cr-cta-btn-secondary:focus-visible {
     border-color: var(--color-white);
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.18);
+    color: var(--color-white) !important;
     transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+.cr-cta-btn-secondary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+    background: rgba(255, 255, 255, 0.28);
 }
 
 
@@ -39235,11 +39312,17 @@ hero section compamny overview*/
     background: linear-gradient(135deg, #f97316, #ef4444);
     color: #ffffff;
     font-family: var(--font-primary);
-    font-size: 0.9rem;
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
     font-weight: 600;
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    max-width: 100%;
+    min-height: 44px;
+    padding: clamp(10px, 2vh, 13px) clamp(16px, 3vw, 24px);
 }
 
 .ft-brochure-btn:hover {

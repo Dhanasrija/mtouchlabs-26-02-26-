@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
 interface Location {
@@ -21,13 +21,29 @@ interface LocationCarouselProps {
 export default function LocationCarousel({ locations, locationList }: LocationCarouselProps) {
   const [activeKey, setActiveKey] = useState("hyderabad");
   const [offset, setOffset] = useState(0);
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
+  const cardRefs = useRef<Array<HTMLDivElement | null>>([]);
 
   // Clones for loop animation
   const doubledList = [...locationList, ...locationList];
 
   useEffect(() => {
     const loc = locations[activeKey];
-    if (loc) {
+    if (!loc) return;
+
+    // Measure the active card's actual offsetLeft and slide the wrapper so
+    // the active card sits at the left edge of the visible window. Using
+    // measured offsetLeft (instead of `-index * 300`) handles every case:
+    //   • desktop (active 400px vs idle 300px → 100px width difference)
+    //   • tablet  (idle 220 vs active 280 from the responsive overrides)
+    //   • mobile  (idle 180 vs active 240 from the small-screen overrides)
+    // Previously the carousel used a hard-coded 300px step which mismatched
+    // the actual card layout on mobile, so tapping "Bangalore" appeared to
+    // show "Hyderabad". Measuring the DOM is bulletproof.
+    const node = cardRefs.current[loc.index];
+    if (node) {
+      setOffset(-node.offsetLeft);
+    } else {
       setOffset(-loc.index * 300);
     }
   }, [activeKey, locations]);
@@ -79,6 +95,7 @@ export default function LocationCarousel({ locations, locationList }: LocationCa
       <div className="_location_we_serve_right-section">
         <div className="_location_we_serve_carousel-container">
           <div
+            ref={wrapperRef}
             className="_location_we_serve_carousel-wrapper"
             style={{ transform: `translateX(${offset}px)` }}
           >
@@ -88,6 +105,7 @@ export default function LocationCarousel({ locations, locationList }: LocationCa
               return (
                 <div
                   key={idx}
+                  ref={(el) => { if (!isClone) cardRefs.current[loc.index] = el; }}
                   className="_location_we_serve_card"
                   aria-hidden={isClone ? true : undefined}
                   style={{
@@ -107,8 +125,13 @@ export default function LocationCarousel({ locations, locationList }: LocationCa
                         className="_location_we_serve_view-map-btn"
                         href={loc.mapLink}
                         target="_blank"
-                        rel="noreferrer"
-                        style={{ display: isActive ? 'block' : 'none' }}
+                        rel="noopener noreferrer"
+                        /* Stop the click bubbling up to the card's onClick
+                           handler which would call setActiveKey instead of
+                           letting the link navigate. Without this, on some
+                           mobile browsers the parent's onClick wins and the
+                           anchor never fires its navigation. */
+                        onClick={(e) => e.stopPropagation()}
                       >
                         View On Map →
                       </a>
