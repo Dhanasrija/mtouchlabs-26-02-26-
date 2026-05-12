@@ -219,50 +219,48 @@ export default function HeroSection() {
               specificity short of !important, so even a broken
               external stylesheet cannot override these.
           */}
-          <div
-            className="mtl-new-hero-badge nasscom-badge-wrap"
-            style={{
-              width: "100%",
-              /* Cap the badge so it never looks oversized on big
-                 desktops AND never exceeds the viewport on small
-                 ones. `min(...)` picks whichever of the two
-                 constraints is tighter at the current width. */
-              maxWidth: "min(clamp(180px, 18vw + 60px, 280px), calc(100vw - 32px))",
-              height: "auto",
-              maxHeight: "none",
-              margin: "0 auto 14px",
-              padding: 0,
-              overflow: "visible",
-              boxSizing: "border-box",
-              display: "block",
-              position: "relative",
-            }}
-          >
-            {/* Flat PNG of the badge (composited from the original
-                SVG's embedded raster pieces). Width drives layout,
-                height follows the natural 1064:280 ratio via
-                `height: auto` — this CANNOT crop, ever. */}
-            <img
-              src="/images/brand-logo/nasscom-award-winner-2026.png"
-              alt="NASSCOM Award Winner 2026"
-              width={1064}
-              height={280}
-              decoding="async"
-              fetchPriority="high"
-              style={{
-                display: "block",
-                width: "100%",
-                height: "auto",
-                maxWidth: "100%",
-                maxHeight: "none",
-                objectFit: "contain",
-                objectPosition: "center center",
-                margin: "0 auto",
-                padding: 0,
-                border: 0,
-              }}
-            />
-          </div>
+         <a
+  href="https://nasscom.in/sme-inspire-awards/pdf/Compendium-2026-Digital-compressed.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="View NASSCOM SME Inspire Awards 2026 Compendium PDF"
+  className="mtl-new-hero-badge nasscom-badge-wrap"
+  style={{
+    width: "100%",
+    maxWidth: "min(clamp(180px, 18vw + 60px, 280px), calc(100vw - 32px))",
+    height: "auto",
+    maxHeight: "none",
+    margin: "0 auto 14px",
+    padding: 0,
+    overflow: "visible",
+    boxSizing: "border-box",
+    display: "block",
+    position: "relative",
+    cursor: "pointer",
+    textDecoration: "none",
+  }}
+>
+  <img
+    src="/images/brand-logo/nasscom-award-winner-2026.png"
+    alt="NASSCOM Award Winner 2026"
+    width={1064}
+    height={280}
+    decoding="async"
+    fetchPriority="high"
+    style={{
+      display: "block",
+      width: "100%",
+      height: "auto",
+      maxWidth: "100%",
+      maxHeight: "none",
+      objectFit: "contain",
+      objectPosition: "center center",
+      margin: "0 auto",
+      padding: 0,
+      border: 0,
+    }}
+  />
+</a>
 
           <h1 className="mtl-new-hero-h1">
             <span>{renderWords(line1, 0)}</span>
