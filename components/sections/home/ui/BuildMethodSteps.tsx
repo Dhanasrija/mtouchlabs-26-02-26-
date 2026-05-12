@@ -41,25 +41,28 @@ export function BuildMethodSteps({ steps }: BuildMethodStepsProps) {
           position: relative;
         }
         /* Absolute-position the icon image so its EXACT geometric centre
-           sits on the centre of the 150px square card.  Combined with the
-           fixed 96×96 size and an even padding inset, this guarantees the
-           top, bottom, left and right gutters are visually identical on
-           every one of the six cards (was previously flex-centred which
-           could be off by 1-2px depending on the asset's bbox). */
+           sits on the centre of the 150px square card. Combined with the
+           fixed 116×116 size, this guarantees the top, bottom, left and
+           right gutters are visually identical (~17px on every side) on
+           every one of the six cards.
+
+           Icon size was increased from 96px → 116px so each icon reads
+           more clearly without crowding the card edges. Math:
+             gutter = (150 − 116) / 2 = 17px on every side. */
         .bm-step-img-box .bm-item-icon {
           position: absolute;
           top: 50% !important;
           left: 50% !important;
           transform: translate(-50%, -50%);
-          width: 96px !important;
-          height: 96px !important;
+          width: 116px !important;
+          height: 116px !important;
           object-fit: contain !important;
           object-position: center center !important;
           margin: 0 !important;
           padding: 0 !important;
         }
         .bm-step-card:hover .bm-step-img-box .bm-item-icon {
-          transform: translate(-50%, -50%) scale(1.12) rotate(-6deg);
+          transform: translate(-50%, -50%) scale(1.10) rotate(-6deg);
         }
         .bm-steps-container {
           display: flex;
@@ -144,9 +147,12 @@ export function BuildMethodSteps({ steps }: BuildMethodStepsProps) {
             width: 130px !important;
             height: 130px !important;
           }
+          /* Mobile icon — scaled proportionally to the smaller 130px
+             card. 100px icon gives a 15px gutter on every side, the
+             same visual rhythm as the desktop ~17px gutter. */
           .bm-step-img-box .bm-item-icon {
-            width: 80px !important;
-            height: 80px !important;
+            width: 100px !important;
+            height: 100px !important;
           }
         }
         @media (max-width: 380px) {
@@ -199,16 +205,18 @@ export function BuildMethodSteps({ steps }: BuildMethodStepsProps) {
                 <Image
                   src={step.img}
                   alt={step.label}
-                  width={96}
-                  height={96}
+                  width={116}
+                  height={116}
                   className="bm-item-icon"
                   style={{
-                    /* Fixed square icon — same intrinsic size on every card
-                       means every icon visually centers identically. The
-                       icon itself is sized at 96px so a ~27px gutter sits
-                       on every side of the 150px card. */
-                    width: "96px",
-                    height: "96px",
+                    /* Fixed 116px icon — same intrinsic size on every card
+                       so every icon visually centers identically. With a
+                       150px square wrapper this leaves a clean 17px gutter
+                       on top, bottom, left and right. Mobile sizing is
+                       handled in the @media block above (100px icon in a
+                       130px card → 15px gutter on each side). */
+                    width: "116px",
+                    height: "116px",
                     objectFit: "contain",
                     objectPosition: "center center",
                     display: "block",

@@ -675,18 +675,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             browser & CDN never serve a stale copy after a deploy.
             Every CSS file is versioned together to keep responsive
             and layout rules in lock-step. */}
-        <link href="/css/style.css?v=20260512f" rel="stylesheet" />
-        <link href="/css/responsive.css?v=20260512f" rel="stylesheet" />
-        <link href="/css/mega-menu.css?v=20260512f" rel="stylesheet" />
-        <link href="/css/about.css?v=20260512f" rel="stylesheet" />
-        <link href="/css/blog.css?v=20260512f" rel="stylesheet" />
-        <link href="/css/home-mega-menu.css?v=20260512f" rel="stylesheet" />
-        <link href="/css/navbar-redesign.css?v=20260512f" rel="stylesheet" />
-        <link href="/css/chat-widget.css?v=20260512f" rel="stylesheet" />
-        <link href="/css/location-pages.css?v=20260512f" rel="stylesheet" />
-        <link href="/css/navbar-dropdown.css?v=20260512f" rel="stylesheet" />
-        <link href="/css/services.css?v=20260512f" rel="stylesheet" />
-        <link href="/css/homepage-fixes.css?v=20260512f" rel="stylesheet"/>
+        <link href="/css/style.css?v=20260512g" rel="stylesheet" />
+        <link href="/css/responsive.css?v=20260512g" rel="stylesheet" />
+        <link href="/css/mega-menu.css?v=20260512g" rel="stylesheet" />
+        <link href="/css/about.css?v=20260512g" rel="stylesheet" />
+        <link href="/css/blog.css?v=20260512g" rel="stylesheet" />
+        <link href="/css/home-mega-menu.css?v=20260512g" rel="stylesheet" />
+        <link href="/css/navbar-redesign.css?v=20260512g" rel="stylesheet" />
+        <link href="/css/chat-widget.css?v=20260512g" rel="stylesheet" />
+        <link href="/css/location-pages.css?v=20260512g" rel="stylesheet" />
+        <link href="/css/navbar-dropdown.css?v=20260512g" rel="stylesheet" />
+        <link href="/css/services.css?v=20260512g" rel="stylesheet" />
+        <link href="/css/homepage-fixes.css?v=20260512g" rel="stylesheet"/>
         {/* ui-fixes.css — comprehensive responsive UI fix pack. Loaded LAST so
             its rules win against any earlier stylesheet for the issues listed
             in /public/css/ui-fixes.css (technologies title, navbar, breadcrumb

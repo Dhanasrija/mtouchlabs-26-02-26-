@@ -157,10 +157,17 @@
        100vh-tall sticky container. The two TOP cards have
        --desktop-ty: -220px — on short viewports (≤700px height)
        that previously pushed them above the visible region and
-       the sticky's `overflow: hidden` cropped them. The clamp
-       below limits any card's vertical translate to
-       (50vh − half-card-height − safety) in either direction. */
-    --safe-ty: calc(50vh - 140px);
+       the sticky's `overflow: hidden` cropped them. We use the
+       SMALLER of two bounds:
+         a) `50vh − 150px` (subtract half-card-height + safety)
+         b) `30vh` (cap any card to never travel more than 30%
+            of the viewport height in either direction — this is
+            the hard guard that catches very short viewports
+            where (a) becomes negative or too generous).
+       `min(a, b)` returns whichever is tighter at the current
+       viewport height, so the cards STAY VISIBLE at every
+       browser size — minimised, landscape phone, anything.   */
+    --safe-ty: min(calc(50vh - 150px), 30vh);
     --ty: clamp(
         calc(var(--safe-ty) * -1),
         var(--desktop-ty),
@@ -255,7 +262,7 @@
             calc(var(--desktop-tx) * 0.92),
             var(--safe-tx)
         );
-        --safe-ty: calc(50vh - 140px);
+        --safe-ty: min(calc(50vh - 150px), 30vh);
         --ty: clamp(
             calc(var(--safe-ty) * -1),
             calc(var(--desktop-ty) * 0.95),
@@ -274,7 +281,7 @@
             calc(var(--desktop-tx) * 0.72),
             var(--safe-tx)
         );
-        --safe-ty: calc(50vh - 125px);
+        --safe-ty: min(calc(50vh - 135px), 28vh);
         --ty: clamp(
             calc(var(--safe-ty) * -1),
             calc(var(--desktop-ty) * 0.88),
@@ -300,7 +307,7 @@
             calc(var(--desktop-tx) * 0.5),
             var(--safe-tx)
         );
-        --safe-ty: calc(50vh - 105px);
+        --safe-ty: min(calc(50vh - 115px), 26vh);
         --ty: clamp(
             calc(var(--safe-ty) * -1),
             calc(var(--desktop-ty) * 0.78),
@@ -336,7 +343,7 @@
             calc(var(--desktop-tx) * 0.42),
             var(--safe-tx)
         );
-        --safe-ty: calc(50vh - 80px);
+        --safe-ty: min(calc(50vh - 90px), 24vh);
         --ty: clamp(
             calc(var(--safe-ty) * -1),
             calc(var(--desktop-ty) * 0.45),
@@ -419,7 +426,7 @@
             calc(var(--desktop-tx) * 0.32),
             var(--safe-tx)
         );
-        --safe-ty: calc(50vh - 70px);
+        --safe-ty: min(calc(50vh - 80px), 22vh);
         --ty: clamp(
             calc(var(--safe-ty) * -1),
             calc(var(--desktop-ty) * 0.4),
@@ -445,6 +452,42 @@
         width: 92px;
         height: 92px;
         font-size: 0.85rem;
+    }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   SHORT VIEWPORT HEIGHT GUARD — when the browser window is
+   minimised vertically (laptop notch view, landscape phone,
+   "small windowed" desktop), even the percentage-based safe-ty
+   clamp can't help: there simply isn't enough vertical space
+   for full-size 220px cards. We shrink them at short heights
+   so the top two awards (NASSCOM Inspire + App Development)
+   always fit inside the visible region.
+   ────────────────────────────────────────────────────────── */
+@media (max-height: 780px) {
+    .floatingImagePrimary,
+    .floatingImageSecondary {
+        --safe-ty: min(calc(50vh - 110px), 26vh) !important;
+        width: calc(var(--desktop-w) * 0.78) !important;
+        height: calc(var(--desktop-h) * 0.78) !important;
+    }
+}
+
+@media (max-height: 640px) {
+    .floatingImagePrimary,
+    .floatingImageSecondary {
+        --safe-ty: min(calc(50vh - 80px), 22vh) !important;
+        width: calc(var(--desktop-w) * 0.6) !important;
+        height: calc(var(--desktop-h) * 0.6) !important;
+    }
+}
+
+@media (max-height: 520px) {
+    .floatingImagePrimary,
+    .floatingImageSecondary {
+        --safe-ty: min(calc(50vh - 60px), 18vh) !important;
+        width: calc(var(--desktop-w) * 0.48) !important;
+        height: calc(var(--desktop-h) * 0.48) !important;
     }
 }
 

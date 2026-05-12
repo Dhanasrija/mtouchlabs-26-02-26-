@@ -53657,35 +53657,57 @@ div[class*="HonorsCode"],
     }
 }
 
-/* ── 5. DOWNLOAD BROCHURE MODAL — heading must be visible ─── */
-/* Anchor the dialog to the top of the viewport with comfortable
-   padding so the "Request Brochure" heading is NEVER clipped,
-   regardless of viewport height (laptop, mobile keyboard open,
-   etc).  Overlay itself scrolls if the content exceeds height. */
+/* ── 5. DOWNLOAD BROCHURE MODAL — perfectly centred + heading visible
+   Strategy:
+     • Overlay is a full-viewport flex container with the dialog
+       centred BOTH vertically and horizontally.
+     • `align-items: center` keeps the dialog vertically centred
+       when its content fits within the viewport.
+     • The dialog itself has `max-height: calc(100vh − 32px)` and
+       its inner content scrolls if the form is taller than the
+       viewport — that way the heading is always visible at the
+       top of the dialog regardless of viewport height (laptop,
+       mobile keyboard open, etc).
+     • The overlay ALSO has `overflow-y: auto` as a fallback for
+       very short viewports so the dialog never gets stuck above/
+       below the visible area.                                  */
 .modal-overlay#brochureModal,
 #brochureModal.modal-overlay,
 div#brochureModal {
-    align-items: flex-start !important;
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
     justify-content: center !important;
-    padding: 24px 12px !important;
+    padding: 16px !important;
     overflow-y: auto !important;
     overflow-x: hidden !important;
     -webkit-overflow-scrolling: touch !important;
     box-sizing: border-box !important;
+    background: rgba(0, 0, 0, 0.6) !important;
+    z-index: 9999 !important;
 }
 
-/* The dialog box can grow to fit its content; the overlay scrolls. */
+/* The dialog box stays centred. If the content is taller than the
+   viewport, the dialog's RIGHT pane scrolls internally (see the
+   .brochure-modal-right rule below) — the dialog itself never
+   grows past the viewport so the heading is always visible. */
 #brochureModal .brochure-modal-box {
     width: min(920px, 100%) !important;
     max-width: 100% !important;
     height: auto !important;
-    max-height: none !important;
-    margin: 0 auto !important;
+    max-height: calc(100vh - 32px) !important;
+    margin: auto !important;
     overflow: visible !important;
     flex-shrink: 0 !important;
     display: flex !important;
     flex-direction: row !important;
     box-sizing: border-box !important;
+    background: #fff !important;
+    border-radius: 16px !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3) !important;
 }
 
 /* Stack to a single column at every width below 900px. */
@@ -53701,11 +53723,28 @@ div#brochureModal {
 }
 
 /* Always reserve space for the absolutely-positioned close (×) so
-   the heading never sits underneath it. */
+   the heading never sits underneath it. The right pane also takes
+   over scroll responsibility when the form exceeds the dialog
+   height — that way the "Request Brochure" heading stays pinned
+   at the top of the modal and remains visible at every screen
+   size. */
 #brochureModal .brochure-modal-right {
     padding: 56px 32px 32px !important;
     box-sizing: border-box !important;
     min-width: 0 !important;
+    flex: 1 1 auto !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    /* Cap the inner scroll area to the dialog's max-height minus
+       any internal padding above/below. */
+    max-height: calc(100vh - 32px) !important;
+}
+@media (max-width: 900px) {
+    #brochureModal .brochure-modal-right {
+        /* On stacked layouts the LEFT pane is above; the right
+           pane can take the remaining height. */
+        max-height: none !important;
+    }
 }
 @media (max-width: 768px) {
     #brochureModal .brochure-modal-right {
