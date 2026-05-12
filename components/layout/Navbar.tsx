@@ -118,7 +118,7 @@ export default function Navbar() {
     "/social-media-marketing-services", "/conversion-rate-optimization-services", "/content-marketing-services",
     "/email-marketing-services", "/performance-marketing-services",
     // Alt / legacy slugs that also belong under Services
-    "/digital-marketing-company", "/digital-marketing-services-company-in-india",
+    "/digital-marketing-company", "/digital-marketing-services", "/digital-marketing-services-company-in-india",
     "/it-solutions-company", "/custom-crm-software-development-company",
     "/cybersecurity-development-company", "/native-app-development-company",
     "/hybrid-app-development-company", "/on-demand-service-mobile-app-development",
@@ -129,10 +129,39 @@ export default function Navbar() {
     "/app-and-web-development-for-ecommerce-services",
     "/best-iot-development-company-in-india",
     "/progressive-web-app-development-company-in-india",
+    // CMS / framework specialty service pages
+    "/php-development-company", "/wordpress-development-company",
+    "/magento-development-company-in-india",
+    "/shopify-development-company-in-india",
+    "/woocommerce-development-company-in-india",
+    "/social-media-marketing-company-in-india",
+    // Location-specific software development service pages — the
+    // "Software Development Company in <country>" URLs all belong under
+    // the Services tab. Listing them explicitly avoids any reliance on
+    // pattern matching.
+    "/software-development-company-australia",
+    "/software-development-company-bangalore",
+    "/software-development-company-canada",
+    "/software-development-company-chennai",
+    "/software-development-company-coimbatore",
+    "/software-development-company-dubai",
+    "/software-development-company-germany",
+    "/software-development-company-hyderabad",
+    "/software-development-company-india",
+    "/software-development-company-ireland",
+    "/software-development-company-kochi",
+    "/software-development-company-kuwait",
+    "/software-development-company-new-zealand",
+    "/software-development-company-qatar",
+    "/software-development-company-saudi-arabia",
+    "/software-development-company-singapore",
+    "/software-development-company-united-arab-emirates",
+    "/software-development-company-united-kingdom",
+    "/software-development-company-usa",
     // E-commerce development is surfaced from the homepage "Custom Software
     // Development & IT Services" section, so we treat it as a Service so the
     // Services tab highlights when users land on it from that card.
-   
+
   ]);
 
   // ── All product page URLs ──
@@ -232,6 +261,10 @@ export default function Navbar() {
       pathname.endsWith("-development") ||           // on-demand-service-mobile-app-development
       pathname.includes("-services-") ||
       pathname.includes("-software-") ||
+      pathname.startsWith("/software-") ||           // software-development-company-* (country variants)
+      pathname.startsWith("/salesforce-") ||         // salesforce-* services
+      pathname.startsWith("/cloud-") ||              // cloud-services, cloud-migration-services, etc.
+      pathname.startsWith("/devops-") ||             // devops-services, devops-consulting-services
       pathname.includes("-design-company") ||
       pathname.includes("-marketing-") ||
       pathname.includes("-development-company-"));   // -in-india suffixed slugs

@@ -273,9 +273,12 @@ export default function TechnologiesSection() {
               {/* <span className="tech-eyebrow-dot" aria-hidden="true" /> */}
               <AnimatedText text="• SPECIALIZATION" startDelay={0} />
             </p>
-            <h2 className="tech-heading" style={{ fontSize: "clamp(1.5rem, 4vw, 2.5rem)" }} aria-label="Technologies We Work With">
+            {/* Heading kept on a single line where width allows (≥481px).
+                On <481px screens it naturally wraps onto two lines via CSS in
+                /public/css/ui-fixes.css to avoid horizontal overflow at 320px. */}
+            <h2 className="tech-heading" style={{ fontSize: "clamp(1.25rem, 4vw, 2.5rem)" }} aria-label="Technologies We Work With">
               <AnimatedText text="Technologies" startDelay={80} className="tech-heading-blue" />
-              <br />
+              <span className="tech-heading-space" aria-hidden="true">{" "}</span>
               <AnimatedText text="We Work With" startDelay={headingLine2Start} />
             </h2>
             <div className="tech-tabs" role="tablist">

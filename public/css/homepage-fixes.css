@@ -1,3 +1,13 @@
+/* GLOBAL VIEWPORT GUARD — REMOVED.
+   An earlier version of this file applied `overflow-x: clip` to
+   html/body as a "universal safety net". That rule turns out to
+   clip `position: fixed` descendants in some browsers, which was
+   causing the floating WhatsApp button on the homepage to be
+   visually clipped. The clamp()/max-width guards now live ON the
+   actual overflowing components (the floating award cards in
+   HonorsCode and the hero NASSCOM badge) — no global override
+   needed. */
+
 /* ═══════════════════════════════════════════════════
    AOS safety fallback — ensure animated elements never
    stay invisible forever if AOS fails to initialise
@@ -843,9 +853,9 @@ html.aos-loaded [data-aos] { opacity: 1; }
     font-size: 15px !important;
     padding: 14px 28px !important;
   }
-  .mtl-new-hero-badge img {
-    max-height: 40px;
-  }
+  /* Badge sizing intentionally removed — authoritative rules live
+     at the bottom of this file under
+     "NASSCOM HERO BADGE — SINGLE SOURCE OF TRUTH". */
 }
 
 @media (max-width: 480px) {
@@ -1077,33 +1087,14 @@ html.aos-loaded [data-aos] { opacity: 1; }
    and ensure parents never clip the badge.
    ═══════════════════════════════════════════════════ */
 
-/* Base / desktop safety net — applies at all widths */
+/* Base / desktop safety net — applies at all widths.
+   The authoritative badge rules live further down in this file
+   under "NASSCOM HERO BADGE — SINGLE SOURCE OF TRUTH". */
 .mtl-new-hero {
   overflow: visible !important;
 }
 .hero-inner {
   overflow: visible !important;
-}
-.mtl-new-hero-badge {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  width: 100% !important;
-  max-width: 320px !important;
-  margin: 0 auto 14px !important;
-  padding: 0 !important;
-  overflow: visible !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-.mtl-new-hero-badge img {
-  display: block !important;
-  width: auto !important;
-  max-width: 100% !important;
-  height: auto !important;
-  max-height: 70px !important;
-  object-fit: contain !important;
-  object-position: center !important;
 }
 
 /* Tablet */
@@ -1129,15 +1120,6 @@ select.rq-select {
   }
 }
 
-@media (max-width: 1024px) {
-  .mtl-new-hero-badge {
-    max-width: 300px !important;
-  }
-  .mtl-new-hero-badge img {
-    max-height: 64px !important;
-  }
-}
-
 /* Mobile landscape / small tablet */
 @media (max-width: 768px) {
   .mtl-new-hero {
@@ -1145,26 +1127,6 @@ select.rq-select {
     padding-bottom: 40px !important;
     min-height: auto !important;
     overflow: visible !important;
-  }
-  .mtl-new-hero-badge {
-    margin: 0 auto 16px !important;
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    animation: none !important;
-    max-width: 280px !important;
-    width: 100% !important;
-    padding: 0 12px !important;
-    box-sizing: border-box !important;
-  }
-  .mtl-new-hero-badge img {
-    width: 100% !important;
-    max-width: 260px !important;
-    max-height: 68px !important;
-    height: auto !important;
-    display: block !important;
-    object-fit: contain !important;
-    margin: 0 auto !important;
   }
   .hero-inner {
     transform: none !important;
@@ -1179,27 +1141,12 @@ select.rq-select {
     padding-top: 16px !important;
     padding-bottom: 30px !important;
   }
-  .mtl-new-hero-badge {
-    max-width: 240px !important;
-    padding: 0 8px !important;
-  }
-  .mtl-new-hero-badge img {
-    max-width: 220px !important;
-    max-height: 58px !important;
-  }
 }
 
-/* Very small phones (iPhone SE, Galaxy Fold, etc.) */
-@media (max-width: 360px) {
-  .mtl-new-hero-badge {
-    max-width: 200px !important;
-    padding: 0 6px !important;
-  }
-  .mtl-new-hero-badge img {
-    max-width: 184px !important;
-    max-height: 48px !important;
-  }
-}
+/* NOTE: Per-breakpoint NASSCOM badge sizing has been removed from
+   this section. All authoritative badge rules now live at the
+   bottom of this file under
+   "NASSCOM HERO BADGE — SINGLE SOURCE OF TRUTH". */
 
 /* ═══════════════════════════════════════════════════
    FIX #2: "Successfully Delivered Government" heading
@@ -1412,6 +1359,24 @@ select.rq-select {
     border-radius: 14px !important;
     box-shadow: 0 4px 16px rgba(0,0,0,0.1) !important;
     flex-shrink: 0 !important;
+    /* Award badges (NASSCOM, Award Winning Designers, etc) are non-
+       square. Guarantee the artwork is never cropped on this stacked
+       mobile layout — give a white card + inner padding and force
+       object-fit:contain via the image rule below. */
+    background-color: #ffffff !important;
+    padding: 6px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+  [class*="HonorsCode_floatingImagePrimary"] img,
+  [class*="HonorsCode_floatingImageSecondary"] img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    display: block !important;
   }
   /* Center text: show first, no animation, fully visible */
   [class*="HonorsCode_centerText"] {
@@ -1442,9 +1407,60 @@ select.rq-select {
   [class*="HonorsCode_floatingImageSecondary"] {
     width: 80px !important;
     height: 80px !important;
+    padding: 5px !important;
+  }
+  [class*="HonorsCode_floatingImagePrimary"] img,
+  [class*="HonorsCode_floatingImageSecondary"] img {
+    object-fit: contain !important;
+    object-position: center center !important;
   }
   [class*="HonorsCode_mainHeading"] {
     font-size: clamp(24px, 9vw, 34px) !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   GLOBAL NO-CROP RULE — applies at EVERY device width (desktop,
+   laptop, tablet, mobile, very small phones). This guarantees the
+   NASSCOM award PNG (and every other award badge) is never cropped
+   inside its floating card, regardless of the card's aspect ratio
+   or any rules defined elsewhere in this file or in CSS modules.
+   Highest specificity using attribute selector + !important so this
+   wins the cascade everywhere.
+   ═══════════════════════════════════════════════════════════════ */
+[class*="HonorsCode_floatingImagePrimary"],
+[class*="HonorsCode_floatingImageSecondary"] {
+  background-color: #ffffff !important;
+  padding: 10px !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+[class*="HonorsCode_floatingImagePrimary"] img,
+[class*="HonorsCode_floatingImageSecondary"] img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  display: block !important;
+}
+@media (max-width: 1280px) {
+  [class*="HonorsCode_floatingImagePrimary"],
+  [class*="HonorsCode_floatingImageSecondary"] {
+    padding: 8px !important;
+  }
+}
+@media (max-width: 768px) {
+  [class*="HonorsCode_floatingImagePrimary"],
+  [class*="HonorsCode_floatingImageSecondary"] {
+    padding: 6px !important;
+  }
+}
+@media (max-width: 480px) {
+  [class*="HonorsCode_floatingImagePrimary"],
+  [class*="HonorsCode_floatingImageSecondary"] {
+    padding: 5px !important;
   }
 }
 
@@ -2073,83 +2089,190 @@ select.rq-select {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   FINAL HERO — NASSCOM badge bullet-proof sizing (top of cascade)
+   NASSCOM HERO BADGE — SINGLE SOURCE OF TRUTH
    ───────────────────────────────────────────────────────────────
-   Earlier blocks (lines 829-848 vs 1108-1140 vs 1142-1168) fight
-   each other — one says max-height:40px, another 68px. Result on
-   real devices is the badge sometimes rendering cropped because the
-   image gets sized by max-height alone instead of by width with the
-   correct aspect ratio.
+   This is the ONLY block in the codebase that styles
+   `.mtl-new-hero-badge` (container) and its inner `img`. All
+   other locations have been intentionally emptied. If you need
+   to adjust the badge, change THIS block.
 
-   Rules below win because they appear last in source order and use
-   !important. Strategy:
-     • Drive sizing by max-width only.
-     • Lock proportions with aspect-ratio: 266 / 70 (the SVG's intrinsic
-       viewBox), so height auto-derives correctly on every viewport.
-     • Never set max-height (it fights aspect-ratio).
-     • Guarantee no ancestor clips and the sticky navbar can't overlap
-       the badge on small screens.
+   Why the badge used to crop:
+     • Multiple stylesheets fought each other — style.css set
+       `max-height: 56px` / `48px` at narrow breakpoints, while
+       homepage-fixes.css set `aspect-ratio: 266/70`. The two
+       contradict — when both fire, the browser squashes the SVG
+       into a wrong-shaped box and the "nasscom" lockup in the
+       middle of the SVG visually disappears.
+     • On big desktops the badge was hard-capped at 266px (the
+       SVG's intrinsic width), so it looked tiny and felt cropped.
+
+   Strategy:
+     • Drive size by max-width ONLY. Never set max-height on the
+       image — it breaks aspect-ratio.
+     • Lock aspect-ratio to 266 / 70 (the SVG viewBox).
+     • Use clamp() so the badge sizes fluidly from a comfortable
+       readable minimum on phones up to a generous 400px on big
+       monitors, eliminating both the "cropped on small" and
+       "too tiny on big desktops" complaints in a single rule.
+     • Use a high-specificity selector chain (html body section…)
+       so this rule beats any future stray rule someone might add.
    =============================================================== */
-body .mtl-new-hero,
-body .mtl-new-hero .hero-inner,
-body .mtl-new-hero-badge {
+html body .mtl-new-hero,
+html body .mtl-new-hero .hero-inner,
+html body section.mtl-new-hero .mtl-new-hero-badge {
   overflow: visible !important;
 }
 
-body .mtl-new-hero-badge {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+html body section.mtl-new-hero .mtl-new-hero-badge {
+  display: block !important;
   width: 100% !important;
+  /* Cap the badge so it never looks oversized on big desktops AND
+     never exceeds the viewport on small ones. Width drives the
+     layout — height follows from the IMG's natural aspect ratio. */
+  max-width: min(clamp(180px, 18vw + 60px, 280px), calc(100vw - 32px)) !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
   margin: 0 auto 14px !important;
   padding: 0 !important;
+  box-sizing: border-box !important;
+  overflow: visible !important;
   visibility: visible !important;
   opacity: 1 !important;
 }
 
-body .mtl-new-hero-badge img {
+html body section.mtl-new-hero .mtl-new-hero-badge img {
   display: block !important;
+  /* Width drives the layout, height follows the PNG's intrinsic
+     1064×280 ratio via `height: auto`. Mathematically incapable
+     of cropping at any viewport width or height. */
   width: 100% !important;
   height: auto !important;
-  max-height: none !important;       /* ← critical: lets aspect-ratio drive the height cleanly */
-  aspect-ratio: 266 / 70 !important; /* matches the SVG viewBox so it never distorts or crops */
+  max-width: 100% !important;
+  max-height: none !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
   object-fit: contain !important;
-  object-position: center !important;
+  object-position: center center !important;
   margin: 0 auto !important;
+  padding: 0 !important;
+  border: 0 !important;
 }
 
-/* Per-breakpoint width caps (height auto-follows from aspect-ratio) */
-body .mtl-new-hero-badge { max-width: 320px !important; }
+/* ───────────────────────────────────────────────────────────────
+   BADGE VERTICAL CLEARANCE — push the hero content DOWN on
+   minimised / narrow viewports so the sticky navbar can never
+   cover the NASSCOM badge.
+   Two things conspire to cut the badge at the top:
+     1. The sticky navbar sits ~70-90px tall over the hero.
+     2. .hero-inner has `transform: translateY(-40px)` which pulls
+        the entire stack (including the badge) UP into that
+        navbar zone.
+   The rules below
+     a) increase padding-top on every breakpoint so there is
+        always enough room between the navbar and the badge,
+     b) zero out the upward translate of .hero-inner on minimised
+        screens (it stays for desktop where the negative pull
+        looks intentional),
+     c) push the H1 explicitly DOWN with a positive top margin
+        whenever space is tight, creating extra breathing room
+        below the badge.
+   =============================================================== */
 
+/* Desktop / wide viewports — push the badge well clear of the
+   sticky navbar so it sits noticeably below it. */
+html body .mtl-new-hero {
+  padding-top: 140px !important;
+  padding-bottom: 80px !important;
+  /* Reserve a sane minimum so the hero never collapses below
+     navbar + badge + h1 height even when content wraps. */
+  min-height: 80vh !important;
+  position: relative;
+  z-index: 1;
+}
+
+/* Tablet / minimised desktop — kill the inner upward translate
+   so the badge keeps its full top padding, AND push the h1 down. */
 @media (max-width: 1024px) {
-  body .mtl-new-hero-badge { max-width: 300px !important; }
+  html body .mtl-new-hero {
+    padding-top: 150px !important;
+    padding-bottom: 56px !important;
+    min-height: auto !important;
+  }
+  html body .mtl-new-hero .hero-inner {
+    transform: none !important;
+  }
+  html body section.mtl-new-hero .mtl-new-hero-badge {
+    margin: 0 auto 24px !important;
+  }
+  html body .mtl-new-hero .mtl-new-hero-h1 {
+    margin-top: 10px !important;
+  }
 }
 
+/* Mobile landscape / small tablet — more clearance still. */
 @media (max-width: 768px) {
-  body .mtl-new-hero {
-    /* On mobile the sticky/fixed navbar can sit ~60-72px tall — make sure
-       the hero starts well below it so the badge isn't covered. */
-    padding-top: 80px !important;
+  html body .mtl-new-hero {
+    padding-top: 140px !important;
+    padding-bottom: 48px !important;
+  }
+  html body .mtl-new-hero .hero-inner {
+    transform: none !important;
+  }
+  html body section.mtl-new-hero .mtl-new-hero-badge {
+    margin: 0 auto 26px !important;
+  }
+  html body .mtl-new-hero .mtl-new-hero-h1 {
+    margin-top: 12px !important;
+  }
+}
+
+/* Small phones — extra-aggressive clearance because the sticky
+   navbar can occupy a noticeable percentage of the viewport. */
+@media (max-width: 480px) {
+  html body .mtl-new-hero {
+    padding-top: 128px !important;
     padding-bottom: 40px !important;
   }
-  body .mtl-new-hero-badge {
-    max-width: 280px !important;
-    margin-bottom: 16px !important;
+  html body section.mtl-new-hero .mtl-new-hero-badge {
+    margin: 0 auto 24px !important;
+  }
+  html body .mtl-new-hero .mtl-new-hero-h1 {
+    margin-top: 10px !important;
   }
 }
 
-@media (max-width: 480px) {
-  body .mtl-new-hero {
-    padding-top: 72px !important;
-    padding-bottom: 32px !important;
-  }
-  body .mtl-new-hero-badge { max-width: 240px !important; }
-}
-
+/* Very small phones (iPhone SE / Galaxy Fold etc.) */
 @media (max-width: 360px) {
-  body .mtl-new-hero {
-    padding-top: 64px !important;
+  html body .mtl-new-hero {
+    padding-top: 120px !important;
   }
-  body .mtl-new-hero-badge { max-width: 200px !important; }
+  html body section.mtl-new-hero .mtl-new-hero-badge {
+    margin: 0 auto 22px !important;
+  }
+}
+
+/* Short viewport heights (e.g. landscape phones, "minimised"
+   desktop windows where the user has dragged the bottom edge up).
+   Here the hero gets very little vertical space — we shrink min-
+   height so the hero can grow with its contents and the badge is
+   never squeezed against the navbar. */
+@media (max-height: 700px) {
+  html body .mtl-new-hero {
+    min-height: auto !important;
+    padding-top: clamp(120px, 18vh, 160px) !important;
+  }
+  html body .mtl-new-hero .hero-inner {
+    transform: none !important;
+  }
+}
+@media (max-height: 520px) {
+  html body .mtl-new-hero {
+    padding-top: 120px !important;
+    padding-bottom: 24px !important;
+  }
+  html body section.mtl-new-hero .mtl-new-hero-badge {
+    margin: 0 auto 16px !important;
+  }
 }
 

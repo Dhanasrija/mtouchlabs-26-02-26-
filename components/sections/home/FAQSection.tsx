@@ -40,27 +40,40 @@ export default function FAQSection() {
       <script
         dangerouslySetInnerHTML={{
           __html: `
-          document.addEventListener("DOMContentLoaded", function() {
-            var list = document.getElementById("faqList");
-            if (!list) return;
-            list.addEventListener("click", function(e) {
-              var btn = e.target.closest("._faq_question");
-              if (!btn) return;
-              var item = btn.closest("._faq_item");
-              if (!item) return;
-              var wasActive = item.classList.contains("active");
-              list.querySelectorAll("._faq_item").forEach(function(o) {
-                o.classList.remove("active", "glow");
-                var ic = o.querySelector("._faq_icon");
-                if (ic) ic.textContent = "+";
+          // Robust FAQ accordion init — works regardless of whether
+          // DOMContentLoaded fired before or after Next.js hydration. Also
+          // de-duplicates against /js/faq.js so every item (including the
+          // last two) responds to click on every page render.
+          (function() {
+            function bind() {
+              var list = document.getElementById("faqList");
+              if (!list) { return setTimeout(bind, 200); }
+              if (list.dataset.faqBound === "1") return;
+              list.dataset.faqBound = "1";
+              list.addEventListener("click", function(e) {
+                var btn = e.target.closest("._faq_question");
+                if (!btn) return;
+                var item = btn.closest("._faq_item");
+                if (!item) return;
+                var wasActive = item.classList.contains("active");
+                list.querySelectorAll("._faq_item").forEach(function(o) {
+                  o.classList.remove("active", "glow");
+                  var ic = o.querySelector("._faq_icon");
+                  if (ic) ic.textContent = "+";
+                });
+                if (!wasActive) {
+                  item.classList.add("active");
+                  var ic = item.querySelector("._faq_icon");
+                  if (ic) ic.textContent = "\\u2212";
+                }
               });
-              if (!wasActive) {
-                item.classList.add("active");
-                var ic = item.querySelector("._faq_icon");
-                if (ic) ic.textContent = "\\u2212";
-              }
-            });
-          });
+            }
+            if (document.readyState === "loading") {
+              document.addEventListener("DOMContentLoaded", bind);
+            } else {
+              bind();
+            }
+          })();
           `
         }}
       />

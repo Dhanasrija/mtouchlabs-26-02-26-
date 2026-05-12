@@ -38,6 +38,28 @@ export function BuildMethodSteps({ steps }: BuildMethodStepsProps) {
         .bm-step-img-box {
           transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
           border: 1.5px solid transparent;
+          position: relative;
+        }
+        /* Absolute-position the icon image so its EXACT geometric centre
+           sits on the centre of the 150px square card.  Combined with the
+           fixed 96×96 size and an even padding inset, this guarantees the
+           top, bottom, left and right gutters are visually identical on
+           every one of the six cards (was previously flex-centred which
+           could be off by 1-2px depending on the asset's bbox). */
+        .bm-step-img-box .bm-item-icon {
+          position: absolute;
+          top: 50% !important;
+          left: 50% !important;
+          transform: translate(-50%, -50%);
+          width: 96px !important;
+          height: 96px !important;
+          object-fit: contain !important;
+          object-position: center center !important;
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+        .bm-step-card:hover .bm-step-img-box .bm-item-icon {
+          transform: translate(-50%, -50%) scale(1.12) rotate(-6deg);
         }
         .bm-steps-container {
           display: flex;
@@ -61,9 +83,6 @@ export function BuildMethodSteps({ steps }: BuildMethodStepsProps) {
         }
 
         /* Hover states */
-        .bm-step-card:hover .bm-item-icon {
-          transform: scale(1.4) rotate(-6deg) !important;
-        }
         .bm-step-card:hover .bm-step-img-box {
           box-shadow: 0 12px 40px rgba(0,0,0,0.1);
           border-color: #3E8CFB55;
@@ -73,35 +92,67 @@ export function BuildMethodSteps({ steps }: BuildMethodStepsProps) {
           transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
+        /* Mid-width desktop / MacBook Air style screens (≤1280px) — the
+           six 170px cards + arrows total ~1180px, so on a windowed
+           browser at 1100-1280px they would overflow horizontally and
+           start scrolling. Switch to a 3-column grid here so the cards
+           wrap into two clean rows of three, no horizontal scrolling. */
+        @media (max-width: 1280px) and (min-width: 1025px) {
+          .bm-steps-container {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 170px));
+            justify-content: center;
+            gap: 24px 16px;
+            overflow-x: visible;
+            padding: 16px 0 20px;
+          }
+          .bm-step-arrow {
+            display: none;
+          }
+        }
         @media (max-width: 1024px) {
           .bm-steps-container {
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            gap: 16px;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 220px));
+            justify-content: center;
+            align-items: start;
+            gap: 20px 16px;
             overflow-x: visible;
             padding: 16px 0 20px;
           }
           .bm-step-card {
             width: 100% !important;
-            max-width: 240px;
+            max-width: 220px;
             flex-shrink: 0 !important;
+            margin: 0 auto;
           }
           .bm-step-arrow {
-            transform: rotate(90deg);
-            padding-top: 0 !important;
-            padding-bottom: 0 !important;
-            margin: 2px 0 !important;
-            line-height: 1 !important;
+            display: none;
           }
         }
         @media (max-width: 600px) {
           .bm-steps-container {
-            gap: 16px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px 12px;
             padding: 16px 0 20px;
+            max-width: 420px;
           }
-          .bm-step-arrow {
-            margin: 0 0 !important;
+          .bm-step-card {
+            max-width: 100% !important;
+          }
+          .bm-step-img-box {
+            width: 130px !important;
+            height: 130px !important;
+          }
+          .bm-step-img-box .bm-item-icon {
+            width: 80px !important;
+            height: 80px !important;
+          }
+        }
+        @media (max-width: 380px) {
+          .bm-steps-container {
+            grid-template-columns: 1fr;
+            max-width: 220px;
           }
         }
       `}</style>
@@ -116,7 +167,7 @@ export function BuildMethodSteps({ steps }: BuildMethodStepsProps) {
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "flex-start",
-                width: "160px",
+                width: "170px",
                 flexShrink: 0,
                 textAlign: "center",
                 animationDelay: `${stepDelay}s`,
@@ -125,42 +176,43 @@ export function BuildMethodSteps({ steps }: BuildMethodStepsProps) {
               <div
                 className="bm-step-img-box"
                 style={{
-                  width: "140px",
-                  height: "140px",
+                  width: "150px",
+                  height: "150px",
                   background: "#fff",
                   borderRadius: "24px",
-                  /* Use grid place-items:center for true geometric centering.
-                     A grid container with a single child treats the child as
-                     a sized item placed at the exact center of the container,
-                     so the icon sits with EQUAL gap on top, bottom, left, right
-                     regardless of the icon's intrinsic aspect ratio. */
-                  display: "grid",
-                  placeItems: "center",
+                  /* Flexbox centering — guarantees the icon sits exactly in the
+                     middle of the card with EQUAL gap on top, bottom, left, and
+                     right at every breakpoint. The wrapper is a fixed square so
+                     the visual offset is identical from every edge. */
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
                   boxSizing: "border-box",
                   boxShadow: "0 4px 20px rgba(0,0,0,0.06)",
                   overflow: "hidden",
                   cursor: "pointer",
                   animationDelay: `${stepDelay + 0.15}s`,
                   margin: "0 auto 16px",
-                  /* No padding — the icon's own fixed size + grid centering
-                     guarantees symmetric whitespace. */
                   padding: 0,
                 }}
               >
                 <Image
                   src={step.img}
                   alt={step.label}
-                  width={80}
-                  height={80}
+                  width={96}
+                  height={96}
                   className="bm-item-icon"
                   style={{
-                    /* Fixed square box for the icon — same dimensions on every
-                       card means every icon visually centers identically. */
-                    width: "80px",
-                    height: "80px",
+                    /* Fixed square icon — same intrinsic size on every card
+                       means every icon visually centers identically. The
+                       icon itself is sized at 96px so a ~27px gutter sits
+                       on every side of the 150px card. */
+                    width: "96px",
+                    height: "96px",
                     objectFit: "contain",
                     objectPosition: "center center",
                     display: "block",
+                    margin: 0,
                   }}
                 />
               </div>
@@ -188,7 +240,7 @@ export function BuildMethodSteps({ steps }: BuildMethodStepsProps) {
                   fontSize: "24px",
                   color: "#aab0c8",
                   margin: "0 4px",
-                  paddingTop: "62px",
+                  paddingTop: "67px",
                   display: "inline-block",
                   animationDelay: `${stepDelay + 0.45}s`,
                 }}

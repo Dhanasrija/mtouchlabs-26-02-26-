@@ -11324,17 +11324,34 @@ main {
     flex-direction: column;
 }
 
-/* ===== Brochure Modal ===== */
+/* ===== Brochure Modal — placeholder removed; final rules at end of file ===== */
+
 .brochure-modal-box {
     display: flex;
-    width: 920px;
-    height: 543px;
-    margin: 60px auto;
+    width: min(920px, calc(100vw - 32px));
+    /* On large screens we cap the dialog at 920×543; on smaller screens
+       we allow it to shrink to fit the viewport so the form never spills
+       past the right edge. The complementary mobile rules below switch
+       to a vertical stack and let height grow with the form. */
+    max-width: calc(100vw - 32px);
+    height: auto;
+    /* Allow the dialog to be taller than the viewport — the overlay
+       scrolls. This guarantees the top of the dialog (heading +
+       circle illustration) is always reachable. */
+    max-height: none;
+    margin: 16px auto;
     background: #fff;
     border-radius: 12px;
-    overflow: hidden;
+    /* `overflow: visible` (instead of auto) means the dialog grows
+       to fit its contents and the overlay scrolls. With `overflow: auto`
+       and `max-height: 100vh - 32px` the dialog created its own scroll
+       context, but on screens shorter than the form, the overlay's
+       align-center still pushed the top outside the viewport. */
+    overflow: visible;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     position: relative;
+    box-sizing: border-box;
+    flex-shrink: 0;
 }
 
 .brochure-modal-left {
@@ -11344,11 +11361,14 @@ main {
     align-items: center;
     justify-content: center;
     padding: 20px;
+    min-width: 0;
 }
 
 .brochure-modal-circle {
-    width: 320px;
-    height: 320px;
+    width: min(320px, 80%);
+    aspect-ratio: 1 / 1;
+    height: auto;
+    max-width: 100%;
     border-radius: 50%;
     background: linear-gradient(135deg, #c9b8e8 0%, #a8c8f0 100%);
     display: flex;
@@ -11364,9 +11384,14 @@ main {
 }
 
 .brochure-modal-right {
-    flex: 1;
-    padding: 35px 40px;
+    flex: 1 1 auto;
+    min-width: 0;
+    /* Top padding raised from 35px to 48px so the close button (×)
+       at top: 12px never visually overlaps the "Request Brochure"
+       heading on narrow viewports where text wraps to two lines. */
+    padding: 48px 40px 32px;
     position: relative;
+    box-sizing: border-box;
 }
 
 .brochure-close-btn {
@@ -11389,7 +11414,11 @@ main {
     font-size: clamp(15px, 4vw, 20px);
     font-weight: 700;
     color: #1a1a2e;
-    margin-bottom: 25px;
+    margin: 0 0 22px;
+    /* Reserve room on the right for the absolutely-positioned
+       close button so the heading text never sits underneath it
+       even when wrapped to two lines. */
+    padding-right: 32px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     word-break: break-word;
@@ -11461,26 +11490,89 @@ main {
     background: linear-gradient(135deg, var(--color-signature-blue), var(--color-heritage-navy));
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .brochure-modal-box {
-        width: 95%;
+        width: calc(100vw - 24px);
+        max-width: calc(100vw - 24px);
         height: auto;
+        max-height: none;
         flex-direction: column;
-        margin: 30px auto;
+        margin: 12px auto;
+        overflow: visible;
     }
 
     .brochure-modal-left {
         flex: none;
-        padding: 30px;
+        padding: 24px 20px;
+        width: 100%;
     }
 
     .brochure-modal-circle {
-        width: 200px;
-        height: 200px;
+        width: min(200px, 60vw);
+        height: auto;
     }
 
     .brochure-modal-right {
-        padding: 25px 20px;
+        /* Heading guard: keep generous top padding on mobile too, so
+           the absolutely-positioned close button never overlaps the
+           heading when the dialog renders at full width. */
+        padding: 44px 20px 24px;
+        width: 100%;
+    }
+
+    /* The brochure form fields had fixed widths in some viewports; force
+       full-width inputs/selects so the form never overflows the modal. */
+    .brochure-input-group,
+    .brochure-form-select {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .brochure-submit-btn {
+        width: 100%;
+        padding: 12px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .brochure-modal-box {
+        width: calc(100vw - 16px);
+        max-width: calc(100vw - 16px);
+        margin: 8px auto;
+        max-height: none;
+        border-radius: 10px;
+    }
+
+    .brochure-modal-left {
+        padding: 18px 14px;
+    }
+
+    .brochure-modal-circle {
+        width: min(160px, 56vw);
+    }
+
+    .brochure-modal-right {
+        padding: 40px 16px 20px;
+    }
+
+    .brochure-modal-title {
+        font-size: 16px;
+        margin: 0 0 16px;
+        letter-spacing: 0.3px;
+        padding-right: 28px;
+    }
+
+    .brochure-form-label {
+        font-size: 12px;
+    }
+
+    .brochure-input-group {
+        margin-bottom: 12px;
+    }
+
+    .brochure-input-group input,
+    .brochure-form-select {
+        font-size: 13px;
     }
 }
 
@@ -39695,14 +39787,26 @@ hero section compamny overview*/
 .ft-map-box {
     position: relative;
     width: 100%;
-    height: 240px;
+    /* Increased from 240px so the Google Maps attribution row
+       ("Keyboard shortcuts · Map data © · Terms") that sits along
+       the bottom of the iframe always has enough vertical room to
+       render in full without overlapping the map controls. */
+    height: 280px;
+    min-height: 240px;
     border-radius: 12px;
     overflow: hidden;
+    background: #eef1f7;
 }
 
 .ft-map-overlay {
     position: absolute;
     inset: 0;
+    /* Leave the bottom 28px of the map clickable on Google's own
+       links (the attribution + Terms text Google requires us not
+       to obstruct). Without this, the overlay swallowed those
+       clicks AND visually obscured the bottom row when combined
+       with the rounded corners. */
+    bottom: 28px;
     z-index: 2;
     cursor: pointer;
 }
@@ -39712,6 +39816,11 @@ hero section compamny overview*/
     height: 100%;
     border: 0;
     filter: none;
+    /* The iframe is set as block to remove any inline-baseline
+       gap that some browsers add below replaced elements. That
+       baseline gap was visually consuming a couple of pixels of
+       the attribution row on Safari. */
+    display: block;
 }
 
 .ft-map-box:hover iframe {
@@ -39915,7 +40024,23 @@ hero section compamny overview*/
     }
 
     .ft-map-box {
-        height: 180px;
+        /* Keep the map tall enough that Google's attribution row
+           (28px) still has comfortable space above it on tablet
+           and mobile. */
+        height: 220px;
+        min-height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ft-map-box {
+        height: 200px;
+        min-height: 180px;
+    }
+    .ft-map-overlay {
+        /* Slightly larger safe zone on mobile because Google Maps
+           shows a taller attribution bar at narrow widths. */
+        bottom: 32px;
     }
 }
 
@@ -51170,12 +51295,28 @@ html, body {
 }
 
 
-/* ── FIX 2: Remove grey placeholder box from AI image ──
-   The SVG has a grey/white background baked in.
-   mix-blend-mode: multiply removes white/light backgrounds
-   on cards with a white background.
-   Also ensure no box-shadow border around the image.    */
-.fds-ai-img img {
+/* ── FIX 2: Remove grey/white placeholder box from baked-in
+   illustration backgrounds.
+
+   ROOT CAUSE: the IT Solutions illustration is an SVG that
+   embeds a raster image as a `<pattern>` filling the entire
+   canvas. The PNG inside has a light isometric-grid background
+   baked in, so on the blue card it showed as a white-ish plate.
+   `mix-blend-mode: multiply` multiplies the image pixels with
+   the card color — light pixels darken to match the card and
+   only the linework stays visible.
+
+   The E-commerce PNG (`ecommerce_bg.png`) is already transparent
+   (RGBA), so it does NOT need a blend mode — once the global
+   `img { background: #f3f4f6 }` rule is removed (see
+   public/css/ui-fixes.css), the dark card naturally shows
+   through its transparent areas.
+
+   Coverage here: AI card (`.fds-ai-img`) and IT Solutions
+   illustration on the cyan/blue card. Nothing else.            */
+.fds-ai-img img,
+.fds-card-cyan .fds-illus img,
+.fds-card-blue .fds-illus img {
     mix-blend-mode: multiply !important;
     background: transparent !important;
     box-shadow: none !important;
@@ -51184,9 +51325,18 @@ html, body {
 
 /* If the image doesn't respond to multiply (e.g. JPG),
    use object-fit and clip it cleanly instead           */
-.fds-ai-img {
+.fds-ai-img,
+.fds-card-cyan .fds-illus,
+.fds-card-blue .fds-illus {
     background: transparent !important;
     overflow: hidden;
+}
+
+/* The E-commerce PNG is already RGBA-transparent — just make
+   sure no ancestor adds a background plate. */
+.fds-ecommerce-img,
+.fds-ecommerce-img img {
+    background: transparent !important;
 }
 
 
@@ -52787,22 +52937,34 @@ html, body {
         }
 
         .mtl-new-hero-badge {
-          display: inline-flex !important;
+          /* The badge wraps a NASSCOM SVG (intrinsic 266×70).  Using
+             `inline-flex` previously caused the container to size to the
+             SVG's intrinsic width, which in turn meant `max-width: 100%`
+             on the inner image had no effect when the viewport got
+             narrower than ~290px — the SVG would visibly clip on the
+             right.  Switching to a fluid block container with an explicit
+             `max-width` lets the badge shrink with the viewport. */
+          display: flex !important;
           align-items: center;
           justify-content: center;
-          margin-bottom: 14px;
+          width: 100%;
+          max-width: 280px;
+          margin: 0 auto 14px;
+          padding: 0 8px;
+          box-sizing: border-box;
           opacity: 1;
           visibility: visible !important;
           animation: heroBadgePop 0.6s cubic-bezier(0.16,1,0.3,1) 0.1s both;
         }
 
-        .mtl-new-hero-badge img {
-          display: block;
-          max-width: 100%;
-          height: auto;
-          max-height: 70px;
-          object-fit: contain;
-        }
+        /* NOTE: the badge image rules previously declared here
+           (with aspect-ratio + max-height contradicting each
+           other) have been removed. The authoritative rules now
+           live at the bottom of public/css/homepage-fixes.css and
+           are the SINGLE SOURCE OF TRUTH for the hero NASSCOM
+           badge. Do NOT add per-breakpoint max-height clamps to
+           the badge image — they break the SVG's aspect ratio
+           and visually crop the "nasscom" lockup. */
 
       .mtl-new-hero-h1 {
     font-size: var(--h1-size);
@@ -53383,3 +53545,224 @@ html, body {
 }
 
 
+
+/* ═════════════════════════════════════════════════════════════
+   FINAL RESPONSIVE OVERRIDES — appended last so they always win
+   over earlier rules in the cascade.  Five specific issues:
+     1. Hero NASSCOM badge clipping on minimised desktops
+     2. Build Method icons being uneven on cards
+     3. Awards section badges overflowing on minimised widths
+     4. Footer map attribution being cut off
+     5. "Request Brochure" modal heading hidden at top
+   These rules use higher-specificity selectors AND !important so
+   they cannot be defeated by any rule defined earlier in the file.
+   ═════════════════════════════════════════════════════════════ */
+
+/* ── 1. HERO NASSCOM BADGE ───────────────────────────────────
+   NOTE: Authoritative rules now live at the bottom of
+   public/css/homepage-fixes.css (search for
+   "NASSCOM HERO BADGE — SINGLE SOURCE OF TRUTH"). The block
+   here is intentionally left empty so it cannot reintroduce the
+   contradictory aspect-ratio + max-height clamp that was
+   squashing the SVG and visually cropping the "nasscom" lockup.
+*/
+/* Make sure the hero section itself never creates a horizontal
+   scrollbar regardless of inner content widths. */
+section.mtl-new-hero {
+    overflow-x: clip !important;
+    max-width: 100% !important;
+}
+
+/* ── 2. BUILD METHOD — six icon cards ──────────────────────── */
+.bm-steps-container .bm-step-card .bm-step-img-box {
+    position: relative !important;
+    box-sizing: border-box !important;
+    display: block !important;
+}
+.bm-steps-container .bm-step-card .bm-step-img-box .bm-item-icon {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    pointer-events: none !important;
+}
+.bm-steps-container .bm-step-card:hover .bm-step-img-box .bm-item-icon {
+    transform: translate(-50%, -50%) scale(1.12) rotate(-6deg) !important;
+}
+/* Stop horizontal scroll on minimised widths by switching to a
+   wrap-friendly flex layout that fits any container width. */
+@media (max-width: 1280px) {
+    .bm-steps-container {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        overflow-x: visible !important;
+        gap: 24px 18px !important;
+    }
+    .bm-steps-container .bm-step-arrow {
+        display: none !important;
+    }
+}
+
+/* ── 3. AWARDS / HONORS CODE — clip overflow at all widths ──── */
+/* The HonorsCode section is rendered with CSS-modules so its
+   outer wrapper class is hashed.  Apply the overflow guard to
+   any element that holds the floating award images via the
+   inline-style pattern they use. */
+section[class*="HonorsCode"],
+div[class*="HonorsCode"],
+[class*="HonorsCode_container"] {
+    overflow-x: clip !important;
+    max-width: 100vw !important;
+}
+
+/* ── 4. FOOTER MAP — keep attribution row visible ──────────── */
+.ft-cta-col .ft-map-box {
+    height: 280px !important;
+    min-height: 240px !important;
+    overflow: hidden !important;
+}
+.ft-cta-col .ft-map-box iframe {
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
+    border: 0 !important;
+}
+.ft-cta-col .ft-map-box .ft-map-overlay {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    /* Reserve the bottom 32px for Google's required attribution
+       row so it remains visible AND clickable.  Without this the
+       overlay <a> covered "Map data ©" / "Terms" links. */
+    bottom: 32px !important;
+}
+@media (max-width: 768px) {
+    .ft-cta-col .ft-map-box {
+        height: 220px !important;
+        min-height: 200px !important;
+    }
+}
+@media (max-width: 480px) {
+    .ft-cta-col .ft-map-box {
+        height: 200px !important;
+        min-height: 180px !important;
+    }
+    .ft-cta-col .ft-map-box .ft-map-overlay {
+        bottom: 36px !important;
+    }
+}
+
+/* ── 5. DOWNLOAD BROCHURE MODAL — heading must be visible ─── */
+/* Anchor the dialog to the top of the viewport with comfortable
+   padding so the "Request Brochure" heading is NEVER clipped,
+   regardless of viewport height (laptop, mobile keyboard open,
+   etc).  Overlay itself scrolls if the content exceeds height. */
+.modal-overlay#brochureModal,
+#brochureModal.modal-overlay,
+div#brochureModal {
+    align-items: flex-start !important;
+    justify-content: center !important;
+    padding: 24px 12px !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    box-sizing: border-box !important;
+}
+
+/* The dialog box can grow to fit its content; the overlay scrolls. */
+#brochureModal .brochure-modal-box {
+    width: min(920px, 100%) !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    margin: 0 auto !important;
+    overflow: visible !important;
+    flex-shrink: 0 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    box-sizing: border-box !important;
+}
+
+/* Stack to a single column at every width below 900px. */
+@media (max-width: 900px) {
+    #brochureModal .brochure-modal-box {
+        flex-direction: column !important;
+    }
+    #brochureModal .brochure-modal-left,
+    #brochureModal .brochure-modal-right {
+        width: 100% !important;
+        flex: none !important;
+    }
+}
+
+/* Always reserve space for the absolutely-positioned close (×) so
+   the heading never sits underneath it. */
+#brochureModal .brochure-modal-right {
+    padding: 56px 32px 32px !important;
+    box-sizing: border-box !important;
+    min-width: 0 !important;
+}
+@media (max-width: 768px) {
+    #brochureModal .brochure-modal-right {
+        padding: 52px 20px 24px !important;
+    }
+}
+@media (max-width: 480px) {
+    #brochureModal .brochure-modal-right {
+        padding: 48px 16px 20px !important;
+    }
+}
+
+#brochureModal .brochure-modal-title {
+    margin: 0 0 22px !important;
+    padding-right: 36px !important;
+    line-height: 1.3 !important;
+}
+@media (max-width: 480px) {
+    #brochureModal .brochure-modal-title {
+        font-size: 16px !important;
+        margin-bottom: 16px !important;
+        padding-right: 32px !important;
+    }
+}
+
+/* The brochure illustration block on the left must shrink on
+   small screens — if it stays at 320px it pushes the modal to
+   ~400px which forces horizontal scroll on 360-wide phones. */
+#brochureModal .brochure-modal-left {
+    padding: 24px !important;
+    min-width: 0 !important;
+}
+#brochureModal .brochure-modal-circle {
+    width: min(280px, 70vw) !important;
+    aspect-ratio: 1 / 1 !important;
+    height: auto !important;
+}
+@media (max-width: 480px) {
+    #brochureModal .brochure-modal-left {
+        padding: 18px !important;
+    }
+    #brochureModal .brochure-modal-circle {
+        width: min(180px, 60vw) !important;
+    }
+}
+
+/* Keep all form controls fluid inside the modal so they never
+   trigger a horizontal scroll. */
+#brochureModal .brochure-input-group,
+#brochureModal .brochure-form-select,
+#brochureModal .brochure-input-group input,
+#brochureModal #brochureForm input,
+#brochureModal #brochureForm select,
+#brochureModal #brochureForm button {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+#brochureModal .brochure-submit-btn {
+    width: 100% !important;
+}

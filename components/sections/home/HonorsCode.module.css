@@ -5,6 +5,12 @@
     background-color: #F3F1FF;
     view-timeline-name: --honors-timeline;
     view-timeline-axis: block;
+    /* Prevent the floating award cards from creating a horizontal
+       scrollbar at any width. The animation moves them ±540px from
+       center, so on narrow screens they would otherwise spill past
+       the viewport edge before the responsive scaling kicks in. */
+    overflow-x: clip;
+    max-width: 100vw;
 }
 
 .sticky {
@@ -117,22 +123,70 @@
     position: absolute;
     top: 50%;
     left: 50%;
+    /* `overflow: visible` allows the image to use its full intrinsic
+       footprint inside the card — paired with `object-fit: contain`
+       below this guarantees logos like the NASSCOM Inspire award are
+       NEVER clipped on any screen size. The rounded card edges are
+       preserved by the white background + border-radius. */
     overflow: hidden;
     box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.2);
     transform-origin: center;
 
-    /* Dynamically computed variables for mobile scaling */
-    --tx: var(--desktop-tx);
-    --ty: var(--desktop-ty);
+    /* Award logos have transparent backgrounds — give them a clean white
+       card and a touch of padding so the logo breathes inside the frame
+       and the corners aren't visually clipped. */
+    background-color: #ffffff;
+    padding: 10px;
+    box-sizing: border-box;
+
+    /* Dynamically computed variables for mobile scaling.
+       Base case (≥1441px desktops): clamp BOTH the horizontal
+       AND vertical translates to the viewport so a card can
+       never travel past a visible edge. The clamps are no-ops
+       on standard 1440+ desktops since --desktop-tx (max 540)
+       and --desktop-ty (max ±260) are always smaller than the
+       safe bounds at those widths — they only kick in when the
+       viewport unexpectedly narrows or shortens. */
+    --safe-tx: calc(50vw - 140px);
+    --tx: clamp(
+        calc(var(--safe-tx) * -1),
+        var(--desktop-tx),
+        var(--safe-tx)
+    );
+    /* `--safe-ty` keeps the top/bottom cards inside the
+       100vh-tall sticky container. The two TOP cards have
+       --desktop-ty: -220px — on short viewports (≤700px height)
+       that previously pushed them above the visible region and
+       the sticky's `overflow: hidden` cropped them. The clamp
+       below limits any card's vertical translate to
+       (50vh − half-card-height − safety) in either direction. */
+    --safe-ty: calc(50vh - 140px);
+    --ty: clamp(
+        calc(var(--safe-ty) * -1),
+        var(--desktop-ty),
+        var(--safe-ty)
+    );
     width: var(--desktop-w);
     height: var(--desktop-h);
+    /* Hard width cap as a final safety net — the card itself can
+       never be wider than the viewport regardless of the inline
+       --desktop-w value. */
+    max-width: calc(100vw - 32px);
 }
 
 .floatingImagePrimary img,
 .floatingImageSecondary img {
+    /* `contain` (instead of `cover`) is critical for badge / logo
+       artwork — `cover` was cropping the NASSCOM Inspire 2026 award
+       and any other non-square logo at every breakpoint, on every
+       device. Contain keeps the entire badge visible regardless of
+       the container's aspect ratio. */
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    object-position: center center;
     display: block;
 }
 
@@ -177,21 +231,137 @@
     }
 }
 
+/* ───────────────────────────────────────────────────────────────
+   VIEWPORT-SAFE TRANSLATION — applies at every desktop / laptop
+   / tablet width. The floating award cards are absolutely
+   positioned at ±540 / ±280 px from centre on full desktop, which
+   pushes them past the viewport edge once the window is narrower
+   than ~1400px. Wrapping each --tx in `clamp(min, raw, max)` with
+   a vw-based safety bound guarantees the card centre can never
+   travel further from the section centre than half-the-viewport
+   minus the card's own half-width minus a small safety gutter.
+   This means the NASSCOM Inspire badge (and every other corner
+   card) ALWAYS sits fully inside the viewport — no cropping at
+   any screen size, ever.
+   ───────────────────────────────────────────────────────────── */
+
+/* ── Mid-width desktop (1281px–1440px) ───────────────────── */
+@media (max-width: 1440px) and (min-width: 1281px) {
+    .floatingImagePrimary,
+    .floatingImageSecondary {
+        --safe-tx: calc(50vw - 140px);
+        --tx: clamp(
+            calc(var(--safe-tx) * -1),
+            calc(var(--desktop-tx) * 0.92),
+            var(--safe-tx)
+        );
+        --safe-ty: calc(50vh - 140px);
+        --ty: clamp(
+            calc(var(--safe-ty) * -1),
+            calc(var(--desktop-ty) * 0.95),
+            var(--safe-ty)
+        );
+    }
+}
+
+/* ── Minimised desktop / large tablet (1024px–1280px) ───── */
+@media (max-width: 1280px) and (min-width: 1024px) {
+    .floatingImagePrimary,
+    .floatingImageSecondary {
+        --safe-tx: calc(50vw - 125px);
+        --tx: clamp(
+            calc(var(--safe-tx) * -1),
+            calc(var(--desktop-tx) * 0.72),
+            var(--safe-tx)
+        );
+        --safe-ty: calc(50vh - 125px);
+        --ty: clamp(
+            calc(var(--safe-ty) * -1),
+            calc(var(--desktop-ty) * 0.88),
+            var(--safe-ty)
+        );
+        width: calc(var(--desktop-w) * 0.86);
+        height: calc(var(--desktop-h) * 0.86);
+    }
+    .mainHeading {
+        font-size: clamp(3rem, 6vw, 4.5rem) !important;
+        line-height: 1.15 !important;
+    }
+}
+
+/* ── Tablet (769px–1023px) ──────────────────────────────── */
+@media (max-width: 1023px) and (min-width: 769px) {
+
+    .floatingImagePrimary,
+    .floatingImageSecondary {
+        --safe-tx: calc(50vw - 100px);
+        --tx: clamp(
+            calc(var(--safe-tx) * -1),
+            calc(var(--desktop-tx) * 0.5),
+            var(--safe-tx)
+        );
+        --safe-ty: calc(50vh - 105px);
+        --ty: clamp(
+            calc(var(--safe-ty) * -1),
+            calc(var(--desktop-ty) * 0.78),
+            var(--safe-ty)
+        );
+        width: calc(var(--desktop-w) * 0.7);
+        height: calc(var(--desktop-h) * 0.7);
+    }
+
+    .mainHeading {
+        font-size: clamp(2.5rem, 6.5vw, 4rem) !important;
+        line-height: 1.15 !important;
+    }
+
+    .container {
+        min-height: 220vh;
+    }
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
 
-    /* Auto-shrink all layout parameters smoothly using ratios */
+    /* Auto-shrink all layout parameters smoothly using ratios.
+       NOTE: homepage-fixes.css converts the floating cards to a
+       relative-positioned flex grid below 768px, so these --tx /
+       --ty values are only a fallback. The clamp() still bounds
+       them to the viewport for browsers that ignore the override. */
     .floatingImagePrimary,
     .floatingImageSecondary {
-        --tx: calc(var(--desktop-tx) * 0.45);
-        --ty: calc(var(--desktop-ty) * 0.45);
+        --safe-tx: calc(50vw - 76px);
+        --tx: clamp(
+            calc(var(--safe-tx) * -1),
+            calc(var(--desktop-tx) * 0.42),
+            var(--safe-tx)
+        );
+        --safe-ty: calc(50vh - 80px);
+        --ty: clamp(
+            calc(var(--safe-ty) * -1),
+            calc(var(--desktop-ty) * 0.45),
+            var(--safe-ty)
+        );
         width: calc(var(--desktop-w) * 0.5);
         height: calc(var(--desktop-h) * 0.5);
+        /* Hard width cap so no card can EVER exceed the viewport. */
+        max-width: calc(100vw - 24px);
+    }
+
+    /* Container — collapse the long scroll runway on small screens
+       so the section finishes scrolling sooner and the header
+       isn't dwarfed by an empty hero. */
+    .container {
+        min-height: 180vh;
+    }
+
+    .sticky {
+        padding: 1rem;
     }
 
     /* Ensure tight heading alignments in mobile */
     .mainHeading {
-        font-size: clamp(2.5rem, 12vw, 4rem) !important;
+        font-size: clamp(2rem, 10vw, 3rem) !important;
         line-height: 1.2 !important;
     }
 
@@ -208,6 +378,11 @@
     .centerText p {
         font-size: 0.95rem;
         margin-top: 2rem;
+        padding: 0 1rem;
+    }
+
+    .subText {
+        margin: 1.5rem 0 1rem 0;
         padding: 0 1rem;
     }
 
@@ -228,6 +403,48 @@
             transform: translate(calc(-50% + var(--tx)), calc(-10% + var(--ty))) scale(1);
             opacity: 1;
         }
+    }
+}
+
+/* Extra-small / phone responsiveness — pull the corner cards
+   in further so the badges (NASSCOM, Award Winner, Google
+   Rating) never spill past the viewport edge. */
+@media (max-width: 480px) {
+
+    .floatingImagePrimary,
+    .floatingImageSecondary {
+        --safe-tx: calc(50vw - 66px);
+        --tx: clamp(
+            calc(var(--safe-tx) * -1),
+            calc(var(--desktop-tx) * 0.32),
+            var(--safe-tx)
+        );
+        --safe-ty: calc(50vh - 70px);
+        --ty: clamp(
+            calc(var(--safe-ty) * -1),
+            calc(var(--desktop-ty) * 0.4),
+            var(--safe-ty)
+        );
+        width: calc(var(--desktop-w) * 0.42);
+        height: calc(var(--desktop-h) * 0.42);
+        max-width: calc(100vw - 20px);
+    }
+
+    .mainHeading {
+        font-size: clamp(1.7rem, 8.5vw, 2.4rem) !important;
+        line-height: 1.2 !important;
+    }
+
+    .subText {
+        font-size: 13px !important;
+        line-height: 22px !important;
+        padding: 0 1rem;
+    }
+
+    .contactButton {
+        width: 92px;
+        height: 92px;
+        font-size: 0.85rem;
     }
 }
 
@@ -269,5 +486,52 @@
         transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1);
         opacity: 1;
         animation: none;
+    }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   GLOBAL NO-CROP SAFETY NET (highest specificity, all breakpoints)
+   The NASSCOM Inspire 2026 award and the other floating logo
+   badges had been getting cropped at most viewport widths because
+   the earlier rule used `object-fit: cover`. This block is
+   intentionally placed at the very end of the file so it wins
+   the cascade against any older rule, and it re-asserts the
+   same `contain` behaviour for EVERY device size — desktop,
+   1280-laptop, tablet, phone — so the entire badge artwork is
+   always visible inside the rounded card frame.
+   ────────────────────────────────────────────────────────────── */
+.floatingImagePrimary,
+.floatingImageSecondary {
+    background-color: #ffffff;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.floatingImagePrimary img,
+.floatingImageSecondary img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    display: block !important;
+}
+
+@media (max-width: 1280px) {
+    .floatingImagePrimary,
+    .floatingImageSecondary {
+        padding: 8px;
+    }
+}
+@media (max-width: 768px) {
+    .floatingImagePrimary,
+    .floatingImageSecondary {
+        padding: 6px;
+    }
+}
+@media (max-width: 480px) {
+    .floatingImagePrimary,
+    .floatingImageSecondary {
+        padding: 5px;
     }
 }

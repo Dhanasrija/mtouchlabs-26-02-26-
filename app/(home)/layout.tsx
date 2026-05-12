@@ -7,17 +7,23 @@ export default function HomeLayout({
 }) {
   return (
     <>
-      {/* Add home-page class to body so CSS like .home-page .ree-header applies */}
+      {/*
+        Add home-page class to body BEFORE the page paints so the homepage-
+        specific CSS rules (e.g. .home-page .ree-header transparent navbar,
+        background colours, hero spacing) apply on the very first paint.
+        Running this beforeInteractive prevents a brief flash of the wrong
+        styles while the rest of the page hydrates.
+      */}
       <Script
         id="home-page-class"
-        strategy="afterInteractive"
+        strategy="beforeInteractive"
         dangerouslySetInnerHTML={{
-          __html: `document.body.classList.add('home-page');`,
+          __html: `try{document.body.classList.add('home-page');}catch(e){}`,
         }}
       />
       {children}
 
-      <Script src="/js/homepage.js" strategy="afterInteractive" />
+      <Script src="/js/homepage.js" strategy="lazyOnload" />
     </>
   );
 }

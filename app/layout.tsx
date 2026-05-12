@@ -669,19 +669,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         />
 
-        {/* ========== CSS — Site ========== */}
-        <link href="/css/style.css" rel="stylesheet" />
-        <link href="/css/responsive.css" rel="stylesheet" />
-        <link href="/css/mega-menu.css" rel="stylesheet" />
-        <link href="/css/about.css" rel="stylesheet" />
-        <link href="/css/blog.css" rel="stylesheet" />
-        <link href="/css/home-mega-menu.css" rel="stylesheet" />
-        <link href="/css/navbar-redesign.css" rel="stylesheet" />
-        <link href="/css/chat-widget.css" rel="stylesheet" />
-        <link href="/css/location-pages.css" rel="stylesheet" />
-        <link href="/css/navbar-dropdown.css" rel="stylesheet" />
-        <link href="/css/services.css" rel="stylesheet" />
-        <link href="/css/homepage-fixes.css" rel="stylesheet"/>
+        {/* ========== CSS — Site ==========
+            Cache-busting `?v=` query string — bumped whenever the
+            static stylesheets in /public/css are updated so the
+            browser & CDN never serve a stale copy after a deploy.
+            Every CSS file is versioned together to keep responsive
+            and layout rules in lock-step. */}
+        <link href="/css/style.css?v=20260512f" rel="stylesheet" />
+        <link href="/css/responsive.css?v=20260512f" rel="stylesheet" />
+        <link href="/css/mega-menu.css?v=20260512f" rel="stylesheet" />
+        <link href="/css/about.css?v=20260512f" rel="stylesheet" />
+        <link href="/css/blog.css?v=20260512f" rel="stylesheet" />
+        <link href="/css/home-mega-menu.css?v=20260512f" rel="stylesheet" />
+        <link href="/css/navbar-redesign.css?v=20260512f" rel="stylesheet" />
+        <link href="/css/chat-widget.css?v=20260512f" rel="stylesheet" />
+        <link href="/css/location-pages.css?v=20260512f" rel="stylesheet" />
+        <link href="/css/navbar-dropdown.css?v=20260512f" rel="stylesheet" />
+        <link href="/css/services.css?v=20260512f" rel="stylesheet" />
+        <link href="/css/homepage-fixes.css?v=20260512f" rel="stylesheet"/>
+        {/* ui-fixes.css — comprehensive responsive UI fix pack. Loaded LAST so
+            its rules win against any earlier stylesheet for the issues listed
+            in /public/css/ui-fixes.css (technologies title, navbar, breadcrumb
+            overlap, quality work stacking, captcha overflow, floating icon
+            stack, message overflow, FAQ accordion, vision card wrap, etc.). */}
+        <link href="/css/ui-fixes.css?v=20260510a" rel="stylesheet" />
 
         <meta name="turnstile-site-key" content={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY} />
 
@@ -779,7 +790,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         {children}
         <Footer />
         {process.env.NEXT_PUBLIC_SHOW_CHATBOT === "true" && <ChatWidget />}
-        {/* Floating WhatsApp Button */}
+        {/* Floating WhatsApp Button — green circle with white phone
+            glyph rendered via CSS mask + two animated pulsing rings
+            (see .whatsapp-hero-btn rules in public/css/ui-fixes.css). */}
         <a
           href="https://wa.me/message/H5VADFWLMPYIM1"
           target="_blank"
@@ -787,11 +800,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           className="whatsapp-hero-btn"
           aria-label="Chat on WhatsApp"
         >
+          {/* Hidden — kept for alt-text / SEO. CSS hides this element. */}
           <img
             src="/images/new_home/ai-product-pages/cybersecurity/whatsapp.png"
             alt="WhatsApp"
             className="whatsapp-hero-img"
           />
+          {/* Foreground white phone glyph (CSS-masked SVG). */}
+          <span className="whatsapp-glyph" aria-hidden="true" />
           <span className="wa-tooltip">Chat with us!</span>
         </a>
 

@@ -137,7 +137,14 @@ export function HonorsCode() {
 
                         return (
                             <div key={idx} className={className} style={imageStyle}>
-                                <img src={img.src} alt={img.alt} />
+                                <img
+                                    src={img.src}
+                                    alt={img.alt}
+                                    width={parseInt(img.width, 10) || 220}
+                                    height={parseInt(img.height, 10) || 220}
+                                    loading="lazy"
+                                    decoding="async"
+                                />
                             </div>
                         );
                     })}

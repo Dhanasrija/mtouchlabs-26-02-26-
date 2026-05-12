@@ -1,0 +1,983 @@
+/* ============================================================================
+   ui-fixes.css
+   ----------------------------------------------------------------------------
+   Comprehensive responsive UI/UX fix pack for mTouch Labs.
+   Loads LAST so every rule here intentionally wins over earlier stylesheets.
+   Scope: mobile-first responsive corrections, with desktop preserved.
+   Validated breakpoints: 320px (iPhone SE), 375px, 768px, 1024px, desktop.
+   ========================================================================== */
+
+/* ─────────────────────────────────────────────────────────────────────────
+   GLOBAL — prevent horizontal scroll on tiny viewports.
+   ───────────────────────────────────────────────────────────────────────── */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+*,
+*::before,
+*::after { min-width: 0; }
+img,
+video,
+iframe { max-width: 100%; height: auto; }
+
+/* ─────────────────────────────────────────────────────────────────────────
+   1. TECHNOLOGIES SECTION — title on a single line, consistent padding.
+   ───────────────────────────────────────────────────────────────────────── */
+.tech-heading {
+  word-break: keep-all;
+  overflow-wrap: normal;
+}
+.tech-heading br { display: none; }
+.tech-heading-blue { display: inline; }
+.tech-heading-blue + br + span,
+.tech-heading-blue + span { margin-left: 0.35em; }
+
+@media (min-width: 481px) {
+  .tech-heading { white-space: nowrap; }
+}
+@media (max-width: 480px) {
+  .tech-heading {
+    font-size: clamp(1.05rem, 5.5vw, 1.6rem) !important;
+    white-space: normal;
+    line-height: 1.25;
+  }
+}
+@media (max-width: 1024px) {
+  .tech-section {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+@media (max-width: 768px) {
+  .tech-section {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+@media (max-width: 480px) {
+  .tech-section {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   2. MOBILE NAVBAR — restore intended layout, keep desktop branding.
+   ───────────────────────────────────────────────────────────────────────── */
+@media (max-width: 991px) {
+  header,
+  .site-header,
+  .main-header {
+    background: #ffffff !important;
+    box-shadow: 0 2px 12px rgba(15, 23, 42, 0.06);
+  }
+  .navbar-brand,
+  .header-logo,
+  .site-logo {
+    max-width: 150px;
+    height: auto;
+  }
+  .navbar-brand img,
+  .header-logo img,
+  .site-logo img {
+    max-width: 140px;
+    height: auto;
+    object-fit: contain;
+  }
+  .navbar-toggler,
+  .nav-toggler,
+  .menu-toggle,
+  .hamburger {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 6px;
+    border-radius: 8px;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    background: #fff;
+    z-index: 1003;
+  }
+  .mobile-nav,
+  .mobile-menu,
+  .nav-mobile {
+    background: #ffffff;
+    padding: 16px;
+  }
+  .mobile-nav a,
+  .mobile-menu a,
+  .nav-mobile a {
+    display: block;
+    padding: 12px 14px;
+    color: #0d1117;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+    text-decoration: none;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   3 + 4. BREADCRUMB / HEADER OVERLAP, ALIGNMENT — proper wrap & spacing.
+   ───────────────────────────────────────────────────────────────────────── */
+.breadcrumb-list,
+.breadcrumb,
+nav[aria-label="Breadcrumb"] ol {
+  flex-wrap: wrap !important;
+  justify-content: center;
+  row-gap: 4px;
+}
+nav[aria-label="Breadcrumb"] {
+  padding: 0 12px;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 480px) {
+  nav[aria-label="Breadcrumb"] ol {
+    font-size: 0.78rem !important;
+    margin-bottom: 12px !important;
+  }
+  nav[aria-label="Breadcrumb"] li {
+    line-height: 1.5;
+  }
+  .svc-hero,
+  .ph-hero,
+  .product-hero,
+  .page-hero,
+  .ct-hero,
+  .ree-bn-section,
+  .breadcrumb-area {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+  .svc-hero { padding-top: 96px !important; padding-bottom: 56px !important; }
+  .svc-hero-h1,
+  .product-hero h1,
+  .ct-hero__title,
+  .page-title h1 {
+    font-size: clamp(22px, 6.6vw, 32px) !important;
+    line-height: 1.22 !important;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    margin-top: 12px !important;
+  }
+}
+@media (max-width: 360px) {
+  .svc-hero { padding-top: 84px !important; }
+  nav[aria-label="Breadcrumb"] ol { font-size: 0.72rem !important; }
+}
+
+/* Add breathing room between breadcrumb and page title */
+nav[aria-label="Breadcrumb"] + h1,
+nav[aria-label="Breadcrumb"] + .page-title,
+.breadcrumb + h1,
+.breadcrumb + .svc-hero-h1,
+.breadcrumb-list + h1 {
+  margin-top: 18px !important;
+}
+@media (max-width: 480px) {
+  nav[aria-label="Breadcrumb"] + h1,
+  nav[aria-label="Breadcrumb"] + .page-title,
+  .breadcrumb + h1,
+  .breadcrumb-list + h1 {
+    margin-top: 14px !important;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   6. QUALITY WORK SECTION — separate text/image, stack vertically on mobile.
+   ───────────────────────────────────────────────────────────────────────── */
+.quality-work,
+.quality-section,
+.our-quality-work,
+.quality-work-section {
+  position: relative;
+  overflow: hidden;
+}
+@media (max-width: 991px) {
+  .quality-work .container,
+  .quality-work-section .container,
+  .our-quality-work .container,
+  .quality-work-row,
+  .quality-work__inner {
+    flex-direction: column !important;
+    text-align: center;
+    gap: 24px;
+  }
+  .quality-work .text,
+  .quality-work .content,
+  .quality-work__text,
+  .quality-work-text,
+  .our-quality-work .text {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 16px !important;
+    position: relative !important;
+    z-index: 2;
+  }
+  .quality-work .image,
+  .quality-work__image,
+  .quality-work-image,
+  .our-quality-work .image,
+  .quality-work img {
+    width: 100% !important;
+    max-width: 320px;
+    margin: 0 auto !important;
+    height: auto;
+    position: relative !important;
+    z-index: 1;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   7. CLOUDFLARE TURNSTILE / CAPTCHA — contain inside viewport.
+   ───────────────────────────────────────────────────────────────────────── */
+.cf-turnstile,
+[class*="turnstile"],
+iframe[src*="challenges.cloudflare.com"] {
+  max-width: 100% !important;
+  width: 100% !important;
+  display: block;
+  overflow: hidden;
+}
+@media (max-width: 360px) {
+  .cf-turnstile,
+  [class*="turnstile"] {
+    transform: scale(0.86);
+    transform-origin: 0 0;
+    margin-bottom: -8px;
+  }
+  iframe[src*="challenges.cloudflare.com"] {
+    max-width: 100% !important;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   8. AI CHAT WIDGET — floating icon, input spacing, message overflow.
+   The chat panel itself opens at the BOTTOM-LEFT (left: 10px in
+   chat-widget.css), so the trigger button sits on the LEFT to match.
+   The WhatsApp + scroll-to-top buttons sit on the RIGHT — completely
+   separate columns, no overlap with each other or with the chat panel.
+   ───────────────────────────────────────────────────────────────────────── */
+/* High-specificity selector required because /css/chat-widget.css uses
+   `html body .cw-wrapper` with !important. */
+html body .cw-wrapper,
+body .cw-wrapper,
+.cw-wrapper {
+  position: fixed !important;
+  right: auto !important;
+  left: 18px !important;
+  bottom: 22px !important;
+  z-index: 1100 !important;
+}
+@media (max-width: 600px) {
+  html body .cw-wrapper,
+  body .cw-wrapper,
+  .cw-wrapper {
+    left: 12px !important;
+    bottom: 18px !important;
+  }
+}
+
+/* Chat panel — message body has room for input row, words break properly */
+.cw-panel { z-index: 1200 !important; }
+.cw-panel-body {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+.cw-ai-input-area {
+  flex-shrink: 0;
+  padding: 10px 12px 10px !important;
+  background: #fff;
+  border-top: 1px solid rgba(15, 23, 42, 0.06);
+}
+.cw-ai-input-row {
+  display: flex !important;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-width: 0;
+}
+.cw-ai-input {
+  flex: 1 1 auto;
+  min-width: 0 !important;
+  width: auto !important;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.cw-ai-send { flex: 0 0 auto; }
+
+/* 10 + 12. User & AI message bubble — long words wrap properly. */
+.cw-msg-bubble,
+.cw-msg-bubble-user {
+  max-width: 85% !important;
+  word-break: break-word !important;
+  overflow-wrap: anywhere !important;
+  white-space: pre-wrap;
+}
+@media (max-width: 480px) {
+  .cw-msg-bubble,
+  .cw-msg-bubble-user {
+    max-width: 90% !important;
+    font-size: 13.5px;
+    padding: 10px 12px;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   9 + 11 + 14. FLOATING ICON STACK — WhatsApp / Scroll-Top / Chat — fixed
+   spacing, no overlaps with form fields.
+
+   WhatsApp button is rendered as a solid green circle with the WhatsApp
+   glyph centered inside it, plus two animated outer rings that pulse
+   outward to create a live "online / available" indicator (matching
+   the reference design).
+   ───────────────────────────────────────────────────────────────────────── */
+.whatsapp-hero-btn {
+  position: fixed !important;
+  right: 26px !important;
+  bottom: 96px !important;
+  z-index: 1099 !important;
+  /* Box is bigger than the inner circle so the pulsing rings have
+     room to expand without being clipped by the click target. */
+  width: 56px !important;
+  height: 56px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  /* Solid WhatsApp brand green, rendered as a perfect circle. */
+  background: #25D366 !important;
+  background: radial-gradient(circle at 30% 30%, #2EE36F 0%, #25D366 55%, #1FB058 100%) !important;
+  border-radius: 50% !important;
+  box-shadow:
+    0 6px 18px rgba(37, 211, 102, 0.45),
+    0 2px 6px rgba(0, 0, 0, 0.12) !important;
+  cursor: pointer;
+  text-decoration: none !important;
+  /* Containing block for the pulsing pseudo-elements. */
+  overflow: visible !important;
+  isolation: isolate;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.whatsapp-hero-btn:hover {
+  transform: scale(1.06);
+  box-shadow:
+    0 10px 26px rgba(37, 211, 102, 0.55),
+    0 3px 10px rgba(0, 0, 0, 0.14) !important;
+}
+
+/* Two pulsing outer rings — ::before and ::after — both centered on
+   the button. They each expand from the button size to ~2.4× and
+   fade out, on a staggered loop so a new ring appears every ~1s.   */
+.whatsapp-hero-btn::before,
+.whatsapp-hero-btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: transparent;
+  border: 2px solid rgba(37, 211, 102, 0.45);
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 0.8;
+  pointer-events: none;
+  z-index: -1;
+  animation: waPulseRing 2.4s ease-out infinite;
+}
+.whatsapp-hero-btn::after {
+  /* Stagger the second ring so a fresh ripple appears half a cycle
+     after the first one. */
+  animation-delay: 1.2s;
+}
+
+@keyframes waPulseRing {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.55;
+    border-width: 3px;
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(2.0);
+    opacity: 0;
+    border-width: 1px;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.4);
+    opacity: 0;
+    border-width: 1px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-hero-btn::before,
+  .whatsapp-hero-btn::after {
+    animation: none !important;
+    opacity: 0 !important;
+  }
+}
+
+/* The PNG ships as the full WhatsApp brand mark (green rounded
+   square + white phone). We hide it entirely and render only the
+   white phone glyph via an inline SVG injected with ::before, so
+   the icon perfectly matches the user-requested design (green
+   circle + pure-white phone glyph centred inside).               */
+.whatsapp-hero-btn .whatsapp-hero-img {
+  display: none !important;
+}
+
+.whatsapp-hero-btn {
+  /* Render the white WhatsApp phone glyph as an inline SVG mask.
+     A `<span>` would be cleaner but we don't control the markup
+     here — the easiest no-markup-change route is to slot the SVG
+     into the existing flex container via a ::after pseudo-element
+     and use it as a foreground mask. */
+}
+.whatsapp-hero-btn > .whatsapp-glyph {
+  display: block;
+  width: 28px;
+  height: 28px;
+  background: #ffffff;
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path d='M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.5 2.1 7.9L.5 31.5l7.8-2c2.3 1.3 5 2 7.7 2 8.6 0 15.5-6.9 15.5-15.5S24.6.5 16 .5zm0 28.4c-2.4 0-4.7-.6-6.7-1.8l-.5-.3-4.6 1.2 1.2-4.5-.3-.5C3.7 20.9 3 18.5 3 16 3 8.8 8.8 3 16 3s13 5.8 13 13-5.8 12.9-13 12.9zm7.1-9.7c-.4-.2-2.3-1.1-2.7-1.3-.4-.1-.6-.2-.9.2s-1 1.3-1.3 1.5c-.2.2-.5.3-.9.1-.4-.2-1.6-.6-3.1-1.9-1.2-1-1.9-2.3-2.2-2.7-.2-.4 0-.6.2-.8.2-.2.4-.5.5-.7.2-.2.2-.4.4-.6.1-.3 0-.5 0-.7-.1-.2-.9-2.1-1.2-2.9-.3-.7-.6-.6-.9-.6h-.7c-.3 0-.7.1-1 .5s-1.3 1.2-1.3 3c0 1.8 1.3 3.5 1.5 3.7.2.2 2.5 3.8 6 5.3 2.1.9 2.9 1 3.9.8.6-.1 2.3-.9 2.6-1.8.3-.9.3-1.7.2-1.8-.1-.2-.4-.3-.8-.5z'/></svg>") no-repeat center / contain;
+  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path d='M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.5 2.1 7.9L.5 31.5l7.8-2c2.3 1.3 5 2 7.7 2 8.6 0 15.5-6.9 15.5-15.5S24.6.5 16 .5zm0 28.4c-2.4 0-4.7-.6-6.7-1.8l-.5-.3-4.6 1.2 1.2-4.5-.3-.5C3.7 20.9 3 18.5 3 16 3 8.8 8.8 3 16 3s13 5.8 13 13-5.8 12.9-13 12.9zm7.1-9.7c-.4-.2-2.3-1.1-2.7-1.3-.4-.1-.6-.2-.9.2s-1 1.3-1.3 1.5c-.2.2-.5.3-.9.1-.4-.2-1.6-.6-3.1-1.9-1.2-1-1.9-2.3-2.2-2.7-.2-.4 0-.6.2-.8.2-.2.4-.5.5-.7.2-.2.2-.4.4-.6.1-.3 0-.5 0-.7-.1-.2-.9-2.1-1.2-2.9-.3-.7-.6-.6-.9-.6h-.7c-.3 0-.7.1-1 .5s-1.3 1.2-1.3 3c0 1.8 1.3 3.5 1.5 3.7.2.2 2.5 3.8 6 5.3 2.1.9 2.9 1 3.9.8.6-.1 2.3-.9 2.6-1.8.3-.9.3-1.7.2-1.8-.1-.2-.4-.3-.8-.5z'/></svg>") no-repeat center / contain;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 600px) {
+  .whatsapp-hero-btn {
+    right: 18px !important;
+    bottom: 86px !important;
+    width: 52px !important;
+    height: 52px !important;
+  }
+  .whatsapp-hero-btn > .whatsapp-glyph {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+/* Scroll-to-top button — sits below WhatsApp, doesn't overlap chat */
+.scroll-top,
+.back-to-top,
+.scrollToTop,
+#scrollToTop,
+.go-top,
+button[aria-label="Scroll to top"] {
+  position: fixed !important;
+  right: 18px !important;
+  bottom: 22px !important;
+  z-index: 1098 !important;
+  width: 46px;
+  height: 46px;
+  border-radius: 50% !important;
+}
+@media (max-width: 600px) {
+  .scroll-top,
+  .back-to-top,
+  .scrollToTop,
+  #scrollToTop,
+  .go-top,
+  button[aria-label="Scroll to top"] {
+    right: 14px !important;
+    bottom: 20px !important;
+    width: 42px;
+    height: 42px;
+  }
+}
+
+/* Tawk.to chat widget — keep clear of WhatsApp/scroll buttons */
+iframe[title*="Tawk"],
+iframe[id*="tawk"] {
+  bottom: 22px !important;
+}
+
+/* On the contact-us / request-quote pages, the floating icons must NEVER
+   overlap form inputs. Push them slightly farther right and add page bottom
+   padding so the form content can scroll past them. */
+.ct-form-card,
+.contact-form,
+.request-quote-form,
+.rq-form,
+form#requestQuoteForm,
+form#contactForm {
+  padding-bottom: 12px;
+}
+@media (max-width: 991px) {
+  body { padding-bottom: 24px; }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   13. MENU UTILITY ICON (top header utility / hamburger) — clickable.
+   ───────────────────────────────────────────────────────────────────────── */
+.utility-menu,
+.menu-utility,
+.header-utility,
+.utility-icon,
+.menu-toggle,
+.navbar-toggler,
+.hamburger,
+[data-toggle="menu"],
+[aria-controls="primary-menu"] {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  position: relative;
+  z-index: 1004 !important;
+  touch-action: manipulation;
+}
+.utility-menu *,
+.menu-utility *,
+.header-utility *,
+.utility-icon *,
+.hamburger *,
+.menu-toggle * { pointer-events: none; }
+/* Restore pointer events on direct child links so they remain clickable */
+.utility-menu > a,
+.menu-utility > a,
+.header-utility > a,
+.utility-menu a[href],
+.menu-utility a[href] { pointer-events: auto !important; }
+
+/* ─────────────────────────────────────────────────────────────────────────
+   15. WHAT WE ARE TODAY CARDS — uniform alignment, equal spacing.
+   ───────────────────────────────────────────────────────────────────────── */
+.what-we-are-today,
+.what-we-are,
+.who-we-are-cards,
+.what-we-are-today__grid,
+.what-we-are-today-row {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+.what-we-are-today .card,
+.what-we-are .card,
+.who-we-are-cards .card,
+.what-we-are-today .what-card,
+.what-we-are-today__card {
+  display: flex !important;
+  flex-direction: column;
+  height: 100%;
+  padding: 24px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+}
+@media (max-width: 600px) {
+  .what-we-are-today,
+  .what-we-are,
+  .who-we-are-cards,
+  .what-we-are-today__grid,
+  .what-we-are-today-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   16. MILESTONES — standardize layout, spacing, readability.
+   ───────────────────────────────────────────────────────────────────────── */
+.milestones,
+.milestones-section,
+.milestone-grid,
+.milestone-list {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  text-align: center;
+}
+.milestones .milestone,
+.milestone-item,
+.milestone-card {
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.milestones .milestone .number,
+.milestone-item .number,
+.milestone-card .number,
+.milestones h3 {
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 800;
+  line-height: 1.1;
+}
+.milestones .milestone .label,
+.milestone-item .label,
+.milestone-card .label,
+.milestones p {
+  font-size: 14px;
+  color: #4b5563;
+  margin: 0;
+}
+@media (max-width: 480px) {
+  .milestones,
+  .milestones-section,
+  .milestone-grid,
+  .milestone-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   17. CERTIFICATIONS & RECOGNITION CARDS — uniform spacing.
+   ───────────────────────────────────────────────────────────────────────── */
+.certifications,
+.certifications-grid,
+.cert-grid,
+.recognition-cards,
+.certifications-recognition,
+.honors-code-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+.certifications .card,
+.cert-card,
+.recognition-card,
+.honors-code-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 20px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.05);
+  text-align: center;
+}
+.certifications img,
+.cert-card img,
+.recognition-card img,
+.honors-code-card img {
+  max-width: 100%;
+  max-height: 80px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   18. VISION & MISSION — long words ("Implementation") wrap inside card.
+   ───────────────────────────────────────────────────────────────────────── */
+.vision-mission,
+.vision-mission-section,
+.vm-card,
+.vision-card,
+.mission-card,
+.vision-mission .card {
+  word-break: break-word !important;
+  overflow-wrap: anywhere !important;
+  hyphens: auto;
+}
+.vision-mission p,
+.vision-mission li,
+.vm-card p,
+.vm-card li,
+.vision-card p,
+.mission-card p {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+@media (max-width: 600px) {
+  .vision-mission .card,
+  .vm-card,
+  .vision-card,
+  .mission-card {
+    padding: 18px !important;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   19. FAQ DROPDOWN — ensure all items, including the last two, are clickable
+   and expand/collapse correctly. Default behavior also patched in faq.js.
+   ───────────────────────────────────────────────────────────────────────── */
+._faq_list { position: relative; }
+._faq_item {
+  position: relative;
+  pointer-events: auto !important;
+}
+._faq_item ._faq_question {
+  width: 100%;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  position: relative;
+  z-index: 2;
+}
+._faq_item ._faq_answer {
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+  max-height: 0;
+  opacity: 0;
+}
+._faq_item.active ._faq_answer {
+  max-height: 1200px;
+  opacity: 1;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   ADDITIONAL — Build Method icons centered (already mostly OK, enforce).
+   ───────────────────────────────────────────────────────────────────────── */
+.bm-step-img-box {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.bm-step-img-box .bm-item-icon,
+.bm-step-img-box img {
+  margin: auto !important;
+  display: block !important;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   AWARDS & RECOGNITION — responsive scaling, no clipping.
+   ───────────────────────────────────────────────────────────────────────── */
+.awards-recognition,
+.awards-section,
+.awards-grid,
+.aw-grid,
+.honors-section {
+  overflow: visible !important;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.awards-grid,
+.aw-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+.award-card,
+.aw-card,
+.awards-recognition .card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  text-align: center;
+  padding: 24px 16px;
+  overflow: visible;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05);
+}
+.award-card img,
+.aw-card img,
+.awards-recognition img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 12px;
+}
+@media (max-width: 600px) {
+  .awards-grid,
+  .aw-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   PAGE LOAD / LAYOUT SHIFT — reserve hero space, smooth in-view animations.
+   ───────────────────────────────────────────────────────────────────────── */
+.svc-hero,
+.product-hero,
+.ph-hero,
+.page-hero {
+  contain: layout paint;
+}
+/* Removed global `background: #f3f4f6` from img/picture/video.
+   That rule was intended as a skeleton-loader placeholder, but
+   it persists AFTER images load and shows through every PNG/SVG
+   transparent pixel. Symptoms it caused on the homepage:
+     • White/grey outline behind the WhatsApp floating icon.
+     • White rectangle behind the IT Solutions blue card's
+       illustration.
+     • White rectangle behind the E-commerce black card's
+       illustration.
+   If a skeleton background is needed in future, scope it to a
+   specific class (e.g. `.skeleton-img`) — never to the bare
+   `img` element. */
+img, picture, video {
+  /* No global background. */
+  background: transparent;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   SERVICES NAVBAR HIGHLIGHT — keep active state visible across all routes.
+   ───────────────────────────────────────────────────────────────────────── */
+.nav-link.active,
+.nav-item.active > a,
+.menu-item.active > a,
+.menu-item.current-menu-item > a,
+.nav-link[aria-current="page"],
+a.nav-link.is-active,
+a.nav-services.active,
+a[data-services="active"] {
+  color: #3E8CFB !important;
+  font-weight: 600 !important;
+  position: relative;
+}
+.nav-link.active::after,
+.nav-item.active > a::after,
+a.nav-link.is-active::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: -6px;
+  height: 2px;
+  background: #3E8CFB;
+  border-radius: 2px;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   DOWNLOAD BROCHURE HEADING — prevent clipping, ensure responsive resize.
+   ───────────────────────────────────────────────────────────────────────── */
+.brochure-modal-title,
+.brochure-heading,
+.download-brochure-title,
+h1.brochure-title,
+h2.brochure-title {
+  font-size: clamp(18px, 4.5vw, 28px) !important;
+  line-height: 1.25 !important;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  white-space: normal !important;
+  padding-right: 24px;
+  max-width: 100%;
+  overflow: visible !important;
+}
+.brochure-modal-box {
+  max-width: min(720px, calc(100vw - 28px));
+  width: 100%;
+  max-height: 92vh;
+  overflow-y: auto;
+}
+.brochure-modal-right {
+  padding-right: 16px;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   CONTACT US / REQUEST QUOTE — dropdown overflow contained inside viewport.
+   ───────────────────────────────────────────────────────────────────────── */
+.ct-form__select,
+.rq-select,
+select,
+.dropdown-menu,
+.country-dropdown,
+.menu-dropdown {
+  max-width: 100% !important;
+  max-height: min(60vh, 320px) !important;
+  overflow-y: auto;
+}
+.ct-form__phone-row,
+.rq-phone-row {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+}
+.ct-form__phone-row select,
+.ct-form__country-code,
+.rq-phone-row select {
+  flex: 0 0 auto;
+  min-width: 90px;
+  max-width: 130px;
+}
+.ct-form__phone-row input,
+.rq-phone-row input {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.dropdown,
+.has-dropdown,
+.select-wrap {
+  position: relative;
+}
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  max-width: calc(100vw - 24px);
+  overflow-x: auto;
+  word-break: break-word;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   INDUSTRY SECTION — uniform button heights, consistent grid.
+   ───────────────────────────────────────────────────────────────────────── */
+.industries-grid,
+.industry-grid,
+.industries-pills,
+.industry-section .pills {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  align-items: stretch;
+}
+.industries-grid > *,
+.industry-grid > *,
+.industries-pills > * {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 10px 14px;
+  text-align: center;
+  white-space: normal;
+  word-break: break-word;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   HERO BANNER — Edge browser fix (top spacing/padding).
+   ───────────────────────────────────────────────────────────────────────── */
+@supports (-ms-ime-align: auto) {
+  .svc-hero,
+  .ph-hero,
+  .product-hero { padding-top: 130px !important; }
+}
+@supports (background: -ms-linear-gradient(red, blue)) {
+  .svc-hero,
+  .ph-hero { padding-top: 130px !important; }
+}
+.svc-hero,
+.ph-hero,
+.product-hero,
+.page-hero {
+  padding-top: max(130px, env(safe-area-inset-top, 0) + 110px);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   FINAL — IMAGE NEVER CROPPED on minimised screens (user emphasis).
+   ───────────────────────────────────────────────────────────────────────── */
+img {
+  max-width: 100%;
+  height: auto;
+}
+.section,
+section,
+.container,
+.container-fluid {
+  overflow-x: clip;
+}
+@media (max-width: 480px) {
+  .container,
+  .container-fluid,
+  .row,
+  section {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}

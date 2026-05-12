@@ -1088,12 +1088,17 @@
   margin-bottom: 28px;
 }
 
-.ct-form { display: flex; flex-direction: column; gap: 18px; }
+.ct-form { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
 
 .ct-form__row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 16px;
+  min-width: 0;
+}
+
+.ct-form__group {
+  min-width: 0;
 }
 
 .ct-form__label {
@@ -1162,6 +1167,12 @@
   background-color: #f8fafc;
   white-space: nowrap;
   overflow: hidden;
+  /* Constrain to the container so the closed control NEVER spills past
+     the form card on small screens. Native browsers manage the popup
+     option list automatically (it stays within viewport). */
+  max-width: 100%;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
   text-overflow: ellipsis;
   max-width: calc(100vw - 32px);
   max-height: 300px;
@@ -1764,5 +1775,48 @@ button.ent-cta-banner__btn {
   [data-sitekey] {
     transform: scale(0.85);
     transform-origin: left center;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CONTACT-FORM DROPDOWN OVERFLOW SAFEGUARDS
+   On smaller screens the country-code <select> and SERVICE
+   <select> rendered their selected text wider than the form
+   column, pushing the chevron / list affordance off-viewport.
+   These rules clamp the closed control to the available row
+   width on every breakpoint so the form NEVER overflows.
+   ═══════════════════════════════════════════════════════════ */
+.ct-form__select,
+.ct-form__country-code {
+  max-width: 100%;
+  width: 100%;
+  min-width: 0;
+}
+
+.ct-form__phone-row {
+  min-width: 0;
+}
+
+@media (max-width: 768px) {
+  .ct-form__select,
+  .ct-form__country-code {
+    max-width: calc(100vw - 64px);
+  }
+
+  .ct-form__phone-row {
+    grid-template-columns: 100px minmax(0, 1fr);
+    gap: 8px;
+  }
+}
+
+@media (max-width: 380px) {
+  .ct-form__phone-row {
+    grid-template-columns: 88px minmax(0, 1fr);
+    gap: 6px;
+  }
+
+  .ct-form__country-code {
+    font-size: 12px;
+    padding: 10px 18px 10px 6px;
   }
 }

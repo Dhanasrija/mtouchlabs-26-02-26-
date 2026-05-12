@@ -173,6 +173,28 @@ const nextConfig = {
       { source: "/blog/future-of-custom-software-development", destination: "/blog/custom-software-vs-saas", permanent: true },
       // legacy AI-mobile slug — keep the dynamic /slug → /blog/slug behaviour for the refreshed 2026 article
       { source: "/how-artificial-intelligence-is-transforming-mobile-app-development", destination: "/blog/how-artificial-intelligence-is-transforming-mobile-app-development", permanent: true },
+
+      // ── 2026-05: NEW BLOG REDIRECTS ─────────────────────────────────
+      // Legacy 2021 trends slug → refreshed 2026 article (one-hop to /blog/<slug>)
+      { source: "/top-mobile-app-development-trends-in-2021", destination: "/blog/mobile-app-development-trends", permanent: true },
+      { source: "/blog/top-mobile-app-development-trends-in-2021", destination: "/blog/mobile-app-development-trends", permanent: true },
+      // Both legacy ecommerce-guide variants → canonical guide (one-hop to /blog/<slug>)
+      { source: "/a-complete-guide-on-ecommerce-mobile-app-development", destination: "/blog/guide-to-create-an-ecommerce-mobile-application-development", permanent: true },
+      { source: "/blog/a-complete-guide-on-ecommerce-mobile-app-development", destination: "/blog/guide-to-create-an-ecommerce-mobile-application-development", permanent: true },
+      { source: "/the-ultimate-guide-to-create-an-ecommerce-mobile-app-development", destination: "/blog/guide-to-create-an-ecommerce-mobile-application-development", permanent: true },
+      { source: "/blog/the-ultimate-guide-to-create-an-ecommerce-mobile-app-development", destination: "/blog/guide-to-create-an-ecommerce-mobile-application-development", permanent: true },
+      // Root-level canonical aliases the user keeps in metadata → /blog/<slug>
+      { source: "/mobile-app-development-trends", destination: "/blog/mobile-app-development-trends", permanent: true },
+      { source: "/guide-to-create-an-ecommerce-mobile-application-development", destination: "/blog/guide-to-create-an-ecommerce-mobile-application-development", permanent: true },
+      // New root-level blog slugs → /blog/<slug> (matches existing convention; middleware
+      //  also handles this dynamically, but explicit entries help legacy / external links.)
+      { source: "/mobile-app-development-process", destination: "/blog/mobile-app-development-process", permanent: true },
+      { source: "/ai-use-cases-by-industry", destination: "/blog/ai-use-cases-by-industry", permanent: true },
+      { source: "/saas-pricing-models", destination: "/blog/saas-pricing-models", permanent: true },
+      { source: "/website-vs-web-application", destination: "/blog/website-vs-web-application", permanent: true },
+      { source: "/ecommerce-checkout-optimization", destination: "/blog/ecommerce-checkout-optimization", permanent: true },
+      { source: "/core-web-vitals-seo-guide", destination: "/blog/core-web-vitals-seo-guide", permanent: true },
+      { source: "/saas-onboarding-best-practices", destination: "/blog/saas-onboarding-best-practices", permanent: true },
       { source: "/impact-of-ai-on-mobile-app-development-by-2025", destination: "/blog/impact-of-ai-on-mobile-app-development-by-2025", permanent: true },
       { source: "/does-my-business-need-a-mobile-app", destination: "/blog/does-my-business-need-a-mobile-app", permanent: true },
       { source: "/go-crazy-with-smart-phone-mobile-application-development", destination: "/blog/go-crazy-with-smart-phone-mobile-application-development", permanent: true },

@@ -994,9 +994,12 @@ export default function ChatWidget() {
 
   return (
     <>
-      {/* ── Floating AI button — only shown when panel is CLOSED ── */}
+      {/* ── Floating AI button — only shown when panel is CLOSED ──
+          Position: bottom-right, vertically stacked above the WhatsApp
+          and scroll-to-top buttons. CSS in /public/css/ui-fixes.css owns
+          the actual coordinates so the icon trio never overlaps. */}
       {!open && (
-        <div className="cw-wrapper" style={{ right: "auto", left: "-10px", bottom: "90px" }}>
+        <div className="cw-wrapper">
           <div className={`cw-label ${showLabel ? "cw-label-show" : ""}`}>
             <span className="cw-label-dot" />
             <span className="cw-label-text">Ask AI ✦</span>

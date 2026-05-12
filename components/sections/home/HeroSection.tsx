@@ -152,14 +152,115 @@ export default function HeroSection() {
           line-height: 1;
           flex-shrink: 0;
         }
+
+        /* ────────────────────────────────────────────────────────
+           NASSCOM HERO BADGE — final, simplest possible setup.
+           SIZING PRINCIPLE: width drives everything, height follows
+           the IMG natural aspect ratio. NO aspect-ratio on the
+           container, NO height:100% on the IMG, NO max-height
+           anywhere. That combination is what was breaking it
+           before — when the hero had limited vertical space (the
+           "minimised" case), aspect-ratio + height:100% forced the
+           IMG into a smaller-than-natural box and the content got
+           clipped. Using height:auto on the IMG is mathematically
+           incapable of cropping.
+
+           SIZE RANGE: 180px on the smallest phones → 280px on huge
+           desktops (around the PNG own intrinsic 266px width, so
+           it stays crisp and never looks oversized).
+           ────────────────────────────────────────────────────── */
+        .nasscom-badge-wrap {
+          display: block !important;
+          width: 100% !important;
+          /* Smooth fluid sizing — no breakpoint cliffs. */
+          max-width: clamp(180px, 18vw + 60px, 280px) !important;
+          /* Also guard the absolute width: it can never exceed
+             the viewport with a comfortable side margin. */
+          max-width: min(clamp(180px, 18vw + 60px, 280px), calc(100vw - 32px)) !important;
+          height: auto !important;
+          max-height: none !important;
+          min-height: 0 !important;
+          margin: 0 auto 14px !important;
+          padding: 0 !important;
+          overflow: visible !important;
+          box-sizing: border-box !important;
+          opacity: 1 !important;
+          visibility: visible !important;
+          position: relative;
+          flex: 0 0 auto !important;
+          flex-shrink: 0 !important;
+        }
+        .nasscom-badge-wrap img {
+          display: block !important;
+          /* Width drives the layout; height follows the PNG
+             intrinsic 1064x280 ratio via height:auto. This is
+             the simplest possible setup and CANNOT crop. */
+          width: 100% !important;
+          height: auto !important;
+          max-width: 100% !important;
+          max-height: none !important;
+          min-width: 0 !important;
+          min-height: 0 !important;
+          object-fit: contain !important;
+          object-position: center center !important;
+          margin: 0 auto !important;
+          padding: 0 !important;
+          border: 0 !important;
+        }
       ` }} />
 
       <section className="mtl-new-hero">
         <div className="hero-inner">
-          <div className="mtl-new-hero-badge">
+          {/* NASSCOM badge — uses BOTH the legacy class (so any
+              external rule that targets it still finds the element)
+              AND a new component-scoped class that owns the sizing.
+              The inline `style` attribute is the final belt-and-
+              braces guarantee — inline styles have the highest
+              specificity short of !important, so even a broken
+              external stylesheet cannot override these.
+          */}
+          <div
+            className="mtl-new-hero-badge nasscom-badge-wrap"
+            style={{
+              width: "100%",
+              /* Cap the badge so it never looks oversized on big
+                 desktops AND never exceeds the viewport on small
+                 ones. `min(...)` picks whichever of the two
+                 constraints is tighter at the current width. */
+              maxWidth: "min(clamp(180px, 18vw + 60px, 280px), calc(100vw - 32px))",
+              height: "auto",
+              maxHeight: "none",
+              margin: "0 auto 14px",
+              padding: 0,
+              overflow: "visible",
+              boxSizing: "border-box",
+              display: "block",
+              position: "relative",
+            }}
+          >
+            {/* Flat PNG of the badge (composited from the original
+                SVG's embedded raster pieces). Width drives layout,
+                height follows the natural 1064:280 ratio via
+                `height: auto` — this CANNOT crop, ever. */}
             <img
-              src="/images/brand-logo/nasscom.svg"
+              src="/images/brand-logo/nasscom-award-winner-2026.png"
               alt="NASSCOM Award Winner 2026"
+              width={1064}
+              height={280}
+              decoding="async"
+              fetchPriority="high"
+              style={{
+                display: "block",
+                width: "100%",
+                height: "auto",
+                maxWidth: "100%",
+                maxHeight: "none",
+                objectFit: "contain",
+                objectPosition: "center center",
+                margin: "0 auto",
+                padding: 0,
+                border: 0,
+              }}
             />
           </div>
 

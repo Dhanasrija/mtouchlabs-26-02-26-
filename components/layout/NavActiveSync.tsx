@@ -74,7 +74,7 @@ const SERVICE_PATHS = new Set<string>([
   "/digital-marketing-solutions", "/seo-services", "/ppc-advertising-services", "/app-store-optimization-services",
   "/social-media-marketing-services", "/conversion-rate-optimization-services", "/content-marketing-services",
   "/email-marketing-services", "/performance-marketing-services",
-  "/digital-marketing-company", "/digital-marketing-services-company-in-india",
+  "/digital-marketing-company", "/digital-marketing-services", "/digital-marketing-services-company-in-india",
   "/it-solutions-company", "/custom-crm-software-development-company",
   "/cybersecurity-development-company", "/native-app-development-company",
   "/hybrid-app-development-company", "/on-demand-service-mobile-app-development",
@@ -83,6 +83,32 @@ const SERVICE_PATHS = new Set<string>([
   "/web-and-app-development-for-real-estate-services",
   "/web-and-app-development-for-temple-services",
   "/app-and-web-development-for-ecommerce-services",
+  // CMS / framework specialty service pages
+  "/php-development-company", "/wordpress-development-company",
+  "/magento-development-company-in-india",
+  "/shopify-development-company-in-india",
+  "/woocommerce-development-company-in-india",
+  "/social-media-marketing-company-in-india",
+  // Location-specific software development service pages
+  "/software-development-company-australia",
+  "/software-development-company-bangalore",
+  "/software-development-company-canada",
+  "/software-development-company-chennai",
+  "/software-development-company-coimbatore",
+  "/software-development-company-dubai",
+  "/software-development-company-germany",
+  "/software-development-company-hyderabad",
+  "/software-development-company-india",
+  "/software-development-company-ireland",
+  "/software-development-company-kochi",
+  "/software-development-company-kuwait",
+  "/software-development-company-new-zealand",
+  "/software-development-company-qatar",
+  "/software-development-company-saudi-arabia",
+  "/software-development-company-singapore",
+  "/software-development-company-united-arab-emirates",
+  "/software-development-company-united-kingdom",
+  "/software-development-company-usa",
   // NOTE: "/ecommerce-app-development-company" is NOT here on purpose —
   // it lives in PRODUCT_PATHS (below) so the Products tab highlights when
   // users land on it. Keeping it in both sets causes a flicker between
@@ -208,6 +234,10 @@ function computeActiveTab(
       p.endsWith('-development') ||
       p.includes('-services-') ||
       p.includes('-software-') ||
+      p.startsWith('/software-') ||           // /software-development-company-{country}
+      p.startsWith('/salesforce-') ||         // salesforce-* services
+      p.startsWith('/cloud-') ||              // cloud-services, cloud-migration-services, etc.
+      p.startsWith('/devops-') ||             // devops-services, devops-consulting-services
       p.includes('-design-company') ||
       p.includes('-marketing-') ||
       p.includes('-development-company-'));

@@ -349,7 +349,7 @@ img.rq-flag {
   position: absolute;
   top: calc(100% + 6px);
   left: 0;
-  right: 0;
+  right: auto;
   z-index: 40;
   background: #fff;
   border: 1px solid #e5e7ef;
@@ -359,8 +359,14 @@ img.rq-flag {
   max-height: 280px;
   overflow-y: auto;
   animation: rq-dropdown 0.18s ease-out;
-  transform-origin: top center;
+  transform-origin: top left;
   min-width: 220px;
+  /* Hard cap on dropdown width — never wider than the visible viewport.
+     The 32px subtracts container/page side padding so the popup stays
+     comfortably inside the screen on every device width. */
+  max-width: calc(100vw - 32px);
+  width: max-content;
+  box-sizing: border-box;
 }
 
 @keyframes rq-dropdown {
@@ -1844,4 +1850,46 @@ footer.rq-copyright p,
 .rq-copyright-link:focus-visible {
   color: var(--color-signature-blue, #3E8CFB);
   text-decoration: underline;
+}
+/* ═══════════════════════════════════════════════════════════
+   RQ COUNTRY-CODE DROPDOWN — Mobile viewport safety net
+   On narrow screens the dropdown was anchored to the small
+   country-code button (~108px wide) but rendered wider than
+   the viewport because it lists 200+ countries with full
+   names and dial codes. Clamp the popover to the screen so
+   the user can scroll the list without horizontal cut-off.
+   ═══════════════════════════════════════════════════════════ */
+.rq-code-wrap {
+  position: relative;
+  min-width: 0;
+}
+
+.rq-code-dropdown {
+  /* Repeat the constraint at higher specificity so it wins over
+     base rules even when the dropdown is rendered inside a
+     narrow grid column. */
+  max-width: calc(100vw - 32px);
+  box-sizing: border-box;
+}
+
+@media (max-width: 640px) {
+  .rq-code-dropdown {
+    /* Pin to left edge of country-code button and clamp to viewport.
+       width: max-content lets it size to its content, but max-width
+       prevents it from spilling past the screen edge on narrow
+       phones. */
+    left: 0;
+    right: auto;
+    width: max-content;
+    min-width: 200px;
+    max-width: calc(100vw - 32px);
+  }
+}
+
+@media (max-width: 380px) {
+  .rq-code-dropdown {
+    min-width: 180px;
+    max-width: calc(100vw - 24px);
+    font-size: 13px;
+  }
 }
