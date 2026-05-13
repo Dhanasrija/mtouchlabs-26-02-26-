@@ -263,8 +263,8 @@ export default function Page() {
                   <i className="fa-solid fa-paper-plane" />
                   Start Your Project
                 </a>
-                <a href="/case-studies" className="itsc-btn itsc-btn-ghost">
-                  View Case Studies
+                <a href="/services" className="itsc-btn itsc-btn-ghost">
+                  Explore Services
                   <i className="fa-solid fa-arrow-right" />
                 </a>
               </div>

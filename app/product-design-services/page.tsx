@@ -31,6 +31,8 @@ export default function ProductDesignServices() {
         titleAccent="Design"
         titleTail="Services"
         description={<>Designing Digital Products That Solve Real Business Problems</>}
+        secondaryLabel="See Our Work"
+        secondaryHref="/portfolio"
       />
 
       <section className="pd-about"><div className="pd-container"><div className="pd-about__grid">

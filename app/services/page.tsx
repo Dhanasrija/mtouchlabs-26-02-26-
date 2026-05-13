@@ -465,7 +465,7 @@ export default function ServicesPage() {
                   Let&apos;s Discuss
                 </Link>
                 <Link href="/portfolio" className="itsc-btn itsc-btn-ghost">
-                  View Our Work
+                  View Case Studies
                   <i className="fa-solid fa-arrow-right" />
                 </Link>
               </div>

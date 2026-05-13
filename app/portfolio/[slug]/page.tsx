@@ -1347,8 +1347,16 @@ export default async function PortfolioDetailPage({
             <section id="industry-background" className="cs-sec">
               <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg["industry-background"] }} /> About the Industry / Client Background</h2>
               <div className="cs-sec__text">
-                <p>The <strong>{project.category}</strong> industry is rapidly evolving with digital transformation at its core. Businesses in this space face increasing demand for seamless digital experiences and scalable platforms that simplify complex decision-making processes.</p>
-                <p>{cleanTitle(project.title)} was envisioned to address these market needs by delivering a modern, intuitive platform built with {techStack.slice(0, 3).join(", ")}.</p>
+                {project.industry_background?.trim() ? (
+                  project.industry_background.split("\n").filter((p: string) => p.trim()).map((para: string, i: number) => (
+                    <p key={i}>{para.trim()}</p>
+                  ))
+                ) : (
+                  <>
+                    <p>The <strong>{project.category}</strong> industry is rapidly evolving with digital transformation at its core. Businesses in this space face increasing demand for seamless digital experiences and scalable platforms that simplify complex decision-making processes.</p>
+                    <p>{cleanTitle(project.title)} was envisioned to address these market needs by delivering a modern, intuitive platform built with {techStack.slice(0, 3).join(", ")}.</p>
+                  </>
+                )}
               </div>
             </section>
 
@@ -1376,12 +1384,15 @@ export default async function PortfolioDetailPage({
               <section id="objectives-requirements" className="cs-sec">
                 <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg["objectives-requirements"] }} /> Objectives &amp; Requirements</h2>
                 <div className="cs-obj-list">
-                  {[
-                    "Build a scalable platform with high performance and reliability",
-                    "Create an intuitive, customizable interface with minimal learning curve",
-                    "Integrate intelligent features for proactive insights and automation",
-                    "Ensure sub-2-second load times across all devices with responsive design",
-                  ].map((obj, i) => (
+                  {(project.objectives?.trim()
+                    ? project.objectives.split("\n").map((l: string) => l.replace(/^[•\-\d.]+\s*/, "").trim()).filter(Boolean)
+                    : [
+                        "Build a scalable platform with high performance and reliability",
+                        "Create an intuitive, customizable interface with minimal learning curve",
+                        "Integrate intelligent features for proactive insights and automation",
+                        "Ensure sub-2-second load times across all devices with responsive design",
+                      ]
+                  ).map((obj: string, i: number) => (
                     <div key={i} className="cs-obj-card">
                       <span className="cs-obj-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
                       <p>{obj}</p>
@@ -1395,7 +1406,13 @@ export default async function PortfolioDetailPage({
             <section id="strategy-approach" className="cs-sec">
               <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg["strategy-approach"] }} /> Our Strategy &amp; Approach</h2>
               <div className="cs-card-blue">
-                <p>Our team followed an agile development methodology with continuous feedback loops. The project was broken into iterative sprints focusing on discovery &amp; research, UI/UX design, development, testing, and deployment. We prioritized the most impactful features first — then layered on advanced capabilities in subsequent iterations.</p>
+                {project.strategy_approach?.trim() ? (
+                  project.strategy_approach.split("\n").filter((p: string) => p.trim()).map((para: string, i: number) => (
+                    <p key={i}>{para.trim()}</p>
+                  ))
+                ) : (
+                  <p>Our team followed an agile development methodology with continuous feedback loops. The project was broken into iterative sprints focusing on discovery &amp; research, UI/UX design, development, testing, and deployment. We prioritized the most impactful features first — then layered on advanced capabilities in subsequent iterations.</p>
+                )}
               </div>
             </section>
 
@@ -1420,7 +1437,13 @@ export default async function PortfolioDetailPage({
             <section id="solution-architecture" className="cs-sec">
               <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg["solution-architecture"] }} /> Solution Architecture</h2>
               <div className="cs-card-light">
-                <p>The application follows a modern architecture with clear separation of concerns — a {techStack.filter((t: string) => ["React","Flutter","Angular","Vue","iOS","Android","Swift","Kotlin"].some((k) => t.toLowerCase().includes(k.toLowerCase()))).join(", ") || "modern UI"} frontend communicating with {techStack.filter((t: string) => ["Node","Java","PHP","Python","Laravel",".NET","Spring"].some((k) => t.toLowerCase().includes(k.toLowerCase()))).join(", ") || "REST APIs"} backend, powered by {techStack.filter((t: string) => ["MySQL","Mongo","Firebase","AWS","SQL","Redis","PostgreSQL"].some((k) => t.toLowerCase().includes(k.toLowerCase()))).join(", ") || "cloud databases"}.</p>
+                {project.solution_architecture?.trim() ? (
+                  project.solution_architecture.split("\n").filter((p: string) => p.trim()).map((para: string, i: number) => (
+                    <p key={i}>{para.trim()}</p>
+                  ))
+                ) : (
+                  <p>The application follows a modern architecture with clear separation of concerns — a {techStack.filter((t: string) => ["React","Flutter","Angular","Vue","iOS","Android","Swift","Kotlin"].some((k) => t.toLowerCase().includes(k.toLowerCase()))).join(", ") || "modern UI"} frontend communicating with {techStack.filter((t: string) => ["Node","Java","PHP","Python","Laravel",".NET","Spring"].some((k) => t.toLowerCase().includes(k.toLowerCase()))).join(", ") || "REST APIs"} backend, powered by {techStack.filter((t: string) => ["MySQL","Mongo","Firebase","AWS","SQL","Redis","PostgreSQL"].some((k) => t.toLowerCase().includes(k.toLowerCase()))).join(", ") || "cloud databases"}.</p>
+                )}
               </div>
             </section>
 
@@ -1445,13 +1468,16 @@ export default async function PortfolioDetailPage({
               <section id="ui-ux-highlights" className="cs-sec">
                 <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg["ui-ux-highlights"] }} /> UI/UX Design Highlights</h2>
                 <div className="cs-uiux-list">
-                  {[
-                    "Drag-and-drop builder with customizable widget types",
-                    "Dark/light theme toggle with system preference detection",
-                    "Fluid animations on transitions using modern motion libraries",
-                    "Responsive layouts with virtual scrolling for large datasets",
-                    "Accessibility-first design meeting WCAG 2.1 AA standards",
-                  ].map((item, i) => (
+                  {(project.ui_ux_highlights?.trim()
+                    ? project.ui_ux_highlights.split("\n").map((l: string) => l.replace(/^[•\-\d.]+\s*/, "").trim()).filter(Boolean)
+                    : [
+                        "Drag-and-drop builder with customizable widget types",
+                        "Dark/light theme toggle with system preference detection",
+                        "Fluid animations on transitions using modern motion libraries",
+                        "Responsive layouts with virtual scrolling for large datasets",
+                        "Accessibility-first design meeting WCAG 2.1 AA standards",
+                      ]
+                  ).map((item: string, i: number) => (
                     <div key={i} className="cs-uiux-item">
                       <span className="cs-uiux-dot"></span><span>{item}</span>
                     </div>
@@ -1530,12 +1556,18 @@ export default async function PortfolioDetailPage({
             <section id="development-process" className="cs-sec">
               <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg["development-process"] }} /> Development Process</h2>
               <div className="cs-timeline">
-                {devSteps.map((step, i) => (
+                {(project.development_process?.trim()
+                  ? project.development_process.split("\n").map((l: string) => l.replace(/^[•\-\d.]+\s*/, "").trim()).filter(Boolean).map((line: string) => {
+                      const m = line.match(/^([^:—–]{2,60})[:—–]\s*(.+)/);
+                      return m ? { title: m[1].trim(), desc: m[2].trim() } : { title: line, desc: "" };
+                    })
+                  : devSteps
+                ).map((step: { title: string; desc: string }, i: number) => (
                   <div key={i} className="cs-timeline__item">
                     <span className="cs-timeline__num">{i + 1}</span>
                     <div className="cs-timeline__content">
                       <h3>{step.title}</h3>
-                      <p>{step.desc}</p>
+                      {step.desc && <p>{step.desc}</p>}
                     </div>
                   </div>
                 ))}
@@ -1546,14 +1578,17 @@ export default async function PortfolioDetailPage({
             <section id="security-performance" className="cs-sec">
               <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg["security-performance"] }} /> Security &amp; Performance Optimization</h2>
               <div className="cs-sp-grid">
-                {[
-                  "End-to-end encryption for all data in transit using TLS 1.3",
-                  "AES-256 encryption for sensitive data at rest",
-                  "OAuth 2.0 + MFA authentication with session management",
-                  "Role-based access control (RBAC) with granular permissions",
-                  "Regular security audits and penetration testing by third-party firms",
-                  "SOC 2 Type II compliance for enterprise clients",
-                ].map((item, i) => (
+                {(project.security_performance?.trim()
+                  ? project.security_performance.split("\n").map((l: string) => l.replace(/^[•\-\d.]+\s*/, "").trim()).filter(Boolean)
+                  : [
+                      "End-to-end encryption for all data in transit using TLS 1.3",
+                      "AES-256 encryption for sensitive data at rest",
+                      "OAuth 2.0 + MFA authentication with session management",
+                      "Role-based access control (RBAC) with granular permissions",
+                      "Regular security audits and penetration testing by third-party firms",
+                      "SOC 2 Type II compliance for enterprise clients",
+                    ]
+                ).map((item: string, i: number) => (
                   <div key={i} className="cs-sp-card">
                     <span className="cs-sp-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
                     <p>{item}</p>
@@ -1595,13 +1630,16 @@ export default async function PortfolioDetailPage({
             <section id="future-scope" className="cs-sec">
               <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg["future-scope"] }} /> Future Scope &amp; Scalability</h2>
               <div className="cs-future-list">
-                {[
+                {(project.future_scope?.trim()
+                  ? project.future_scope.split("\n").map((l: string) => l.replace(/^[•\-\d.]+\s*/, "").trim()).filter(Boolean)
+                  : [
                   "AI-Powered Personalization — Smart recommendations and personalized experiences",
                   "Advanced Analytics — Comprehensive dashboards for business insights",
                   "Multi-Language Support — Internationalization for global reach",
                   "Third-Party Integrations — API marketplace and ecosystem expansion",
                   "Mobile companion app with cross-platform support",
-                ].map((item, i) => (
+                    ]
+                ).map((item: string, i: number) => (
                   <div key={i} className="cs-future-item">
                     <span className="cs-future-arrow">→</span><p>{item}</p>
                   </div>
@@ -1613,8 +1651,16 @@ export default async function PortfolioDetailPage({
             <section id="conclusion" className="cs-sec">
               <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg["conclusion"] }} /> Conclusion</h2>
               <div className="cs-conclusion-card">
-                <p>{cleanTitle(project.title)} stands as a testament to what&apos;s possible when thoughtful design meets robust engineering. Built with {techStack.slice(0, 3).join(", ")}, the project successfully addresses core challenges in the {project.category} space.</p>
-                <p>At mTouch Labs, we&apos;re proud to have delivered a solution that not only met but exceeded performance targets. The modular architecture ensures the platform can evolve with market demands.</p>
+                {project.conclusion?.trim() ? (
+                  project.conclusion.split("\n").filter((p: string) => p.trim()).map((para: string, i: number) => (
+                    <p key={i}>{para.trim()}</p>
+                  ))
+                ) : (
+                  <>
+                    <p>{cleanTitle(project.title)} stands as a testament to what&apos;s possible when thoughtful design meets robust engineering. Built with {techStack.slice(0, 3).join(", ")}, the project successfully addresses core challenges in the {project.category} space.</p>
+                    <p>At mTouch Labs, we&apos;re proud to have delivered a solution that not only met but exceeded performance targets. The modular architecture ensures the platform can evolve with market demands.</p>
+                  </>
+                )}
               </div>
             </section>
 

@@ -152,7 +152,7 @@ export default function TechnologiesSection() {
         #tech-machinelearning:checked ~ .tech-main .tech-tab-panel-machinelearning { display: block; animation: techPanelIn 0.4s ease-out both; }
         #tech-security:checked     ~ .tech-main .tech-tab-panel-security     { display: block; animation: techPanelIn 0.4s ease-out both; }
 
-        /* Active tab label styling */
+        /* Active tab label styling — solid blue pill with white text/icon */
         #tech-web:checked          ~ .tech-main label[for="tech-web"],
         #tech-mobile:checked       ~ .tech-main label[for="tech-mobile"],
         #tech-devops:checked       ~ .tech-main label[for="tech-devops"],
@@ -163,9 +163,23 @@ export default function TechnologiesSection() {
         #tech-automation:checked   ~ .tech-main label[for="tech-automation"],
         #tech-machinelearning:checked ~ .tech-main label[for="tech-machinelearning"],
         #tech-security:checked     ~ .tech-main label[for="tech-security"] {
-          background-color: #3E8CFB;
-          color: #fff;
-          border-color: #3E8CFB;
+          background: #3E8CFB !important;
+          background-color: #3E8CFB !important;
+          color: #ffffff !important;
+          border-color: #3E8CFB !important;
+          box-shadow: 0 6px 18px rgba(62, 140, 251, 0.32) !important;
+        }
+        #tech-web:checked          ~ .tech-main label[for="tech-web"]          .tech-tab-icon,
+        #tech-mobile:checked       ~ .tech-main label[for="tech-mobile"]       .tech-tab-icon,
+        #tech-devops:checked       ~ .tech-main label[for="tech-devops"]       .tech-tab-icon,
+        #tech-platforms:checked    ~ .tech-main label[for="tech-platforms"]    .tech-tab-icon,
+        #tech-databases:checked    ~ .tech-main label[for="tech-databases"]    .tech-tab-icon,
+        #tech-bigdata:checked      ~ .tech-main label[for="tech-bigdata"]      .tech-tab-icon,
+        #tech-cloud:checked        ~ .tech-main label[for="tech-cloud"]        .tech-tab-icon,
+        #tech-automation:checked   ~ .tech-main label[for="tech-automation"]   .tech-tab-icon,
+        #tech-machinelearning:checked ~ .tech-main label[for="tech-machinelearning"] .tech-tab-icon,
+        #tech-security:checked     ~ .tech-main label[for="tech-security"]     .tech-tab-icon {
+          color: #ffffff !important;
         }
 
         @keyframes techPanelIn {
@@ -178,6 +192,21 @@ export default function TechnologiesSection() {
           padding: 80px 0;
           padding-left: 16px;
           padding-right: 16px;
+        }
+        /* Make the lavender card column wider than the text column */
+        .tech-section .tech-inner {
+          grid-template-columns: 1.35fr 1fr !important;
+          gap: 56px !important;
+        }
+        @media (max-width: 960px) {
+          .tech-section .tech-inner {
+            grid-template-columns: 1fr !important;
+            gap: 36px !important;
+          }
+        }
+        .tech-section .tech-logo-card {
+          width: 100% !important;
+          max-width: 100% !important;
         }
         @media (max-width: 768px) {
           .tech-section {
@@ -195,6 +224,91 @@ export default function TechnologiesSection() {
         }
         .tech-logo-card {
           background: linear-gradient(116.72deg, #F3F0FF 0%, #F0F6FF 100%) !important;
+        }
+
+        /* ─── Heading: force "Technologies" and "We Work With" onto two lines ─── */
+        .tech-section .tech-heading {
+          display: block !important;
+        }
+        .tech-section .tech-heading .tech-heading-blue {
+          display: block !important;
+          width: 100% !important;
+        }
+        .tech-section .tech-heading .tech-heading-space {
+          display: none !important;
+        }
+
+        /* ─── Tab pills: spacious, freely placed, no overlap ─── */
+        .tech-section .tech-tabs {
+          display: flex !important;
+          flex-wrap: wrap !important;
+          gap: 14px 14px !important;
+          row-gap: 14px !important;
+          column-gap: 14px !important;
+          align-items: center !important;
+          justify-content: flex-start !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          width: 100% !important;
+        }
+        .tech-section .tech-tabs > .tech-tab {
+          opacity: 1 !important;
+          transform: none !important;
+          animation: none !important;
+          flex: 0 0 auto !important;
+          min-width: 0 !important;
+          padding: 14px 24px !important;
+          font-size: 14.5px !important;
+          line-height: 20px !important;
+          font-weight: 500 !important;
+          border-radius: 999px !important;
+          border: 1px solid #e5e7eb !important;
+          background: #ffffff !important;
+          color: #4b5563 !important;
+          margin: 0 !important;
+          vertical-align: middle !important;
+          box-sizing: border-box !important;
+          gap: 8px !important;
+          white-space: nowrap !important;
+        }
+        .tech-section .tech-tabs > .tech-tab .tech-tab-icon {
+          width: 16px !important;
+          height: 16px !important;
+          flex-shrink: 0 !important;
+          color: #6b7280 !important;
+        }
+        .tech-section .tech-tabs > .tech-tab {
+          cursor: pointer !important;
+          transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease !important;
+        }
+        .tech-section .tech-tabs > .tech-tab:hover {
+          border-color: #c7d2fe !important;
+          color: #1f2937 !important;
+          background: #fafbff !important;
+          transform: translateY(-1px) !important;
+        }
+        @media (max-width: 768px) {
+          .tech-section .tech-tabs {
+            gap: 12px !important;
+            row-gap: 12px !important;
+            column-gap: 12px !important;
+            justify-content: center !important;
+          }
+          .tech-section .tech-tabs > .tech-tab {
+            padding: 12px 20px !important;
+            font-size: 13.5px !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .tech-section .tech-tabs {
+            gap: 10px !important;
+            row-gap: 10px !important;
+            column-gap: 10px !important;
+          }
+          .tech-section .tech-tabs > .tech-tab {
+            padding: 10px 18px !important;
+            font-size: 12.5px !important;
+          }
         }
       `}</style>
 

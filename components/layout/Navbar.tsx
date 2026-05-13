@@ -51,7 +51,7 @@ function ProductsCTA() {
           <li><span className="cta-check-icon"></span> High-Performance &amp; Secure Platforms</li>
           <li><span className="cta-check-icon"></span> Continuous Innovation &amp; Product Optimization</li>
         </ul>
-        <a href="/portfolio" className="mega-cta-btn">View Our Work</a>
+        <a href="/portfolio" className="mega-cta-btn">View Case Studies</a>
       </div>
     </div>
   );

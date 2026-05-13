@@ -345,6 +345,8 @@ export default function HireDevelopersInIndia() {
               Build your offshore engineering team with pre-vetted developers who integrate seamlessly with your workflow. From MVPs to enterprise platforms — we deliver scalable, secure, performance-optimized results.
             </>
           }
+          secondaryLabel="Explore Portfolio"
+          secondaryHref="/portfolio"
         />
       </div>
 
