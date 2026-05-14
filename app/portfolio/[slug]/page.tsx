@@ -1226,6 +1226,56 @@ export default async function PortfolioDetailPage({
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(bc) }} />
       {faq && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }} />}
 
+      {/* ═══ FIX: html/body have overflow-x: clip globally, which breaks
+              position: sticky on the .cs-toc. Override here so the TOC
+              is sticky through the article body. ═══ */}
+      <style dangerouslySetInnerHTML={{ __html: `
+        html, body {
+          overflow-x: visible !important;
+          overflow: visible !important;
+        }
+        .cs-toc {
+          position: -webkit-sticky !important;
+          position: sticky !important;
+          top: 100px !important;
+          align-self: flex-start !important;
+          max-height: calc(100vh - 120px) !important;
+          overflow-y: auto !important;
+          overflow-x: hidden !important;
+        }
+        .cs-layout {
+          align-items: flex-start !important;
+        }
+        .cs-sec {
+          scroll-margin-top: 110px !important;
+        }
+
+        /* ─── Inline internal links inside section content ─── */
+        .cs-sec__text a,
+        .cs-card-blue a,
+        .cs-card-light a,
+        .cs-uiux-item a,
+        .cs-future-item a,
+        .cs-conclusion-card a,
+        .cs-impact-card__desc a,
+        .cs-challenge-card a {
+          color: #3B82F6 !important;
+          text-decoration: none !important;
+          font-weight: 600 !important;
+          transition: color 0.18s ease !important;
+        }
+        .cs-sec__text a:hover,
+        .cs-card-blue a:hover,
+        .cs-card-light a:hover,
+        .cs-uiux-item a:hover,
+        .cs-future-item a:hover,
+        .cs-conclusion-card a:hover,
+        .cs-impact-card__desc a:hover,
+        .cs-challenge-card a:hover {
+          color: #1D4ED8 !important;
+        }
+      ` }} />
+
       <div className="cs" style={{ backgroundColor: "var(--ma-dark)" }}>
         {/* ═══ HERO ═══ */}
         <section className="cs-hero">
@@ -1338,7 +1388,7 @@ export default async function PortfolioDetailPage({
               <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg["project-overview"] }} /> Project Overview</h2>
               <div className="cs-sec__text">
                 {hasAbout
-                  ? project.about.split("\n").filter((p: string) => p.trim()).map((para: string, i: number) => <p key={i}>{para.trim()}</p>)
+                  ? project.about.split("\n").filter((p: string) => p.trim()).map((para: string, i: number) => <p key={i} dangerouslySetInnerHTML={{ __html: para.trim() }} />)
                   : <p>{project.subtitle}</p>}
               </div>
             </section>
@@ -1349,7 +1399,7 @@ export default async function PortfolioDetailPage({
               <div className="cs-sec__text">
                 {project.industry_background?.trim() ? (
                   project.industry_background.split("\n").filter((p: string) => p.trim()).map((para: string, i: number) => (
-                    <p key={i}>{para.trim()}</p>
+                    <p key={i} dangerouslySetInnerHTML={{ __html: para.trim() }} />
                   ))
                 ) : (
                   <>
@@ -1408,7 +1458,7 @@ export default async function PortfolioDetailPage({
               <div className="cs-card-blue">
                 {project.strategy_approach?.trim() ? (
                   project.strategy_approach.split("\n").filter((p: string) => p.trim()).map((para: string, i: number) => (
-                    <p key={i}>{para.trim()}</p>
+                    <p key={i} dangerouslySetInnerHTML={{ __html: para.trim() }} />
                   ))
                 ) : (
                   <p>Our team followed an agile development methodology with continuous feedback loops. The project was broken into iterative sprints focusing on discovery &amp; research, UI/UX design, development, testing, and deployment. We prioritized the most impactful features first — then layered on advanced capabilities in subsequent iterations.</p>
@@ -1439,7 +1489,7 @@ export default async function PortfolioDetailPage({
               <div className="cs-card-light">
                 {project.solution_architecture?.trim() ? (
                   project.solution_architecture.split("\n").filter((p: string) => p.trim()).map((para: string, i: number) => (
-                    <p key={i}>{para.trim()}</p>
+                    <p key={i} dangerouslySetInnerHTML={{ __html: para.trim() }} />
                   ))
                 ) : (
                   <p>The application follows a modern architecture with clear separation of concerns — a {techStack.filter((t: string) => ["React","Flutter","Angular","Vue","iOS","Android","Swift","Kotlin"].some((k) => t.toLowerCase().includes(k.toLowerCase()))).join(", ") || "modern UI"} frontend communicating with {techStack.filter((t: string) => ["Node","Java","PHP","Python","Laravel",".NET","Spring"].some((k) => t.toLowerCase().includes(k.toLowerCase()))).join(", ") || "REST APIs"} backend, powered by {techStack.filter((t: string) => ["MySQL","Mongo","Firebase","AWS","SQL","Redis","PostgreSQL"].some((k) => t.toLowerCase().includes(k.toLowerCase()))).join(", ") || "cloud databases"}.</p>
@@ -1479,7 +1529,7 @@ export default async function PortfolioDetailPage({
                       ]
                   ).map((item: string, i: number) => (
                     <div key={i} className="cs-uiux-item">
-                      <span className="cs-uiux-dot"></span><span>{item}</span>
+                      <span className="cs-uiux-dot"></span><span dangerouslySetInnerHTML={{ __html: item }} />
                     </div>
                   ))}
                 </div>
@@ -1641,7 +1691,7 @@ export default async function PortfolioDetailPage({
                     ]
                 ).map((item: string, i: number) => (
                   <div key={i} className="cs-future-item">
-                    <span className="cs-future-arrow">→</span><p>{item}</p>
+                    <span className="cs-future-arrow">→</span><p dangerouslySetInnerHTML={{ __html: item }} />
                   </div>
                 ))}
               </div>
@@ -1653,7 +1703,7 @@ export default async function PortfolioDetailPage({
               <div className="cs-conclusion-card">
                 {project.conclusion?.trim() ? (
                   project.conclusion.split("\n").filter((p: string) => p.trim()).map((para: string, i: number) => (
-                    <p key={i}>{para.trim()}</p>
+                    <p key={i} dangerouslySetInnerHTML={{ __html: para.trim() }} />
                   ))
                 ) : (
                   <>

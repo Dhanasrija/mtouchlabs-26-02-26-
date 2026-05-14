@@ -8,7 +8,50 @@
   }
 
 const blogCards = [
-     
+      // ── NEWEST PORTFOLIOS (top of the listing) ───────────────────────────
+      {
+        image: "/images/portfolio/communitykitchen/CommunityKitchen.webp",
+        link: "community-kitchen",
+        name: "Community Kitchen — Hyperlocal Home Chef Marketplace",
+        tag: "UX, UI, Android, iOS, Flutter",
+        category: "Online Services"
+      },
+      {
+        image: "/images/portfolio/resqbox/ResQBox.webp",
+        link: "resqbox",
+        name: "ResqBox — Sustainable Food Rescue App",
+        tag: "UX, UI, Android, iOS, Flutter",
+        category: "Online Services"
+      },
+      {
+        image: "/images/portfolio/kadampe/Kadhampay.webp",
+        link: "kadampe",
+        name: "KadamPe — Walk & Earn Fitness Rewards App",
+        tag: "UX, UI, Android, iOS, Flutter",
+        category: "Health Care"
+      },
+      {
+        image: "/images/portfolio/zoviyo/Zoviyo.webp",
+        link: "zoviyo",
+        name: "Zoviyo — Home Kitchen & Food Delivery App",
+        tag: "UX, UI, Android, iOS, Flutter",
+        category: "Online Services"
+      },
+      {
+        image: "/images/portfolio/cenzo/Cenzo.webp",
+        link: "cenzo",
+        name: "Cenzo — Grocery & Essentials Delivery App",
+        tag: "UX, UI, Android, iOS, Flutter, Web",
+        category: "Ecommerce"
+      },
+      {
+        image: "/images/portfolio/otloffers.png",
+        link: "olt-offers-mobile-app-development",
+        name: "OLT Offers — Location-Based Deals & Coupon App",
+        tag: "UX, UI, Android, iOS, Flutter",
+        category: "Online Services"
+      },
+      // ── OLDER PORTFOLIOS ─────────────────────────────────────────────────
       {
         image: "/images/portfolio/omVideos.png",
         link: "devotional-mobile-app-development",

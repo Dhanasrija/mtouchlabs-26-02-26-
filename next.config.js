@@ -356,9 +356,14 @@ const nextConfig = {
 
       // --- Portfolio / project detail pages & legacy portfolio routes ---
       { source: "/portfolio-2", destination: "/portfolio", permanent: true },
-      { source: "/portfolio/otloffers-mobile-app-development", destination: "/portfolio", permanent: true },
-      { source: "/otloffers-mobile-app-development", destination: "/portfolio", permanent: true },
-      { source: "/oltoffers-mobile-app-development", destination: "/portfolio", permanent: true },
+      // OLT Offers — canonical slug is olt-offers-mobile-app-development.
+      // Redirect every historical variant to the new canonical URL.
+      { source: "/portfolio/otloffers-mobile-app-development", destination: "/portfolio/olt-offers-mobile-app-development", permanent: true },
+      { source: "/portfolio/oltoffers-mobile-app-development", destination: "/portfolio/olt-offers-mobile-app-development", permanent: true },
+      { source: "/portfolio/olt-offers", destination: "/portfolio/olt-offers-mobile-app-development", permanent: true },
+      { source: "/otloffers-mobile-app-development", destination: "/portfolio/olt-offers-mobile-app-development", permanent: true },
+      { source: "/oltoffers-mobile-app-development", destination: "/portfolio/olt-offers-mobile-app-development", permanent: true },
+      { source: "/olt-offers", destination: "/portfolio/olt-offers-mobile-app-development", permanent: true },
       { source: "/mcartify", destination: "/portfolio", permanent: true },
       { source: "/effortless-wedding-planning-app-website", destination: "/portfolio", permanent: true },
       { source: "/featured-products", destination: "/on-demand-products-development-company-hyderabad", permanent: true },
