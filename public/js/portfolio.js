@@ -1,14 +1,25 @@
-(function initPortfolio() {
+// ─────────────────────────────────────────────────────────────────
+// Portfolio listing — exposed as window.__mtlInitPortfolioList() so it
+// can be re-run on every client-side navigation back to /portfolio.
+// ─────────────────────────────────────────────────────────────────
+window.__mtlInitPortfolioList = function initPortfolio() {
   var blogContainer = document.getElementById("blog-cards-container");
   if (!blogContainer) {
     if (document.readyState !== "complete") {
-      setTimeout(initPortfolio, 200);
+      setTimeout(window.__mtlInitPortfolioList, 200);
     }
     return;
   }
 
 const blogCards = [
       // ── NEWEST PORTFOLIOS (top of the listing) ───────────────────────────
+      {
+        image: "/images/portfolio/classy/Classyy.webp",
+        link: "classyy",
+        name: "Classyy — Campaign-Based Ecommerce Solution",
+        tag: "UX, UI, Android, iOS, Ecommerce, Campaigns",
+        category: "Ecommerce"
+      },
       {
         image: "/images/portfolio/communitykitchen/CommunityKitchen.webp",
         link: "community-kitchen",
@@ -468,18 +479,25 @@ const blogCards = [
       const pageItems = cards.slice(start, end);
 
       pageItems.forEach(item => {
+        // Build an absolute URL so the card works no matter what the current
+        // route's trailing-slash behaviour is. If item.link already starts
+        // with "/" or "http", use it as-is; otherwise scope it under /portfolio/.
+        var rawLink = (item.link || '').trim();
+        var href = (/^https?:\/\//i.test(rawLink) || rawLink.charAt(0) === '/')
+          ? rawLink
+          : '/portfolio/' + rawLink;
         const cardHTML = `
       <div class="col-lg-4 col-sm-6 blog-card-item" data-category="${normalizeCategory(item)}" data-aos="fade-down">
         <div class="ree-media-crd">
           <div class="rpl-img">
-            <a href="${item.link}" target="_blank">
+            <a href="${href}" target="_blank">
               <img src="${item.image}" alt="${item.name}" class="fill-fixed">
             </a>
           </div>
           <div class="rpl-contt">
             <p class="port-tags" style="font-size: 14px;font-weight: 600;">${item.tag}</p>
-            <h4><a href="${item.link}" target="_blank">${item.name}</a></h4>
-            <a href="${item.link}" target="_blank" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+            <h4><a href="${href}" target="_blank">${item.name}</a></h4>
+            <a href="${href}" target="_blank" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
       </div>
@@ -580,34 +598,52 @@ const blogCards = [
 
     // Initial render
     renderCards(1);
-})();
+};
+// Run once on script load (covers first-paint case where the listing is
+// already in the DOM). Client-side navigation re-runs this via
+// PortfolioInit.tsx.
+window.__mtlInitPortfolioList();
 
-/* Portfolio TOC Scroll Spy */
-(function() {
+/* Portfolio TOC Scroll Spy — exposed globally so it re-runs on
+   client-side navigation between portfolio detail pages. */
+window.__mtlInitPortfolioTOC = (function() {
   'use strict';
-  
+
+  var currentObserver = null;
+
   function initScrollSpy() {
+    // Tear down a previous observer if the user navigated to a new
+    // detail page (sections from the previous page would otherwise leak).
+    if (currentObserver) {
+      try { currentObserver.disconnect(); } catch (e) { /* noop */ }
+      currentObserver = null;
+    }
+
     const tocLinks = document.querySelectorAll('.cs-toc__link');
     const sections = document.querySelectorAll('.cs-sec[id]');
-    
+
     if (!tocLinks.length || !sections.length) return;
-    
+
+    // CSS uses the BEM modifier `cs-toc__link--active` for the blue
+    // highlight — keep this in sync with case-study.css.
+    var ACTIVE_CLASS = 'cs-toc__link--active';
+
     // Set first link as active initially
-    tocLinks[0]?.classList.add('active');
-    
+    tocLinks[0] && tocLinks[0].classList.add(ACTIVE_CLASS);
+
     // IntersectionObserver to track which section is in view
-    const observer = new IntersectionObserver(function(entries) {
+    currentObserver = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         if (entry.isIntersecting) {
           // Remove active from all
           tocLinks.forEach(function(link) {
-            link.classList.remove('active');
+            link.classList.remove(ACTIVE_CLASS);
           });
           // Add active to matching link
           const id = entry.target.id;
           const activeLink = document.querySelector('.cs-toc__link[href="#' + id + '"]');
           if (activeLink) {
-            activeLink.classList.add('active');
+            activeLink.classList.add(ACTIVE_CLASS);
             // Scroll TOC to keep active link visible
             var tocContainer = document.querySelector('.cs-toc');
             if (tocContainer) {
@@ -626,11 +662,14 @@ const blogCards = [
     });
     
     sections.forEach(function(section) {
-      observer.observe(section);
+      currentObserver.observe(section);
     });
     
-    // Smooth scroll on TOC click
+    // Smooth scroll on TOC click — bind once per element to avoid stacking
+    // listeners after re-init.
     tocLinks.forEach(function(link) {
+      if (link.__mtlTocBound) return;
+      link.__mtlTocBound = true;
       link.addEventListener('click', function(e) {
         e.preventDefault();
         var targetId = this.getAttribute('href').substring(1);
@@ -638,24 +677,33 @@ const blogCards = [
         if (target) {
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
           // Update active immediately
-          tocLinks.forEach(function(l) { l.classList.remove('active'); });
-          this.classList.add('active');
+          document.querySelectorAll('.cs-toc__link').forEach(function(l) {
+            l.classList.remove(ACTIVE_CLASS);
+          });
+          this.classList.add(ACTIVE_CLASS);
         }
       });
     });
-    
-    // FAQ toggle
+
+    // FAQ toggle — bind once per item.
     document.querySelectorAll('.cs-faq-q').forEach(function(btn) {
+      if (btn.__mtlFaqBound) return;
+      btn.__mtlFaqBound = true;
       btn.addEventListener('click', function() {
         this.closest('.cs-faq-item').classList.toggle('open');
       });
     });
   }
-  
-  // Run after DOM is ready
+
+  // Run after DOM is ready (covers first-paint). Client-side navigation
+  // re-runs initScrollSpy via PortfolioInit.tsx.
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initScrollSpy);
   } else {
     initScrollSpy();
   }
+
+  // Expose the initializer so a client component can re-call it after
+  // every route change inside /portfolio.
+  return initScrollSpy;
 })();

@@ -278,17 +278,230 @@
   box-shadow: 0 0 0 3px rgba(62, 140, 251, 0.14);
 }
 
-/* Phone row */
+
+/* ─── Phone row: FIXED ─── */
 .rq-phone-row {
-  display: grid;
-  grid-template-columns: 118px minmax(0, 1fr);
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: stretch !important;
   gap: 10px;
+  width: 100%;
 }
 
-@media (min-width: 640px) {
+.rq-phone-row > * {
+  margin: 0 !important;
+}
+
+.rq-phone-row .rq-code-wrap {
+  flex: 0 0 118px !important;
+  width: 118px !important;
+  min-width: 118px !important;
+  max-width: 118px !important;
+  position: relative;
+}
+
+.rq-phone-row .rq-input-wrap,
+.rq-phone-row .rq-field {
+  flex: 1 1 0% !important;
+  min-width: 0 !important;
+}
+
+.rq-phone-row .rq-code-btn {
+  width: 100% !important;
+  height: 52px !important;
+  min-height: 52px !important;
+  padding: 0 12px !important;
+  border: 1.5px solid #b9c2d6 !important;
+  border-radius: 10px !important;
+  background: #fff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  white-space: nowrap;
+  box-shadow: none !important;
+}
+
+.rq-phone-row .rq-input {
+  flex: 1 1 0% !important;
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  height: 52px !important;
+  min-height: 52px !important;
+  padding: 0 16px !important;
+  border: 1.5px solid #b9c2d6 !important;
+  border-radius: 10px !important;
+  background: #fff !important;
+  box-shadow: none !important;
+}
+
+.rq-phone-row .rq-input::placeholder {
+  color: #9ca3af !important;
+  opacity: 1 !important;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
   .rq-phone-row {
-    grid-template-columns: 130px minmax(0, 1fr);
-    gap: 12px;
+    gap: 8px;
+  }
+
+  .rq-phone-row .rq-code-wrap {
+    flex: 0 0 108px !important;
+    width: 108px !important;
+    min-width: 108px !important;
+    max-width: 108px !important;
+  }
+
+  .rq-phone-row .rq-code-btn,
+  .rq-phone-row .rq-input {
+    height: 46px !important;
+    min-height: 46px !important;
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .rq-phone-row .rq-code-wrap {
+    flex: 0 0 96px !important;
+    width: 96px !important;
+    min-width: 96px !important;
+    max-width: 96px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .rq-phone-row .rq-code-wrap {
+    flex: 0 0 88px !important;
+    width: 88px !important;
+    min-width: 88px !important;
+    max-width: 88px !important;
+  }
+}
+
+
+
+
+
+/* ==============================================================
+   PHONE ROW FIX
+   Keeps country code + phone input on one line
+   and preserves the border/background in all states
+   ============================================================== */
+
+.rq-phone-row {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  gap: 10px;
+  width: 100%;
+}
+
+.rq-phone-row .rq-code-wrap {
+  flex: 0 0 118px !important;
+  width: 118px !important;
+  min-width: 118px !important;
+  max-width: 118px !important;
+}
+
+.rq-phone-row .rq-input {
+  flex: 1 1 0% !important;
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: none !important;
+}
+
+/* Always keep the box visible */
+.rq-phone-row .rq-code-btn,
+.rq-phone-row .rq-input,
+.rq-phone-row .rq-input:not(.rq-invalid):active,
+.rq-phone-row .rq-input:not(.rq-invalid):not(:placeholder-shown),
+.rq-phone-row .rq-code-btn:active {
+  height: 52px !important;
+  min-height: 52px !important;
+  border-radius: 10px !important;
+  border: 1.5px solid #b9c2d6 !important;
+  background: #ffffff !important;
+  color: #34363d !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Hover */
+.rq-phone-row .rq-input:hover,
+.rq-phone-row .rq-code-btn:hover {
+  border-color: #b6c0da !important;
+  background: #ffffff !important;
+}
+
+/* Focus highlight stays while typing */
+.rq-phone-row .rq-input:not(.rq-invalid):focus,
+.rq-phone-row .rq-input:not(.rq-invalid):focus-visible,
+.rq-phone-row .rq-code-btn:focus,
+.rq-phone-row .rq-code-btn:focus-visible {
+  border: 1.5px solid #3E8CFB !important;
+  background: #ffffff !important;
+  box-shadow: 0 0 0 3px rgba(62, 140, 251, 0.14) !important;
+  outline: none !important;
+}
+
+/* Autofill fix */
+.rq-phone-row .rq-input:-webkit-autofill,
+.rq-phone-row .rq-input:-webkit-autofill:hover,
+.rq-phone-row .rq-input:-webkit-autofill:active {
+  -webkit-text-fill-color: #34363d !important;
+  border: 1.5px solid #b9c2d6 !important;
+  -webkit-box-shadow: 0 0 0 1000px #ffffff inset !important;
+  box-shadow: 0 0 0 1000px #ffffff inset !important;
+}
+
+.rq-phone-row .rq-input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #34363d !important;
+  border: 1.5px solid #3E8CFB !important;
+  -webkit-box-shadow:
+    0 0 0 1000px #ffffff inset,
+    0 0 0 3px rgba(62, 140, 251, 0.14) !important;
+  box-shadow:
+    0 0 0 1000px #ffffff inset,
+    0 0 0 3px rgba(62, 140, 251, 0.14) !important;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .rq-phone-row {
+    gap: 8px;
+  }
+
+  .rq-phone-row .rq-code-wrap {
+    flex: 0 0 108px !important;
+    width: 108px !important;
+    min-width: 108px !important;
+    max-width: 108px !important;
+  }
+
+  .rq-phone-row .rq-code-btn,
+  .rq-phone-row .rq-input {
+    height: 46px !important;
+    min-height: 46px !important;
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .rq-phone-row .rq-code-wrap {
+    flex: 0 0 96px !important;
+    width: 96px !important;
+    min-width: 96px !important;
+    max-width: 96px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .rq-phone-row .rq-code-wrap {
+    flex: 0 0 88px !important;
+    width: 88px !important;
+    min-width: 88px !important;
+    max-width: 88px !important;
   }
 }
 
@@ -1330,10 +1543,6 @@ img.rq-flag {
     padding: 0 14px;
   }
 
-  .rq-phone-row {
-    grid-template-columns: 108px minmax(0, 1fr);
-    gap: 8px;
-  }
 
   .rq-code-btn {
     padding: 0 10px;
@@ -1480,10 +1689,7 @@ img.rq-flag {
   }
 
   /* Country code: narrower but still tap-friendly */
-  .rq-phone-row {
-    grid-template-columns: 96px minmax(0, 1fr);
-    gap: 6px;
-  }
+
 
   .rq-code-btn {
     padding: 0 8px;
@@ -1583,11 +1789,6 @@ img.rq-flag {
   .rq-code-btn {
     height: 44px;
     padding: 0 10px;
-  }
-
-  .rq-phone-row {
-    grid-template-columns: 88px minmax(0, 1fr);
-    gap: 6px;
   }
 
   .rq-code-btn {

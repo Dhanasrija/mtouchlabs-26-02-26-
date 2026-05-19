@@ -1543,10 +1543,12 @@ export default async function PortfolioDetailPage({
                 {appScreens.length > 0 && (
                   <div className="cs-screens-block">
                     <h3 className="cs-screens-block__title">App Screens</h3>
+                    {/* Duplicate the list so the CSS keyframe loop
+                        (translateX 0 → -50%) cycles seamlessly. */}
                     <div className="cs-app-screens-scroll">
-                      {appScreens.map((screen: string, i: number) => (
-                        <div key={i} className="cs-app-screen-card">
-                          <img src={imgUrl(screen)} alt={`${cleanTitle(project.title)} - Screen ${i + 1}`} loading="lazy" className="cs-app-screen-img" />
+                      {[...appScreens, ...appScreens].map((screen: string, i: number) => (
+                        <div key={`app-${i}`} className="cs-app-screen-card">
+                          <img src={imgUrl(screen)} alt={`${cleanTitle(project.title)} - Screen ${(i % appScreens.length) + 1}`} loading="lazy" className="cs-app-screen-img" aria-hidden={i >= appScreens.length ? true : undefined} />
                         </div>
                       ))}
                     </div>
@@ -1555,10 +1557,12 @@ export default async function PortfolioDetailPage({
                 {webScreens.length > 0 && (
                   <div className="cs-screens-block" style={{ marginTop: "40px" }}>
                     <h3 className="cs-screens-block__title">Web Screens</h3>
+                    {/* Duplicate the list so the CSS keyframe loop
+                        (translateX 0 → -50%) cycles seamlessly. */}
                     <div className="cs-web-screens-grid">
-                      {webScreens.map((screen: string, i: number) => (
-                        <div key={i} className="cs-web-screen-card">
-                          <img src={imgUrl(screen)} alt={`${cleanTitle(project.title)} - Web ${i + 1}`} loading="lazy" className="cs-web-screen-img" />
+                      {[...webScreens, ...webScreens].map((screen: string, i: number) => (
+                        <div key={`web-${i}`} className="cs-web-screen-card">
+                          <img src={imgUrl(screen)} alt={`${cleanTitle(project.title)} - Web ${(i % webScreens.length) + 1}`} loading="lazy" className="cs-web-screen-img" aria-hidden={i >= webScreens.length ? true : undefined} />
                         </div>
                       ))}
                     </div>
