@@ -19,7 +19,7 @@ async function getBlogSlugs(): Promise<Set<string>> {
   try {
     const { neon } = await import('@neondatabase/serverless');
     const sql = neon(process.env.DATABASE_URL!);
-    const rows = (await sql`SELECT slug FROM blogs WHERE (published = true OR status = 'published')`) as { slug: string }[];
+    const rows = (await sql`SELECT slug FROM blogs WHERE (published = true OR status = 'published') AND (publish_date IS NULL OR publish_date <= NOW())`) as { slug: string }[];
     const set = new Set(rows.map(r => r.slug));
     SLUG_CACHE = { set, expiresAt: now + SLUG_CACHE_TTL_MS };
     return set;

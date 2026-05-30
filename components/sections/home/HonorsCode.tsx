@@ -151,9 +151,9 @@ export function HonorsCode() {
 
                     {/* Central Texts */}
                     <div className={styles.centerText}>
-                        <h1 className={styles.mainHeading}>
+                        <h2 className={styles.mainHeading}>
                             <span className={styles.blueAwards}>Awards</span> <br /> & Recognition
-                        </h1>
+                        </h2>
                         <p className={styles.subText}>
                             Industry awards that reflect our commitment to innovation, quality, and client success.
                         </p>

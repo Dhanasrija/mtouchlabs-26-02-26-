@@ -53,7 +53,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const blogs = await sql`SELECT title, meta_title, meta_description, og_title, og_description, og_image, canonical_url, focus_keyword, image, author, tags, created_at FROM blogs WHERE slug = ${slug} AND (published = true OR status = 'published')` as Blog[];
+  const blogs = await sql`SELECT title, meta_title, meta_description, og_title, og_description, og_image, canonical_url, focus_keyword, image, author, tags, created_at FROM blogs WHERE slug = ${slug} AND (published = true OR status = 'published') AND (publish_date IS NULL OR publish_date <= NOW())` as Blog[];
   if (blogs.length === 0) return { title: 'Blog Not Found' };
   const blog = blogs[0];
   const pageUrl = `${SITE_URL}/blog/${slug}`;
@@ -1055,14 +1055,17 @@ export default async function BlogPostPage({
 }) {
   const { slug } = await params;
 
-  // ⭐ Updated query: supports both old `published` column AND new `status` column
+  // ⭐ Updated query: supports both old `published` column AND new `status` column.
+  //    Also hides rows whose publish_date is still in the future, so scheduled
+  //    posts return 404 until their go-live date arrives.
   const blogs = await sql`
-    SELECT * FROM blogs 
-    WHERE slug = ${slug} 
+    SELECT * FROM blogs
+    WHERE slug = ${slug}
     AND (
-      published = true 
+      published = true
       OR status = 'published'
     )
+    AND (publish_date IS NULL OR publish_date <= NOW())
   ` as Blog[];
 
   if (blogs.length === 0) notFound();

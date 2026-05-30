@@ -36,7 +36,7 @@ export default function TrustedPartnersSection() {
                 >
                   <img
                     src={l.src}
-                    alt={isClone ? "" : l.alt}
+                    alt={l.alt}
                     loading="lazy"
                     decoding="async"
                   />

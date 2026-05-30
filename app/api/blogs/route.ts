@@ -107,6 +107,7 @@ export async function GET(request: NextRequest) {
                publish_date, created_at, updated_at
         FROM blogs
         WHERE (published = true OR status = 'published')
+          AND (publish_date IS NULL OR publish_date <= NOW())
           AND category = ${category}
         ORDER BY GREATEST(updated_at, publish_date, created_at) DESC NULLS LAST
         LIMIT ${limit} OFFSET ${offset}
@@ -114,6 +115,7 @@ export async function GET(request: NextRequest) {
       countResult = await sql`
         SELECT COUNT(*) as total FROM blogs
         WHERE (published = true OR status = 'published')
+          AND (publish_date IS NULL OR publish_date <= NOW())
           AND category = ${category}
       `;
     } else {
@@ -122,12 +124,14 @@ export async function GET(request: NextRequest) {
                publish_date, created_at, updated_at
         FROM blogs
         WHERE (published = true OR status = 'published')
+          AND (publish_date IS NULL OR publish_date <= NOW())
         ORDER BY GREATEST(updated_at, publish_date, created_at) DESC NULLS LAST
         LIMIT ${limit} OFFSET ${offset}
       `;
       countResult = await sql`
-        SELECT COUNT(*) as total FROM blogs 
+        SELECT COUNT(*) as total FROM blogs
         WHERE (published = true OR status = 'published')
+          AND (publish_date IS NULL OR publish_date <= NOW())
       `;
     }
 

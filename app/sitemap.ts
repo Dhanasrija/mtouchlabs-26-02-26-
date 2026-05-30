@@ -273,7 +273,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Auto-updates when you publish new blogs
   // ===========================
   try {
-    const blogs = await sql`SELECT slug, updated_at FROM blogs WHERE published = true OR status = 'published'`
+    const blogs = await sql`SELECT slug, updated_at FROM blogs WHERE (published = true OR status = 'published') AND (publish_date IS NULL OR publish_date <= NOW())`
     blogs.forEach((blog: any) => {
       entries.push({
         url: `${baseUrl}/blog/${blog.slug}`,

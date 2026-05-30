@@ -45,7 +45,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const blogs = await sql`SELECT * FROM blogs WHERE slug = ${slug} AND published = true` as Blog[];
+  const blogs = await sql`SELECT * FROM blogs WHERE slug = ${slug} AND published = true AND (publish_date IS NULL OR publish_date <= NOW())` as Blog[];
   if (blogs.length === 0) return { title: 'Blog Not Found' };
 
   const blog = blogs[0];
@@ -147,7 +147,7 @@ export default async function BlogPostPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const blogs = await sql`SELECT * FROM blogs WHERE slug = ${slug} AND published = true` as Blog[];
+  const blogs = await sql`SELECT * FROM blogs WHERE slug = ${slug} AND published = true AND (publish_date IS NULL OR publish_date <= NOW())` as Blog[];
   if (blogs.length === 0) notFound();
 
   const blog = blogs[0];

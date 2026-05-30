@@ -11,6 +11,7 @@ export async function GET(
 
     const result = await sql`
       SELECT * FROM blogs WHERE slug = ${slug} AND published = true
+        AND (publish_date IS NULL OR publish_date <= NOW())
     `;
 
     if (result.length === 0) {

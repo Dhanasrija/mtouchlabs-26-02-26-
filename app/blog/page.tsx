@@ -47,11 +47,17 @@ export default async function BlogPage() {
   //    updated_at (if the post was edited after publishing),
   //    otherwise publish_date, otherwise created_at.
   //    GREATEST ignores NULLs in Postgres, so NULL updated_at falls back cleanly.
+  // ⭐ Schedule support: a row with a future `publish_date` is treated as
+  //    scheduled — it stays hidden from the listing until its date arrives.
+  //    Combined with `revalidate = 60` above, scheduled posts go live
+  //    automatically (within ~1 minute of their publish_date) with no
+  //    manual deploy or script run needed on the day.
   const blogs = await sql`
     SELECT id, slug, title, description, image, author, category, tags, reading_time,
            publish_date, created_at, updated_at
     FROM blogs
-    WHERE published = true OR status = 'published'
+    WHERE (published = true OR status = 'published')
+      AND (publish_date IS NULL OR publish_date <= NOW())
     ORDER BY GREATEST(updated_at, publish_date, created_at) DESC NULLS LAST
   ` as BlogRow[];
 

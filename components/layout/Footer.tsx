@@ -288,22 +288,68 @@ export default function Footer() {
 
             {/* Col 4: Map + Brochure */}
             <div className="ft-cta-col">
-              <div className="ft-map-box">
-                <a
-                  className="ft-map-overlay"
-                  href="https://maps.app.goo.gl/yDpEjLczZQyQj7w7A"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Open in Google Maps"
-                />
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.382984579238!2d78.39014957483255!3d17.489221983415387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb90cec63e97d9%3A0xb045c9dc22129055!2smTouch%20Labs%20Pvt%20Ltd%20-%20Software%20Development%20Company!5e0!3m2!1sen!2sin!4v1739875624590!5m2!1sen!2sin"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  allowFullScreen
-                  title="mTouch Labs Office Location"
-                />
-              </div>
+              {/*
+                Map replaced with a static, link-only placeholder. The previous
+                Google Maps <iframe> was flagged by SEO audits (iframes hurt
+                mobile indexing) and added ~1MB of third-party JS to the page.
+                The whole card is a single <a> that opens the office location
+                in Google Maps in a new tab — same UX, far lighter footprint.
+              */}
+              <a
+                className="ft-map-box ft-map-static"
+                href="https://maps.app.goo.gl/yDpEjLczZQyQj7w7A"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open mTouch Labs office location in Google Maps"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "12px",
+                  textAlign: "center",
+                  textDecoration: "none",
+                  color: "inherit",
+                  padding: "24px 18px",
+                  borderRadius: "12px",
+                  background:
+                    "linear-gradient(135deg, #e8f1ff 0%, #f5f9ff 50%, #ffffff 100%)",
+                  border: "1px solid #d6e4ff",
+                  minHeight: "180px",
+                }}
+              >
+                <svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#2563eb"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                <div style={{ fontWeight: 600, fontSize: "15px", color: "#1f2937" }}>
+                  mTouch Labs Pvt Ltd
+                </div>
+                <div style={{ fontSize: "13px", color: "#4b5563", lineHeight: 1.5 }}>
+                  Software Development Company<br />Hyderabad, India
+                </div>
+                <span
+                  style={{
+                    display: "inline-block",
+                    marginTop: "4px",
+                    fontSize: "13px",
+                    fontWeight: 600,
+                    color: "#2563eb",
+                  }}
+                >
+                  Open in Google Maps →
+                </span>
+              </a>
               {/*
                 Brochure CTA — opens the shared brochure modal in-place on
                 the current screen (no intermediate /brochure page). The
