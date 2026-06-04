@@ -16,13 +16,29 @@ async function handleImageUpload(formData: FormData): Promise<string> {
   // 1. Check file upload (featured_image input)
   const file = formData.get('featured_image') as File | null;
   if (file && file.size > 0 && file.name && file.name !== 'undefined') {
+    const ext = path.extname(file.name) || '.jpg';
+    const safeName = file.name.replace(ext, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 50);
+    const uniqueName = safeName + '-' + Date.now() + ext;
+
+    // Production (Vercel): the serverless filesystem is read-only/ephemeral,
+    // so files written to public/uploads at runtime are never served and 404
+    // in prod. Persist to Vercel Blob instead and store its public CDN URL —
+    // which works identically in dev and prod.
+    if (process.env.BLOB_READ_WRITE_TOKEN) {
+      // @ts-expect-error — optional dep, resolved at runtime (npm i @vercel/blob)
+      const { put } = await import('@vercel/blob');
+      const blob = await put('uploads/' + uniqueName, file, {
+        access: 'public',
+        token: process.env.BLOB_READ_WRITE_TOKEN,
+      });
+      return blob.url;
+    }
+
+    // Local dev fallback: write to public/uploads on the local filesystem.
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
     const uploadsDir = path.join(process.cwd(), 'public', 'uploads');
     await mkdir(uploadsDir, { recursive: true });
-    const ext = path.extname(file.name) || '.jpg';
-    const safeName = file.name.replace(ext, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 50);
-    const uniqueName = safeName + '-' + Date.now() + ext;
     await writeFile(path.join(uploadsDir, uniqueName), buffer);
     return '/uploads/' + uniqueName;
   }

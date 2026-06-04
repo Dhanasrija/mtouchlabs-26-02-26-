@@ -61,7 +61,11 @@ export default async function BlogPage() {
     ORDER BY GREATEST(updated_at, publish_date, created_at) DESC NULLS LAST
   ` as BlogRow[];
 
-  const categories = [...new Set(blogs.map(b => b.category).filter(Boolean))];
+  // Hide redundant short category labels from the filter bar — the proper
+  // categories ("Web Development", "Mobile App") already cover these.
+  const HIDDEN_FILTERS = ['web', 'mobile'];
+  const categories = [...new Set(blogs.map(b => b.category).filter(Boolean))]
+    .filter((c) => !HIDDEN_FILTERS.includes(c.trim().toLowerCase()));
 
   return (
     <>
