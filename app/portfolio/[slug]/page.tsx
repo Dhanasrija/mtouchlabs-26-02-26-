@@ -2106,13 +2106,6 @@ export default async function PortfolioDetailPage({
     el.addEventListener('mouseup',function(){d=false;el.style.cursor='grab'});
     el.addEventListener('mousemove',function(e){if(!d)return;e.preventDefault();el.scrollLeft=sl-((e.pageX-el.offsetLeft)-sx)*1.5});
   });
-  document.querySelectorAll('.cs-faq-q').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var exp = this.getAttribute('aria-expanded') === 'true';
-      this.setAttribute('aria-expanded', String(!exp));
-      this.parentElement.classList.toggle('open');
-    });
-  });
 })();
       `}} />
     </>

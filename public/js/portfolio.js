@@ -685,12 +685,24 @@ window.__mtlInitPortfolioTOC = (function() {
       });
     });
 
-    // FAQ toggle — bind once per item.
+    // FAQ accordion — bind once per item. Only one answer open at a time:
+    // opening a question closes any other; clicking an open one closes it.
     document.querySelectorAll('.cs-faq-q').forEach(function(btn) {
       if (btn.__mtlFaqBound) return;
       btn.__mtlFaqBound = true;
       btn.addEventListener('click', function() {
-        this.closest('.cs-faq-item').classList.toggle('open');
+        var item = this.closest('.cs-faq-item');
+        if (!item) return;
+        var willOpen = !item.classList.contains('open');
+        document.querySelectorAll('.cs-faq-item.open').forEach(function(openItem) {
+          openItem.classList.remove('open');
+          var q = openItem.querySelector('.cs-faq-q');
+          if (q) q.setAttribute('aria-expanded', 'false');
+        });
+        if (willOpen) {
+          item.classList.add('open');
+          this.setAttribute('aria-expanded', 'true');
+        }
       });
     });
   }
