@@ -1,15 +1,15 @@
 <svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g clip-path="url(#clip0_441_5575)">
 <rect width="1200" height="700" fill="url(#paint0_linear_441_5575)"/>
-<rect x="246" y="230" width="708" height="474" rx="20" stroke="#474747" stroke-width="8"/>
-<rect x="250" y="234" width="700" height="466" rx="16" fill="url(#pattern0_441_5575)"/>
+<rect x="144.857" y="85.8571" width="910.286" height="609.429" rx="25.7143" stroke="#474747" stroke-width="10.2857"/>
+<rect x="150" y="91" width="900" height="599.143" rx="20.5714" fill="url(#pattern0_441_5575)"/>
 </g>
 <defs>
 <pattern id="pattern0_441_5575" patternContentUnits="objectBoundingBox" width="1" height="1">
-<use xlink:href="#image0_441_5575" transform="matrix(0.000651042 0 0 0.00097796 0 -0.000715308)"/>
+<use xlink:href="#image0_441_5575" transform="matrix(0.000651042 0 0 0.00097796 0 -0.000715286)"/>
 </pattern>
 <linearGradient id="paint0_linear_441_5575" x1="-83" y1="-54.5" x2="1155" y2="700" gradientUnits="userSpaceOnUse">
-<stop offset="0.0607261" stop-color="#CADAFF"/>
+<stop offset="0.0607261" stop-color="#F4F8FF"/>
 <stop offset="1" stop-color="white"/>
 </linearGradient>
 <clipPath id="clip0_441_5575">

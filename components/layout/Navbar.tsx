@@ -51,7 +51,7 @@ function ProductsCTA() {
           <li><span className="cta-check-icon"></span> High-Performance &amp; Secure Platforms</li>
           <li><span className="cta-check-icon"></span> Continuous Innovation &amp; Product Optimization</li>
         </ul>
-        <a href="/portfolio" className="mega-cta-btn">View Case Studies</a>
+        <a href="/case-studies" className="mega-cta-btn">View Case Studies</a>
       </div>
     </div>
   );
@@ -351,21 +351,21 @@ export default function Navbar() {
                             <span className="home-mega-item-desc">mTouch Labs delivers innovative mobile and web app solutions for modern businesses.</span>
                           </div>
                         </div>
-                        <div className="home-mega-item js-home-mega-item" data-target="home-blog">
+                        <a href="/blog" className="home-mega-item js-home-mega-item" data-target="home-blog">
                           <div className="home-mega-item-icon"><img src="/images/new_home/blog.png" alt="Blog icon" width="28" height="28" /></div>
                           <div className="home-mega-item-text">
                             <span className="home-mega-item-label">Blog</span>
                             <span className="home-mega-item-desc">Discover expert ideas and innovations on our Blogs</span>
                           </div>
-                        </div>
+                        </a>
 
-                        <div className="home-mega-item js-home-mega-item" data-target="home-case-studies">
+                        <a href="/case-studies" className="home-mega-item js-home-mega-item" data-target="home-case-studies">
                           <div className="home-mega-item-icon"><img src="/images/new_home/caseStudies.png" alt="Case Studies icon" width="28" height="28" /></div>
                           <div className="home-mega-item-text">
                             <span className="home-mega-item-label">Case Studies</span>
                             <span className="home-mega-item-desc">Real projects and results across industries</span>
                           </div>
-                        </div>
+                        </a>
                       </div>
 
                       <div className="home-mega-content">

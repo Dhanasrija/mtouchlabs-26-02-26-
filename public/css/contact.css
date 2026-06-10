@@ -1820,3 +1820,22 @@ button.ent-cta-banner__btn {
     padding: 10px 18px 10px 6px;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   SERVICE dropdown — match the other fields (no red on load)
+   A required empty <select> is always :invalid, and selects never
+   match :placeholder-shown, so the generic invalid rule above painted
+   it red the moment the page loaded — unlike the text inputs, which
+   stay neutral while empty. Reset it to the same neutral border the
+   other fields use, and keep the same blue focus state.
+   ═══════════════════════════════════════════════════════════ */
+.ct-form__select:invalid,
+.ct-form__select:invalid:not(:placeholder-shown),
+.ct-form__select:invalid:not(:focus):not(:placeholder-shown) {
+  border-color: #e2e8f0 !important;
+  box-shadow: none !important;
+}
+.ct-form__select:focus {
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1) !important;
+}

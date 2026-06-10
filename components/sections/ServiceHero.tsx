@@ -34,6 +34,8 @@ export interface ServiceHeroProps {
   /** Secondary CTA */
   secondaryHref?: string;
   secondaryLabel?: string;
+  /** Render the secondary CTA as a filled (primary-style) button instead of the ghost outline */
+  secondaryAsPrimary?: boolean;
 }
 
 export default function ServiceHero({
@@ -47,6 +49,7 @@ export default function ServiceHero({
   primaryLabel = "Let's Discuss",
   secondaryHref = "/portfolio",
   secondaryLabel = "View Case Studies",
+  secondaryAsPrimary = false,
 }: ServiceHeroProps) {
   return (
     <>
@@ -310,7 +313,7 @@ export default function ServiceHero({
                   </svg>
                   {primaryLabel}
                 </Link>
-                <Link href={secondaryHref} className="svc-hero-btn svc-hero-btn-ghost">
+                <Link href={secondaryHref} className={`svc-hero-btn ${secondaryAsPrimary ? "svc-hero-btn-primary" : "svc-hero-btn-ghost"}`}>
                   {secondaryLabel}
                   <svg
                     width="16"

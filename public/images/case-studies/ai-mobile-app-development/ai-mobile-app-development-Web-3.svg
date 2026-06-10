@@ -1,15 +1,15 @@
 <svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g clip-path="url(#clip0_454_5692)">
 <rect width="1200" height="700" fill="url(#paint0_linear_454_5692)"/>
-<rect x="246" y="311" width="708" height="393" rx="20" stroke="#474747" stroke-width="8"/>
-<rect x="250" y="315" width="700" height="385" rx="16" fill="url(#pattern0_454_5692)"/>
+<rect x="144.857" y="190.857" width="910.286" height="505.286" rx="25.7143" stroke="#474747" stroke-width="10.2857"/>
+<rect x="150" y="196" width="900" height="495" rx="20.5714" fill="url(#pattern0_454_5692)"/>
 </g>
 <defs>
 <pattern id="pattern0_454_5692" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#image0_454_5692" transform="matrix(0.000598086 0 0 0.00108743 0 -0.0116355)"/>
 </pattern>
 <linearGradient id="paint0_linear_454_5692" x1="32" y1="42.5" x2="1268" y2="700" gradientUnits="userSpaceOnUse">
-<stop offset="0.0607261" stop-color="#8891FF"/>
+<stop offset="0.0607261" stop-color="#F2F3FF"/>
 <stop offset="1" stop-color="#FEFEFD"/>
 </linearGradient>
 <clipPath id="clip0_454_5692">

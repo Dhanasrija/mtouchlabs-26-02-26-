@@ -701,4 +701,22 @@ z-index:9999
   }
 }
 
+/* Blog & Case Studies sidebar items are <a> links (so they navigate on
+   click). Normalise the anchor box so they line up pixel-for-pixel with
+   the <div> "About us" item — same padding, gap and icon alignment. */
+a.home-mega-item {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 12px !important;
+  padding: 10px 24px !important;
+  margin: 0 !important;
+  text-decoration: none !important;
+  color: inherit !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+}
+a.home-mega-item:hover {
+  text-decoration: none !important;
+}
+
 

@@ -2036,3 +2036,25 @@ html {
   transform: none !important;
   animation: none !important;
 }
+
+/* ═══════════════════════════════════════════════════════════
+   CASE STUDIES LISTING — card image fit
+   The case-study banners (1200×600) carry text inside the artwork,
+   so cropping them with object-fit:cover (the portfolio default in
+   blog.css) cuts the text off on the sides — especially on the hover
+   zoom. Here we show the WHOLE banner (contain) on a soft backdrop so
+   nothing is cut, while keeping the portfolio card box size + the
+   "active" hover lift/zoom. Scoped to the cards container so the
+   portfolio/blog grids are unaffected.
+   ═══════════════════════════════════════════════════════════ */
+#cs-cards-container .rpl-img {
+  background: #f4f6fa !important;
+}
+#cs-cards-container .rpl-img img {
+  object-fit: contain !important;
+  object-position: center !important;
+}
+/* Slightly gentler hover zoom so the contained banner never clips its text */
+#cs-cards-container .ree-media-crd:hover .rpl-img img {
+  transform: scale(1.03) !important;
+}

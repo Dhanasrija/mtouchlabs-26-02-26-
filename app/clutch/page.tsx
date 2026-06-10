@@ -81,6 +81,7 @@ export default function ClutchPage() {
         primaryLabel="Get in Touch"
         secondaryHref="https://review.clutch.co/review/?provider_id=1209509"
         secondaryLabel="Review Us on Clutch"
+        secondaryAsPrimary
       />
 
       {/* ════════ STATS ════════ */}

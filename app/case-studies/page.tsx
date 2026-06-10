@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { sql } from "@/lib/db";
-import Link from "next/link";
 import { getCaseStudyImages } from "@/lib/caseStudyImages";
+import { getCaseStudyCategory } from "@/lib/caseStudyCategories";
+import CaseStudiesGrid from "@/components/CaseStudiesGrid";
+import "../it-solutions-company/style.css";
 
 export const metadata: Metadata = {
   title: "Case Studies",
@@ -28,59 +30,70 @@ export default async function CaseStudiesPage() {
     ORDER BY COALESCE(publish_date, created_at) DESC
   ` as CS[];
 
+  // Resolve the banner image + curated filter group for each study so the
+  // client filter component can render the portfolio-style cards/filter bar.
+  const cards = rows.map((cs) => ({
+    id: cs.id,
+    slug: cs.slug,
+    title: cs.title,
+    industry: cs.industry,
+    image: getCaseStudyImages(cs.slug)?.banner || cs.image || "/images/Light.png",
+    category: getCaseStudyCategory(cs.slug, cs.industry),
+  }));
+
   return (
     <div style={{ fontFamily: "'Outfit', system-ui, sans-serif" }}>
 
-      <section className="csx-hero">
-        <div className="csx-hero__bg" style={{ backgroundImage: "url('/images/case-study-banner.jpg')" }}></div>
-        <div className="csx-hero__overlay"></div>
-        <div className="csx-hero__inner">
-          <div className="csx-hero__bread">
-            <Link href="/">Home</Link>
-            <span className="csx-hero__bread-sep">/</span>
-            <span className="csx-hero__bread-current">Case Studies</span>
-          </div>
-          <h1 className="csx-hero__title"><span className="csx-hero__title-grad">Case Studies</span></h1>
-          <p className="csx-hero__sub">Real projects. Real challenges. Real outcomes.</p>
-        </div>
-      </section>
+      {/* Hero — identical layout to the /portfolio page (itsc-hero), with
+          case-studies-relevant content. */}
+      <div className="itsc-page">
+        <section className="itsc-hero">
+          <div className="itsc-hero-grid" aria-hidden="true" />
+          <div className="itsc-blob itsc-blob-a" aria-hidden="true" />
+          <div className="itsc-blob itsc-blob-b" aria-hidden="true" />
+          <div className="itsc-blob itsc-blob-c" aria-hidden="true" />
 
-      {/* Listing — same card layout/spacing/hover as the /portfolio page
-          (uses the global blog.css + bootstrap grid: 3 cards per row on
-          desktop, 2 on tablet, blue title on hover). */}
-      <div className="blog-block sec-pad pt80">
-        <div className="container">
-          <div className="blog-post">
-            <div className="row" id="cs-cards-container">
-              {rows.map((cs) => {
-                const imgs = getCaseStudyImages(cs.slug);
-                const cardImg = imgs?.banner || cs.image || "/images/Light.png";
-                const href = `/case-studies/${cs.slug}`;
-                return (
-                  <div className="col-lg-4 col-sm-6 blog-card-item" key={cs.id} data-aos="fade-up">
-                    <div className="ree-media-crd">
-                      <div className="rpl-img">
-                        <Link href={href}>
-                          <img src={cardImg} alt={cs.title} className="fill-fixed" />
-                        </Link>
-                      </div>
-                      <div className="rpl-contt">
-                        {cs.industry && (
-                          <p className="port-tags" style={{ fontSize: "14px", fontWeight: 600 }}>{cs.industry}</p>
-                        )}
-                        <h4><Link href={href}>{cs.title}</Link></h4>
-                        <Link href={href} className="blog-read-more">
-                          Read More <i className="fas fa-arrow-right"></i>
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
+          <div className="itsc-container">
+            <div className="itsc-hero-content">
+              <div className="itsc-badge">
+                <span className="itsc-badge-dot" />
+                Our Case Studies
+              </div>
+
+              <h1 className="itsc-h1">
+                Real Results from
+                <br />
+                <span className="itsc-h1-gradient">Real-World Projects</span>
+              </h1>
+
+              <p className="itsc-hero-sub">
+                See how we turn complex challenges into measurable outcomes — across AI &amp; automation,
+                ecommerce, healthcare, fintech, logistics and SaaS — engineered by our expert{" "}
+                <a className="itsc-inline-link" href="/services">
+                  product, design and engineering teams
+                </a>
+                .
+              </p>
+
+              <div className="itsc-ctas">
+                <a href="/contact-us" className="itsc-btn itsc-btn-primary">
+                  <i className="fa-solid fa-paper-plane" />
+                  Start Your Project
+                </a>
+                <a href="/on-demand-products-development-company-hyderabad" className="itsc-btn itsc-btn-ghost">
+                  Explore Products
+                  <i className="fa-solid fa-arrow-right" />
+                </a>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
       </div>
+
+      {/* Listing + filter bar — same card layout/spacing/hover and filter
+          behaviour as the /portfolio page (global blog.css + bootstrap grid:
+          3 cards per row on desktop, 2 on tablet, blue title on hover). */}
+      <CaseStudiesGrid items={cards} />
     </div>
   );
 }
