@@ -181,6 +181,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import TocScrollHighlight from '@/components/TocScrollHighlight';
 import ImageWithFallback from '@/components/ImageWithFallback';
+import CaseStudyGallery from '@/components/CaseStudyGallery';
+import { getCaseStudyImages } from '@/lib/caseStudyImages';
 export const dynamic = "force-dynamic";
 
 const SITE_URL = "https://www.mtouchlabs.com";
@@ -278,6 +280,11 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
     else if (typeof raw === "string") gi = JSON.parse(raw);
     else if (raw && typeof raw === "object") gi = Object.values(raw) as string[];
   } catch { gi = []; }
+
+  // Prefer the on-disk image manifest (banner / hero / 4 gallery screenshots)
+  const localImages = getCaseStudyImages(slug);
+  const heroImage = localImages?.hero || cs.image;
+  if (localImages?.gallery?.length) gi = localImages.gallery;
 
   // ── Dates ──
   const displayDate = cs.publish_date || cs.created_at;
@@ -390,9 +397,9 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
 
           <div className="blv3-accent-bar" />
 
-          {cs.image && (
+          {heroImage && (
             <div className="blv3-hero-img">
-              <ImageWithFallback src={cs.image} alt={cs.image_alt || cs.title} />
+              <ImageWithFallback src={heroImage} alt={cs.image_alt || cs.title} />
             </div>
           )}
         </div>
@@ -556,16 +563,7 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
                   <div className="blv3-content">
                     <h2>Project Gallery</h2>
                   </div>
-                  <div className="csx-gallery-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1rem", marginTop: "1rem" }}>
-                    {gi.map((img, i) => (
-                      <ImageWithFallback
-                        key={i}
-                        src={img}
-                        alt={`${cs.title} — screenshot ${i + 1}`}
-                        style={{ width: "100%", borderRadius: "8px", objectFit: "cover" }}
-                      />
-                    ))}
-                  </div>
+                  <CaseStudyGallery images={gi} title={cs.title} />
                 </div>
               )}
 

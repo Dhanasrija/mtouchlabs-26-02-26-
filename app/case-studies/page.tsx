@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { sql } from "@/lib/db";
 import Link from "next/link";
+import { getCaseStudyImages } from "@/lib/caseStudyImages";
 
 export const metadata: Metadata = {
   title: "Case Studies",
@@ -44,26 +45,40 @@ export default async function CaseStudiesPage() {
         </div>
       </section>
 
-      <div className="csx-listing">
-        <div className="csx-grid">
-          {rows.map((cs) => (
-            <Link href={`/case-studies/${cs.slug}`} key={cs.id} className="csx-card">
-              <div className="csx-card__img-wrap">
-                <img src={cs.image || "/images/Light.png"} alt={cs.title} className="csx-card__img" />
-              </div>
-              <div className="csx-card__body">
-                <h2 className="csx-card__title">{cs.title}</h2>
-                <p className="csx-card__desc">{cs.overview ? (cs.overview.length > 130 ? cs.overview.slice(0, 130) + "..." : cs.overview) : ""}</p>
-                <div className="csx-card__foot">
-                  <span className="csx-card__more">
-                    Learn more
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-                  </span>
-                  <img src="/images/Light.png" alt="mTouch Labs" className="csx-card__logo" />
-                </div>
-              </div>
-            </Link>
-          ))}
+      {/* Listing — same card layout/spacing/hover as the /portfolio page
+          (uses the global blog.css + bootstrap grid: 3 cards per row on
+          desktop, 2 on tablet, blue title on hover). */}
+      <div className="blog-block sec-pad pt80">
+        <div className="container">
+          <div className="blog-post">
+            <div className="row" id="cs-cards-container">
+              {rows.map((cs) => {
+                const imgs = getCaseStudyImages(cs.slug);
+                const cardImg = imgs?.banner || cs.image || "/images/Light.png";
+                const href = `/case-studies/${cs.slug}`;
+                return (
+                  <div className="col-lg-4 col-sm-6 blog-card-item" key={cs.id} data-aos="fade-up">
+                    <div className="ree-media-crd">
+                      <div className="rpl-img">
+                        <Link href={href}>
+                          <img src={cardImg} alt={cs.title} className="fill-fixed" />
+                        </Link>
+                      </div>
+                      <div className="rpl-contt">
+                        {cs.industry && (
+                          <p className="port-tags" style={{ fontSize: "14px", fontWeight: 600 }}>{cs.industry}</p>
+                        )}
+                        <h4><Link href={href}>{cs.title}</Link></h4>
+                        <Link href={href} className="blog-read-more">
+                          Read More <i className="fas fa-arrow-right"></i>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </div>

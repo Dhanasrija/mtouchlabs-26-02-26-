@@ -183,6 +183,9 @@ const nextConfig = {
       { source: "/blog/a-complete-guide-on-ecommerce-mobile-app-development", destination: "/blog/guide-to-create-an-ecommerce-mobile-application-development", permanent: true },
       { source: "/the-ultimate-guide-to-create-an-ecommerce-mobile-app-development", destination: "/blog/guide-to-create-an-ecommerce-mobile-application-development", permanent: true },
       { source: "/blog/the-ultimate-guide-to-create-an-ecommerce-mobile-app-development", destination: "/blog/guide-to-create-an-ecommerce-mobile-application-development", permanent: true },
+      // ── 2026-06: GenAI blog re-slugged → Agentic AI / RAG / Enterprise AI ──
+      { source: "/genai-rag-ai-agents-ai-powered-solutions-mtouch-labs", destination: "/blog/agentic-ai-rag-enterprise-ai-solutions", permanent: true },
+      { source: "/blog/genai-rag-ai-agents-ai-powered-solutions-mtouch-labs", destination: "/blog/agentic-ai-rag-enterprise-ai-solutions", permanent: true },
       // Root-level canonical aliases the user keeps in metadata → /blog/<slug>
       { source: "/mobile-app-development-trends", destination: "/blog/mobile-app-development-trends", permanent: true },
       { source: "/guide-to-create-an-ecommerce-mobile-application-development", destination: "/blog/guide-to-create-an-ecommerce-mobile-application-development", permanent: true },

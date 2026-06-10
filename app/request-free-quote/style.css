@@ -2094,3 +2094,50 @@ footer.rq-copyright p,
     font-size: 13px;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   FIELD OUTLINES — bulletproof overrides
+   High-specificity (.rq-main .rq-form …) declarations placed at the
+   very end so they always win over the global site stylesheet
+   (public/css/style.css) which sets `.rq-input { border: none }`.
+   Guarantees every field shows a visible box, and invalid fields
+   show a clear red outline + ring on submit.
+   ═══════════════════════════════════════════════════════════ */
+
+/* Normal (resting) state — always a visible grey outline */
+.rq-main .rq-form .rq-input,
+.rq-main .rq-form .rq-select,
+.rq-main .rq-form .rq-code-btn,
+.rq-main .rq-form .rq-phone-row .rq-input,
+.rq-main .rq-form .rq-phone-row .rq-code-btn {
+  border: 1.5px solid #b9c2d6 !important;
+  border-radius: 10px !important;
+  background: #ffffff !important;
+}
+
+/* Focus state — blue outline + ring (only when not invalid) */
+.rq-main .rq-form .rq-input:not(.rq-invalid):focus,
+.rq-main .rq-form .rq-select:not(.rq-invalid):focus,
+.rq-main .rq-form .rq-code-btn:not(.rq-invalid):focus-visible,
+.rq-main .rq-form .rq-phone-row .rq-input:not(.rq-invalid):focus {
+  border: 1.5px solid #3E8CFB !important;
+  box-shadow: 0 0 0 3px rgba(62, 140, 251, 0.14) !important;
+}
+
+/* Invalid state — same neutral GREY outline as the resting +91 box
+   (no red, no ring, no tint). The inline "… is required" message already
+   signals the error, so every field just keeps the plain grey border. */
+.rq-main .rq-form .rq-input.rq-invalid,
+.rq-main .rq-form .rq-select.rq-invalid,
+.rq-main .rq-form .rq-phone-row .rq-input.rq-invalid {
+  border: 1.5px solid #b9c2d6 !important;
+  box-shadow: none !important;
+  background: #ffffff !important;
+}
+
+.rq-main .rq-form .rq-input.rq-invalid:focus,
+.rq-main .rq-form .rq-select.rq-invalid:focus,
+.rq-main .rq-form .rq-phone-row .rq-input.rq-invalid:focus {
+  border: 1.5px solid #b9c2d6 !important;
+  box-shadow: none !important;
+}
