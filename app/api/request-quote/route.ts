@@ -11,11 +11,14 @@ function getRecipients(): string[] {
   return (process.env.NOTIFICATION_EMAILS || '').split(',').map(e => e.trim()).filter(Boolean);
 }
 
+type CrmResult = { called: true; ok: boolean; status: number; message?: string } | { called: false; error: string };
+
 /**
- * Push the lead into the mTouch CRM. Fire-and-forget: any failure is logged
- * but never blocks the email notification or the user's redirect to /thank-you.
+ * Push the lead into the mTouch CRM. Never throws / never blocks the email
+ * notification or the user's redirect — it returns a small result object so
+ * the API response can report whether the CRM was called (handy for testing).
  */
-async function pushToCrm(data: any): Promise<void> {
+async function pushToCrm(data: any): Promise<CrmResult> {
   try {
     const rawCode = String(data.countryCode || '91').replace(/^\+/, '');
     // Tag the source so this lead is clearly identifiable in the CRM as
@@ -45,6 +48,9 @@ async function pushToCrm(data: any): Promise<void> {
     clearTimeout(timeout);
 
     const text = await res.text().catch(() => '');
+    let message = text;
+    try { message = JSON.parse(text)?.Message ?? text; } catch { /* keep raw text */ }
+
     if (res.ok) {
       console.log('[CRM][request-quote] ✓ lead created — status', res.status);
     } else if (res.status === 400 && /already exists/i.test(text)) {
@@ -53,8 +59,10 @@ async function pushToCrm(data: any): Promise<void> {
     } else {
       console.error('[CRM][request-quote] ✗ push failed — status', res.status, text);
     }
-  } catch (crmErr) {
+    return { called: true, ok: res.ok, status: res.status, message };
+  } catch (crmErr: any) {
     console.error('[CRM][request-quote] ✗ push error:', crmErr);
+    return { called: false, error: crmErr?.message || String(crmErr) };
   }
 }
 
@@ -105,11 +113,13 @@ export async function POST(req: Request) {
     // Push the lead into the CRM (server-to-server, avoids CORS). Awaited so
     // it completes within the request, but its own try/catch guarantees a
     // CRM outage never breaks the quote submission.
-    await pushToCrm(data);
+    const crm = await pushToCrm(data);
 
     // Always return success — email is fire-and-forget.
+    // `crm` is included so the call can be verified directly in the browser
+    // Network tab (Response of POST /api/request-quote). Safe to remove later.
     // Stamp the response with the one-time cookie that authorizes /thank-you.
-    return setFormSubmittedCookie(NextResponse.json({ success: true }));
+    return setFormSubmittedCookie(NextResponse.json({ success: true, crm }));
   } catch (err) {
     console.error('Quote API error:', err);
     return NextResponse.json({ error: 'Server error' }, { status: 500 });
