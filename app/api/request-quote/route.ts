@@ -5,8 +5,57 @@ import { setFormSubmittedCookie } from '@/lib/formSubmissionGuard';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+const CRM_LEAD_URL = process.env.CRM_LEAD_API_URL || 'https://crmapi.mtouchlabs.com/lead';
+
 function getRecipients(): string[] {
   return (process.env.NOTIFICATION_EMAILS || '').split(',').map(e => e.trim()).filter(Boolean);
+}
+
+/**
+ * Push the lead into the mTouch CRM. Fire-and-forget: any failure is logged
+ * but never blocks the email notification or the user's redirect to /thank-you.
+ */
+async function pushToCrm(data: any): Promise<void> {
+  try {
+    const rawCode = String(data.countryCode || '91').replace(/^\+/, '');
+    // Tag the source so this lead is clearly identifiable in the CRM as
+    // coming from the "Request a Free Quote" lead-gen page (distinct from the
+    // contact form and the home Request-Quote wizard).
+    const requirement = [
+      'Source: Request a Free Quote (Lead Gen)',
+      data.service ? `Service: ${data.service}` : '',
+    ].filter(Boolean).join(' | ');
+
+    const body = {
+      contactPerson: data.name,
+      email: data.email,
+      countryCode: `+${rawCode}`,
+      phone: String(data.mobile || '').replace(/\D/g, ''),
+      requirement: requirement || 'Request a Free Quote (Lead Gen)',
+    };
+
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 8000);
+    const res = await fetch(CRM_LEAD_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+      signal: controller.signal,
+    });
+    clearTimeout(timeout);
+
+    const text = await res.text().catch(() => '');
+    if (res.ok) {
+      console.log('[CRM][request-quote] ✓ lead created — status', res.status);
+    } else if (res.status === 400 && /already exists/i.test(text)) {
+      // CRM dedupes by phone — an existing lead is expected, not an error.
+      console.log('[CRM][request-quote] ℹ lead already exists in CRM (deduped by phone)');
+    } else {
+      console.error('[CRM][request-quote] ✗ push failed — status', res.status, text);
+    }
+  } catch (crmErr) {
+    console.error('[CRM][request-quote] ✗ push error:', crmErr);
+  }
 }
 
 export async function POST(req: Request) {
@@ -26,14 +75,14 @@ export async function POST(req: Request) {
       await resend.emails.send({
         from: process.env.FROM_EMAIL || 'mTouch Labs <onboarding@resend.dev>',
         to: recipients,
-        subject: `💰 Quote Request: ${data.name} — ${data.service || 'Service'} [${data.budget || 'Budget TBD'}]`,
+        subject: `🟢 Lead Gen — Request a Free Quote: ${data.name} — ${data.service || 'Service'}`,
         replyTo: data.email,
         html: `<!DOCTYPE html><html><head><meta charset="utf-8"></head>
 <body style="margin:0;padding:0;background:#f5f7fb;font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif;">
 <div style="max-width:600px;margin:0 auto;padding:40px 20px;">
   <div style="background:linear-gradient(135deg,#0C1C32,#1a2d4a);border-radius:16px 16px 0 0;padding:32px;text-align:center;">
     <div style="font-size:36px;margin-bottom:8px;">💰</div>
-    <h1 style="margin:0;font-size:22px;color:#fff;">New Quote Request</h1>
+    <h1 style="margin:0;font-size:22px;color:#fff;">New Lead — Request a Free Quote</h1>
     <p style="margin:8px 0 0;font-size:13px;color:rgba(255,255,255,.7);">${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })} IST</p>
   </div>
   <div style="background:#fff;border-radius:0 0 16px 16px;box-shadow:0 4px 24px rgba(0,0,0,.06);">
@@ -52,6 +101,11 @@ export async function POST(req: Request) {
     } catch (sendErr) {
       console.error('Resend send error:', sendErr);
     }
+
+    // Push the lead into the CRM (server-to-server, avoids CORS). Awaited so
+    // it completes within the request, but its own try/catch guarantees a
+    // CRM outage never breaks the quote submission.
+    await pushToCrm(data);
 
     // Always return success — email is fire-and-forget.
     // Stamp the response with the one-time cookie that authorizes /thank-you.
