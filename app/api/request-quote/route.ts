@@ -11,7 +11,9 @@ function getRecipients(): string[] {
   return (process.env.NOTIFICATION_EMAILS || '').split(',').map(e => e.trim()).filter(Boolean);
 }
 
-type CrmResult = { called: true; ok: boolean; status: number; message?: string } | { called: false; error: string };
+type CrmResult =
+  | { url: string; called: true; ok: boolean; status: number; message?: string }
+  | { url: string; called: false; error: string };
 
 /**
  * Push the lead into the mTouch CRM. Never throws / never blocks the email
@@ -59,10 +61,10 @@ async function pushToCrm(data: any): Promise<CrmResult> {
     } else {
       console.error('[CRM][request-quote] ✗ push failed — status', res.status, text);
     }
-    return { called: true, ok: res.ok, status: res.status, message };
+    return { url: CRM_LEAD_URL, called: true, ok: res.ok, status: res.status, message };
   } catch (crmErr: any) {
     console.error('[CRM][request-quote] ✗ push error:', crmErr);
-    return { called: false, error: crmErr?.message || String(crmErr) };
+    return { url: CRM_LEAD_URL, called: false, error: crmErr?.message || String(crmErr) };
   }
 }
 
