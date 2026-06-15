@@ -522,6 +522,7 @@ import Script from "next/script";
 import QuoteModal from "@/components/sections/home/QuoteModal";
 import Analytics from "@/components/Analytics";
 import AOSRefresh from "@/components/AOSRefresh";
+import ScrollRestorationManager from "@/components/ScrollRestorationManager";
 import type { Viewport } from "next";
 
 export const viewport: Viewport = {
@@ -724,6 +725,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         <Analytics />
         <AOSRefresh />
+        <ScrollRestorationManager />
         {/* Request Quote Modal Overlay (shared) */}
         <QuoteModal />
         {/* Brochure Modal Overlay */}
