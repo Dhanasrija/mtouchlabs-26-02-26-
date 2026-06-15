@@ -88,25 +88,29 @@ export async function POST(req: Request) {
     await resend.emails.send({ from: "mTouch Labs <onboarding@resend.dev>", replyTo: email || undefined, to: TO, subject, html: buildHtml(data), text: buildText(data) });
 
     // ═══ Send to CRM ═══
+    const CRM_URL = "https://crmapi.mtouchlabs.com/lead";
+    let crm: any = { url: CRM_URL, called: false };
     try {
       const { countryCode, phoneNumber } = parsePhone(data.phone);
 
-      // Build CRM payload
+      // Build CRM payload (source-tagged so navbar/home "Request Quote" leads
+      // are distinguishable in the CRM from the contact form and lead-gen page)
       const crmPayload = {
         contactPerson: data.name,
         email: data.email || "",
         countryCode: countryCode,
         phone: phoneNumber,
         requirement: [
+          "Source: Request Quote (Navbar/Wizard)",
           data.projectType !== "Not yet selected" ? `Service: ${data.projectType}` : "",
           data.budget !== "Not yet selected" ? `Budget: ${data.budget}` : "",
           data.message ? `Message: ${data.message}` : "",
         ].filter(Boolean).join(" | ") || "Quote request from website",
       };
 
-      console.log("CRM payload:", JSON.stringify(crmPayload));
+      console.log("[CRM][estimate] →", CRM_URL, JSON.stringify(crmPayload));
 
-      const crmRes = await fetch("https://crmapi.mtouchlabs.com/lead", {
+      const crmRes = await fetch(CRM_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -116,17 +120,20 @@ export async function POST(req: Request) {
       });
 
       const crmText = await crmRes.text();
-      console.log("CRM response status:", crmRes.status);
-      console.log("CRM response body:", crmText);
+      let crmMessage = crmText;
+      try { crmMessage = JSON.parse(crmText)?.Message ?? crmText; } catch { /* keep raw */ }
+      console.log("[CRM][estimate] ← status", crmRes.status, "body:", crmText);
 
       if (!crmRes.ok) {
-        console.error("CRM submission failed:", crmRes.status, crmText);
+        console.error("[CRM][estimate] push failed:", crmRes.status, crmText);
       }
-    } catch (crmErr) {
-      console.error("CRM submission error:", crmErr);
+      crm = { url: CRM_URL, called: true, ok: crmRes.ok, status: crmRes.status, message: crmMessage };
+    } catch (crmErr: any) {
+      console.error("[CRM][estimate] push error:", crmErr);
+      crm = { url: CRM_URL, called: false, error: crmErr?.message || String(crmErr) };
     }
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json({ success: true, crm });
   } catch (error) {
     console.error("Email send error:", error);
     return NextResponse.json({ error: "Failed to send" }, { status: 500 });

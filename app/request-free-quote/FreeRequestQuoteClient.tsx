@@ -31,6 +31,7 @@ type FieldErrors = {
   email?: string;
   mobile?: string;
   service?: string;
+  message?: string;
 };
 
 const COUNTRY_OPTIONS: readonly CountryOption[] = [
@@ -295,6 +296,14 @@ function validateService(v: string): string | undefined {
   return undefined;
 }
 
+function validateMessage(v: string): string | undefined {
+  const t = v.trim();
+  if (!t) return "Message is required.";
+  if (t.length < 10) return "Please provide a few more details (at least 10 characters).";
+  if (t.length > 1000) return "Message must be under 1000 characters.";
+  return undefined;
+}
+
 /* ─────────────────────────────────────────────
    RotatingWord — single inline word that swaps on a timer.
    The word takes its own natural width, so "Development" sits right
@@ -548,6 +557,7 @@ export function FreeRequestQuoteClient() {
   const [countryCode, setCountryCode] = useState("+91");
   const [mobile, setMobile] = useState("");
   const [service, setService] = useState("");
+  const [message, setMessage] = useState("");
 
   const [touched, setTouched] = useState<{ [k: string]: boolean }>({});
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
@@ -649,12 +659,13 @@ export function FreeRequestQuoteClient() {
 
   /* ── Per-field validators that run on blur / change after touched ── */
   const runValidation = useCallback(
-    (overrides?: Partial<{ fullName: string; email: string; mobile: string; service: string; countryCode: string }>) => {
+    (overrides?: Partial<{ fullName: string; email: string; mobile: string; service: string; message: string; countryCode: string }>) => {
       const values = {
         fullName: overrides?.fullName ?? fullName,
         email: overrides?.email ?? email,
         mobile: overrides?.mobile ?? mobile,
         service: overrides?.service ?? service,
+        message: overrides?.message ?? message,
         countryCode: overrides?.countryCode ?? countryCode,
       };
       const country =
@@ -666,10 +677,11 @@ export function FreeRequestQuoteClient() {
         email: validateEmail(values.email),
         mobile: validateMobile(values.mobile, country),
         service: validateService(values.service),
+        message: validateMessage(values.message),
       };
       return errors;
     },
-    [fullName, email, mobile, service, countryCode]
+    [fullName, email, mobile, service, message, countryCode]
   );
 
   // Re-run validation whenever a touched field changes
@@ -681,7 +693,7 @@ export function FreeRequestQuoteClient() {
       if (touched[k] && errs[k]) filtered[k] = errs[k];
     });
     setFieldErrors(filtered);
-  }, [fullName, email, mobile, service, countryCode, touched, runValidation]);
+  }, [fullName, email, mobile, service, message, countryCode, touched, runValidation]);
 
   const markTouched = (name: keyof FieldErrors) =>
     setTouched((t) => ({ ...t, [name]: true }));
@@ -693,7 +705,7 @@ export function FreeRequestQuoteClient() {
       setErrorMsg("");
 
       // Mark everything touched so all errors show
-      setTouched({ fullName: true, email: true, mobile: true, service: true });
+      setTouched({ fullName: true, email: true, mobile: true, service: true, message: true });
       const errs = runValidation();
       const hasErrors = Object.values(errs).some(Boolean);
       if (hasErrors) {
@@ -719,6 +731,7 @@ export function FreeRequestQuoteClient() {
           countryCode: countryCode.replace("+", ""),
           mobile: mobile.replace(/\D/g, ""),
           service,
+          message: message.trim(),
           source: "request-free-quote-page",
           page: typeof window !== "undefined" ? window.location.href : "",
           "cf-turnstile-response": captchaToken,
@@ -798,7 +811,7 @@ export function FreeRequestQuoteClient() {
         setSubmitting(false);
       }
     },
-    [fullName, email, countryCode, mobile, service, captchaToken, runValidation, resetCaptcha, router]
+    [fullName, email, countryCode, mobile, service, message, captchaToken, runValidation, resetCaptcha, router]
   );
 
   // Duplicate logos for seamless marquee
@@ -950,6 +963,34 @@ export function FreeRequestQuoteClient() {
               {fieldErrors.service && (
                 <div id="err-service" className="rq-field-err">
                   {fieldErrors.service}
+                </div>
+              )}
+            </div>
+
+            {/* ── Message ── */}
+            <div className="rq-field">
+              <label htmlFor="message" className="rq-label">
+                Message <span className="rq-required">*</span>
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows={4}
+                placeholder="Tell us about your project requirements"
+                className={`rq-input rq-textarea ${
+                  fieldErrors.message ? "rq-invalid" : ""
+                }`}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                onBlur={() => markTouched("message")}
+                aria-invalid={!!fieldErrors.message}
+                aria-describedby={fieldErrors.message ? "err-message" : undefined}
+                maxLength={1000}
+                required
+              />
+              {fieldErrors.message && (
+                <div id="err-message" className="rq-field-err">
+                  {fieldErrors.message}
                 </div>
               )}
             </div>

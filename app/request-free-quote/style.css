@@ -278,6 +278,17 @@
   box-shadow: 0 0 0 3px rgba(62, 140, 251, 0.14);
 }
 
+/* ─── Message textarea (overrides fixed-height .rq-input) ─── */
+.rq-form .rq-textarea,
+.rq-main .rq-textarea,
+.rq-textarea {
+  height: auto !important;
+  min-height: 110px !important;
+  padding: 14px 16px !important;
+  line-height: 1.5 !important;
+  resize: vertical !important;
+}
+
 
 /* ─── Phone row: FIXED ─── */
 .rq-phone-row {
