@@ -27,7 +27,7 @@ async function pushToCrm(data: any): Promise<CrmResult> {
     // coming from the "Request a Free Quote" lead-gen page (distinct from the
     // contact form and the home Request-Quote wizard).
     const requirement = [
-      'Source: Request a Free Quote (Lead Gen)',
+      `Source: ${data.source || 'Request a Free Quote (Lead Gen)'}`,
       data.service ? `Service: ${data.service}` : '',
       data.message ? `Message: ${data.message}` : '',
     ].filter(Boolean).join(' | ');

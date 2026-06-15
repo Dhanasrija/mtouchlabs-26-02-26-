@@ -81,8 +81,8 @@ export async function POST(req: Request) {
       }
     }
 
-    const { phone, email, name, companyType, projectType, platform, features, budget, timeline, partial, message } = body;
-    const data = { phone, email, name: name || "Unknown", companyType: companyType || "Not specified", projectType: projectType || "Not yet selected", platform: platform || "Not yet selected", features: features || [], budget: budget || "Not yet selected", timeline: timeline || "Not yet selected", partial: !!partial, message: message || "" };
+    const { phone, email, name, companyType, projectType, platform, features, budget, timeline, partial, message, source } = body;
+    const data = { phone, email, name: name || "Unknown", companyType: companyType || "Not specified", projectType: projectType || "Not yet selected", platform: platform || "Not yet selected", features: features || [], budget: budget || "Not yet selected", timeline: timeline || "Not yet selected", partial: !!partial, message: message || "", source: source || "" };
     const pre = partial ? "Lead: " : "Quote: ";
     const subject = `${pre}${data.name} | ${data.phone}${!partial ? " | " + (data.projectType || "Project") : ""}`;
     await resend.emails.send({ from: "mTouch Labs <onboarding@resend.dev>", replyTo: email || undefined, to: TO, subject, html: buildHtml(data), text: buildText(data) });
@@ -101,7 +101,7 @@ export async function POST(req: Request) {
         countryCode: countryCode,
         phone: phoneNumber,
         requirement: [
-          "Source: Request Quote (Navbar/Wizard)",
+          `Source: ${data.source || "Request Quote (Navbar/Wizard)"}`,
           data.projectType !== "Not yet selected" ? `Service: ${data.projectType}` : "",
           data.budget !== "Not yet selected" ? `Budget: ${data.budget}` : "",
           data.message ? `Message: ${data.message}` : "",

@@ -99,6 +99,7 @@ export default function QuoteModal() {
                         <option>Digital Marketing</option>
                         <option>Cloud &amp; DevOps</option>
                         <option>Data &amp; Infrastructure</option>
+                        <option>Others</option>
                       </select>
                     </div>
                     <div className="rq-field-error" data-error-for="service"></div>
@@ -679,6 +680,7 @@ select[name="service"] {
               budget: (fd.get('budget')||'Not specified').toString(),
               timeline: 'Not specified',
               message: message,
+              source: 'Website Request Quotes',
               partial: false
             };
 

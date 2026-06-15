@@ -52,151 +52,21 @@ const COUNTRY_OPTIONS: readonly CountryOption[] = [
   { code: "+64", flag: "🇳🇿", label: "New Zealand", minLen: 8, maxLen: 10 },
 ] as const;
 
-/* Full catalog of services offered by mTouch Labs (grouped for clarity) */
-const SERVICES: readonly { group: string; items: readonly string[] }[] = [
-
-  // <option value="">Select Service</option>
-  //                     <option>Mobile App Development</option>
-  //                     <option>Web Application Development</option>
-  //                     <option>AI &amp; Automation</option>
-  //                     <option>Enterprise Software</option>
-  //                     <option>E-commerce Development</option>
-  //                     <option>UI/UX Design</option>
-  //                     <option>Salesforce Solutions</option>
-  //                     <option>Digital Marketing</option>
-  //                     <option>Cloud &amp; DevOps</option>
-  //                     <option>Data &amp; Infrastructure</option>
-  //                   </select>
-
-
-
-
-
-  {
-    group: "Mobile App Development",
-    items: [
-      "Mobile App Development",
-      "iOS App Development",
-      "Android App Development",
-      "Flutter App Development",
-      "React Native App Development",
-      "Hybrid App Development",
-      "Cross-Platform App Development",
-      "iPad App Development",
-      "Progressive Web App (PWA) Development",
-      "Native App Development",
-    ],
-  },
-  {
-    group: "Web Application Development",
-    items: [
-      "Web Development",
-      "Web Application Development",
-      "Custom Software Development",
-      "Enterprise Application Development",
-      "SaaS Development",
-      "WordPress Development",
-      "Shopify Development",
-      "Magento Development",
-      "PHP Development",
-      "Custom CMS Development",
-      "E-commerce Development",
-    ],
-  },
-  {
-    group: "AI & Automation",
-    items: [
-      "AI Development",
-      "Generative AI Development",
-      "Machine Learning Development",
-      "IoT Development",
-      "Blockchain Development",
-    ],
-  },
-  {
-    group: "Design & UX",
-    items: [
-      "UI/UX Design",
-      "Product Design",
-      "Mobile App Design",
-      "Design System Development",
-      "360-Degree Photography",
-    ],
-  },
-  {
-    group: "Cloud & DevOps",
-    items: [
-      "Cloud Services",
-      "AWS Cloud Services",
-      "Cloud Migration Services",
-      "Cloud Managed Services",
-      "Cloud Security Services",
-      "DevOps Consulting Services",
-    ],
-  },
-  {
-    group: "Salesforce",
-    items: [
-      "Salesforce Consulting",
-      "Salesforce Implementation",
-      "Salesforce Integration",
-      "Salesforce Sales Cloud",
-      "Salesforce Lightning Migration",
-      "Custom CRM Development",
-    ],
-  },
-  {
-    group: "Digital Marketing",
-    items: [
-      "Digital Marketing",
-      "SEO Services",
-      "Content Marketing",
-      "Social Media Marketing",
-      "Email Marketing",
-      "PPC Advertising",
-      "Performance Marketing",
-      "App Store Optimization (ASO)",
-      "Conversion Rate Optimization (CRO)",
-    ],
-  },
-  {
-    group: "Quality & Security",
-    items: [
-      "Quality Assurance & Testing",
-      "Cyber Security Services",
-      "App Maintenance & Support",
-    ],
-  },
-  {
-    group: "Data and Infrastructure",
-    items: [
-      "E-commerce App Development",
-      "Food Delivery App Development",
-      "Grocery Delivery App Development",
-      "On-Demand App Development",
-      "Real Estate App Development",
-      "Hotel Booking App Development",
-      "Tickets Booking App Development",
-      "Gaming App Development",
-      "OTT App Development",
-      "E-learning App Development",
-      "Social Media App Development",
-      "Diagnostic / Healthcare App",
-      "Chef / Restaurant Management App",
-      "Car Wash App Development",
-      "Milk Delivery App Development",
-      "Sports & Fitness App Development",
-    ],
-  },
-  {
-    group: "Custom Software Services",
-    items: ["IT Services & Digital Transformation", "Other / Not Sure Yet"],
-  },
-  {
-    group: "Other",
-    items: ["IT Services & Digital Transformation", "Other / Not Sure Yet"],
-  },
-  
+/* Canonical service list — kept identical across the contact-us,
+   request-quote (QuoteModal) and request-free-quote forms so every form
+   offers the exact same options. */
+const SERVICE_OPTIONS: readonly string[] = [
+  "Mobile App Development",
+  "Web Application Development",
+  "AI & Automation",
+  "Enterprise Software",
+  "E-commerce Development",
+  "UI/UX Design",
+  "Salesforce Solutions",
+  "Digital Marketing",
+  "Cloud & DevOps",
+  "Data & Infrastructure",
+  "Others",
 ] as const;
 
 const STATS = [
@@ -732,7 +602,7 @@ export function FreeRequestQuoteClient() {
           mobile: mobile.replace(/\D/g, ""),
           service,
           message: message.trim(),
-          source: "request-free-quote-page",
+          source: "Website Request Quotes Free",
           page: typeof window !== "undefined" ? window.location.href : "",
           "cf-turnstile-response": captchaToken,
         };
@@ -952,9 +822,9 @@ export function FreeRequestQuoteClient() {
                   required
                 >
                   <option value="">Select Service Interested</option>
-                  {SERVICES.map((group) => (
-                    <option key={group.group} value={group.group}>
-                      {group.group}
+                  {SERVICE_OPTIONS.map((name) => (
+                    <option key={name} value={name}>
+                      {name}
                     </option>
                   ))}
                 </select>

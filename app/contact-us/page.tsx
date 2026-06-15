@@ -694,7 +694,7 @@ const contactPageSchema = { "@context": "https://schema.org", "@type": "ContactP
 
 const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: [{ "@type": "Question", name: "How soon can we begin an enterprise software project with mTouch Labs?", acceptedAnswer: { "@type": "Answer", text: "Once you submit your request, our solution architects schedule a discovery call within 24-48 hours." } },{ "@type": "Question", name: "Does mTouch Labs work with global enterprises?", acceptedAnswer: { "@type": "Answer", text: "Yes. mTouch Labs collaborates with clients across the USA, Europe, the Middle East, and APAC regions." } }] };
 
-const servicesOptions = ["Enterprise Software Development","SaaS Product Development","Mobile App Development","Cloud & DevOps Engineering","AI & Automation Solutions","UI/UX & Product Design","Legacy System Modernization","Web Application Development","Digital Marketing","Job Enquiry"];
+const servicesOptions = ["Mobile App Development","Web Application Development","AI & Automation","Enterprise Software","E-commerce Development","UI/UX Design","Salesforce Solutions","Digital Marketing","Cloud & DevOps","Data & Infrastructure","Others"];
 
 const offices = [
   {

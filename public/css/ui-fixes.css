@@ -885,20 +885,24 @@ select,
 .ct-form__phone-row,
 .rq-phone-row {
   display: flex !important;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 8px;
   width: 100%;
 }
 .ct-form__phone-row select,
 .ct-form__country-code,
 .rq-phone-row select {
-  flex: 0 0 auto;
-  min-width: 90px;
-  max-width: 130px;
+  /* Narrow: only wide enough for the flag + dialing code (e.g. "🇦🇪 +971"). */
+  flex: 0 0 78px !important;
+  width: 78px !important;
+  min-width: 78px !important;
+  max-width: 78px !important;
 }
 .ct-form__phone-row input,
 .rq-phone-row input {
-  flex: 1 1 auto;
+  /* Long: takes all remaining width on the line. */
+  flex: 1 1 auto !important;
+  width: auto !important;
   min-width: 0;
 }
 .dropdown,
