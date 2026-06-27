@@ -1091,6 +1091,18 @@ export default async function BlogPostPage({
     : '';
 
   const isoDate = displayDate ? new Date(displayDate).toISOString().split('T')[0] : '';
+
+  // ⭐ "Last updated on" — shown only when the post was meaningfully edited
+  //    (>1h) after it was published. Pulled live from the DB `updated_at`
+  //    column, so it stays accurate with no static/hardcoded dates.
+  const publishedMs = displayDate ? new Date(displayDate).getTime() : 0;
+  const updatedMs = blog.updated_at ? new Date(blog.updated_at).getTime() : 0;
+  const wasUpdated = updatedMs > 0 && publishedMs > 0 && (updatedMs - publishedMs) > 60 * 60 * 1000;
+  const updatedDate = wasUpdated
+    ? new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' }).format(new Date(blog.updated_at))
+    : '';
+  const updatedIso = wasUpdated ? new Date(blog.updated_at).toISOString().split('T')[0] : '';
+
   const readingTime = Number(blog.reading_time) || 0;
   const faqItems: { question: string; answer: string }[] = Array.isArray(blog.faq_schema) ? blog.faq_schema : [];
   const authorName = blog.author || 'mTouch Labs';
@@ -1214,6 +1226,12 @@ export default async function BlogPostPage({
               <span className="blv3-meta-item">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
                 <time dateTime={isoDate}>{publishedDate}</time>
+              </span>
+            )}
+            {wasUpdated && (
+              <span className="blv3-meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="23 4 23 10 17 10" /><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" /></svg>
+                <span>Last updated on <time dateTime={updatedIso}>{updatedDate}</time></span>
               </span>
             )}
             {readingTime > 0 && (

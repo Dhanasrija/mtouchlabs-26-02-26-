@@ -110,11 +110,16 @@ export default async function BlogPage() {
                 const ONE_HOUR = 60 * 60 * 1000;
                 const wasUpdated = updatedMs > 0 && publishedMs > 0 && (updatedMs - publishedMs) > ONE_HOUR;
                 const dateSource = wasUpdated ? updatedAt : publishedAt;
-                const datePlain = dateSource
-                  ? new Date(dateSource).toISOString().split("T")[0]
+                const datePretty = dateSource
+                  ? new Intl.DateTimeFormat("en-US", {
+                      month: "long",
+                      day: "numeric",
+                      year: "numeric",
+                      timeZone: "UTC",
+                    }).format(new Date(dateSource))
                   : "";
-                const dateStr = datePlain
-                  ? (wasUpdated ? `Last Updated: ${datePlain}` : datePlain)
+                const dateStr = datePretty
+                  ? (wasUpdated ? `Last updated on ${datePretty}` : datePretty)
                   : "";
                 const readTime = Number(blog.reading_time) || 0;
                 const desc = blog.description
@@ -136,6 +141,10 @@ export default async function BlogPage() {
                             src={blog.image || "/images/Light.png"}
                             alt={blog.title}
                             className="fill-fixed"
+                            loading="lazy"
+                            decoding="async"
+                            width={400}
+                            height={210}
                           />
                         </Link>
                       </div>

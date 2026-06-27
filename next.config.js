@@ -21,7 +21,21 @@ const nextConfig = {
   },
 
   async headers() {
+    // On Vercel, VERCEL_ENV is 'production' for the live domain and
+    // 'preview' for *.vercel.app preview deployments. We noindex EVERYTHING
+    // on non-production deployments so preview URLs never get indexed.
+    const isProd = process.env.VERCEL_ENV === 'production';
+    const previewNoindex = isProd
+      ? []
+      : [
+          {
+            source: '/:path*',
+            headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
+          },
+        ];
+
     return [
+      ...previewNoindex,
       {
         source: '/:path*',
         headers: [
@@ -37,6 +51,44 @@ const nextConfig = {
         source: '/:all*(svg|jpg|jpeg|png|webp|avif|gif|ico|woff|woff2|ttf|otf|css|js)',
         headers: [
           { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+        ],
+      },
+      // ===========================
+      // SEO: keep static assets out of the search index.
+      // X-Robots-Tag: noindex stops CSS / JS / font URLs (including the
+      // ?dpl=… build-hashed variants under /_next/static) from being indexed,
+      // while STILL allowing Googlebot to crawl them so pages render correctly.
+      // (We deliberately do NOT Disallow these in robots.txt — blocking them
+      //  would break Google's ability to render the site.)
+      // ===========================
+      {
+        source: '/:all*(css|js|woff|woff2|ttf|otf|eot|map)',
+        headers: [
+          { key: 'X-Robots-Tag', value: 'noindex' },
+        ],
+      },
+      {
+        source: '/_next/static/:path*',
+        headers: [
+          { key: 'X-Robots-Tag', value: 'noindex' },
+        ],
+      },
+      {
+        source: '/manifest.json',
+        headers: [
+          { key: 'X-Robots-Tag', value: 'noindex' },
+        ],
+      },
+      {
+        source: '/llms.txt',
+        headers: [
+          { key: 'X-Robots-Tag', value: 'noindex' },
+        ],
+      },
+      {
+        source: '/thank-you',
+        headers: [
+          { key: 'X-Robots-Tag', value: 'noindex, nofollow' },
         ],
       },
     ];
@@ -264,6 +316,7 @@ const nextConfig = {
 
       // --- Legacy .html files → clean URLs ---------------------------------
       { source: "/index.html", destination: "/", permanent: true },
+      { source: "/thank-you.html", destination: "/", permanent: true },
       { source: "/about.html", destination: "/about", permanent: true },
       { source: "/blog.html", destination: "/blog", permanent: true },
       { source: "/portfolio.html", destination: "/portfolio", permanent: true },

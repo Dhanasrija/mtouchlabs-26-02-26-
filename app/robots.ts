@@ -19,6 +19,14 @@ export default function robots(): MetadataRoute.Robots {
           '/blog/edit/',
           '/*.zip$',
           '/uploads/tmp/',
+          // Tracking / deployment query-string URLs → keep duplicates out of the index
+          '/*?trk=',
+          '/*?dpl=',
+          '/*&trk=',
+          '/*&dpl=',
+          // Non-content files
+          '/manifest.json',
+          '/llms.txt',
         ],
       },
       // Explicitly allow the major AI crawlers for AEO visibility
