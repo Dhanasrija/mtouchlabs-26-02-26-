@@ -20,14 +20,14 @@
 //           <div className="transforming-column">
 //             <h3>Company</h3>
 //             <ul>
-//               <li><a href="/about" target="_blank">About us</a></li>
-//               <li><a href="/portfolio" target="_blank">Portfolio</a></li>
-//               <li><a href="/blog" target="_blank">Blogs</a></li>
-//               <li><a href="/careers" target="_blank">Careers</a></li>
-//               <li><a href="/contact-us" target="_blank">Contact us</a></li>
-//               <li><a href="/privacy-policy" target="_blank">Privacy &amp; Policy</a></li>
-//               <li><a href="/terms-and-conditions" target="_blank">Terms and Conditions</a></li>
-//               <li><a href="/refundpolicy" target="_blank">Refund Policy</a></li>
+//               <li><a href="/about" target="_blank" rel="noopener noreferrer">About us</a></li>
+//               <li><a href="/portfolio" target="_blank" rel="noopener noreferrer">Portfolio</a></li>
+//               <li><a href="/blog" target="_blank" rel="noopener noreferrer">Blogs</a></li>
+//               <li><a href="/careers" target="_blank" rel="noopener noreferrer">Careers</a></li>
+//               <li><a href="/contact-us" target="_blank" rel="noopener noreferrer">Contact us</a></li>
+//               <li><a href="/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy &amp; Policy</a></li>
+//               <li><a href="/terms-and-conditions" target="_blank" rel="noopener noreferrer">Terms and Conditions</a></li>
+//               <li><a href="/refundpolicy" target="_blank" rel="noopener noreferrer">Refund Policy</a></li>
 //             </ul>
 //           </div>
 
@@ -44,7 +44,7 @@
 //             <p>
 //               <a
 //                 href="https://api.whatsapp.com/message/H5VADFWLMPYIM1?autoload=1&app_absent=0"
-//                 target="_blank"
+//                 target="_blank" rel="noopener noreferrer"
 //               >
 //                 <i className="fab fa-whatsapp" style={{ color: "forestgreen" }}></i>&nbsp;
 //                 9390683154
@@ -97,61 +97,61 @@
 //           </div>
 //           <div className="location-item">
 //             <div className="location-item-div">
-//               <img src="/images/home/india-flag.png" alt="India Flag" />
-//               <a href="/software-development-company-hyderabad" target="_blank">Hyderabad</a>
+//               <img width={32} height={32} loading="lazy" decoding="async" src="/images/home/india-flag.webp" alt="India Flag" />
+//               <a href="/software-development-company-hyderabad" target="_blank" rel="noopener noreferrer">Hyderabad</a>
 //             </div>
 //             <div className="location-item-div">
-//               <img src="/images/home/india-flag.png" alt="India Flag" />
-//               <a href="/software-development-company-bangalore" target="_blank">Bangalore</a>
+//               <img width={32} height={32} loading="lazy" decoding="async" src="/images/home/india-flag.webp" alt="India Flag" />
+//               <a href="/software-development-company-bangalore" target="_blank" rel="noopener noreferrer">Bangalore</a>
 //             </div>
 //             <div className="location-item-div">
-//               <img src="/images/home/india-flag.png" alt="India Flag" />
-//               <a href="/software-development-company-chennai" target="_blank">Chennai</a>
+//               <img width={32} height={32} loading="lazy" decoding="async" src="/images/home/india-flag.webp" alt="India Flag" />
+//               <a href="/software-development-company-chennai" target="_blank" rel="noopener noreferrer">Chennai</a>
 //             </div>
 //           </div>
 
 //           <div className="location-item">
 //             <div className="location-item-div">
-//               <img src="/images/home/india-flag.png" alt="India Flag" />
-//               <a href="/top-mobile-app-development-company-in-coimbatore" target="_blank">Coimbatore</a>
+//               <img width={32} height={32} loading="lazy" decoding="async" src="/images/home/india-flag.webp" alt="India Flag" />
+//               <a href="/top-mobile-app-development-company-in-coimbatore" target="_blank" rel="noopener noreferrer">Coimbatore</a>
 //             </div>
 //             <div className="location-item-div">
-//               <img src="/images/home/india-flag.png" alt="India Flag" />
-//               <a href="/top-mobile-app-development-company-in-kochi" target="_blank">Kochi</a>
+//               <img width={32} height={32} loading="lazy" decoding="async" src="/images/home/india-flag.webp" alt="India Flag" />
+//               <a href="/top-mobile-app-development-company-in-kochi" target="_blank" rel="noopener noreferrer">Kochi</a>
 //             </div>
 //             <div className="location-item-div">
-//               <img src="/images/home/flag-canada.png" alt="Canada Flag" />
-//               <a href="/software-development-company-canada" target="_blank">Canada</a>
+//               <img width={32} height={32} loading="lazy" decoding="async" src="/images/home/flag-canada.webp" alt="Canada Flag" />
+//               <a href="/software-development-company-canada" target="_blank" rel="noopener noreferrer">Canada</a>
 //             </div>
 //           </div>
 
 //           <div style={{ marginTop: "1rem" }} className="location-item">
 //             <div className="location-item-div">
-//               <img src="/images/home/flag-usa.png" alt="USA Flag" />
-//               <a href="/software-development-company-usa" target="_blank">USA</a>
+//               <img width={28} height={19} loading="lazy" decoding="async" src="/images/home/flag-usa.webp" alt="USA Flag" />
+//               <a href="/software-development-company-usa" target="_blank" rel="noopener noreferrer">USA</a>
 //             </div>
 //             <div className="location-item-div">
-//               <img src="/images/home/flag-australia.png" alt="Australia Flag" />
-//               <a href="/software-development-company-australia" target="_blank">Australia</a>
+//               <img width={32} height={32} loading="lazy" decoding="async" src="/images/home/flag-australia.webp" alt="Australia Flag" />
+//               <a href="/software-development-company-australia" target="_blank" rel="noopener noreferrer">Australia</a>
 //             </div>
 //             <div style={{ marginTop: "0.3rem" }} className="location-item-div">
-//               <img src="/images/home/flag-qatar.png" alt="Qatar Flag" />
-//               <a href="/software-development-company-qatar" target="_blank">Qatar</a>
+//               <img width={32} height={32} loading="lazy" decoding="async" src="/images/home/flag-qatar.webp" alt="Qatar Flag" />
+//               <a href="/software-development-company-qatar" target="_blank" rel="noopener noreferrer">Qatar</a>
 //             </div>
 //           </div>
 
 //           <div className="location-item" style={{ marginTop: "1.2rem" }}>
 //             <div className="location-item-div">
-//               <img src="/images/home/flag-dubai.png" alt="Dubai Flag" />
-//               <a href="/top-mobile-app-development-company-in-dubai" target="_blank">Dubai</a>
+//               <img width={34} height={19} loading="lazy" decoding="async" src="/images/home/flag-dubai.webp" alt="Dubai Flag" />
+//               <a href="/top-mobile-app-development-company-in-dubai" target="_blank" rel="noopener noreferrer">Dubai</a>
 //             </div>
 //             <div className="location-item-div" style={{ marginTop: "0.3rem" }}>
-//               <img src="/images/home/flag-uk.png" alt="UK Flag" />
-//               <a href="/top-mobile-app-development-company-in-uk" target="_blank">UK</a>
+//               <img width={35} height={18} loading="lazy" decoding="async" src="/images/home/flag-uk.webp" alt="UK Flag" />
+//               <a href="/top-mobile-app-development-company-in-uk" target="_blank" rel="noopener noreferrer">UK</a>
 //             </div>
 //             <div style={{ paddingTop: "1.3rem" }} className="location-item-div">
-//               <img src="/images/home/kuait.png" alt="Kuwait Flag" />
-//               <a href="/top-mobile-app-development-company-in-kuwait" target="_blank">Kuwait</a>
+//               <img width={35} height={19} loading="lazy" decoding="async" src="/images/home/kuait.webp" alt="Kuwait Flag" />
+//               <a href="/top-mobile-app-development-company-in-kuwait" target="_blank" rel="noopener noreferrer">Kuwait</a>
 //             </div>
 //           </div>
 //         </div>
@@ -161,12 +161,12 @@
 //       <div className="transforming-certificates">
 //         <div className="transforming-certificates-one">
 //           <div className="transforming-certificates-img">
-//             <img src="/images/home/iso.png" alt="mTouch Labs" className="img" />
+//             <img width={80} height={73} loading="lazy" decoding="async" src="/images/home/iso.webp" alt="mTouch Labs" className="img" />
 //             <a
-//               target="_blank"
+//               target="_blank" rel="noopener noreferrer"
 //               href="https://www.google.com/maps/place/mTouch+Labs+Pvt+Ltd+-+Software+Development+Company/@17.4892271,78.3901496,17z/data=!4m8!3m7!1s0x3bcb90cec63e97d9:0xb045c9dc22129055!8m2!3d17.489222!4d78.3927245!9m1!1b1!16s%2Fg%2F11b8zhlwcv?authuser=0&entry=ttu&g_ep=EgoyMDI1MDQwMi4xIKXMDSoASAFQAw%3D%3D"
 //             >
-//               <img src="/images/home/reviews.png" alt="mTouch Labs" className="img" />
+//               <img width={411} height={192} loading="lazy" decoding="async" src="/images/home/reviews.webp" alt="mTouch Labs" className="img" />
 //             </a>
 //           </div>
 //           <span className="transforming-certificates-one-span">
@@ -182,34 +182,34 @@
 
 //         <div className="transforming-certificates-icons">
 //           <a href="#">
-//             <img src="/images/logo-white.svg" alt="mTouch Labs" className="img" />
+//             <img width={276} height={61} loading="lazy" decoding="async" src="/images/logo-white.svg" alt="mTouch Labs" className="img" />
 //           </a>
 //         </div>
 
 //         <div className="transforming-certificates-icons">
 //           <ul className="footer-links-list social-linkz" style={{ display: "flex" }}>
 //             <li>
-//               <a href="https://www.facebook.com/MTouchLabs/" target="_blank">
+//               <a href="https://www.facebook.com/MTouchLabs/" target="_blank" rel="noopener noreferrer">
 //                 <span><i className="fab fa-facebook-f"></i></span>
 //               </a>
 //             </li>
 //             <li>
-//               <a href="https://twitter.com/mtouchlabs" target="_blank">
+//               <a href="https://twitter.com/mtouchlabs" target="_blank" rel="noopener noreferrer">
 //                 <span><i className="fa-brands fa-x-twitter"></i></span>
 //               </a>
 //             </li>
 //             <li>
-//               <a href="https://www.instagram.com/mtouch_labs/" target="_blank">
+//               <a href="https://www.instagram.com/mtouch_labs/" target="_blank" rel="noopener noreferrer">
 //                 <span><i className="fab fa-instagram"></i></span>
 //               </a>
 //             </li>
 //             <li>
-//               <a href="https://www.linkedin.com/company/mtouchlabs/" target="_blank">
+//               <a href="https://www.linkedin.com/company/mtouchlabs/" target="_blank" rel="noopener noreferrer">
 //                 <span><i className="fab fa-linkedin-in"></i></span>
 //               </a>
 //             </li>
 //             <li>
-//               <a href="https://www.youtube.com/@mtouchlabs" target="_blank">
+//               <a href="https://www.youtube.com/@mtouchlabs" target="_blank" rel="noopener noreferrer">
 //                 <span><i className="fab fa-youtube"></i></span>
 //               </a>
 //             </li>
@@ -221,6 +221,8 @@
 // }
 
 
+import ObfuscatedEmail from "@/components/ObfuscatedEmail";
+
 export default function Footer() {
   return (
     <footer className="ft">
@@ -231,7 +233,7 @@ export default function Footer() {
             {/* Col 1: Brand */}
             <div className="ft-brand-col">
               <div className="ft-logo">
-                <img src="/images/logo-black.svg" alt="mTouch Labs" className="ft-logo-img" />
+                <img width={1854} height={374} loading="lazy" decoding="async" src="/images/logo-black.svg" alt="mTouch Labs" className="ft-logo-img" />
               </div>
               <div className="ft-logo-line" />
               <p className="ft-brand-desc">
@@ -239,10 +241,10 @@ export default function Footer() {
                 solutions that accelerate business transformation across industries.
               </p>
               <div className="ft-contact-info">
-                <a href="mailto:contact@mtouchlabs.com" className="ft-contact-link">
+                <ObfuscatedEmail user="contact" domain="mtouchlabs.com" className="ft-contact-link" ariaLabel="Email mTouch Labs">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
-                  contact@mtouchlabs.com
-                </a>
+                  <span className="ft-email-text">contact [at] mtouchlabs [dot] com</span>
+                </ObfuscatedEmail>
                 <a href="tel:+919390683154" className="ft-contact-link">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
                   +91 9390683154
@@ -253,11 +255,11 @@ export default function Footer() {
                 </a>
               </div>
               <div className="ft-socials">
-                <a href="https://www.linkedin.com/company/mtouchlabs/" target="_blank" rel="noopener noreferrer" className="ft-social-icon" aria-label="LinkedIn"><img src="/images/footer/SVG (13).png" alt="LinkedIn" width="18" height="18" /></a>
-                <a href="https://twitter.com/mtouchlabs" target="_blank" rel="noopener noreferrer" className="ft-social-icon" aria-label="Twitter"><img src="/images/footer/SVG (14).png" alt="Twitter" width="18" height="18" /></a>
-                <a href="https://www.facebook.com/MTouchLabs/" target="_blank" rel="noopener noreferrer" className="ft-social-icon" aria-label="Facebook"><img src="/images/footer/SVG (15).png" alt="Facebook" width="18" height="18" /></a>
-                <a href="https://www.instagram.com/mtouch_labs/" target="_blank" rel="noopener noreferrer" className="ft-social-icon" aria-label="Instagram"><img src="/images/footer/SVG (16).png" alt="Instagram" width="18" height="18" /></a>
-                <a href="https://www.youtube.com/@mtouchlabs" target="_blank" rel="noopener noreferrer" className="ft-social-icon" aria-label="YouTube"><img src="/images/footer/SVG (17).png" alt="YouTube" width="18" height="18" /></a>
+                <a href="https://www.linkedin.com/company/mtouchlabs/" target="_blank" rel="noopener noreferrer" className="ft-social-icon" aria-label="LinkedIn"><img loading="lazy" decoding="async" src="/images/footer/SVG (13).png" alt="LinkedIn" width="18" height="18" /></a>
+                <a href="https://twitter.com/mtouchlabs" target="_blank" rel="noopener noreferrer" className="ft-social-icon" aria-label="Twitter"><img loading="lazy" decoding="async" src="/images/footer/SVG (14).png" alt="Twitter" width="18" height="18" /></a>
+                <a href="https://www.facebook.com/MTouchLabs/" target="_blank" rel="noopener noreferrer" className="ft-social-icon" aria-label="Facebook"><img loading="lazy" decoding="async" src="/images/footer/SVG (15).png" alt="Facebook" width="18" height="18" /></a>
+                <a href="https://www.instagram.com/mtouch_labs/" target="_blank" rel="noopener noreferrer" className="ft-social-icon" aria-label="Instagram"><img loading="lazy" decoding="async" src="/images/footer/SVG (16).png" alt="Instagram" width="18" height="18" /></a>
+                <a href="https://www.youtube.com/@mtouchlabs" target="_blank" rel="noopener noreferrer" className="ft-social-icon" aria-label="YouTube"><img loading="lazy" decoding="async" src="/images/footer/SVG (17).png" alt="YouTube" width="18" height="18" /></a>
               </div>
             </div>
 

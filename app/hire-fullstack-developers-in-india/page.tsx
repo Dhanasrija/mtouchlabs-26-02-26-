@@ -13,13 +13,13 @@
 //     url: "https://www.mtouchlabs.com/hire-fullstack-developers-in-india",
 //     siteName: "mTouch Labs",
 //     type: "website",
-//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire Fullstack Developers in India" }],
+//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Hire Fullstack Developers in India" }],
 //   },
 //   twitter: {
 //     card: "summary_large_image",
 //     title: "Hire Fullstack Developers in India",
 //     description: "Hire fullstack developers in India from mTouch Labs to build robust, scalable web and mobile applications using modern frontend and backend technologies.",
-//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
 //   },
 // };
 
@@ -56,7 +56,7 @@
 // 					</div>
 // 				</div>
 // 				<div className="col-lg-6">
-// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img
+// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img width={690} height={350} loading="lazy" decoding="async"
 // 							src="/images/others/Hire-Our-Dedicated-full-stack-Developers.svg" alt="mTouch Labs"
 // 							className="img-fluid" /></div>
 // 				</div>
@@ -84,10 +84,10 @@
 // 							<p>Our Dedicated Full Stack Developers have comprehensive knowledge about the latest
 // 								technologies including <a
 // 									href="https://www.mtouchlabs.com/hire-mean-stack-developers-in-india"
-// 									target="_blank">MEAN stack</a>, front end, back end, UI, server infrastructure. Our
+// 									target="_blank" rel="noopener noreferrer">MEAN stack</a>, front end, back end, UI, server infrastructure. Our
 // 								proficient team of dedicated Full Stack Programmers is competent to work out the entire
 // 								<a href="https://www.mtouchlabs.com/guide-to-create-an-on-demand-mobile-app-development"
-// 									target="_blank">web or mobile development</a> process based on the requirements of
+// 									target="_blank" rel="noopener noreferrer">web or mobile development</a> process based on the requirements of
 // 								the esteemed clientele.
 // 							</p>
 							 
@@ -105,7 +105,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img src="/images/cta/Hire-Full-Stack-Programmers-From-mTouchlabs.svg"
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Hire-Full-Stack-Programmers-From-mTouchlabs.svg"
 // 								alt="fullstack Developers" className="img-fluid" /> </div>
 // 					</div>
 // 				</div>
@@ -117,7 +117,7 @@
 // 				<div className="row">
 
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img src="/images/cta/Hire-full-stack-developers-from-us.svg"
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Hire-full-stack-developers-from-us.svg"
 // 								alt="fullstack web Developers" className="img-fluid" /></div>
 // 					</div>
 
@@ -136,7 +136,7 @@
 // 								Returns on Investments. Hire full Stack Java Developers and Full Stack Python Developers
 // 								from us having experience with different <a
 // 									href="https://www.mtouchlabs.com/navigating-future-custom-software-development-2025"
-// 									target="_blank">software development</a> stages, servers, APIs,
+// 									target="_blank" rel="noopener noreferrer">software development</a> stages, servers, APIs,
 // 								MVC, databases, hosting environments, and more. Our years of experience and ability ,
 // 								combined with industry experience, gives us a sharper edge in the technology domain.
 // 							</p>
@@ -184,7 +184,7 @@
 // 			<div className="row mt30">
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Pay-only-for-the-measurable-work.svg"
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Pay-only-for-the-measurable-work.svg"
 // 								alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Pay only for the measurable work </h3>
@@ -195,7 +195,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Build-your-team.svg" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Build-your-team.svg" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Build your Team</h3>
 // 							<p>Hire full stack developers after thoroughly interviewing them to get the best available
@@ -206,7 +206,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Out-of-the-box-Solutions.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Out-of-the-box-Solutions.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Out-of-the-box Solutions</h3>
@@ -219,7 +219,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/First-time-right.svg" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/First-time-right.svg" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">First time Right</h3>
 // 							<p>We are obsessed with quality & security and customer satisfaction is our priority, we
@@ -230,7 +230,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Complete-In-house-developers.svg"
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Complete-In-house-developers.svg"
 // 								alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Complete In-house developers</h3>
@@ -242,7 +242,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Guaranteed-Results-hire-fullstack.svg"
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Guaranteed-Results-hire-fullstack.svg"
 // 								alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Guaranteed Results</h3>
@@ -287,7 +287,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
-// 						<div className="sol-img-png"> <img
+// 						<div className="sol-img-png"> <img width={690} height={350} loading="lazy" decoding="async"
 // 								src="/images/cta/Work-With-Experienced-And-Dedicated-Full-Stack-Engineers.svg"
 // 								alt="hire fullstack developers" className="img-fluid" /> </div>
 // 					</div>
@@ -322,7 +322,7 @@
 // 								to chat.</h3>
 // 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 // 									className="fas fa-user fb-bigon"></i> Contact </a>
-// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
+// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer"
 // 								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
 // 								Whatsapp </a>
 
@@ -330,7 +330,7 @@
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
 // 						<div className="sol-img-png">
-// 							<img src="/images/cta/let's-get-to-chat-hire-fullstack.svg" alt="working with client"
+// 							<img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/let's-get-to-chat-hire-fullstack.svg" alt="working with client"
 // 								className="img-fluid" />
 // 						</div>
 // 					</div>

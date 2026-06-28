@@ -14,13 +14,13 @@ export const metadata: Metadata = {
     url: "https://www.mtouchlabs.com/shopify-development-company-in-india",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Shopify Development Company India" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Shopify Development Company India" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Shopify Development Company India",
     description: "mTouch Labs, a top Shopify development company, offers Shopify website services, integrations, support & maintenance in India.",
-    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
   },
 };
 
@@ -72,7 +72,7 @@ export default function Page() {
 					business goals, optimized for performance, scalability, and user experience.
 				</p>
 			</div>
-			<a href="/contact-us" target="_blank"><button className="AIservices-btn">Let's Discuss</button></a></div>
+			<a href="/contact-us" target="_blank" rel="noopener noreferrer"><button className="AIservices-btn">Let's Discuss</button></a></div>
 		<div className="AIservices-info-card">
 			<div className="AIservices-info-card-height">
 				<h2>End-to-End Shopify Expertise</h2>
@@ -81,7 +81,7 @@ export default function Page() {
 					and ongoing support, our certified Shopify developers handle it all.
 				</p>
 			</div>
-			<a href="/contact-us" target="_blank"><button className="AIservices-btn">Book a Free Consultation</button></a></div>
+			<a href="/contact-us" target="_blank" rel="noopener noreferrer"><button className="AIservices-btn">Book a Free Consultation</button></a></div>
 	</section>
 
 	
@@ -102,7 +102,7 @@ export default function Page() {
 					</p>
 				</div>
 				<div className="AIservices-process-image1">
-					<img src="/images/new_services/planning.png" alt="Discovery" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/images/new_services/planning.webp" alt="Discovery" />
 				</div>
 			</div>
 
@@ -116,7 +116,7 @@ export default function Page() {
 					</p>
 				</div>
 				<div className="AIservices-process-image">
-					<img src="/images/new_services/post-launch.png" alt="Design" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/images/new_services/post-launch.webp" alt="Design" />
 				</div>
 			</div>
 
@@ -131,7 +131,7 @@ export default function Page() {
 					</p>
 				</div>
 				<div className="AIservices-process-image1">
-					<img src="/images/new_services/development.png" alt="Development" />
+					<img width={432} height={245} loading="lazy" decoding="async" src="/images/new_services/development.webp" alt="Development" />
 				</div>
 			</div>
 
@@ -145,7 +145,7 @@ export default function Page() {
 					</p>
 				</div>
 				<div className="AIservices-process-image">
-					<img src="/images/new_services/ui-ux.png" alt="Migration" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/images/new_services/ui-ux.webp" alt="Migration" />
 				</div>
 			</div>
 
@@ -159,7 +159,7 @@ export default function Page() {
 					</p>
 				</div>
 				<div className="AIservices-process-image1">
-					<img src="/images/new_services/testing.png" alt="Testing" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/images/new_services/testing.webp" alt="Testing" />
 				</div>
 			</div>
 
@@ -173,7 +173,7 @@ export default function Page() {
 					</p>
 				</div>
 				<div className="AIservices-process-image">
-					<img src="/images/new_services/launch.png" alt="Launch" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/images/new_services/launch.webp" alt="Launch" />
 				</div>
 			</div>
 
@@ -187,7 +187,7 @@ export default function Page() {
 					</p>
 				</div>
 				<div className="AIservices-process-image1">
-					<img src="/images/new_services/post-launch.png" alt="Support" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/images/new_services/post-launch.webp" alt="Support" />
 				</div>
 			</div>
 		</div>
@@ -202,12 +202,12 @@ export default function Page() {
 				<div className="Aiservices-testimonial-content">
 					<div className="Aiservices-company-logo-container">
 						<div className="Aiservices-company-logo-div">
-							<img src="/images/home/tech/agrigain.png" alt="StyleVerse Logo" />
+							<img width={300} height={141} loading="lazy" decoding="async" src="/images/home/tech/agrigain.webp" alt="StyleVerse Logo" />
 						</div>
 					</div>
 					<div className="Aiservices-testimonial-text">
 						<div className="Aiservices-rating">
-							<img src="/images/new_services/doublequotes.png" className="doublequotes_img" alt="Quote" />
+							<img width={61} height={61} loading="lazy" decoding="async" src="/images/new_services/doublequotes.webp" className="doublequotes_img" alt="Quote" />
 						</div>
 						<p className="Aiservices-testimonial-quote">
 
@@ -219,7 +219,7 @@ export default function Page() {
 							<span style={{color: "blue"}}> - Priya Mehta,</span>
 						</p>
 						<div className="Aiservices-testimonial-author">
-							<span><a href="/shopify-case-study-styleverse" target="_blank">Explore</a></span>
+							<span><a href="/shopify-case-study-styleverse" target="_blank" rel="noopener noreferrer">Explore</a></span>
 						</div>
 					</div>
 				</div>
@@ -417,7 +417,7 @@ export default function Page() {
 								Let's get to chat.</h3>
 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 									className="fas fa-user fb-bigon"></i> Contact </a>
-							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
+							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer"
 								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
 								Whatsapp </a>
 
@@ -425,7 +425,7 @@ export default function Page() {
 					</div>
 					<div className="col-lg-6 vcenter text-center">
 						<div className="sol-img-png">
-							<img src="/images/cta/Let's-get-to-chat-shopify-company.svg"
+							<img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Let's-get-to-chat-shopify-company.svg"
 								alt="shopify ecommerce development company" className="img-fluid" />
 						</div>
 					</div>

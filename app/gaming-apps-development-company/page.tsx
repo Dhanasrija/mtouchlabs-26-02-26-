@@ -16,23 +16,23 @@ const data: ProductPageData = {
     h1Tail: "in Hyderabad",
     subtitle: "Build immersive mobile games, multiplayer platforms, AR/VR games, and cross-platform gaming apps with high-performance engines and scalable architecture.",
     demoHref: "https://youtu.be/25rSreAPAFk?si=l3QYXZwYqEEFfqIY",
-    leftPhoneImg: "/images/products/gaming/phone1.png",
-    rightPhoneImg: "/images/products/gaming/phone2.png",
+    leftPhoneImg: "/images/products/gaming/phone1.webp",
+    rightPhoneImg: "/images/products/gaming/phone2.webp",
   },
-  featuresBannerImg: "/images/products/gaming/banner1.png",
+  featuresBannerImg: "/images/products/gaming/banner1.webp",
   featuresBannerAlt: "gaming app development company in Hyderabad",
   intro: {
-    img: "/images/products/gaming/phone1.png",
+    img: "/images/products/gaming/phone1.webp",
     label: "Gaming App Experts",
     h3: "Gaming App Development",
     body: [
-      <>mTouch Labs is a NASSCOM award-winning <a href="/mobile-app-development-company" target="_blank">gaming app development company</a> in Hyderabad, helping studios, publishers, and startups launch immersive game titles.</>,
+      <>mTouch Labs is a NASSCOM award-winning <a href="/mobile-app-development-company" target="_blank" rel="noopener noreferrer">gaming app development company</a> in Hyderabad, helping studios, publishers, and startups launch immersive game titles.</>,
 <>We build casual mobile games, multiplayer online games, AR/VR experiences, fantasy sports platforms, and cross-platform gaming apps tailored to your audience.</>    ],
   },
   dividerTitle: "Custom Gaming App Development Services",
-  dividerImg: "/images/products/gaming/service1.png",
+  dividerImg: "/images/products/gaming/service1.webp",
   endToEnd: {
-    img: "/images/products/gaming/phone2.png",
+    img: "/images/products/gaming/phone2.webp",
     label: "End-to-End Solutions",
     h3: "Complete Gaming Platform",
     body: [
@@ -58,11 +58,11 @@ const data: ProductPageData = {
   screens: {
     alt: "Gaming app screen",
     images: [
-      "/images/products/gaming/appscreen1.png",
-      "/images/products/gaming/appscreen2.png",
-      "/images/products/gaming/appscreen3.png",
-      "/images/products/gaming/appscreen4.png"
-      // "/images/products/gaming/appscreen5.png",
+      "/images/products/gaming/appscreen1.webp",
+      "/images/products/gaming/appscreen2.webp",
+      "/images/products/gaming/appscreen3.webp",
+      "/images/products/gaming/appscreen4.webp"
+      // "/images/products/gaming/appscreen5.webp",
     ],
   },
   tabs: {
@@ -97,7 +97,7 @@ const data: ProductPageData = {
     { q: "Do you provide post-launch support?", a: "Yes, we provide ongoing live ops, content updates, and performance optimization." },
   ],
   cta: {
-    img: "/images/products/gaming/servicemain.png",
+    img: "/images/products/gaming/servicemain.webp",
     h2: "Build a Gaming App Players Love",
     body: "Launch an immersive gaming platform that is scalable, engaging, and ready to grow globally.",
   },

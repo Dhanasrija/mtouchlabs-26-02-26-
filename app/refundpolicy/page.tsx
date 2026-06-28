@@ -13,13 +13,13 @@ export const metadata: Metadata = {
     url: "https://www.mtouchlabs.com/refundpolicy",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Privacy Policy" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Privacy Policy" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Privacy Policy",
     description: "We are committed to safeguarding and preserving the privacy of our users. Read our privacy policy page before submitting any confidential data",
-    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
   },
 };
 

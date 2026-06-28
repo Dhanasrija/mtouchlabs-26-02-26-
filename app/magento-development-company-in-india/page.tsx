@@ -14,13 +14,13 @@ export const metadata: Metadata = {
     url: "https://www.mtouchlabs.com/magento-development-company-in-india",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Magento eCommerce Development" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Magento eCommerce Development" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Magento eCommerce Development",
     description: "top Magento eCommerce Development Company India we build secure, scalable, and high-performing Magento stores that deliver seamless shopping experiences and boost online sales.",
-    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
   },
 };
 
@@ -100,7 +100,7 @@ export default function Page() {
 					systems, and seamless customer experiences.
 				</p>
 			</div>
-			<a href="/contact-us" target="_blank"><button className="AIservices-btn">Let’s Discuss</button></a></div>
+			<a href="/contact-us" target="_blank" rel="noopener noreferrer"><button className="AIservices-btn">Let’s Discuss</button></a></div>
 		<div className="AIservices-info-card">
 			<div className="AIservices-info-card-height">
 				<h2>Magento 2 Certified Experts at Work</h2>
@@ -109,7 +109,7 @@ export default function Page() {
 					delivering tailored solutions to fit your business goals.
 				</p>
 			</div>
-			<a href="/contact-us" target="_blank"><button className="AIservices-btn">Book a Consultation</button></a></div>
+			<a href="/contact-us" target="_blank" rel="noopener noreferrer"><button className="AIservices-btn">Book a Consultation</button></a></div>
 	</section>
 
 
@@ -131,7 +131,7 @@ export default function Page() {
 
 				</div>
 				<div className="AIservices-process-image1">
-					<img src="/./images/new_services/post-launch.png" alt="Discovery & Strategy" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/./images/new_services/post-launch.webp" alt="Discovery & Strategy" />
 				</div>
 			</div>
 
@@ -146,7 +146,7 @@ export default function Page() {
 
 				</div>
 				<div className="AIservices-process-image">
-					<img src="/./images/new_services/ui-ux.png" alt="UI/UX Design" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/./images/new_services/ui-ux.webp" alt="UI/UX Design" />
 				</div>
 			</div>
 
@@ -161,7 +161,7 @@ export default function Page() {
 
 				</div>
 				<div className="AIservices-process-image1">
-					<img src="/./images/new_services/development.png" alt="Development" />
+					<img width={432} height={245} loading="lazy" decoding="async" src="/./images/new_services/development.webp" alt="Development" />
 				</div>
 			</div>
 
@@ -176,7 +176,7 @@ export default function Page() {
 
 				</div>
 				<div className="AIservices-process-image">
-					<img src="/./images/new_services/testing.png" alt="Testing & QA" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/./images/new_services/testing.webp" alt="Testing & QA" />
 				</div>
 			</div>
 
@@ -191,7 +191,7 @@ export default function Page() {
 
 				</div>
 				<div className="AIservices-process-image1">
-					<img src="/./images/new_services/launch.png" alt="Go-Live & Deployment" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/./images/new_services/launch.webp" alt="Go-Live & Deployment" />
 				</div>
 			</div>
 
@@ -206,7 +206,7 @@ export default function Page() {
 
 				</div>
 				<div className="AIservices-process-image">
-					<img src="/./images/new_services/post-launch.png" alt="Post-Launch Support" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/./images/new_services/post-launch.webp" alt="Post-Launch Support" />
 				</div>
 			</div>
 		</div>
@@ -221,12 +221,12 @@ export default function Page() {
 				<div className="Aiservices-testimonial-content">
 					<div className="Aiservices-company-logo-container">
 						<div className="Aiservices-company-logo-div">
-							<img src="/images/home/tech/countryclub.png" alt="GearX Logo" />
+							<img width={300} height={140} loading="lazy" decoding="async" src="/images/home/tech/countryclub.webp" alt="GearX Logo" />
 						</div>
 					</div>
 					<div className="Aiservices-testimonial-text">
 						<div className="Aiservices-rating">
-							<img src="/images/new_services/doublequotes.png" className="doublequotes_img" alt="Quote Icon" />
+							<img width={61} height={61} loading="lazy" decoding="async" src="/images/new_services/doublequotes.webp" className="doublequotes_img" alt="Quote Icon" />
 						</div>
 						<p className="Aiservices-testimonial-quote">
 							"We migrated to Magento 2 with zero downtime thanks to mTouch Labs. Their team was
@@ -234,7 +234,7 @@ export default function Page() {
 							—<span style={{color: "blue"}}>Sandeep Rao,</span>
 						</p>
 						<div className="Aiservices-testimonial-author">
-							<span><a href="/gearx-case-study" target="_blank">Read Full Story →</a></span>
+							<span><a href="/gearx-case-study" target="_blank" rel="noopener noreferrer">Read Full Story →</a></span>
 						</div>
 					</div>
 				</div>
@@ -334,7 +334,7 @@ export default function Page() {
 							<h3>Have a <span className="ree-text rt40">project</span> in mind? Let's get to chat.</h3>
 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 									className="fas fa-user fb-bigon"></i> Contact </a>
-							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
+							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer"
 								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
 								Whatsapp </a>
 
@@ -342,7 +342,7 @@ export default function Page() {
 					</div>
 					<div className="col-lg-6 vcenter text-center">
 						<div className="sol-img-png">
-							<img src="/images/cta/Let's-get-to-chat-magento-company.svg"
+							<img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Let's-get-to-chat-magento-company.svg"
 								alt="magento 2 development company in Hyderabad" className="img-fluid" />
 						</div>
 					</div>

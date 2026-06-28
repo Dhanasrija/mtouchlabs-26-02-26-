@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png",
+        url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp",
         width: 1200,
         height: 630,
         alt: "Social Media App Development Company",
@@ -33,27 +33,27 @@ export const metadata: Metadata = {
     title: "Social Media App Development",
     description:
       "Build custom social media apps with real-time messaging, AI recommendations, and scalable infrastructure. mTouch Labs delivers end-to-end social networking solutions.",
-    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
   },
 };
 
 export default function SocialMediaAppDevelopment() {
   const features = [
-    { icon: "/images/products/social/service1.png", label: "User Profiles &\nCustomization" },
-    { icon: "/images/products/social/service2.png", label: "Feed & Content\nSharing" },
-    { icon: "/images/products/social/service3.png", label: "Private\nMessaging" },
-    { icon: "/images/products/social/service4.png", label: "Notifications &\nAlerts" },
+    { icon: "/images/products/social/service1.webp", label: "User Profiles &\nCustomization" },
+    { icon: "/images/products/social/service2.webp", label: "Feed & Content\nSharing" },
+    { icon: "/images/products/social/service3.webp", label: "Private\nMessaging" },
+    { icon: "/images/products/social/service4.webp", label: "Notifications &\nAlerts" },
   ];
 
   const services = [
-    { icon: "/images/products/service1.png", title: "Custom Social Media App", desc: "Solutions for Communities, Influencers & Enterprises", bg: 1 },
-    { icon: "/images/products/social/icon1.png", title: "Social Media App UI/UX", desc: "Captivating & User-Friendly UI/UX Design Solutions", bg: 2 },
-    { icon: "/images/products/social/icon2.png", title: "Real-time Chat & Messaging", desc: "Features for Safe Chat & Multimedia Sharing", bg: 3 },
-    { icon: "/images/products/social/icon3.png", title: "Video & Live Streaming", desc: "Live Streaming & High-Quality Video Sharing Features", bg: 4 },
-    { icon: "/images/products/social/icon7.png", title: "AI Content Recommendation", desc: "Clever Algorithms to Improve User Interaction", bg: 5 },
-    { icon: "/images/products/social/icon4.png", title: "Multi-Platform App", desc: "Apps for Web, iOS, and Android Social Networking", bg: 6 },
-    { icon: "/images/products/social/icon5.png", title: "Social Media API Integration", desc: "Seamless Integration with Twitter, Facebook & Instagram", bg: 7 },
-    { icon: "/images/products/social/icon6.png", title: "Scalable Cloud Hosting", desc: "Stable Backend Development and Safe Data Storage", bg: 8 },
+    { icon: "/images/products/service1.webp", title: "Custom Social Media App", desc: "Solutions for Communities, Influencers & Enterprises", bg: 1 },
+    { icon: "/images/products/social/icon1.webp", title: "Social Media App UI/UX", desc: "Captivating & User-Friendly UI/UX Design Solutions", bg: 2 },
+    { icon: "/images/products/social/icon2.webp", title: "Real-time Chat & Messaging", desc: "Features for Safe Chat & Multimedia Sharing", bg: 3 },
+    { icon: "/images/products/social/icon3.webp", title: "Video & Live Streaming", desc: "Live Streaming & High-Quality Video Sharing Features", bg: 4 },
+    { icon: "/images/products/social/icon7.webp", title: "AI Content Recommendation", desc: "Clever Algorithms to Improve User Interaction", bg: 5 },
+    { icon: "/images/products/social/icon4.webp", title: "Multi-Platform App", desc: "Apps for Web, iOS, and Android Social Networking", bg: 6 },
+    { icon: "/images/products/social/icon5.webp", title: "Social Media API Integration", desc: "Seamless Integration with Twitter, Facebook & Instagram", bg: 7 },
+    { icon: "/images/products/social/icon6.webp", title: "Scalable Cloud Hosting", desc: "Stable Backend Development and Safe Data Storage", bg: 8 },
   ];
 
   // App screens replaced with single SVG
@@ -77,18 +77,18 @@ export default function SocialMediaAppDevelopment() {
   ];
 
   const techStack = [
-    { src: "/images/products/html.png", alt: "HTML5", width: 65 },
-    { src: "/images/products/css.png", alt: "CSS3", width: 45 },
-    { src: "/images/products/js.png", alt: "JavaScript", width: 95 },
-    { src: "/images/products/boot.png", alt: "Bootstrap", width: 95 },
-    { src: "/images/products/php.png", alt: "PHP", width: 95 },
-    { src: "/images/products/laverl.png", alt: "Laravel", width: 95 },
-    { src: "/images/products/flutter.png", alt: "Flutter", width: 95 },
-    { src: "/images/products/firebase.png", alt: "Firebase", width: 95 },
-    { src: "/images/products/MySQL.png", alt: "MySQL", width: 95 },
-    { src: "/images/products/crashlytics.png", alt: "Crashlytics", width: 95 },
-    { src: "/images/products/Google_Analytics.png", alt: "Google Analytics", width: 95 },
-    { src: "/images/products/aws.png", alt: "AWS", width: 95 },
+    { src: "/images/products/html.webp", alt: "HTML5", width: 65 },
+    { src: "/images/products/css.webp", alt: "CSS3", width: 45 },
+    { src: "/images/products/js.webp", alt: "JavaScript", width: 95 },
+    { src: "/images/products/boot.webp", alt: "Bootstrap", width: 95 },
+    { src: "/images/products/php.webp", alt: "PHP", width: 95 },
+    { src: "/images/products/laverl.webp", alt: "Laravel", width: 95 },
+    { src: "/images/products/flutter.webp", alt: "Flutter", width: 95 },
+    { src: "/images/products/firebase.webp", alt: "Firebase", width: 95 },
+    { src: "/images/products/MySQL.webp", alt: "MySQL", width: 95 },
+    { src: "/images/products/crashlytics.webp", alt: "Crashlytics", width: 95 },
+    { src: "/images/products/Google_Analytics.webp", alt: "Google Analytics", width: 95 },
+    { src: "/images/products/aws.webp", alt: "AWS", width: 95 },
   ];
 
   const faqData = [
@@ -203,7 +203,7 @@ export default function SocialMediaAppDevelopment() {
       <div className="social-dark-section">
         <div className="social-two-col">
           <div className="social-two-col-img">
-            <Image src="/images/products/social/phone1.png" alt="On-Demand Social Media App Development" width={400} height={700} className="social-phone-img" />
+            <Image src="/images/products/social/phone1.webp" alt="On-Demand Social Media App Development" width={400} height={700} className="social-phone-img" />
           </div>
           <div className="social-two-col-text">
             <h2>On-Demand Social Media App Development</h2>
@@ -246,7 +246,7 @@ export default function SocialMediaAppDevelopment() {
             <Image src="/images/products/diagnostic/dots.png" alt="Decorative dots" width={80} height={20} className="social-dots-img" />
           </div>
           <div className="social-two-col-img">
-            <Image src="/images/products/diagnostic/phone2.png" alt="Social Media App Development Agency" width={400} height={700} className="social-phone-img" />
+            <Image src="/images/products/diagnostic/phone2.webp" alt="Social Media App Development Agency" width={400} height={700} className="social-phone-img" />
           </div>
         </div>
       </div>
@@ -361,7 +361,7 @@ export default function SocialMediaAppDevelopment() {
         </div>
         <div className="food-cta-content-img">
           <Image
-            src="/images/products/social/phone1.png"
+            src="/images/products/social/phone1.webp"
             alt="Social Media App Development"
             width={300}
             height={500}

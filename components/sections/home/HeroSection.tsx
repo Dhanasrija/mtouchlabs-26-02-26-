@@ -18,7 +18,7 @@
 //           <div className="hero-inner">
 
 //             <div className="mtl-new-hero-badge">
-//               <img
+//               <img width={266} height={70}
 //                 src="/images/brand-logo/nasscom.svg"
 //                 alt="Nasscom Award Winner 2026"
 //               />
@@ -65,6 +65,8 @@
 
 
 import Link from "next/link";
+import Image from "next/image";
+import { Fragment } from "react";
 
 export default function HeroSection() {
   // Strictly two lines on the homepage hero.
@@ -86,7 +88,7 @@ export default function HeroSection() {
 
   const renderWords = (words: string[], offset = 0) =>
     words.map((word, i) => (
-      <span key={i}>
+      <Fragment key={i}>
         <span
           className={`hero-word ${
             highlightWords.includes(word.replace("&", "")) ? "highlight-word" : ""
@@ -99,7 +101,7 @@ export default function HeroSection() {
           {word}
         </span>
         {i < words.length - 1 ? " " : ""}
-      </span>
+      </Fragment>
     ));
 
   return (
@@ -207,7 +209,44 @@ export default function HeroSection() {
           padding: 0 !important;
           border: 0 !important;
         }
+
+        /* ──────────────────────────────────────────────────────────
+           LCP / FCP FIX — the hero <h1> is the Largest Contentful
+           Paint element on the homepage. The shared .hero-word rule
+           in style.css starts each word at opacity:0 and fades it in
+           with a staggered animation-delay, which means the browser
+           does NOT register the H1 as "painted" until the animation
+           finishes (~1s+). That pushed LCP to ~4.7s. We keep a subtle
+           slide-in but paint the text at FULL opacity from frame 0 so
+           LCP fires immediately. Higher specificity + !important wins
+           over the staggered animation and inline animation-delay.
+           ────────────────────────────────────────────────────────── */
+        .mtl-new-hero .mtl-new-hero-h1 .hero-word {
+          opacity: 1 !important;
+          filter: none !important;
+          animation: heroWordLcpIn 0.4s ease-out both !important;
+        }
+        @keyframes heroWordLcpIn {
+          from { transform: translateX(-8px); }
+          to   { transform: translateX(0); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .mtl-new-hero .mtl-new-hero-h1 .hero-word {
+            animation: none !important;
+            transform: none !important;
+          }
+        }
       ` }} />
+
+      {/* Preload the hero background (homepage LCP/FCP). Next.js hoists
+          rel="preload" links into <head>, so this only loads on the home
+          page and not site-wide. */}
+      <link
+        rel="preload"
+        as="image"
+        href="/images/home/hero_bg.webp"
+        fetchPriority="high"
+      />
 
       <section className="mtl-new-hero">
         <div className="hero-inner">
@@ -240,13 +279,13 @@ export default function HeroSection() {
     textDecoration: "none",
   }}
 >
-  <img
-    src="/images/brand-logo/nasscom-award-winner-2026.png"
+  <Image
+    src="/images/brand-logo/nasscom-award-winner-2026.webp"
     alt="NASSCOM Award Winner 2026"
     width={1064}
     height={280}
-    decoding="async"
-    fetchPriority="high"
+    priority
+    sizes="(max-width: 480px) 70vw, (max-width: 768px) 240px, 280px"
     style={{
       display: "block",
       width: "100%",
@@ -270,7 +309,7 @@ export default function HeroSection() {
 
           <p className="mtl-new-hero-sub">
             {subtitle.map((word, i) => (
-              <span key={i}>
+              <Fragment key={i}>
                 <span
                   className="hero-sub-word"
                   style={{
@@ -281,7 +320,7 @@ export default function HeroSection() {
                   {word}
                 </span>
                 {i < subtitle.length - 1 ? " " : ""}
-              </span>
+              </Fragment>
             ))}
           </p>
 

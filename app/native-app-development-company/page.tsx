@@ -14,13 +14,13 @@ export const metadata: Metadata = {
     url: "https://www.mtouchlabs.com/native-app-development-company",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Native Mobile App Development" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Native Mobile App Development" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Native Mobile App Development",
     description: "Top native app development company in India we provide high-quality native mobile app development services, from concept to launch, tailored to your business needs.",
-    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
   },
 };
 
@@ -99,7 +99,7 @@ export default function Page() {
 				<p>Our native app development strategy ensures smooth, responsive, and high-performing
 					applications by utilizing platform-specific tools and technologies.</p>
 			</div>
-			<a href="/contact-us" target="_blank"><button className="AIservices-btn"> Let’s
+			<a href="/contact-us" target="_blank" rel="noopener noreferrer"><button className="AIservices-btn"> Let’s
 					Discuss</button></a></div>
 		<div className="AIservices-info-card">
 			<div className="AIservices-info-card-height">
@@ -107,7 +107,7 @@ export default function Page() {
 				<p>From ideation to deployment, explore our structured development approach using Swift,
 					Kotlin, Android Studio, and Apple’s/Xamarin’s platform guidelines.</p>
 			</div>
-			<a href="/contact-us" target="_blank"><button className="AIservices-btn"> Book a
+			<a href="/contact-us" target="_blank" rel="noopener noreferrer"><button className="AIservices-btn"> Book a
 					Consultation</button></a></div>
 	</section>
 
@@ -123,7 +123,7 @@ export default function Page() {
 						Android), define the app architecture, and build the roadmap.</p>
 				</div>
 				<div className="AIservices-process-image1">
-					<img src="/./images/new_services/planning.png" alt="Discovery & Planning" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/./images/new_services/planning.webp" alt="Discovery & Planning" />
 				</div>
 			</div>
 
@@ -136,7 +136,7 @@ export default function Page() {
 						experiences.</p>
 				</div>
 				<div className="AIservices-process-image">
-					<img src="/./images/new_services/ui-ux.png" alt="UI/UX Design" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/./images/new_services/ui-ux.webp" alt="UI/UX Design" />
 				</div>
 			</div>
 
@@ -148,7 +148,7 @@ export default function Page() {
 						robust, scalable apps tailored to each OS.</p>
 				</div>
 				<div className="AIservices-process-image1">
-					<img src="/./images/new_services/development.png" alt="Development" />
+					<img width={432} height={245} loading="lazy" decoding="async" src="/./images/new_services/development.webp" alt="Development" />
 				</div>
 			</div>
 
@@ -160,7 +160,7 @@ export default function Page() {
 						platform compatibility across multiple devices.</p>
 				</div>
 				<div className="AIservices-process-image">
-					<img src="/./images/new_services/testing.png" alt="Testing" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/./images/new_services/testing.webp" alt="Testing" />
 				</div>
 			</div>
 
@@ -172,7 +172,7 @@ export default function Page() {
 						their respective submission and review guidelines.</p>
 				</div>
 				<div className="AIservices-process-image1">
-					<img src="/./images/new_services/launch.png" alt="Launch" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/./images/new_services/launch.webp" alt="Launch" />
 				</div>
 			</div>
 
@@ -184,7 +184,7 @@ export default function Page() {
 						stays relevant and optimized.</p>
 				</div>
 				<div className="AIservices-process-image">
-					<img src="/./images/new_services/post-launch.png" alt="Post-Launch Support" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/./images/new_services/post-launch.webp" alt="Post-Launch Support" />
 				</div>
 			</div>
 		</div>
@@ -198,12 +198,12 @@ export default function Page() {
 				<div className="Aiservices-testimonial-content">
 					<div className="Aiservices-company-logo-container">
 						<div className="Aiservices-company-logo-div">
-							<img src="/images/home/tech/adify.png" alt="mTouch Labs" />
+							<img width={300} height={140} loading="lazy" decoding="async" src="/images/home/tech/adify.webp" alt="mTouch Labs" />
 						</div>
 					</div>
 					<div className="Aiservices-testimonial-text">
 						<div className="Aiservices-rating">
-							<img src="/images/new_services/doublequotes.png" className="doublequotes_img" alt="Quotes" />
+							<img width={61} height={61} loading="lazy" decoding="async" src="/images/new_services/doublequotes.webp" className="doublequotes_img" alt="Quotes" />
 						</div>
 						<p className="Aiservices-testimonial-quote">
 							"We saw faster lead tracking and 3X app engagement after switching to a native solution from
@@ -211,7 +211,7 @@ export default function Page() {
 						</p>
 
 						<div className="Aiservices-testimonial-author">
-							<span><a href="/on-demand-service-mobile-app-development" target="_blank">Explore
+							<span><a href="/on-demand-service-mobile-app-development" target="_blank" rel="noopener noreferrer">Explore
 									→</a></span>
 						</div>
 					</div>
@@ -331,7 +331,7 @@ export default function Page() {
 								Let's get to chat.</h3>
 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 									className="fas fa-user fb-bigon"></i> Contact </a>
-							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
+							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer"
 								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
 								Whatsapp </a>
 
@@ -339,7 +339,7 @@ export default function Page() {
 					</div>
 					<div className="col-lg-6 vcenter text-center">
 						<div className="sol-img-png">
-							<img src="/images/cta/Project-in-mind-Let's-get-to-chat-Native.svg"
+							<img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Project-in-mind-Let's-get-to-chat-Native.svg"
 								alt="native mobile app examples" className="img-fluid" />
 						</div>
 					</div>

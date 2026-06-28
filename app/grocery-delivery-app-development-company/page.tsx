@@ -131,7 +131,7 @@
 //       {/* Hero Section — EXACT original structure */}
 //       <section className="grocery-delivery-main">
 //         <div className="grocery-delivery-content">
-//           <img src="/images/products/grocery/bag.gif" className="grocery-banner-gif" alt="Grocery App Development" />
+//           <img width={500} height={500} loading="lazy" decoding="async" src="/images/products/grocery/bag.gif" className="grocery-banner-gif" alt="Grocery App Development" />
 //           <h1 className="grocery-heading-h1">Grocery Delivery<br />
 //             <span className="grocery-heading">App Development</span>
 //           </h1>
@@ -149,22 +149,22 @@
 //             <h2 className="grocery-key-features-title">Key Features for Seamless Functionality</h2>
 //             <div className="grocery-key-features-grid">
 //               <div className="grocery-key-feature-card">
-//                 <img src="/images/products/grocery/grocery1.png" alt="Scheduled Delivery" loading="lazy" />
+//                 <img width={99} height={99} src="/images/products/grocery/grocery1.webp" alt="Scheduled Delivery" loading="lazy" />
 //                 <h6>Scheduled Delivery</h6>
 //                 <p>Let customers pick their preferred delivery time slots.</p>
 //               </div>
 //               <div className="grocery-key-feature-card">
-//                 <img src="/images/products/grocery/grocery2.png" alt="Product Search and Filters" loading="lazy" />
+//                 <img width={130} height={123} src="/images/products/grocery/grocery2.webp" alt="Product Search and Filters" loading="lazy" />
 //                 <h6>Product Search &amp; Filters</h6>
 //                 <p>Help users find exactly what they need, fast.</p>
 //               </div>
 //               <div className="grocery-key-feature-card">
-//                 <img src="/images/products/grocery/grocery3.png" alt="Real-Time Order Tracking" loading="lazy" />
+//                 <img width={112} height={112} src="/images/products/grocery/grocery3.webp" alt="Real-Time Order Tracking" loading="lazy" />
 //                 <h6>Real-Time Order Tracking</h6>
 //                 <p>Live updates from order placement to doorstep delivery.</p>
 //               </div>
 //               <div className="grocery-key-feature-card">
-//                 <img src="/images/products/grocery/grocery4.png" alt="Order Customization" loading="lazy" />
+//                 <img width={100} height={100} src="/images/products/grocery/grocery4.webp" alt="Order Customization" loading="lazy" />
 //                 <h6>Order Customization</h6>
 //                 <p>Allow users to modify quantities, add notes, and personalize orders.</p>
 //               </div>
@@ -174,7 +174,7 @@
 //           {/* Intro Section — updated content */}
 //           <div className="grocery-delivery-mobile-container">
 //             <div className="grocery-delivery-mobile-phone-section">
-//               <img src="/images/products/grocery/ondemandgrocery.png" alt="grocery delivery app development company in Hyderabad" className="grocery-delivery-mobile-phone-image" loading="lazy" />
+//               <img width={626} height={594} src="/images/products/grocery/ondemandgrocery.webp" alt="grocery delivery app development company in Hyderabad" className="grocery-delivery-mobile-phone-image" loading="lazy" />
 //             </div>
 //             <div className="grocery-delivery-mobile-text-section">
 //               <h3>Grocery App Solutions Designed for Growth</h3>
@@ -197,7 +197,7 @@
 //                 <h4 className="grocery-delivery-two-text">Our apps are fully customizable to fit your brand, inventory, and business model.</h4>
 //               </div>
 //               <div className="grocery-delivery-mobile-phone-section">
-//                 <img src="/images/products/grocery/appfully.png" alt="Customizable Grocery App" className="grocery-delivery-mobile-phone-image" loading="lazy" />
+//                 <img width={691} height={516} src="/images/products/grocery/appfully.webp" alt="Customizable Grocery App" className="grocery-delivery-mobile-phone-image" loading="lazy" />
 //               </div>
 //             </div>
 //           </div>
@@ -216,9 +216,9 @@
 //               </p>
 //             </div>
 //             <div className="grocery-delivery-mobile-phone-section">
-//               <img src="/images/products/grocery/ondemandgrocery2.png" alt="custom grocery delivery app development service" className="grocery-delivery-mobile-phone-image" />
+//               <img width={616} height={586} loading="lazy" decoding="async" src="/images/products/grocery/ondemandgrocery2.webp" alt="custom grocery delivery app development service" className="grocery-delivery-mobile-phone-image" />
 //             </div>
-//             <img src="/images/products/grocery/dots.png" alt="Decorative dots" className="dots-grocery" />
+//             <img width={60} height={204} loading="lazy" decoding="async" src="/images/products/grocery/dots.png" alt="Decorative dots" className="dots-grocery" />
 //           </div>
 
 //           {/* Service Cards — updated content */}
@@ -229,56 +229,56 @@
 //               <div className="service-grid">
 //                 <div className="service-card-main">
 //                   <div className="service-card service-card-1">
-//                     <img src="/images/products/grocery/icon1.png" alt="Single Store Apps" />
+//                     <img width={141} height={141} loading="lazy" decoding="async" src="/images/products/grocery/icon1.webp" alt="Single Store Apps" />
 //                   </div>
 //                   <h6>Single Store Apps</h6>
 //                   <p>Enable your store to accept online orders, manage deliveries, and engage customers directly.</p>
 //                 </div>
 //                 <div className="service-card-main">
 //                   <div className="service-card service-card-2">
-//                     <img src="/images/products/grocery/icon2.png" alt="Multi-Vendor Marketplaces" />
+//                     <img width={84} height={85} loading="lazy" decoding="async" src="/images/products/grocery/icon2.webp" alt="Multi-Vendor Marketplaces" />
 //                   </div>
 //                   <h6>Multi-Vendor Marketplaces</h6>
 //                   <p>Create a platform where multiple sellers can list products and deliver through a unified system.</p>
 //                 </div>
 //                 <div className="service-card-main">
 //                   <div className="service-card service-card-3">
-//                     <img src="/images/products/grocery/icon3.png" alt="Hyperlocal Delivery Apps" />
+//                     <img width={85} height={85} loading="lazy" decoding="async" src="/images/products/grocery/icon3.webp" alt="Hyperlocal Delivery Apps" />
 //                   </div>
 //                   <h6>Hyperlocal Delivery Apps</h6>
 //                   <p>Quick deliveries within a specific area, ensuring fast fulfillment and customer satisfaction.</p>
 //                 </div>
 //                 <div className="service-card-main">
 //                   <div className="service-card service-card-4">
-//                     <img src="/images/products/grocery/icon4.png" alt="Subscription-Based Apps" />
+//                     <img width={85} height={85} loading="lazy" decoding="async" src="/images/products/grocery/icon4.webp" alt="Subscription-Based Apps" />
 //                   </div>
 //                   <h6>Subscription-Based Apps</h6>
 //                   <p>Allow users to schedule recurring deliveries for daily essentials like milk and vegetables.</p>
 //                 </div>
 //                 <div className="service-card-main">
 //                   <div className="service-card service-card-5">
-//                     <img src="/images/products/grocery/icon5.png" alt="Payment Gateway Integration" />
+//                     <img width={85} height={85} loading="lazy" decoding="async" src="/images/products/grocery/icon5.webp" alt="Payment Gateway Integration" />
 //                   </div>
 //                   <h6>Payment Gateway Setup</h6>
 //                   <p>Provide a variety of safe payment methods for seamless checkout.</p>
 //                 </div>
 //                 <div className="service-card-main">
 //                   <div className="service-card service-card-6">
-//                     <img src="/images/products/grocery/icon6.png" alt="Admin & Vendor Panel" />
+//                     <img width={84} height={85} loading="lazy" decoding="async" src="/images/products/grocery/icon6.webp" alt="Admin & Vendor Panel" />
 //                   </div>
 //                   <h6>Admin &amp; Vendor Panel</h6>
 //                   <p>Complete platform control with analytics, reports, and order management.</p>
 //                 </div>
 //                 <div className="service-card-main">
 //                   <div className="service-card service-card-7">
-//                     <img src="/images/products/grocery/icon7.png" alt="Smart Capabilities" />
+//                     <img width={85} height={85} loading="lazy" decoding="async" src="/images/products/grocery/icon7.webp" alt="Smart Capabilities" />
 //                   </div>
 //                   <h6>Smart Capabilities</h6>
 //                   <p>Personalized suggestions, smart search, demand prediction, and data-driven insights.</p>
 //                 </div>
 //                 <div className="service-card-main">
 //                   <div className="service-card service-card-8">
-//                     <img src="/images/products/grocery/icon8.png" alt="Maintenance & Support" />
+//                     <img width={85} height={85} loading="lazy" decoding="async" src="/images/products/grocery/icon8.webp" alt="Maintenance & Support" />
 //                   </div>
 //                   <h6>Maintenance &amp; Support</h6>
 //                   <p>Keep your system smooth with updates, optimization, and ongoing support.</p>
@@ -302,11 +302,11 @@
 //                 </div>
 //               </div>
 //               <div className="app-screenss owl-carousel mt70 dottss">
-//                 <div className="appscreen"><div className="itme-img"><img src="/images/products/grocery/appscreen1.png" alt="Grocery app screen 1" className="img-fluid" /></div></div>
-//                 <div className="appscreen"><div className="itme-img"><img src="/images/products/grocery/appscreen2.png" alt="Grocery app screen 2" className="img-fluid" /></div></div>
-//                 <div className="appscreen"><div className="itme-img"><img src="/images/products/grocery/appscreen3.png" alt="Grocery app screen 3" className="img-fluid" /></div></div>
-//                 <div className="appscreen"><div className="itme-img"><img src="/images/products/grocery/appscreen4.png" alt="Grocery app screen 4" className="img-fluid" /></div></div>
-//                 <div className="appscreen"><div className="itme-img"><img src="/images/products/grocery/appscreen5.png" alt="Grocery app screen 5" className="img-fluid" /></div></div>
+//                 <div className="appscreen"><div className="itme-img"><img width={251} height={544} loading="lazy" decoding="async" src="/images/products/grocery/appscreen1.webp" alt="Grocery app screen 1" className="img-fluid" /></div></div>
+//                 <div className="appscreen"><div className="itme-img"><img width={251} height={544} loading="lazy" decoding="async" src="/images/products/grocery/appscreen2.webp" alt="Grocery app screen 2" className="img-fluid" /></div></div>
+//                 <div className="appscreen"><div className="itme-img"><img width={251} height={544} loading="lazy" decoding="async" src="/images/products/grocery/appscreen3.webp" alt="Grocery app screen 3" className="img-fluid" /></div></div>
+//                 <div className="appscreen"><div className="itme-img"><img width={251} height={544} loading="lazy" decoding="async" src="/images/products/grocery/appscreen4.webp" alt="Grocery app screen 4" className="img-fluid" /></div></div>
+//                 <div className="appscreen"><div className="itme-img"><img width={251} height={544} loading="lazy" decoding="async" src="/images/products/grocery/appscreen5.webp" alt="Grocery app screen 5" className="img-fluid" /></div></div>
 //               </div>
 //             </div>
 //           </section>
@@ -426,18 +426,18 @@
 //             <p>Collaborating with Leading Technology Providers</p>
 //           </div>
 //           <div className="food-tech-grid">
-//             <div className="food-tech-item"><img src="/images/products/html.png" width="65" alt="HTML5" /></div>
-//             <div className="food-tech-item"><img src="/images/products/css.png" width="45" alt="CSS3" /></div>
-//             <div className="food-tech-item"><img src="/images/products/js.png" width="95" alt="JavaScript" /></div>
-//             <div className="food-tech-item"><img src="/images/products/boot.png" width="95" alt="Bootstrap" /></div>
-//             <div className="food-tech-item"><img src="/images/products/php.png" width="95" alt="PHP" /></div>
-//             <div className="food-tech-item"><img src="/images/products/laverl.png" width="95" alt="Laravel" /></div>
-//             <div className="food-tech-item"><img src="/images/products/flutter.png" width="95" alt="Flutter" /></div>
-//             <div className="food-tech-item"><img src="/images/products/firebase.png" width="95" alt="Firebase" /></div>
-//             <div className="food-tech-item"><img src="/images/products/MySQL.png" width="95" alt="MySQL" /></div>
-//             <div className="food-tech-item"><img src="/images/products/crashlytics.png" width="95" alt="Crashlytics" /></div>
-//             <div className="food-tech-item"><img src="/images/products/Google_Analytics.png" width="95" alt="Google Analytics" /></div>
-//             <div className="food-tech-item"><img src="/images/products/aws.png" width="95" alt="AWS" /></div>
+//             <div className="food-tech-item"><img loading="lazy" decoding="async" src="/images/products/html.webp" width="65" alt="HTML5" /></div>
+//             <div className="food-tech-item"><img loading="lazy" decoding="async" src="/images/products/css.webp" width="45" alt="CSS3" /></div>
+//             <div className="food-tech-item"><img loading="lazy" decoding="async" src="/images/products/js.webp" width="95" alt="JavaScript" /></div>
+//             <div className="food-tech-item"><img loading="lazy" decoding="async" src="/images/products/boot.webp" width="95" alt="Bootstrap" /></div>
+//             <div className="food-tech-item"><img loading="lazy" decoding="async" src="/images/products/php.webp" width="95" alt="PHP" /></div>
+//             <div className="food-tech-item"><img loading="lazy" decoding="async" src="/images/products/laverl.webp" width="95" alt="Laravel" /></div>
+//             <div className="food-tech-item"><img loading="lazy" decoding="async" src="/images/products/flutter.webp" width="95" alt="Flutter" /></div>
+//             <div className="food-tech-item"><img loading="lazy" decoding="async" src="/images/products/firebase.webp" width="95" alt="Firebase" /></div>
+//             <div className="food-tech-item"><img loading="lazy" decoding="async" src="/images/products/MySQL.webp" width="95" alt="MySQL" /></div>
+//             <div className="food-tech-item"><img loading="lazy" decoding="async" src="/images/products/crashlytics.webp" width="95" alt="Crashlytics" /></div>
+//             <div className="food-tech-item"><img loading="lazy" decoding="async" src="/images/products/Google_Analytics.webp" width="95" alt="Google Analytics" /></div>
+//             <div className="food-tech-item"><img loading="lazy" decoding="async" src="/images/products/aws.webp" width="95" alt="AWS" /></div>
 //           </div>
 //         </div>
 
@@ -532,7 +532,7 @@
 //           </div>
 //         </div>
 //         <div className="food-cta-content-img">
-//           <img src="/images/products/grocery/grocey.png" alt="Grocery Delivery" className="food-cta-image" />
+//           <img width={800} height={577} loading="lazy" decoding="async" src="/images/products/grocery/grocey.webp" alt="Grocery Delivery" className="food-cta-image" />
 //         </div>
 //       </div>
 //     </>
@@ -558,21 +558,21 @@ const faqs = [
 ];
 
 const services = [
-  { img: "/images/products/grocery/icon1.png", cls: "gi1", title: "Single Store Apps",         desc: "Enable your store to accept online orders, manage deliveries, and engage customers directly." },
-  { img: "/images/products/grocery/icon2.png", cls: "gi2", title: "Multi-Vendor Marketplaces", desc: "Create a platform where multiple sellers can list products and deliver through a unified system." },
-  { img: "/images/products/grocery/icon3.png", cls: "gi3", title: "Hyperlocal Delivery Apps",  desc: "Quick deliveries within a specific area, ensuring fast fulfillment and customer satisfaction." },
-  { img: "/images/products/grocery/icon4.png", cls: "gi4", title: "Subscription-Based Apps",   desc: "Allow users to schedule recurring deliveries for daily essentials like milk and vegetables." },
-  { img: "/images/products/grocery/icon5.png", cls: "gi5", title: "Payment Gateway Setup",     desc: "Provide a variety of safe payment methods for seamless checkout." },
-  { img: "/images/products/grocery/icon6.png", cls: "gi6", title: "Admin & Vendor Panel",      desc: "Complete platform control with analytics, reports, and order management." },
-  { img: "/images/products/grocery/icon7.png", cls: "gi7", title: "Smart Capabilities",        desc: "Personalized suggestions, smart search, demand prediction, and data-driven insights." },
-  { img: "/images/products/grocery/icon8.png", cls: "gi8", title: "Maintenance & Support",     desc: "Keep your system smooth with updates, optimization, and ongoing support." },
+  { img: "/images/products/grocery/icon1.webp", cls: "gi1", title: "Single Store Apps",         desc: "Enable your store to accept online orders, manage deliveries, and engage customers directly." },
+  { img: "/images/products/grocery/icon2.webp", cls: "gi2", title: "Multi-Vendor Marketplaces", desc: "Create a platform where multiple sellers can list products and deliver through a unified system." },
+  { img: "/images/products/grocery/icon3.webp", cls: "gi3", title: "Hyperlocal Delivery Apps",  desc: "Quick deliveries within a specific area, ensuring fast fulfillment and customer satisfaction." },
+  { img: "/images/products/grocery/icon4.webp", cls: "gi4", title: "Subscription-Based Apps",   desc: "Allow users to schedule recurring deliveries for daily essentials like milk and vegetables." },
+  { img: "/images/products/grocery/icon5.webp", cls: "gi5", title: "Payment Gateway Setup",     desc: "Provide a variety of safe payment methods for seamless checkout." },
+  { img: "/images/products/grocery/icon6.webp", cls: "gi6", title: "Admin & Vendor Panel",      desc: "Complete platform control with analytics, reports, and order management." },
+  { img: "/images/products/grocery/icon7.webp", cls: "gi7", title: "Smart Capabilities",        desc: "Personalized suggestions, smart search, demand prediction, and data-driven insights." },
+  { img: "/images/products/grocery/icon8.webp", cls: "gi8", title: "Maintenance & Support",     desc: "Keep your system smooth with updates, optimization, and ongoing support." },
 ];
 
 const keyFeatures = [
-  { img: "/images/products/grocery/grocery1.png", title: "Scheduled Delivery",          desc: "Let customers pick their preferred delivery time slots." },
-  { img: "/images/products/grocery/grocery2.png", title: "Product Search & Filters",    desc: "Help users find exactly what they need, fast." },
-  { img: "/images/products/grocery/grocery3.png", title: "Real-Time Order Tracking",    desc: "Live updates from order placement to doorstep delivery." },
-  { img: "/images/products/grocery/grocery4.png", title: "Order Customization",         desc: "Allow users to modify quantities, add notes, and personalize orders." },
+  { img: "/images/products/grocery/grocery1.webp", title: "Scheduled Delivery",          desc: "Let customers pick their preferred delivery time slots." },
+  { img: "/images/products/grocery/grocery2.webp", title: "Product Search & Filters",    desc: "Help users find exactly what they need, fast." },
+  { img: "/images/products/grocery/grocery3.webp", title: "Real-Time Order Tracking",    desc: "Live updates from order placement to doorstep delivery." },
+  { img: "/images/products/grocery/grocery4.webp", title: "Order Customization",         desc: "Allow users to modify quantities, add notes, and personalize orders." },
 ];
 
 const successCards = [
@@ -601,18 +601,18 @@ const processSteps = [
 ];
 
 const techStack = [
-  { src: "/images/products/html.png",             w: 65, alt: "HTML5" },
-  { src: "/images/products/css.png",              w: 45, alt: "CSS3" },
-  { src: "/images/products/js.png",               w: 75, alt: "JavaScript" },
-  { src: "/images/products/boot.png",             w: 75, alt: "Bootstrap" },
-  { src: "/images/products/php.png",              w: 75, alt: "PHP" },
-  { src: "/images/products/laverl.png",           w: 75, alt: "Laravel" },
-  { src: "/images/products/flutter.png",          w: 75, alt: "Flutter" },
-  { src: "/images/products/firebase.png",         w: 75, alt: "Firebase" },
-  { src: "/images/products/MySQL.png",            w: 75, alt: "MySQL" },
-  { src: "/images/products/crashlytics.png",      w: 75, alt: "Crashlytics" },
-  { src: "/images/products/Google_Analytics.png", w: 75, alt: "Google Analytics" },
-  { src: "/images/products/aws.png",              w: 75, alt: "AWS" },
+  { src: "/images/products/html.webp",             w: 65, alt: "HTML5" },
+  { src: "/images/products/css.webp",              w: 45, alt: "CSS3" },
+  { src: "/images/products/js.webp",               w: 75, alt: "JavaScript" },
+  { src: "/images/products/boot.webp",             w: 75, alt: "Bootstrap" },
+  { src: "/images/products/php.webp",              w: 75, alt: "PHP" },
+  { src: "/images/products/laverl.webp",           w: 75, alt: "Laravel" },
+  { src: "/images/products/flutter.webp",          w: 75, alt: "Flutter" },
+  { src: "/images/products/firebase.webp",         w: 75, alt: "Firebase" },
+  { src: "/images/products/MySQL.webp",            w: 75, alt: "MySQL" },
+  { src: "/images/products/crashlytics.webp",      w: 75, alt: "Crashlytics" },
+  { src: "/images/products/Google_Analytics.webp", w: 75, alt: "Google Analytics" },
+  { src: "/images/products/aws.webp",              w: 75, alt: "AWS" },
 ];
 
 export default function Page() {
@@ -1198,7 +1198,7 @@ export default function Page() {
         {/* ── INTRO TWO-COL ── */}
         <div className="gd-twocol">
           <div className="gd-twocol-img">
-            <img src="/images/products/grocery/ondemandgrocery.png" alt="Grocery delivery app" className="gd-phone-img" loading="lazy" />
+            <img width={626} height={594} src="/images/products/grocery/ondemandgrocery.webp" alt="Grocery delivery app" className="gd-phone-img" loading="lazy" />
           </div>
           <div className="gd-twocol-text">
             <span className="gd-pill">About Us</span>
@@ -1225,14 +1225,14 @@ export default function Page() {
             <h4>
               Our apps are <em>fully customizable</em> to fit your brand, inventory, and business model — from a single corner store to a nationwide multi-vendor marketplace.
             </h4>
-            <img src="/images/products/grocery/appfully.png" alt="Customizable Grocery App" loading="lazy" />
+            <img width={691} height={516} src="/images/products/grocery/appfully.webp" alt="Customizable Grocery App" loading="lazy" />
           </div>
         </div> */}
 
         {/* ── SOLUTIONS TWO-COL ── */}
         <div className="gd-twocol reverse">
           <div className="gd-twocol-img">
-            <img src="/images/products/grocery/ondemandgrocery2.png" alt="Grocery delivery solutions" className="gd-phone-img" loading="lazy" />
+            <img width={616} height={586} src="/images/products/grocery/ondemandgrocery2.webp" alt="Grocery delivery solutions" className="gd-phone-img" loading="lazy" />
           </div>
           <div className="gd-twocol-text">
             <span className="gd-pill">Solutions</span>
@@ -1474,7 +1474,7 @@ export default function Page() {
             </div>
           </div>
           <div className="gd-cta-img-wrap">
-            <img src="/images/products/grocery/grocey.png" alt="Grocery Delivery App" className="gd-cta-img" />
+            <img width={800} height={577} loading="lazy" decoding="async" src="/images/products/grocery/grocey.webp" alt="Grocery Delivery App" className="gd-cta-img" />
           </div>
         </div>
 

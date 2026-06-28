@@ -45,7 +45,7 @@
 //             <br />
 //             {renderLetters("& IT Services", "fds-title-cyan", 0.5)}
 //             <span className="fds-bulb" aria-hidden="true">
-//               <span className="fds-bulb-inner"><img src="/images/home/services/bulb.png" alt="bulb" width={50} height={50} /></span>
+//               <span className="fds-bulb-inner"><img loading="lazy" decoding="async" src="/images/home/services/bulb.webp" alt="bulb" width={50} height={50} /></span>
 //             </span>
 //           </h2>
 
@@ -64,8 +64,8 @@
 //               className="fds-card fds-card-1 fds-card-enter fds-card-hoverable"
 //               style={{ flex: 0.9, minHeight: '200px', padding: 0, background: 'transparent', overflow: 'hidden', position: 'relative', animationDelay: '0.6s' }}
 //             >
-//               <img
-//                 src="/images/home/services/web_development.png"
+//               <img width={1248} height={920} loading="lazy" decoding="async"
+//                 src="/images/home/services/web_development.webp"
 //                 alt="Custom Software Development Services"
 //                 style={{
 //                   position: 'absolute', inset: 0,
@@ -106,10 +106,10 @@
 //               <span className="fds-card-noise" aria-hidden="true" />
 //               <h3 className="fds-ttl-navy">Mobile App<br />Development</h3>
 //               <div className="fds-avatars">
-//                 <span className="fds-av fds-av1"><img src="/images/home/services/mobile/devicon_apple.png" alt="Apple" /></span>
-//                 <span className="fds-av fds-av2"><img src="/images/home/services/mobile/ic_outline-android.png" alt="Android" /></span>
-//                 <span className="fds-av fds-av3"><img src="/images/home/services/mobile/logos_flutter.png" alt="Flutter" /></span>
-//                 <span className="fds-av fds-av4"><img src="/images/home/services/mobile/logos_react.png" alt="React Native" /></span>
+//                 <span className="fds-av fds-av1"><img width={72} height={72} loading="lazy" decoding="async" src="/images/home/services/mobile/devicon_apple.webp" alt="Apple" /></span>
+//                 <span className="fds-av fds-av2"><img width={72} height={72} loading="lazy" decoding="async" src="/images/home/services/mobile/ic_outline-android.webp" alt="Android" /></span>
+//                 <span className="fds-av fds-av3"><img width={59} height={72} loading="lazy" decoding="async" src="/images/home/services/mobile/logos_flutter.webp" alt="Flutter" /></span>
+//                 <span className="fds-av fds-av4"><img width={81} height={72} loading="lazy" decoding="async" src="/images/home/services/mobile/logos_react.webp" alt="React Native" /></span>
 //               </div>
 //               <ul className="fds-bullet-list fds-2col">
 //                 <li>Android &amp; iOS apps</li>
@@ -125,10 +125,10 @@
 //             >
 //               <h3 className="fds-ttl-dark">SaaS Product<br />Development</h3>
 //               <div className="fds-avatars">
-//                 <span className="fds-av fds-av1"><img src="/images/home/services/saas/image-6869.png" alt="SaaS Architecture" /></span>
-//                 <span className="fds-av fds-av2"><img src="/images/home/services/saas/image-6870.png" alt="Multi-tenant Platform" /></span>
-//                 <span className="fds-av fds-av3"><img src="/images/home/services/saas/image-6871.png" alt="Cloud Infrastructure" /></span>
-//                 <span className="fds-av fds-av4"><img src="/images/home/services/saas/image-6872.png" alt="API Integration" /></span>
+//                 <span className="fds-av fds-av1"><img width={84} height={84} loading="lazy" decoding="async" src="/images/home/services/saas/image-6869.webp" alt="SaaS Architecture" /></span>
+//                 <span className="fds-av fds-av2"><img width={72} height={72} loading="lazy" decoding="async" src="/images/home/services/saas/image-6870.webp" alt="Multi-tenant Platform" /></span>
+//                 <span className="fds-av fds-av3"><img width={63} height={63} loading="lazy" decoding="async" src="/images/home/services/saas/image-6871.webp" alt="Cloud Infrastructure" /></span>
+//                 <span className="fds-av fds-av4"><img width={66} height={66} loading="lazy" decoding="async" src="/images/home/services/saas/image-6872.webp" alt="API Integration" /></span>
 //               </div>
 //               <ul className="fds-bullet-list fds-2col">
 //                 <li>Multi-tenant SaaS platforms</li>
@@ -147,10 +147,10 @@
 //             >
 //               <h3 className="fds-ttl-dark">Web Development<br />Services</h3>
 //               <div className="fds-avatars">
-//                 <span className="fds-av fds-av1"><img src="/images/home/services/saas/image-6872.png" alt="Web Technology" /></span>
-//                 <span className="fds-av fds-av2"><img src="/images/home/services/mobile/www.png" alt="World Wide Web" /></span>
-//                 <span className="fds-av fds-av3"><img src="/images/home/services/mobile/ecommerce.png" alt="E-commerce" /></span>
-//                 <span className="fds-av fds-av4"><img src="/images/home/services/saas/image-6869.png" alt="Web Platform" /></span>
+//                 <span className="fds-av fds-av1"><img width={66} height={66} loading="lazy" decoding="async" src="/images/home/services/saas/image-6872.webp" alt="Web Technology" /></span>
+//                 <span className="fds-av fds-av2"><img width={72} height={72} loading="lazy" decoding="async" src="/images/home/services/mobile/www.webp" alt="World Wide Web" /></span>
+//                 <span className="fds-av fds-av3"><img width={72} height={72} loading="lazy" decoding="async" src="/images/home/services/mobile/ecommerce.webp" alt="E-commerce" /></span>
+//                 <span className="fds-av fds-av4"><img width={84} height={84} loading="lazy" decoding="async" src="/images/home/services/saas/image-6869.webp" alt="Web Platform" /></span>
 //               </div>
 //               <ul className="fds-bullet-list fds-2col">
 //                 <li>Business websites</li>
@@ -168,17 +168,17 @@
 //               <div className="fds-ai-top-row">
 //                 <h3 className="fds-ttl-dark" style={{ margin: 0 }}>AI Development<br />Company Services</h3>
 //                 <div className="fds-ai-img-v">
-//                   <img
+//                   <img width={135} height={166} loading="lazy" decoding="async"
 //                     src="/images/we_deliver_the_best_digital_solutions/generative_ai_solutions.svg"
 //                     alt="Generative AI"
 //                   />
 //                 </div>
 //               </div>
 //               <div className="fds-avatars">
-//                 <span className="fds-av fds-av1"><img src="/images/home/services/ai_solutions/image-6873.png" alt="Machine Learning" /></span>
-//                 <span className="fds-av fds-av2"><img src="/images/home/services/ai_solutions/image-6874.png" alt="Neural Networks" /></span>
-//                 <span className="fds-av fds-av3"><img src="/images/home/services/ai_solutions/image-6876.png" alt="AI Automation" /></span>
-//                 <span className="fds-av fds-av4"><img src="/images/home/services/ai_solutions/image-6878.png" alt="Data Science" /></span>
+//                 <span className="fds-av fds-av1"><img width={72} height={72} loading="lazy" decoding="async" src="/images/home/services/ai_solutions/image-6873.webp" alt="Machine Learning" /></span>
+//                 <span className="fds-av fds-av2"><img width={66} height={66} loading="lazy" decoding="async" src="/images/home/services/ai_solutions/image-6874.webp" alt="Neural Networks" /></span>
+//                 <span className="fds-av fds-av3"><img width={72} height={72} loading="lazy" decoding="async" src="/images/home/services/ai_solutions/image-6876.webp" alt="AI Automation" /></span>
+//                 <span className="fds-av fds-av4"><img width={72} height={72} loading="lazy" decoding="async" src="/images/home/services/ai_solutions/image-6878.webp" alt="Data Science" /></span>
 //               </div>
 //               <ul className="fds-bullet-list fds-2col">
 //                 <li>Generative AI solutions</li>
@@ -206,7 +206,7 @@
 //                 <li>IT strategy consulting</li>
 //               </ul>
 //               <div className="fds-illus">
-//                 <img
+//                 <img width={310} height={177} loading="lazy" decoding="async"
 //                   src="/images/we_deliver_the_best_digital_solutions/salesforce_development_consulting.svg"
 //                   alt="IT Solutions"
 //                 />
@@ -236,8 +236,8 @@
 //                   pointerEvents: 'none'
 //                 }}
 //               >
-//                 <img
-//                   src="/images/home/services/ecommerce_bg.png"
+//                 <img width={624} height={675} loading="lazy" decoding="async"
+//                   src="/images/home/services/ecommerce_bg.webp"
 //                   alt="E-commerce Development Platform"
 //                   style={{ width: '100%', height: 'auto', display: 'block' }}
 //                 />
@@ -253,6 +253,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 
 export default function DigitalSolutionsSection() {
   let letterIndex = 0;
@@ -291,7 +292,7 @@ export default function DigitalSolutionsSection() {
 
   return (
     <section className="fds-section">
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         .fds-card:focus,
         .fds-card:focus-visible,
         .fds-card:focus-within,
@@ -306,7 +307,7 @@ export default function DigitalSolutionsSection() {
           outline: none !important;
           box-shadow: none !important;
         }
-      `}</style>
+      `}} />
       <div className="fds-container">
 
         {/* ── Header ── */}
@@ -322,7 +323,7 @@ export default function DigitalSolutionsSection() {
             <br />
             {renderLetters("& IT Services", "fds-title-cyan", 0.5)}
             <span className="fds-bulb" aria-hidden="true">
-              <span className="fds-bulb-inner"><img src="/images/home/services/bulb.png" alt="bulb" width={50} height={50} /></span>
+              <span className="fds-bulb-inner"><img loading="lazy" decoding="async" src="/images/home/services/bulb.webp" alt="bulb" width={50} height={50} /></span>
             </span>
           </h2>
 
@@ -342,12 +343,12 @@ export default function DigitalSolutionsSection() {
               onMouseDown={preventFocus}
               style={{ flex: 0.9, minHeight: '200px', padding: 0, background: 'transparent', overflow: 'hidden', position: 'relative', animationDelay: '0.6s', ...noFocusStyle }}
             >
-              <img
-                src="/images/home/services/web_development.png"
+              <Image
+                fill
+                src="/images/home/services/web_development.webp"
                 alt="Custom Software Development Services"
+                sizes="(max-width: 768px) 100vw, 33vw"
                 style={{
-                  position: 'absolute', inset: 0,
-                  width: '100%', height: '100%',
                   objectFit: 'cover', objectPosition: 'center top',
                   display: 'block', zIndex: 1,
                 }}
@@ -385,10 +386,10 @@ export default function DigitalSolutionsSection() {
               <span className="fds-card-noise" aria-hidden="true" />
               <h3 className="fds-ttl-navy">Mobile App<br />Development</h3>
               <div className="fds-avatars">
-                <span className="fds-av fds-av1"><img src="/images/home/services/mobile/devicon_apple.png" alt="Apple" /></span>
-                <span className="fds-av fds-av2"><img src="/images/home/services/mobile/ic_outline-android.png" alt="Android" /></span>
-                <span className="fds-av fds-av3"><img src="/images/home/services/mobile/logos_flutter.png" alt="Flutter" /></span>
-                <span className="fds-av fds-av4"><img src="/images/home/services/mobile/logos_react.png" alt="React Native" /></span>
+                <span className="fds-av fds-av1"><img width={72} height={72} loading="lazy" decoding="async" src="/images/home/services/mobile/devicon_apple.webp" alt="Apple" /></span>
+                <span className="fds-av fds-av2"><img width={72} height={72} loading="lazy" decoding="async" src="/images/home/services/mobile/ic_outline-android.webp" alt="Android" /></span>
+                <span className="fds-av fds-av3"><img width={59} height={72} loading="lazy" decoding="async" src="/images/home/services/mobile/logos_flutter.webp" alt="Flutter" /></span>
+                <span className="fds-av fds-av4"><img width={81} height={72} loading="lazy" decoding="async" src="/images/home/services/mobile/logos_react.webp" alt="React Native" /></span>
               </div>
               <ul className="fds-bullet-list fds-2col">
                 <li>Android &amp; iOS apps</li>
@@ -405,10 +406,10 @@ export default function DigitalSolutionsSection() {
             >
               <h3 className="fds-ttl-dark">SaaS Product<br />Development</h3>
               <div className="fds-avatars">
-                <span className="fds-av fds-av1"><img src="/images/home/services/saas/image-6869.png" alt="SaaS Architecture" /></span>
-                <span className="fds-av fds-av2"><img src="/images/home/services/saas/image-6870.png" alt="Multi-tenant Platform" /></span>
-                <span className="fds-av fds-av3"><img src="/images/home/services/saas/image-6871.png" alt="Cloud Infrastructure" /></span>
-                <span className="fds-av fds-av4"><img src="/images/home/services/saas/image-6872.png" alt="API Integration" /></span>
+                <span className="fds-av fds-av1"><img width={84} height={84} loading="lazy" decoding="async" src="/images/home/services/saas/image-6869.webp" alt="SaaS Architecture" /></span>
+                <span className="fds-av fds-av2"><img width={72} height={72} loading="lazy" decoding="async" src="/images/home/services/saas/image-6870.webp" alt="Multi-tenant Platform" /></span>
+                <span className="fds-av fds-av3"><img width={63} height={63} loading="lazy" decoding="async" src="/images/home/services/saas/image-6871.webp" alt="Cloud Infrastructure" /></span>
+                <span className="fds-av fds-av4"><img width={66} height={66} loading="lazy" decoding="async" src="/images/home/services/saas/image-6872.webp" alt="API Integration" /></span>
               </div>
               <ul className="fds-bullet-list fds-2col">
                 <li>Multi-tenant SaaS platforms</li>
@@ -428,10 +429,10 @@ export default function DigitalSolutionsSection() {
             >
               <h3 className="fds-ttl-dark">Web Development<br />Services</h3>
               <div className="fds-avatars">
-                <span className="fds-av fds-av1"><img src="/images/home/services/saas/image-6872.png" alt="Web Technology" /></span>
-                <span className="fds-av fds-av2"><img src="/images/home/services/mobile/www.png" alt="World Wide Web" /></span>
-                <span className="fds-av fds-av3"><img src="/images/home/services/mobile/ecommerce.png" alt="E-commerce" /></span>
-                <span className="fds-av fds-av4"><img src="/images/home/services/saas/image-6869.png" alt="Web Platform" /></span>
+                <span className="fds-av fds-av1"><img width={66} height={66} loading="lazy" decoding="async" src="/images/home/services/saas/image-6872.webp" alt="Web Technology" /></span>
+                <span className="fds-av fds-av2"><img width={72} height={72} loading="lazy" decoding="async" src="/images/home/services/mobile/www.webp" alt="World Wide Web" /></span>
+                <span className="fds-av fds-av3"><img width={72} height={72} loading="lazy" decoding="async" src="/images/home/services/mobile/ecommerce.webp" alt="E-commerce" /></span>
+                <span className="fds-av fds-av4"><img width={84} height={84} loading="lazy" decoding="async" src="/images/home/services/saas/image-6869.webp" alt="Web Platform" /></span>
               </div>
               <ul className="fds-bullet-list fds-2col">
                 <li>Business websites</li>
@@ -450,17 +451,17 @@ export default function DigitalSolutionsSection() {
               <div className="fds-ai-top-row">
                 <h3 className="fds-ttl-dark" style={{ margin: 0 }}>AI Development<br />Company Services</h3>
                 <div className="fds-ai-img-v">
-                  <img
+                  <img width={135} height={166} loading="lazy" decoding="async"
                     src="/images/we_deliver_the_best_digital_solutions/generative_ai_solutions.svg"
                     alt="Generative AI"
                   />
                 </div>
               </div>
               <div className="fds-avatars">
-                <span className="fds-av fds-av1"><img src="/images/home/services/ai_solutions/image-6873.png" alt="Machine Learning" /></span>
-                <span className="fds-av fds-av2"><img src="/images/home/services/ai_solutions/image-6874.png" alt="Neural Networks" /></span>
-                <span className="fds-av fds-av3"><img src="/images/home/services/ai_solutions/image-6876.png" alt="AI Automation" /></span>
-                <span className="fds-av fds-av4"><img src="/images/home/services/ai_solutions/image-6878.png" alt="Data Science" /></span>
+                <span className="fds-av fds-av1"><img width={72} height={72} loading="lazy" decoding="async" src="/images/home/services/ai_solutions/image-6873.webp" alt="Machine Learning" /></span>
+                <span className="fds-av fds-av2"><img width={66} height={66} loading="lazy" decoding="async" src="/images/home/services/ai_solutions/image-6874.webp" alt="Neural Networks" /></span>
+                <span className="fds-av fds-av3"><img width={72} height={72} loading="lazy" decoding="async" src="/images/home/services/ai_solutions/image-6876.webp" alt="AI Automation" /></span>
+                <span className="fds-av fds-av4"><img width={72} height={72} loading="lazy" decoding="async" src="/images/home/services/ai_solutions/image-6878.webp" alt="Data Science" /></span>
               </div>
               <ul className="fds-bullet-list fds-2col">
                 <li>Generative AI solutions</li>
@@ -489,7 +490,7 @@ export default function DigitalSolutionsSection() {
                 <li>IT strategy consulting</li>
               </ul>
               <div className="fds-illus">
-                <img
+                <img width={310} height={177} loading="lazy" decoding="async"
                   src="/images/we_deliver_the_best_digital_solutions/salesforce_development_consulting.svg"
                   alt="IT Solutions"
                 />
@@ -520,8 +521,8 @@ export default function DigitalSolutionsSection() {
                   pointerEvents: 'none'
                 }}
               >
-                <img
-                  src="/images/home/services/ecommerce_bg.png"
+                <img width={624} height={675} loading="lazy" decoding="async"
+                  src="/images/home/services/ecommerce_bg.webp"
                   alt="E-commerce Development Platform"
                   style={{ width: '100%', height: 'auto', display: 'block' }}
                 />

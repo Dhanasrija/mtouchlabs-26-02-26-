@@ -13,8 +13,8 @@ export default function QuoteModal() {
           {/* ─── LEFT: Hero Image ─── */}
           <div className="rq-hero-left">
             <div className="rq-hero-circle">
-              <img
-                src="/images/sliders/mobile_app_development.png"
+              <img width={516} height={546} loading="lazy" decoding="async"
+                src="/images/sliders/mobile_app_development.webp"
                 alt="Mobile App Development"
                 className="rq-hero-img"
               />
@@ -77,7 +77,7 @@ export default function QuoteModal() {
                       <svg className="rq-input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <rect x="5" y="2" width="14" height="20" rx="2" ry="2" /><line x1="12" y1="18" x2="12.01" y2="18" />
                       </svg>
-                      <input type="tel" name="phone" placeholder="Contact Number" className="rq-input" required />
+                      <input type="tel" name="phone" placeholder="Contact Number" className="rq-input" required suppressHydrationWarning />
                       <div className="rq-field-error" data-error-for="phone"></div>
                     </div>
                   </div>

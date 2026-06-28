@@ -14,13 +14,13 @@ export const metadata: Metadata = {
     url: "https://www.mtouchlabs.com/progressive-web-app-development-company-in-india",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Progressive Web App (PWA) Development" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Progressive Web App (PWA) Development" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Progressive Web App (PWA) Development",
     description: "mTouch Labs leading progressive web app development company in Hyderabad India, Providing cutting-edge PWA development services.",
-    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
   },
 };
 
@@ -67,7 +67,7 @@ export default function Page() {
 					Build scalable, high-performance web applications with native-like features.
 				</p>
 			</div>
-			<a href="/contact-us" target="_blank"><button className="AIservices-btn">Let’s Discuss</button></a></div>
+			<a href="/contact-us" target="_blank" rel="noopener noreferrer"><button className="AIservices-btn">Let’s Discuss</button></a></div>
 		<div className="AIservices-info-card">
 			<div className="AIservices-info-card-height">
 				<h2>Custom PWA Solutions for All Industries</h2>
@@ -75,7 +75,7 @@ export default function Page() {
 					Our PWAs are optimized for performance, SEO, and engagement across devices.
 				</p>
 			</div>
-			<a href="/contact-us" target="_blank"><button className="AIservices-btn">Talk to Our Experts</button></a></div>
+			<a href="/contact-us" target="_blank" rel="noopener noreferrer"><button className="AIservices-btn">Talk to Our Experts</button></a></div>
 	</section>
 
 	
@@ -91,7 +91,7 @@ export default function Page() {
 						conditions using advanced service workers.</p>
 				</div>
 				<div className="AIservices-process-image1">
-					<img src="/images/new_services/post-launch.png" alt="Offline Capability in PWA" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/images/new_services/post-launch.webp" alt="Offline Capability in PWA" />
 				</div>
 			</div>
 
@@ -103,7 +103,7 @@ export default function Page() {
 						full-screen views, and smooth navigation.</p>
 				</div>
 				<div className="AIservices-process-image">
-					<img src="/images/new_services/planning.png" alt="Native-like Interactions" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/images/new_services/planning.webp" alt="Native-like Interactions" />
 				</div>
 			</div>
 
@@ -115,7 +115,7 @@ export default function Page() {
 						transitions and UI performance.</p>
 				</div>
 				<div className="AIservices-process-image1">
-					<img src="/images/new_services/development.png" alt="PWA Performance" />
+					<img width={432} height={245} loading="lazy" decoding="async" src="/images/new_services/development.webp" alt="PWA Performance" />
 				</div>
 			</div>
 
@@ -127,7 +127,7 @@ export default function Page() {
 						more visibility.</p>
 				</div>
 				<div className="AIservices-process-image">
-					<img src="/images/new_services/testing.png" alt="SEO Friendly PWAs" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/images/new_services/testing.webp" alt="SEO Friendly PWAs" />
 				</div>
 			</div>
 
@@ -139,7 +139,7 @@ export default function Page() {
 						tablets, desktops.</p>
 				</div>
 				<div className="AIservices-process-image1">
-					<img src="/images/new_services/launch.png" alt="PWA Cross Device" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/images/new_services/launch.webp" alt="PWA Cross Device" />
 				</div>
 			</div>
 
@@ -151,7 +151,7 @@ export default function Page() {
 						platforms and browsers.</p>
 				</div>
 				<div className="AIservices-process-image">
-					<img src="/images/new_services/post-launch.png" alt="Secure PWA Migration" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/images/new_services/post-launch.webp" alt="Secure PWA Migration" />
 				</div>
 			</div>
 		</div>
@@ -165,12 +165,12 @@ export default function Page() {
 				<div className="Aiservices-testimonial-content">
 					<div className="Aiservices-company-logo-container">
 						<div className="Aiservices-company-logo-div">
-							<img src="/images/home/tech/medbuz.png" alt="EasyCart Logo" />
+							<img width={300} height={141} loading="lazy" decoding="async" src="/images/home/tech/medbuz.webp" alt="EasyCart Logo" />
 						</div>
 					</div>
 					<div className="Aiservices-testimonial-text">
 						<div className="Aiservices-rating">
-							<img src="/images/new_services/doublequotes.png" className="doublequotes_img" alt="Quotes" />
+							<img width={61} height={61} loading="lazy" decoding="async" src="/images/new_services/doublequotes.webp" className="doublequotes_img" alt="Quotes" />
 						</div>
 						<p className="Aiservices-testimonial-quote">
 							"We partnered with mTouchlabs to convert our eCommerce store
@@ -180,7 +180,7 @@ export default function Page() {
 						</p>
 						<div className="Aiservices-testimonial-author">
 							<span><a href="/diagnostic-app-development-company"
-									target="_blank">Explore
+									target="_blank" rel="noopener noreferrer">Explore
 									→</a></span>
 						</div>
 					</div>
@@ -351,7 +351,7 @@ export default function Page() {
 								Let's get to chat.</h2>
 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 									className="fas fa-user fb-bigon"></i> Contact </a>
-							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
+							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer"
 								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
 								Whatsapp </a>
 
@@ -359,7 +359,7 @@ export default function Page() {
 					</div>
 					<div className="col-lg-6 vcenter text-center">
 						<div className="sol-img-png">
-							<img src="/images/cta/let's-get-to-chat-pwa-company.svg" alt="Pwa Development Company"
+							<img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/let's-get-to-chat-pwa-company.svg" alt="Pwa Development Company"
 								className="img-fluid" />
 						</div>
 					</div>

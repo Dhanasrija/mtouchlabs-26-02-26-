@@ -13,13 +13,13 @@
 //     url: "https://www.mtouchlabs.com/hire-vue-js-developers-in-india",
 //     siteName: "mTouch Labs",
 //     type: "website",
-//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire Vue.js developers in India | Dedicated Vue JS developers" }],
+//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Hire Vue.js developers in India | Dedicated Vue JS developers" }],
 //   },
 //   twitter: {
 //     card: "summary_large_image",
 //     title: "Hire Vue.js developers in India | Dedicated Vue JS developers",
 //     description: "Hire dedicated Vue.js developers from mTouch Labs to create high-quality single-page apps with modern frameworks.",
-//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
 //   },
 // };
 
@@ -54,7 +54,7 @@
 // 					</div>
 // 				</div>
 // 				<div className="col-lg-6">
-// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img
+// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img width={690} height={350} loading="lazy" decoding="async"
 // 							src="/images/others/Hire-Vue.js-developers-from-mTouchlabs-to-develop.svg" alt="mTouch Labs"
 // 							className="img-fluid" /></div>
 // 				</div>
@@ -74,7 +74,7 @@
 // 							<h2 className="mb15">Hire Our Dedicated <span className="ree-text rt40"> Vue </span> JS <span
 // 									className="ree-text rt40"> Developers </span> From mTouch Labs in India</h2>
 // 							<p>mTouchlabs is the top-rated <a href="/vue-js-development-company-in-india"
-// 									target="_blank">Vue.Js development company in India</a>. Our Vue.js developers in.
+// 									target="_blank" rel="noopener noreferrer">Vue.Js development company in India</a>. Our Vue.js developers in.
 // 								India offer full-cycle Vue.js development services, management services, ongoing
 // 								application maintenance to Startups, SMEs, and Enterprises across the globe. </p>
 							 
@@ -86,7 +86,7 @@
 							 
 // 							<p>Being one of the <a
 // 									href="https://www.mtouchlabs.com/top-mobile-app-development-company-in-hyderabad"
-// 									target="_blank"> best app development companies</a> in India, our skilled Vue JS
+// 									target="_blank" rel="noopener noreferrer"> best app development companies</a> in India, our skilled Vue JS
 // 								developers
 // 								are adept to provide high-end development solutions as well as websites for businesses
 // 								of all sizes. Vue.js is reliable and our Vue JS developers create dynamic web user
@@ -101,7 +101,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async"
 // 								src="/images/cta/Hire-Dedicated-Vue-JS-developers-From-mTouchlabs.svg"
 // 								alt="vue js Developers" className="img-fluid" /> </div>
 // 					</div>
@@ -114,7 +114,7 @@
 // 				<div className="row">
 
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img src="/images/cta/Hire-Our-Certified-Vue.js-Experts.svg"
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Hire-Our-Certified-Vue.js-Experts.svg"
 // 								alt="vue js web Developers" className="img-fluid" /></div>
 // 					</div>
 
@@ -130,7 +130,7 @@
 // 							</p>
 							 
 // 							<p>Our dedicated Vue.js experts provide end-to-end customized solutions, from <a
-// 									href="/ui-ux-design-company" target="_blank"> UI/UX design</a>
+// 									href="/ui-ux-design-company" target="_blank" rel="noopener noreferrer"> UI/UX design</a>
 // 									to the final product delivery as well as post-development maintenance for long-term
 // 									relationships with our clients. Our skilled Vue.js experts engage with high-end
 // 									cutting-edge security measures like state-of-the-art data encryption and secure
@@ -180,7 +180,7 @@
 // 			<div className="row mt30">
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Dedicated-Vue-Js-Developers.svg"
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Dedicated-Vue-Js-Developers.svg"
 // 								alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Dedicated Vue Js Developers</h3>
@@ -191,7 +191,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Custom-Vue-Web-Apps.svg" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Custom-Vue-Web-Apps.svg" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Custom Vue Web Apps</h3>
 // 							<p>Hire VueJs experts online who have solid experience in developing highly secured, robust,
@@ -202,7 +202,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Support-&-Maintenance-hire-vue.svg"
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Support-&-Maintenance-hire-vue.svg"
 // 								alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Support & Maintenance</h3>
@@ -215,7 +215,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Vue-Migration-Services.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Vue-Migration-Services.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Vue Migration Services</h3>
@@ -227,7 +227,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Flexible-Engagement-Models-hire-vue.svg"
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Flexible-Engagement-Models-hire-vue.svg"
 // 								alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Flexible Engagement Models</h3>
@@ -239,7 +239,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/others/rate.png" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/others/rate.webp" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">100% Client Satisfaction</h3>
 // 							<p>We offer 24/7 post-development Support and Maintenance with affordable maintenance
@@ -283,7 +283,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
-// 						<div className="sol-img-png"> <img src="/images/cta/Hire-Vue.js-Experts-for-Your-Project.svg"
+// 						<div className="sol-img-png"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Hire-Vue.js-Experts-for-Your-Project.svg"
 // 								alt="hire vue js developers" className="img-fluid" /> </div>
 // 					</div>
 // 				</div>
@@ -317,7 +317,7 @@
 // 								chat.</h3>
 // 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 // 									className="fas fa-user fb-bigon"></i> Contact </a>
-// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
+// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer"
 // 								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
 // 								Whatsapp </a>
 
@@ -325,7 +325,7 @@
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
 // 						<div className="sol-img-png">
-// 							<img src="/images/cta/let's-get-to-chat-hire-vue-js.svg" alt="working with client"
+// 							<img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/let's-get-to-chat-hire-vue-js.svg" alt="working with client"
 // 								className="img-fluid" />
 // 						</div>
 // 					</div>

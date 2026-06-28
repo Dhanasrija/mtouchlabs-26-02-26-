@@ -1,19 +1,19 @@
 const blogs = [
   {
     href: "/blog/top-generative-ai-tools-for-developers",
-    img: "/images/home/blogs/blog-img-1.png",
+    img: "/images/home/blogs/blog-img-1.webp",
     imgAlt: "Best Generative AI Tools and Platforms",
     caption: ["Best Generative AI Tools and Platforms"],
   },
   {
     href: "/blog/ai-role-in-business-automation",
-    img: "/images/home/blogs/blog-img-2.png",
+    img: "/images/home/blogs/blog-img-2.webp",
     imgAlt: "The Role of AI in Enhancing Business Automation and Efficiency",
     caption: ["The Role of AI in Enhancing Business Automation and Efficiency"],
   },
   {
     href: "/blog/artificial-intelligence-transforming-mobile-technology",
-    img: "/images/home/blogs/blog-img-3.png",
+    img: "/images/home/blogs/blog-img-3.webp",
     imgAlt: "AI & Automation The Future of AI Automation in Business",
     caption: ["AI & Automation The Future of AI Automation in Business"],
   },
@@ -22,7 +22,7 @@ const blogs = [
 export default function BlogSection() {
   return (
     <>
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @keyframes blogFadeUp {
           from { opacity: 0; transform: translateY(30px); }
           to   { opacity: 1; transform: translateY(0);    }
@@ -39,7 +39,7 @@ export default function BlogSection() {
         .blog-ref-card:hover .blog-ref-card-img-wrap img {
           transform: scale(1.04);
         }
-      `}</style>
+      `}} />
       <section className="blog-section-ref">
         <div className="blog-ref-container">
 

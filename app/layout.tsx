@@ -205,7 +205,7 @@
 //           <div className="brochure-modal-box">
 //             <div className="brochure-modal-left">
 //               <div className="brochure-modal-circle">
-//                 <img src="/images/sliders/mobile_app_development.png" alt="Web and Mobile App Development" />
+//                 <img width={516} height={546} loading="lazy" decoding="async" src="/images/sliders/mobile_app_development.webp" alt="Web and Mobile App Development" />
 //               </div>
 //             </div>
 //             <div className="brochure-modal-right">
@@ -272,8 +272,8 @@
 //           className="whatsapp-hero-btn"
 //           aria-label="Chat on WhatsApp"
 //         >
-//           <img
-//             src="/images/new_home/ai-product-pages/cybersecurity/whatsapp.png"
+//           <img width={34} height={34} loading="lazy" decoding="async"
+//             src="/images/new_home/ai-product-pages/cybersecurity/whatsapp.webp"
 //             alt="WhatsApp"
 //             className="whatsapp-hero-img"
 //           />
@@ -466,7 +466,7 @@
 //             function fixBottomNav() {
 //               var allLinks = document.querySelectorAll('.bottom-nav .ree-hc a');
 //               if (!allLinks.length) return setTimeout(fixBottomNav, 500);
-//               var icons = ['/images/nav-icon/phone-call.png','/images/nav-icon/gmail.png','/images/nav-icon/whatsapp.png','/images/nav-icon/who.png'];
+//               var icons = ['/images/nav-icon/phone-call.webp','/images/nav-icon/gmail.webp','/images/nav-icon/whatsapp.webp','/images/nav-icon/who.webp'];
 //               var alts = ['Phone','Email','WhatsApp','About'];
 //               allLinks.forEach(function(a, i) {
 //                 var idx = i % 4;
@@ -582,6 +582,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* ========== RESOURCE HINTS — open connections to render-blocking
+            third-party origins early to speed up FCP/LCP. ========== */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://unpkg.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         {/* ========== GOOGLE TAG MANAGER (GTM) — Global, all pages ========== */}
         <Script id="gtm-init" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -655,13 +662,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }}
         />
 
-        {/* ========== CSS — Core ========== */}
-        <link href="/css/bootstrap.min.css" rel="stylesheet" />
-        <link href="/css/plugin.min.css" rel="stylesheet" />
-        <link href="/css/all.min.css" rel="stylesheet" />
-        <link href="/css/ionicon.min.css" rel="stylesheet" />
+        {/* ========== CSS — BUNDLED ==========
+            All 17 local stylesheets (bootstrap.min, plugin.min, all.min,
+            ionicon.min, style, responsive, mega-menu, about, blog,
+            home-mega-menu, navbar-redesign, chat-widget, location-pages,
+            navbar-dropdown, services, homepage-fixes, ui-fixes) are
+            concatenated in their original cascade order and minified into a
+            single file by scripts/_css_bundle.py. This drops 16 render-blocking
+            requests to 1. Re-run that script after editing any source CSS, then
+            bump the ?v= cache-buster below. ========== */}
+        <link href="/css/bundle.css?v=20260628b" rel="stylesheet" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />        <link
+        <link
+          href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet"
+        />
+        <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Lora:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
@@ -669,31 +685,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         />
-
-        {/* ========== CSS — Site ==========
-            Cache-busting `?v=` query string — bumped whenever the
-            static stylesheets in /public/css are updated so the
-            browser & CDN never serve a stale copy after a deploy.
-            Every CSS file is versioned together to keep responsive
-            and layout rules in lock-step. */}
-        <link href="/css/style.css?v=20260512g" rel="stylesheet" />
-        <link href="/css/responsive.css?v=20260512g" rel="stylesheet" />
-        <link href="/css/mega-menu.css?v=20260512g" rel="stylesheet" />
-        <link href="/css/about.css?v=20260512g" rel="stylesheet" />
-        <link href="/css/blog.css?v=20260512g" rel="stylesheet" />
-        <link href="/css/home-mega-menu.css?v=20260512g" rel="stylesheet" />
-        <link href="/css/navbar-redesign.css?v=20260512g" rel="stylesheet" />
-        <link href="/css/chat-widget.css?v=20260512g" rel="stylesheet" />
-        <link href="/css/location-pages.css?v=20260512g" rel="stylesheet" />
-        <link href="/css/navbar-dropdown.css?v=20260512g" rel="stylesheet" />
-        <link href="/css/services.css?v=20260512g" rel="stylesheet" />
-        <link href="/css/homepage-fixes.css?v=20260512g" rel="stylesheet"/>
-        {/* ui-fixes.css — comprehensive responsive UI fix pack. Loaded LAST so
-            its rules win against any earlier stylesheet for the issues listed
-            in /public/css/ui-fixes.css (technologies title, navbar, breadcrumb
-            overlap, quality work stacking, captcha overflow, floating icon
-            stack, message overflow, FAQ accordion, vision card wrap, etc.). */}
-        <link href="/css/ui-fixes.css?v=20260510a" rel="stylesheet" />
 
         <meta name="turnstile-site-key" content={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY} />
 
@@ -733,7 +724,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div className="brochure-modal-box">
             <div className="brochure-modal-left">
               <div className="brochure-modal-circle">
-                <img src="/images/sliders/mobile_app_development.png" alt="Web and Mobile App Development" />
+                <img width={516} height={546} loading="lazy" decoding="async" src="/images/sliders/mobile_app_development.webp" alt="Web and Mobile App Development" />
               </div>
             </div>
             <div className="brochure-modal-right">
@@ -803,8 +794,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           aria-label="Chat on WhatsApp"
         >
           {/* Hidden — kept for alt-text / SEO. CSS hides this element. */}
-          <img
-            src="/images/new_home/ai-product-pages/cybersecurity/whatsapp.png"
+          <img width={34} height={34} loading="lazy" decoding="async"
+            src="/images/new_home/ai-product-pages/cybersecurity/whatsapp.webp"
             alt="WhatsApp"
             className="whatsapp-hero-img"
           />
@@ -1145,7 +1136,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             function fixBottomNav() {
               var allLinks = document.querySelectorAll('.bottom-nav .ree-hc a');
               if (!allLinks.length) return setTimeout(fixBottomNav, 500);
-              var icons = ['/images/nav-icon/phone-call.png','/images/nav-icon/gmail.png','/images/nav-icon/whatsapp.png','/images/nav-icon/who.png'];
+              var icons = ['/images/nav-icon/phone-call.webp','/images/nav-icon/gmail.webp','/images/nav-icon/whatsapp.webp','/images/nav-icon/who.webp'];
               var alts = ['Phone','Email','WhatsApp','About'];
               allLinks.forEach(function(a, i) {
                 var idx = i % 4;

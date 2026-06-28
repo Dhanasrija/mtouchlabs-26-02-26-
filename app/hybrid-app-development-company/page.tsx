@@ -14,13 +14,13 @@ export const metadata: Metadata = {
     url: "https://www.mtouchlabs.com/hybrid-app-development-company",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Top Hybrid App Development Company in India" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Top Hybrid App Development Company in India" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Top Hybrid App Development Company in India",
     description: "Hire mTouch Labs, the top hybrid app development company in India, for custom and scalable hybrid mobile applications.Top Hybrid App Development Company in Hyderabad, \n\tspecialized in creating custom hybrid apps",
-    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
   },
 };
 
@@ -56,8 +56,8 @@ export default function Page() {
 				<div className="menu-header">
 					<div className="menu-logo">
 						<div className="dskt-logo"><a className="nav-brand" href="/index">
-								<img src="/images/logo-black.svg" alt="Logo" className="ree-logo l-dark" />
-								<img src="/images/white.svg" alt="Logo" className="ree-logo l-white" />
+								<img width={1854} height={374} loading="lazy" decoding="async" src="/images/logo-black.svg" alt="Logo" className="ree-logo l-dark" />
+								<img width={1853} height={374} loading="lazy" decoding="async" src="/images/white.svg" alt="Logo" className="ree-logo l-white" />
 							</a> </div>
 					</div>
 					<div className="ree-nav" role="navigation">
@@ -134,7 +134,7 @@ export default function Page() {
 															</div>
 														</div>
 														<a href="https://wa.me/message/H5VADFWLMPYIM1"
-															target="_blank">+91
+															target="_blank" rel="noopener noreferrer">+91
 															9390683154</a>
 													</li>
 
@@ -323,15 +323,15 @@ export default function Page() {
 																		Services</a>
 																</li>
 																<li><a href="/generative-ai-development-company"
-																		target="_blank">Generative
+																		target="_blank" rel="noopener noreferrer">Generative
 																		AI</a>
 																</li>
 																<li><a href="/empowering-businesses-with-data-science"
-																		target="_blank">Data
+																		target="_blank" rel="noopener noreferrer">Data
 																		Science</a>
 																</li>
 																<li><a href="/cybersecurity-development-company"
-																		target="_blank">Cyber
+																		target="_blank" rel="noopener noreferrer">Cyber
 																		Security</a>
 																</li>
 
@@ -373,7 +373,7 @@ export default function Page() {
 															</div>
 														</div>
 														<a href="https://wa.me/message/H5VADFWLMPYIM1"
-															target="_blank">+91
+															target="_blank" rel="noopener noreferrer">+91
 															9390683154</a>
 													</li>
 
@@ -579,7 +579,7 @@ export default function Page() {
 															</div>
 														</div>
 														<a href="https://wa.me/message/H5VADFWLMPYIM1"
-															target="_blank">+91
+															target="_blank" rel="noopener noreferrer">+91
 															9390683154</a>
 													</li>
 
@@ -848,7 +848,7 @@ export default function Page() {
 															</div>
 														</div>
 														<a href="https://wa.me/message/H5VADFWLMPYIM1"
-															target="_blank">+91
+															target="_blank" rel="noopener noreferrer">+91
 															9390683154</a>
 													</li>
 
@@ -1029,11 +1029,11 @@ export default function Page() {
 													Photography
 													Services</a>
 											</li>
-											<li><a href="/generative-ai-development-company" target="_blank">Generative
+											<li><a href="/generative-ai-development-company" target="_blank" rel="noopener noreferrer">Generative
 													AI</a></li>
-											<li><a href="/empowering-businesses-with-data-science" target="_blank">Data
+											<li><a href="/empowering-businesses-with-data-science" target="_blank" rel="noopener noreferrer">Data
 													Science</a></li>
-											<li><a href="/cybersecurity-development-company" target="_blank">Cyber
+											<li><a href="/cybersecurity-development-company" target="_blank" rel="noopener noreferrer">Cyber
 													Security</a>
 											</li>
 
@@ -1270,7 +1270,7 @@ export default function Page() {
 								</a>
 							</li>
 							<li className="ree-hc">
-								<a href="/cdn-cgi/l/email-protection#dbb8b4b5afbab8af9bb6afb4aeb8b3b7bab9a8f5b8b4b6" target="_blank">
+								<a href="/cdn-cgi/l/email-protection#dbb8b4b5afbab8af9bb6afb4aeb8b3b7bab9a8f5b8b4b6" target="_blank" rel="noopener noreferrer">
 									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 										<path
 											d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
@@ -1337,7 +1337,7 @@ export default function Page() {
 					responsive apps ensuring faster time-to-market and reduced development costs.
 				</p>
 			</div>
-			<a href="/contact-us" target="_blank"><button className="AIservices-btn"> Talk to
+			<a href="/contact-us" target="_blank" rel="noopener noreferrer"><button className="AIservices-btn"> Talk to
 					Experts</button></a></div>
 	</section>
 
@@ -1358,7 +1358,7 @@ export default function Page() {
 					</p>
 				</div>
 				<div className="AIservices-process-image1">
-					<img src="/./images/new_services/planning.png" alt="Discovery &amp; Planning" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/./images/new_services/planning.webp" alt="Discovery &amp; Planning" />
 				</div>
 			</div>
 
@@ -1372,7 +1372,7 @@ export default function Page() {
 					</p>
 				</div>
 				<div className="AIservices-process-image">
-					<img src="/./images/new_services/ui-ux.png" alt="UI/UX Design" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/./images/new_services/ui-ux.webp" alt="UI/UX Design" />
 				</div>
 			</div>
 
@@ -1386,7 +1386,7 @@ export default function Page() {
 					</p>
 				</div>
 				<div className="AIservices-process-image1">
-					<img src="/./images/new_services/development.png" alt="Development" />
+					<img width={432} height={245} loading="lazy" decoding="async" src="/./images/new_services/development.webp" alt="Development" />
 				</div>
 			</div>
 
@@ -1400,7 +1400,7 @@ export default function Page() {
 					</p>
 				</div>
 				<div className="AIservices-process-image">
-					<img src="/./images/new_services/testing.png" alt="Testing" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/./images/new_services/testing.webp" alt="Testing" />
 				</div>
 			</div>
 
@@ -1413,7 +1413,7 @@ export default function Page() {
 					</p>
 				</div>
 				<div className="AIservices-process-image1">
-					<img src="/./images/new_services/launch.png" alt="Launch" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/./images/new_services/launch.webp" alt="Launch" />
 				</div>
 			</div>
 
@@ -1427,7 +1427,7 @@ export default function Page() {
 					</p>
 				</div>
 				<div className="AIservices-process-image">
-					<img src="/./images/new_services/post-launch.png" alt="Post-Launch Support" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/./images/new_services/post-launch.webp" alt="Post-Launch Support" />
 				</div>
 			</div>
 		</div>
@@ -1443,12 +1443,12 @@ export default function Page() {
 				<div className="Aiservices-testimonial-content">
 					<div className="Aiservices-company-logo-container">
 						<div className="Aiservices-company-logo-div">
-							<img src="/images/brand-logo/Avenue.png" />
+							<img width={142} height={166} loading="lazy" decoding="async" src="/images/brand-logo/Avenue.webp" />
 						</div>
 					</div>
 					<div className="Aiservices-testimonial-text">
 						<div className="Aiservices-rating">
-							<img src="/images/new_services/doublequotes.png" className="doublequotes_img" />
+							<img width={61} height={61} loading="lazy" decoding="async" src="/images/new_services/doublequotes.webp" className="doublequotes_img" />
 						</div>
 						<p className="Aiservices-testimonial-quote">
 
@@ -1456,7 +1456,7 @@ export default function Page() {
 							cross-platform and budget-friendly!"
 						</p>
 						<div className="Aiservices-testimonial-author">
-							<span><a href="/real-estate-lead-app" target="_blank">Explore
+							<span><a href="/real-estate-lead-app" target="_blank" rel="noopener noreferrer">Explore
 									-</a></span>
 						</div>
 					</div>
@@ -1579,7 +1579,7 @@ export default function Page() {
 								Let's get to chat.</h3>
 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 									className="fas fa-user fb-bigon"></i> Contact </a>
-							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
+							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer"
 								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
 								Whatsapp </a>
 
@@ -1587,7 +1587,7 @@ export default function Page() {
 					</div>
 					<div className="col-lg-6 vcenter text-center">
 						<div className="sol-img-png">
-							<img src="/images/cta/Project-in-mind-Let's-get-to-chat-hybrid.svg" alt="hybrid app development" className="img-fluid" />
+							<img loading="lazy" decoding="async" src="/images/cta/Project-in-mind-Let's-get-to-chat-hybrid.svg" alt="hybrid app development" className="img-fluid" />
 						</div>
 					</div>
 				</div>

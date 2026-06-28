@@ -5,7 +5,7 @@ import { IndustriesPills } from "@/components/sections/home/ui/IndustriesPills";
 export default function IndustriesSection() {
   return (
     <>
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         /* Mobile: drop absolute layout, show pills in a flex wrap */
         @media (max-width: 768px) {
           .ind-heading {
@@ -19,7 +19,7 @@ export default function IndustriesSection() {
             margin-bottom: 24px;
           }
         }
-      `}</style>
+      `}} />
 
       <section className="ind-section" style={{ overflow: "hidden" }}>
         <div className="ind-container">

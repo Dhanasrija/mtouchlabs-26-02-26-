@@ -16,22 +16,22 @@ const data: ProductPageData = {
     h1Tail: "in Hyderabad",
     subtitle: "Launch a scalable ride-hailing platform with real-time GPS tracking, dynamic pricing, multi-ride options, secure payments, and driver-partner management.",
     demoHref: "https://youtu.be/Ftq3P5P4Xg8?si=L7DW83hBfG9_p2UP",
-    leftPhoneImg: "/images/products/tax/phone1.png",
-    rightPhoneImg: "/images/products/tax/phone2.png",
+    leftPhoneImg: "/images/products/tax/phone1.webp",
+    rightPhoneImg: "/images/products/tax/phone2.webp",
   },
   intro: {
-    img: "/images/products/tax/phone1.png",
+    img: "/images/products/tax/phone1.webp",
     label: "Ride-Hailing Experts",
     h3: "Taxi Booking App Development",
     body: [
-      <>mTouch Labs is a NASSCOM award-winning <a href="/mobile-app-development-company" target="_blank">taxi booking app development company</a> in Hyderabad, helping mobility startups and fleet operators launch scalable ride-hailing platforms.</>,
+      <>mTouch Labs is a NASSCOM award-winning <a href="/mobile-app-development-company" target="_blank" rel="noopener noreferrer">taxi booking app development company</a> in Hyderabad, helping mobility startups and fleet operators launch scalable ride-hailing platforms.</>,
       <>We build city ride apps, intercity cab booking platforms, corporate mobility solutions, and auto/bike taxi services tailored to your business model.</>,
     ],
   },
   dividerTitle: "Custom Taxi Booking App Development Services",
-  dividerImg: "/images/products/tax/icon.png",
+  dividerImg: "/images/products/tax/icon.webp",
   endToEnd: {
-    img: "/images/products/tax/phone2.png",
+    img: "/images/products/tax/phone2.webp",
     label: "End-to-End Solutions",
     h3: "Complete Ride-Hailing Platform",
     body: [
@@ -57,11 +57,11 @@ const data: ProductPageData = {
   screens: {
     alt: "Taxi booking app screen",
     images: [
-      "/images/products/tax/appscreen1.png",
-      "/images/products/tax/appscreen2.png",
-      "/images/products/tax/appscreen3.png",
-      "/images/products/tax/appscreen4.png",
-      "/images/products/tax/appscreen5.png",
+      "/images/products/tax/appscreen1.webp",
+      "/images/products/tax/appscreen2.webp",
+      "/images/products/tax/appscreen3.webp",
+      "/images/products/tax/appscreen4.webp",
+      "/images/products/tax/appscreen5.webp",
     ],
   },
   tabs: {
@@ -96,7 +96,7 @@ const data: ProductPageData = {
     { q: "Do you provide post-launch support?", a: "Yes, we provide ongoing maintenance, performance tuning, and feature enhancements." },
   ],
   cta: {
-    img: "/images/products/tax/tax_services_img.png",
+    img: "/images/products/tax/tax_services_img.webp",
     h2: "Build a Taxi App Riders Love",
     body: "Launch a modern ride-hailing platform that is scalable, reliable, and ready for growth.",
   },

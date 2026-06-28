@@ -2,16 +2,16 @@ import ScrollGallery from "./ScrollGallery";
 import StatsBar from "./StatsBar";
 
 const logos = [
-  { src: "/images/home/tech/kezad-logo.png", alt: "Kezad Group" },
-  { src: "/images/home/tech/kohere.png", alt: "Kohere" },
-  { src: "/images/home/tech/aduri.png", alt: "Aburi Group" },
-  { src: "/images/home/tech/image1.png", alt: "ADJD" },
-  { src: "/images/home/tech/image3.png", alt: "Government of Telangana" },
-  { src: "/images/home/tech/zefsci.png", alt: "ZetSci" },
-  { src: "/images/home/tech/uptick.png", alt: "UaTiK" },
-  { src: "/images/home/tech/saachi.png", alt: "Sacchi" },
-  { src: "/images/home/tech/drpicklogo.png", alt: "Dr.Pick" },
-  { src: "/images/home/tech/image2.png", alt: "ZuppiBuy" },
+  { src: "/images/home/tech/kezad-logo.webp", alt: "Kezad Group" },
+  { src: "/images/home/tech/kohere.webp", alt: "Kohere" },
+  { src: "/images/home/tech/aduri.webp", alt: "Aburi Group" },
+  { src: "/images/home/tech/image1.webp", alt: "ADJD" },
+  { src: "/images/home/tech/image3.webp", alt: "Government of Telangana" },
+  { src: "/images/home/tech/zefsci.webp", alt: "ZetSci" },
+  { src: "/images/home/tech/uptick.webp", alt: "UaTiK" },
+  { src: "/images/home/tech/saachi.webp", alt: "Sacchi" },
+  { src: "/images/home/tech/drpicklogo.webp", alt: "Dr.Pick" },
+  { src: "/images/home/tech/image2.webp", alt: "ZuppiBuy" },
 ];
 
 export default function TrustedPartnersSection() {

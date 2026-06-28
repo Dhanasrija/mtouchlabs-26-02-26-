@@ -3,12 +3,12 @@
 import React, { useEffect, useRef, useCallback } from "react";
 
 const galleryImages = [
-  { src: "/images/hero/Devops.png", alt: "development" },
-  { src: "/images/hero/DigitalMarketing.png", alt: "Digital Marketing" },
-  { src: "/images/hero/MobileappDevelopment.png", alt: "Mobile App Development" },
-  { src: "/images/hero/Salesforce.png", alt: "Software Development" },
-  { src: "/images/hero/SMEINSPIRE.png", alt: "SME Inspire" },
-  { src: "/images/hero/WebDevelopment.png", alt: "Web Development" },
+  { src: "/images/hero/Devops.webp", alt: "development" },
+  { src: "/images/hero/DigitalMarketing.webp", alt: "Digital Marketing" },
+  { src: "/images/hero/MobileappDevelopment.webp", alt: "Mobile App Development" },
+  { src: "/images/hero/Salesforce.webp", alt: "Software Development" },
+  { src: "/images/hero/SMEINSPIRE.webp", alt: "SME Inspire" },
+  { src: "/images/hero/WebDevelopment.webp", alt: "Web Development" },
 ];
 
 // 2 copies for seamless looping (original + clone)

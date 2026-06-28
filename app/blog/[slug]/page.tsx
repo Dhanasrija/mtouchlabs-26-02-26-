@@ -419,7 +419,7 @@ export async function generateMetadata({
 //                   <Link href="/contact-us">Contact us</Link> to discuss your project.
 //                 </p>
 //                 <div className="blv3-author-card">
-//                   <img src="/images/logo_on.png" alt="mTouch Labs" className="blv3-author-logo" />
+//                   <img width={41} height={41} loading="lazy" decoding="async" src="/images/logo_on.webp" alt="mTouch Labs" className="blv3-author-logo" />
 //                   <div className="blv3-author-info">
 //                     <p className="blv3-author-title">Have a project in mind?</p>
 //                     <p className="blv3-author-sub">Let&apos;s discuss how we can help bring your ideas to life.</p>
@@ -835,7 +835,7 @@ export async function generateMetadata({
 //                   <Link href="/contact-us">Contact us</Link> to discuss your project.
 //                 </p>
 //                 <div className="blv3-author-card">
-//                   <img src="/images/logo_on.png" alt="mTouch Labs" className="blv3-author-logo" />
+//                   <img width={41} height={41} loading="lazy" decoding="async" src="/images/logo_on.webp" alt="mTouch Labs" className="blv3-author-logo" />
 //                   <div className="blv3-author-info">
 //                     <p className="blv3-author-title">Have a project in mind?</p>
 //                     <p className="blv3-author-sub">Let&apos;s discuss how we can help bring your ideas to life.</p>
@@ -1339,7 +1339,7 @@ export default async function BlogPostPage({
                   <Link href="/contact-us">Contact us</Link> to discuss your project.
                 </p>
                 <div className="blv3-author-card">
-                  <img src="/images/logo_on.png" alt="mTouch Labs" className="blv3-author-logo" />
+                  <img width={41} height={41} loading="lazy" decoding="async" src="/images/logo_on.webp" alt="mTouch Labs" className="blv3-author-logo" />
                   <div className="blv3-author-info">
                     <p className="blv3-author-title">Have a project in mind?</p>
                     <p className="blv3-author-sub">Let&apos;s discuss how we can help bring your ideas to life.</p>

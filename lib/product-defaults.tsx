@@ -21,7 +21,7 @@ export const defaultWhyCards = (): {
   { icon: "🏆", title: "NASSCOM Award-Winning",           desc: "Recognized technology company with proven excellence." },
   { icon: "📱", title: "Mobile, Software & AI Expertise", desc: "Full-stack capabilities across all technology domains." },
   { icon: "⚡", title: "Scalable Architecture",           desc: "Solutions built to grow with startups and enterprises." },
-  { icon: "🎨", title: "Custom UI/UX Design",             desc: <>Engaging interfaces crafted by our <a href="/ui-ux-design-company" target="_blank">UI/UX design team</a>.</> },
+  { icon: "🎨", title: "Custom UI/UX Design",             desc: <>Engaging interfaces crafted by our <a href="/ui-ux-design-company" target="_blank" rel="noopener noreferrer">UI/UX design team</a>.</> },
   { icon: "🔒", title: "Secure Payment Integration",      desc: "PCI-compliant payment gateways and third-party API integration." },
   { icon: "🔄", title: "Agile Development",               desc: "Transparent communication with iterative development cycles." },
   { icon: "🛠️", title: "Post-Launch Support",             desc: "Ongoing maintenance, updates, and feature enhancements." },
@@ -53,7 +53,7 @@ export const buildDefaults = (product: string) => ({
   ai: {
     label: "AI-Powered",
     h2: `AI-Powered ${product} App Development`,
-    desc: <>At mTouch Labs, we go beyond standard app development by integrating smart features that improve efficiency and user experience. Our <a href="/generative-ai-development-company" target="_blank">AI-powered {product.toLowerCase()} app development</a> solutions help businesses personalize customer journeys and optimize operations.</>,
+    desc: <>At mTouch Labs, we go beyond standard app development by integrating smart features that improve efficiency and user experience. Our <a href="/generative-ai-development-company" target="_blank" rel="noopener noreferrer">AI-powered {product.toLowerCase()} app development</a> solutions help businesses personalize customer journeys and optimize operations.</>,
     cards: defaultAiCards(product),
   },
   why: {

@@ -14,13 +14,13 @@ export const metadata: Metadata = {
     url: "https://www.mtouchlabs.com/web-and-app-development-for-education-services",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Education App & Web Development" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Education App & Web Development" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Education App & Web Development",
     description: "Boost learning with custom web & app development for education—engage students, support educators, and streamline management with digital solutions.",
-    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
   },
 };
 
@@ -73,7 +73,7 @@ export default function Page() {
 
                         <div className="icon-with-title">
                             <a href="javascript:void(0)">
-                                <div className="iwt-icon"> <img src="/images/icons/Node.JS.svg" alt="nodeJS" />
+                                <div className="iwt-icon"> <img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Node.JS.svg" alt="nodeJS" />
                                 </div>
                                 <div className="iwt-content">
                                     <p>nodeJS</p>
@@ -82,7 +82,7 @@ export default function Page() {
                         </div>
                         <div className="icon-with-title">
                             <a href="javascript:void(0)">
-                                <div className="iwt-icon"> <img src="/images/icons/React-icon.svg" alt="angular" />
+                                <div className="iwt-icon"> <img width={420} height={374} loading="lazy" decoding="async" src="/images/icons/React-icon.svg" alt="angular" />
                                 </div>
                                 <div className="iwt-content">
                                     <p>React JS</p>
@@ -91,7 +91,7 @@ export default function Page() {
                         </div>
                         <div className="icon-with-title">
                             <a href="javascript:void(0)">
-                                <div className="iwt-icon"> <img src="/images/icons/mysql.svg" alt="MySql" />
+                                <div className="iwt-icon"> <img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/mysql.svg" alt="MySql" />
                                 </div>
                                 <div className="iwt-content">
                                     <p>MySql</p>
@@ -281,23 +281,23 @@ export default function Page() {
 
             <div className="app-screenss owl-carousel mt70 dottss">
                 <div className="appscreen">
-                    <div className="itme-img"><img src="/images/case-study/l2r-phone1.svg" alt="mockup" className="img-fluid" />
+                    <div className="itme-img"><img width={460} height={890} loading="lazy" decoding="async" src="/images/case-study/l2r-phone1.svg" alt="mockup" className="img-fluid" />
                     </div>
                 </div>
                 <div className="appscreen">
-                    <div className="itme-img"><img src="/images/case-study/l2r-phone2.svg" alt="mockup" className="img-fluid" />
+                    <div className="itme-img"><img width={460} height={890} loading="lazy" decoding="async" src="/images/case-study/l2r-phone2.svg" alt="mockup" className="img-fluid" />
                     </div>
                 </div>
                 <div className="appscreen">
-                    <div className="itme-img"><img src="/images/case-study/l2r-phone3.svg" alt="mockup" className="img-fluid" />
+                    <div className="itme-img"><img width={459} height={890} loading="lazy" decoding="async" src="/images/case-study/l2r-phone3.svg" alt="mockup" className="img-fluid" />
                     </div>
                 </div>
                 <div className="appscreen">
-                    <div className="itme-img"><img src="/images/case-study/l2r-phone4.svg" alt="mockup" className="img-fluid" />
+                    <div className="itme-img"><img width={460} height={890} loading="lazy" decoding="async" src="/images/case-study/l2r-phone4.svg" alt="mockup" className="img-fluid" />
                     </div>
                 </div>
                 <div className="appscreen">
-                    <div className="itme-img"><img src="/images/case-study/l2r-phone5.svg" alt="mockup" className="img-fluid" />
+                    <div className="itme-img"><img width={460} height={890} loading="lazy" decoding="async" src="/images/case-study/l2r-phone5.svg" alt="mockup" className="img-fluid" />
                     </div>
                 </div>
             </div>
@@ -317,27 +317,27 @@ export default function Page() {
 
             <div className="app-screenss owl-carousel mt70 dottss">
                 <div className="appscreen">
-                    <div className="itme-img"><img src="/images/case-study/l2r-screen5.svg" alt="mockup" className="img-fluid" />
+                    <div className="itme-img"><img width={2000} height={1333} loading="lazy" decoding="async" src="/images/case-study/l2r-screen5.svg" alt="mockup" className="img-fluid" />
                     </div>
                 </div>
                 <div className="appscreen">
-                    <div className="itme-img"><img src="/images/case-study/l2r-screen1.svg" alt="mockup" className="img-fluid" />
+                    <div className="itme-img"><img width={2000} height={1333} loading="lazy" decoding="async" src="/images/case-study/l2r-screen1.svg" alt="mockup" className="img-fluid" />
                     </div>
                 </div>
                 <div className="appscreen">
-                    <div className="itme-img"><img src="/images/case-study/l2r-screen2.svg" alt="mockup" className="img-fluid" />
+                    <div className="itme-img"><img width={2000} height={1333} loading="lazy" decoding="async" src="/images/case-study/l2r-screen2.svg" alt="mockup" className="img-fluid" />
                     </div>
                 </div>
                 <div className="appscreen">
-                    <div className="itme-img"><img src="/images/case-study/zefsci-screen3.png" alt="mockup"
+                    <div className="itme-img"><img width={2000} height={1333} loading="lazy" decoding="async" src="/images/case-study/zefsci-screen3.webp" alt="mockup"
                             className="img-fluid" /></div>
                 </div>
                 <div className="appscreen">
-                    <div className="itme-img"><img src="/images/case-study/zefsci-screen4.png" alt="mockup"
+                    <div className="itme-img"><img width={2000} height={1333} loading="lazy" decoding="async" src="/images/case-study/zefsci-screen4.webp" alt="mockup"
                             className="img-fluid" /></div>
                 </div>
-                {/*  <div className="appscreen"> <div className="itme-img"><img src="/images/case-study/Shiva-Sai-Enterprises-admin-screen.png" alt="mockup" className="img-fluid" /></div> </div>	  */}
-                {/*  <div className="appscreen"> <div className="itme-img"><img src="/images/case-study/appui-3.png" alt="mockup" className="img-fluid" /></div> </div>	  */}
+                {/*  <div className="appscreen"> <div className="itme-img"><img width={800} height={600} loading="lazy" decoding="async" src="/images/case-study/Shiva-Sai-Enterprises-admin-screen.webp" alt="mockup" className="img-fluid" /></div> </div>	  */}
+                {/*  <div className="appscreen"> <div className="itme-img"><img width={260} height={510} loading="lazy" decoding="async" src="/images/case-study/appui-3.webp" alt="mockup" className="img-fluid" /></div> </div>	  */}
             </div>
         </div>
     </section>

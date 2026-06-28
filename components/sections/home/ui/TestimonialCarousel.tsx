@@ -51,10 +51,10 @@ export default function TestimonialCarousel({ testimonials }: { testimonials: Te
       <div className="testi-nav-btns-container">
         <div className="testi-nav-btns">
           <button className="testi-nav-btn" onClick={() => scroll("left")}>
-            <img src="/images/home/testmonial/left.png" alt="Previous" className="testi-nav-icon" />
+            <img width={72} height={72} loading="lazy" decoding="async" src="/images/home/testmonial/left.webp" alt="Previous" className="testi-nav-icon" />
           </button>
           <button className="testi-nav-btn" onClick={() => scroll("right")}>
-            <img src="/images/home/testmonial/right.png" alt="Next" className="testi-nav-icon" />
+            <img width={72} height={72} loading="lazy" decoding="async" src="/images/home/testmonial/right.webp" alt="Next" className="testi-nav-icon" />
           </button>
         </div>
       </div>

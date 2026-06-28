@@ -13,13 +13,13 @@
 //     url: "https://www.mtouchlabs.com/hire-node-js-developers-in-india",
 //     siteName: "mTouch Labs",
 //     type: "website",
-//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire Node.js Developers in India" }],
+//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Hire Node.js Developers in India" }],
 //   },
 //   twitter: {
 //     card: "summary_large_image",
 //     title: "Hire Node.js Developers in India",
 //     description: "Hire Node.js developers in India from mTouch Labs to build scalable, high-performance backend and full-stack applications with expertise in modern JavaScript technologies.",
-//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
 //   },
 // };
 
@@ -44,7 +44,7 @@
 // 					</div>
 // 				</div>
 // 				<div className="col-lg-6">
-// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img
+// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img width={690} height={350} loading="lazy" decoding="async"
 // 							src="/images/others/Hire-NodeJS-developers-who-are-experienced-with-a-blend.svg"
 // 							alt="mTouch Labs" className="img-fluid" /></div>
 // 				</div>
@@ -64,7 +64,7 @@
 // 							<h2 className="mb15">Hire Our Dedicated <span className="ree-text rt40"> Node </span> JS <span
 // 									className="ree-text rt40"> Developers </span> From mTouch Labs in India</h2>
 // 							<p>With our vast backend development expertise, mTouchlabs is the right technology partner
-// 								for your <a href="/node-js-development-company-in-india" target="_blank">NodeJS
+// 								for your <a href="/node-js-development-company-in-india" target="_blank" rel="noopener noreferrer">NodeJS
 // 									development</a>. Hire NodeJS developers from India to adopt the power of
 // 								Node JS and get agile, robust, high-performance, scalable and feature-rich applications.
 // 							</p>
@@ -78,7 +78,7 @@
 // 								years of experience in producing
 // 								front-end and back-end app components, you get world-class, robust, and secure Node JS
 // 								development solutions at competitive prices. Our dedicated Node.JS developers can help
-// 								you develop <a href="/gaming-apps-development-company" target="_blank">gaming apps</a>,
+// 								you develop <a href="/gaming-apps-development-company" target="_blank" rel="noopener noreferrer">gaming apps</a>,
 // 								chat apps, image processing apps, social networking apps, data
 // 								storage web apps, and more. Hire Node.js developers or programmers from our company and
 // 								save up to 50% on app development, support, and maintenance cost.
@@ -88,7 +88,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async"
 // 								src="/images/cta/Hire-Dedicated-Node.JS-Developers-From-mTouchlabs.svg"
 // 								alt="node js Developers" className="img-fluid" /> </div>
 // 					</div>
@@ -97,7 +97,7 @@
 // 				<div className="row">
 
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async"
 // 								src="/images/cta/Hire-Dedicated-NodeJS-Developers-From-mTouchlabs.svg"
 // 								alt="node js web Developers" className="img-fluid" /></div>
 // 					</div>
@@ -120,7 +120,7 @@
 							 
 // 							<p>Hire our dedicated NodeJS experts for producing custom-made, budget-friendly, and
 // 								user-friendly applications using <a href="/mobile-app-development-company"
-// 									target="_blank">Node.js for web and mobile</a> . With our wide range of
+// 									target="_blank" rel="noopener noreferrer">Node.js for web and mobile</a> . With our wide range of
 // 								backend development expertise mTouchlabs is the absolute technology partner for your
 // 								NodeJS development.
 // 							</p>
@@ -160,7 +160,7 @@
 // 			<div className="row mt30">
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Dedicated-Vue-Js-Developers.svg"
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Dedicated-Vue-Js-Developers.svg"
 // 								alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15"><span className="yearsOfExcellence">12+</span> years of experience</h3>
@@ -171,7 +171,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Custom-Vue-Web-Apps.svg" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Custom-Vue-Web-Apps.svg" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Innovative approach</h3>
 // 							<p>We develop custom APIs and deliver a strategic third-party app integration to cater to
@@ -182,7 +182,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Support-&amp;-Maintenance-hire-vue.svg"
+// 						<div className="ree-card-img"><img loading="lazy" decoding="async" src="/images/icons/Support-&amp;-Maintenance-hire-vue.svg"
 // 								alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Outcome-Based Approach</h3>
@@ -195,7 +195,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Vue-Migration-Services.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Vue-Migration-Services.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Complete Privacy</h3>
@@ -207,7 +207,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Flexible-Engagement-Models-hire-vue.svg"
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Flexible-Engagement-Models-hire-vue.svg"
 // 								alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Flexible Working Style</h3>
@@ -219,7 +219,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/others/reputation.png" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/others/reputation.webp" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Deliver customer-centric solutions</h3>
 // 							<p>Our team of remote Node.js programmers helps you build AI-powered web applications that
@@ -263,7 +263,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
-// 						<div className="sol-img-png"> <img
+// 						<div className="sol-img-png"> <img width={690} height={350} loading="lazy" decoding="async"
 // 								src="/images/cta/Hire-Dedicated-NodeJs-Programmers-To-Build-High-Performing-Applications.svg"
 // 								alt="hire node js developers" className="img-fluid" /> </div>
 // 					</div>
@@ -408,7 +408,7 @@
 // 								chat.</h3>
 // 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 // 									className="fas fa-user fb-bigon"></i> Contact </a>
-// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
+// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer"
 // 								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
 // 								Whatsapp </a>
 
@@ -416,7 +416,7 @@
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
 // 						<div className="sol-img-png">
-// 							<img src="/images/cta/let's-ge-to-chat-hire-nodejs.svg" alt="working with client"
+// 							<img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/let's-ge-to-chat-hire-nodejs.svg" alt="working with client"
 // 								className="img-fluid" />
 // 						</div>
 // 					</div>

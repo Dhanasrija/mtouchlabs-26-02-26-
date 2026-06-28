@@ -47,7 +47,7 @@ export default async function AllCaseStudiesPage({
     <div id="admin-root" style={{display:'flex',minHeight:'100vh',fontFamily:"'Inter',sans-serif",background:'#f9fafb',color:'#111827',lineHeight:1.5}}>
       <aside className="sidebar" style={{width:230,minWidth:230,background:'#1a1a2e',display:'flex',flexDirection:'column',position:'fixed',top:0,left:0,bottom:0,zIndex:1060,overflow:'auto'}}>
         <div style={{padding:'20px 20px 18px',display:'flex',alignItems:'center',gap:10}}>
-          <img src="/images/logo-white.png" alt="mTouch Labs" style={{maxWidth:150,height:'auto'}} />
+          <img width={266} height={47} loading="lazy" decoding="async" src="/images/logo-white.webp" alt="mTouch Labs" style={{maxWidth:150,height:'auto'}} />
         </div>
         <nav className="s-links">
           <Link href="/admin/dashboard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Dashboard</Link>
@@ -57,7 +57,7 @@ export default async function AllCaseStudiesPage({
           <Link href="/admin/case-studies/create"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>Create Case Study</Link>
           <Link href="/admin/portfolios"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>All Portfolios</Link>
           <div className="s-div"/>
-          <a href="/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View Site</a>
+          <a href="/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View Site</a>
         </nav>
       </aside>
 
@@ -125,7 +125,7 @@ export default async function AllCaseStudiesPage({
                     </td>
                     <td style={{padding:'14px 16px',textAlign:'right'}}>
                       <div style={{display:'flex',gap:6,justifyContent:'flex-end'}}>
-                        <Link href={`/case-studies/${cs.slug}`} target="_blank" style={{padding:'6px 12px',borderRadius:6,fontSize:12,background:'#f3f4f6',color:'#374151',textDecoration:'none',border:'1px solid #e5e7eb'}}>View</Link>
+                        <Link href={`/case-studies/${cs.slug}`} target="_blank" rel="noopener noreferrer" style={{padding:'6px 12px',borderRadius:6,fontSize:12,background:'#f3f4f6',color:'#374151',textDecoration:'none',border:'1px solid #e5e7eb'}}>View</Link>
                         <Link href={`/admin/case-studies/${cs.id}/edit`} style={{padding:'6px 12px',borderRadius:6,fontSize:12,background:'#eef2ff',color:'#4338ca',textDecoration:'none',border:'1px solid #c7d2fe'}}>Edit</Link>
                         <form action={duplicateCaseStudy} style={{display:'inline'}}><input type="hidden" name="id" value={cs.id} /><button type="submit" style={{padding:'6px 12px',borderRadius:6,fontSize:12,background:'#fefce8',color:'#a16207',border:'1px solid #fde68a',cursor:'pointer'}}>Duplicate</button></form>
                         <form action={deleteCaseStudy} style={{display:'inline'}}><input type="hidden" name="id" value={cs.id} /><button type="submit" style={{padding:'6px 12px',borderRadius:6,fontSize:12,background:'#fef2f2',color:'#dc2626',border:'1px solid #fecaca',cursor:'pointer'}}>Delete</button></form>

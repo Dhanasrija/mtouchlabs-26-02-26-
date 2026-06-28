@@ -16,22 +16,22 @@ const data: ProductPageData = {
     h1Tail: "in Hyderabad",
     subtitle: "Build scalable, feature-rich OTT streaming platforms for video, audio, and live content delivery across mobile, web, smart TVs, and connected devices.",
     demoHref: "https://youtu.be/RldcEasvr_4?si=q8EAeG4u3o7k208F",
-    leftPhoneImg: "/images/products/ott/phone1.png",
-    rightPhoneImg: "/images/products/ott/phone2.png",
+    leftPhoneImg: "/images/products/ott/phone1.webp",
+    rightPhoneImg: "/images/products/ott/phone2.webp",
   },
   intro: {
-    img: "/images/products/ott/phone1.png",
+    img: "/images/products/ott/phone1.webp",
     label: "OTT Streaming Experts",
     h3: "OTT App Development",
     body: [
-      <>mTouch Labs is a NASSCOM award-winning <a href="/mobile-app-development-company" target="_blank">OTT app development company</a> in Hyderabad, helping broadcasters, content owners, and startups launch scalable streaming platforms.</>,
-      <>We build video-on-demand platforms, live-TV streaming apps, audio streaming services, smart-TV apps, and <a href="/generative-ai-development-company" target="_blank">AI-powered recommendation engines</a> tailored to your audience.</>,
+      <>mTouch Labs is a NASSCOM award-winning <a href="/mobile-app-development-company" target="_blank" rel="noopener noreferrer">OTT app development company</a> in Hyderabad, helping broadcasters, content owners, and startups launch scalable streaming platforms.</>,
+      <>We build video-on-demand platforms, live-TV streaming apps, audio streaming services, smart-TV apps, and <a href="/generative-ai-development-company" target="_blank" rel="noopener noreferrer">AI-powered recommendation engines</a> tailored to your audience.</>,
     ],
   },
   dividerTitle: "Custom OTT App Development Services",
-  dividerImg: "/images/products/ott/icon1.png",
+  dividerImg: "/images/products/ott/icon1.webp",
   endToEnd: {
-    img: "/images/products/ott/phone2.png",
+    img: "/images/products/ott/phone2.webp",
     label: "End-to-End Solutions",
     h3: "Complete OTT Streaming Platform",
     body: [
@@ -57,11 +57,11 @@ const data: ProductPageData = {
   screens: {
     alt: "OTT app screen",
     images: [
-      "/images/products/ott/appscreen1.png",
-      "/images/products/ott/appscreen2.png",
-      "/images/products/ott/appscreen3.png",
-      "/images/products/ott/appscreen4.png",
-      "/images/products/ott/appscreen5.png",
+      "/images/products/ott/appscreen1.webp",
+      "/images/products/ott/appscreen2.webp",
+      "/images/products/ott/appscreen3.webp",
+      "/images/products/ott/appscreen4.webp",
+      "/images/products/ott/appscreen5.webp",
     ],
   },
   tabs: {
@@ -96,7 +96,7 @@ const data: ProductPageData = {
     { q: "Do you provide post-launch support?", a: "Yes, we provide ongoing maintenance, content operations, and feature enhancements." },
   ],
   cta: {
-    img: "/images/products/ott/keybanner.png",
+    img: "/images/products/ott/keybanner.webp",
     h2: "Build an OTT App Viewers Love",
     body: "Launch a modern streaming platform that is scalable, engaging, and ready to grow globally.",
   },

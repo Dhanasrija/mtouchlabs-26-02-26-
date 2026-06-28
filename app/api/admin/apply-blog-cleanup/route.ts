@@ -112,7 +112,7 @@ const EC_CANONICAL_URL = `${SITE_URL}/blog/${ECOMMERCE_SLUG}`;
  * to match the slug. Previous run mistakenly wrote "/images/blog/ecommerce-blog.png"
  * which 404s. This path actually exists on disk.
  */
-const EC_IMAGE_FALLBACK = '/images/blogs/a-complete-guide-on-ecommerce-app-development-blog.png';
+const EC_IMAGE_FALLBACK = '/images/blogs/a-complete-guide-on-ecommerce-app-development-blog.webp';
 
 /*
  * NOTE on TOC:

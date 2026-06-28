@@ -17,21 +17,21 @@ const data: ProductPageData = {
     h1Tail: "in Hyderabad",
     subtitle: "Launch a scalable fitness app with workout tracking, live classes, wearable integration, nutrition plans, and personalized coaching.",
     demoHref: "https://youtu.be/pQpWph29AdA?si=rUt7n3HeLiARR1z_",
-    leftPhoneImg: "/images/products/sports/phone1.png",
-    rightPhoneImg: "/images/products/sports/phone2.png",
+    leftPhoneImg: "/images/products/sports/phone1.webp",
+    rightPhoneImg: "/images/products/sports/phone2.webp",
   },
   intro: {
-    img: "/images/products/sports/phone1.png",
+    img: "/images/products/sports/phone1.webp",
     label: "Fitness App Experts",
     h3: "Sports & Fitness App Development",
     body: [
-      <>mTouch Labs is a NASSCOM award-winning <a href="/mobile-app-development-company" target="_blank">sports and fitness app development company</a> in Hyderabad, helping wellness brands and coaches launch modern fitness platforms.</>,
+      <>mTouch Labs is a NASSCOM award-winning <a href="/mobile-app-development-company" target="_blank" rel="noopener noreferrer">sports and fitness app development company</a> in Hyderabad, helping wellness brands and coaches launch modern fitness platforms.</>,
       <>We build workout tracking, live fitness classes, wearable sync, nutrition and meal plans, and sports coaching apps tailored to your audience.</>,
     ],
   },
   dividerTitle: "Custom Sports & Fitness App Development",
   endToEnd: {
-    img: "/images/products/sports/phone2.png",
+    img: "/images/products/sports/phone2.webp",
     label: "End-to-End Solutions",
     h3: "Complete Fitness App Development",
     body: [
@@ -57,11 +57,11 @@ const data: ProductPageData = {
   screens: {
     alt: "Sports and fitness app screen",
     images: [
-      "/images/products/sports/appscreen1.png",
-      "/images/products/sports/appscreen2.png",
-      "/images/products/sports/appscreen3.png",
-      "/images/products/sports/appscreen4.png",
-      "/images/products/sports/appscreen5.png",
+      "/images/products/sports/appscreen1.webp",
+      "/images/products/sports/appscreen2.webp",
+      "/images/products/sports/appscreen3.webp",
+      "/images/products/sports/appscreen4.webp",
+      "/images/products/sports/appscreen5.webp",
     ],
   },
   tabs: {
@@ -96,7 +96,7 @@ const data: ProductPageData = {
     { q: "Do you provide post-launch support?", a: "Yes, we provide ongoing maintenance and enhancements." },
   ],
   cta: {
-    img: "/images/products/sports/service1.png",
+    img: "/images/products/sports/service1.webp",
     h2: "Build a Fitness App Users Love",
     body: "Launch a modern fitness platform that is engaging, scalable, and ready for growth.",
   },

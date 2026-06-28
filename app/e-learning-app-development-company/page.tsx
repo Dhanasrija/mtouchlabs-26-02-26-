@@ -16,24 +16,24 @@ const data: ProductPageData = {
     h1Tail: "in Hyderabad",
     subtitle: "Launch a scalable e-learning platform with virtual classrooms, gamified learning, AI-powered personalization, and LMS integration for modern education delivery.",
     demoHref: "https://youtu.be/3CZqGDgGTSk?si=0OCiW-QBQByVj6eF",
-    leftPhoneImg: "/images/products/elearning/phone1.png",
-    rightPhoneImg: "/images/products/elearning/phone.png",
+    leftPhoneImg: "/images/products/elearning/phone1.webp",
+    rightPhoneImg: "/images/products/elearning/phone.webp",
   },
-  featuresBannerImg: "/images/products/elearning/banner1.png",
+  featuresBannerImg: "/images/products/elearning/banner1.webp",
   featuresBannerAlt: "e-learning app development company in Hyderabad",
   intro: {
-    img: "/images/products/elearning/phone1.png",
+    img: "/images/products/elearning/phone1.webp",
     label: "E-Learning Experts",
     h3: "E-Learning App Development",
     body: [
-      <>mTouch Labs is a NASSCOM award-winning <a href="/mobile-app-development-company" target="_blank">e-learning app development company</a> in Hyderabad, helping EdTech startups, schools, and enterprises launch scalable online learning platforms.</>,
-      <>We build LMS platforms, virtual classroom apps, gamified learning tools, <a href="/generative-ai-development-company" target="_blank">AI-powered tutoring solutions</a>, and corporate training portals tailored to your audience.</>,
+      <>mTouch Labs is a NASSCOM award-winning <a href="/mobile-app-development-company" target="_blank" rel="noopener noreferrer">e-learning app development company</a> in Hyderabad, helping EdTech startups, schools, and enterprises launch scalable online learning platforms.</>,
+      <>We build LMS platforms, virtual classroom apps, gamified learning tools, <a href="/generative-ai-development-company" target="_blank" rel="noopener noreferrer">AI-powered tutoring solutions</a>, and corporate training portals tailored to your audience.</>,
     ],
   },
   dividerTitle: "Custom E-Learning App Development Services",
-  dividerImg: "/images/products/elearning/icon1.png",
+  dividerImg: "/images/products/elearning/icon1.webp",
   endToEnd: {
-    img: "/images/products/elearning/phone.png",
+    img: "/images/products/elearning/phone.webp",
     label: "End-to-End Solutions",
     h3: "Complete E-Learning Platform",
     body: [
@@ -59,11 +59,11 @@ const data: ProductPageData = {
   screens: {
     alt: "E-learning app screen",
     images: [
-      "/images/products/elearning/appscreen1.png",
-      "/images/products/elearning/appscreen2.png",
-      "/images/products/elearning/appscreen3.png",
-      "/images/products/elearning/appscreen4.png",
-      "/images/products/elearning/appscreen5.png",
+      "/images/products/elearning/appscreen1.webp",
+      "/images/products/elearning/appscreen2.webp",
+      "/images/products/elearning/appscreen3.webp",
+      "/images/products/elearning/appscreen4.webp",
+      "/images/products/elearning/appscreen5.webp",
     ],
   },
   tabs: {
@@ -98,7 +98,7 @@ const data: ProductPageData = {
     { q: "Do you provide post-launch support?", a: "Yes, we provide ongoing maintenance, performance tuning, and feature enhancements." },
   ],
   cta: {
-    img: "/images/products/elearning/elearning.png",
+    img: "/images/products/elearning/elearning.webp",
     h2: "Build an E-Learning App Students Love",
     body: "Launch a modern EdTech platform that is scalable, engaging, and ready for growth.",
   },

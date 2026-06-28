@@ -13,13 +13,13 @@ export const metadata: Metadata = {
     url: "https://www.mtouchlabs.com/admin/blogs/create",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Create Blog | Admin" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Create Blog | Admin" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Create Blog | Admin",
     description: "Create Blog | Admin",
-    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
   },
 };
 
@@ -28,7 +28,7 @@ export default function CreateBlogPage() {
     <div id="admin-root">
       <aside className="sidebar">
         <div className="s-brand">
-          <img src="/images/logo-white.png" alt="mTouch Labs" className="s-logo-img" />
+          <img width={266} height={47} loading="lazy" decoding="async" src="/images/logo-white.webp" alt="mTouch Labs" className="s-logo-img" />
         </div>
         <nav className="s-links">
           <Link href="/admin/dashboard">
@@ -52,7 +52,7 @@ export default function CreateBlogPage() {
             Create Project
           </Link>
           <div className="s-div"/>
-          <a href="/" target="_blank">
+          <a href="/" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             View Site
           </a>

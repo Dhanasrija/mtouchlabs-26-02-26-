@@ -14,13 +14,13 @@ export const metadata: Metadata = {
     url: "https://www.mtouchlabs.com/web-and-app-development-for-temple-services",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Web and App Development for temple services" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Web and App Development for temple services" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Web and App Development for temple services",
     description: "Build a custom temple app with features like live darshan, pooja bookings, and event updates to enhance spiritual engagement and connect with devotees.",
-    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
   },
 };
 
@@ -55,14 +55,14 @@ export default function Page() {
 							or just need a quick ride, Roboride has you covered. Say goodbye to long waits and haggling
 							over fares – with Roboride, getting around town has never been easier.</p>
 						<a href="https://play.google.com/store/apps/details?id=com.roboscorp.user&pcampaignid=web_share"
-							target="_blank" className="port-links mt40" data-aos="fade-up" data-aos-delay="800">Go to Play
+							target="_blank" rel="noopener noreferrer" className="port-links mt40" data-aos="fade-up" data-aos-delay="800">Go to Play
 							Store <i className="fas fa-arrow-right fa-btn"></i></a>
-						{/*  <a href="https://golkondashop.telangana.gov.in/" target="_blank" className="port-links mt40" data-aos="fade-up" data-aos-delay="800">Go to Website <i className="fas fa-arrow-right fa-btn"></i></a>											  */}
+						{/*  <a href="https://golkondashop.telangana.gov.in/" target="_blank" rel="noopener noreferrer" className="port-links mt40" data-aos="fade-up" data-aos-delay="800">Go to Website <i className="fas fa-arrow-right fa-btn"></i></a>											  */}
 					</div>
 				</div>
 				<div className="col-lg-6">
-					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img
-							src="/images/portfolio/Roboride-portfolio-detail.png" alt="taxi booking app"
+					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img width={690} height={460} loading="lazy" decoding="async"
+							src="/images/portfolio/Roboride-portfolio-detail.webp" alt="taxi booking app"
 							className="img-fluid" /></div>
 				</div>
 			</div>
@@ -79,24 +79,24 @@ export default function Page() {
 						<h2 className="mb15">About Roboride</h2>
 						{/*  <h4>Concept</h4>  */}
 						<p>Roboride Taxi /Auto Booking App is an innovative App developed by mTouch Labs. Our <a
-								href="https://www.mtouchlabs.com/" target="_blank"> On-Demand Mobile App Development</a>
+								href="https://www.mtouchlabs.com/" target="_blank" rel="noopener noreferrer"> On-Demand Mobile App Development</a>
 							offers a seamless and user-friendly platform for users to book their rides with just a few
 							taps on their smartphone, and access different types of transportation options including
 							Cabs, Autos,taxis and Bikes to meet all your traveling needs.</p>
 						<p className="mt15"> Roboride boasts a range of features that cater to the needs of both passengers
-							and service providers. <a href="https://www.mtouchlabs.com/" target="_blank"> Taxi Booking App
+							and service providers. <a href="https://www.mtouchlabs.com/" target="_blank" rel="noopener noreferrer"> Taxi Booking App
 							</a>allows users to easily hail a ride, track their driver in real time, and make secure
 							payments through the application. On the other hand, service providers benefit from a
 							streamlined booking process and access to valuable customer data to enhance their services.
 						</p>
 						&nbsp;
 						{/*  <h4>The Challenges</h4>  */}
-						<p><a href="https://www.mtouchlabs.com/android-app-development-company" target="_blank">Auto Booking
+						<p><a href="https://www.mtouchlabs.com/android-app-development-company" target="_blank" rel="noopener noreferrer">Auto Booking
 								Mobile App </a>stands out as a reliable and robust solution in the market. With a
 							user-friendly interface, reliable functionality, and top-notch security measures, Roboride
 							is the go-to choice for those in need of a hassle-free and efficient transportation service.
 							mTouch Labs<a href="https://www.mtouchlabs.com/mobile-app-development-company"
-								target="_blank">On-Demand Taxi Booking App Development Company </a>is committed to
+								target="_blank" rel="noopener noreferrer">On-Demand Taxi Booking App Development Company </a>is committed to
 							delivering top-notch auto booking application development services to ensure a seamless and
 							efficient experience for our customers.</p>
 						<p className="mt15">To create a successful taxi booking app, it is essential to focus on the user
@@ -104,7 +104,7 @@ export default function Page() {
 							real-time tracking, multiple payment gateways, and driver ratings can enhance overall user
 							satisfaction. With the growing demand for eco-friendly transportation solutions, <a
 								href="https://www.mtouchlabs.com/software-development-company-hyderabad"
-								target="_blank">Cab Booking Mobile App Development</a> has also gained significant
+								target="_blank" rel="noopener noreferrer">Cab Booking Mobile App Development</a> has also gained significant
 							momentum.
 						</p>
 						&nbsp;
@@ -126,7 +126,7 @@ export default function Page() {
 
 						<div className="icon-with-title">
 							<a href="javascript:void(0)">
-								<div className="iwt-icon"> <img src="/images/icons/android-icon.svg" alt="Android" /> </div>
+								<div className="iwt-icon"> <img width={420} height={420} loading="lazy" decoding="async" src="/images/icons/android-icon.svg" alt="Android" /> </div>
 								<div className="iwt-content">
 									<p>Android</p>
 								</div>
@@ -135,7 +135,7 @@ export default function Page() {
 
 						<div className="icon-with-title">
 							<a href="javascript:void(0)">
-								<div className="iwt-icon"> <img src="/images/icons/website.svg" alt="website" /> </div>
+								<div className="iwt-icon"> <img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/website.svg" alt="website" /> </div>
 								<div className="iwt-content">
 									<p>website</p>
 								</div>
@@ -143,7 +143,7 @@ export default function Page() {
 						</div>
 						<div className="icon-with-title">
 							<a href="javascript:void(0)">
-								<div className="iwt-icon"> <img src="/images/icons/aws-icon.svg" alt="Java" /> </div>
+								<div className="iwt-icon"> <img width={420} height={420} loading="lazy" decoding="async" src="/images/icons/aws-icon.svg" alt="Java" /> </div>
 								<div className="iwt-content">
 									<p>AWS</p>
 								</div>
@@ -153,7 +153,7 @@ export default function Page() {
 
 						<div className="icon-with-title">
 							<a href="javascript:void(0)">
-								<div className="iwt-icon"> <img src="/images/icons/Node.JS.svg" alt="nodeJS" />
+								<div className="iwt-icon"> <img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Node.JS.svg" alt="nodeJS" />
 								</div>
 								<div className="iwt-content">
 									<p>nodeJS</p>
@@ -162,7 +162,7 @@ export default function Page() {
 						</div>
 						<div className="icon-with-title">
 							<a href="javascript:void(0)">
-								<div className="iwt-icon"> <img src="/images/icons/React-icon.svg" alt="angular" />
+								<div className="iwt-icon"> <img width={420} height={374} loading="lazy" decoding="async" src="/images/icons/React-icon.svg" alt="angular" />
 								</div>
 								<div className="iwt-content">
 									<p>ReactJS</p>
@@ -171,7 +171,7 @@ export default function Page() {
 						</div>
 						<div className="icon-with-title">
 							<a href="javascript:void(0)">
-								<div className="iwt-icon"> <img src="/images/icons/IOS.svg" alt="php" />
+								<div className="iwt-icon"> <img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/IOS.svg" alt="php" />
 								</div>
 								<div className="iwt-content">
 									<p>iOS</p>
@@ -376,9 +376,9 @@ export default function Page() {
 					<div className="heading-paragrapph mt60">
 						<h2 className="mb20 h1">Best Cab Booking App Development</h2>
 
-						<p><a href="https://www.mtouchlabs.com/mobile-app-development-company" target="_blank">Cab Booking
+						<p><a href="https://www.mtouchlabs.com/mobile-app-development-company" target="_blank" rel="noopener noreferrer">Cab Booking
 								Apps </a> become increasingly popular as more people rely on smartphones for everyday
-							tasks. mTouch Labs is a <a href="https://www.mtouchlabs.com/" target="_blank">Top Mobile
+							tasks. mTouch Labs is a <a href="https://www.mtouchlabs.com/" target="_blank" rel="noopener noreferrer">Top Mobile
 								Application development company in Hyderabad</a> creating user-friendly and efficient
 							taxi booking apps. Roboride typically includes features such as GPS tracking, allowing users
 							to see nearby available taxis/auto/bikes in real-time, as well as the ability to book a ride
@@ -386,10 +386,10 @@ export default function Page() {
 						&nbsp;
 						<p>Users can also see the estimated fare for their trip before confirming the booking, giving
 							them transparency and control over their expenses. Overall, <a
-								href="https://www.mtouchlabs.com/mobile-app-development-company" target="_blank">The Best
+								href="https://www.mtouchlabs.com/mobile-app-development-company" target="_blank" rel="noopener noreferrer">The Best
 								Cab Booking App Development </a>has revolutionized the way people travel, providing a
 							convenient and reliable alternative to traditional taxi services. With the growing demand
-							for such services, Our<a href="https://www.mtouchlabs.com/about" target="_blank"> Mobile App
+							for such services, Our<a href="https://www.mtouchlabs.com/about" target="_blank" rel="noopener noreferrer"> Mobile App
 								Development Company </a>continues to innovate and improve these apps to meet the needs
 							of both users and drivers alike.
 						</p>
@@ -454,26 +454,26 @@ export default function Page() {
 
 			<div className="app-screenss owl-carousel mt70 dottss">
 				<div className="appscreen">
-					<div className="itme-img"><img src="/images/case-study/roboride-screen-1.png" alt="mockup"
+					<div className="itme-img"><img width={269} height={507} loading="lazy" decoding="async" src="/images/case-study/roboride-screen-1.webp" alt="mockup"
 							className="img-fluid" /></div>
 				</div>
 				<div className="appscreen">
-					<div className="itme-img"><img src="/images/case-study/roboride-screen-2.png" alt="mockup"
+					<div className="itme-img"><img width={269} height={507} loading="lazy" decoding="async" src="/images/case-study/roboride-screen-2.webp" alt="mockup"
 							className="img-fluid" /></div>
 				</div>
 				<div className="appscreen">
-					<div className="itme-img"><img src="/images/case-study/roboride-screen-3.png" alt="mockup"
+					<div className="itme-img"><img width={269} height={507} loading="lazy" decoding="async" src="/images/case-study/roboride-screen-3.webp" alt="mockup"
 							className="img-fluid" /></div>
 				</div>
 				<div className="appscreen">
-					<div className="itme-img"><img src="/images/case-study/roboride-screen-4.png" alt="mockup"
+					<div className="itme-img"><img width={269} height={507} loading="lazy" decoding="async" src="/images/case-study/roboride-screen-4.webp" alt="mockup"
 							className="img-fluid" /></div>
 				</div>
 				<div className="appscreen">
-					<div className="itme-img"><img src="/images/case-study/roboride-screen-5.png" alt="mockup"
+					<div className="itme-img"><img width={271} height={510} loading="lazy" decoding="async" src="/images/case-study/roboride-screen-5.webp" alt="mockup"
 							className="img-fluid" /></div>
 				</div>
-				{/*  <div className="appscreen"> <div className="itme-img"><img src="/images/case-study/appui-3.png" alt="mockup" className="img-fluid" /></div> </div>	  */}
+				{/*  <div className="appscreen"> <div className="itme-img"><img width={260} height={510} loading="lazy" decoding="async" src="/images/case-study/appui-3.webp" alt="mockup" className="img-fluid" /></div> </div>	  */}
 			</div>
 		</div>
 	</section>
@@ -493,23 +493,23 @@ export default function Page() {
 
 			<div className="app-screenss owl-carousel mt70 dottss">
 				<div className="appscreen">
-					<div className="itme-img"><img src="/images/case-study/roboride-website-1.png" alt="mockup"
+					<div className="itme-img"><img width={862} height={491} loading="lazy" decoding="async" src="/images/case-study/roboride-website-1.webp" alt="mockup"
 							className="img-fluid" /></div>
 				</div>
 				<div className="appscreen">
-					<div className="itme-img"><img src="/images/case-study/roboride-website-2.png" alt="mockup"
+					<div className="itme-img"><img width={862} height={491} loading="lazy" decoding="async" src="/images/case-study/roboride-website-2.webp" alt="mockup"
 							className="img-fluid" /></div>
 				</div>
 				<div className="appscreen">
-					<div className="itme-img"><img src="/images/case-study/roboride-website-3.png" alt="mockup"
+					<div className="itme-img"><img width={862} height={491} loading="lazy" decoding="async" src="/images/case-study/roboride-website-3.webp" alt="mockup"
 							className="img-fluid" /></div>
 				</div>
 				<div className="appscreen">
-					<div className="itme-img"><img src="/images/case-study/roboride-website-2.png" alt="mockup"
+					<div className="itme-img"><img width={862} height={491} loading="lazy" decoding="async" src="/images/case-study/roboride-website-2.webp" alt="mockup"
 							className="img-fluid" /></div>
 				</div>
-				{/*  <div className="appscreen"> <div className="itme-img"><img src="/images/case-study/appui-2.png" alt="mockup" className="img-fluid" /></div> </div>	  */}
-				{/*  <div className="appscreen"> <div className="itme-img"><img src="/images/case-study/appui-3.png" alt="mockup" className="img-fluid" /></div> </div>	  */}
+				{/*  <div className="appscreen"> <div className="itme-img"><img width={260} height={510} loading="lazy" decoding="async" src="/images/case-study/appui-2.webp" alt="mockup" className="img-fluid" /></div> </div>	  */}
+				{/*  <div className="appscreen"> <div className="itme-img"><img width={260} height={510} loading="lazy" decoding="async" src="/images/case-study/appui-3.webp" alt="mockup" className="img-fluid" /></div> </div>	  */}
 			</div>
 		</div>
 	</section>

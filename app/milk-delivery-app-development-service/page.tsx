@@ -24,9 +24,9 @@ const data: ProductPageData = {
     label: "Milk Delivery Experts",
     h3: "Milk Delivery App Development",
     body: [
-      <>mTouch Labs is a NASSCOM award-winning <a href="/mobile-app-development-company" target="_blank">milk delivery app development</a> company in Hyderabad, helping dairy brands and startups build reliable subscription-based delivery platforms with wallet billing and route optimization.</>,
-      <>We build single-brand milk apps, <a href="/grocery-delivery-app-development-company" target="_blank">dairy and grocery marketplaces</a>, B2B bulk delivery, and daily essentials subscription platforms customized to your workflow and scale.</>,
-      <>From <a href="/food-delivery-app-development-service" target="_blank">food-delivery-style order flow</a> to recurring auto-debit billing, our milk apps are ready to scale across cities with predictable retention.</>,
+      <>mTouch Labs is a NASSCOM award-winning <a href="/mobile-app-development-company" target="_blank" rel="noopener noreferrer">milk delivery app development</a> company in Hyderabad, helping dairy brands and startups build reliable subscription-based delivery platforms with wallet billing and route optimization.</>,
+      <>We build single-brand milk apps, <a href="/grocery-delivery-app-development-company" target="_blank" rel="noopener noreferrer">dairy and grocery marketplaces</a>, B2B bulk delivery, and daily essentials subscription platforms customized to your workflow and scale.</>,
+      <>From <a href="/food-delivery-app-development-service" target="_blank" rel="noopener noreferrer">food-delivery-style order flow</a> to recurring auto-debit billing, our milk apps are ready to scale across cities with predictable retention.</>,
     ],
   },
   dividerTitle: "Custom Milk Delivery App Development Services",
@@ -36,8 +36,8 @@ const data: ProductPageData = {
     label: "Business Models & End-to-End Solutions",
     h3: "Complete Milk Delivery Platform — Every Business Model Covered",
     body: [
-      <>End-to-end milk delivery app development covering <a href="/mobile-app-development-company" target="_blank">customer apps</a>, delivery agent apps, vendor panels, and admin dashboards — all connected in one platform.</>,
-      <>We support every dairy business model: <strong>single-brand subscription</strong>, <strong>multi-vendor dairy marketplaces</strong>, <strong>B2B bulk delivery</strong>, <strong>daily essentials combos</strong>, and <a href="/on-demand-products-development-company-hyderabad" target="_blank">white-label on-demand platforms</a>.</>,
+      <>End-to-end milk delivery app development covering <a href="/mobile-app-development-company" target="_blank" rel="noopener noreferrer">customer apps</a>, delivery agent apps, vendor panels, and admin dashboards — all connected in one platform.</>,
+      <>We support every dairy business model: <strong>single-brand subscription</strong>, <strong>multi-vendor dairy marketplaces</strong>, <strong>B2B bulk delivery</strong>, <strong>daily essentials combos</strong>, and <a href="/on-demand-products-development-company-hyderabad" target="_blank" rel="noopener noreferrer">white-label on-demand platforms</a>.</>,
       <>Pair the subscription wallet with route-optimized morning delivery, flexible pause/skip/reschedule, and predictive inventory — the same playbook that powers Country Delight and Milkbasket.</>,
     ],
   },

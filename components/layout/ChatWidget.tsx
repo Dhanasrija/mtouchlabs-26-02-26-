@@ -376,7 +376,7 @@
 //                 <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
 //               </svg>
 //             ) : (
-//               <img src="/images/artificial-intelligence.gif" alt="AI Assistant" width={42} height={42} style={{ borderRadius: "50%", objectFit: "cover" }} />
+//               <img loading="lazy" decoding="async" src="/images/artificial-intelligence.gif" alt="AI Assistant" width={42} height={42} style={{ borderRadius: "50%", objectFit: "cover" }} />
 //             )}
 //           </span>
 //         </button>
@@ -1018,7 +1018,7 @@ export default function ChatWidget() {
               <span className="cw-ai-dot cw-ai-dot-3" />
             </span>
             <span className="cw-ai-center">
-              <img
+              <img loading="lazy" decoding="async"
                 src="/images/artificial-intelligence.gif"
                 alt="AI Assistant"
                 width={42}

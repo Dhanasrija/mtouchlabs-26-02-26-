@@ -13,13 +13,13 @@
 //     url: "https://www.mtouchlabs.com/hire-custom-cms-developers-in-india",
 //     siteName: "mTouch Labs",
 //     type: "website",
-//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire CMS developers | dedicated CMS web developers" }],
+//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Hire CMS developers | dedicated CMS web developers" }],
 //   },
 //   twitter: {
 //     card: "summary_large_image",
 //     title: "Hire CMS developers | dedicated CMS web developers",
 //     description: "Hire CMS developers and dedicated CMs web developers who are experienced in providing CMS website services for all kinds of mid-large scale industries",
-//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
 //   },
 // };
 
@@ -55,7 +55,7 @@
 // 					</div>
 // 				</div>
 // 				<div className="col-lg-6">
-// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img
+// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img width={690} height={350} loading="lazy" decoding="async"
 // 							src="/images/others/Hire-CMS-developers-from-mTouchlabs.svg" alt="mTouch Labs"
 // 							className="img-fluid" /></div>
 // 				</div>
@@ -77,7 +77,7 @@
 // 							<p>With over <span className="yearsOfExcellence">12+</span> years of rich expertise in the IT
 // 								sector, mTouchlabs is a leading name in
 // 								the domain of <a href="https://www.mtouchlabs.com/custom-cms-development-company-in-india"
-// 									target="_blank">CMS website development services</a>. Hire CMS developers in India
+// 									target="_blank" rel="noopener noreferrer">CMS website development services</a>. Hire CMS developers in India
 // 								today,
 // 								develop a full-fledged CMS website and provide your users a beautiful shopping
 // 								experience they never experienced before.</p>
@@ -98,7 +98,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async"
 // 								src="/images/cta/Hire-Dedicated-CMS-Website-Developers-From-mTouchlabs.svg"
 // 								alt="cms Developers" className="img-fluid" /> </div>
 // 					</div>
@@ -111,7 +111,7 @@
 // 				<div className="row">
 
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async"
 // 								src="/images/cta/Why-Choose-Dedicated-CMS-Web-Developers-From-Us.svg"
 // 								alt="cms web Developers" className="img-fluid" /></div>
 // 					</div>
@@ -123,7 +123,7 @@
 // 							<p>The team of mTouchlabs is versatile and has dedicated CMS Web Developers who help the
 // 								client to communicate with our dedicated CMS programmers for quality monitoring. Our
 // 								flexible Hire <a href="https://www.mtouchlabs.com/web-development-company"
-// 									target="_blank">CMS Web developers</a> models help enterprises and organizations to
+// 									target="_blank" rel="noopener noreferrer">CMS Web developers</a> models help enterprises and organizations to
 // 								increase
 // 								their project team size to meet business requirements.
 // 							</p>
@@ -175,7 +175,7 @@
 // 			<div className="row mt30">
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/WordPress-Website-Development.svg"
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/WordPress-Website-Development.svg"
 // 								alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Wordpress Website Development</h3>
@@ -186,7 +186,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/ECOMMERCE-CMS-DEVELOPMENT.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/ECOMMERCE-CMS-DEVELOPMENT.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Ecommerce CMS Development</h3>
@@ -198,7 +198,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/CMS-WEB-APPLICATION-DEVELOPMENT.svg"
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/CMS-WEB-APPLICATION-DEVELOPMENT.svg"
 // 								alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">CMS Web Application Development</h3>
@@ -211,7 +211,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/MAGENTO-CMS-DEVELOPMENT.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/MAGENTO-CMS-DEVELOPMENT.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Magento CMS Development</h3>
@@ -223,7 +223,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/CMS-WEBSITE-DEVELOPMENT-hire.svg"
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/CMS-WEBSITE-DEVELOPMENT-hire.svg"
 // 								alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">CMS Website Development</h3>
@@ -235,7 +235,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/CMS-WEBSITE-MAINTENANCE.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/CMS-WEBSITE-MAINTENANCE.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">CMS website Maintenance</h3>
@@ -280,7 +280,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
-// 						<div className="sol-img-png"> <img
+// 						<div className="sol-img-png"> <img width={690} height={350} loading="lazy" decoding="async"
 // 								src="/images/cta/Hire-Dedicated-CMS-Website-Builders-From-mTouchlabs.svg"
 // 								alt="hire cms developers" className="img-fluid" /> </div>
 // 					</div>
@@ -306,7 +306,7 @@
 // 							</h2>
 // 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 // 									className="fas fa-user fb-bigon"></i> Contact </a>
-// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
+// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer"
 // 								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
 // 								Whatsapp </a>
 
@@ -314,7 +314,7 @@
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
 // 						<div className="sol-img-png">
-// 							<img src="/images/cta/let's-get-to-chat-cms-dev.svg" alt="working with client"
+// 							<img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/let's-get-to-chat-cms-dev.svg" alt="working with client"
 // 								className="img-fluid" />
 // 						</div>
 // 					</div>

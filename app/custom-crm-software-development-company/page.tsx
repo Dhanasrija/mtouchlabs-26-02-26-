@@ -14,13 +14,13 @@ export const metadata: Metadata = {
     url: "https://www.mtouchlabs.com/custom-crm-software-development-company",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Custom CRM Software Development Company" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Custom CRM Software Development Company" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Custom CRM Software Development Company",
     description: "As a leading Custom CRM Software Development Company, We deliver best CRM Solutions to automate your Business Process.Contact us today",
-    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
   },
 };
 
@@ -58,12 +58,12 @@ export default function Page() {
 					<div className="details-port">
 						<h2 className="mb15">About Traders Ground</h2>
 						{/*  <h4>Concept</h4>  */}
-						<p>Traders Ground is your ultimate <a href="https://www.mtouchlabs.com/" target="_blank">CRM
+						<p>Traders Ground is your ultimate <a href="https://www.mtouchlabs.com/" target="_blank" rel="noopener noreferrer">CRM
 								Application</a> designed and Developed by mTouch Labs. Efficiently bridge the gap
 							between manufacturers, distributors, and retailers in the ever-changing business landscape.
 						</p>
 						<p className="mt15"> This <a href="https://www.mtouchlabs.com/custom-software-development-company"
-								target="_blank">CRM Software solution</a> is crafted to revolutionize the way businesses
+								target="_blank" rel="noopener noreferrer">CRM Software solution</a> is crafted to revolutionize the way businesses
 							connect, communicate, and collaborate, ensuring a smoother supply chain from production to
 							point-of-sale.
 						</p>
@@ -71,13 +71,13 @@ export default function Page() {
 						{/*  <h4>The Challenges</h4>  */}
 						<p>Traders Ground offers a strong Customer Relationship Management solution that helps
 							businesses connect better with customers, streamline operations, and increase profits.</p>
-						<p className="mt15"> Our <a href="https://www.mtouchlabs.com/services" target="_blank">CRM Software
+						<p className="mt15"> Our <a href="https://www.mtouchlabs.com/services" target="_blank" rel="noopener noreferrer">CRM Software
 								Development Services</a> are user-friendly and respect your privacy, suitable for all
 							types of businesses
 						</p>
 						&nbsp;
 						{/*  <h4>The Solution</h4> */}
-						<p><a href="https://www.mtouchlabs.com/mobile-app-development-company" target="_blank">CRM
+						<p><a href="https://www.mtouchlabs.com/mobile-app-development-company" target="_blank" rel="noopener noreferrer">CRM
 								Solutions</a> that helps businesses connect better with customers, streamline
 							operations, and increase profits. Manufacturers can showcase their products in detailed
 							digital catalogs, allowing distributors and retailers to browse, compare, and order directly
@@ -102,7 +102,7 @@ export default function Page() {
 
 						<div className="icon-with-title">
 							<a href="javascript:void(0)">
-								<div className="iwt-icon"> <img src="/images/icons/android-icon.svg" alt="Android" /> </div>
+								<div className="iwt-icon"> <img width={420} height={420} loading="lazy" decoding="async" src="/images/icons/android-icon.svg" alt="Android" /> </div>
 								<div className="iwt-content">
 									<p>Android</p>
 								</div>
@@ -111,7 +111,7 @@ export default function Page() {
 
 						<div className="icon-with-title">
 							<a href="javascript:void(0)">
-								<div className="iwt-icon"> <img src="/images/icons/website.svg" alt="website" /> </div>
+								<div className="iwt-icon"> <img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/website.svg" alt="website" /> </div>
 								<div className="iwt-content">
 									<p>website</p>
 								</div>
@@ -119,7 +119,7 @@ export default function Page() {
 						</div>
 						<div className="icon-with-title">
 							<a href="javascript:void(0)">
-								<div className="iwt-icon"> <img src="/images/icons/aws-icon.svg" alt="Java" /> </div>
+								<div className="iwt-icon"> <img width={420} height={420} loading="lazy" decoding="async" src="/images/icons/aws-icon.svg" alt="Java" /> </div>
 								<div className="iwt-content">
 									<p>AWS</p>
 								</div>
@@ -129,7 +129,7 @@ export default function Page() {
 
 						<div className="icon-with-title">
 							<a href="javascript:void(0)">
-								<div className="iwt-icon"> <img src="/images/icons/Node.JS.svg" alt="nodeJS" />
+								<div className="iwt-icon"> <img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Node.JS.svg" alt="nodeJS" />
 								</div>
 								<div className="iwt-content">
 									<p>nodeJS</p>
@@ -138,7 +138,7 @@ export default function Page() {
 						</div>
 						<div className="icon-with-title">
 							<a href="javascript:void(0)">
-								<div className="iwt-icon"> <img src="/images/icons/React-icon.svg" alt="angular" />
+								<div className="iwt-icon"> <img width={420} height={374} loading="lazy" decoding="async" src="/images/icons/React-icon.svg" alt="angular" />
 								</div>
 								<div className="iwt-content">
 									<p>ReactJS</p>
@@ -147,7 +147,7 @@ export default function Page() {
 						</div>
 						<div className="icon-with-title">
 							<a href="javascript:void(0)">
-								<div className="iwt-icon"> <img src="/images/icons/flutter-icon.svg" alt="angular" />
+								<div className="iwt-icon"> <img width={292} height={361} loading="lazy" decoding="async" src="/images/icons/flutter-icon.svg" alt="angular" />
 								</div>
 								<div className="iwt-content">
 									<p>Flutter</p>
@@ -156,7 +156,7 @@ export default function Page() {
 						</div>
 						<div className="icon-with-title">
 							<a href="javascript:void(0)">
-								<div className="iwt-icon"> <img src="/images/icons/IOS.svg" alt="php" />
+								<div className="iwt-icon"> <img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/IOS.svg" alt="php" />
 								</div>
 								<div className="iwt-content">
 									<p>iOS</p>
@@ -334,22 +334,22 @@ export default function Page() {
 					<div className="heading-paragrapph mt60">
 						<h3 className="mb20 h1">ERP Software Development Services</h3>
 						<p>We offer tailored <a href="https://www.mtouchlabs.com/enterprise-application-development-company"
-								target="_blank">ERP Software Development Services </a>for manufacturers, distributors,
+								target="_blank" rel="noopener noreferrer">ERP Software Development Services </a>for manufacturers, distributors,
 							retailers, marketers, and agents seeking to streamline their operations and improve
 							efficiency. </p>
 						&nbsp;
 						<p>As experienced <a href="https://www.mtouchlabs.com/hire-mobile-app-developers-in-india"
-								target="_blank">ERP Software Developers </a>, we specialize in providing comprehensive
+								target="_blank" rel="noopener noreferrer">ERP Software Developers </a>, we specialize in providing comprehensive
 							ERP app development that meets the unique needs of our clients. We help businesses leverage
 							technology to optimize their processes and achieve greater profitability.
 						</p>
 						&nbsp;
 						<p>We combine cutting-edge technology with industry best practices to deliver high-quality <a
-								href="https://www.mtouchlabs.com/android-app-development-company" target="_blank">Custom ERP
+								href="https://www.mtouchlabs.com/android-app-development-company" target="_blank" rel="noopener noreferrer">Custom ERP
 								solutions</a> that empower businesses to compete in today&apos;s fast-paced market. </p>
 						&nbsp;
 						<p> From system integration to data migration, our <a href="https://www.mtouchlabs.com/services"
-								target="_blank">ERP application development services </a>are tailored to address the
+								target="_blank" rel="noopener noreferrer">ERP application development services </a>are tailored to address the
 							unique challenges faced by manufacturers, distributors, retailers, marketers, and agents. We
 							are committed to providing customized ERP solutions that drive growth, increase efficiency,
 							and maximize ROI.
@@ -416,23 +416,23 @@ export default function Page() {
 
 			<div className="app-screenss owl-carousel mt70 dottss">
 				<div className="appscreen">
-					<div className="itme-img"><img src="/images/case-study/tanyya-app-screen-1.png" alt="mockup"
+					<div className="itme-img"><img width={292} height={557} loading="lazy" decoding="async" src="/images/case-study/tanyya-app-screen-1.webp" alt="mockup"
 							className="img-fluid" /></div>
 				</div>
 				<div className="appscreen">
-					<div className="itme-img"><img src="/images/case-study/tanyya-app-screen-2.png" alt="mockup"
+					<div className="itme-img"><img width={260} height={526} loading="lazy" decoding="async" src="/images/case-study/tanyya-app-screen-2.webp" alt="mockup"
 							className="img-fluid" /></div>
 				</div>
 				<div className="appscreen">
-					<div className="itme-img"><img src="/images/case-study/tanyya-app-screen-3.png" alt="mockup"
+					<div className="itme-img"><img width={297} height={559} loading="lazy" decoding="async" src="/images/case-study/tanyya-app-screen-3.webp" alt="mockup"
 							className="img-fluid" /></div>
 				</div>
 				<div className="appscreen">
-					<div className="itme-img"><img src="/images/case-study/tanyya-app-screen-4.png" alt="mockup"
+					<div className="itme-img"><img width={298} height={562} loading="lazy" decoding="async" src="/images/case-study/tanyya-app-screen-4.webp" alt="mockup"
 							className="img-fluid" /></div>
 				</div>
-				{/*  <div className="appscreen"> <div className="itme-img"><img src="/images/case-study/roboride-screen-5.png" alt="mockup" className="img-fluid" /></div> </div>	  */}
-				{/*  <div className="appscreen"> <div className="itme-img"><img src="/images/case-study/appui-3.png" alt="mockup" className="img-fluid" /></div> </div>	  */}
+				{/*  <div className="appscreen"> <div className="itme-img"><img width={271} height={510} loading="lazy" decoding="async" src="/images/case-study/roboride-screen-5.webp" alt="mockup" className="img-fluid" /></div> </div>	  */}
+				{/*  <div className="appscreen"> <div className="itme-img"><img width={260} height={510} loading="lazy" decoding="async" src="/images/case-study/appui-3.webp" alt="mockup" className="img-fluid" /></div> </div>	  */}
 			</div>
 		</div>
 	</section>
@@ -452,23 +452,23 @@ export default function Page() {
 
 			<div className="app-screenss owl-carousel mt70 dottss">
 				<div className="appscreen">
-					<div className="itme-img"><img src="/images/case-study/tanyya-web-screen-1.png" alt="mockup"
+					<div className="itme-img"><img width={862} height={491} loading="lazy" decoding="async" src="/images/case-study/tanyya-web-screen-1.webp" alt="mockup"
 							className="img-fluid" /></div>
 				</div>
 				<div className="appscreen">
-					<div className="itme-img"><img src="/images/case-study/tanyya-web-screen-2.png" alt="mockup"
+					<div className="itme-img"><img width={862} height={491} loading="lazy" decoding="async" src="/images/case-study/tanyya-web-screen-2.webp" alt="mockup"
 							className="img-fluid" /></div>
 				</div>
 				<div className="appscreen">
-					<div className="itme-img"><img src="/images/case-study/tanyya-web-screen-3.png" alt="mockup"
+					<div className="itme-img"><img width={862} height={491} loading="lazy" decoding="async" src="/images/case-study/tanyya-web-screen-3.webp" alt="mockup"
 							className="img-fluid" /></div>
 				</div>
 				<div className="appscreen">
-					<div className="itme-img"><img src="/images/case-study/tanyya-web-screen-4.png" alt="mockup"
+					<div className="itme-img"><img width={862} height={491} loading="lazy" decoding="async" src="/images/case-study/tanyya-web-screen-4.webp" alt="mockup"
 							className="img-fluid" /></div>
 				</div>
-				{/*  <div className="appscreen"> <div className="itme-img"><img src="/images/case-study/appui-2.png" alt="mockup" className="img-fluid" /></div> </div>	  */}
-				{/*  <div className="appscreen"> <div className="itme-img"><img src="/images/case-study/appui-3.png" alt="mockup" className="img-fluid" /></div> </div>	  */}
+				{/*  <div className="appscreen"> <div className="itme-img"><img width={260} height={510} loading="lazy" decoding="async" src="/images/case-study/appui-2.webp" alt="mockup" className="img-fluid" /></div> </div>	  */}
+				{/*  <div className="appscreen"> <div className="itme-img"><img width={260} height={510} loading="lazy" decoding="async" src="/images/case-study/appui-3.webp" alt="mockup" className="img-fluid" /></div> </div>	  */}
 			</div>
 		</div>
 	</section>

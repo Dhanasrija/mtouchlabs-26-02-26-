@@ -24,7 +24,7 @@ export default function ImageWithFallback({
   alt,
   className,
   style,
-  fallbackSrc = '/images/case-study-banner.jpg',
+  fallbackSrc = '/images/case-study-banner.webp',
   width,
   height,
   loading = 'lazy',

@@ -113,7 +113,7 @@ export default function AISolutionsSection() {
       </div>
 
       {/* Scoped CSS animations */}
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         /* ── Card entrance ─────────────────────────────── */
         @keyframes ais-card-slide-up {
           from {
@@ -159,7 +159,7 @@ export default function AISolutionsSection() {
             transition: none;
           }
         }
-      `}</style>
+      `}} />
     </section>
   );
 }

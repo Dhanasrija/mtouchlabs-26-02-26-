@@ -24,7 +24,7 @@ const data: ProductPageData = {
     label: "Car Wash Experts",
     h3: "Car Wash App Development",
     body: [
-      <>mTouch Labs is a NASSCOM award-winning <a href="/mobile-app-development-company" target="_blank">car wash app development company</a> in Hyderabad, helping auto-care startups and franchises launch on-demand car wash platforms.</>,
+      <>mTouch Labs is a NASSCOM award-winning <a href="/mobile-app-development-company" target="_blank" rel="noopener noreferrer">car wash app development company</a> in Hyderabad, helping auto-care startups and franchises launch on-demand car wash platforms.</>,
       <>We build at-home mobile detailing apps, drive-in car wash booking platforms, multi-outlet franchise systems, and subscription car care apps tailored to your scale.</>,
     ],
   },

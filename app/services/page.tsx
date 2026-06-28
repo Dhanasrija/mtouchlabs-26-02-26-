@@ -105,7 +105,7 @@
 //               </div>
 //             </div>
 //             <div className="services_leading_image">
-//               <img src="/images/serviceImg/leadingweb.png" alt="Leading Software Development Company" className="leading_web_img" />
+//               <img width={441} height={441} loading="lazy" decoding="async" src="/images/serviceImg/leadingweb.webp" alt="Leading Software Development Company" className="leading_web_img" />
 //             </div>
 //           </div>
 //         </div>
@@ -122,7 +122,7 @@
 //           </div>
 //           <div className="services_design_grid">
 //             <div className="services_design_image_col">
-//               <img src="/images/serviceImg/design_services.png" alt="Design Service" className="design_service_main_img" />
+//               <img width={441} height={441} loading="lazy" decoding="async" src="/images/serviceImg/design_services.webp" alt="Design Service" className="design_service_main_img" />
 //             </div>
 //             <div className="services_design_list_col">
 //               {designServices.map((s, i) => (
@@ -260,13 +260,13 @@
 //       <section className="project-cta-new">
 //         <div className="container">
 //           <div className="cta-new-wrapper">
-//             <div className="cta-new-image"><img src="/images/serviceImg/haveproject.png" alt="Contact Us" /></div>
+//             <div className="cta-new-image"><img width={468} height={468} loading="lazy" decoding="async" src="/images/serviceImg/haveproject.webp" alt="Contact Us" /></div>
 //             <div className="cta-new-content">
 //               <h2>Have a <strong>Project in</strong><br /><strong>mind?</strong> <span className="highlight-blue">Let&apos;s chat.</span></h2>
 //               <p>Have a project in mind? Let&apos;s connect, discuss your ideas, and turn them into scalable, high-performance digital solutions.</p>
 //               <div className="cta-new-btns">
 //                 <a href="/contact-us" className="btn btn-primary cta-btn-blue"><i className="fas fa-phone-alt"></i> Contact Us</a>
-//                 <a href="https://wa.me/919390683154" target="_blank" className="btn btn-outline cta-btn-whatsapp"><i className="fab fa-whatsapp"></i> Whatsapp</a>
+//                 <a href="https://wa.me/919390683154" target="_blank" rel="noopener noreferrer" className="btn btn-outline cta-btn-whatsapp"><i className="fab fa-whatsapp"></i> Whatsapp</a>
 //               </div>
 //             </div>
 //           </div>
@@ -502,7 +502,7 @@ export default function ServicesPage() {
             <p className="srv-section-desc">We create <b>customer-centric</b> designs for web and mobile applications, focusing on clarity, usability, and conversion optimization.</p>
           </div>
           <div className="srv-design-grid">
-            <div><img src="/images/serviceImg/design_services.png" alt="Design Services — mTouch Labs" className="srv-design-img" /></div>
+            <div><img width={441} height={441} loading="lazy" decoding="async" src="/images/serviceImg/design_services.webp" alt="Design Services — mTouch Labs" className="srv-design-img" /></div>
             <div className="srv-design-list">
               {designServices.map((s, i) => (
                 <div className="srv-design-item" key={i}>

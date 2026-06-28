@@ -17,13 +17,13 @@ export const metadata: Metadata = {
     url: "https://www.mtouchlabs.com/admin/blogs/[id]/edit",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Edit Blog | Admin" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Edit Blog | Admin" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Edit Blog | Admin",
     description: "Edit Blog | Admin",
-    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
   },
 };
 
@@ -59,7 +59,7 @@ export default async function EditBlogPage({
         <div id="admin-root">
             <aside className="sidebar">
                 <div className="s-brand">
-                    <img src="/images/logo-white.png" alt="mTouch Labs" className="s-logo-img" />
+                    <img width={266} height={47} loading="lazy" decoding="async" src="/images/logo-white.webp" alt="mTouch Labs" className="s-logo-img" />
                 </div>
                 <nav className="s-links">
                     <Link href="/admin/dashboard">
@@ -83,7 +83,7 @@ export default async function EditBlogPage({
                         Create Project
                     </Link>
                     <div className="s-div" />
-                    <a href="/" target="_blank">
+                    <a href="/" target="_blank" rel="noopener noreferrer">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>
                         View Site
                     </a>
@@ -120,7 +120,7 @@ export default async function EditBlogPage({
                             <p style={{ fontSize: 14, color: '#9ca3af', marginTop: 4 }}>Editing: {blog.title}</p>
                         </div>
                         <div style={{ display: 'flex', gap: 10, alignItems: 'center', flexShrink: 0 }}>
-                            <a href={`/${blog.slug}`} target="_blank" style={{ padding: '10px 22px', borderRadius: 8, fontSize: 14, fontWeight: 600, fontFamily: "'Inter',sans-serif", background: '#fff', color: '#374151', border: '1px solid #d1d5db', textDecoration: 'none' }}>Preview</a>
+                            <a href={`/${blog.slug}`} target="_blank" rel="noopener noreferrer" style={{ padding: '10px 22px', borderRadius: 8, fontSize: 14, fontWeight: 600, fontFamily: "'Inter',sans-serif", background: '#fff', color: '#374151', border: '1px solid #d1d5db', textDecoration: 'none' }}>Preview</a>
                             <button type="submit" form="edit-blog-form" style={{ padding: '10px 22px', borderRadius: 8, fontSize: 14, fontWeight: 600, cursor: 'pointer', fontFamily: "'Inter',sans-serif", background: '#6366f1', color: '#fff', border: 'none' }}>Update Blog</button>
                         </div>
                     </div>

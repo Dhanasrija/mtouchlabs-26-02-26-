@@ -132,18 +132,18 @@ export type ProductPageData = {
 /* ───────────────────────── Constants ───────────────────────── */
 
 const DEFAULT_TECH = [
-  { src: "/images/products/html.png",             w: 65, alt: "HTML5" },
-  { src: "/images/products/css.png",              w: 45, alt: "CSS3" },
-  { src: "/images/products/js.png",               w: 75, alt: "JavaScript" },
-  { src: "/images/products/boot.png",             w: 75, alt: "Bootstrap" },
-  { src: "/images/products/php.png",              w: 75, alt: "PHP" },
-  { src: "/images/products/laverl.png",           w: 75, alt: "Laravel" },
-  { src: "/images/products/flutter.png",          w: 75, alt: "Flutter" },
-  { src: "/images/products/firebase.png",         w: 75, alt: "Firebase" },
-  { src: "/images/products/MySQL.png",            w: 75, alt: "MySQL" },
-  { src: "/images/products/crashlytics.png",      w: 75, alt: "Crashlytics" },
-  { src: "/images/products/Google_Analytics.png", w: 75, alt: "Google Analytics" },
-  { src: "/images/products/aws.png",              w: 75, alt: "AWS" },
+  { src: "/images/products/html.webp",             w: 65, alt: "HTML5" },
+  { src: "/images/products/css.webp",              w: 45, alt: "CSS3" },
+  { src: "/images/products/js.webp",               w: 75, alt: "JavaScript" },
+  { src: "/images/products/boot.webp",             w: 75, alt: "Bootstrap" },
+  { src: "/images/products/php.webp",              w: 75, alt: "PHP" },
+  { src: "/images/products/laverl.webp",           w: 75, alt: "Laravel" },
+  { src: "/images/products/flutter.webp",          w: 75, alt: "Flutter" },
+  { src: "/images/products/firebase.webp",         w: 75, alt: "Firebase" },
+  { src: "/images/products/MySQL.webp",            w: 75, alt: "MySQL" },
+  { src: "/images/products/crashlytics.webp",      w: 75, alt: "Crashlytics" },
+  { src: "/images/products/Google_Analytics.webp", w: 75, alt: "Google Analytics" },
+  { src: "/images/products/aws.webp",              w: 75, alt: "AWS" },
 ];
 
 const ICON_CLASSES = ["ic1","ic2","ic3","ic4","ic5","ic6","ic7","ic8"];
@@ -155,9 +155,9 @@ export default function ProductPageTemplate({ data }: { data: ProductPageData })
   const [activeTab, setActiveTab] = useState<string>(data.tabs.panels[0]?.id ?? "");
   const toggleFaq = (i: number) => setOpenFaq(openFaq === i ? null : i);
 
-  const leftPhone  = data.hero.leftPhoneImg  ?? "/images/products/phoneframe1.png";
-  const rightPhone = data.hero.rightPhoneImg ?? "/images/products/phoneframe2.png";
-  const dividerImg = data.dividerImg ?? "/images/products/food11.png";
+  const leftPhone  = data.hero.leftPhoneImg  ?? "/images/products/phoneframe1.webp";
+  const rightPhone = data.hero.rightPhoneImg ?? "/images/products/phoneframe2.webp";
+  const dividerImg = data.dividerImg ?? "/images/products/food11.webp";
 
   return (
     <>
@@ -627,9 +627,9 @@ export default function ProductPageTemplate({ data }: { data: ProductPageData })
        {/* Section divider */}
 {data.dividerTitle ? (
   <div className="fd-section-divider">
-    <img src={data.dividerImg ?? "/images/products/food11.png"} loading="lazy" alt="" />
+    <img src={data.dividerImg ?? "/images/products/food11.webp"} loading="lazy" alt="" />
     <h2>{data.dividerTitle}</h2>
-    <img src={data.dividerImg ?? "/images/products/food11.png"} loading="lazy" alt="" />
+    <img src={data.dividerImg ?? "/images/products/food11.webp"} loading="lazy" alt="" />
   </div>
 ) : null}
 
@@ -840,7 +840,7 @@ export default function ProductPageTemplate({ data }: { data: ProductPageData })
             <h2>{data.cta.h2}</h2>
             <p>{data.cta.body}</p>
             <div className="fd-cta-btns">
-              <a className="fd-btn fd-btn-gold" href={data.cta.buttonHref ?? "/contact-us"} target="_blank">
+              <a className="fd-btn fd-btn-gold" href={data.cta.buttonHref ?? "/contact-us"} target="_blank" rel="noopener noreferrer">
                 {data.cta.buttonText ?? "Book a Free Consultation"} &nbsp;→
               </a>
             </div>

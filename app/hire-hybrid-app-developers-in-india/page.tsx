@@ -13,13 +13,13 @@
 //     url: "https://www.mtouchlabs.com/hire-hybrid-app-developers-in-india",
 //     siteName: "mTouch Labs",
 //     type: "website",
-//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire Hybrid App Developers in India" }],
+//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Hire Hybrid App Developers in India" }],
 //   },
 //   twitter: {
 //     card: "summary_large_image",
 //     title: "Hire Hybrid App Developers in India",
 //     description: "Hire hybrid app developers in India from mTouch Labs to build cross-platform mobile apps with a single codebase that deliver fast performance and cost efficiency.",
-//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
 //   },
 // };
 
@@ -54,7 +54,7 @@
 // 					</div>
 // 				</div>
 // 				<div className="col-lg-6">
-// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img
+// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img width={690} height={350} loading="lazy" decoding="async"
 // 							src="/images/others/Hire-Our-Dedicated-Hybrid-App-Developers.svg" alt="mTouch Labs"
 // 							className="img-fluid" /></div>
 // 				</div>
@@ -81,7 +81,7 @@
 // 								platforms. </p>
 
 // 							<p> As a leading <a href="https://www.mtouchlabs.com/hybrid-app-development-company"
-// 									target="_blank">hybrid app development company</a> in India with over <span
+// 									target="_blank" rel="noopener noreferrer">hybrid app development company</a> in India with over <span
 // 									className="yearsOfExcellence">12+</span> years of experience,
 // 								hire Hybrid App Developers from us who are committed to delivering fast and customized
 // 								services with best-in-class results. Hire Hybrid App Developers from mTouchlabs, a team
@@ -90,7 +90,7 @@
 
 // 							<p>Since counting Hybrid development technology to our elite list, our <a
 // 									href="https://www.mtouchlabs.com/key-advantages-of-cross-platform-mobile-app-development"
-// 									target="_blank">Cross-platform App
+// 									target="_blank" rel="noopener noreferrer">Cross-platform App
 // 									Developers</a> have already produced some very user-specific and customer-centric
 // 								portable
 // 								websites. With multiple platforms, our cross-platform app developers provide services
@@ -105,7 +105,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async"
 // 								src="/images/cta/Hire-Our-Professional-Hybrid-Mobile-App-Developers.svg"
 // 								alt="hybrid App Developers" className="img-fluid" /> </div>
 // 					</div>
@@ -118,7 +118,7 @@
 // 				<div className="row">
 
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img src="/images/cta/Hire-cross-platform-app-developers.svg"
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Hire-cross-platform-app-developers.svg"
 // 								alt="hybrid App Developers" className="img-fluid" /></div>
 // 					</div>
 
@@ -136,7 +136,7 @@
 
 // 							<p>We have a large pool of <a
 // 									href="https://www.mtouchlabs.com/flutter-app-development-company"
-// 									target="_blank">Hybrid mobile app developers</a> allowing you the chance to hire
+// 									target="_blank" rel="noopener noreferrer">Hybrid mobile app developers</a> allowing you the chance to hire
 // 								Hybrid Developers that suit your business requirements at the Flexi hiring model. Our
 // 								dedicated Hybrid Developers keep themselves updated with the latest technological
 // 								advancements to meet the exact clients’ requirements and deliver robust, scalable, and
@@ -176,7 +176,7 @@
 // 			<div className="row mt30">
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Dedicated-Hybrid-Developers-hybrid-dev.svg"
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Dedicated-Hybrid-Developers-hybrid-dev.svg"
 // 								alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Dedicated Hybrid Developers</h3>
@@ -187,7 +187,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Cost-savings-hybrid-dev.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Cost-savings-hybrid-dev.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Cost savings</h3>
@@ -199,7 +199,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Ensure-rapid-delivery.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Ensure-rapid-delivery.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Ensure rapid delivery </h3>
@@ -211,7 +211,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Delivery-schedule.svg" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Delivery-schedule.svg" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Delivery schedule</h3>
 // 							<p>We maintain transparency, adhere to strict delivery schedules and our clients are
@@ -222,7 +222,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Stellar-Results-hybrid-dev.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Stellar-Results-hybrid-dev.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Stellar Results</h3>
@@ -234,7 +234,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Trust-&-Transparency.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Trust-&-Transparency.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Trust & Transparency</h3>
@@ -278,7 +278,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
-// 						<div className="sol-img-png"> <img
+// 						<div className="sol-img-png"> <img width={690} height={350} loading="lazy" decoding="async"
 // 								src="/images/cta/Hire-Our-Professional-Hybrid-Mobile-App-Developers.svg"
 // 								alt="hire Hybrid developers" className="img-fluid" /> </div>
 // 					</div>
@@ -405,7 +405,7 @@
 // 							</h3>
 // 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 // 									className="fas fa-user fb-bigon"></i> Contact </a>
-// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
+// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer"
 // 								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
 // 								Whatsapp </a>
 
@@ -413,7 +413,7 @@
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
 // 						<div className="sol-img-png">
-// 							<img src="/images/cta/let's-get-to-chat-hybrid-dev.svg" alt="working with client"
+// 							<img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/let's-get-to-chat-hybrid-dev.svg" alt="working with client"
 // 								className="img-fluid" />
 // 						</div>
 // 					</div>

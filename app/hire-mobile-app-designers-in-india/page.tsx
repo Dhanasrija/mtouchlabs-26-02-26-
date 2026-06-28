@@ -13,13 +13,13 @@
 // //     url: "https://www.mtouchlabs.com/hire-mobile-app-designers-in-india",
 // //     siteName: "mTouch Labs",
 // //     type: "website",
-// //     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "hire mobile app designers | dedicated mobile UI designers" }],
+// //     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "hire mobile app designers | dedicated mobile UI designers" }],
 // //   },
 // //   twitter: {
 // //     card: "summary_large_image",
 // //     title: "hire mobile app designers | dedicated mobile UI designers",
 // //     description: "Hire mobile app designer from mTouchlabs. Our dedicated mobile UI designers are committed to transforming your dreams into engaging mobile apps",
-// //     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+// //     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
 // //   },
 // // };
 
@@ -55,7 +55,7 @@
 // // 					</div>
 // // 				</div>
 // // 				<div className="col-lg-6">
-// // 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img
+// // 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img width={690} height={350} loading="lazy" decoding="async"
 // // 							src="/images/others/UX-design-services-at-less-cost.svg" alt="mTouch Labs" className="img-fluid" />
 // // 					</div>
 // // 				</div>
@@ -85,7 +85,7 @@
 // // 								Designers will create pixel-perfect solutions so that your idea is reflected perfectly
 // // 								with the app. Hire Mobile App Designers in India to design highly innovative,
 // // 								rich-featured, and robust mobile apps to match your expectations. Our <a
-// // 									href="https://www.mtouchlabs.com/hire-ui-ux-designers-in-india" target="_blank">UI/UX
+// // 									href="https://www.mtouchlabs.com/hire-ui-ux-designers-in-india" target="_blank" rel="noopener noreferrer">UI/UX
 // // 									designers</a>
 // // 								create a flawless UI to allow users to experience adorable features. Our Mobile
 // // 								Application Designers are the people who create an innovative interface of a mobile app
@@ -96,7 +96,7 @@
 // // 								your dreams into an engaging mobile application. Experience the power of creativity and
 // // 								knowledge from our Dedicated Mobile application Designers in India. When you <a
 // // 									href="https://www.mtouchlabs.com/hire-mobile-app-designers-in-india"
-// // 									target="_blank">hire Mobile
+// // 									target="_blank" rel="noopener noreferrer">hire Mobile
 // // 									Application Designers</a> with us, you are ensuring loyalty and reliability for
 // // 								yourself and
 // // 								your business
@@ -110,7 +110,7 @@
 // // 						</div>
 // // 					</div>
 // // 					<div className="col-lg-6 vcenter">
-// // 						<div className="ct-sol-img"> <img src="/images/cta/Hire-Our-Dedicated-Mobile-App-Designers.svg"
+// // 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Hire-Our-Dedicated-Mobile-App-Designers.svg"
 // // 								alt="Mobile App design" className="img-fluid" /> </div>
 // // 					</div>
 // // 				</div>
@@ -122,7 +122,7 @@
 // // 				<div className="row">
 
 // // 					<div className="col-lg-6 vcenter">
-// // 						<div className="ct-sol-img"> <img src="/images/cta/Why-Hire-Mobile-UI-Designer-From-mTouchlabs.svg"
+// // 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Why-Hire-Mobile-UI-Designer-From-mTouchlabs.svg"
 // // 								alt="mobile ui design" className="img-fluid" /> </div>
 // // 					</div>
 
@@ -133,7 +133,7 @@
 // // 									Labs? </span></h2>
 // // 							<p>As a leading <a
 // // 									href="https://www.mtouchlabs.com/best-practices-for-mobile-app-design-trends-in-2022"
-// // 									target="_blank">Mobile app Design Company</a> in India, our Mobile UI designers
+// // 									target="_blank" rel="noopener noreferrer">Mobile app Design Company</a> in India, our Mobile UI designers
 // // 								ensure that our
 // // 								clients get a beautiful and unique design that can improve productivity and ROI. Our
 // // 								team of dedicated Mobile UI designers creates design elements in a way that your users
@@ -180,7 +180,7 @@
 // // 			<div className="row mt30">
 // // 				<div className="col-lg-4 col-sm-6">
 // // 					<div className="ree-card  mt60">
-// // 						<div className="ree-card-img"><img src="/images/icons/Quick-Team-Scaling.svg" alt="services" /> </div>
+// // 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Quick-Team-Scaling.svg" alt="services" /> </div>
 // // 						<div className="ree-card-content mt40">
 // // 							<h3 className="mb15">Quick Team Scaling</h3>
 // // 							<p>Our mobile app designers work with a single-minded commitment to complete the entire
@@ -190,7 +190,7 @@
 // // 				</div>
 // // 				<div className="col-lg-4 col-sm-6">
 // // 					<div className="ree-card  mt60">
-// // 						<div className="ree-card-img"><img src="/images/icons/Flexible-Hiring-Model.svg" alt="services" />
+// // 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Flexible-Hiring-Model.svg" alt="services" />
 // // 						</div>
 // // 						<div className="ree-card-content mt40">
 // // 							<h3 className="mb15">Flexible Hiring Model</h3>
@@ -202,7 +202,7 @@
 // // 				</div>
 // // 				<div className="col-lg-4 col-sm-6">
 // // 					<div className="ree-card  mt60">
-// // 						<div className="ree-card-img"><img src="/images/icons/On-Time-Delivery.svg" alt="services" /> </div>
+// // 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/On-Time-Delivery.svg" alt="services" /> </div>
 // // 						<div className="ree-card-content mt40">
 // // 							<h3 className="mb15">On-Time Delivery</h3>
 // // 							<p>Our team of app designers leverages the innovative tools and technologies that help us
@@ -213,7 +213,7 @@
 // // 				</div>
 // // 				<div className="col-lg-4 col-sm-6">
 // // 					<div className="ree-card  mt60">
-// // 						<div className="ree-card-img"><img src="/images/icons/Cost-effective-Solution.svg" alt="services" />
+// // 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Cost-effective-Solution.svg" alt="services" />
 // // 						</div>
 // // 						<div className="ree-card-content mt40">
 // // 							<h3 className="mb15">Cost-effective Solution</h3>
@@ -225,7 +225,7 @@
 // // 				</div>
 // // 				<div className="col-lg-4 col-sm-6">
 // // 					<div className="ree-card  mt60">
-// // 						<div className="ree-card-img"><img src="/images/icons/Innovation-&-Strategy.svg" alt="services" />
+// // 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Innovation-&-Strategy.svg" alt="services" />
 // // 						</div>
 // // 						<div className="ree-card-content mt40">
 // // 							<h3 className="mb15">Innovation & Strategy</h3>
@@ -237,7 +237,7 @@
 // // 				</div>
 // // 				<div className="col-lg-4 col-sm-6">
 // // 					<div className="ree-card  mt60">
-// // 						<div className="ree-card-img"><img src="/images/icons/Technological-Prowess.svg" alt="services" />
+// // 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Technological-Prowess.svg" alt="services" />
 // // 						</div>
 // // 						<div className="ree-card-content mt40">
 // // 							<h3 className="mb15">Technological Progress</h3>
@@ -280,7 +280,7 @@
 // // 						</div>
 // // 					</div>
 // // 					<div className="col-lg-6 vcenter text-center">
-// // 						<div className="sol-img-png"> <img src="/images/cta/let's-get-to-chat-mobile-designers.svg"
+// // 						<div className="sol-img-png"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/let's-get-to-chat-mobile-designers.svg"
 // // 								alt="mobile designers" className="img-fluid" /> </div>
 // // 					</div>
 // // 				</div>
@@ -305,7 +305,7 @@
 // // 							<h3>Need UI/UX <span className="ree-text rt40">Designers</span> ? Let's get to chat.</h3>
 // // 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 // // 									className="fas fa-user fb-bigon"></i> Contact </a>
-// // 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
+// // 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer"
 // // 								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
 // // 								Whatsapp </a>
 
@@ -313,7 +313,7 @@
 // // 					</div>
 // // 					<div className="col-lg-6 vcenter text-center">
 // // 						<div className="sol-img-png">
-// // 							<img src="/images/cta/lets-get-to-chat-ui-ux-designer.svg" alt="working with client"
+// // 							<img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/lets-get-to-chat-ui-ux-designer.svg" alt="working with client"
 // // 								className="img-fluid" />
 // // 						</div>
 // // 					</div>

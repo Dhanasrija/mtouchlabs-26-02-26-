@@ -24,7 +24,7 @@ const data: ProductPageData = {
     label: "Marketplace Experts",
     h3: "Multi-Vendor Marketplace Development",
     body: [
-      <>mTouch Labs is a NASSCOM award-winning <a href="/mobile-app-development-company" target="_blank">multi-vendor marketplace app builder</a> in Hyderabad, helping startups and enterprises build scalable commerce ecosystems.</>,
+      <>mTouch Labs is a NASSCOM award-winning <a href="/mobile-app-development-company" target="_blank" rel="noopener noreferrer">multi-vendor marketplace app builder</a> in Hyderabad, helping startups and enterprises build scalable commerce ecosystems.</>,
       <>We build product marketplaces, service marketplaces, hyperlocal platforms, and B2B marketplaces tailored to your model and scale.</>,
     ],
   },

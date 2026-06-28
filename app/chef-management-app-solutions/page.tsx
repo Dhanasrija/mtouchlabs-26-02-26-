@@ -16,24 +16,24 @@ const data: ProductPageData = {
     h1Tail: "in Hyderabad",
     subtitle: "Launch a chef on-demand and kitchen management platform with booking, scheduling, order tracking, and kitchen operations in one app.",
     demoHref: "https://youtu.be/U7Jf26aXhoo?si=BkLmH3y6-nMu4t6n",
-    leftPhoneImg: "/images/products/chef/phone1.png",
-    rightPhoneImg: "/images/products/chef/phone2.png",
+    leftPhoneImg: "/images/products/chef/phone1.webp",
+    rightPhoneImg: "/images/products/chef/phone2.webp",
   },
-  featuresBannerImg: "/images/products/chef/chef-bg.png",
+  featuresBannerImg: "/images/products/chef/chef-bg.webp",
   featuresBannerAlt: "chef management app development company in Hyderabad",
   intro: {
-    img: "/images/products/chef/phone1.png",
+    img: "/images/products/chef/phone1.webp",
     label: "Chef On-Demand Experts",
     h3: "Chef Management App Development",
     body: [
-      <>mTouch Labs is a NASSCOM award-winning <a href="/mobile-app-development-company" target="_blank">chef management app development</a> company in Hyderabad, helping restaurants, cloud kitchens, and on-demand chef startups streamline operations.</>,
-      <>We build private chef booking apps, cloud kitchen management systems, <a href="/food-delivery-app-development-service" target="_blank">restaurant chef workflow platforms</a>, and home-chef marketplaces tailored to your scale.</>,
+      <>mTouch Labs is a NASSCOM award-winning <a href="/mobile-app-development-company" target="_blank" rel="noopener noreferrer">chef management app development</a> company in Hyderabad, helping restaurants, cloud kitchens, and on-demand chef startups streamline operations.</>,
+      <>We build private chef booking apps, cloud kitchen management systems, <a href="/food-delivery-app-development-service" target="_blank" rel="noopener noreferrer">restaurant chef workflow platforms</a>, and home-chef marketplaces tailored to your scale.</>,
     ],
   },
   dividerTitle: "Custom Chef Management App Development Services",
-  dividerImg: "/images/products/chef/chefSpecial.png",
+  dividerImg: "/images/products/chef/chefSpecial.webp",
   endToEnd: {
-    img: "/images/products/chef/phone2.png",
+    img: "/images/products/chef/phone2.webp",
     label: "End-to-End Solutions",
     h3: "Complete Chef & Kitchen Platform",
     body: [
@@ -59,11 +59,11 @@ const data: ProductPageData = {
   screens: {
     alt: "Chef management app screen",
     images: [
-      "/images/products/chef/appscreen1.png",
-      "/images/products/chef/appscreen2.png",
-      "/images/products/chef/appscreen3.png",
-      "/images/products/chef/appscreen4.png",
-      "/images/products/chef/appscreen5.png",
+      "/images/products/chef/appscreen1.webp",
+      "/images/products/chef/appscreen2.webp",
+      "/images/products/chef/appscreen3.webp",
+      "/images/products/chef/appscreen4.webp",
+      "/images/products/chef/appscreen5.webp",
     ],
   },
   tabs: {
@@ -98,7 +98,7 @@ const data: ProductPageData = {
     { q: "Do you provide post-launch support?", a: "Yes, we provide ongoing maintenance, performance tuning, and feature enhancements." },
   ],
   cta: {
-    img: "/images/products/chef/chef.png",
+    img: "/images/products/chef/chef.webp",
     h2: "Build a Chef Management App Kitchens Love",
     body: "Launch a modern chef and kitchen management platform that is scalable, efficient, and ready for growth.",
   },

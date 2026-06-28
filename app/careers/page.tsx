@@ -14,13 +14,13 @@
 //     url: "https://www.mtouchlabs.com/careers",
 //     siteName: "mTouch Labs",
 //     type: "website",
-//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Careers" }],
+//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Careers" }],
 //   },
 //   twitter: {
 //     card: "summary_large_image",
 //     title: "Careers",
 //     description: "Join our team and build the future of technology.",
-//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
 //   },
 // };
 
@@ -226,21 +226,21 @@
 //             <h2>Start Your Career in Just <br /> a Few Simple Steps</h2>
 //             <p className="description">Take the next step in your professional journey with a quick and seamless application process.</p>
 //             <div className="careers-step">
-//               <span className="icon"><img src="/images/career/icon1.png" className="career-how-it-icon" alt="step 1" /></span>
+//               <span className="icon"><img width={70} height={70} loading="lazy" decoding="async" src="/images/career/icon1.webp" className="career-how-it-icon" alt="step 1" /></span>
 //               <div>
 //                 <h3>Complete Your Profile</h3>
 //                 <p>Upload your resume or create a professional<br /> profile in just a few minutes.</p>
 //               </div>
 //             </div>
 //             <div className="careers-step">
-//               <span className="icon"><img src="/images/career/icon2.png" className="career-how-it-icon" alt="step 2" /></span>
+//               <span className="icon"><img width={70} height={70} loading="lazy" decoding="async" src="/images/career/icon2.webp" className="career-how-it-icon" alt="step 2" /></span>
 //               <div>
 //                 <h3>Explore Career Opportunities</h3>
 //                 <p>Browse job openings across various industries<br /> and find the perfect role that matches your skills.</p>
 //               </div>
 //             </div>
 //             <div className="careers-step">
-//               <span className="icon"><img src="/images/career/icon3.png" className="career-how-it-icon" alt="step 3" /></span>
+//               <span className="icon"><img width={78} height={78} loading="lazy" decoding="async" src="/images/career/icon3.webp" className="career-how-it-icon" alt="step 3" /></span>
 //               <div>
 //                 <h3>Apply Instantly</h3>
 //                 <p>Submit your application in one click and<br /> move closer to your dream job effortlessly.</p>
@@ -248,7 +248,7 @@
 //             </div>
 //           </div>
 //           <div className="careers-image">
-//             <img src="/images/career/how-it-works.png" alt="current Job Openings At mTouch Labs" />
+//             <img width={960} height={1072} loading="lazy" decoding="async" src="/images/career/how-it-works.webp" alt="current Job Openings At mTouch Labs" />
 //           </div>
 //         </div>
 
@@ -257,32 +257,32 @@
 //           <div className="careers-why-choose-one">
 //             <div className="careers-why-choose-one-inside">
 //               <div>
-//                 <img src="/images/career/why1.png" className="careers-why-choose-img" alt="award" />
+//                 <img width={160} height={160} loading="lazy" decoding="async" src="/images/career/why1.webp" className="careers-why-choose-img" alt="award" />
 //                 <p>Award winning designers</p>
 //               </div>
 //               <div>
-//                 <img src="/images/career/why2.png" className="careers-why-choose-img" alt="rating" />
+//                 <img width={160} height={162} loading="lazy" decoding="async" src="/images/career/why2.webp" className="careers-why-choose-img" alt="rating" />
 //                 <p>4.9 rating in google reviews</p>
 //               </div>
 //               <div>
-//                 <img src="/images/brand-logo/nasscom.png" alt="Official NASSCOM Member" className="careers-why-choose-img" />
+//                 <img width={1064} height={280} loading="lazy" decoding="async" src="/images/brand-logo/nasscom.webp" alt="Official NASSCOM Member" className="careers-why-choose-img" />
 //                 <p>NASSCOM Member</p>
 //               </div>
 //             </div>
 //             <div className="careers-why-choose-one-inside">
 //               <div>
-//                 <img src="/images/career/why4.png" className="careers-why-choose-img" alt="company" />
+//                 <img width={160} height={158} loading="lazy" decoding="async" src="/images/career/why4.webp" className="careers-why-choose-img" alt="company" />
 //                 <p>App Development Company of the Year</p>
 //               </div>
 //               <div>
-//                 <img src="/images/career/why5.png" className="careers-why-choose-img" alt="effort" />
+//                 <img width={160} height={159} loading="lazy" decoding="async" src="/images/career/why5.webp" className="careers-why-choose-img" alt="effort" />
 //                 <p>100+ hours of effort</p>
 //               </div>
 //             </div>
 //           </div>
 //           <div className="careers-why-choose-two">
 //             <h3>Why Choose mTouch Labs?</h3>
-//             <p><b>Industry Leader:</b> acknowledged as a <a href="/" target="_blank">web and mobile app development</a> business with ISO certification.</p>
+//             <p><b>Industry Leader:</b> acknowledged as a <a href="/" target="_blank" rel="noopener noreferrer">web and mobile app development</a> business with ISO certification.</p>
 //             <p><b>Career Growth:</b> We offer career progression opportunities, mentorship, and skill development programs.</p>
 //             <p><b>Innovative Culture:</b> Develop technologies such as blockchain, AI, Flutter, and React Native.</p>
 //             <p><b>Global Projects:</b> Work together on software solutions, UI/UX design, and app development with clients from around the world.</p>
@@ -301,36 +301,36 @@
 //             <div className="carousel-inner">
 //               <div className="carousel-item active">
 //                 <div className="d-flex justify-content-center align-items-start flex-wrap" style={{ width: "100%", margin: "auto", marginBottom: "30px" }}>
-//                   <div className="Home-logo-grid-item"><img src="/images/home/tech/adjd.png" alt="adjd" /></div>
-//                   <div className="Home-logo-grid-item"><img src="/images/home/tech/govt.png" alt="golkonda" /></div>
-//                   <div className="Home-logo-grid-item"><img src="/images/home/tech/aduri.png" alt="aduri" /></div>
-//                   <div className="Home-logo-grid-item"><img src="/images/home/tech/voosh.png" alt="voosh" /></div>
-//                   <div className="Home-logo-grid-item"><img src="/images/home/tech/l2r.png" alt="learn2read" /></div>
-//                   <div className="Home-logo-grid-item"><img src="/images/home/tech/zefsci.png" alt="zefsci" /></div>
-//                   <div className="Home-logo-grid-item"><img src="/images/home/tech/medbuz.png" alt="medbuz" /></div>
-//                   <div className="Home-logo-grid-item"><img src="/images/home/tech/veteach.png" alt="veteach" /></div>
-//                   <div className="Home-logo-grid-item"><img src="/images/home/tech/tanyya.png" alt="tannya" /></div>
-//                   <div className="Home-logo-grid-item"><img src="/images/home/tech/heyman.png" alt="heyman" /></div>
-//                   <div className="Home-logo-grid-item"><img src="/images/home/tech/badham.png" alt="badham" /></div>
-//                   <div className="Home-logo-grid-item"><img src="/images/home/tech/v.png" alt="vivent" /></div>
-//                   <div className="Home-logo-grid-item"><img src="/images/home/tech/tej.png" alt="tej" /></div>
-//                   <div className="Home-logo-grid-item"><img src="/images/home/tech/adify.png" alt="adify" /></div>
-//                   <div className="Home-logo-grid-item"><img src="/images/home/tech/clikget.png" alt="roboride" /></div>
+//                   <div className="Home-logo-grid-item"><img width={300} height={140} loading="lazy" decoding="async" src="/images/home/tech/adjd.webp" alt="adjd" /></div>
+//                   <div className="Home-logo-grid-item"><img width={300} height={140} loading="lazy" decoding="async" src="/images/home/tech/govt.webp" alt="golkonda" /></div>
+//                   <div className="Home-logo-grid-item"><img width={300} height={140} loading="lazy" decoding="async" src="/images/home/tech/aduri.webp" alt="aduri" /></div>
+//                   <div className="Home-logo-grid-item"><img width={300} height={140} loading="lazy" decoding="async" src="/images/home/tech/voosh.webp" alt="voosh" /></div>
+//                   <div className="Home-logo-grid-item"><img width={300} height={140} loading="lazy" decoding="async" src="/images/home/tech/l2r.webp" alt="learn2read" /></div>
+//                   <div className="Home-logo-grid-item"><img width={200} height={93} loading="lazy" decoding="async" src="/images/home/tech/zefsci.webp" alt="zefsci" /></div>
+//                   <div className="Home-logo-grid-item"><img width={300} height={141} loading="lazy" decoding="async" src="/images/home/tech/medbuz.webp" alt="medbuz" /></div>
+//                   <div className="Home-logo-grid-item"><img width={300} height={140} loading="lazy" decoding="async" src="/images/home/tech/veteach.webp" alt="veteach" /></div>
+//                   <div className="Home-logo-grid-item"><img width={300} height={140} loading="lazy" decoding="async" src="/images/home/tech/tanyya.webp" alt="tannya" /></div>
+//                   <div className="Home-logo-grid-item"><img width={300} height={140} loading="lazy" decoding="async" src="/images/home/tech/heyman.webp" alt="heyman" /></div>
+//                   <div className="Home-logo-grid-item"><img width={300} height={140} loading="lazy" decoding="async" src="/images/home/tech/badham.webp" alt="badham" /></div>
+//                   <div className="Home-logo-grid-item"><img width={300} height={140} loading="lazy" decoding="async" src="/images/home/tech/v.webp" alt="vivent" /></div>
+//                   <div className="Home-logo-grid-item"><img width={200} height={93} loading="lazy" decoding="async" src="/images/home/tech/tej.webp" alt="tej" /></div>
+//                   <div className="Home-logo-grid-item"><img width={300} height={140} loading="lazy" decoding="async" src="/images/home/tech/adify.webp" alt="adify" /></div>
+//                   <div className="Home-logo-grid-item"><img width={300} height={140} loading="lazy" decoding="async" src="/images/home/tech/clikget.webp" alt="roboride" /></div>
 //                 </div>
 //               </div>
 //               <div className="carousel-item">
 //                 <div className="d-flex justify-content-center align-items-start flex-wrap" style={{ width: "100%", margin: "auto", marginBottom: "30px" }}>
-//                   <div className="Home-logo-grid-item"><img src="/images/home/tech/countryclub.png" alt="countryclub" /></div>
-//                   <div className="Home-logo-grid-item"><img src="/images/home/tech/kalp.png" alt="kalp" /></div>
-//                   <div className="Home-logo-grid-item"><img src="/images/home/tech/roboride.png" alt="roboride" /></div>
-//                   <div className="Home-logo-grid-item"><img src="/images/home/tech/ricehub.png" alt="ricehub" /></div>
-//                   <div className="Home-logo-grid-item"><img src="/images/home/tech/jaimaxcoin.png" alt="jaimaxcoin" /></div>
-//                   <div className="Home-logo-grid-item"><img src="/images/home/tech/Citzon.png" alt="Citzon" /></div>
-//                   <div className="Home-logo-grid-item"><img src="/images/home/tech/fair.png" alt="fair" /></div>
-//                   <div className="Home-logo-grid-item"><img src="/images/home/tech/inst.png" alt="inst" /></div>
-//                   <div className="Home-logo-grid-item"><img src="/images/home/tech/dush.png" alt="dush" /></div>
-//                   <div className="Home-logo-grid-item"><img src="/images/home/tech/revsoul.png" alt="revsoul" /></div>
-//                   <div className="Home-logo-grid-item"><img src="/images/home/tech/smartpg.png" alt="smartpg" /></div>
+//                   <div className="Home-logo-grid-item"><img width={300} height={140} loading="lazy" decoding="async" src="/images/home/tech/countryclub.webp" alt="countryclub" /></div>
+//                   <div className="Home-logo-grid-item"><img width={300} height={140} loading="lazy" decoding="async" src="/images/home/tech/kalp.webp" alt="kalp" /></div>
+//                   <div className="Home-logo-grid-item"><img width={300} height={140} loading="lazy" decoding="async" src="/images/home/tech/roboride.webp" alt="roboride" /></div>
+//                   <div className="Home-logo-grid-item"><img width={300} height={140} loading="lazy" decoding="async" src="/images/home/tech/ricehub.webp" alt="ricehub" /></div>
+//                   <div className="Home-logo-grid-item"><img width={300} height={140} loading="lazy" decoding="async" src="/images/home/tech/jaimaxcoin.webp" alt="jaimaxcoin" /></div>
+//                   <div className="Home-logo-grid-item"><img width={300} height={140} loading="lazy" decoding="async" src="/images/home/tech/Citzon.webp" alt="Citzon" /></div>
+//                   <div className="Home-logo-grid-item"><img width={300} height={140} loading="lazy" decoding="async" src="/images/home/tech/fair.webp" alt="fair" /></div>
+//                   <div className="Home-logo-grid-item"><img width={300} height={140} loading="lazy" decoding="async" src="/images/home/tech/inst.webp" alt="inst" /></div>
+//                   <div className="Home-logo-grid-item"><img width={300} height={140} loading="lazy" decoding="async" src="/images/home/tech/dush.webp" alt="dush" /></div>
+//                   <div className="Home-logo-grid-item"><img width={300} height={140} loading="lazy" decoding="async" src="/images/home/tech/revsoul.webp" alt="revsoul" /></div>
+//                   <div className="Home-logo-grid-item"><img width={300} height={140} loading="lazy" decoding="async" src="/images/home/tech/smartpg.webp" alt="smartpg" /></div>
 //                 </div>
 //               </div>
 //             </div>
@@ -357,7 +357,7 @@
 //             <div className="career-testimonial-card">
 //               <div className="career-testimonial-avatar">
 //                 <div className="career-testimonial-avatar-frame">
-//                   <img src="/images/employee.svg" alt="Suresh" className="career-avatar-photo" />
+//                   <img width={152} height={152} loading="lazy" decoding="async" src="/images/employee.svg" alt="Suresh" className="career-avatar-photo" />
 //                 </div>
 //               </div>
 //               <div className="career-testimonial-info">
@@ -476,7 +476,7 @@
 //               var html = '';
 //               pageJobs.forEach(function(job, idx) {
 //                 html += '<div class="op-card">';
-//                 html += '<div class="op-card-logo"><img src="/images/favicon.png" alt="mTouch Labs" /></div>';
+//                 html += '<div class="op-card-logo"><img width={100} height={100} loading="lazy" decoding="async" src="/images/favicon.png" alt="mTouch Labs" /></div>';
 //                 html += '<h3 class="op-card-title">' + job.role + '</h3>';
 //                 html += '<div class="op-card-meta">';
 //                 html += '<span><i class="fas fa-users"></i> 0' + job.positions + ' Open Position' + (job.positions > 1 ? 's' : '') + '</span>';
@@ -1089,7 +1089,7 @@ function init(){
       var posStr = (job.positions < 10 ? '0' : '') + job.positions;
       var safeRole = String(job.role).replace(/"/g,'&quot;');
       h+='<div class="cr-job-card">';
-      h+='<div class="cr-job-card-top"><div class="cr-job-card-logo"><img src="/images/favicon.png" alt="mTouch Labs"/></div><span class="cr-job-card-loc"><i class="fas fa-map-marker-alt"></i> '+job.location+'</span></div>';
+      h+='<div class="cr-job-card-top"><div class="cr-job-card-logo"><img width={100} height={100} loading="lazy" decoding="async" src="/images/favicon.png" alt="mTouch Labs"/></div><span class="cr-job-card-loc"><i class="fas fa-map-marker-alt"></i> '+job.location+'</span></div>';
       h+='<h3 class="cr-job-card-title">'+job.role+'</h3>';
       h+='<div class="cr-job-card-meta"><span><i class="fas fa-users"></i> '+posStr+' Position'+(job.positions>1?'s':'')+'</span><span><i class="fas fa-briefcase"></i> '+job.exp+'</span></div>';
       h+='<p class="cr-job-card-desc">'+job.descText+'</p>';

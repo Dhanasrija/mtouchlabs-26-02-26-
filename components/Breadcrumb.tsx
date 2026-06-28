@@ -192,13 +192,13 @@ export default function Breadcrumb({ pagePath, currentLabel }: BreadcrumbProps) 
           ))}
         </ol>
       </nav>
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @media (max-width: 640px) {
           .breadcrumb-list {
             margin-bottom: 16px !important;
           }
         }
-      `}</style>
+      `}} />
     </>
   );
 }

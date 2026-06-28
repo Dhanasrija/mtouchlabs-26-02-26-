@@ -14,7 +14,7 @@ interface BuildMethodStepsProps {
 export function BuildMethodSteps({ steps }: BuildMethodStepsProps) {
   return (
     <div className="bm-steps-container no-scrollbar">
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         /* ⭐ Smaller travel & no overshoot — prevents the section
            looking like it "jumps up" / cards being cut off on scroll. */
         @keyframes bmAntiGravityCard {
@@ -161,7 +161,7 @@ export function BuildMethodSteps({ steps }: BuildMethodStepsProps) {
             max-width: 220px;
           }
         }
-      `}</style>
+      `}} />
       {steps.map((step, i) => {
         const stepDelay = 0.3 + i * 0.6;
         return (

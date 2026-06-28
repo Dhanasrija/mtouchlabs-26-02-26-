@@ -291,20 +291,20 @@ export default function Navbar() {
         {/* <div className="menu-logo">
           <div className="dskt-logo" style={{ lineHeight: 0 }}>
             <a className="nav-brand" href="/" aria-label="mTouch Labs">
-              <img src="/images/logo-white.svg" alt="mTouch Labs" />
+              <img width={276} height={61} loading="lazy" decoding="async" src="/images/logo-white.svg" alt="mTouch Labs" />
             </a>
           </div>
         </div> */}
         {/* <div className="menu-logo">
   <div className="dskt-logo">
     <a className="nav-brand" href="/" aria-label="mTouch Labs">
-      <img
+      <img width={276} height={61} loading="lazy" decoding="async"
         src="/images/logo-white.svg"
         alt="mTouch Labs"
         className="nav-logo-img"
       />
-      <img
-        src="/images/brand-logo/app-development-company.png"
+      <img width={160} height={158} loading="lazy" decoding="async"
+        src="/images/brand-logo/app-development-company.webp"
         alt="ISO Certified"
         className="nav-badge-img"
       />
@@ -325,7 +325,7 @@ export default function Navbar() {
         <div className="menu-logo">
           <div className="dskt-logo" style={{ lineHeight: 0 }}>
             <a className="nav-brand" href="/" aria-label="mTouch Labs">
-              <img
+              <img width={1854} height={374} loading="lazy" decoding="async"
                 src="/images/logo-black.svg"
                 alt="mTouch Labs"
                 className="nav-logo-img"
@@ -345,14 +345,14 @@ export default function Navbar() {
                       <div className="home-mega-sidebar">
                         <h4 className="home-mega-title">Home</h4>
                         <div className="home-mega-item js-home-mega-item active" data-target="home-about">
-                          <div className="home-mega-item-icon"><img src="/images/new_home/chat.png" alt="Chat icon" width="28" height="28" /></div>
+                          <div className="home-mega-item-icon"><img loading="lazy" decoding="async" src="/images/new_home/chat.webp" alt="Chat icon" width="28" height="28" /></div>
                           <div className="home-mega-item-text">
                             <span className="home-mega-item-label">About us</span>
                             <span className="home-mega-item-desc">mTouch Labs delivers innovative mobile and web app solutions for modern businesses.</span>
                           </div>
                         </div>
                         <a href="/blog" className="home-mega-item js-home-mega-item" data-target="home-blog">
-                          <div className="home-mega-item-icon"><img src="/images/new_home/blog.png" alt="Blog icon" width="28" height="28" /></div>
+                          <div className="home-mega-item-icon"><img loading="lazy" decoding="async" src="/images/new_home/blog.webp" alt="Blog icon" width="28" height="28" /></div>
                           <div className="home-mega-item-text">
                             <span className="home-mega-item-label">Blog</span>
                             <span className="home-mega-item-desc">Discover expert ideas and innovations on our Blogs</span>
@@ -360,7 +360,7 @@ export default function Navbar() {
                         </a>
 
                         <a href="/case-studies" className="home-mega-item js-home-mega-item" data-target="home-case-studies">
-                          <div className="home-mega-item-icon"><img src="/images/new_home/caseStudies.png" alt="Case Studies icon" width="28" height="28" /></div>
+                          <div className="home-mega-item-icon"><img loading="lazy" decoding="async" src="/images/new_home/caseStudies.webp" alt="Case Studies icon" width="28" height="28" /></div>
                           <div className="home-mega-item-text">
                             <span className="home-mega-item-label">Case Studies</span>
                             <span className="home-mega-item-desc">Real projects and results across industries</span>
@@ -467,30 +467,30 @@ export default function Navbar() {
                       <div className="home-mega-sidebar">
                         <h4 className="home-mega-title">Services</h4>
                         <div className="home-mega-item js-home-mega-item active" data-target="svc-software">
-                          <div className="home-mega-item-icon"><img src="/images/nav/custom_software-dev.png" alt="Custom software development" width="28" height="28" /></div>
+                          <div className="home-mega-item-icon"><img loading="lazy" decoding="async" src="/images/nav/custom_software-dev.webp" alt="Custom software development" width="28" height="28" /></div>
                           <div className="home-mega-item-text">
                             <span className="home-mega-item-label">Software Development</span>
                             <span className="home-mega-item-desc">Delivering seamless digital experiences with expert software development.</span>
                           </div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="svc-cloud">
-                          <div className="home-mega-item-icon"><img src="/images/nav/cloud_devops.png" alt="Cloud and DevOps" width="28" height="28" /></div>
+                          <div className="home-mega-item-icon"><img loading="lazy" decoding="async" src="/images/nav/cloud_devops.webp" alt="Cloud and DevOps" width="28" height="28" /></div>
                           <div className="home-mega-item-text"><span className="home-mega-item-label">Cloud &amp; DevOps</span><span className="home-mega-item-desc">Scalable cloud infrastructure and CI/CD automation</span></div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="svc-ai">
-                          <div className="home-mega-item-icon"><img src="/images/nav/ai_data_intelligence.png" alt="AI and data intelligence" width="28" height="28" /></div>
+                          <div className="home-mega-item-icon"><img loading="lazy" decoding="async" src="/images/nav/ai_data_intelligence.webp" alt="AI and data intelligence" width="28" height="28" /></div>
                           <div className="home-mega-item-text"><span className="home-mega-item-label">AI &amp; Data Intelligence</span><span className="home-mega-item-desc">AI-powered insights that transform raw data into impact</span></div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="svc-salesforce">
-                          <div className="home-mega-item-icon"><img src="/images/nav/sales_force.png" alt="Salesforce" width="28" height="28" /></div>
+                          <div className="home-mega-item-icon"><img loading="lazy" decoding="async" src="/images/nav/sales_force.webp" alt="Salesforce" width="28" height="28" /></div>
                           <div className="home-mega-item-text"><span className="home-mega-item-label">Salesforce</span><span className="home-mega-item-desc">CRM customization, integration and consulting</span></div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="svc-design">
-                          <div className="home-mega-item-icon"><img src="/images/nav/design_experience.png" alt="Design experience" width="28" height="28" /></div>
+                          <div className="home-mega-item-icon"><img loading="lazy" decoding="async" src="/images/nav/design_experience.webp" alt="Design experience" width="28" height="28" /></div>
                           <div className="home-mega-item-text"><span className="home-mega-item-label">Design &amp; Experience</span><span className="home-mega-item-desc">User-centric UI/UX design that drives engagement</span></div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="svc-marketing">
-                          <div className="home-mega-item-icon"><img src="/images/nav/digital-marketing-services.png" alt="Digital marketing services" width="28" height="28" /></div>
+                          <div className="home-mega-item-icon"><img loading="lazy" decoding="async" src="/images/nav/digital-marketing-services.webp" alt="Digital marketing services" width="28" height="28" /></div>
                           <div className="home-mega-item-text"><span className="home-mega-item-label">Digital Marketing Solutions</span><span className="home-mega-item-desc">SEO, PPC and social media strategies that grow revenue</span></div>
                         </div>
                       </div>
@@ -637,30 +637,30 @@ export default function Navbar() {
                       <div className="home-mega-sidebar">
                         <h4 className="home-mega-title">Products</h4>
                         <div className="home-mega-item js-home-mega-item active" data-target="prod-ondemand">
-                          <div className="home-mega-item-icon"><img src="/images/nav/ondemand.png" alt="On-demand services" width="28" height="28" /></div>
+                          <div className="home-mega-item-icon"><img loading="lazy" decoding="async" src="/images/nav/ondemand.webp" alt="On-demand services" width="28" height="28" /></div>
                           <div className="home-mega-item-text">
                             <span className="home-mega-item-label">On-Demand &amp; Delivery Apps</span>
                             <span className="home-mega-item-desc">Transforming everyday services into on-demand success stories.</span>
                           </div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="prod-booking">
-                          <div className="home-mega-item-icon"><img src="/images/nav/booking.png" alt="Booking apps" width="28" height="28" /></div>
+                          <div className="home-mega-item-icon"><img loading="lazy" decoding="async" src="/images/nav/booking.webp" alt="Booking apps" width="28" height="28" /></div>
                           <div className="home-mega-item-text"><span className="home-mega-item-label">Booking and Service Platforms</span><span className="home-mega-item-desc">Seamless scheduling and appointment management apps</span></div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="prod-ecommerce">
-                          <div className="home-mega-item-icon"><img src="/images/nav/ecommerce.png" alt="Ecommerce" width="28" height="28" /></div>
+                          <div className="home-mega-item-icon"><img loading="lazy" decoding="async" src="/images/nav/ecommerce.webp" alt="Ecommerce" width="28" height="28" /></div>
                           <div className="home-mega-item-text"><span className="home-mega-item-label">E-Commerce &amp; Marketplace Solutions</span><span className="home-mega-item-desc">Multi-vendor stores and online shopping platforms</span></div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="prod-education">
-                          <div className="home-mega-item-icon"><img src="/images/nav/education.png" alt="Education" width="28" height="28" /></div>
+                          <div className="home-mega-item-icon"><img loading="lazy" decoding="async" src="/images/nav/education.webp" alt="Education" width="28" height="28" /></div>
                           <div className="home-mega-item-text"><span className="home-mega-item-label">Education &amp; Entertainment</span><span className="home-mega-item-desc">eLearning platforms and interactive media solutions</span></div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="prod-healthcare">
-                          <div className="home-mega-item-icon"><img src="/images/nav/healthcare.png" alt="Healthcare" width="28" height="28" /></div>
+                          <div className="home-mega-item-icon"><img loading="lazy" decoding="async" src="/images/nav/healthcare.webp" alt="Healthcare" width="28" height="28" /></div>
                           <div className="home-mega-item-text"><span className="home-mega-item-label">Healthcare &amp; Wellness</span><span className="home-mega-item-desc">Patient management and telemedicine applications</span></div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="prod-social">
-                          <div className="home-mega-item-icon"><img src="/images/nav/socialmedia.png" alt="Social media" width="28" height="28" /></div>
+                          <div className="home-mega-item-icon"><img loading="lazy" decoding="async" src="/images/nav/socialmedia.webp" alt="Social media" width="28" height="28" /></div>
                           <div className="home-mega-item-text"><span className="home-mega-item-label">Social &amp; Media Apps</span><span className="home-mega-item-desc">Community building and content sharing platforms</span></div>
                         </div>
                       </div>
@@ -741,22 +741,22 @@ export default function Navbar() {
                       <div className="home-mega-sidebar">
                         <h4 className="home-mega-title">Resources</h4>
                         <div className="home-mega-item js-home-mega-item active" data-target="res-mobile">
-                          <div className="home-mega-item-icon"><img src="/images/nav/resources.png" alt="Resources" width="28" height="28" /></div>
+                          <div className="home-mega-item-icon"><img loading="lazy" decoding="async" src="/images/nav/resources.webp" alt="Resources" width="28" height="28" /></div>
                           <div className="home-mega-item-text">
                             <span className="home-mega-item-label">Mobile App Developers</span>
                             <span className="home-mega-item-desc">Mobile App Development - From concept to code, we create apps that connect and convert.</span>
                           </div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="res-web">
-                          <div className="home-mega-item-icon"><img src="/images/nav/web.png" alt="Web development" width="28" height="28" /></div>
+                          <div className="home-mega-item-icon"><img loading="lazy" decoding="async" src="/images/nav/web.webp" alt="Web development" width="28" height="28" /></div>
                           <div className="home-mega-item-text"><span className="home-mega-item-label">Web App Developers</span><span className="home-mega-item-desc">Full-stack developers for scalable web applications</span></div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="res-enterprise">
-                          <div className="home-mega-item-icon"><img src="/images/nav/entr.png" alt="Enterprise solutions" width="28" height="28" /></div>
+                          <div className="home-mega-item-icon"><img loading="lazy" decoding="async" src="/images/nav/entr.webp" alt="Enterprise solutions" width="28" height="28" /></div>
                           <div className="home-mega-item-text"><span className="home-mega-item-label">Enterprise &amp; Cloud Developers</span><span className="home-mega-item-desc">AWS, DevOps and cloud infrastructure specialists</span></div>
                         </div>
                         <div className="home-mega-item js-home-mega-item" data-target="res-design">
-                          <div className="home-mega-item-icon"><img src="/images/nav/design_experience.png" alt="Design experience" width="28" height="28" /></div>
+                          <div className="home-mega-item-icon"><img loading="lazy" decoding="async" src="/images/nav/design_experience.webp" alt="Design experience" width="28" height="28" /></div>
                           <div className="home-mega-item-text"><span className="home-mega-item-label">Design &amp; Creative Experts</span><span className="home-mega-item-desc">UI/UX designers and creative professionals on demand</span></div>
                         </div>
                       </div>
@@ -1132,22 +1132,22 @@ export default function Navbar() {
           <ul className="bottom-nav">
             <li className="ree-hc">
               <a href="tel:+919390683154" target="_blank" rel="noreferrer" aria-label="Call us">
-                <img src="/images/nav-icon/phone-call.png" alt="Call mTouch Labs" width="24" height="24" />
+                <img loading="lazy" decoding="async" src="/images/nav-icon/phone-call.webp" alt="Call mTouch Labs" width="24" height="24" />
               </a>
             </li>
             <li className="ree-hc">
-              <a href="mailto:contact@mtouchlabs.com" target="_blank" aria-label="Email us">
-                <img src="/images/nav-icon/gmail.png" alt="Email mTouch Labs" width="24" height="24" />
+              <a href="mailto:contact@mtouchlabs.com" target="_blank" rel="noopener noreferrer" aria-label="Email us">
+                <img loading="lazy" decoding="async" src="/images/nav-icon/gmail.webp" alt="Email mTouch Labs" width="24" height="24" />
               </a>
             </li>
             <li className="ree-hc">
               <a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp">
-                <img src="/images/nav-icon/whatsapp.png" alt="Chat with mTouch Labs on WhatsApp" width="24" height="24" />
+                <img loading="lazy" decoding="async" src="/images/nav-icon/whatsapp.webp" alt="Chat with mTouch Labs on WhatsApp" width="24" height="24" />
               </a>
             </li>
             <li className="ree-hc">
               <a href="/about" aria-label="About us">
-                <img src="/images/nav-icon/who.png" alt="About" width="24" height="24" />
+                <img loading="lazy" decoding="async" src="/images/nav-icon/who.webp" alt="About" width="24" height="24" />
               </a>
             </li>
           </ul>

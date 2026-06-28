@@ -13,13 +13,13 @@
 //     url: "https://www.mtouchlabs.com/hire-wordpress-developers-in-india",
 //     siteName: "mTouch Labs",
 //     type: "website",
-//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire wordpress developers | dedicated wordpress web developers" }],
+//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Hire wordpress developers | dedicated wordpress web developers" }],
 //   },
 //   twitter: {
 //     card: "summary_large_image",
 //     title: "Hire wordpress developers | dedicated wordpress web developers",
 //     description: "Hire skilled WordPress developers from mTouch Labs to build fast, responsive, and feature-rich websites.",
-//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
 //   },
 // };
 
@@ -58,7 +58,7 @@
 // 					</div>
 // 				</div>
 // 				<div className="col-lg-6">
-// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img
+// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img width={690} height={350} loading="lazy" decoding="async"
 // 							src="/images/others/Our-dedicated-web-developers.svg" alt="mTouch Labs" className="img-fluid" />
 // 					</div>
 // 				</div>
@@ -96,7 +96,7 @@
 // 								quality.</p>
 
 // 							<p>Our dedicated <a href="https://www.mtouchlabs.com/wordpress-development-company"
-// 									target="_blank">WordPress Website developers
+// 									target="_blank" rel="noopener noreferrer">WordPress Website developers
 // 								</a>are efficient enough to make excellent use of
 // 								the vast features and advantages of WordPress. Hire
 // 								WordPress Developers from us who use
@@ -128,7 +128,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img src="/images/cta/Hire-Dedicated-Wordpress-Website-Developers.svg"
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Hire-Dedicated-Wordpress-Website-Developers.svg"
 // 								alt="wordpress Developers" className="img-fluid" /> </div>
 // 					</div>
 // 				</div>
@@ -140,7 +140,7 @@
 // 				<div className="row">
 
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async"
 // 								src="/images/cta/Why-Hire-Dedicated-Wordpress-Web-Developers-From-Us.svg"
 // 								alt="WordPress Webiste Developers" className="img-fluid" />
 // 						</div>
@@ -153,7 +153,7 @@
 // 									Developers from </span> <span className="ree-text rt40"> mTouch
 // 									Labs ?</span></h2>
 // 							<p>When you hire WordPress Web Developers from <a
-// 									href="https://www.mtouchlabs.com/web-design-company" target="_blank">Wordpress
+// 									href="https://www.mtouchlabs.com/web-design-company" target="_blank" rel="noopener noreferrer">Wordpress
 // 									Website
 // 									Development</a> Company you can
 // 								be confident that we use the industry-driven and
@@ -218,7 +218,7 @@
 // 			<div className="row mt30">
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Expertise-and-experience.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Expertise-and-experience.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Expertise and Experience </h3>
@@ -230,7 +230,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Efficient-Process.svg" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Efficient-Process.svg" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Efficient Process</h3>
 // 							<p>Our expert WordPress developers created numerous new custom
@@ -242,7 +242,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Infinite-Customizability.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Infinite-Customizability.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Infinite Customizability </h3>
@@ -256,7 +256,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Advanced-Technology.svg" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Advanced-Technology.svg" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Advanced Technology</h3>
 // 							<p>Our developers are proficient with the latest technology and
@@ -268,7 +268,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Project-Delivery.svg" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Project-Delivery.svg" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Project Delivery </h3>
 // 							<p>Once you hire WordPress developers, we instantly start
@@ -281,7 +281,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Support-&-Maintenance.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Support-&-Maintenance.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Support and Maintenance</h3>
@@ -330,7 +330,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
-// 						<div className="sol-img-png"> <img src="/images/cta/Hire-Wordpress-Experts-From-mTouchlabs.svg"
+// 						<div className="sol-img-png"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Hire-Wordpress-Experts-From-mTouchlabs.svg"
 // 								alt="hire wordpress developers" className="img-fluid" />
 // 						</div>
 // 					</div>
@@ -358,7 +358,7 @@
 // 								chat.</h3>
 // 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 // 									className="fas fa-user fb-bigon"></i> Contact </a>
-// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
+// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer"
 // 								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
 // 								Whatsapp </a>
 
@@ -366,7 +366,7 @@
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
 // 						<div className="sol-img-png">
-// 							<img src="/images/cta/let's-get-to-chat-wordpress-dev.svg" alt="working with client"
+// 							<img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/let's-get-to-chat-wordpress-dev.svg" alt="working with client"
 // 								className="img-fluid" />
 // 						</div>
 // 					</div>

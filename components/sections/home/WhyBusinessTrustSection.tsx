@@ -3,19 +3,19 @@ import { BlurText } from "@/components/sections/home/ui/BlurText";
 
 const features = [
   {
-    image: "/images/home/whybusineess/image5.png",
+    image: "/images/home/whybusineess/image5.webp",
     title: "Proven expertise in software development & AI solutions",
   },
   {
-    image: "/images/home/whybusineess/image8.png",
+    image: "/images/home/whybusineess/image8.webp",
     title: "Trusted by startups, SMEs, and enterprises globally",
   },
   {
-    image: "/images/home/whybusineess/image6.png",
+    image: "/images/home/whybusineess/image6.webp",
     title: "Agile & scalable Development Approach",
   },
   {
-    image: "/images/home/whybusineess/image7.png",
+    image: "/images/home/whybusineess/image7.webp",
     title: "End-To-End IT Solutions Under One Roof",
   },
 ];
@@ -23,7 +23,7 @@ const features = [
 export default function WhyBusinessTrustSection() {
   return (
     <>
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @keyframes wbtFadeUp {
           from { opacity: 0; transform: translateY(20px); filter: blur(10px); }
           to   { opacity: 1; transform: translateY(0);     filter: blur(0);    }
@@ -139,7 +139,7 @@ export default function WhyBusinessTrustSection() {
           .wbt-card-image { width: 100%; height: 180px; }
           .wbt-card-title { font-size: 16px; }
         }
-      `}</style>
+      `}} />
       <section className="wm-apart-section">
         <div className="wbt-inner">
           <div className="wbt-header">

@@ -14,13 +14,13 @@ export const metadata: Metadata = {
     url: "https://www.mtouchlabs.com/php-development-company",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Top PHP Web Development Company in India" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Top PHP Web Development Company in India" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Top PHP Web Development Company in India",
     description: "mTouch Labs is a trusted top PHP web development company in India, building high-performance, responsive, and scalable websites tailored to your business goals.",
-    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
   },
 };
 
@@ -116,7 +116,7 @@ export default function Page() {
 					</p>
 				</div>
 				<div className="AIservices-process-image1">
-					<img src="/./images/new_services/planning.png" alt="Discovery & Planning" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/./images/new_services/planning.webp" alt="Discovery & Planning" />
 				</div>
 			</div>
 
@@ -128,7 +128,7 @@ export default function Page() {
 						offer a seamless experience across all devices.</p>
 				</div>
 				<div className="AIservices-process-image">
-					<img src="/./images/new_services/ui-ux.png" alt="UI/UX Design" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/./images/new_services/ui-ux.webp" alt="UI/UX Design" />
 				</div>
 			</div>
 
@@ -141,7 +141,7 @@ export default function Page() {
 						needs.</p>
 				</div>
 				<div className="AIservices-process-image1">
-					<img src="/./images/new_services/development.png" alt="Development" />
+					<img width={432} height={245} loading="lazy" decoding="async" src="/./images/new_services/development.webp" alt="Development" />
 				</div>
 			</div>
 
@@ -154,7 +154,7 @@ export default function Page() {
 					</p>
 				</div>
 				<div className="AIservices-process-image">
-					<img src="/./images/new_services/testing.png" alt="Testing" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/./images/new_services/testing.webp" alt="Testing" />
 				</div>
 			</div>
 
@@ -166,7 +166,7 @@ export default function Page() {
 						also support hosting and domain setup as required.</p>
 				</div>
 				<div className="AIservices-process-image1">
-					<img src="/./images/new_services/launch.png" alt="Launch" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/./images/new_services/launch.webp" alt="Launch" />
 				</div>
 			</div>
 
@@ -178,7 +178,7 @@ export default function Page() {
 						ensure your website stays modern and competitive in the long run.</p>
 				</div>
 				<div className="AIservices-process-image">
-					<img src="/./images/new_services/post-launch.png" alt="Post-Launch Support" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/./images/new_services/post-launch.webp" alt="Post-Launch Support" />
 				</div>
 			</div>
 		</div>
@@ -191,12 +191,12 @@ export default function Page() {
 				<div className="Aiservices-testimonial-content">
 					<div className="Aiservices-company-logo-container">
 						<div className="Aiservices-company-logo-div">
-							<img src="/images/home/tech/Brickberry.png" alt="mTouch Labs" />
+							<img width={300} height={140} loading="lazy" decoding="async" src="/images/home/tech/Brickberry.webp" alt="mTouch Labs" />
 						</div>
 					</div>
 					<div className="Aiservices-testimonial-text">
 						<div className="Aiservices-rating">
-							<img src="/images/new_services/doublequotes.png" className="doublequotes_img" alt="Quotes" />
+							<img width={61} height={61} loading="lazy" decoding="async" src="/images/new_services/doublequotes.webp" className="doublequotes_img" alt="Quotes" />
 						</div>
 						<p className="Aiservices-testimonial-quote">
 							"Great experience working with mTouch Labs! They developed a
@@ -204,7 +204,7 @@ export default function Page() {
 							expectations." – Brick Berry
 						</p>
 						<div className="Aiservices-testimonial-author">
-							<span><a href="/real-estate-app-development-company" target="_blank">Explore
+							<span><a href="/real-estate-app-development-company" target="_blank" rel="noopener noreferrer">Explore
 									→</a></span>
 						</div>
 					</div>
@@ -391,7 +391,7 @@ export default function Page() {
 								Let's get to chat.</h3>
 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 									className="fas fa-user fb-bigon"></i> Contact </a>
-							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
+							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer"
 								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
 								Whatsapp </a>
 
@@ -399,7 +399,7 @@ export default function Page() {
 					</div>
 					<div className="col-lg-6 vcenter text-center">
 						<div className="sol-img-png">
-							<img src="/images/cta/Project-in-mind-Let's-get-to-chat-php.svg"
+							<img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Project-in-mind-Let's-get-to-chat-php.svg"
 								alt="Hire Core PHP Developers" className="img-fluid" />
 						</div>
 					</div>

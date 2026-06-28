@@ -13,13 +13,13 @@
 //     url: "https://www.mtouchlabs.com/hire-shopify-developers-in-india",
 //     siteName: "mTouch Labs",
 //     type: "website",
-//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire Shopify developers in India | Hire Shopify experts India" }],
+//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Hire Shopify developers in India | Hire Shopify experts India" }],
 //   },
 //   twitter: {
 //     card: "summary_large_image",
 //     title: "Hire Shopify developers in India | Hire Shopify experts India",
 //     description: "Hire Shopify developers in India at mTouchlabs and get your estore up and running. Hire Shopify experts India who deliver projects on time with 2X speed",
-//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
 //   },
 // };
 
@@ -56,7 +56,7 @@
 // 					</div>
 // 				</div>
 // 				<div className="col-lg-6">
-// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img
+// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img width={690} height={350} loading="lazy" decoding="async"
 // 							src="/images/others/Hire-Shopify-developers-in-India-from-mTouchlabs.svg" alt="mTouch Labs"
 // 							className="img-fluid" /></div>
 // 				</div>
@@ -78,7 +78,7 @@
 // 									Expert Developers </span> From mTouch Labs in
 // 								India</h2>
 // 							<p>mTouchlabs is a leading Shopify <a href="/ecommerce-app-development-company"
-// 									target="_blank">eCommerce web development</a>
+// 									target="_blank" rel="noopener noreferrer">eCommerce web development</a>
 // 								company in India that can serve
 // 								you a quality online presence with our development
 // 								services. We leverage you with all
@@ -101,7 +101,7 @@
 // 								technology integration, scalability & optimum
 // 								performance are the core strengths of our
 // 								dedicated Shopify Experts. As a <a href="/shopify-development-company-in-india"
-// 									target="_blank">Shopify development</a> agency
+// 									target="_blank" rel="noopener noreferrer">Shopify development</a> agency
 // 								in India, we understand your
 // 								exceptional needs and goals. Hire Shopify experts who
 // 								work with you to create a
@@ -117,7 +117,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img src="/images/cta/Hire-Shopify-Experts-From-mTouchlabs.svg"
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Hire-Shopify-Experts-From-mTouchlabs.svg"
 // 								alt="shopify experts developers" className="img-fluid" />
 // 						</div>
 // 					</div>
@@ -130,7 +130,7 @@
 // 				<div className="row">
 
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async"
 // 								src="/images/cta/Hire-Dedicated-Shopify-Website-Developers-team.svg"
 // 								alt="shopify developers" className="img-fluid" /></div>
 // 					</div>
@@ -155,7 +155,7 @@
 // 								website developer builds
 // 								responsive, powerful, robust, and user-friendly Shopify
 // 								stores with a fantastic user
-// 								experience for your customers. Hire <a href="/web-design-company" target="_blank">Shopify
+// 								experience for your customers. Hire <a href="/web-design-company" target="_blank" rel="noopener noreferrer">Shopify
 // 									Web Designers</a> who
 // 								have helped several
 // 								companies emerge in the industry and establish
@@ -214,7 +214,7 @@
 // 			<div className="row mt30">
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Certified-Shopify-Developers.svg"
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Certified-Shopify-Developers.svg"
 // 								alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Certified Shopify Developers</h3>
@@ -226,7 +226,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Easy-to-Set-up-&-Use.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Easy-to-Set-up-&-Use.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Easy to Set-up & Use</h3>
@@ -239,7 +239,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Easy-Integrations.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Easy-Integrations.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Easy Integrations</h3>
@@ -254,7 +254,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Flexibility-in-Working-Hours.svg"
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Flexibility-in-Working-Hours.svg"
 // 								alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
@@ -269,7 +269,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Transparent-pricing.svg" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Transparent-pricing.svg" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Transparent pricing</h3>
 // 							<p>We believe in transparent pricing as we discuss the pricing
@@ -281,7 +281,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Support-and-maintenance-hire-shopify.svg"
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Support-and-maintenance-hire-shopify.svg"
 // 								alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
@@ -335,7 +335,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
-// 						<div className="sol-img-png"> <img src="/images/cta/Hire-Our-Dedicated-Shopify-Web-Developers.svg"
+// 						<div className="sol-img-png"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Hire-Our-Dedicated-Shopify-Web-Developers.svg"
 // 								alt="hire shopify developers" className="img-fluid" /> </div>
 // 					</div>
 // 				</div>
@@ -370,7 +370,7 @@
 // 								chat.</h2>
 // 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 // 									className="fas fa-user fb-bigon"></i> Contact </a>
-// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
+// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer"
 // 								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
 // 								Whatsapp </a>
 
@@ -378,7 +378,7 @@
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
 // 						<div className="sol-img-png">
-// 							<img src="/images/cta/let's-get-to-chat-hire-shopify.svg" alt="working with client"
+// 							<img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/let's-get-to-chat-hire-shopify.svg" alt="working with client"
 // 								className="img-fluid" />
 // 						</div>
 // 					</div>

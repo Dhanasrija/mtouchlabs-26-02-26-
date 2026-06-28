@@ -13,13 +13,13 @@
 //     url: "https://www.mtouchlabs.com/hire-salesforce-developers-in-india",
 //     siteName: "mTouch Labs",
 //     type: "website",
-//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire Salesforce Developers in India" }],
+//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Hire Salesforce Developers in India" }],
 //   },
 //   twitter: {
 //     card: "summary_large_image",
 //     title: "Hire Salesforce Developers in India",
 //     description: "Hire Salesforce developers in India from mTouch Labs to build, customize, and integrate Salesforce solutions that optimize your CRM, workflows, and business processes.",
-//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
 //   },
 // };
 
@@ -52,7 +52,7 @@
 // 					</div>
 // 				</div>
 // 				<div className="col-lg-6">
-// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img
+// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img width={690} height={350} loading="lazy" decoding="async"
 // 							src="/images/others/Hire-Salesforce-Commerce-Developers-India.svg" alt="mTouch Labs"
 // 							className="img-fluid" /></div>
 // 				</div>
@@ -73,12 +73,12 @@
 // 							<h2 className="mb15">Certified Salesforce Devs in India</h2>
 // 							<p>mTouch Labs is a leading <a
 // 									href="https://www.mtouchlabs.com/role-of-ai-in-ecommerce-development"
-// 									target="_blank">Salesforce commerce development</a> company in India helping
+// 									target="_blank" rel="noopener noreferrer">Salesforce commerce development</a> company in India helping
 // 								businesses to incorporate rich SaaS platforms for a highly cultivated customer
 // 								experience to ensure consistent business conversion. We know how to incorporate and
 // 								execute this platform to get the most out of your business.</p>
 							 
-// 							<p><a href="/amazon-web-services-company" target="_blank">Hire Salesforce Commerce
+// 							<p><a href="/amazon-web-services-company" target="_blank" rel="noopener noreferrer">Hire Salesforce Commerce
 // 									Developers</a> to access the numerous advantages of the highly scalable and robust
 // 								cloud-based software-as-a-service (SaaS) eCommerce solution. Our certified Salesforce
 // 								Commerce Developers Provide a highly optimized, engaging, attractive, and relevant
@@ -101,7 +101,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async"
 // 								src="/images/cta/Hire-Certified-Salesforce-Developers-From-mTouchlabs.svg"
 // 								alt="salesforce Application Developement" className="img-fluid" /> </div>
 // 					</div>
@@ -114,7 +114,7 @@
 // 				<div className="row">
 
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async"
 // 								src="/images/cta/Hire-Our-Certified-Salesforce-Commerce-Cloud-Developers.svg"
 // 								alt="salesforce developers" className="img-fluid" /></div>
 // 					</div>
@@ -177,7 +177,7 @@
 // 			<div className="row mt30">
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Salesforce-Consulting.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Salesforce-Consulting.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Salesforce Consulting</h3>
@@ -189,7 +189,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Salesforce-Integration.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Salesforce-Integration.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Salesforce Integration</h3>
@@ -201,7 +201,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Salesforce-Implementation.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Salesforce-Implementation.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Salesforce Implementation</h3>
@@ -213,7 +213,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Salesforce-App-Development.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Salesforce-App-Development.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Salesforce App Development</h3>
@@ -226,7 +226,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Salesforce-Cloud-Services.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Salesforce-Cloud-Services.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Salesforce Cloud Services</h3>
@@ -238,7 +238,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Salesforce-Support-and-Maintenance.svg"
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Salesforce-Support-and-Maintenance.svg"
 // 								alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
@@ -288,7 +288,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
-// 						<div className="sol-img-png"> <img
+// 						<div className="sol-img-png"> <img width={690} height={350} loading="lazy" decoding="async"
 // 								src="/images/cta/Hire-Certified-Salesforce-Commerce-Cloud-Developers.svg"
 // 								alt="hire salesforce developers" className="img-fluid" /> </div>
 // 					</div>
@@ -430,7 +430,7 @@
 // 							</h3>
 // 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 // 									className="fas fa-user fb-bigon"></i> Contact </a>
-// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
+// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer"
 // 								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
 // 								Whatsapp </a>
 
@@ -438,7 +438,7 @@
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
 // 						<div className="sol-img-png">
-// 							<img src="/images/cta/let's-get-to-chat-hire-salesforce.svg" alt="working with client"
+// 							<img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/let's-get-to-chat-hire-salesforce.svg" alt="working with client"
 // 								className="img-fluid" />
 // 						</div>
 // 					</div>

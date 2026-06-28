@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import ObfuscatedEmail from "@/components/ObfuscatedEmail";
 
 export default function TopBar() {
   return (
@@ -10,24 +11,17 @@ export default function TopBar() {
       <div className="top-header">
 
         {/* ── LEFT: email ── */}
-        <div style={{ display: "flex", alignItems: "center", flexShrink: 0 }}>
-          <a
-            href="mailto:contact@mtouchlabs.com"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "6px",
-              textDecoration: "none",
-              fontWeight: 500,
-              color: "inherit",
-            }}
-          >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-              <polyline points="22,6 12,13 2,6" />
-            </svg>
-            <span className="tb-email-text">contact@mtouchlabs.com</span>
-          </a>
+        <div style={{ display: "flex", alignItems: "center", flexShrink: 0, gap: "6px", fontWeight: 500, color: "inherit" }}>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
+          </svg>
+          <ObfuscatedEmail
+            user="contact"
+            domain="mtouchlabs.com"
+            className="tb-email-text"
+            ariaLabel="Email mTouch Labs"
+          />
         </div>
 
         {/* ── CENTER: phone numbers ── */}

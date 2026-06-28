@@ -124,7 +124,7 @@ export default function TechnologiesSection() {
 
   return (
     <>
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         .tech-radio {
           position: fixed;
           top: 0;
@@ -310,7 +310,7 @@ export default function TechnologiesSection() {
             font-size: 12.5px !important;
           }
         }
-      `}</style>
+      `}} />
 
       {/* Radio inputs — must be siblings of .tech-main for CSS ~ selector */}
       {tabs.map((tab, i) => (

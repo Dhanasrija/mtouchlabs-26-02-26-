@@ -121,7 +121,7 @@
 
 //         <section className="food-delivery-main">
 //           <div className="foodelivery-delivery-content">
-//             <img src="/images/products/FoodDelivery.gif" className="foodelivery-gif" alt="Food Delivery App Development" />
+//             <img width={640} height={199} loading="lazy" decoding="async" src="/images/products/FoodDelivery.gif" className="foodelivery-gif" alt="Food Delivery App Development" />
 
 //             <h1 className="foodelivery-heading-h1">Food Delivery App <br />
 //               <span className="food-development-heading">Development Company</span> <br />in Hyderabad
@@ -133,7 +133,7 @@
 
 //             <div style={{display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap"}}>
 //               <a href="/contact"><button className="foodelivery-delivery-button">Get Free Consultation</button></a>
-//               <a href="https://youtu.be/Zvae5N9p3Gcsi=ok-KlYDubki5hAE-" target="_blank"><button className="foodelivery-delivery-button">Request a Demo</button></a>
+//               <a href="https://youtu.be/Zvae5N9p3Gcsi=ok-KlYDubki5hAE-" target="_blank" rel="noopener noreferrer"><button className="foodelivery-delivery-button">Request a Demo</button></a>
 //             </div>
 //           </div>
 //         </section>
@@ -142,8 +142,8 @@
 //       {/* ── Intro Section ── */}
 //       <div className="page1">
 //         <section className="food-delivery-features">
-//           <img
-//             src="/images/products/foodservices.png"
+//           <img width={1706} height={696} loading="lazy" decoding="async"
+//             src="/images/products/foodservices.webp"
 //             className="food-delivery-feature-img"
 //             alt="food delivery app development company in Hyderabad"
 //           />
@@ -151,8 +151,8 @@
 
 //         <div className="food-delivery-mobile-container">
 //           <div className="food-delivery-mobile-phone-section">
-//             <img
-//               src="/images/products/phoneframe1.png"
+//             <img width={346} height={750}
+//               src="/images/products/phoneframe1.webp"
 //               alt="food delivery app development company in Hyderabad"
 //               className="food-delivery-mobile-phone-image"
 //               loading="lazy"
@@ -164,7 +164,7 @@
 //               mTouch Labs is a NASSCOM award-winning{" "}
 //               <a
 //                 href="https://www.mtouchlabs.com/online-food-ordering-mobile-app-development"
-//                 target="_blank"
+//                 target="_blank" rel="noopener noreferrer"
 //               >
 //                 food delivery app development service
 //               </a>{" "}
@@ -178,7 +178,7 @@
 //               multi-vendor delivery platform, or a complete on-demand food
 //               delivery marketplace, our team delivers tailored solutions that
 //               match your business goals. As an experienced{" "}
-//               <a href="/mobile-app-development-company" target="_blank">
+//               <a href="/mobile-app-development-company" target="_blank" rel="noopener noreferrer">
 //                 food delivery app development company
 //               </a>{" "}
 //               in Hyderabad, we focus on usability, performance, scalability, and
@@ -198,15 +198,15 @@
 
 //         {/* ── Section 1: Custom Services ── */}
 //         <div className="food-delivery-mobile-customizable-section">
-//           <img
-//             src="/images/products/food11.png"
+//           <img width={301} height={288}
+//             src="/images/products/food11.webp"
 //             className="mobile-customizable-section-img1"
 //             loading="lazy"
 //             alt="custom food delivery app development services"
 //           />
 //           <h2>Custom Food Delivery App Development Services</h2>
-//           <img
-//             src="/images/products/food11.png"
+//           <img width={301} height={288}
+//             src="/images/products/food11.webp"
 //             className="mobile-customizable-section-img2"
 //             loading="lazy"
 //             alt="custom food delivery app development services"
@@ -220,7 +220,7 @@
 //               We provide end-to-end{" "}
 //               <a
 //                 href="https://www.mtouchlabs.com/on-demand-service-providers-web-and-mobile-app-development"
-//                 target="_blank"
+//                 target="_blank" rel="noopener noreferrer"
 //               >
 //                 food delivery app development services
 //               </a>{" "}
@@ -237,8 +237,8 @@
 //             </p>
 //           </div>
 //           <div className="food-delivery-mobile-phone-section">
-//             <img
-//               src="/images/products/phoneframe2.png"
+//             <img width={382} height={787}
+//               src="/images/products/phoneframe2.webp"
 //               alt="custom food delivery app development services"
 //               className="food-delivery-mobile-phone-image"
 //               loading="lazy"
@@ -248,8 +248,8 @@
 
 //         {/* ── Section 2: Food Delivery Apps We Build ── */}
 //         <div className="food-delivery-mobile-container2">
-//           <img
-//             src="/images/products/food22.png"
+//           <img width={222} height={254}
+//             src="/images/products/food22.webp"
 //             className="mobile-customizable-section-img"
 //             loading="lazy"
 //             alt="multi-vendor food delivery app solutions"
@@ -367,8 +367,8 @@
 //             <div className="app-screenss owl-carousel mt70 dottss">
 //               <div className="appscreen">
 //                 <div className="itme-img">
-//                   <img
-//                     src="/images/products/silder1.png"
+//                   <img width={251} height={544} loading="lazy" decoding="async"
+//                     src="/images/products/silder1.webp"
 //                     alt="food delivery app screen mockup"
 //                     className="img-fluid"
 //                   />
@@ -376,8 +376,8 @@
 //               </div>
 //               <div className="appscreen">
 //                 <div className="itme-img">
-//                   <img
-//                     src="/images/products/silder2.png"
+//                   <img width={251} height={544} loading="lazy" decoding="async"
+//                     src="/images/products/silder2.webp"
 //                     alt="food delivery app screen mockup"
 //                     className="img-fluid"
 //                   />
@@ -385,8 +385,8 @@
 //               </div>
 //               <div className="appscreen">
 //                 <div className="itme-img">
-//                   <img
-//                     src="/images/products/silder3.png"
+//                   <img width={251} height={544} loading="lazy" decoding="async"
+//                     src="/images/products/silder3.webp"
 //                     alt="food delivery app screen mockup"
 //                     className="img-fluid"
 //                   />
@@ -394,8 +394,8 @@
 //               </div>
 //               <div className="appscreen">
 //                 <div className="itme-img">
-//                   <img
-//                     src="/images/products/silder4.png"
+//                   <img width={251} height={544} loading="lazy" decoding="async"
+//                     src="/images/products/silder4.webp"
 //                     alt="food delivery app screen mockup"
 //                     className="img-fluid"
 //                   />
@@ -403,8 +403,8 @@
 //               </div>
 //               <div className="appscreen">
 //                 <div className="itme-img">
-//                   <img
-//                     src="/images/products/silder5.png"
+//                   <img width={251} height={544} loading="lazy" decoding="async"
+//                     src="/images/products/silder5.webp"
 //                     alt="food delivery app screen mockup"
 //                     className="img-fluid"
 //                   />
@@ -490,7 +490,7 @@
 //           <p>
 //             At mTouch Labs, we go beyond standard app development by integrating
 //             smart features that improve efficiency and user experience. Our{" "}
-//             <a href="/ai-development-company" target="_blank">
+//             <a href="/ai-development-company" target="_blank" rel="noopener noreferrer">
 //               AI-powered food delivery app development
 //             </a>{" "}
 //             solutions help businesses personalize customer journeys and optimize
@@ -560,7 +560,7 @@
 //             <h6>Custom UI/UX Design</h6>
 //             <p>
 //               Engaging interfaces crafted by our{" "}
-//               <a href="/ui-ux-design-company" target="_blank">
+//               <a href="/ui-ux-design-company" target="_blank" rel="noopener noreferrer">
 //                 UI/UX design team
 //               </a>
 //               .
@@ -691,68 +691,68 @@
 //         </div>
 //         <div className="food-tech-grid">
 //           <div className="food-tech-item">
-//             <img src="/images/products/html.png" width="65px" alt="HTML5" />
+//             <img loading="lazy" decoding="async" src="/images/products/html.webp" width="65px" alt="HTML5" />
 //           </div>
 //           <div className="food-tech-item">
-//             <img src="/images/products/css.png" width="45px" alt="CSS3" />
+//             <img loading="lazy" decoding="async" src="/images/products/css.webp" width="45px" alt="CSS3" />
 //           </div>
 //           <div className="food-tech-item">
-//             <img
-//               src="/images/products/js.png"
+//             <img loading="lazy" decoding="async"
+//               src="/images/products/js.webp"
 //               width="95px"
 //               alt="JavaScript"
 //             />
 //           </div>
 //           <div className="food-tech-item">
-//             <img
-//               src="/images/products/boot.png"
+//             <img loading="lazy" decoding="async"
+//               src="/images/products/boot.webp"
 //               width="95px"
 //               alt="Bootstrap"
 //             />
 //           </div>
 //           <div className="food-tech-item">
-//             <img src="/images/products/php.png" width="95px" alt="PHP" />
+//             <img loading="lazy" decoding="async" src="/images/products/php.webp" width="95px" alt="PHP" />
 //           </div>
 //           <div className="food-tech-item">
-//             <img
-//               src="/images/products/laverl.png"
+//             <img loading="lazy" decoding="async"
+//               src="/images/products/laverl.webp"
 //               width="95px"
 //               alt="Laravel"
 //             />
 //           </div>
 //           <div className="food-tech-item">
-//             <img
-//               src="/images/products/flutter.png"
+//             <img loading="lazy" decoding="async"
+//               src="/images/products/flutter.webp"
 //               width="95px"
 //               alt="Flutter"
 //             />
 //           </div>
 //           <div className="food-tech-item">
-//             <img
-//               src="/images/products/firebase.png"
+//             <img loading="lazy" decoding="async"
+//               src="/images/products/firebase.webp"
 //               width="95px"
 //               alt="Firebase"
 //             />
 //           </div>
 //           <div className="food-tech-item">
-//             <img src="/images/products/MySQL.png" width="95px" alt="MySQL" />
+//             <img loading="lazy" decoding="async" src="/images/products/MySQL.webp" width="95px" alt="MySQL" />
 //           </div>
 //           <div className="food-tech-item">
-//             <img
-//               src="/images/products/crashlytics.png"
+//             <img loading="lazy" decoding="async"
+//               src="/images/products/crashlytics.webp"
 //               width="95px"
 //               alt="Crashlytics"
 //             />
 //           </div>
 //           <div className="food-tech-item">
-//             <img
-//               src="/images/products/Google_Analytics.png"
+//             <img loading="lazy" decoding="async"
+//               src="/images/products/Google_Analytics.webp"
 //               width="95px"
 //               alt="Google Analytics"
 //             />
 //           </div>
 //           <div className="food-tech-item">
-//             <img src="/images/products/aws.png" width="95px" alt="AWS" />
+//             <img loading="lazy" decoding="async" src="/images/products/aws.webp" width="95px" alt="AWS" />
 //           </div>
 //         </div>
 //       </div>
@@ -893,8 +893,8 @@
 //       {/* ── Final CTA Section ── */}
 //       <div className="food-cta-section">
 //         <div className="food-cta-content-img">
-//           <img
-//             src="/images/products/delivery.png"
+//           <img width={685} height={480} loading="lazy" decoding="async"
+//             src="/images/products/delivery.webp"
 //             alt="AI-powered food ordering app development"
 //             className="food-cta-image"
 //           />
@@ -909,14 +909,14 @@
 //             business value.
 //           </p>
 //           <div className="food-cta-buttons">
-//             <a className="food-cta-button" href="/contact" target="_blank">
+//             <a className="food-cta-button" href="/contact" target="_blank" rel="noopener noreferrer">
 //               Book a Free Consultation
 //               <i className="fas fa-arrow-right" id="food-button-icon"></i>
 //             </a>
 //             <a
 //               className="food-cta-button food-cta-button-outline"
 //               href="/contact"
-//               target="_blank"
+//               target="_blank" rel="noopener noreferrer"
 //             >
 //               Get a Free Demo
 //               <i className="fas fa-arrow-right" id="food-button-icon"></i>
@@ -1594,25 +1594,25 @@ export default function Page() {
 
         {/* ── FEATURES BANNER ── */}
         <div className="fd-features-banner">
-          <img src="/images/products/foodservices.png" alt="food delivery app development company in Hyderabad" />
+          <img width={1706} height={696} loading="lazy" decoding="async" src="/images/products/foodservices.webp" alt="food delivery app development company in Hyderabad" />
         </div>
 
         {/* ── INTRO TWO-COL ── */}
         <div className="fd-twocol">
           <div className="fd-twocol-img">
-            <img src="/images/products/phoneframe1.png" alt="food delivery app development" className="fd-phone-img" loading="lazy" />
+            <img width={346} height={750} src="/images/products/phoneframe1.webp" alt="food delivery app development" className="fd-phone-img" loading="lazy" />
           </div>
           <div className="fd-twocol-text">
             <span className="fd-label">NASSCOM Award-Winning</span>
             <h3 className="fd-h3">Food Delivery App Development</h3>
             <p className="fd-body">
               mTouch Labs is a NASSCOM award-winning{" "}
-              <a href="/food-delivery-app-development-service" target="_blank">food delivery app development service</a>{" "}
+              <a href="/food-delivery-app-development-service" target="_blank" rel="noopener noreferrer">food delivery app development service</a>{" "}
               provider in Hyderabad, helping startups, restaurants, cloud kitchens, and enterprises build powerful digital ordering and delivery platforms.
             </p>
             <p className="fd-body">
               Whether you want to launch a single restaurant ordering app, a multi-vendor delivery platform, or a complete on-demand food delivery marketplace, our team delivers tailored solutions. As an experienced{" "}
-              <a href="/mobile-app-development-company" target="_blank">food delivery app development company</a>{" "}
+              <a href="/mobile-app-development-company" target="_blank" rel="noopener noreferrer">food delivery app development company</a>{" "}
               in Hyderabad, we focus on usability, performance, scalability, and long-term success.
             </p>
             <a href="/contact-us" className="fd-btn" style={{ marginTop: "8px" }}>
@@ -1623,22 +1623,22 @@ export default function Page() {
 
         {/* ── SECTION DIVIDER ──
         <div className="fd-section-divider">
-          <img src="/images/products/food11.png" loading="lazy" alt="" />
+          <img width={301} height={288} src="/images/products/food11.webp" loading="lazy" alt="" />
           <h2>Custom Food Delivery App Development Services</h2>
-          <img src="/images/products/food11.png" loading="lazy" alt="" />
+          <img width={301} height={288} src="/images/products/food11.webp" loading="lazy" alt="" />
         </div> */}
 
         {/* ── END-TO-END TWO-COL ── */}
         <div className="fd-twocol reverse">
           <div className="fd-twocol-img">
-            <img src="/images/products/phoneframe2.png" alt="custom food delivery app development" className="fd-phone-img" loading="lazy" />
+            <img width={382} height={787} src="/images/products/phoneframe2.webp" alt="custom food delivery app development" className="fd-phone-img" loading="lazy" />
           </div>
           <div className="fd-twocol-text">
             <span className="fd-label">End-to-End Solutions</span>
             <h3 className="fd-h3">Complete Food Delivery Development</h3>
             <p className="fd-body">
               We provide end-to-end{" "}
-              <a href="/on-demand-service-mobile-app-development" target="_blank">food delivery app development services</a>{" "}
+              <a href="/on-demand-service-mobile-app-development" target="_blank" rel="noopener noreferrer">food delivery app development services</a>{" "}
               for businesses looking to streamline food ordering, improve customer experience, and increase revenue.
             </p>
             <p className="fd-body">
@@ -1649,7 +1649,7 @@ export default function Page() {
 
         {/* ── FOOD22 IMAGE ──
         <div style={{ textAlign: "center", padding: "0 40px 32px", background: "#fff" }}>
-          <img src="/images/products/food22.png" loading="lazy" alt="multi-vendor food delivery app solutions" style={{ maxWidth: "100%", width: "960px", borderRadius: "16px", boxShadow: "0 4px 32px rgba(0,0,0,.08)" }} />
+          <img width={222} height={254} src="/images/products/food22.webp" loading="lazy" alt="multi-vendor food delivery app solutions" style={{ maxWidth: "100%", width: "960px", borderRadius: "16px", boxShadow: "0 4px 32px rgba(0,0,0,.08)" }} />
         </div> */}
 
         {/* ── SERVICE CARDS ── */}
@@ -1755,7 +1755,7 @@ export default function Page() {
             <h2 className="fd-h2">AI-Powered Food Delivery App Development</h2>
             <p className="fd-ai-desc">
               At mTouch Labs, we go beyond standard app development by integrating smart features that improve efficiency and user experience. Our{" "}
-              <a href="/generative-ai-development-company" target="_blank">AI-powered food delivery app development</a>{" "}
+              <a href="/generative-ai-development-company" target="_blank" rel="noopener noreferrer">AI-powered food delivery app development</a>{" "}
               solutions help businesses personalize customer journeys and optimize operations.
             </p>
             <div className="fd-ai-grid">
@@ -1788,7 +1788,7 @@ export default function Page() {
                 { icon: "🏆", title: "NASSCOM Award-Winning",          desc: "Recognized technology company with proven excellence." },
                 { icon: "📱", title: "Mobile, Software & AI Expertise", desc: "Full-stack capabilities across all technology domains." },
                 { icon: "⚡", title: "Scalable Architecture",           desc: "Solutions built to grow with startups and enterprises." },
-                { icon: "🎨", title: "Custom UI/UX Design",             desc: <span>Engaging interfaces crafted by our <a href="/ui-ux-design-company" target="_blank">UI/UX design team</a>.</span> },
+                { icon: "🎨", title: "Custom UI/UX Design",             desc: <span>Engaging interfaces crafted by our <a href="/ui-ux-design-company" target="_blank" rel="noopener noreferrer">UI/UX design team</a>.</span> },
                 { icon: "🔒", title: "Secure Payment Integration",      desc: "PCI-compliant payment gateways and third-party API integration." },
                 { icon: "🔄", title: "Agile Development",               desc: "Transparent communication with iterative development cycles." },
                 { icon: "🛠️", title: "Post-Launch Support",            desc: "Ongoing maintenance, updates, and feature enhancements." },
@@ -1864,18 +1864,18 @@ export default function Page() {
           <p className="fd-body">Advanced Tools &amp; Frameworks for Food Delivery App Development</p>
           <div className="fd-tech-grid">
             {[
-              { src: "/images/products/html.png",             w: 65, alt: "HTML5" },
-              { src: "/images/products/css.png",              w: 45, alt: "CSS3" },
-              { src: "/images/products/js.png",               w: 75, alt: "JavaScript" },
-              { src: "/images/products/boot.png",             w: 75, alt: "Bootstrap" },
-              { src: "/images/products/php.png",              w: 75, alt: "PHP" },
-              { src: "/images/products/laverl.png",           w: 75, alt: "Laravel" },
-              { src: "/images/products/flutter.png",          w: 75, alt: "Flutter" },
-              { src: "/images/products/firebase.png",         w: 75, alt: "Firebase" },
-              { src: "/images/products/MySQL.png",            w: 75, alt: "MySQL" },
-              { src: "/images/products/crashlytics.png",      w: 75, alt: "Crashlytics" },
-              { src: "/images/products/Google_Analytics.png", w: 75, alt: "Google Analytics" },
-              { src: "/images/products/aws.png",              w: 75, alt: "AWS" },
+              { src: "/images/products/html.webp",             w: 65, alt: "HTML5" },
+              { src: "/images/products/css.webp",              w: 45, alt: "CSS3" },
+              { src: "/images/products/js.webp",               w: 75, alt: "JavaScript" },
+              { src: "/images/products/boot.webp",             w: 75, alt: "Bootstrap" },
+              { src: "/images/products/php.webp",              w: 75, alt: "PHP" },
+              { src: "/images/products/laverl.webp",           w: 75, alt: "Laravel" },
+              { src: "/images/products/flutter.webp",          w: 75, alt: "Flutter" },
+              { src: "/images/products/firebase.webp",         w: 75, alt: "Firebase" },
+              { src: "/images/products/MySQL.webp",            w: 75, alt: "MySQL" },
+              { src: "/images/products/crashlytics.webp",      w: 75, alt: "Crashlytics" },
+              { src: "/images/products/Google_Analytics.webp", w: 75, alt: "Google Analytics" },
+              { src: "/images/products/aws.webp",              w: 75, alt: "AWS" },
             ].map((t) => (
               <div key={t.alt} className="fd-tech-item">
                 <img src={t.src} width={t.w} alt={t.alt} />
@@ -1927,7 +1927,7 @@ export default function Page() {
         {/* ── FINAL CTA ── */}
         <div className="fd-cta">
           <div className="fd-cta-img-wrap">
-            <img src="/images/products/delivery.png" alt="AI-powered food ordering app development" className="fd-cta-img" />
+            <img width={685} height={480} loading="lazy" decoding="async" src="/images/products/delivery.webp" alt="AI-powered food ordering app development" className="fd-cta-img" />
           </div>
           <div className="fd-cta-text">
             <span className="fd-label">Get Started</span>
@@ -1936,13 +1936,13 @@ export default function Page() {
               If you are planning to launch a modern food delivery platform, mTouch Labs can help you build a solution that is scalable, user-friendly, and ready for growth. From restaurant ordering apps to large multi-vendor marketplaces, we develop platforms that deliver real business value.
             </p>
             <div className="fd-cta-btns">
-              <a className="fd-btn fd-btn-gold" href="/contact-us" target="_blank">
+              <a className="fd-btn fd-btn-gold" href="/contact-us" target="_blank" rel="noopener noreferrer">
                 Book a Free Consultation &nbsp;→
               </a>
               {/* <a
                 className="fd-btn"
                 href="/contact"
-                target="_blank"
+                target="_blank" rel="noopener noreferrer"
                 style={{ background: "transparent", borderColor: "rgba(255,255,255,.55)", color: "#ffffff" }}
               >
                 /* Get a Free Demo &nbsp;→ 

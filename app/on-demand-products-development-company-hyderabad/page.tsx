@@ -33,7 +33,7 @@
 //     <div className="product-hero-text">
 //       <h1 className="product-hero-title">PROCESS + PEOPLE + PRICE</h1>
 //       <div className="product-hero-bottom">
-//         <img src="/images/arrow-animation.gif" alt="" className="product-arrow-gif" />
+//         <img width={1080} height={1080} loading="lazy" decoding="async" src="/images/arrow-animation.gif" alt="" className="product-arrow-gif" />
 //         <span className="product-hero-highlight">PRODUCT</span>
 //       </div>
 //     </div>
@@ -53,7 +53,7 @@
 // 					meets the highest standards, ensuring that you receive the best.</p>
 // 			</div>
 // 			<div className="product-container-one-img">
-// 				<img src="/images/products/productimg1.svg" className="product-img" alt="Product Development" loading="lazy" />
+// 				<img width={500} height={500} src="/images/products/productimg1.svg" className="product-img" alt="Product Development" loading="lazy" />
 // 			</div>
 // 		</div>
 // 	</section>
@@ -381,44 +381,44 @@
 
 // 				<div id="frontend" className="product-container-four-tabcontent active">
 // 					<div className="row">
-// 						<p className="product-container-four-row"><img src="/images/products/html.svg" className="product-img-icon" alt="HTML" />HTML</p>
-// 						<p className="product-container-four-row"><img src="/images/products/css.svg" className="product-img-icon" alt="CSS" />CSS</p>
-// 						<p className="product-container-four-row"><img src="/images/products/js.svg" className="product-img-icon" alt="JavaScript" />JavaScript</p>
-// 						<p className="product-container-four-row"><img src="/images/products/angular.svg" className="product-img-icon" alt="Angular" />Angular</p>
-// 						<p className="product-container-four-row"><img src="/images/products/React.svg" className="product-img-icon" alt="React" />React</p>
-// 						<p className="product-container-four-row"><img src="/images/products/vue.svg" className="product-img-icon" alt="Vue.js" />Vue.js</p>
-// 						<p className="product-container-four-row"><img src="/images/products/ember.svg" className="product-img-icon" alt="Ember" />Ember</p>
-// 						<p className="product-container-four-row"><img src="/images/products/meteor.svg" className="product-img-icon" alt="Meteor" />Meteor</p>
+// 						<p className="product-container-four-row"><img width={32} height={45} loading="lazy" decoding="async" src="/images/products/html.svg" className="product-img-icon" alt="HTML" />HTML</p>
+// 						<p className="product-container-four-row"><img width={32} height={45} loading="lazy" decoding="async" src="/images/products/css.svg" className="product-img-icon" alt="CSS" />CSS</p>
+// 						<p className="product-container-four-row"><img width={37} height={37} loading="lazy" decoding="async" src="/images/products/js.svg" className="product-img-icon" alt="JavaScript" />JavaScript</p>
+// 						<p className="product-container-four-row"><img width={41} height={43} loading="lazy" decoding="async" src="/images/products/angular.svg" className="product-img-icon" alt="Angular" />Angular</p>
+// 						<p className="product-container-four-row"><img width={43} height={38} loading="lazy" decoding="async" src="/images/products/React.svg" className="product-img-icon" alt="React" />React</p>
+// 						<p className="product-container-four-row"><img width={44} height={38} loading="lazy" decoding="async" src="/images/products/vue.svg" className="product-img-icon" alt="Vue.js" />Vue.js</p>
+// 						<p className="product-container-four-row"><img width={32} height={32} loading="lazy" decoding="async" src="/images/products/ember.svg" className="product-img-icon" alt="Ember" />Ember</p>
+// 						<p className="product-container-four-row"><img width={84} height={63} loading="lazy" decoding="async" src="/images/products/meteor.svg" className="product-img-icon" alt="Meteor" />Meteor</p>
 // 					</div>
 // 				</div>
 
 // 				<div id="backend" className="product-container-four-tabcontent">
 // 					<div className="row">
-// 						<p className="product-container-four-row"><img src="/images/products/python.svg" className="product-img-icon" alt="Python" />Python</p>
-// 						<p className="product-container-four-row"><img src="/images/products/nodejs.svg" className="product-img-icon" alt="NodeJS" />NodeJS</p>
-// 						<p className="product-container-four-row"><img src="/images/products/microsoft.svg" className="product-img-icon" alt=".NET" />.NET</p>
-// 						<p className="product-container-four-row"><img src="/images/products/go.svg" className="product-img-icon" alt="GO" />GO</p>
-// 						<p className="product-container-four-row"><img src="/images/products/Java.svg" className="product-img-icon" alt="Java" />Java</p>
-// 						<p className="product-container-four-row"><img src="/images/products/php.svg" className="product-img-icon" alt="PHP" />PHP</p>
+// 						<p className="product-container-four-row"><img width={38} height={39} loading="lazy" decoding="async" src="/images/products/python.svg" className="product-img-icon" alt="Python" />Python</p>
+// 						<p className="product-container-four-row"><img width={34} height={37} loading="lazy" decoding="async" src="/images/products/nodejs.svg" className="product-img-icon" alt="NodeJS" />NodeJS</p>
+// 						<p className="product-container-four-row"><img width={53} height={50} loading="lazy" decoding="async" src="/images/products/microsoft.svg" className="product-img-icon" alt=".NET" />.NET</p>
+// 						<p className="product-container-four-row"><img width={62} height={68} loading="lazy" decoding="async" src="/images/products/go.svg" className="product-img-icon" alt="GO" />GO</p>
+// 						<p className="product-container-four-row"><img width={24} height={46} loading="lazy" decoding="async" src="/images/products/Java.svg" className="product-img-icon" alt="Java" />Java</p>
+// 						<p className="product-container-four-row"><img width={50} height={28} loading="lazy" decoding="async" src="/images/products/php.svg" className="product-img-icon" alt="PHP" />PHP</p>
 // 					</div>
 // 				</div>
 // 				<div id="platform" className="product-container-four-tabcontent">
 // 					<div className="row">
-// 						<p className="product-container-four-row"><img src="/images/products/sharepoint.svg" className="product-img-icon" alt="Sharepoint" />Sharepoint</p>
-// 						<p className="product-container-four-row"><img src="/images/products/dynamic.svg" className="product-img-icon" alt="Dynamic 365" />Dynamic 365</p>
-// 						<p className="product-container-four-row"><img src="/images/products/salesforce.svg" className="product-img-icon" alt="Salesforce" />Salesforce</p>
+// 						<p className="product-container-four-row"><img width={25} height={24} loading="lazy" decoding="async" src="/images/products/sharepoint.svg" className="product-img-icon" alt="Sharepoint" />Sharepoint</p>
+// 						<p className="product-container-four-row"><img width={15} height={24} loading="lazy" decoding="async" src="/images/products/dynamic.svg" className="product-img-icon" alt="Dynamic 365" />Dynamic 365</p>
+// 						<p className="product-container-four-row"><img width={50} height={35} loading="lazy" decoding="async" src="/images/products/salesforce.svg" className="product-img-icon" alt="Salesforce" />Salesforce</p>
 // 					</div>
 // 				</div>
 // 				<div id="databases" className="product-container-four-tabcontent">
 // 					<div className="row">
-// 						<p className="product-container-four-row"><img src="/images/products/sql.svg" className="product-img-icon" alt="SQLServer" />SQLServer</p>
-// 						<p className="product-container-four-row"><img src="/images/products/postgre.svg" className="product-img-icon" alt="PostgreSQL" />PostgreSQL</p>
-// 						<p className="product-container-four-row"><img src="/images/products/mysql.svg" className="product-img-icon" alt="MySQL" />MySQL</p>
-// 						<p className="product-container-four-row"><img src="/images/products/oracle.svg" className="product-img-icon" alt="Oracle" />Oracle</p>
-// 						<p className="product-container-four-row"><img src="/images/products/apache.svg" className="product-img-icon" alt="Apache HBASE" />Apache HBASE</p>
-// 						<p className="product-container-four-row"><img src="/images/products/nifi.svg" className="product-img-icon" alt="Apache Nifi" />Apache Nifi</p>
-// 						<p className="product-container-four-row"><img src="/images/products/cassandra.svg" className="product-img-icon" alt="Cassandra" />Cassandra</p>
-// 						<p className="product-container-four-row"><img src="/images/products/hive.svg" className="product-img-icon" alt="Apache Hive" />Apache Hive</p>
+// 						<p className="product-container-four-row"><img width={32} height={26} loading="lazy" decoding="async" src="/images/products/sql.svg" className="product-img-icon" alt="SQLServer" />SQLServer</p>
+// 						<p className="product-container-four-row"><img width={48} height={40} loading="lazy" decoding="async" src="/images/products/postgre.svg" className="product-img-icon" alt="PostgreSQL" />PostgreSQL</p>
+// 						<p className="product-container-four-row"><img width={32} height={17} loading="lazy" decoding="async" src="/images/products/mysql.svg" className="product-img-icon" alt="MySQL" />MySQL</p>
+// 						<p className="product-container-four-row"><img width={32} height={5} loading="lazy" decoding="async" src="/images/products/oracle.svg" className="product-img-icon" alt="Oracle" />Oracle</p>
+// 						<p className="product-container-four-row"><img width={32} height={25} loading="lazy" decoding="async" src="/images/products/apache.svg" className="product-img-icon" alt="Apache HBASE" />Apache HBASE</p>
+// 						<p className="product-container-four-row"><img width={32} height={14} loading="lazy" decoding="async" src="/images/products/nifi.svg" className="product-img-icon" alt="Apache Nifi" />Apache Nifi</p>
+// 						<p className="product-container-four-row"><img width={32} height={17} loading="lazy" decoding="async" src="/images/products/cassandra.svg" className="product-img-icon" alt="Cassandra" />Cassandra</p>
+// 						<p className="product-container-four-row"><img width={33} height={29} loading="lazy" decoding="async" src="/images/products/hive.svg" className="product-img-icon" alt="Apache Hive" />Apache Hive</p>
 // 					</div>
 // 				</div>
 // 			</div>
@@ -430,20 +430,20 @@
 // 		<h3 className="product-container-five-title">Engagement Models</h3>
 // 		<div className="product-container-five-cards">
 // 			<div className="product-container-five-card">
-// 				<img src="/images/products/fixedcost.png" className="product-container-five-img" loading="lazy" alt="Fixed Cost" />
+// 				<img width={108} height={121} src="/images/products/fixedcost.webp" className="product-container-five-img" loading="lazy" alt="Fixed Cost" />
 // 				<h3>Fixed Cost</h3>
 // 				<p>This is one of our unique selling propositions. If you have a well-defined scope, we can create a
 // 					fixed-cost estimate for your product. Fixed-cost pricing is advantageous in managing project costs.
 // 				</p>
 // 			</div>
 // 			<div className="product-container-five-card">
-// 				<img src="/images/products/TimeMaterials.png" className="product-container-five-img" loading="lazy" alt="Time And Materials" />
+// 				<img width={140} height={121} src="/images/products/TimeMaterials.webp" className="product-container-five-img" loading="lazy" alt="Time And Materials" />
 // 				<h3>Time And Materials</h3>
 // 				<p>A Time and Materials model is appropriate when the project scope is not clearly defined or when a
 // 					project requires exploratory research and development.</p>
 // 			</div>
 // 			<div className="product-container-five-card">
-// 				<img src="/images/products/Team.png" className="product-container-five-img" loading="lazy" alt="Dedicated Teams" />
+// 				<img width={183} height={121} src="/images/products/Team.webp" className="product-container-five-img" loading="lazy" alt="Dedicated Teams" />
 // 				<h3>Dedicated Teams</h3>
 // 				<p>Several of our clients require dedicated software engineers on retainer basis. We provide best in
 // 					class resources who will work as your extended team, either on-site or remotely to augment your
@@ -693,7 +693,7 @@ export default function OnDemandProductsPage() {
             </div>
             <div className="odm-split__img odm-scroll-reveal odm-scroll-reveal--right">
               <div className="odm-img-wrapper">
-                <img src="/images/products/productimg1.svg" alt="On-Demand Product Development" loading="lazy" />
+                <img width={500} height={500} src="/images/products/productimg1.svg" alt="On-Demand Product Development" loading="lazy" />
                 <div className="odm-img-badge"><i className="fas fa-bolt"></i> Instant Delivery</div>
               </div>
             </div>

@@ -16,13 +16,13 @@ export const metadata: Metadata = {
     url: "https://www.mtouchlabs.com/blogs/edit/[id]",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Edit Blog | Admin" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Edit Blog | Admin" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Edit Blog | Admin",
     description: "Edit Blog | Admin",
-    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
   },
 };
 
@@ -63,7 +63,7 @@ export default async function EditBlogPage({
           <h1>Blog Admin Panel</h1>
           <p className="admin-header-sub">Editing: {blog.title}</p>
         </div>
-        <a href="/blog" target="_blank" className="admin-header-link">View Blog &rarr;</a>
+        <a href="/blog" target="_blank" rel="noopener noreferrer" className="admin-header-link">View Blog &rarr;</a>
       </div>
 
       <div className="admin-container">

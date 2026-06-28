@@ -985,3 +985,22 @@ section,
     padding-right: 14px;
   }
 }
+
+/* Homepage partner-logo modal cells. These rules replace identical inline
+   style objects that were previously repeated on each of the 37 mapped logo
+   cells, removing that duplicated markup from the server-rendered HTML.
+   Visual output is byte-for-byte identical. */
+.logo-modal-cell {
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+}
+.logo-modal-cell img {
+  max-width: 100px;
+  max-height: 50px;
+  object-fit: contain;
+}

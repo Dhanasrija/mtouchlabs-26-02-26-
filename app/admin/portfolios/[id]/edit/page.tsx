@@ -19,13 +19,13 @@ export const metadata: Metadata = {
     url: "https://www.mtouchlabs.com/admin/portfolios/[id]/edit",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Edit Project | Admin" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Edit Project | Admin" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Edit Project | Admin",
     description: "Edit Project | Admin",
-    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
   },
 };
 
@@ -55,14 +55,14 @@ export default async function EditPortfolioPage({ params }: { params: Promise<{ 
   return (
     <div id="admin-root">
       <aside className="sidebar">
-        <div className="s-brand"><img src="/images/logo-white.png" alt="mTouch Labs" className="s-logo-img" /></div>
+        <div className="s-brand"><img width={266} height={47} loading="lazy" decoding="async" src="/images/logo-white.webp" alt="mTouch Labs" className="s-logo-img" /></div>
         <nav className="s-links">
           <Link href="/admin/dashboard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="7" height="7" rx="1" /><rect x="14" y="3" width="7" height="7" rx="1" /><rect x="3" y="14" width="7" height="7" rx="1" /><rect x="14" y="14" width="7" height="7" rx="1" /></svg>Dashboard</Link>
           <Link href="/admin/blogs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" /><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" /></svg>All Blogs</Link>
           <Link href="/admin/blogs/create"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>Create Blog</Link>
           <Link href="/admin/portfolios" className="act"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2" /><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" /></svg>All Portfolios</Link>
           <div className="s-div" />
-          <a href="/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>View Site</a>
+          <a href="/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>View Site</a>
         </nav>
         <div className="s-bottom">
           <div className="s-user-info">
@@ -89,7 +89,7 @@ export default async function EditPortfolioPage({ params }: { params: Promise<{ 
               <p style={{ fontSize: 14, color: '#9ca3af', marginTop: 4 }}>Editing: {p.title}</p>
             </div>
             <div style={{ display: 'flex', gap: 10 }}>
-              <a href={`/portfolio/${p.slug}`} target="_blank" className="cb-btn cb-btn--secondary" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center' }}>Preview</a>
+              <a href={`/portfolio/${p.slug}`} target="_blank" rel="noopener noreferrer" className="cb-btn cb-btn--secondary" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center' }}>Preview</a>
               <button type="submit" form="portfolio-form" className="cb-btn cb-btn--primary">Update Project</button>
             </div>
           </div>

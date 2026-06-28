@@ -14,13 +14,13 @@ export const metadata: Metadata = {
     url: "https://www.mtouchlabs.com/web-and-app-development-for-real-estate-services",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Web and App Development for Real Estate" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Web and App Development for Real Estate" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Web and App Development for Real Estate",
     description: "Get feature-rich web and app development for real estate, enhancing user engagement, property listings, and seamless interactions for buyers and sellers",
-    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
   },
 };
 
@@ -74,7 +74,7 @@ export default function Page() {
                         {/*  NodeJS  */}
                         <div className="icon-with-title">
                             <a href="javascript:void(0)">
-                                <div className="iwt-icon"> <img src="/images/icons/Node.JS.svg" alt="NodeJS" />
+                                <div className="iwt-icon"> <img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Node.JS.svg" alt="NodeJS" />
                                 </div>
                                 <div className="iwt-content">
                                     <p>Node JS</p>
@@ -85,7 +85,7 @@ export default function Page() {
                         {/*  Angular (Change to React JS)  */}
                         <div className="icon-with-title">
                             <a href="javascript:void(0)">
-                                <div className="iwt-icon"> <img src="/images/icons/React-icon.svg" alt="React JS" />
+                                <div className="iwt-icon"> <img width={420} height={374} loading="lazy" decoding="async" src="/images/icons/React-icon.svg" alt="React JS" />
                                 </div>
                                 <div className="iwt-content">
                                     <p>React JS</p>
@@ -96,7 +96,7 @@ export default function Page() {
                         {/*  MySQL  */}
                         <div className="icon-with-title">
                             <a href="javascript:void(0)">
-                                <div className="iwt-icon"> <img src="/images/icons/mysql.svg" alt="MySQL" />
+                                <div className="iwt-icon"> <img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/mysql.svg" alt="MySQL" />
                                 </div>
                                 <div className="iwt-content">
                                     <p>MySQL</p>
@@ -107,7 +107,7 @@ export default function Page() {
                         {/*  TypeScript  */}
                         {/*  <div className="icon-with-title">
                             <a href="javascript:void(0)">
-                                <div className="iwt-icon"> <img src="/images/icons/TypeScript.svg" alt="TypeScript" />
+                                <div className="iwt-icon"> <img loading="lazy" decoding="async" src="/images/icons/TypeScript.svg" alt="TypeScript" />
                                 </div>
                                 <div className="iwt-content">
                                     <p>TypeScript</p>
@@ -118,7 +118,7 @@ export default function Page() {
                         {/*  Electron JS  */}
                         <div className="icon-with-title">
                             <a href="javascript:void(0)">
-                                <div className="iwt-icon"> <img src="/images/icons/electron-icon.svg" alt="Electron JS" />
+                                <div className="iwt-icon"> <img width={123} height={123} loading="lazy" decoding="async" src="/images/icons/electron-icon.svg" alt="Electron JS" />
                                 </div>
                                 <div className="iwt-content">
                                     <p>Electron JS</p>
@@ -315,27 +315,27 @@ export default function Page() {
 
             <div className="app-screenss owl-carousel mt70 dottss">
                 <div className="appscreen">
-                    <div className="itme-img"><img src="/images/case-study/aduri-screen1.svg" alt="mockup" className="img-fluid" />
+                    <div className="itme-img"><img width={460} height={892} loading="lazy" decoding="async" src="/images/case-study/aduri-screen1.svg" alt="mockup" className="img-fluid" />
                     </div>
                 </div>
                 <div className="appscreen">
-                    <div className="itme-img"><img src="/images/case-study/aduri-screen2.svg" alt="mockup" className="img-fluid" />
+                    <div className="itme-img"><img width={460} height={892} loading="lazy" decoding="async" src="/images/case-study/aduri-screen2.svg" alt="mockup" className="img-fluid" />
                     </div>
                 </div>
                 <div className="appscreen">
-                    <div className="itme-img"><img src="/images/case-study/aduri-screen3.svg" alt="mockup" className="img-fluid" />
+                    <div className="itme-img"><img width={460} height={892} loading="lazy" decoding="async" src="/images/case-study/aduri-screen3.svg" alt="mockup" className="img-fluid" />
                     </div>
                 </div>
                 <div className="appscreen">
-                    <div className="itme-img"><img src="/images/case-study/aduri-screen4.svg" alt="mockup" className="img-fluid" />
+                    <div className="itme-img"><img width={460} height={892} loading="lazy" decoding="async" src="/images/case-study/aduri-screen4.svg" alt="mockup" className="img-fluid" />
                     </div>
                 </div>
                 <div className="appscreen">
-                    <div className="itme-img"><img src="/images/case-study/aduri-screen5.svg" alt="mockup" className="img-fluid" />
+                    <div className="itme-img"><img width={460} height={892} loading="lazy" decoding="async" src="/images/case-study/aduri-screen5.svg" alt="mockup" className="img-fluid" />
                     </div>
                 </div>
                 {/*  <div className="appscreen">
-                    <div className="itme-img"><img src="/images/case-study/favmall-screen-6.png" alt="mockup"
+                    <div className="itme-img"><img width={255} height={510} loading="lazy" decoding="async" src="/images/case-study/favmall-screen-6.webp" alt="mockup"
                             className="img-fluid" /></div>
                 </div>  */}
             </div>
@@ -357,19 +357,19 @@ export default function Page() {
 
             <div className="app-screenss owl-carousel mt70 dottss">
                 <div className="appscreen">
-                    <div className="itme-img"><img src="/images/case-study/favmall-admin-screen-1.png" alt="mockup"
+                    <div className="itme-img"><img width={800} height={600} loading="lazy" decoding="async" src="/images/case-study/favmall-admin-screen-1.webp" alt="mockup"
                             className="img-fluid" /></div>
                 </div>
                 <div className="appscreen">
-                    <div className="itme-img"><img src="/images/case-study/favmall-admin-screen-2.png" alt="mockup"
+                    <div className="itme-img"><img width={800} height={600} loading="lazy" decoding="async" src="/images/case-study/favmall-admin-screen-2.webp" alt="mockup"
                             className="img-fluid" /></div>
                 </div>
                 <div className="appscreen">
-                    <div className="itme-img"><img src="/images/case-study/favmall-admin-screen-3.png" alt="mockup"
+                    <div className="itme-img"><img width={800} height={600} loading="lazy" decoding="async" src="/images/case-study/favmall-admin-screen-3.webp" alt="mockup"
                             className="img-fluid" /></div>
                 </div>
                 <div className="appscreen">
-                    <div className="itme-img"><img src="/images/case-study/favmall-admin-screen-4.png" alt="mockup"
+                    <div className="itme-img"><img width={800} height={600} loading="lazy" decoding="async" src="/images/case-study/favmall-admin-screen-4.webp" alt="mockup"
                             className="img-fluid" /></div>
                 </div>
             </div>

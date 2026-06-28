@@ -169,7 +169,7 @@ export function IndustriesPills() {
 
   return (
     <>
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         /* Pill base overrides for JS-driven layout */
         .ind-pill--js {
           left: 0;
@@ -212,7 +212,7 @@ export function IndustriesPills() {
             opacity: 1 !important;
           }
         }
-      `}</style>
+      `}} />
 
       <div
         ref={wrapRef}

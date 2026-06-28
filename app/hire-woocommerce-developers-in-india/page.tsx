@@ -13,13 +13,13 @@
 //     url: "https://www.mtouchlabs.com/hire-woocommerce-developers-in-india",
 //     siteName: "mTouch Labs",
 //     type: "website",
-//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire Woocommerce developers | dedicated woocommerce experts" }],
+//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Hire Woocommerce developers | dedicated woocommerce experts" }],
 //   },
 //   twitter: {
 //     card: "summary_large_image",
 //     title: "Hire Woocommerce developers | dedicated woocommerce experts",
 //     description: "Hire WooCommerce developers from mTouch Labs to launch your eStore faster with high-quality and timely eCommerce solutions.",
-//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
 //   },
 // };
 
@@ -57,7 +57,7 @@
 // 					</div>
 // 				</div>
 // 				<div className="col-lg-6">
-// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img
+// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img width={690} height={350} loading="lazy" decoding="async"
 // 							src="/images/others/Hire-WooCommerce-developers.svg" alt="mTouch Labs" className="img-fluid" />
 // 					</div>
 // 				</div>
@@ -77,7 +77,7 @@
 							
 // 							<h2 className="mb15">WooCommerce Devs from mTouch Labs</h2>
 // 							<p>mTouchlabs is a leading <a href="/woocommerce-development-company-in-india"
-// 									target="_blank">WooCommerce development company
+// 									target="_blank" rel="noopener noreferrer">WooCommerce development company
 // 									in India </a>dedicated to delivering
 // 								top-quality eCommerce services to its clients all across
 // 								the globe. Hire WooCommerce
@@ -105,7 +105,7 @@
 // 								are desiring to launch a business online or want to
 // 								develop sites for your eStores,
 // 								WooCommerce has always established itself as the best <a
-// 									href="/ecommerce-app-development-company" target="_blank">eCommerce development
+// 									href="/ecommerce-app-development-company" target="_blank" rel="noopener noreferrer">eCommerce development
 // 									platform.</a>
 // 							</p>
 							 
@@ -117,7 +117,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img src="/images/cta/Hire-Our-Dedicated-WooCommerce-Experts.svg"
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Hire-Our-Dedicated-WooCommerce-Experts.svg"
 // 								alt="woocommerce Developers" className="img-fluid" /> </div>
 // 					</div>
 // 				</div>
@@ -129,7 +129,7 @@
 // 				<div className="row">
 
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async"
 // 								src="/images/cta/Why-Hire-WooCommerce-Programmers-From-mTouchlabs.svg"
 // 								alt="woocommerce web Developers" className="img-fluid" />
 // 						</div>
@@ -152,7 +152,7 @@
 							 
 // 							<p>Hire WooCommerce Programmers in India for creating your
 // 								intuitive <a href="https://www.mtouchlabs.com/benefits-of-ecommerce-mobile-apps"
-// 									target="_blank">eCommerce stores</a> where
+// 									target="_blank" rel="noopener noreferrer">eCommerce stores</a> where
 // 								our Dedicated WooCommerce Developers adapt to the latest
 // 								trends and develop personalized
 // 								and customized websites for you. You can also hire
@@ -214,7 +214,7 @@
 // 			<div className="row mt30">
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Expertise-and-Experience-hire-woo.svg"
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Expertise-and-Experience-hire-woo.svg"
 // 								alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Expertise and Experience</h3>
@@ -227,7 +227,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Infinite-Customizability-hire-woo.svg"
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Infinite-Customizability-hire-woo.svg"
 // 								alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Infinite Customizability</h3>
@@ -240,7 +240,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Easy-Set-up.svg" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Easy-Set-up.svg" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Easy Set-up</h3>
 // 							<p>The woo-commerce plugin can be easily added to your eCommerce
@@ -253,7 +253,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Agile-Based-Development.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Agile-Based-Development.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Agile Based Development</h3>
@@ -266,7 +266,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/others/rate.png" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/others/rate.webp" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">24/7 Global Support</h3>
 // 							<p>Get 24/7 technical support and assistance from our four
@@ -314,7 +314,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
-// 						<div className="sol-img-png"> <img
+// 						<div className="sol-img-png"> <img width={690} height={350} loading="lazy" decoding="async"
 // 								src="/images/cta/Hire-Dedicated-WooCommerce-Programmers-in-India.svg"
 // 								alt="hire woocommerce developers" className="img-fluid" />
 // 						</div>
@@ -359,7 +359,7 @@
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
 // 						<div className="sol-img-png">
-// 							<img src="/images/cta/let's-get-to-chat-woocommerce-dev.svg" alt="working with client"
+// 							<img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/let's-get-to-chat-woocommerce-dev.svg" alt="working with client"
 // 								className="img-fluid" />
 // 						</div>
 // 					</div>

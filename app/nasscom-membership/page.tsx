@@ -16,40 +16,40 @@ export const metadata: Metadata = {
     url: "https://www.mtouchlabs.com/nasscom-membership",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "NASSCOM Membership" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "NASSCOM Membership" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "NASSCOM Membership – Industry Recognition",
     description:
       "mTouch Labs' NASSCOM membership reinforces our credibility, industry recognition, and commitment to innovation.",
-    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
   },
 };
 
 const strengthCards = [
   {
-    img: "/images/about/icon_1.png",
+    img: "/images/about/icon_1.webp",
     title: "Credibility and Global Recognition",
     desc: "Instills confidence in businesses seeking dependable software development and digital transformation partners.",
   },
   {
-    img: "/images/about/icon_2.png",
+    img: "/images/about/icon_2.webp",
     title: "Commitment to Industry Standards",
     desc: "Ensures our development processes, data security, and quality benchmarks are consistent with globally recognised best practices.",
   },
   {
-    img: "/images/about/icon_3.png",
+    img: "/images/about/icon_3.webp",
     title: "Innovation in Emerging Technology",
     desc: "Provides access to insights and frameworks that help us advance our capabilities in AI, cloud, automation, and SaaS solutions.",
   },
   {
-    img: "/images/about/icon_4.png",
+    img: "/images/about/icon_4.webp",
     title: "Collaboration and Growth Opportunities",
     desc: "Facilitates collaboration, networking, and knowledge exchange with premier technology firms and specialists.",
   },
   {
-    img: "/images/about/icon_5.png",
+    img: "/images/about/icon_5.webp",
     title: "Contributing to India's IT Leadership",
     desc: "Enables us to shape the future of IT developments and policy environments.",
   },
@@ -73,9 +73,9 @@ const drivingInnovation = [
 ];
 
 const empowerCards = [
-  { img: "/images/about/nascom_1.png", text: "Stay ahead of emerging technologies and market trends." },
-  { img: "/images/about/nascom_2.png", text: "Build sustainable and inclusive digital ecosystems." },
-  { img: "/images/about/nascom_3.png", text: "Contribute to India's growing digital economy." },
+  { img: "/images/about/nascom_1.webp", text: "Stay ahead of emerging technologies and market trends." },
+  { img: "/images/about/nascom_2.webp", text: "Build sustainable and inclusive digital ecosystems." },
+  { img: "/images/about/nascom_3.webp", text: "Contribute to India's growing digital economy." },
 ];
 
 const faqs = [
@@ -143,7 +143,7 @@ export default function NasscomPage() {
               </p>
             </div>
             <div className="nsc-split__img">
-              <img src="/images/about/nasscom.png" alt="NASSCOM Membership" />
+              <img width={644} height={426} loading="lazy" decoding="async" src="/images/about/nasscom.webp" alt="NASSCOM Membership" />
             </div>
           </div>
         </div>
@@ -176,7 +176,7 @@ export default function NasscomPage() {
               </p>
             </div>
             <div className="nsc-split__img">
-              <img src="/images/about/aboutMtouch.png" alt="About mTouch Labs" />
+              <img width={550} height={550} loading="lazy" decoding="async" src="/images/about/aboutMtouch.webp" alt="About mTouch Labs" />
             </div>
           </div>
         </div>
@@ -197,7 +197,7 @@ export default function NasscomPage() {
               <p className="nsc-note">Clients choosing mTouch Labs gain a technology partner who is recognized, accountable, and driven by excellence.</p>
             </div>
             <div className="nsc-split__img">
-              <img src="/images/whatitMeans.png" alt="What it means for our clients" />
+              <img width={512} height={512} loading="lazy" decoding="async" src="/images/whatitMeans.webp" alt="What it means for our clients" />
             </div>
           </div>
         </div>
@@ -217,7 +217,7 @@ export default function NasscomPage() {
               </ul>
             </div>
             <div className="nsc-split__img">
-              <img src="/images/drivingDigital.png" alt="Driving Digital Innovation" />
+              <img width={550} height={550} loading="lazy" decoding="async" src="/images/drivingDigital.webp" alt="Driving Digital Innovation" />
             </div>
           </div>
         </div>

@@ -14,13 +14,13 @@ export const metadata: Metadata = {
     url: "https://www.mtouchlabs.com/cybersecurity-development-company",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Advanced Cybersecurity Solutions" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Advanced Cybersecurity Solutions" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Advanced Cybersecurity Solutions",
     description: "Protect your digital assets and drive growth with robust cybersecurity solutions. Ensure safety, compliance, and innovation for your business.",
-    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
   },
 };
 
@@ -95,35 +95,35 @@ export default function Page() {
           </div>
           <div className="aitemplet-grid">
             <div className="aitemplet-grid-item">
-              <div className="aitemplet-grid-item-img-container"><img src="/images/new_home/ai-product-pages/cybersecurity/modal1.png" alt="Firewalls" /></div>
+              <div className="aitemplet-grid-item-img-container"><img width={55} height={45} loading="lazy" decoding="async" src="/images/new_home/ai-product-pages/cybersecurity/modal1.webp" alt="Firewalls" /></div>
               <h3>Firewalls</h3>
             </div>
             <div className="aitemplet-grid-item">
-              <div className="aitemplet-grid-item-img-container"><img src="/images/new_home/ai-product-pages/cybersecurity/modal2.png" alt="IDS" /></div>
+              <div className="aitemplet-grid-item-img-container"><img width={57} height={51} loading="lazy" decoding="async" src="/images/new_home/ai-product-pages/cybersecurity/modal2.webp" alt="IDS" /></div>
               <h3>Intrusion Detection Systems (IDS)</h3>
             </div>
             <div className="aitemplet-grid-item">
-              <div className="aitemplet-grid-item-img-container"><img src="/images/new_home/ai-product-pages/cybersecurity/modal3.png" alt="Encryption" /></div>
+              <div className="aitemplet-grid-item-img-container"><img width={59} height={59} loading="lazy" decoding="async" src="/images/new_home/ai-product-pages/cybersecurity/modal3.webp" alt="Encryption" /></div>
               <h3>Encryption Tools</h3>
             </div>
             <div className="aitemplet-grid-item">
-              <div className="aitemplet-grid-item-img-container"><img src="/images/new_home/ai-product-pages/cybersecurity/modal4.png" alt="Antivirus" /></div>
+              <div className="aitemplet-grid-item-img-container"><img width={59} height={49} loading="lazy" decoding="async" src="/images/new_home/ai-product-pages/cybersecurity/modal4.webp" alt="Antivirus" /></div>
               <h3>Antivirus Software</h3>
             </div>
             <div className="aitemplet-grid-item">
-              <div className="aitemplet-grid-item-img-container"><img src="/images/new_home/ai-product-pages/cybersecurity/modal5.png" alt="SIEM" /></div>
+              <div className="aitemplet-grid-item-img-container"><img width={48} height={51} loading="lazy" decoding="async" src="/images/new_home/ai-product-pages/cybersecurity/modal5.webp" alt="SIEM" /></div>
               <h3>Security Information and Event Management (SIEM)</h3>
             </div>
             <div className="aitemplet-grid-item">
-              <div className="aitemplet-grid-item-img-container"><img src="/images/new_home/ai-product-pages/cybersecurity/modal6.png" alt="MFA" /></div>
+              <div className="aitemplet-grid-item-img-container"><img width={47} height={47} loading="lazy" decoding="async" src="/images/new_home/ai-product-pages/cybersecurity/modal6.webp" alt="MFA" /></div>
               <h3>Multi-Factor Authentication (MFA)</h3>
             </div>
             <div className="aitemplet-grid-item">
-              <div className="aitemplet-grid-item-img-container"><img src="/images/new_home/ai-product-pages/cybersecurity/modal1.png" alt="VPN" /></div>
+              <div className="aitemplet-grid-item-img-container"><img width={55} height={45} loading="lazy" decoding="async" src="/images/new_home/ai-product-pages/cybersecurity/modal1.webp" alt="VPN" /></div>
               <h3>Virtual Private Networks (VPN)</h3>
             </div>
             <div className="aitemplet-grid-item">
-              <div className="aitemplet-grid-item-img-container"><img src="/images/new_home/ai-product-pages/cybersecurity/modal1.png" alt="EDR" /></div>
+              <div className="aitemplet-grid-item-img-container"><img width={55} height={45} loading="lazy" decoding="async" src="/images/new_home/ai-product-pages/cybersecurity/modal1.webp" alt="EDR" /></div>
               <h3>Endpoint Detection and Response (EDR)</h3>
             </div>
           </div>
@@ -136,22 +136,22 @@ export default function Page() {
           </div>
           <div className="aitemplet-section-four-container">
             <div className="aitemplet-section-four-container-item">
-              <img src="/images/new_home/ai-product-pages/ai-page/bank.png" alt="Financial Services" />
+              <img width={45} height={45} loading="lazy" decoding="async" src="/images/new_home/ai-product-pages/ai-page/bank.webp" alt="Financial Services" />
               <h3>Financial Services</h3>
               <p>Cybersecurity secures transactions, prevents fraud, and protects client data with encryption and real-time monitoring, ensuring compliance and trust.</p>
             </div>
             <div className="aitemplet-section-four-container-item">
-              <img src="/images/new_home/ai-product-pages/ai-page/health.png" alt="Healthcare" />
+              <img width={49} height={49} loading="lazy" decoding="async" src="/images/new_home/ai-product-pages/ai-page/health.webp" alt="Healthcare" />
               <h3>Healthcare</h3>
               <p>Cybersecurity safeguards patient data and medical systems, ensuring confidentiality and preventing cyberattacks that threaten healthcare networks.</p>
             </div>
             <div className="aitemplet-section-four-container-item">
-              <img src="/images/new_home/ai-product-pages/ai-page/cart.png" alt="Retail" />
+              <img width={52} height={52} loading="lazy" decoding="async" src="/images/new_home/ai-product-pages/ai-page/cart.webp" alt="Retail" />
               <h3>Retail</h3>
               <p>Cybersecurity protects consumer data and online transactions, preventing breaches and ensuring secure shopping with PCI-DSS compliance to boost customer trust.</p>
             </div>
             <div className="aitemplet-section-four-container-item">
-              <img src="/images/new_home/ai-product-pages/cybersecurity/setting.png" alt="Manufacturing" />
+              <img width={52} height={52} loading="lazy" decoding="async" src="/images/new_home/ai-product-pages/cybersecurity/setting.webp" alt="Manufacturing" />
               <h3>Manufacturing</h3>
               <p>Cybersecurity secures supply chain data, manufacturing processes, and IoT systems, preventing cyber threats and ensuring business continuity.</p>
             </div>
@@ -194,17 +194,17 @@ export default function Page() {
         <section className="aitemplet-section-five">
           <div className="aitemplet-section-five-container">
             <div className="aitemplet-section-five-left">
-              <img src="/images/new_home/ai-product-pages/cybersecurity/mainfeature.png" alt="Cyber security Illustration" />
+              <img width={383} height={383} loading="lazy" decoding="async" src="/images/new_home/ai-product-pages/cybersecurity/mainfeature.webp" alt="Cyber security Illustration" />
               <h2><span>Driving Business Growth with Effective <span className="highlight">Cyber security</span></span> <br /> Solutions</h2>
               <p>Cybersecurity safeguards operations, ensures safety, and drives long-term business growth.</p>
             </div>
             <div className="aitemplet-section-five-right">
-              <div className="aitemplet-section-five-box"><img src="/images/new_home/ai-product-pages/cybersecurity/feature1.png" alt="Advanced Analytics" /><p>Advanced Analytics for<br /> Prediction</p></div>
-              <div className="aitemplet-section-five-box"><img src="/images/new_home/ai-product-pages/cybersecurity/feature2.png" alt="Real Time" /><p>Processing Data in<br /> Real Time</p></div>
-              <div className="aitemplet-section-five-box"><img src="/images/new_home/ai-product-pages/cybersecurity/feature3.png" alt="Auto Decisions" /><p>Making Decisions <br />Automatically</p></div>
-              <div className="aitemplet-section-five-box"><img src="/images/new_home/ai-product-pages/cybersecurity/feature4.png" alt="Customer Insights" /><p>Personalization and Customer<br /> Insights</p></div>
-              <div className="aitemplet-section-five-box"><img src="/images/new_home/ai-product-pages/cybersecurity/feature5.png" alt="Fraud Detection" /><p>Improved Protection and <br />Fraud Identification</p></div>
-              <div className="aitemplet-section-five-box"><img src="/images/new_home/ai-product-pages/cybersecurity/feature6.png" alt="Efficiency" /><p>Enhanced Efficiency<br /> and Operations</p></div>
+              <div className="aitemplet-section-five-box"><img width={53} height={53} loading="lazy" decoding="async" src="/images/new_home/ai-product-pages/cybersecurity/feature1.webp" alt="Advanced Analytics" /><p>Advanced Analytics for<br /> Prediction</p></div>
+              <div className="aitemplet-section-five-box"><img width={57} height={59} loading="lazy" decoding="async" src="/images/new_home/ai-product-pages/cybersecurity/feature2.webp" alt="Real Time" /><p>Processing Data in<br /> Real Time</p></div>
+              <div className="aitemplet-section-five-box"><img width={45} height={46} loading="lazy" decoding="async" src="/images/new_home/ai-product-pages/cybersecurity/feature3.webp" alt="Auto Decisions" /><p>Making Decisions <br />Automatically</p></div>
+              <div className="aitemplet-section-five-box"><img width={48} height={48} loading="lazy" decoding="async" src="/images/new_home/ai-product-pages/cybersecurity/feature4.webp" alt="Customer Insights" /><p>Personalization and Customer<br /> Insights</p></div>
+              <div className="aitemplet-section-five-box"><img width={42} height={53} loading="lazy" decoding="async" src="/images/new_home/ai-product-pages/cybersecurity/feature5.webp" alt="Fraud Detection" /><p>Improved Protection and <br />Fraud Identification</p></div>
+              <div className="aitemplet-section-five-box"><img width={45} height={45} loading="lazy" decoding="async" src="/images/new_home/ai-product-pages/cybersecurity/feature6.webp" alt="Efficiency" /><p>Enhanced Efficiency<br /> and Operations</p></div>
             </div>
           </div>
         </section>
@@ -215,12 +215,12 @@ export default function Page() {
             <p className="svc-text-white">To safeguard sensitive information, stop cyberattacks, and maintain operational resilience, companies need a well-organized cybersecurity plan. An organized strategy reduces risks and improves security.</p>
           </div>
           <div className="aitemplet-steps-datascience">
-            <div className="aitemplet-guide"><span className="aitemplet-guide-item"><img src="/images/new_home/ai-product-pages/cybersecurity/why1.png" alt="Risk assessment" /></span><h6>Identification and <br />assessment of risks</h6></div>
-            <div className="aitemplet-guide"><span className="aitemplet-guide-item"><img src="/images/new_home/ai-product-pages/cybersecurity/why2.png" alt="Data Security" /></span><h6>Encryption &amp; <br />Data Security</h6></div>
-            <div className="aitemplet-guide"><span className="aitemplet-guide-item"><img src="/images/new_home/ai-product-pages/cybersecurity/why3.png" alt="Threat Mitigation" /></span><h6>Threat Identification <br />and Mitigation</h6></div>
-            <div className="aitemplet-guide"><span className="aitemplet-guide-item"><img src="/images/new_home/ai-product-pages/cybersecurity/why4.png" alt="Incident Recovery" /></span><h6>Response and Recovery <br />to Incidents</h6></div>
-            <div className="aitemplet-guide"><span className="aitemplet-guide-item"><img src="/images/new_home/ai-product-pages/cybersecurity/why5.png" alt="Data Cleaning" /></span><h6>Data Preparation <br />&amp; Cleaning</h6></div>
-            <div className="aitemplet-guide"><span className="aitemplet-guide-item"><img src="/images/new_home/ai-product-pages/cybersecurity/why6.png" alt="Scalability" /></span><h6>Scalability and Ongoing <br />Enhancement</h6></div>
+            <div className="aitemplet-guide"><span className="aitemplet-guide-item"><img width={67} height={67} loading="lazy" decoding="async" src="/images/new_home/ai-product-pages/cybersecurity/why1.webp" alt="Risk assessment" /></span><h6>Identification and <br />assessment of risks</h6></div>
+            <div className="aitemplet-guide"><span className="aitemplet-guide-item"><img width={68} height={69} loading="lazy" decoding="async" src="/images/new_home/ai-product-pages/cybersecurity/why2.webp" alt="Data Security" /></span><h6>Encryption &amp; <br />Data Security</h6></div>
+            <div className="aitemplet-guide"><span className="aitemplet-guide-item"><img width={63} height={63} loading="lazy" decoding="async" src="/images/new_home/ai-product-pages/cybersecurity/why3.webp" alt="Threat Mitigation" /></span><h6>Threat Identification <br />and Mitigation</h6></div>
+            <div className="aitemplet-guide"><span className="aitemplet-guide-item"><img width={55} height={48} loading="lazy" decoding="async" src="/images/new_home/ai-product-pages/cybersecurity/why4.webp" alt="Incident Recovery" /></span><h6>Response and Recovery <br />to Incidents</h6></div>
+            <div className="aitemplet-guide"><span className="aitemplet-guide-item"><img width={75} height={73} loading="lazy" decoding="async" src="/images/new_home/ai-product-pages/cybersecurity/why5.webp" alt="Data Cleaning" /></span><h6>Data Preparation <br />&amp; Cleaning</h6></div>
+            <div className="aitemplet-guide"><span className="aitemplet-guide-item"><img width={46} height={47} loading="lazy" decoding="async" src="/images/new_home/ai-product-pages/cybersecurity/why6.webp" alt="Scalability" /></span><h6>Scalability and Ongoing <br />Enhancement</h6></div>
           </div>
         </div>
 
@@ -231,17 +231,17 @@ export default function Page() {
           </div>
           <div className="aitemplet-three-flex-container">
             <div className="aitemplet-three-flex1">
-              <span className="aitemplet-flexthree-li"><img src="/images/new_home/ai-product-pages/cybersecurity/icon1.png" alt="Threat Protection" /><p>Comprehensive <br />Threat Protection</p></span>
-              <span className="aitemplet-flexthree-li"><img src="/images/new_home/ai-product-pages/cybersecurity/icon2.png" alt="Data Encryption" /><p>Data Encryption &amp; <br />Security</p></span>
-              <span className="aitemplet-flexthree-li"><img src="/images/new_home/ai-product-pages/cybersecurity/icon3.png" alt="AI Risk" /><p>AI-Powered Risk <br />Assessment</p></span>
+              <span className="aitemplet-flexthree-li"><img width={61} height={48} loading="lazy" decoding="async" src="/images/new_home/ai-product-pages/cybersecurity/icon1.webp" alt="Threat Protection" /><p>Comprehensive <br />Threat Protection</p></span>
+              <span className="aitemplet-flexthree-li"><img width={51} height={52} loading="lazy" decoding="async" src="/images/new_home/ai-product-pages/cybersecurity/icon2.webp" alt="Data Encryption" /><p>Data Encryption &amp; <br />Security</p></span>
+              <span className="aitemplet-flexthree-li"><img width={48} height={42} loading="lazy" decoding="async" src="/images/new_home/ai-product-pages/cybersecurity/icon3.webp" alt="AI Risk" /><p>AI-Powered Risk <br />Assessment</p></span>
             </div>
             <div className="aitemplet-three-flex2">
-              <img src="/images/new_home/ai-product-pages/cybersecurity/cybersecurity2.png" className="aitemplet-3flex-img" alt="Cybersecurity" />
+              <img width={357} height={458} loading="lazy" decoding="async" src="/images/new_home/ai-product-pages/cybersecurity/cybersecurity2.webp" className="aitemplet-3flex-img" alt="Cybersecurity" />
             </div>
             <div className="aitemplet-three-flex3">
-              <span className="aitemplet-flexthree-li"><img src="/images/new_home/ai-product-pages/cybersecurity/icon4.png" alt="Monitoring" /><p>24/7 Monitoring &amp; <br />Incident Response</p></span>
-              <span className="aitemplet-flexthree-li"><img src="/images/new_home/ai-product-pages/cybersecurity/icon5.png" alt="Compliance" /><p>Compliance &amp; <br />Regulatory Support</p></span>
-              <span className="aitemplet-flexthree-li"><img src="/images/new_home/ai-product-pages/cybersecurity/icon6.png" alt="Scalable" /><p>Scalable &amp; Future<br />-Ready Solutions</p></span>
+              <span className="aitemplet-flexthree-li"><img width={41} height={41} loading="lazy" decoding="async" src="/images/new_home/ai-product-pages/cybersecurity/icon4.webp" alt="Monitoring" /><p>24/7 Monitoring &amp; <br />Incident Response</p></span>
+              <span className="aitemplet-flexthree-li"><img width={40} height={63} loading="lazy" decoding="async" src="/images/new_home/ai-product-pages/cybersecurity/icon5.webp" alt="Compliance" /><p>Compliance &amp; <br />Regulatory Support</p></span>
+              <span className="aitemplet-flexthree-li"><img width={45} height={45} loading="lazy" decoding="async" src="/images/new_home/ai-product-pages/cybersecurity/icon6.webp" alt="Scalable" /><p>Scalable &amp; Future<br />-Ready Solutions</p></span>
             </div>
           </div>
         </div>

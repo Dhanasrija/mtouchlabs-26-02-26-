@@ -13,13 +13,13 @@
 //     url: "https://www.mtouchlabs.com/hire-quality-analyst-developers-in-india",
 //     siteName: "mTouch Labs",
 //     type: "website",
-//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire QA team | Hire quality analyst | Quality assurance team" }],
+//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Hire QA team | Hire quality analyst | Quality assurance team" }],
 //   },
 //   twitter: {
 //     card: "summary_large_image",
 //     title: "Hire QA team | Hire quality analyst | Quality assurance team",
 //     description: "Hire QA team and Quality assurance team from mTouchlabs. Our quality analyst uses the latest tool to check the software quality and make it bugs free.",
-//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
 //   },
 // };
 
@@ -56,7 +56,7 @@
 // 					</div>
 // 				</div>
 // 				<div className="col-lg-6">
-// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img
+// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img width={690} height={350} loading="lazy" decoding="async"
 // 							src="/images/others/Hire-Our-Quality-Analyst-team-to-Provide-Error-free-Website.svg"
 // 							alt="mTouch Labs" className="img-fluid" /></div>
 // 				</div>
@@ -86,7 +86,7 @@
 // 								These skills flourish them into Expert and Dedicated Quality analysts for hire. Hire QA
 // 								Team who are a part of any successful <a
 // 									href="https://www.mtouchlabs.com/top-on-demand-mobile-app-development-ideas-for-startups"
-// 									target="_blank">software development</a> product. At mTouchlabs, we
+// 									target="_blank" rel="noopener noreferrer">software development</a> product. At mTouchlabs, we
 // 								have an expert team of manual as well as automated quality assurance engineers with the
 // 								sole purpose to bring out the best quality for our end customers. </p>
 							 
@@ -106,7 +106,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async"
 // 								src="/images/cta/Hire-Quality-Assurance-Team-From-Us-At-Your-Flexibility.svg"
 // 								alt="QA Testers" className="img-fluid" /> </div>
 // 					</div>
@@ -119,7 +119,7 @@
 // 				<div className="row">
 
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img src="/images/cta/Hire-Our-Dedicated-QA-team-For-Bug-Free-Apps.svg"
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Hire-Our-Dedicated-QA-team-For-Bug-Free-Apps.svg"
 // 								alt="qa team" className="img-fluid" /></div>
 // 					</div>
 
@@ -129,7 +129,7 @@
 // 									className="ree-text rt40"> Assurance Team </span> <span className="ree-text rt40"> from
 // 									mTouch Labs in India</span></h2>
 // 							<p>mTouchlabs is an award-winning IT company that embraces <a
-// 									href="https://www.mtouchlabs.com/does-my-business-need-a-mobile-app" target="_blank">QA
+// 									href="https://www.mtouchlabs.com/does-my-business-need-a-mobile-app" target="_blank" rel="noopener noreferrer">QA
 // 									testing services</a> as an
 // 								essential piece for all our business. We have a dedicated Quality Assurance team who
 // 								help our customers in meeting their quality assurance objectives.
@@ -187,7 +187,7 @@
 // 			<div className="row mt30">
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/rate.svg" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/rate.svg" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Unit Testing</h3>
 // 							<p>Our dedicated team of professional quality analysts provides Unit testing services which
@@ -197,7 +197,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/B-Testing.svg" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/B-Testing.svg" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">A/B Testing</h3>
 // 							<p>Our QA team performs A/B testing which is a constant procedure of running synchronous
@@ -208,7 +208,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Manual-QA-testing.svg" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Manual-QA-testing.svg" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Manual QA Testing</h3>
 // 							<p>We leverage full-fledged manual testing services to find the errors and resolve them
@@ -220,7 +220,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Mobile-Automation-testing.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Mobile-Automation-testing.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Mobile Automation Testing</h3>
@@ -233,7 +233,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Performance-testing.svg" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Performance-testing.svg" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Performance Testing</h3>
 // 							<p>The strict performance testing conducted by our QA team across numerous complex
@@ -244,7 +244,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Regression-Testing.svg" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Regression-Testing.svg" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Regression Testing</h3>
 // 							<p>When the new implementations get integrated into the existing ones, automated testing is
@@ -255,7 +255,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Test-Data-Management.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Test-Data-Management.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Test Data Management</h3>
@@ -300,7 +300,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
-// 						<div className="sol-img-png"> <img
+// 						<div className="sol-img-png"> <img width={690} height={350} loading="lazy" decoding="async"
 // 								src="/images/cta/Hire-Our-Dedicated-QA-Team-for-Highly-Scalable-Solutions.svg"
 // 								alt="hire qa developers" className="img-fluid" /> </div>
 // 					</div>
@@ -335,7 +335,7 @@
 // 							</h2>
 // 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 // 									className="fas fa-user fb-bigon"></i> Contact </a>
-// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
+// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer"
 // 								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
 // 								Whatsapp </a>
 
@@ -343,7 +343,7 @@
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
 // 						<div className="sol-img-png">
-// 							<img src="/images/cta/let's-get-to-chat-hire-qa.svg" alt="working with client"
+// 							<img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/let's-get-to-chat-hire-qa.svg" alt="working with client"
 // 								className="img-fluid" />
 // 						</div>
 // 					</div>

@@ -1,7 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    unoptimized: true,
+    // Image optimization ENABLED. The project is a server-rendered app on
+    // Vercel (no `output: 'export'`), so the on-demand optimizer is available
+    // and all images are local. With this off, next/image now emits a real
+    // responsive srcSet (AVIF/WebP) sized to deviceSizes/imageSizes below.
+    // Plain <img> tags are unaffected. Set back to `unoptimized: true` to
+    // fully revert.
+    unoptimized: false,
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],

@@ -2528,7 +2528,7 @@ header.scrolled .nav-pill,
 }
 
 .salesforce-hero-section {
-    background-image: url("../images/images/salesforceimplementationservice.png");
+    background-image: url("../images/images/salesforceimplementationservice.webp");
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
@@ -6508,7 +6508,7 @@ select {
 
 /*what we do*/
 .what-we-do-main-container {
-    background-image: url("../images/home/tech/techbg.jpg");
+    background-image: url("../images/home/tech/techbg.webp");
     background-color: #dfecff;
     padding: 5%;
     background-size: cover;
@@ -8037,7 +8037,7 @@ select {
 }
 
 .food-delivery-ondemand {
-    background-image: url(../images/products/ondemandbg.png);
+    background-image: url(../images/products/ondemandbg.webp);
     background-size: cover;
     background-position: center;
     text-align: center;
@@ -8514,7 +8514,7 @@ select {
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    background-image: url(../images/products/ondemandbg.png);
+    background-image: url(../images/products/ondemandbg.webp);
     background-size: cover;
     margin: 10% auto;
 }
@@ -8528,7 +8528,7 @@ select {
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    background-image: url(../images/products/ondemandbg1.png);
+    background-image: url(../images/products/ondemandbg1.webp);
     background-size: cover;
     margin: 10% auto;
 }
@@ -8718,7 +8718,7 @@ select {
 }
 
 .grocery-delivery-two {
-    background-image: url(../images/products/grocery/Bg.png);
+    background-image: url(../images/products/grocery/Bg.webp);
     background-size: cover;
     background-position: center;
 }
@@ -8938,7 +8938,7 @@ select {
 }
 
 .realstate-delivery-silder {
-    background-image: url(../images/products/realstate/banner1.png);
+    background-image: url(../images/products/realstate/banner1.webp);
     background-size: cover;
     /* height: 100vh; */
 }
@@ -8979,7 +8979,7 @@ select {
     max-width: 100%;
     margin: 0px auto;
     background-size: cover;
-    background-image: url(../images/products/grocery/Bg2.png);
+    background-image: url(../images/products/grocery/Bg2.webp);
 }
 
 .page2 .food-faq-answer,
@@ -10104,7 +10104,7 @@ select {
 
 .page10 .food-application-features {
     position: relative;
-    background-image: url("../images/products/ott/appscreenbg.png");
+    background-image: url("../images/products/ott/appscreenbg.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -10168,7 +10168,7 @@ select {
 
 .page10 .food-delivery-mobile-customizable-section {
     position: relative;
-    background-image: url("../images/products/ott/bg.png");
+    background-image: url("../images/products/ott/bg.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -10245,7 +10245,7 @@ select {
 
 .online-shopping-mobile-customizable-section {
     position: relative;
-    background-image: url("../images/products/shopping/bg.png");
+    background-image: url("../images/products/shopping/bg.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -10378,7 +10378,7 @@ select {
 
 /*page13*/
 .page10 .page13 .realstate-delivery-main {
-    background-image: url("../images/Fitness.png");
+    background-image: url("../images/Fitness.webp");
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding-top: 12rem;
@@ -10953,7 +10953,7 @@ select {
 
 /* styles.css */
 .product-container-three {
-    background: url(../images/products/productbg2.png) no-repeat center center/cover;
+    background: url(../images/products/productbg2.webp) no-repeat center center/cover;
     height: 300px;
     position: relative;
     color: white;
@@ -12643,7 +12643,7 @@ main {
 
 .multi-vendor-marketplace {
     background: linear-gradient(to right, #6620d7, #c83dfb);
-    background-image: url(../images/products/multivendor/Multivendorbanner.png);
+    background-image: url(../images/products/multivendor/Multivendorbanner.webp);
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -16440,7 +16440,7 @@ main {
     /*  padding-bottom: 20px; */
     padding-left: 5%;
     padding-right: 5%;
-    background-image: url(../images/careersNav.png);
+    background-image: url(../images/careersNav.webp);
     background-size: cover;
     background-position: center;
     height: 600px;
@@ -16810,7 +16810,7 @@ main {
 }
 
 .career-newsletter {
-    /* background: url('../images/career/subscribe.png') no-repeat center center/cover;
+    /* background: url('../images/career/subscribe.webp') no-repeat center center/cover;
     text-align: left; */
     padding: 20px;
     background-color: gray;
@@ -17184,7 +17184,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url("../images/products/ott/keyfeatures.png");
+    background-image: url("../images/products/ott/keyfeatures.webp");
     /* Replace with your image */
     background-size: cover;
     background-position: center;
@@ -17462,7 +17462,7 @@ main {
 
 /*Chef Management*/
 .chef-page-main {
-    background-image: url(../images/products/chef/chef-bg.png);
+    background-image: url(../images/products/chef/chef-bg.webp);
     background-size: cover;
     background-position: center;
     text-align: center;
@@ -19501,7 +19501,7 @@ main {
 }
 
 .homeNfqs-container {
-    background-image: url("../images/new_home/faqsbg.png");
+    background-image: url("../images/new_home/faqsbg.webp");
     background-size: cover;
     background-position: center;
     color: white;
@@ -19967,7 +19967,7 @@ main {
 
 .ai-templet-machine-learning {
     .aitemplet-header-one {
-        background-image: url("../images/new_home/ai-product-pages/datascience/machinelearning.png");
+        background-image: url("../images/new_home/ai-product-pages/datascience/machinelearning.webp");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -21791,7 +21791,7 @@ main {
 /* .AIservices-banner {
     width: 100%;
     height: 540px;
-    background: url('../images/new_services/new_services.png') center/cover no-repeat;
+    background: url('../images/new_services/new_services.webp') center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -22581,7 +22581,7 @@ main {
 /* Hero Section */
 .servicesNew-hero {
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-        url("../images/ServicesNav.png") center/cover no-repeat;
+        url("../images/ServicesNav.webp") center/cover no-repeat;
     color: white;
     text-align: center;
     position: relative;
@@ -28697,7 +28697,7 @@ select.new_contact_input {
 
 /* Chef Management App Page Styles */
 .chef-page-main {
-    background-image: url('../images/products/chef/chef-bg.png');
+    background-image: url('../images/products/chef/chef-bg.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -30983,7 +30983,7 @@ select.new_contact_input {
 
 /* ===== Salesforce Page Styles ===== */
 .sf-style-1 {
-    background-image: url('/images/images/salesforce-consulting-services-cloud-bg.png');
+    background-image: url('/images/images/salesforce-consulting-services-cloud-bg.webp');
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
@@ -31229,7 +31229,7 @@ select.new_contact_input {
 
 .blog-hero-ai-mobile {
     background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
-        url('/images/blogs/artificial-intelligence-transforming-mobile-technology.png');
+        url('/images/blogs/artificial-intelligence-transforming-mobile-technology.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -52820,6 +52820,8 @@ html, body {
         .tb-email-text {
           font-size: 13px;
           transition: color 0.2s;
+          color: inherit;
+          text-decoration: none;
         }
 
         .tb-phone-center {
@@ -52924,7 +52926,7 @@ html, body {
         .mtl-new-hero {
           margin-top: 10px;
           min-height: 80vh;
-          background: url('/images/home/hero_bg.png') top center / cover no-repeat;
+          background: url('/images/home/hero_bg.webp') top center / cover no-repeat;
           display: flex;
           flex-direction: column;
           align-items: center;

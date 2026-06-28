@@ -14,13 +14,13 @@ export const metadata: Metadata = {
     url: "https://www.mtouchlabs.com/woocommerce-development-company-in-india",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "WooCommerce Development Company" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "WooCommerce Development Company" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "WooCommerce Development Company",
     description: "mTouch Labs leading top Woocommerce website development company in india, providing custom WooCommerce web development services for creating successful eStores, plugins and themes.",
-    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
   },
 };
 
@@ -67,7 +67,7 @@ export default function Page() {
 					are customized to attract customers and drive conversions.
 				</p>
 			</div>
-			<a href="/contact-us" target="_blank"><button className="AIservices-btn">Let’s Discuss</button></a></div>
+			<a href="/contact-us" target="_blank" rel="noopener noreferrer"><button className="AIservices-btn">Let’s Discuss</button></a></div>
 		<div className="AIservices-info-card">
 			<div className="AIservices-info-card-height">
 				<h2>End-to-End WooCommerce Expertise</h2>
@@ -77,7 +77,7 @@ export default function Page() {
 					easy management.
 				</p>
 			</div>
-			<a href="/contact-us" target="_blank"><button className="AIservices-btn">Book a Consultation</button></a></div>
+			<a href="/contact-us" target="_blank" rel="noopener noreferrer"><button className="AIservices-btn">Book a Consultation</button></a></div>
 	</section>
 
 	
@@ -100,7 +100,7 @@ export default function Page() {
 					</p>
 				</div>
 				<div className="AIservices-process-image1">
-					<img src="/./images/new_services/planning.png" alt="Discovery & Planning" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/./images/new_services/planning.webp" alt="Discovery & Planning" />
 				</div>
 			</div>
 
@@ -114,7 +114,7 @@ export default function Page() {
 					</p>
 				</div>
 				<div className="AIservices-process-image">
-					<img src="/./images/new_services/ui-ux.png" alt="UI/UX Design" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/./images/new_services/ui-ux.webp" alt="UI/UX Design" />
 				</div>
 			</div>
 
@@ -128,7 +128,7 @@ export default function Page() {
 					</p>
 				</div>
 				<div className="AIservices-process-image1">
-					<img src="/./images/new_services/development.png" alt="Development" />
+					<img width={432} height={245} loading="lazy" decoding="async" src="/./images/new_services/development.webp" alt="Development" />
 				</div>
 			</div>
 
@@ -142,7 +142,7 @@ export default function Page() {
 					</p>
 				</div>
 				<div className="AIservices-process-image">
-					<img src="/./images/new_services/testing.png" alt="Testing" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/./images/new_services/testing.webp" alt="Testing" />
 				</div>
 			</div>
 
@@ -156,7 +156,7 @@ export default function Page() {
 					</p>
 				</div>
 				<div className="AIservices-process-image1">
-					<img src="/./images/new_services/launch.png" alt="Launch" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/./images/new_services/launch.webp" alt="Launch" />
 				</div>
 			</div>
 
@@ -170,7 +170,7 @@ export default function Page() {
 					</p>
 				</div>
 				<div className="AIservices-process-image">
-					<img src="/./images/new_services/post-launch.png" alt="Post-Launch Support" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/./images/new_services/post-launch.webp" alt="Post-Launch Support" />
 				</div>
 			</div>
 		</div>
@@ -185,12 +185,12 @@ export default function Page() {
 				<div className="Aiservices-testimonial-content">
 					<div className="Aiservices-company-logo-container">
 						<div className="Aiservices-company-logo-div">
-							<img src="/images/home/tech/ricehub.png" alt="Trendify Fashion Store Logo" />
+							<img width={300} height={140} loading="lazy" decoding="async" src="/images/home/tech/ricehub.webp" alt="Trendify Fashion Store Logo" />
 						</div>
 					</div>
 					<div className="Aiservices-testimonial-text">
 						<div className="Aiservices-rating">
-							<img src="/images/new_services/doublequotes.png" className="doublequotes_img" alt="Quote Icon" />
+							<img width={61} height={61} loading="lazy" decoding="async" src="/images/new_services/doublequotes.webp" className="doublequotes_img" alt="Quote Icon" />
 						</div>
 						<p className="Aiservices-testimonial-quote">
 
@@ -202,7 +202,7 @@ export default function Page() {
 							<span style={{color: "blue"}}>— Vikram Nair,</span>
 						</p>
 						<div className="Aiservices-testimonial-author">
-							<span><a href="/app-and-web-development-for-ecommerce-services" target="_blank">Read Full
+							<span><a href="/app-and-web-development-for-ecommerce-services" target="_blank" rel="noopener noreferrer">Read Full
 									Story →</a></span>
 						</div>
 					</div>
@@ -357,7 +357,7 @@ export default function Page() {
 								Let's get to chat.</h3>
 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 									className="fas fa-user fb-bigon"></i> Contact </a>
-							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
+							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer"
 								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
 								Whatsapp </a>
 
@@ -365,7 +365,7 @@ export default function Page() {
 					</div>
 					<div className="col-lg-6 vcenter text-center">
 						<div className="sol-img-png">
-							<img src="/images/cta/CONTACT-US-woocommerce-dev.svg"
+							<img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/CONTACT-US-woocommerce-dev.svg"
 								alt="woocommerce web design company in Hyderabad" className="img-fluid" />
 						</div>
 					</div>

@@ -56,7 +56,7 @@ const blogCards = [
         category: "Ecommerce"
       },
       {
-        image: "/images/portfolio/otloffers.png",
+        image: "/images/portfolio/otloffers.webp",
         link: "olt-offers-mobile-app-development",
         name: "OLT Offers — Location-Based Deals & Coupon App",
         tag: "UX, UI, Android, iOS, Flutter",
@@ -64,28 +64,28 @@ const blogCards = [
       },
       // ── OLDER PORTFOLIOS ─────────────────────────────────────────────────
       {
-        image: "/images/portfolio/omVideos.png",
+        image: "/images/portfolio/omVideos.webp",
         link: "devotional-mobile-app-development",
         name: "Om Video Devotional Mobile App Development",
         tag: "UX, UI, Android and iOS",
         category: "social media"
       },
       {
-        image: "/images/portfolio/onlyshop.png",
+        image: "/images/portfolio/onlyshop.webp",
         link: "onlyshop-mobile-shopping-app-development",
         name: "Onlyshop Mobile Shopping App Development",
         tag: "UX, UI,Android and iOS",
         category: "Ecommerce"
       },
       {
-        image: "/images/portfolio/adfini8.png",
+        image: "/images/portfolio/adfini8.webp",
         link: "adfini8-mobile-advertising-platform-development",
         name: "Adfin8 Mobile Advertising Platform Development",
         tag: "UX, UI,Web,Android and iOS",
         category: "Ecommerce"
       },
       {
-        image: "/images/portfolio/golkonda.jpg",
+        image: "/images/portfolio/golkonda.webp",
         link: "telangana-ecommerce-mobile-app-development",
         name: "Telangana Government E-Commerce Web Development",
         tag: "UX, UI, Website, Android and iOS",
@@ -94,28 +94,28 @@ const blogCards = [
 
 
       {
-        image: "/images/portfolio/sacchi.png",
+        image: "/images/portfolio/sacchi.webp",
         link: "retailer-management-system-mobile-web-app ",
         name: "Saachi Retailer Management System",
         tag: "UX, UI, Website, Android and iOS",
         category: "Ecommerce"
       },
       {
-        image: "/images/portfolio/Avenue.png",
+        image: "/images/portfolio/Avenue.webp",
         link: "real-estate-lead-app",
         name: "Avenue - Real Estate Lead Management App",
         tag: "UX, UI, Website, Android and iOS",
         category: "Real Estate"
       },
       {
-        image: "/images/portfolio/rahal.png",
+        image: "/images/portfolio/rahal.webp",
         link: "rahayel-parking-lot-management-system",
         name: "Rahayel Parking Lot Management System",
         tag: "UX, UI, Android",
         category: "Real Estate"
       },
       {
-        image: "/images/portfolio/Tripsy.png",
+        image: "/images/portfolio/Tripsy.webp",
         link: "car-booking-app-rent-ride",
         name: "Car Booking App | Rent a Ride in Minutes",
         tag: "UX, UI, Android",
@@ -129,28 +129,28 @@ const blogCards = [
         category: "Legal"
       },
       {
-        image: "/images/portfolio/zefsci-screen-main.png",
+        image: "/images/portfolio/zefsci-screen-main.webp",
         link: "app-solutions-for-medical-device-companies",
         name: "Medical Devices & Equipment, Engineered for Precision and Care",
         tag: "UX, UI, Android",
         category: "Health Care"
       },
       {
-        image: "/images/portfolio/aduri.png",
+        image: "/images/portfolio/aduri.webp",
         link: "web-and-app-development-for-real-estate-services",
         name: "Building Dreams, Shaping Realities",
         tag: "UX, UI, Android, iOS, Web",
         category: "CRM"
       },
       {
-        image: "/images/portfolio/onusmain.png",
+        image: "/images/portfolio/onusmain.webp",
         link: "healthcare-super-app",
         name: "Healthcare Super App – ECommerce Web & Mobile Application",
         tag: "Healthcare, UX, UI, Android, iOS, Web",
         category: "Health Care"
       },
       {
-        image: "/images/portfolio/hitechmain.png",
+        image: "/images/portfolio/hitechmain.webp",
         link: "hitech-shuttle-bus-management-platform",
         name: "HiTech Shuttle – Smart Bus Management Platform",
         tag: "UX, UI, Website, Android, iOS",
@@ -164,14 +164,14 @@ const blogCards = [
         category: "Online Services"
       },
       {
-        image: "/images/portfolio/drpickmain.png",
+        image: "/images/portfolio/drpickmain.webp",
         link: "drpick-healthcare-app",
         name: "Dr.Pick – Digital Healthcare Super App",
         tag: "UX, UI, Website, Android, iOS",
         category: "Health Care"
       },
       {
-        image: "/images/portfolio/ricehub.png",
+        image: "/images/portfolio/ricehub.webp",
         link: "app-and-web-development-for-ecommerce-services",
         name: "Discover the Finest Rice, Anytime, Anywhere",
         tag: "UX, UI, Website, Android, iOS",
@@ -192,28 +192,28 @@ const blogCards = [
         category: "Ecommerce"
       },
       {
-        image: "/images/portfolio/clickget.jpg",
+        image: "/images/portfolio/clickget.webp",
         link: "secure-ecommerce-shopping-platform",
         name: "Innovative E-Commerce Platform for Secure Online Shopping",
         tag: "UX, UI, Android , iOS",
         category: "Ecommerce"
       },
       {
-        image: "/images/portfolio/Bhandam.jpg",
+        image: "/images/portfolio/Bhandam.webp",
         link: "custom-matrimonial-mobile-app-development",
         name: "Smart Matrimony Mobile App Development for Perfect Matchmaking",
         tag: "UX, UI, Website, Android and iOS",
         category: "Online Services"
       },
       {
-        image: "/images/portfolio/Roboride-portfolio.jpg",
+        image: "/images/portfolio/Roboride-portfolio.webp",
         link: "cabs-booking-app-development-company",
         name: "Cabs Booking App Development Company",
         tag: "UX, UI, Website, Android and iOS",
         category: "Transport Management"
       },
       {
-        image: "/images/portfolio/Tanyya.jpg",
+        image: "/images/portfolio/Tanyya.webp",
         link: "custom-crm-software-development-company",
         name: "Custom CRM Software Development Company",
         tag: "UX, UI, Website, Android and iOS",
@@ -227,49 +227,49 @@ const blogCards = [
         category: "Online Services"
       },
       {
-        image: "/images/portfolio/khidkee.jpg",
+        image: "/images/portfolio/khidkee.webp",
         link: "multi-vendor-ecommerce-mobile-app-development",
         name: "Multi-Vendor Ecommerce Mobile App Development",
         tag: "UX, UI, Android and iOS",
         category: "Ecommerce"
       },
       {
-        image: "/images/portfolio/InstiServe.jpg",
+        image: "/images/portfolio/InstiServe.webp",
         link: "staff-and-student-management-enterprise-mobile-app-development",
         name: "Staff and Student Management Android App Development",
         tag: "UX, UI, Android",
         category: "CRM"
       },
       {
-        image: "/images/portfolio/veatech.jpg",
+        image: "/images/portfolio/veatech.webp",
         link: "online-learning-platform-mobile-app-development",
         name: "Online learning platform Mobile App Development",
         tag: "UX, UI, Website ,Android",
         category: "Ed-tech"
       },
       {
-        image: "/images/portfolio/Medbuzz-main.jpg",
+        image: "/images/portfolio/Medbuzz-main.webp",
         link: "online-generic-medicine-mobile-app-development-and-web-development",
         name: "Online Generic Medicine Mobile App Development & Web Development",
         tag: "UX, UI, Website ,Android",
         category: "Health Care"
       },
       {
-        image: "/images/portfolio/Heyman.jpg",
+        image: "/images/portfolio/Heyman.webp",
         link: "on-demand-home-services-mobile-app-development",
         name: "On-Demand Home Services Mobile App Development",
         tag: "UX, UI, Website ,Android and IOS",
         category: "Ecommerce"
       },
       {
-        image: "/images/portfolio/vivent.png",
+        image: "/images/portfolio/vivent.webp",
         link: "event-management-and-gifting-app",
         name: "Seamlessly Plan Events and Send Gifts with Our All-in-One App Development",
         tag: "UX, UI, Website ,Android and IOS",
         category: "Online Services"
       },
       {
-        image: "/images/portfolio/citzon.jpg",
+        image: "/images/portfolio/citzon.webp",
         link: "hyper-local-delivery-mobile-app-development",
         name: "Hyper-Local Grocery Shopping App",
         tag: "UX, UI, Android and iOS",
@@ -283,7 +283,7 @@ const blogCards = [
         category: "social media"
       },
       {
-        image: "/images/portfolio/fairloy.jpg",
+        image: "/images/portfolio/fairloy.webp",
         link: "loyalty-program-management-mobile-app-development",
         name: "Loyalty Program Management iOS and Android App Development",
         tag: "UX, UI, Android and iOS",
@@ -304,21 +304,21 @@ const blogCards = [
         category: "ecommerce"
       },
       {
-        image: "/images/portfolio/brickberry.jpg",
+        image: "/images/portfolio/brickberry.webp",
         link: "fractional-property-ownership-web-development",
         name: "Real Estate Web Development",
         tag: "UX, UI, Website",
         category: "Real Estate"
       },
       {
-        image: "/images/portfolio/PI.VA.jpg",
+        image: "/images/portfolio/PI.VA.webp",
         link: "call-management-mobile-app-development",
         name: "Call Management iOS App Development and Android App",
         tag: "UX, UI, Android and iOS",
         category: "CRM"
       },
       {
-        image: "/images/portfolio/PF.jpg",
+        image: "/images/portfolio/PF.webp",
         link: "online-learning-android-app-development",
         name: "E-Learning Android App Development",
         tag: "UX, UI, Android and iOS",
@@ -332,21 +332,21 @@ const blogCards = [
         category: "CRM"
       },
       {
-        image: "/images/portfolio/dubshoot-image.jpg",
+        image: "/images/portfolio/dubshoot-image.webp",
         link: "lip-sync-video-dubbing-mobile-app-development",
         name: "Video-Sharing iOS App Development and Android App",
         tag: "UX, UI, Android and iOS",
         category: "social media"
       },
       {
-        image: "/images/portfolio/uber-clone-app.jpg",
+        image: "/images/portfolio/uber-clone-app.webp",
         link: "make-your-taxi-business-smart-with-our-uber-clone-app-development",
         name: "Uber Clone App",
         tag: "UX, UI",
         category: "Transport Management"
       },
       {
-        image: "/images/portfolio/astrograha.jpg",
+        image: "/images/portfolio/astrograha.webp",
         link: "online-astrology-consultation-mobile-app-development",
         name: "Online Astrology Consultation Mobile App Development",
         tag: "UX, UI, Website, Android, and iOS",
@@ -373,7 +373,7 @@ const blogCards = [
         category: "utility"
       },
       {
-        image: "/images/portfolio/wefix.jpg",
+        image: "/images/portfolio/wefix.webp",
         link: "on-demand-service-providers-web-and-mobile-app-development",
         name: "On-Demand Service Providers Web And Mobile App Development",
         tag: "UX, UI, Android, Website",
@@ -394,56 +394,56 @@ const blogCards = [
         category: "Ecommerce"
       },
       {
-        image: "/images/portfolio/esra.jpg",
+        image: "/images/portfolio/esra.webp",
         link: "spa-and-salon-booking-flutter-app-development",
         name: "Spa and salon Booking App Development",
         tag: "UX, UI, Android",
         category: "Ecommerce"
       },
       {
-        image: "/images/portfolio/Desicart.jpg",
+        image: "/images/portfolio/Desicart.webp",
         link: "online-shopping-and-international-shipping-service-mobile-app",
         name: "Online Shopping And International Shipping Service Mobile App",
         tag: "UX, UI, Website, Android and iOS",
         category: "Ecommerce"
       },
       {
-        image: "/images/portfolio/gullyshop.jpg",
+        image: "/images/portfolio/gullyshop.webp",
         link: "online-grocery-delivery-android-app-development",
         name: "Online Grocery Delivery Android App Development",
         tag: "UX, UI, Android",
         category: "Ecommerce"
       },
       {
-        image: "/images/portfolio/Genifast.jpg",
+        image: "/images/portfolio/Genifast.webp",
         link: "online-generic-medicine-delivery-mobile-app-development",
         name: "Online Generic Medicine Delivery Mobile App Development",
         tag: "UX, UI, Website, Android and iOS",
         category: "Health Care"
       },
       {
-        image: "/images/portfolio/Kalptaruh.png",
+        image: "/images/portfolio/Kalptaruh.webp",
         link: "key-plantation-ngo-mobile-app-development",
         name: "Key Plantation NGO Mobile App Development",
         tag: "UX, UI, Android",
         category: "Online Services"
       },
       {
-        image: "/images/portfolio/Mynet.jpg",
+        image: "/images/portfolio/Mynet.webp",
         link: "social-community-mobile-app-development",
         name: "Social Community Mobile App Development",
         tag: "UX, UI, Android and iOS",
         category: "social media"
       },
       {
-        image: "/images/portfolio/Favmall.png",
+        image: "/images/portfolio/Favmall.webp",
         link: "online-delivery-grocery-shopping-mobile-app-development",
         name: "Online Delivery Grocery Shopping Mobile App Development",
         tag: "UX, UI, Android,iOS",
         category: "Ecommerce"
       },
       {
-        image: "/images/portfolio/AnajBazaar.jpg",
+        image: "/images/portfolio/AnajBazaar.webp",
         link: "b2b-grocery-shopping-mobile-app-development-and-web-development",
         name: "B2B Grocery Shopping Mobile App Development & Web Development",
         tag: "UX, UI, Website, Android and iOS",
@@ -490,14 +490,14 @@ const blogCards = [
       <div class="col-lg-4 col-sm-6 blog-card-item" data-category="${normalizeCategory(item)}" data-aos="fade-down">
         <div class="ree-media-crd">
           <div class="rpl-img">
-            <a href="${href}" target="_blank">
+            <a href="${href}" target="_blank" rel="noopener noreferrer">
               <img src="${item.image}" alt="${item.name}" class="fill-fixed">
             </a>
           </div>
           <div class="rpl-contt">
             <p class="port-tags" style="font-size: 14px;font-weight: 600;">${item.tag}</p>
-            <h4><a href="${href}" target="_blank">${item.name}</a></h4>
-            <a href="${href}" target="_blank" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+            <h4><a href="${href}" target="_blank" rel="noopener noreferrer">${item.name}</a></h4>
+            <a href="${href}" target="_blank" rel="noopener noreferrer" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
       </div>

@@ -13,13 +13,13 @@
 //     url: "https://www.mtouchlabs.com/hire-developers-in-india",
 //     siteName: "mTouch Labs",
 //     type: "website",
-//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire Developers in India" }],
+//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Hire Developers in India" }],
 //   },
 //   twitter: {
 //     card: "summary_large_image",
 //     title: "Hire Developers in India",
 //     description: "Hire top developers in India for your next project.",
-//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
 //   },
 // };
 
@@ -55,7 +55,7 @@
 //           <div className="row align-items-center">
 //             <div className="col-lg-5" data-aos="fade-right" data-aos-delay="200">
 //               <div className="resources-img-box">
-//                 <img
+//                 <img width={690} height={350} loading="lazy" decoding="async"
 //                   src="/images/cta/Hire-Dedicated-Developers-For-Your-App-Development-Projects.svg"
 //                   alt="Hire Developers"
 //                   className="img-fluid"
@@ -93,13 +93,13 @@
 //                   models to support projects of any scale.
 //                 </p>
 //                 <div className="resources-features">
-//                   <img src="/images/hire-feature-resource.svg" alt="Flexible Hiring, 24/7 Technical Assistance, In-house dedicated resources" className="img-fluid" />
+//                   <img width={601} height={60} loading="lazy" decoding="async" src="/images/hire-feature-resource.svg" alt="Flexible Hiring, 24/7 Technical Assistance, In-house dedicated resources" className="img-fluid" />
 //                 </div>
 //               </div>
 //             </div>
 //             <div className="col-lg-5" data-aos="fade-left" data-aos-delay="400">
 //               <div className="resources-img-box">
-//                 <img
+//                 <img width={690} height={350} loading="lazy" decoding="async"
 //                   src="/images/cta/Hire-Dedicated-Mobile-App-Developers-&-Dedicated-Web-Developers.svg"
 //                   alt="Hire Mobile & Web Developers"
 //                   className="img-fluid"
@@ -129,42 +129,42 @@
 //               <div className="resources-cards-grid">
 //                 <div className="resources-card">
 //                   <div className="resources-card-icon">
-//                     <img src="/images/ios-icon.svg" alt="iOS" />
+//                     <img width={46} height={39} loading="lazy" decoding="async" src="/images/ios-icon.svg" alt="iOS" />
 //                   </div>
 //                   <h4>Hire Dedicated iOS Resources</h4>
 //                   <p>Hire affordable iOS developers from mTouch Labs India.</p>
 //                 </div>
 //                 <div className="resources-card">
 //                   <div className="resources-card-icon">
-//                     <img src="/images/angular-icon.svg" alt="Angular" />
+//                     <img width={46} height={39} loading="lazy" decoding="async" src="/images/angular-icon.svg" alt="Angular" />
 //                   </div>
 //                   <h4>Hire Angular Developer</h4>
 //                   <p>Hire an Angular developer from mTouchlabs.</p>
 //                 </div>
 //                 <div className="resources-card">
 //                   <div className="resources-card-icon">
-//                     <img src="/images/android-icon.svg" alt="Android" />
+//                     <img width={46} height={39} loading="lazy" decoding="async" src="/images/android-icon.svg" alt="Android" />
 //                   </div>
 //                   <h4>Hire Dedicated Android Resources</h4>
 //                   <p>Hire flexible web resources for timely delivery.</p>
 //                 </div>
 //                 <div className="resources-card">
 //                   <div className="resources-card-icon">
-//                     <img src="/images/web-icon.svg" alt="Web" />
+//                     <img width={46} height={39} loading="lazy" decoding="async" src="/images/web-icon.svg" alt="Web" />
 //                   </div>
 //                   <h4>Hire Dedicated Web Resources</h4>
 //                   <p>Hire dedicated web resources for timely delivery.</p>
 //                 </div>
 //                 <div className="resources-card">
 //                   <div className="resources-card-icon">
-//                     <img src="/images/nodejs-icon.svg" alt="Node JS" />
+//                     <img width={46} height={39} loading="lazy" decoding="async" src="/images/nodejs-icon.svg" alt="Node JS" />
 //                   </div>
 //                   <h4>Hire Node JS Developer</h4>
 //                   <p>Hire dedicated Node.js developers for your project.</p>
 //                 </div>
 //                 <div className="resources-card">
 //                   <div className="resources-card-icon">
-//                     <img src="/images/designer-icon.svg" alt="Designers" />
+//                     <img width={46} height={39} loading="lazy" decoding="async" src="/images/designer-icon.svg" alt="Designers" />
 //                   </div>
 //                   <h4>Hire Dedicated Designers</h4>
 //                   <p>Hire expert designers in modern web technologies.</p>
@@ -245,7 +245,7 @@
 //           <div className="row align-items-center">
 //             <div className="col-lg-5" data-aos="fade-right" data-aos-delay="200">
 //               <div className="resources-img-box">
-//                 <img src="/images/cta/let's-get-to-chat-hire-dev.svg" alt="working with client" className="img-fluid" />
+//                 <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/let's-get-to-chat-hire-dev.svg" alt="working with client" className="img-fluid" />
 //               </div>
 //             </div>
 //             <div className="col-lg-7" data-aos="fade-left" data-aos-delay="400">
@@ -261,7 +261,7 @@
 //                   <a href="/contact-us" className="resources-btn">
 //                     <i className="fas fa-user fa-btn"></i> Contact Us
 //                   </a>
-//                   <a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" className="resources-btn resources-btn-whatsapp">
+//                   <a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer" className="resources-btn resources-btn-whatsapp">
 //                     <i className="fab fa-whatsapp fa-btn"></i> Whatsapp
 //                   </a>
 //                 </div>
@@ -306,13 +306,13 @@ export const metadata: Metadata = {
     description: "Scale your projects with skilled Indian developers offering mobile, web, cloud, and AI expertise.",
     url: "https://www.mtouchlabs.com/hire-developers-in-india",
     siteName: "mTouch Labs", type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire Developers in India" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Hire Developers in India" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Hire Developers in India",
     description: "Scale your projects with skilled Indian developers offering mobile, web, cloud, and AI expertise.",
-    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
   },
 };
 

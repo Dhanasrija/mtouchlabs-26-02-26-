@@ -16,21 +16,21 @@ const data: ProductPageData = {
     h1Tail: "in Hyderabad",
     subtitle: "Launch a feature-rich hotel reservation app with real-time availability, instant bookings, and secure payments.",
     demoHref: "https://youtu.be/JkyhaT9n4vM?si=cbedgYwyLIuzRny9",
-    leftPhoneImg: "/images/products/hotel/phone1.png",
-    rightPhoneImg: "/images/products/hotel/phone2.png",
+    leftPhoneImg: "/images/products/hotel/phone1.webp",
+    rightPhoneImg: "/images/products/hotel/phone2.webp",
   },
   intro: {
-    img: "/images/products/hotel/phone1.png",
+    img: "/images/products/hotel/phone1.webp",
     label: "Hotel Booking Experts",
     h3: "Hotel Booking App Development",
     body: [
-      <>mTouch Labs is a NASSCOM award-winning <a href="/mobile-app-development-company" target="_blank">hotel booking app development company</a> in Hyderabad, helping hospitality brands and travel startups launch reservation platforms.</>,
+      <>mTouch Labs is a NASSCOM award-winning <a href="/mobile-app-development-company" target="_blank" rel="noopener noreferrer">hotel booking app development company</a> in Hyderabad, helping hospitality brands and travel startups launch reservation platforms.</>,
       <>We build single-hotel apps, OTA marketplaces, vacation rentals, and B2B hotel booking platforms tailored to your scale.</>,
     ],
   },
   dividerTitle: "Custom Hotel Booking App Development",
   endToEnd: {
-    img: "/images/products/hotel/phone2.png",
+    img: "/images/products/hotel/phone2.webp",
     label: "End-to-End Solutions",
     h3: "Complete Hotel App Development",
     body: [
@@ -56,11 +56,11 @@ const data: ProductPageData = {
   screens: {
     alt: "Hotel booking app screen",
     images: [
-      "/images/products/hotel/appscreen1.png",
-      "/images/products/hotel/appscreen2.png",
-      "/images/products/hotel/appscreen3.png",
-      "/images/products/hotel/appscreen4.png",
-      "/images/products/hotel/appscreen5.png",
+      "/images/products/hotel/appscreen1.webp",
+      "/images/products/hotel/appscreen2.webp",
+      "/images/products/hotel/appscreen3.webp",
+      "/images/products/hotel/appscreen4.webp",
+      "/images/products/hotel/appscreen5.webp",
     ],
   },
   tabs: {
@@ -95,7 +95,7 @@ const data: ProductPageData = {
     { q: "Do you provide post-launch support?", a: "Yes, we provide ongoing maintenance and feature enhancements." },
   ],
   cta: {
-    img: "/images/products/hotel/Hotel.png",
+    img: "/images/products/hotel/Hotel.webp",
     h2: "Build a Hotel Booking App Guests Love",
     body: "Launch a modern hotel booking platform that is scalable, user-friendly, and ready for growth.",
   },

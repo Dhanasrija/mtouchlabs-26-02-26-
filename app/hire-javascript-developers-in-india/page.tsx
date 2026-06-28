@@ -13,13 +13,13 @@
 //     url: "https://www.mtouchlabs.com/hire-javascript-developers-in-india",
 //     siteName: "mTouch Labs",
 //     type: "website",
-//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire JS developers India | Hire Dedicated Javascript developers" }],
+//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Hire JS developers India | Hire Dedicated Javascript developers" }],
 //   },
 //   twitter: {
 //     card: "summary_large_image",
 //     title: "Hire JS developers India | Hire Dedicated Javascript developers",
 //     description: "Looking to Hire JS developers in India? Hire Dedicated Javascript developers from us who are having in-depth knowledge and technological excellence.",
-//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
 //   },
 // };
 
@@ -58,7 +58,7 @@
 // 					</div>
 // 				</div>
 // 				<div className="col-lg-6">
-// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img
+// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img width={690} height={350} loading="lazy" decoding="async"
 // 							src="/images/others/Hire-JS-developers-from-us.svg" alt="mTouch Labs" className="img-fluid" />
 // 					</div>
 // 				</div>
@@ -84,7 +84,7 @@
 // 								designed to enhance web
 // 								pages, whereas now it is widely used in every way
 // 								imaginable.<a href="https://www.mtouchlabs.com/hire-fullstack-developers-in-india"
-// 									target="_blank">Hire JS developers</a> from us
+// 									target="_blank" rel="noopener noreferrer">Hire JS developers</a> from us
 // 								who are rich in expertise with several IDEs and tools
 // 								and frameworks.</p>
 
@@ -105,7 +105,7 @@
 // 								clients. We combine technical skills and understanding
 // 								to deliver outstanding <a
 // 									href="https://www.mtouchlabs.com/best-web-development-company-in-hyderabad"
-// 									target="_blank">web
+// 									target="_blank" rel="noopener noreferrer">web
 // 									development services</a> to our clients across
 // 								the globe. Using cutting-edge technologies
 // 								and the latest trends, we come up with excellent
@@ -123,7 +123,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img src="/images/cta/Hire-Dedicated-Javascript-Developers-From-Us.svg"
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Hire-Dedicated-Javascript-Developers-From-Us.svg"
 // 								alt="javascript Developers" className="img-fluid" /> </div>
 // 					</div>
 // 				</div>
@@ -135,7 +135,7 @@
 // 				<div className="row">
 
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async"
 // 								src="/images/cta/Why-Hire-Javascript-Programmers-from-mTouchlabs.svg"
 // 								alt="javascript web Developers" className="img-fluid" /></div>
 // 					</div>
@@ -149,7 +149,7 @@
 // 									Labs in India</span></h2>
 // 							<p>mTouchlabs is a well-renowned <a
 // 									href="https://www.mtouchlabs.com/hire-mobile-app-designers-in-india"
-// 									target="_blank">custom web & mobile app
+// 									target="_blank" rel="noopener noreferrer">custom web & mobile app
 // 									development company</a> in India
 // 								blessed with highly-motivated JavaScript engineers,
 // 								developers, coders, experts, and
@@ -218,7 +218,7 @@
 // 			<div className="row mt30">
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Easy-Language.svg" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Easy-Language.svg" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Easy Language </h3>
 // 							<p>The biggest benefit of using JavaScript language is that it
@@ -230,7 +230,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Execution-on-the-Client-Side.svg"
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Execution-on-the-Client-Side.svg"
 // 								alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Execution on the Client Side</h3>
@@ -244,7 +244,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Extended-Functionality.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Extended-Functionality.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Extended Functionality</h3>
@@ -258,7 +258,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Platform-Independent.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Platform-Independent.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Platform Independent</h3>
@@ -271,7 +271,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Event-Based Programming.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Event-Based Programming.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Event-Based Programming</h3>
@@ -320,7 +320,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
-// 						<div className="sol-img-png"> <img src="/images/cta/Hire-Our-Dedicated-Javascript-Developers.svg"
+// 						<div className="sol-img-png"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Hire-Our-Dedicated-Javascript-Developers.svg"
 // 								alt="hire javascript developers" className="img-fluid" />
 // 						</div>
 // 					</div>
@@ -347,7 +347,7 @@
 // 								to chat.</h3>
 // 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 // 									className="fas fa-user fb-bigon"></i> Contact </a>
-// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
+// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer"
 // 								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
 // 								Whatsapp </a>
 
@@ -355,7 +355,7 @@
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
 // 						<div className="sol-img-png">
-// 							<img src="/images/cta/let's-get-to-chat-hire-js.svg" alt="working with client"
+// 							<img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/let's-get-to-chat-hire-js.svg" alt="working with client"
 // 								className="img-fluid" />
 // 						</div>
 // 					</div>

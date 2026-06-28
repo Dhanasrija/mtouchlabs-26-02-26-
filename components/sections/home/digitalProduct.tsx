@@ -1,16 +1,16 @@
 import Image from "next/image";
 
 const logos = [
-  { src: "/images/home/tech/kezad-logo.png", alt: "Kezad Group" },
-  { src: "/images/home/tech/kohere.png", alt: "Kohere" },
-  { src: "/images/home/tech/aduri.png", alt: "Aburi Group" },
-  { src: "/images/home/tech/image1.png", alt: "ADJD" },
-  { src: "/images/home/tech/image3.png", alt: "Government of Telangana" },
-  { src: "/images/home/tech/zefsci.png", alt: "ZetSci" },
-  { src: "/images/home/tech/uptick.png", alt: "UaTiK" },
-  { src: "/images/home/tech/saachi.png", alt: "Sacchi" },
-  { src: "/images/home/tech/drpicklogo.png", alt: "Dr.Pick" },
-  { src: "/images/home/tech/image2.png", alt: "ZuppiBuy" },
+  { src: "/images/home/tech/kezad-logo.webp", alt: "Kezad Group" },
+  { src: "/images/home/tech/kohere.webp", alt: "Kohere" },
+  { src: "/images/home/tech/aduri.webp", alt: "Aburi Group" },
+  { src: "/images/home/tech/image1.webp", alt: "ADJD" },
+  { src: "/images/home/tech/image3.webp", alt: "Government of Telangana" },
+  { src: "/images/home/tech/zefsci.webp", alt: "ZetSci" },
+  { src: "/images/home/tech/uptick.webp", alt: "UaTiK" },
+  { src: "/images/home/tech/saachi.webp", alt: "Sacchi" },
+  { src: "/images/home/tech/drpicklogo.webp", alt: "Dr.Pick" },
+  { src: "/images/home/tech/image2.webp", alt: "ZuppiBuy" },
 ];
 
 export default function DigitalProductSection() {
@@ -18,7 +18,7 @@ export default function DigitalProductSection() {
 
   return (
     <>
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @keyframes dpFadeLeft {
           from { opacity: 0; transform: translateX(-30px); }
           to   { opacity: 1; transform: translateX(0);     }
@@ -64,7 +64,7 @@ export default function DigitalProductSection() {
             height: auto !important;
           }
         }
-      `}</style>
+      `}} />
       <section className="dp-section" style={{ backgroundColor: "#FFFFFF", padding: "80px 0", overflow: "hidden" }}>
         <div className="dp-grid" style={{
           maxWidth: "1200px",
@@ -205,7 +205,7 @@ export default function DigitalProductSection() {
             }}
           >
             <Image
-              src="/images/home/Digitalproduct_img.png"
+              src="/images/home/Digitalproduct_img.webp"
               alt="Two professionals collaborating on a tablet"
               fill
               style={{ objectFit: "contain", objectPosition: "center center" }}

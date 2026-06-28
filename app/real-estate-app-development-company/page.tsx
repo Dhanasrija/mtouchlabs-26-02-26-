@@ -16,23 +16,23 @@ const data: ProductPageData = {
     h1Tail: "in Hyderabad",
     subtitle: "Launch a feature-rich real estate app with property listings, virtual tours, smart search, and secure transactions.",
     demoHref: "https://youtu.be/zJMHLiQtdGw?si=1NMueqEF8o6a8qru",
-    leftPhoneImg: "/images/products/realstate/phone1.png",
-    rightPhoneImg: "/images/products/realstate/phone2.png",
+    leftPhoneImg: "/images/products/realstate/phone1.webp",
+    rightPhoneImg: "/images/products/realstate/phone2.webp",
   },
-  featuresBannerImg: "/images/products/realstate/banner1.png",
+  featuresBannerImg: "/images/products/realstate/banner1.webp",
   featuresBannerAlt: "real estate app development company in Hyderabad",
   intro: {
-    img: "/images/products/realstate/phone1.png",
+    img: "/images/products/realstate/phone1.webp",
     label: "Real Estate Experts",
     h3: "Real Estate App Development",
     body: [
-      <>mTouch Labs is a NASSCOM award-winning <a href="/mobile-app-development-company" target="_blank">real estate app development company</a> in Hyderabad, helping realtors and property tech startups launch modern property platforms.</>,
+      <>mTouch Labs is a NASSCOM award-winning <a href="/mobile-app-development-company" target="_blank" rel="noopener noreferrer">real estate app development company</a> in Hyderabad, helping realtors and property tech startups launch modern property platforms.</>,
       <>We build property marketplaces, rental apps, agent CRMs, and builder/developer portals tailored to your scale.</>,
     ],
   },
   dividerTitle: "Custom Real Estate App Development",
   endToEnd: {
-    img: "/images/products/realstate/phone2.png",
+    img: "/images/products/realstate/phone2.webp",
     label: "End-to-End Solutions",
     h3: "Complete Real Estate Development",
     body: [
@@ -58,11 +58,11 @@ const data: ProductPageData = {
   screens: {
     alt: "Real estate app screen",
     images: [
-      "/images/products/realstate/appscreen1.png",
-      "/images/products/realstate/appscreen2.png",
-      "/images/products/realstate/appscreen3.png",
-      "/images/products/realstate/appscreen4.png",
-      "/images/products/realstate/appscreen5.png",
+      "/images/products/realstate/appscreen1.webp",
+      "/images/products/realstate/appscreen2.webp",
+      "/images/products/realstate/appscreen3.webp",
+      "/images/products/realstate/appscreen4.webp",
+      "/images/products/realstate/appscreen5.webp",
     ],
   },
   tabs: {
@@ -97,7 +97,7 @@ const data: ProductPageData = {
     { q: "Do you provide post-launch support?", a: "Yes, we provide ongoing maintenance and enhancements." },
   ],
   cta: {
-    img: "/images/products/realstate/service_main_img.png",
+    img: "/images/products/realstate/service_main_img.webp",
     h2: "Build a Real Estate App Users Love",
     body: "Launch a modern property platform that is scalable, user-friendly, and ready for growth.",
   },

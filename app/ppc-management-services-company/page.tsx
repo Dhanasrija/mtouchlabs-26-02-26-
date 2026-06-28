@@ -14,13 +14,13 @@ export const metadata: Metadata = {
     url: "https://www.mtouchlabs.com/ppc-management-services-company",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "PPC Management Services Company" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "PPC Management Services Company" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "PPC Management Services Company",
     description: "mTouch Labs is a PPC management services company offering pay-per-click campaigns, optimized ad strategies, and performance-driven results to boost ROI.",
-    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
   },
 };
 
@@ -58,7 +58,7 @@ export default function Page() {
 					for maximum ROI.
 				</p>
 			</div>
-			<a href="/contact-us" target="_blank">
+			<a href="/contact-us" target="_blank" rel="noopener noreferrer">
 				<button className="AIservices-btn">Let’s Discuss</button>
 			</a>
 		</div>
@@ -70,7 +70,7 @@ export default function Page() {
 					platforms to convert users into customers.
 				</p>
 			</div>
-			<a href="/contact-us" target="_blank">
+			<a href="/contact-us" target="_blank" rel="noopener noreferrer">
 				<button className="AIservices-btn">Talk to an Expert</button>
 			</a>
 		</div>
@@ -89,7 +89,7 @@ export default function Page() {
 						to set the foundation.</p>
 				</div>
 				<div className="AIservices-process-image1">
-					<img src="/images/new_services/planning.png" alt="Keyword & Audience Research" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/images/new_services/planning.webp" alt="Keyword & Audience Research" />
 				</div>
 			</div>
 
@@ -101,7 +101,7 @@ export default function Page() {
 						Quality Scores.</p>
 				</div>
 				<div className="AIservices-process-image">
-					<img src="/images/new_services/development.png" alt="Ad Copy and Creative Design" />
+					<img width={432} height={245} loading="lazy" decoding="async" src="/images/new_services/development.webp" alt="Ad Copy and Creative Design" />
 				</div>
 			</div>
 
@@ -113,7 +113,7 @@ export default function Page() {
 						Display, YouTube & Meta Ads.</p>
 				</div>
 				<div className="AIservices-process-image1">
-					<img src="/images/new_services/post-launch.png" alt="Campaign Setup and Targeting" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/images/new_services/post-launch.webp" alt="Campaign Setup and Targeting" />
 				</div>
 			</div>
 
@@ -125,7 +125,7 @@ export default function Page() {
 						on ad spend.</p>
 				</div>
 				<div className="AIservices-process-image">
-					<img src="/images/new_services/launch.png" alt="Budget and Bid Management" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/images/new_services/launch.webp" alt="Budget and Bid Management" />
 				</div>
 			</div>
 
@@ -137,7 +137,7 @@ export default function Page() {
 						generation.</p>
 				</div>
 				<div className="AIservices-process-image1">
-					<img src="/images/new_services/testing.png" alt="Conversion Tracking and Optimization" />
+					<img width={432} height={244} loading="lazy" decoding="async" src="/images/new_services/testing.webp" alt="Conversion Tracking and Optimization" />
 				</div>
 			</div>
 
@@ -149,7 +149,7 @@ export default function Page() {
 						metrics.</p>
 				</div>
 				<div className="AIservices-process-image">
-					<img src="/images/new_services/development.png" alt="Reporting and Analysis" />
+					<img width={432} height={245} loading="lazy" decoding="async" src="/images/new_services/development.webp" alt="Reporting and Analysis" />
 				</div>
 			</div>
 		</div>
@@ -163,12 +163,12 @@ export default function Page() {
 				<div className="Aiservices-testimonial-content">
 					<div className="Aiservices-company-logo-container">
 						<div className="Aiservices-company-logo-div">
-							<img src="/images/home/tech/agrigain.png" alt="StyleCraft Logo" />
+							<img width={300} height={141} loading="lazy" decoding="async" src="/images/home/tech/agrigain.webp" alt="StyleCraft Logo" />
 						</div>
 					</div>
 					<div className="Aiservices-testimonial-text">
 						<div className="Aiservices-rating">
-							<img src="/images/new_services/doublequotes.png" className="doublequotes_img" alt="Quotes" />
+							<img width={61} height={61} loading="lazy" decoding="async" src="/images/new_services/doublequotes.webp" className="doublequotes_img" alt="Quotes" />
 						</div>
 						<p className="Aiservices-testimonial-quote">
 							"mTouch Labs helped us scale from zero to 300+ sales/day using targeted Google Shopping and
@@ -177,7 +177,7 @@ export default function Page() {
 							— Rohit K., Founder
 						</p>
 						<div className="Aiservices-testimonial-author">
-							<span><a href="/ppc-services" target="_blank">Explore →</a></span>
+							<span><a href="/ppc-services" target="_blank" rel="noopener noreferrer">Explore →</a></span>
 						</div>
 					</div>
 				</div>
@@ -288,7 +288,7 @@ export default function Page() {
 							<h3>Have a <span className="ree-text rt40">project</span> in mind? Let's get to chat.</h3>
 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 									className="fas fa-user fb-bigon"></i> Contact </a>
-							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
+							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer"
 								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
 								Whatsapp </a>
 
@@ -296,7 +296,7 @@ export default function Page() {
 					</div>
 					<div className="col-lg-6 vcenter text-center">
 						<div className="sol-img-png">
-							<img src="/images/cta/let's-get-to-chat-PPC.svg"
+							<img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/let's-get-to-chat-PPC.svg"
 								alt="PPC advertising and PPC management services" className="img-fluid" />
 						</div>
 					</div>

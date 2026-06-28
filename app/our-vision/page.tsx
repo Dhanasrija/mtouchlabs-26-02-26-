@@ -14,13 +14,13 @@ export const metadata: Metadata = {
     url: "https://www.mtouchlabs.com/our-vision",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Our Vision – Driving Digital Innovation" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Our Vision – Driving Digital Innovation" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Our Vision – Driving Digital Innovation",
     description: "Explore mTouch Labs’ vision to drive digital innovation, empower businesses through technology, and create impactful, future-ready digital solutions.",
-    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
   },
 };
 
@@ -53,7 +53,7 @@ As digital ecosystems continue to evolve, we aspire to stay ahead of change by c
 
 </p>
     </div>
-    <img src="/images/about/visionmission.png" alt="mTouch Labs vision and mission" />
+    <img width={1258} height={338} loading="lazy" decoding="async" src="/images/about/visionmission.webp" alt="mTouch Labs vision and mission" />
   </section>
   
   <section className="core-expertise_company_overview company_overview" style={{"position": "relative"}}>
@@ -116,7 +116,7 @@ As digital ecosystems continue to evolve, we aspire to stay ahead of change by c
           <div className="col-lg-4 align-items-end">
             <div className="core-media">
               <div className="core-image-wrap">
-                <img src="/images/about/mission2.png" alt="Core expertise" className="img-fluid"
+                <img width={410} height={709} loading="lazy" decoding="async" src="/images/about/mission2.webp" alt="Core expertise" className="img-fluid"
                   style={{"width": "100%", "maxWidth": "300px", "justifySelf": "flex-end"}} />
 
 

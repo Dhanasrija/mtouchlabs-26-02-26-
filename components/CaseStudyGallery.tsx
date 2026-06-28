@@ -7,7 +7,7 @@ interface CaseStudyGalleryProps {
   title: string;
 }
 
-const FALLBACK = '/images/case-study-banner.jpg';
+const FALLBACK = '/images/case-study-banner.webp';
 
 export default function CaseStudyGallery({ images, title }: CaseStudyGalleryProps) {
   const [errored, setErrored] = useState<Record<number, boolean>>({});

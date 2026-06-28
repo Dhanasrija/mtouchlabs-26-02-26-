@@ -15,13 +15,13 @@ export const metadata: Metadata = {
     url: "https://www.mtouchlabs.com/admin/portfolios",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "All Portfolios | Admin" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "All Portfolios | Admin" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "All Portfolios | Admin",
     description: "All Portfolios | Admin",
-    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
   },
 };
 
@@ -63,7 +63,7 @@ export default async function AllPortfoliosPage({
     <div id="admin-root" style={{ display: 'flex', minHeight: '100vh', fontFamily: "'Inter',sans-serif", background: '#f9fafb', color: '#111827', lineHeight: 1.5 }}>
       <aside className="sidebar" style={{ width: 230, minWidth: 230, background: '#1a1a2e', display: 'flex', flexDirection: 'column', position: 'fixed', top: 0, left: 0, bottom: 0, zIndex: 1060, overflow: 'auto', visibility: 'visible', opacity: 1 }}>
         <div style={{ padding: '20px 20px 18px', display: 'flex', alignItems: 'center', gap: 10 }}>
-          <img src="/images/logo-white.png" alt="mTouch Labs" style={{ maxWidth: 150, height: 'auto' }} />
+          <img width={266} height={47} loading="lazy" decoding="async" src="/images/logo-white.webp" alt="mTouch Labs" style={{ maxWidth: 150, height: 'auto' }} />
         </div>
         <nav className="s-links">
           <Link href="/admin/dashboard">
@@ -83,7 +83,7 @@ export default async function AllPortfoliosPage({
             All Portfolios
           </Link>
           <div className="s-div" />
-          <a href="/" target="_blank">
+          <a href="/" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>
             View Site
           </a>
@@ -173,7 +173,7 @@ export default async function AllPortfoliosPage({
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" /><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" /></svg>
                             Edit
                           </Link>
-                          <a href={`/portfolio/${p.slug}`} target="_blank" className="ab-dd-item">
+                          <a href={`/portfolio/${p.slug}`} target="_blank" rel="noopener noreferrer" className="ab-dd-item">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" /></svg>
                             Preview
                           </a>

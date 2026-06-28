@@ -5,7 +5,7 @@
 // const testimonials = [
 //   {
 //     image: "/images/home/testmonial/image 6929.png",
-//     icon: "/images/home/testmonial/quots-icon.png",
+//     icon: "/images/home/testmonial/quots-icon.webp",
 //     quote:
 //       "Partnered with mTouch Labs to develop the Sacchi application, and the project was successfully delivered end-to-end.",
 //     name: "Rohit",
@@ -13,7 +13,7 @@
 //   },
 //   {
 //     image: "/images/home/testmonial/image 6930.png",
-//     icon: "/images/home/testmonial/quots-icon.png",
+//     icon: "/images/home/testmonial/quots-icon.webp",
 //     quote:
 //       "mTouch Labs transformed our parking operations with the efficient and reliable Rahayel System.",
 //     name: "CEO",
@@ -21,7 +21,7 @@
 //   },
 //   {
 //     image: "/images/home/testmonial/image 6931.png",
-//     icon: "/images/home/testmonial/quots-icon.png",
+//     icon: "/images/home/testmonial/quots-icon.webp",
 //     quote:
 //       "mTouch Labs built the Dr.Pick App seamlessly with great commitment and timely delivery.",
 //     name: "Dr Gowardhan",
@@ -29,7 +29,7 @@
 //   },
 //   {
 //     image: "/images/home/testmonial/image 6929.png",
-//     icon: "/images/home/testmonial/quots-icon.png",
+//     icon: "/images/home/testmonial/quots-icon.webp",
 //     quote:
 //       "Partnered with mTouch Labs to develop the Sacchi application, and the project was successfully delivered end-to-end.",
 //     name: "Rohit",
@@ -37,7 +37,7 @@
 //   },
 //   {
 //     image: "/images/home/testmonial/image 6930.png",
-//     icon: "/images/home/testmonial/quots-icon.png",
+//     icon: "/images/home/testmonial/quots-icon.webp",
 //     quote:
 //       "mTouch Labs transformed our parking operations with the efficient and reliable Rahayel System.",
 //     name: "CEO",
@@ -45,7 +45,7 @@
 //   },
 //   {
 //     image: "/images/home/testmonial/image 6931.png",
-//     icon: "/images/home/testmonial/quots-icon.png",
+//     icon: "/images/home/testmonial/quots-icon.webp",
 //     quote:
 //       "mTouch Labs built the Dr.Pick App seamlessly with great commitment and timely delivery.",
 //     name: "Dr Gowardhan",
@@ -56,7 +56,7 @@
 // export default function TestimonialSection() {
 //   return (
 //     <>
-//       <style>{`
+//       <style dangerouslySetInnerHTML={{ __html: `
 //         @keyframes testiFadeUp {
 //           from { opacity: 0; transform: translateY(30px); }
 //           to   { opacity: 1; transform: translateY(0);    }
@@ -228,7 +228,7 @@
 //             margin-top: 10px;
 //           }
 //         }
-//       `}</style>
+//       `}} />
 
 //       <section className="testi-section">
 //         <div className="testi-container">
@@ -270,32 +270,32 @@ const Stars = () => (
 
 const testimonials = [
   {
-    flag: "/images/testimonial/testimonial_ind.png",
+    flag: "/images/testimonial/testimonial_ind.webp",
     flagAlt: "India flag",
     text: "We have partnered with mTouch Labs for the development of the Sacchi application, and I'm pleased to share that the project went exceptionally well from start to finish.",
     name: "Pavan HK",
     role: "General Manager",
-    logo: "/images/testimonial/testimonial_saachi.png",
+    logo: "/images/testimonial/testimonial_saachi.webp",
     logoAlt: "Sacchi logo",
     aos: "zoom-out-right",
   },
   {
-    flag: "/images/testimonial/testimonial_abudabhi.png",
+    flag: "/images/testimonial/testimonial_abudabhi.webp",
     flagAlt: "UAE flag",
     text: "mTouch Labs transformed our parking operations with the Rahayel System. It's efficient, reliable, and perfectly suited to our needs. The team was professional and proactive.",
     name: "Kezad Groups",
     role: "CEO",
-    logo: "/images/testimonial/testimonial_rahayel.png",
+    logo: "/images/testimonial/testimonial_rahayel.webp",
     logoAlt: "Rahayel logo",
     aos: "zoom-out",
   },
   {
-    flag: "/images/testimonial/testimonial_ind.png",
+    flag: "/images/testimonial/testimonial_ind.webp",
     flagAlt: "India flag",
     text: "mTouch Labs made the Dr. Pick app development seamless. They understood our healthcare vision and delivered an intuitive, and patient-friendly platform with great commitment and timely execution.",
     name: "Dr.Vishnu",
     role: "Managing Director",
-    logo: "/images/testimonial/drpick.png",
+    logo: "/images/testimonial/drpick.webp",
     logoAlt: "Dr Pick logo",
     aos: "zoom-out-left",
   },

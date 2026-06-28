@@ -31,7 +31,7 @@ const steps = [
 export default function BuildMethod() {
   return (
     <>
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @keyframes bmTitleBlur {
           from { opacity: 0; filter: blur(8px); }
           to   { opacity: 1; filter: blur(0);   }
@@ -42,7 +42,7 @@ export default function BuildMethod() {
         .bm-in-view .bm-title-item {
           animation: bmTitleBlur 0.5s ease-out both;
         }
-      `}</style>
+      `}} />
       <section
         style={{ background: "#F3F1FF", padding: "80px 24px", textAlign: "center", overflowX: "hidden" }}
       >

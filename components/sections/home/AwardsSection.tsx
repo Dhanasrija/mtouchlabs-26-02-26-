@@ -161,7 +161,7 @@ export default function AwardsSection() {
       </div>
 
       {/* Scoped CSS animations */}
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         /* ── Responsive — keep award images uncropped on every screen ── */
         @media (max-width: 1024px) {
           .aw-section .aw-grid-marquee {
@@ -260,7 +260,7 @@ export default function AwardsSection() {
             animation: none;
           }
         }
-      `}</style>
+      `}} />
     </section>
   );
 }

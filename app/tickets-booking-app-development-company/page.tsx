@@ -16,21 +16,21 @@ const data: ProductPageData = {
     h1Tail: "in Hyderabad",
     subtitle: "Launch a scalable ticket booking app for movies, events, travel, and attractions with real-time seat selection and secure payments.",
     demoHref: "https://youtu.be/jy_PrGTVv1I?si=NBxN427gKvSklHu2",
-    leftPhoneImg: "/images/products/movie/phone1.png",
-    rightPhoneImg: "/images/products/movie/phone2.png",
+    leftPhoneImg: "/images/products/movie/phone1.webp",
+    rightPhoneImg: "/images/products/movie/phone2.webp",
   },
   intro: {
-    img: "/images/products/movie/phone1.png",
+    img: "/images/products/movie/phone1.webp",
     label: "Ticket Booking Experts",
     h3: "Tickets Booking App Development",
     body: [
-      <>mTouch Labs is a NASSCOM award-winning <a href="/mobile-app-development-company" target="_blank">tickets booking app development company</a> in Hyderabad, helping entertainment and travel brands launch ticketing platforms.</>,
+      <>mTouch Labs is a NASSCOM award-winning <a href="/mobile-app-development-company" target="_blank" rel="noopener noreferrer">tickets booking app development company</a> in Hyderabad, helping entertainment and travel brands launch ticketing platforms.</>,
       <>We build movie ticket apps, event booking, bus/train/flight booking, and attraction ticketing platforms tailored to your scale.</>,
     ],
   },
   dividerTitle: "Custom Tickets Booking App Development",
   endToEnd: {
-    img: "/images/products/movie/phone2.png",
+    img: "/images/products/movie/phone2.webp",
     label: "End-to-End Solutions",
     h3: "Complete Ticketing App Development",
     body: [
@@ -56,11 +56,11 @@ const data: ProductPageData = {
   screens: {
     alt: "Tickets booking app screen",
     images: [
-      "/images/products/movie/appscreen1.png",
-      "/images/products/movie/appscreen2.png",
-      "/images/products/movie/appscreen3.png",
-      "/images/products/movie/appscreen4.png",
-      "/images/products/movie/appscreen5.png",
+      "/images/products/movie/appscreen1.webp",
+      "/images/products/movie/appscreen2.webp",
+      "/images/products/movie/appscreen3.webp",
+      "/images/products/movie/appscreen4.webp",
+      "/images/products/movie/appscreen5.webp",
     ],
   },
   tabs: {
@@ -95,7 +95,7 @@ const data: ProductPageData = {
     { q: "Do you provide post-launch support?", a: "Yes, we provide ongoing maintenance and enhancements." },
   ],
   cta: {
-    img: "/images/products/movie/service1.png",
+    img: "/images/products/movie/service1.webp",
     h2: "Build a Ticketing App Customers Love",
     body: "Launch a modern ticketing platform that is scalable, user-friendly, and ready for growth.",
   },

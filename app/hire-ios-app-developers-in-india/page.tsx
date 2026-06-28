@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png",
+        url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp",
         width: 1200,
         height: 630,
         alt: "Hire iOS App Developers in India",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     description:
       "Hire expert iOS developers for secure and scalable Apple ecosystem applications.",
     images: [
-      "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png",
+      "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp",
     ],
   },
   robots: { index: true, follow: true },

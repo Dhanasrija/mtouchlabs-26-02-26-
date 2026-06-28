@@ -65,7 +65,7 @@ export default function WhyChooseSection() {
           {/* RIGHT IMAGE */}
           <div className="wcs2-image-wrap wcs-image-anim">
             <Image
-              src="/images/home/TrustImage.png"
+              src="/images/home/TrustImage.webp"
               alt="mTouch Labs"
               fill
               className="wcs2-image active"

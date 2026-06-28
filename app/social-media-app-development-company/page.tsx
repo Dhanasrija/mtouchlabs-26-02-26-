@@ -17,21 +17,21 @@ const data: ProductPageData = {
     h1Tail: "in Hyderabad",
     subtitle: "Launch a scalable social media app with feeds, stories, reels, chat, live streaming, and creator monetization.",
     demoHref: "https://youtu.be/mWcMXqtNP30?si=sb7_j7mwndkOEJrk",
-    leftPhoneImg: "/images/products/social/phone1.png",
-    rightPhoneImg: "/images/products/social/phone2.png",
+    leftPhoneImg: "/images/products/social/phone1.webp",
+    rightPhoneImg: "/images/products/social/phone2.webp",
   },
   intro: {
-    img: "/images/products/social/phone1.png",
+    img: "/images/products/social/phone1.webp",
     label: "Social Media Experts",
     h3: "Social Media App Development",
     body: [
-      <>mTouch Labs is a NASSCOM award-winning <a href="/mobile-app-development-company" target="_blank">social media app development company</a> in Hyderabad, helping startups and creators launch modern social platforms.</>,
+      <>mTouch Labs is a NASSCOM award-winning <a href="/mobile-app-development-company" target="_blank" rel="noopener noreferrer">social media app development company</a> in Hyderabad, helping startups and creators launch modern social platforms.</>,
       <>We build photo/video sharing apps, short video reels, community forums, niche social apps, and creator monetization platforms tailored to your audience.</>,
     ],
   },
   dividerTitle: "Custom Social Media App Development",
   endToEnd: {
-    img: "/images/products/social/phone2.png",
+    img: "/images/products/social/phone2.webp",
     label: "End-to-End Solutions",
     h3: "Complete Social App Development",
     body: [
@@ -57,11 +57,11 @@ const data: ProductPageData = {
   screens: {
     alt: "Social media app screen",
     images: [
-      "/images/products/social/appscreen1.png",
-      "/images/products/social/appscreen2.png",
-      "/images/products/social/appscreen3.png",
-      "/images/products/social/appscreen4.png",
-      "/images/products/social/appscreen5.png",
+      "/images/products/social/appscreen1.webp",
+      "/images/products/social/appscreen2.webp",
+      "/images/products/social/appscreen3.webp",
+      "/images/products/social/appscreen4.webp",
+      "/images/products/social/appscreen5.webp",
     ],
   },
   tabs: {
@@ -96,7 +96,7 @@ const data: ProductPageData = {
     { q: "Do you provide post-launch support?", a: "Yes, we provide ongoing maintenance and enhancements." },
   ],
   cta: {
-    img: "/images/products/social/banner1.png",
+    img: "/images/products/social/banner1.webp",
     h2: "Build a Social App Users Love",
     body: "Launch a modern social media platform that is engaging, scalable, and ready for growth.",
   },

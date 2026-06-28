@@ -14,13 +14,13 @@ export const metadata: Metadata = {
     url: "https://www.mtouchlabs.com/on-demand-service-mobile-app-development",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "On-Demand App & Web Development" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "On-Demand App & Web Development" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "On-Demand App & Web Development",
     description: "Expert mobile app and web development services for creating seamless on-demand platforms, connecting users and vendors for efficient service delivery.",
-    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
   },
 };
 
@@ -69,7 +69,7 @@ export default function Page() {
 
                         <div className="icon-with-title">
                             <a href="javascript:void(0)">
-                                <div className="iwt-icon"> <img src="/images/icons/Node.JS.svg" alt="nodeJS" />
+                                <div className="iwt-icon"> <img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Node.JS.svg" alt="nodeJS" />
                                 </div>
                                 <div className="iwt-content">
                                     <p>nodeJS</p>
@@ -78,7 +78,7 @@ export default function Page() {
                         </div>
                         <div className="icon-with-title">
                             <a href="javascript:void(0)">
-                                <div className="iwt-icon"> <img src="/images/icons/flutter-icon.svg" alt="angular" />
+                                <div className="iwt-icon"> <img width={292} height={361} loading="lazy" decoding="async" src="/images/icons/flutter-icon.svg" alt="angular" />
                                 </div>
                                 <div className="iwt-content">
                                     <p>Flutter</p>
@@ -87,7 +87,7 @@ export default function Page() {
                         </div>
                         <div className="icon-with-title">
                             <a href="javascript:void(0)">
-                                <div className="iwt-icon"> <img src="/images/icons/mysql.svg" alt="MySql" />
+                                <div className="iwt-icon"> <img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/mysql.svg" alt="MySql" />
                                 </div>
                                 <div className="iwt-content">
                                     <p>MySql</p>
@@ -287,27 +287,27 @@ export default function Page() {
 
             <div className="app-screenss owl-carousel mt70 dottss">
                 <div className="appscreen">
-                    <div className="itme-img"><img src="/images/case-study/adifie-screen1.svg" alt="mockup"
+                    <div className="itme-img"><img width={314} height={620} loading="lazy" decoding="async" src="/images/case-study/adifie-screen1.svg" alt="mockup"
                             className="img-fluid" />
                     </div>
                 </div>
                 <div className="appscreen">
-                    <div className="itme-img"><img src="/images/case-study/adifie-screen2.svg" alt="mockup"
+                    <div className="itme-img"><img width={314} height={620} loading="lazy" decoding="async" src="/images/case-study/adifie-screen2.svg" alt="mockup"
                             className="img-fluid" />
                     </div>
                 </div>
                 <div className="appscreen">
-                    <div className="itme-img"><img src="/images/case-study/adifie-screen3.svg" alt="mockup"
+                    <div className="itme-img"><img width={314} height={620} loading="lazy" decoding="async" src="/images/case-study/adifie-screen3.svg" alt="mockup"
                             className="img-fluid" />
                     </div>
                 </div>
                 <div className="appscreen">
-                    <div className="itme-img"><img src="/images/case-study/adifie-screen5.svg" alt="mockup"
+                    <div className="itme-img"><img width={314} height={620} loading="lazy" decoding="async" src="/images/case-study/adifie-screen5.svg" alt="mockup"
                             className="img-fluid" />
                     </div>
                 </div>
                 <div className="appscreen">
-                    <div className="itme-img"><img src="/images/case-study/adifie-screen4.svg" alt="mockup"
+                    <div className="itme-img"><img width={314} height={620} loading="lazy" decoding="async" src="/images/case-study/adifie-screen4.svg" alt="mockup"
                             className="img-fluid" />
                     </div>
                 </div>

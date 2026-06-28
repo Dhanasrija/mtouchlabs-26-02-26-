@@ -13,13 +13,13 @@
 //     url: "https://www.mtouchlabs.com/hire-aws-developers-in-india",
 //     siteName: "mTouch Labs",
 //     type: "website",
-//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire Aws developers | Hire Aws experts | Cloud service providers" }],
+//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Hire Aws developers | Hire Aws experts | Cloud service providers" }],
 //   },
 //   twitter: {
 //     card: "summary_large_image",
 //     title: "Hire Aws developers | Hire Aws experts | Cloud service providers",
 //     description: "Hire expert AWS developers in India from mTouch Labs. Get scalable and affordable Amazon cloud solutions for your business.",
-//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
 //   },
 // };
 
@@ -52,7 +52,7 @@
 // 					</div>
 // 				</div>
 // 				<div className="col-lg-6">
-// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img
+// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img width={690} height={350} loading="lazy" decoding="async"
 // 							src="/images/others/Our-AWS-developers-provide-cloud-migration-for-uplifting-your-ecommerce-business.svg"
 // 							alt="mTouch Labs" className="img-fluid" /></div>
 // 				</div>
@@ -78,14 +78,14 @@
 // 							<p>Our AWS Developers help all types of businesses in achieving growth across the globe
 // 								starting from startup organizations to well-developed businesses. Hire <a
 // 									href="https://www.mtouchlabs.com/5-ways-to-convert-your-website-into-a-mobile-app"
-// 									target="_blank">Aws Developers</a>
+// 									target="_blank" rel="noopener noreferrer">Aws Developers</a>
 // 								who eventually help in relieving your hardware infrastructure costs and increase
 // 								security and scalability. Our dedicated Cloud Developers help in smoothening your cloud
 // 								migration process for your E-commerce store. </p>
 							 
 // 							<p> At, mTouch Labs our dedicated AWS Developers provide extensive <a
 // 									href="https://www.mtouchlabs.com/ai-role-in-business-automation"
-// 									target="_blank">on-demand AWS cloud
+// 									target="_blank" rel="noopener noreferrer">on-demand AWS cloud
 // 									migration</a> solutions for your complicated business needs. It includes Cloudfront
 // 								Setup,
 // 								Amazon SES (Simple Email Service), Amazon SNS (Amazon Simple Notification Service),
@@ -105,7 +105,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img src="/images/cta/Hire-Our-Dedicated-Cloud-Developers-Remotely.svg"
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Hire-Our-Dedicated-Cloud-Developers-Remotely.svg"
 // 								alt="aws cloud developers" className="img-fluid" /> </div>
 // 					</div>
 // 				</div>
@@ -117,7 +117,7 @@
 // 				<div className="row">
 
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async"
 // 								src="/images/cta/Hire-Dedicated-AWS-Experts-At-Your-Flexibility.svg"
 // 								alt=" aws developers" className="img-fluid" /></div>
 // 					</div>
@@ -136,7 +136,7 @@
 // 							<p>Our dedicated Cloud Services Providers will be responsible for setting up, supporting,
 // 								and evolving the cloud infrastructure of web applications. Hire Cloud Services Providers
 // 								from mTouchlabs who have an understanding of the core <a
-// 									href="/amazon-web-services-company" target="_blank">AWS services</a> will apply best
+// 									href="/amazon-web-services-company" target="_blank" rel="noopener noreferrer">AWS services</a> will apply best
 // 								practices regarding security and scalability.
 // 							</p>
 							 
@@ -182,7 +182,7 @@
 // 			<div className="row mt30">
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Amazon-Cloud-Services.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Amazon-Cloud-Services.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Amazon Cloud Services</h3>
@@ -193,7 +193,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/AWS-Cloud-Migration.svg" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/AWS-Cloud-Migration.svg" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">AWS Cloud Migration</h3>
 // 							<p>We have AWS specialists analyze your current application and later suggest an optimal
@@ -204,7 +204,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/AWS-Managed-Services.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/AWS-Managed-Services.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">AWS Managed Services</h3>
@@ -217,7 +217,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/AWS-Integration.svg" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/AWS-Integration.svg" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">AWS Integration</h3>
 // 							<p>Our dedicated AWS experts easily perform application integration to cloud applications,
@@ -228,7 +228,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Cloud-Architecture-&-Security.svg"
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Cloud-Architecture-&-Security.svg"
 // 								alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Cloud Architecture & Security</h3>
@@ -240,7 +240,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Secured-and-cost-efficient.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Secured-and-cost-efficient.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Secured and cost-efficient </h3>
@@ -287,7 +287,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
-// 						<div className="sol-img-png"> <img src="/images/cta/Hire-World-Class-AWS-Engineers.svg"
+// 						<div className="sol-img-png"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Hire-World-Class-AWS-Engineers.svg"
 // 								alt="hire aws developers" className="img-fluid" /> </div>
 // 					</div>
 // 				</div>
@@ -320,7 +320,7 @@
 // 							<h2>Need any <span className="ree-text rt40"> AWS </span> Developers? Let's get to chat.</h2>
 // 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 // 									className="fas fa-user fb-bigon"></i> Contact </a>
-// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
+// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer"
 // 								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
 // 								Whatsapp </a>
 
@@ -328,7 +328,7 @@
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
 // 						<div className="sol-img-png">
-// 							<img src="/images/cta/let's-get-to-chat-hire-aws.svg" alt="working with client"
+// 							<img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/let's-get-to-chat-hire-aws.svg" alt="working with client"
 // 								className="img-fluid" />
 // 						</div>
 // 					</div>

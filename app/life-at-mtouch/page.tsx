@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Life at mTouch – Culture & People",
     description: "Explore Life at mTouch — our vibrant culture, employee experiences, and teamwork that make mTouch Labs a great place to grow and innovate.",
-    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
   },
 };
 
@@ -74,7 +74,7 @@ export default function LifeAtMtouch() {
           <p className="lam-intro__text">Our people are our strongest asset. From <a href="/web-development-company" style={{ color: '#3E8CFB', textDecoration: 'none' }}>web development</a> to mobile app development, our teams deliver excellence by promoting work-life balance, mutual respect, and continuous feedback.</p>
         </div>
         <div className="lam-intro__image-wrap">
-          <img src="/images/about/life_at_mtouch1.png" alt="mTouch Labs team" className="lam-intro__image" />
+          <img width={1055} height={463} loading="lazy" decoding="async" src="/images/about/life_at_mtouch1.webp" alt="mTouch Labs team" className="lam-intro__image" />
         </div>
       </div></div></section>
 
@@ -114,7 +114,7 @@ export default function LifeAtMtouch() {
           <a href="/careers" className="lam-team__btn">View Open Positions →</a>
         </div>
         <div className="lam-team__image-wrap">
-          <img src="/images/about/life_at_mtouch2.png" alt="Professional" className="lam-team__image" />
+          <img width={512} height={512} loading="lazy" decoding="async" src="/images/about/life_at_mtouch2.webp" alt="Professional" className="lam-team__image" />
         </div>
       </div></div></section>
 

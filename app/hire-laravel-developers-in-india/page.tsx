@@ -13,13 +13,13 @@
 //     url: "https://www.mtouchlabs.com/hire-laravel-developers-in-india",
 //     siteName: "mTouch Labs",
 //     type: "website",
-//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "hire laravel developers in india" }],
+//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "hire laravel developers in india" }],
 //   },
 //   twitter: {
 //     card: "summary_large_image",
 //     title: "hire laravel developers in india",
 //     description: "Hire Laravel developers in India on an hourly and monthly basis. Get in touch to hire Laravel web developers from mTouchlabs at cost-effective rates.",
-//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
 //   },
 // };
 
@@ -59,7 +59,7 @@
 //         </div>
 //         <div className="col-lg-6">
 //           <div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400">
-//             <img src="/images/others/Hire-Laravel-Developers.svg" alt="mTouch Labs" className="img-fluid" />
+//             <img width={690} height={350} loading="lazy" decoding="async" src="/images/others/Hire-Laravel-Developers.svg" alt="mTouch Labs" className="img-fluid" />
 //           </div>
 //         </div>
 //       </div>
@@ -87,7 +87,7 @@
 //                 At mTouchlabs, you can Hire Laravel developers who are trained
 //                 and experienced to operate simple to complex Laravel
 //                 applications with a result-oriented approach. Laravel is the
-//                 most trusted and robust <a href="/php-development-company" target="_blank">PHP development framework</a>
+//                 most trusted and robust <a href="/php-development-company" target="_blank" rel="noopener noreferrer">PHP development framework</a>
 //                 for creating
 //                 interactive web projects. It is a highly secured, highly
 //                 functional, user-friendly, scalable, and enterprise-grade PHP
@@ -115,7 +115,7 @@
 //           </div>
 //           <div className="col-lg-6 vcenter">
 //             <div className="ct-sol-img">
-//               <img src="/images/cta/Hire-Dedicated-Laravel-Web-Developers-In-India.svg" alt="laravel Developers"
+//               <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Hire-Dedicated-Laravel-Web-Developers-In-India.svg" alt="laravel Developers"
 //                 className="img-fluid" />
 //             </div>
 //           </div>
@@ -128,7 +128,7 @@
 //         <div className="row">
 //           <div className="col-lg-6 vcenter">
 //             <div className="ct-sol-img">
-//               <img src="/images/cta/Capabilities-of-Our-Dedicated-Laravel-Programmers.svg" alt="laravel web Developers"
+//               <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Capabilities-of-Our-Dedicated-Laravel-Programmers.svg" alt="laravel web Developers"
 //                 className="img-fluid" />
 //             </div>
 //           </div>
@@ -152,7 +152,7 @@
                
 //               <p>
 //                 Check out some other factors to have our offshore Laravel
-//                 Framework Developer handle your innovative <a href="/web-development-company" target="_blank">web
+//                 Framework Developer handle your innovative <a href="/web-development-company" target="_blank" rel="noopener noreferrer">web
 //                   development</a>
 //                 project. When you Hire Laravel Framework Developers from
 //                 India, you get a professional and specialized team of PHP
@@ -169,7 +169,7 @@
 //                 adaptable skills to develop future-proof solutions. Our
 //                 renowned Laravel web programmers are experienced at offering
 //                 top-of-the-line Laravel <a
-//                   href="https://www.mtouchlabs.com/php-web-development-is-transforming-businesses-2025" target="_blank">PHP
+//                   href="https://www.mtouchlabs.com/php-web-development-is-transforming-businesses-2025" target="_blank" rel="noopener noreferrer">PHP
 //                   Web development services</a> to build
 //                 functional web solutions. Hire dedicated Laravel PHP
 //                 developers on a full-time, part-time, and hourly contract
@@ -213,7 +213,7 @@
 //         <div className="col-lg-4 col-sm-6">
 //           <div className="ree-card mt60">
 //             <div className="ree-card-img">
-//               <img src="/images/icons/Custom-Laravel-Web-Application.svg" alt="services" />
+//               <img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Custom-Laravel-Web-Application.svg" alt="services" />
 //             </div>
 //             <div className="ree-card-content mt40">
 //               <h3 className="mb15">Custom Laravel Web Application</h3>
@@ -228,7 +228,7 @@
 //         <div className="col-lg-4 col-sm-6">
 //           <div className="ree-card mt60">
 //             <div className="ree-card-img">
-//               <img src="/images/icons/Laravel-Based-CMS.svg" alt="services" />
+//               <img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Laravel-Based-CMS.svg" alt="services" />
 //             </div>
 //             <div className="ree-card-content mt40">
 //               <h3 className="mb15">Laravel Based CMS</h3>
@@ -243,7 +243,7 @@
 //         <div className="col-lg-4 col-sm-6">
 //           <div className="ree-card mt60">
 //             <div className="ree-card-img">
-//               <img src="/images/icons/Laravel-Extension-Development.svg" alt="services" />
+//               <img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Laravel-Extension-Development.svg" alt="services" />
 //             </div>
 //             <div className="ree-card-content mt40">
 //               <h3 className="mb15">Laravel Extension Development</h3>
@@ -258,7 +258,7 @@
 //         <div className="col-lg-4 col-sm-6">
 //           <div className="ree-card mt60">
 //             <div className="ree-card-img">
-//               <img src="/images/icons/Laravel-Porting-and-Migration.svg" alt="services" />
+//               <img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Laravel-Porting-and-Migration.svg" alt="services" />
 //             </div>
 //             <div className="ree-card-content mt40">
 //               <h3 className="mb15">Laravel Porting and Migration</h3>
@@ -273,7 +273,7 @@
 //         <div className="col-lg-4 col-sm-6">
 //           <div className="ree-card mt60">
 //             <div className="ree-card-img">
-//               <img src="/images/icons/Laravel-Template-Design.svg" alt="services" />
+//               <img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Laravel-Template-Design.svg" alt="services" />
 //             </div>
 //             <div className="ree-card-content mt40">
 //               <h3 className="mb15">Laravel Template Design</h3>
@@ -287,7 +287,7 @@
 //         <div className="col-lg-4 col-sm-6">
 //           <div className="ree-card mt60">
 //             <div className="ree-card-img">
-//               <img src="/images/icons/Maintenance-and-Testing.svg" alt="services" />
+//               <img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Maintenance-and-Testing.svg" alt="services" />
 //             </div>
 //             <div className="ree-card-content mt40">
 //               <h3 className="mb15">Maintenance and Testing</h3>
@@ -332,7 +332,7 @@
 //           </div>
 //           <div className="col-lg-6 vcenter text-center">
 //             <div className="sol-img-png">
-//               <img src="/images/cta/Hire-Laravel-developers-in-India-to-build-a-quality-website.svg"
+//               <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Hire-Laravel-developers-in-India-to-build-a-quality-website.svg"
 //                 alt="hire laravel developers" className="img-fluid" />
 //             </div>
 //           </div>
@@ -366,14 +366,14 @@
 //               </h2>
 //               <a href="/contact-us" className="ree-btn ree-btn-grdt1 mt40 mr20"><i className="fas fa-user fb-bigon"></i> Contact
 //               </a>
-//               <a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" className="ree-btn whatsapp-bg mt40 shadows"><i
+//               <a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer" className="ree-btn whatsapp-bg mt40 shadows"><i
 //                   className="fab fa-whatsapp fb-bigon"></i> Whatsapp
 //               </a>
 //             </div>
 //           </div>
 //           <div className="col-lg-6 vcenter text-center">
 //             <div className="sol-img-png">
-//               <img src="/images/cta/let's-get-to-chat-hire-laravel.svg" alt="working with client" className="img-fluid" />
+//               <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/let's-get-to-chat-hire-laravel.svg" alt="working with client" className="img-fluid" />
 //             </div>
 //           </div>
 //         </div>

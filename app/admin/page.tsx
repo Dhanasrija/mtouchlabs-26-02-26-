@@ -15,13 +15,13 @@ export const metadata: Metadata = {
     url: "https://www.mtouchlabs.com/admin",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Admin Login" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Admin Login" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Admin Login",
     description: "Admin Login",
-    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
   },
 };
 

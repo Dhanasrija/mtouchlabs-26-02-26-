@@ -13,13 +13,13 @@
 //     url: "https://www.mtouchlabs.com/hire-react-native-app-developers-in-india",
 //     siteName: "mTouch Labs",
 //     type: "website",
-//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire React Native App Developers in India" }],
+//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Hire React Native App Developers in India" }],
 //   },
 //   twitter: {
 //     card: "summary_large_image",
 //     title: "Hire React Native App Developers in India",
 //     description: "Hire React Native app developers in India from mTouch Labs to build cross-platform mobile apps with seamless performance, reusable code, and fast delivery.",
-//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
 //   },
 // };
 
@@ -56,7 +56,7 @@
 // 					</div>
 // 				</div>
 // 				<div className="col-lg-6">
-// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img
+// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img width={690} height={350} loading="lazy" decoding="async"
 // 							src="/images/others/Hire-React-Native-developers-from-mTouchlabs.svg" alt="mTouch Labs"
 // 							className="img-fluid" /></div>
 // 				</div>
@@ -77,7 +77,7 @@
 // 							<h2 className="mb15">React Native Devs from mTouch Labs</h2>
 // 							<p>mTouch Labs is the marketplace of highly integrative <a
 // 									href="https://www.mtouchlabs.com/mobile-app-development-company"
-// 									target="_blank">mobile app development
+// 									target="_blank" rel="noopener noreferrer">mobile app development
 // 									solutions</a> that provide cross-platform apps
 // 								with full-speed development. Get connected and Hire
 // 								React Native Developers from our company who use
@@ -120,7 +120,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img src="/images/cta/Hire-Our-Dedicated-Native-App-Developers.svg"
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Hire-Our-Dedicated-Native-App-Developers.svg"
 // 								alt="React Native App Developers" className="img-fluid" />
 // 						</div>
 // 					</div>
@@ -133,7 +133,7 @@
 // 				<div className="row">
 
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async"
 // 								src="/images/cta/Services-That-Our-Dedicate-React-Native-Developers.svg"
 // 								alt="React Native App Developement Company" className="img-fluid" /></div>
 // 					</div>
@@ -156,7 +156,7 @@
 // 							<p>Our dedicated React Native Programmers work using just like a
 // 								native app, but with a more effortless design because of
 // 								its <a href="https://www.mtouchlabs.com/hybrid-app-development-company"
-// 									target="_blank">hybrid development</a>
+// 									target="_blank" rel="noopener noreferrer">hybrid development</a>
 // 								framework. Our dedicated React Native Programmers use
 // 								their creative talent and skills to brainstorm and
 // 								create the perfect solutions for your application.
@@ -164,7 +164,7 @@
 
 // 							<p>By being coded just once through <a
 // 									href="https://www.mtouchlabs.com/react-native-app-development-company"
-// 									target="_blank">react native mobile app
+// 									target="_blank" rel="noopener noreferrer">react native mobile app
 // 									development</a>, your mobile app is ready to be
 // 								introduced on platforms like android, iOS, and more.
 // 								Hire remote React Native mobile app developers who can
@@ -208,7 +208,7 @@
 // 			<div className="row mt30">
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Premium-Code-Quality.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Premium-Code-Quality.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Premium Code Quality</h3>
@@ -220,7 +220,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Planned-Development-Process.svg"
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Planned-Development-Process.svg"
 // 								alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Planned Development Process</h3>
@@ -233,7 +233,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/On-time-delivery-rn-dev.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/On-time-delivery-rn-dev.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">On-time Delivery</h3>
@@ -246,7 +246,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Transparency-and-integrity.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Transparency-and-integrity.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Transparency and integrity </h3>
@@ -259,7 +259,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Easy-migration-rn-dev.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Easy-migration-rn-dev.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Easy Migration </h3>
@@ -271,7 +271,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Cost-Effective.svg" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Cost-Effective.svg" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Cost-effective</h3>
 // 							<p>mTouchlabs believe in the principles of generating solutions
@@ -318,7 +318,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
-// 						<div className="sol-img-png"> <img src="/images/cta/Hire-Dedicated-React-Native-Developers.svg"
+// 						<div className="sol-img-png"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Hire-Dedicated-React-Native-Developers.svg"
 // 								alt="hire react native app developers" className="img-fluid" /> </div>
 // 					</div>
 // 				</div>
@@ -449,7 +449,7 @@
 // 								</span> Developers Let's get to chat.</h3>
 // 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 // 									className="fas fa-user fb-bigon"></i> Contact </a>
-// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
+// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer"
 // 								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
 // 								Whatsapp
 // 							</a>
@@ -458,7 +458,7 @@
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
 // 						<div className="sol-img-png">
-// 							<img src="/images/cta/let's-get-to-chat-reactnative-dev.svg" alt="working with client"
+// 							<img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/let's-get-to-chat-reactnative-dev.svg" alt="working with client"
 // 								className="img-fluid" />
 // 						</div>
 // 					</div>

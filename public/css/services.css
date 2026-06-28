@@ -44,7 +44,7 @@
   padding: 180px 0 120px;
   overflow: hidden;
   background: var(--color-deep-indigo);
-  background-image: url('/images/serviceImg/services_new.webp');
+  background-image: url('/images/services_new.webp');
   background-size: cover;
   background-position: center right;
 }

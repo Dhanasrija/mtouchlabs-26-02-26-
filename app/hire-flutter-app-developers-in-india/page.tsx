@@ -13,13 +13,13 @@
 //     url: "https://www.mtouchlabs.com/hire-flutter-app-developers-in-india",
 //     siteName: "mTouch Labs",
 //     type: "website",
-//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire Flutter App Developers in India" }],
+//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Hire Flutter App Developers in India" }],
 //   },
 //   twitter: {
 //     card: "summary_large_image",
 //     title: "Hire Flutter App Developers in India",
 //     description: "Hire Flutter app developers in India from mTouch Labs to build high-performance, cross-platform mobile apps with a single codebase for iOS and Android.",
-//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
 //   },
 // };
 
@@ -55,7 +55,7 @@
 // 					</div>
 // 				</div>
 // 				<div className="col-lg-6">
-// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img
+// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img width={690} height={350} loading="lazy" decoding="async"
 // 							src="/images/others/Hire-Flutter-developers-to-build-cross-platform-apps-swiftly.svg"
 // 							alt="mTouch Labs" className="img-fluid" /></div>
 // 				</div>
@@ -82,7 +82,7 @@
 // 								high-performing Flutter applications. Our dedicated Flutter Developers are famous
 // 								worldwide for their dedicated efforts in the <a
 // 									href="https://www.mtouchlabs.com/flutter-app-development-company"
-// 									target="_blank">flutter app development</a> to make it
+// 									target="_blank" rel="noopener noreferrer">flutter app development</a> to make it
 // 								successful. mTouchlabs is one of the best software companies in India and can easily
 // 								hire Flutter App Developers who can remotely or onsite at the best price.</p>
 
@@ -100,7 +100,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img src="/images/cta/Why-Hire-Flutter-Developers-From-mTouchlabs.svg"
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Why-Hire-Flutter-Developers-From-mTouchlabs.svg"
 // 								alt="Flutter App Developers" className="img-fluid" /> </div>
 // 					</div>
 // 				</div>
@@ -112,7 +112,7 @@
 // 				<div className="row">
 
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async"
 // 								src="/images/cta/Hire-Our-Dedicated-Flutter-App-Developers-In-India.svg"
 // 								alt="Flutter App Development Company" className="img-fluid" /></div>
 // 					</div>
@@ -130,7 +130,7 @@
 // 							<p>Our dedicated Flutter Apps Developers have years of experience in creating cross-platform
 // 								apps with high-quality native interfaces. Our dedicated <a
 // 									href="https://www.mtouchlabs.com/go-crazy-with-smart-phone-mobile-application-development"
-// 									target="_blank">Flutter Application Developers</a>
+// 									target="_blank" rel="noopener noreferrer">Flutter Application Developers</a>
 // 								develop ready-made widgets that look similar to iOS or Android apps. Flutter also helps
 // 								the Flutter Apps Developers to create any app with reactive style views.
 // 							</p>
@@ -140,7 +140,7 @@
 // 								your time and money, fast development, compatibility, superior performance, and open
 // 								source. mTouchlabs is one of the <a
 // 									href="https://www.mtouchlabs.com/openai-for-a-mobile-app-development-company"
-// 									target="_blank">best app development companies</a> for providing dedicated
+// 									target="_blank" rel="noopener noreferrer">best app development companies</a> for providing dedicated
 // 								Flutter Apps Developers who work hourly, weekly or monthly bases at affordable cost.
 // 							</p>
 // 							<ul className="ul-list-icon mt30">
@@ -180,7 +180,7 @@
 // 			<div className="row mt30">
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Dedicated-Team.svg" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Dedicated-Team.svg" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Dedicated Team</h3>
 // 							<p>Our team of flutter app developers is always committed and dedicated to your development
@@ -190,7 +190,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Reliability-and-Stability.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Reliability-and-Stability.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Reliability and Stability</h3>
@@ -202,7 +202,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/others/reputation.png" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/others/reputation.webp" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">98% Client Retention Rate</h3>
@@ -214,7 +214,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Flexible-Engagement-Model.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Flexible-Engagement-Model.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Flexible Engagement Model </h3>
@@ -226,7 +226,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Advanced-Security-and-Scalability.svg"
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Advanced-Security-and-Scalability.svg"
 // 								alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Advanced Security and Scalability</h3>
@@ -238,7 +238,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/others/rate.png" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/others/rate.webp" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">24x7 Available</h3>
@@ -282,7 +282,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
-// 						<div className="sol-img-png"> <img
+// 						<div className="sol-img-png"> <img width={690} height={350} loading="lazy" decoding="async"
 // 								src="/images/cta/Hire-Our-Dedicated-Flutter-Application-Developers.svg"
 // 								alt="hire flutter developers" className="img-fluid" /> </div>
 // 					</div>
@@ -403,7 +403,7 @@
 // 							</h2>
 // 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 // 									className="fas fa-user fb-bigon"></i> Contact </a>
-// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
+// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer"
 // 								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
 // 								Whatsapp </a>
 
@@ -411,7 +411,7 @@
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
 // 						<div className="sol-img-png">
-// 							<img src="/images/cta/let's-get-to-chat-flutter-dev.svg" alt="working with client"
+// 							<img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/let's-get-to-chat-flutter-dev.svg" alt="working with client"
 // 								className="img-fluid" />
 // 						</div>
 // 					</div>

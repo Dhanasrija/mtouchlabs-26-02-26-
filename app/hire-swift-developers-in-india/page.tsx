@@ -13,13 +13,13 @@
 //     url: "https://www.mtouchlabs.com/hire-swift-developers-in-india",
 //     siteName: "mTouch Labs",
 //     type: "website",
-//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "hire Swift developers | dedicated swift app developers" }],
+//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "hire Swift developers | dedicated swift app developers" }],
 //   },
 //   twitter: {
 //     card: "summary_large_image",
 //     title: "hire Swift developers | dedicated swift app developers",
 //     description: "Looking to hire Swift developers in India? We have a team of dedicated swift app developers with vast experience in swift ios development technology",
-//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
 //   },
 // };
 
@@ -52,7 +52,7 @@
 // 					</div>
 // 				</div>
 // 				<div className="col-lg-6">
-// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img
+// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img width={690} height={350} loading="lazy" decoding="async"
 // 							src="/images/others/Our-Swift-iOS-development-will-ensure-performance.svg" alt="mTouch Labs"
 // 							className="img-fluid" /></div>
 // 				</div>
@@ -71,7 +71,7 @@
 // 						<div className="cta-heading-2">
 							
 // 							<h2 className="mb15">Swift iOS App Devs from India</h2>
-// 							<p>As a leading <a href="/ios-app-development-company" target="_blank">iOS app development
+// 							<p>As a leading <a href="/ios-app-development-company" target="_blank" rel="noopener noreferrer">iOS app development
 // 									company in India</a>, we contain rich experience in
 // 								providing feature-rich, and iOS applications across platforms such as macOS, iPadOS, and
 // 								watchOS. iOS app development with swift creates it easy to develop powerful,
@@ -89,7 +89,7 @@
 // 								working framework, we ensure to meet all your needs cost-effectively. Usability,
 // 								scalability, speed, smoothness, and performance are must-have factors in our Swift iOS
 // 								Development. iOS is an amazing <a href="/mobile-app-development-company"
-// 									target="_blank">mobile platform</a> with the right technology stack, and you
+// 									target="_blank" rel="noopener noreferrer">mobile platform</a> with the right technology stack, and you
 // 								can hire swift iOS developers from us to help you build iOS apps that are market-fit,
 // 								secure, and scalable.
 // 							</p>
@@ -102,7 +102,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img src="/images/cta/Dedicated-Swift-Developers.svg"
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Dedicated-Swift-Developers.svg"
 // 								alt="swift Developers" className="img-fluid" /> </div>
 // 					</div>
 // 				</div>
@@ -114,7 +114,7 @@
 // 				<div className="row">
 
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async"
 // 								src="/images/cta/Cost-Effective-iOS-Apps-From-Our-Swift-App-Developers.svg"
 // 								alt="Dedicated swift Developers" className="img-fluid" /></div>
 // 					</div>
@@ -129,7 +129,7 @@
 // 								programming. Get the complete Swift programming and support of our dedicated swift app
 // 								developers for hire for unique <a
 // 									href="https://www.mtouchlabs.com/ios-mobile-app-development-vs-android-mobile-app-development"
-// 									target="_blank">Swift iOS app development services</a>. We offer robust,
+// 									target="_blank" rel="noopener noreferrer">Swift iOS app development services</a>. We offer robust,
 // 								high-performance, user-friendly, and cost-effective iOS apps that are more scalable and
 // 								efficient.
 // 							</p>
@@ -181,7 +181,7 @@
 // 			<div className="row mt30">
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/UX-Designin-swift.svg" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/UX-Designin-swift.svg" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">UI/UX Designing</h3>
 // 							<p>We offer iOS development services including UI/UX consulting, wireframing, and user
@@ -191,7 +191,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/QA-and-Testing-Services.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/QA-and-Testing-Services.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">QA and Testing Services </h3>
@@ -203,7 +203,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Migration-&-Upgradation-Services.svg"
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Migration-&-Upgradation-Services.svg"
 // 								alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Migration & Upgradation Services</h3>
@@ -215,7 +215,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Transparency-Guaranteed.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Transparency-Guaranteed.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Transparency Guaranteed </h3>
@@ -227,7 +227,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Flexible-Engagement-Models.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Flexible-Engagement-Models.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Flexible Engagement Models</h3>
@@ -239,7 +239,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/support.svg" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/support.svg" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">24*7 Support Available</h3>
 // 							<p>We are always available for your specific time zone that syncs with your in-house team.
@@ -281,7 +281,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
-// 						<div className="sol-img-png"> <img src="/images/cta/Hire-Our-Professional-Swift-Developers.svg"
+// 						<div className="sol-img-png"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Hire-Our-Professional-Swift-Developers.svg"
 // 								alt="hire swift developers" className="img-fluid" /> </div>
 // 					</div>
 // 				</div>
@@ -306,7 +306,7 @@
 // 							<h2>Need any <span className="ree-text rt40">Swift </span> Developers? Let's get to chat.</h2>
 // 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 // 									className="fas fa-user fb-bigon"></i> Contact </a>
-// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
+// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer"
 // 								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
 // 								Whatsapp </a>
 
@@ -314,7 +314,7 @@
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
 // 						<div className="sol-img-png">
-// 							<img src="/images/cta/let's-get-to-chat-swift-designer.svg" alt="working with client"
+// 							<img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/let's-get-to-chat-swift-designer.svg" alt="working with client"
 // 								className="img-fluid" />
 // 						</div>
 // 					</div>

@@ -13,13 +13,13 @@
 // //     url: "https://www.mtouchlabs.com/hire-ui-ux-designers-in-india",
 // //     siteName: "mTouch Labs",
 // //     type: "website",
-// //     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire UI/UX Designers in India" }],
+// //     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Hire UI/UX Designers in India" }],
 // //   },
 // //   twitter: {
 // //     card: "summary_large_image",
 // //     title: "Hire UI/UX Designers in India",
 // //     description: "Hire UI/UX designers in India from mTouch Labs to create intuitive and web interfaces that enhance engagement, usability, and brand experience.",
-// //     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+// //     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
 // //   },
 // // };
 
@@ -52,7 +52,7 @@
 // // 					</div>
 // // 				</div>
 // // 				<div className="col-lg-6">
-// // 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img
+// // 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img width={690} height={350} loading="lazy" decoding="async"
 // // 							src="/images/others/UI-UX-Designers-Who-Turn-Your-Business-Vision-Into-Reality.svg"
 // // 							alt="mTouch Labs" className="img-fluid" /></div>
 // // 				</div>
@@ -73,7 +73,7 @@
 // // 							<h2 className="mb15">Hire UI/UX Designers for Your Vision</h2>
 // // 							<p>mTouchlabs UI/UX designers are well known for their agile working model to design a
 // // 								project that is stunning and beautiful. We are a top <a href="/ui-ux-design-company"
-// // 									target="_blank">UI/UX design agency</a> in India and
+// // 									target="_blank" rel="noopener noreferrer">UI/UX design agency</a> in India and
 // // 								our UI/UX designers help customers increase their brand by offering value through
 // // 								measurable and memorable experiences for end-users. </p>
 							 
@@ -105,7 +105,7 @@
 // // 						</div>
 // // 					</div>
 // // 					<div className="col-lg-6 vcenter">
-// // 						<div className="ct-sol-img"> <img
+// // 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async"
 // // 								src="/images/cta/UX-designers-create-visually-stunning-and-user-friendly-designs.svg"
 // // 								alt="UI and UX design" className="img-fluid" /> </div>
 // // 					</div>
@@ -118,7 +118,7 @@
 // // 				<div className="row">
 
 // // 					<div className="col-lg-6 vcenter">
-// // 						<div className="ct-sol-img"> <img
+// // 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async"
 // // 								src="/images/cta/Work-With-Our-Mobile-App-Designers-and-Web-Designers.svg"
 // // 								alt="ui and ux developers" className="img-fluid" /> </div>
 // // 					</div>
@@ -135,12 +135,12 @@
 							 
 // // 							<p> A unique application design needs the right combination of an outstanding user interface
 // // 								with creative and eye-catching components. Keeping a strict workflow module, our company
-// // 								incorporates the <a href="/hire-mobile-app-designers-in-india" target="_blank">best of
+// // 								incorporates the <a href="/hire-mobile-app-designers-in-india" target="_blank" rel="noopener noreferrer">best of
 // // 									Web Design</a> and Mobile App Design creativity with technological
 // // 								assistance, satisfying the entire UX process with result-driven quality.</p>
 							 
 // // 							<p>You can thus generate more natural traffic to your <a
-// // 									href="/mobile-app-development-company" target="_blank">mobile application</a> with
+// // 									href="/mobile-app-development-company" target="_blank" rel="noopener noreferrer">mobile application</a> with
 // // 								the right
 // // 								balance between UI design and UX design and give users a long-lasting experience as
 // // 								well. Delivering a perfect product at the promised time is something we expert at,
@@ -178,7 +178,7 @@
 // // 			<div className="row mt30">
 // // 				<div className="col-lg-4 col-sm-6">
 // // 					<div className="ree-card  mt60">
-// // 						<div className="ree-card-img"><img src="/images/icons/Beautiful-Layout.svg" alt="services" /> </div>
+// // 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Beautiful-Layout.svg" alt="services" /> </div>
 // // 						<div className="ree-card-content mt40">
 // // 							<h3 className="mb15">Beautiful Layout</h3>
 // // 							<p>We design an appropriate layout that creates a fundamental user experience with great
@@ -188,7 +188,7 @@
 // // 				</div>
 // // 				<div className="col-lg-4 col-sm-6">
 // // 					<div className="ree-card  mt60">
-// // 						<div className="ree-card-img"><img src="/images/icons/Branding-and-Identity.svg" alt="services" />
+// // 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Branding-and-Identity.svg" alt="services" />
 // // 						</div>
 // // 						<div className="ree-card-content mt40">
 // // 							<h3 className="mb15">Branding and Identity</h3>
@@ -200,7 +200,7 @@
 // // 				</div>
 // // 				<div className="col-lg-4 col-sm-6">
 // // 					<div className="ree-card  mt60">
-// // 						<div className="ree-card-img"><img src="/images/icons/Latest-Trends-ui-ux-designer.svg"
+// // 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Latest-Trends-ui-ux-designer.svg"
 // // 								alt="services" /> </div>
 // // 						<div className="ree-card-content mt40">
 // // 							<h3 className="mb15">Latest Trends</h3>
@@ -212,7 +212,7 @@
 // // 				</div>
 // // 				<div className="col-lg-4 col-sm-6">
 // // 					<div className="ree-card  mt60">
-// // 						<div className="ree-card-img"><img src="/images/icons/Graphic-Design.svg" alt="services" /> </div>
+// // 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Graphic-Design.svg" alt="services" /> </div>
 // // 						<div className="ree-card-content mt40">
 // // 							<h3 className="mb15">Graphic Design</h3>
 // // 							<p>We create graph design by inducing a specific feature and design of your products and
@@ -223,7 +223,7 @@
 // // 				</div>
 // // 				<div className="col-lg-4 col-sm-6">
 // // 					<div className="ree-card  mt60">
-// // 						<div className="ree-card-img"><img src="/images/icons/Higher-Conversions-Rate.svg" alt="services" />
+// // 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Higher-Conversions-Rate.svg" alt="services" />
 // // 						</div>
 // // 						<div className="ree-card-content mt40">
 // // 							<h3 className="mb15">Higher Conversions Rate</h3>
@@ -235,7 +235,7 @@
 // // 				</div>
 // // 				<div className="col-lg-4 col-sm-6">
 // // 					<div className="ree-card  mt60">
-// // 						<div className="ree-card-img"><img src="/images/icons/Usability-Testing.svg" alt="services" /> </div>
+// // 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Usability-Testing.svg" alt="services" /> </div>
 // // 						<div className="ree-card-content mt40">
 // // 							<h3 className="mb15">Usability Testing</h3>
 // // 							<p>Our UI/UX designs test your Mobile design and web design using industry best reliable
@@ -276,7 +276,7 @@
 // // 						</div>
 // // 					</div>
 // // 					<div className="col-lg-6 vcenter text-center">
-// // 						<div className="sol-img-png"> <img src="/images/cta/hire-UX-Designers.svg" alt="ui/ux designers"
+// // 						<div className="sol-img-png"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/hire-UX-Designers.svg" alt="ui/ux designers"
 // // 								className="img-fluid" /> </div>
 // // 					</div>
 // // 				</div>
@@ -419,7 +419,7 @@
 // // 							<h3>Need UI/UX <span className="ree-text rt40">Designers</span>  Let's get to chat.</h3>
 // // 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 // // 									className="fas fa-user fb-bigon"></i> Contact </a>
-// // 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
+// // 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer"
 // // 								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
 // // 								Whatsapp </a>
 
@@ -427,7 +427,7 @@
 // // 					</div>
 // // 					<div className="col-lg-6 vcenter text-center">
 // // 						<div className="sol-img-png">
-// // 							<img src="/images/cta/lets-get-to-chat-ui-ux-designer.svg" alt="working with client"
+// // 							<img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/lets-get-to-chat-ui-ux-designer.svg" alt="working with client"
 // // 								className="img-fluid" />
 // // 						</div>
 // // 					</div>

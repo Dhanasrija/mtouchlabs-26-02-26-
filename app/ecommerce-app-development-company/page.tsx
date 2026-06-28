@@ -20,21 +20,21 @@ const data: ProductPageData = {
     h1Tail: "in Hyderabad",
     subtitle: "Launch a scalable ecommerce platform with seamless checkout, multi-vendor support, secure payments, and smart recommendations.",
     demoHref: "https://youtu.be/daZOzLek6Tk?si=uOT1rpNXbQ5nGBaN",
-    leftPhoneImg: "/images/products/ecommerce/phone1.png",
-    rightPhoneImg: "/images/products/ecommerce/phone2.png",
+    leftPhoneImg: "/images/products/ecommerce/phone1.webp",
+    rightPhoneImg: "/images/products/ecommerce/phone2.webp",
   },
   intro: {
-    img: "/images/products/ecommerce/phone1.png",
+    img: "/images/products/ecommerce/phone1.webp",
     label: "E-Commerce Experts",
     h3: "Ecommerce App Development",
     body: [
-      <>mTouch Labs is a NASSCOM award-winning <a href="/mobile-app-development-company" target="_blank">ecommerce app development company</a> in Hyderabad, helping D2C brands and retailers launch powerful online stores.</>,
+      <>mTouch Labs is a NASSCOM award-winning <a href="/mobile-app-development-company" target="_blank" rel="noopener noreferrer">ecommerce app development company</a> in Hyderabad, helping D2C brands and retailers launch powerful online stores.</>,
       <>We build single-store apps, multi-vendor marketplaces, B2B ecommerce, and headless commerce platforms tailored to your scale.</>,
     ],
   },
   dividerTitle: "Custom Ecommerce App Development",
   endToEnd: {
-    img: "/images/products/ecommerce/phone2.png",
+    img: "/images/products/ecommerce/phone2.webp",
     label: "End-to-End Solutions",
     h3: "Complete Ecommerce Development",
     body: [
@@ -60,11 +60,11 @@ const data: ProductPageData = {
   screens: {
     alt: "Ecommerce app screen",
     images: [
-      "/images/products/ecommerce/appscreen1.png",
-      "/images/products/ecommerce/appscreen2.png",
-      "/images/products/ecommerce/appscreen3.png",
-      "/images/products/ecommerce/appscreen4.png",
-      "/images/products/ecommerce/appscreen5.png",
+      "/images/products/ecommerce/appscreen1.webp",
+      "/images/products/ecommerce/appscreen2.webp",
+      "/images/products/ecommerce/appscreen3.webp",
+      "/images/products/ecommerce/appscreen4.webp",
+      "/images/products/ecommerce/appscreen5.webp",
     ],
   },
   tabs: {
@@ -99,7 +99,7 @@ const data: ProductPageData = {
     { q: "Do you provide post-launch support?", a: "Yes, we provide ongoing maintenance and enhancements." },
   ],
   cta: {
-    img: "/images/products/ecommerce/shopping1.png",
+    img: "/images/products/ecommerce/shopping1.webp",
     h2: "Build an Ecommerce App Shoppers Love",
     body: "Launch a modern ecommerce platform that is scalable, user-friendly, and ready for growth.",
   },

@@ -41,7 +41,7 @@ export default function WhoWeWorkWithSection() {
 
   return (
     <>
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @keyframes wwwwFadeIn {
           from { opacity: 0; }
           to { opacity: 1; }
@@ -163,7 +163,7 @@ export default function WhoWeWorkWithSection() {
           .target-audiences-section {
   background-color: #F5F5F5;
 }
-      `}</style>
+      `}} />
 
       <section className="target-audiences-section">
         <div className="target-audiences-header">
@@ -189,7 +189,7 @@ export default function WhoWeWorkWithSection() {
           <div className="target-audience-card target-audience-card--top-left" data-aos="zoom-in">
 
             <div className="target-audience-image">
-              <Image src="images/who_we_work_with/Enterprises & Corporations.png" alt="Enterprises & Corporations" width={100} height={100} />
+              <Image src="/images/who_we_work_with/Enterprises & Corporations.png" alt="Enterprises & Corporations" width={100} height={100} />
             </div>
 
             <div className="target-audience-content">
@@ -204,12 +204,12 @@ export default function WhoWeWorkWithSection() {
               </p>
             </div>
             <div className="target-audience-image">
-              <Image src="images/who_we_work_with/Startups & Scale-Ups.png" alt="Startups & Scale-Ups" width={100} height={100} />
+              <Image src="/images/who_we_work_with/Startups & Scale-Ups.png" alt="Startups & Scale-Ups" width={100} height={100} />
             </div>
           </div>
 
           <div className="target-audience-icon target-audience-logo_one" data-aos="zoom-in-down" style={{ height: "100%" }}>
-            <Image src="images/who_we_work_with/center_logo.png" alt="mTouchLabs" className="target-audience-logo" width={100} height={100} />
+            <Image src="/images/who_we_work_with/center_logo.png" alt="mTouchLabs" className="target-audience-logo" width={100} height={100} />
           </div>
 
           <div className="target-audience-card target-audience-card--bottom-left" data-aos="zoom-in-left">
@@ -218,13 +218,13 @@ export default function WhoWeWorkWithSection() {
               <p className="target-audience-description">Brands looking to enhance customer experiences or modernize legacy systems for future scalability.</p>
             </div>
             <div className="target-audience-image">
-              <Image src="images/who_we_work_with/Customer-Centric Brands.png" alt="Customer-Centric Brands" width={100} height={100} />
+              <Image src="/images/who_we_work_with/Customer-Centric Brands.png" alt="Customer-Centric Brands" width={100} height={100} />
             </div>
           </div>
           <div className="target-audience-card target-audience-card--bottom-right" data-aos="zoom-in-right">
 
             <div className="target-audience-image">
-              <Image src="images/who_we_work_with/Businesses Migrating to the Cloud.png"
+              <Image src="/images/who_we_work_with/Businesses Migrating to the Cloud.png"
                 alt="Businesses Migrating to the Cloud" width={100} height={100} />
             </div>
 

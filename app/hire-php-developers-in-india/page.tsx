@@ -13,13 +13,13 @@
 //     url: "https://www.mtouchlabs.com/hire-php-developers-in-india",
 //     siteName: "mTouch Labs",
 //     type: "website",
-//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire PHP developers | PHP programmers | PHP web developers" }],
+//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Hire PHP developers | PHP programmers | PHP web developers" }],
 //   },
 //   twitter: {
 //     card: "summary_large_image",
 //     title: "Hire PHP developers | PHP programmers | PHP web developers",
 //     description: "Hire skilled PHP developers in India to build secure, scalable, and interactive web apps tailored to your business goals.",
-//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
 //   },
 // };
 
@@ -43,7 +43,7 @@
 // 					</div>
 // 				</div>
 // 				<div className="col-lg-6">
-// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img
+// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img width={690} height={350} loading="lazy" decoding="async"
 // 							src="/images/others/Hire-PHP-developers-for-simple-as-well-as-complex-websites-web-applications.svg"
 // 							alt="mTouch Labs" className="img-fluid" /></div>
 // 				</div>
@@ -67,7 +67,7 @@
 // 								websites for various enterprises. Hire PHP Programmers that upscale your project and
 // 								deliver you with the most robust application. With our industry-acclaimed web
 // 								development company, hire PHP developers for all your <a
-// 									href="https://www.mtouchlabs.com/php-development-company" target="_blank">PHP
+// 									href="https://www.mtouchlabs.com/php-development-company" target="_blank" rel="noopener noreferrer">PHP
 // 									website development</a> needs.</p>
 							 
 // 							<p>From the simplest to the most complex PHP applications portals, we have a pool of
@@ -79,7 +79,7 @@
 // 							<p>Our technical expertise across PHP website front-end, eCommerce website solutions, and
 // 								web applications associated with agile development methodologies have helped us deliver
 // 								an array of <a href="https://www.mtouchlabs.com/web-development-company"
-// 									target="_blank">web development services</a> in the PHP domain. Hire our dedicated
+// 									target="_blank" rel="noopener noreferrer">web development services</a> in the PHP domain. Hire our dedicated
 // 								web
 // 								developers with <span className="yearsOfExcellence">12</span> yrs of average experience at
 // 								your flexibility.
@@ -89,7 +89,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img src="/images/cta/Hire-Dedicated-PHP-Developers-From-mTouchlabs.svg"
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Hire-Dedicated-PHP-Developers-From-mTouchlabs.svg"
 // 								alt="php Developers" className="img-fluid" /> </div>
 // 					</div>
 // 				</div>
@@ -98,7 +98,7 @@
 // 				<div className="row">
 
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async"
 // 								src="/images/cta/Hire-Dedicated-PHP-Programmers-From-mTouchlabs.svg"
 // 								alt="php web Developers" className="img-fluid" /></div>
 // 					</div>
@@ -116,7 +116,7 @@
 							 
 // 							<p>mTouchlabs dedicated PHP web developers share the same vision of the project execution
 // 								roadmap right from websites, web portals to integrated web applications.<a
-// 									href="https://www.mtouchlabs.com/hire-laravel-developers-in-india" target="_blank">Hire
+// 									href="https://www.mtouchlabs.com/hire-laravel-developers-in-india" target="_blank" rel="noopener noreferrer">Hire
 // 									Laravel
 // 									Developers</a> who can execute and implement project roadmap right from inception to
 // 								completion. Our dedicated Laravel Developers built web applications of different sizes
@@ -164,7 +164,7 @@
 // 			<div className="row mt30">
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Certified-PHP-Developers.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Certified-PHP-Developers.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Certified PHP Developers </h3>
@@ -175,7 +175,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Bug-free-Coding.svg" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Bug-free-Coding.svg" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Bug-free Coding</h3>
 // 							<p>Hire our dedicated remote PHP developers to create clean and bug-free PHP web
@@ -186,7 +186,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Agile-Process.svg" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Agile-Process.svg" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Agile Process </h3>
 // 							<p>Our full-stack PHP web developer follows a quick and agile process to reduce time and
@@ -198,7 +198,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Hire-Team-of-Your-Choice.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Hire-Team-of-Your-Choice.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Hire Team of Your Choice</h3>
@@ -210,7 +210,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Innovative-Solutions.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Innovative-Solutions.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Innovative Solutions</h3>
@@ -222,7 +222,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Guaranteed-Results.svg" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Guaranteed-Results.svg" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Guaranteed Results</h3>
 // 							<p>Our PHP developers deliver top-notch quality in the industry and get guaranteed results.
@@ -265,7 +265,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
-// 						<div className="sol-img-png"> <img
+// 						<div className="sol-img-png"> <img width={690} height={350} loading="lazy" decoding="async"
 // 								src="/images/cta/Hire-world-class-PHP-programmers-for-your-project.svg"
 // 								alt="hire php developers" className="img-fluid" /> </div>
 // 					</div>
@@ -300,7 +300,7 @@
 // 							</h3>
 // 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 // 									className="fas fa-user fb-bigon"></i> Contact </a>
-// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
+// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer"
 // 								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
 // 								Whatsapp </a>
 
@@ -308,7 +308,7 @@
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
 // 						<div className="sol-img-png">
-// 							<img src="/images/cta/let's-get-to-chat-php-dev.svg" alt="working with client"
+// 							<img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/let's-get-to-chat-php-dev.svg" alt="working with client"
 // 								className="img-fluid" />
 // 						</div>
 // 					</div>

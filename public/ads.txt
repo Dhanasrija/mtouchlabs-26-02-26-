@@ -1,0 +1,4 @@
+# ads.txt — mTouch Labs
+# This site does not currently sell programmatic ad inventory.
+# File present so /ads.txt is served as text/plain (not the HTML 404 page).
+# Add authorized seller records below when/if ad monetization is enabled.

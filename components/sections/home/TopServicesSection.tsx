@@ -42,12 +42,12 @@ const services = [
 export default function TopServicesSection() {
   return (
     <>
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @keyframes tsFadeUp {
           from { opacity: 0; transform: translateY(20px); }
           to   { opacity: 1; transform: translateY(0);    }
         }
-      `}</style>
+      `}} />
       <section className="ts-section" style={{
         backgroundColor: "#fff",
         padding: "20px 0",

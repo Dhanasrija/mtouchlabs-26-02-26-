@@ -272,7 +272,7 @@ const professionalServiceSchema = {
   "@type": "ProfessionalService",
   name: "mTouch Labs",
   url: "https://www.mtouchlabs.com",
-  image: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png",
+  image: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp",
   description:
     "Global software development company delivering custom software, SaaS platforms, Salesforce consulting, and cloud & DevOps solutions.",
   priceRange: "$$",
@@ -499,27 +499,12 @@ export default function HomePage() {
                 "tej.png", "adify.png", "clikget.png", "countryclub.png", "kalp.png",
                 "roboride.png", "ricehub.png",
               ].map((logo, i) => (
-                <div
-                  key={i}
-                  style={{
-                    border: "1px solid #eee",
-                    borderRadius: "12px",
-                    padding: "15px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    minHeight: "80px",
-                  }}
-                >
+                <div key={i} className="logo-modal-cell">
                   <img
                     src={`/images/home/tech/${logo}`}
                     alt={`${logo.replace(/\.\w+$/, "")} — mTouch Labs partner`}
                     loading="lazy"
-                    style={{
-                      maxWidth: "100px",
-                      maxHeight: "50px",
-                      objectFit: "contain",
-                    }}
+                    decoding="async"
                   />
                 </div>
               ))}

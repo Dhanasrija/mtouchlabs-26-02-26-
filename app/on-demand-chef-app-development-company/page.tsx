@@ -14,13 +14,13 @@ export const metadata: Metadata = {
     url: "https://www.mtouchlabs.com/on-demand-chef-app-development-company",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "On-Demand Chef Management App" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "On-Demand Chef Management App" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "On-Demand Chef Management App",
     description: "Cook-a-doddle is an on-demand chef hiring app and website offering seamless cook booking with expert web and mobile app development services.",
-    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
   },
 };
 
@@ -105,7 +105,7 @@ export default function Page() {
 
 						<div className="icon-with-title">
 							<a href="javascript:void(0)">
-								<div className="iwt-icon"> <img src="/images/icons/Website-portfolio-icon.svg" alt="website" />
+								<div className="iwt-icon"> <img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Website-portfolio-icon.svg" alt="website" />
 								</div>
 								<div className="iwt-content">
 									<p>website</p>
@@ -114,7 +114,7 @@ export default function Page() {
 						</div>
 						<div className="icon-with-title">
 							<a href="javascript:void(0)">
-								<div className="iwt-icon"> <img src="/images/icons/mysql.svg" alt="MySql" /> </div>
+								<div className="iwt-icon"> <img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/mysql.svg" alt="MySql" /> </div>
 								<div className="iwt-content">
 									<p>MySql</p>
 								</div>
@@ -122,7 +122,7 @@ export default function Page() {
 						</div>
 						<div className="icon-with-title">
 							<a href="javascript:void(0)">
-								<div className="iwt-icon"> <img src="/images/icons/Node.JS.svg" alt="nodeJS" />
+								<div className="iwt-icon"> <img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Node.JS.svg" alt="nodeJS" />
 								</div>
 								<div className="iwt-content">
 									<p>nodeJS</p>
@@ -131,7 +131,7 @@ export default function Page() {
 						</div>
 						<div className="icon-with-title">
 							<a href="javascript:void(0)">
-								<div className="iwt-icon"> <img src="/images/icons/Angular-icon.svg" alt="angular" />
+								<div className="iwt-icon"> <img width={482} height={510} loading="lazy" decoding="async" src="/images/icons/Angular-icon.svg" alt="angular" />
 								</div>
 								<div className="iwt-content">
 									<p>Angular</p>
@@ -352,16 +352,16 @@ export default function Page() {
 
 			<div className="app-screenss owl-carousel mt70 dottss">
 				<div className="appscreen">
-					<div className="itme-img"><img src="/images/case-study/cook-a-doodle-Website-screen-1.png" alt="mockup"
+					<div className="itme-img"><img width={800} height={600} loading="lazy" decoding="async" src="/images/case-study/cook-a-doodle-Website-screen-1.webp" alt="mockup"
 							className="img-fluid" /></div>
 				</div>
 				
 				<div className="appscreen">
-					<div className="itme-img"><img src="/images/case-study/cook-a-doodle-Website-screen-2.png" alt="mockup"
+					<div className="itme-img"><img width={800} height={600} loading="lazy" decoding="async" src="/images/case-study/cook-a-doodle-Website-screen-2.webp" alt="mockup"
 							className="img-fluid" /></div>
 				</div>
 				<div className="appscreen">
-					<div className="itme-img"><img src="/images/case-study/cook-a-doodle-Website-screen-3.png" alt="mockup"
+					<div className="itme-img"><img width={800} height={600} loading="lazy" decoding="async" src="/images/case-study/cook-a-doodle-Website-screen-3.webp" alt="mockup"
 							className="img-fluid" /></div>
 				</div>
 				

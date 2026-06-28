@@ -287,26 +287,30 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     console.error('Sitemap: Failed to fetch blogs', e)
   }
 
-  // ===========================
-  // DYNAMIC: PORTFOLIOS FROM DATABASE
-  // Auto-updates when you publish new portfolios
-  // ===========================
-  try {
-    const portfolios = await sql`SELECT slug, created_at, updated_at FROM portfolios WHERE published = true`
-    portfolios.forEach((portfolio: any) => {
-      const mod = portfolio.updated_at || portfolio.created_at
-      entries.push({
-        url: `${baseUrl}/${portfolio.slug}`,
-        lastModified: mod
-          ? new Date(mod).toISOString().split('T')[0]
-          : today,
-        changeFrequency: 'monthly',
-        priority: 0.7,
-      })
+// ===========================
+// DYNAMIC: PORTFOLIOS FROM DATABASE
+// Auto-updates when you publish new portfolios
+// ===========================
+try {
+  const portfolios = await sql`
+    SELECT slug, created_at
+    FROM portfolios
+    WHERE published = true
+  `
+
+  portfolios.forEach((portfolio: any) => {
+    entries.push({
+      url: `${baseUrl}/${portfolio.slug}`,
+      lastModified: portfolio.created_at
+        ? new Date(portfolio.created_at).toISOString().split('T')[0]
+        : today,
+      changeFrequency: 'monthly',
+      priority: 0.7,
     })
-  } catch (e) {
-    console.error('Sitemap: Failed to fetch portfolios', e)
-  }
+  })
+} catch (e) {
+  console.error('Sitemap: Failed to fetch portfolios', e)
+}
 
   // ===========================
   // DYNAMIC: CASE STUDIES FROM DATABASE

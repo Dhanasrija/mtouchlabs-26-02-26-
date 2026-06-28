@@ -13,13 +13,13 @@
 //     url: "https://www.mtouchlabs.com/hire-angular-developers-in-india",
 //     siteName: "mTouch Labs",
 //     type: "website",
-//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire Angular Developers in India" }],
+//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Hire Angular Developers in India" }],
 //   },
 //   twitter: {
 //     card: "summary_large_image",
 //     title: "Hire Angular Developers in India",
 //     description: "Hire expert Angular developers in India from mTouch Labs for secure, scalable, and modern web applications built to grow your business.",
-//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
 //   },
 // };
 
@@ -52,7 +52,7 @@
 // 					</div>
 // 				</div>
 // 				<div className="col-lg-6">
-// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img
+// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img width={690} height={350} loading="lazy" decoding="async"
 // 							src="/images/others/Hire-Angular-developers.svg" alt="mTouch Labs" className="img-fluid" /></div>
 // 				</div>
 // 			</div>
@@ -86,7 +86,7 @@
 // 								project. With a Zero developer backout policy, we guarantee that your project is
 // 								finished in time according to your business requirements and convenience. Look no
 // 								further, with over <span className="yearsOfExcellence">12+</span> years of experience in
-// 								<a href="/angular-development-company-in-india" target="_blank">Angular Development</a>,
+// 								<a href="/angular-development-company-in-india" target="_blank" rel="noopener noreferrer">Angular Development</a>,
 // 								Hire Angular JS
 // 								Developers from us that provide you with the best resource at your fingertips.
 // 							</p>
@@ -99,7 +99,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async"
 // 								src="/images/cta/Hire-Dedicated-Angular-JS-Developers-From-mTouchlabs.svg"
 // 								alt="angular Developers" className="img-fluid" /> </div>
 // 					</div>
@@ -112,7 +112,7 @@
 // 				<div className="row">
 
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async"
 // 								src="/images/cta/Hire-Dedicated-Angular-Programmers-to-Scale-up-your-Web-Development.svg"
 // 								alt="angular web Developers" className="img-fluid" /></div>
 // 					</div>
@@ -132,7 +132,7 @@
 // 								cost-effective Angular web apps that are safe, scalable, and dynamic. Our dedicated
 // 								AngularJS experts have adopted all Angular versions from 2.0.0 to 12.0.0 as our primary
 // 								front-end technology. At mTouchlabs, the <a href="/web-development-company"
-// 									target="_blank">top AngularJs Web Development Company</a> India has
+// 									target="_blank" rel="noopener noreferrer">top AngularJs Web Development Company</a> India has
 // 								the top AngularJS experts in the world, all of them are trained with the most up-to-date
 // 								Angular developer tools, technologies, and skill sets.
 // 							</p>
@@ -177,7 +177,7 @@
 // 			<div className="row mt30">
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Dedicated-Angular-Developers.svg"
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Dedicated-Angular-Developers.svg"
 // 								alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Dedicated Angular Developers</h3>
@@ -188,7 +188,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Platform-Migration.svg" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Platform-Migration.svg" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Platform Migration </h3>
 // 							<p>Our Angular JS developers can help you re-engineer and platform migrate your existing
@@ -199,7 +199,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Exceptionally-Talented.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Exceptionally-Talented.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Exceptionally Talented</h3>
@@ -212,7 +212,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Latest-Technology-hire-angular.svg"
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Latest-Technology-hire-angular.svg"
 // 								alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Latest Technology </h3>
@@ -224,7 +224,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Cost-effective-solution-hire-angular.svg"
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Cost-effective-solution-hire-angular.svg"
 // 								alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Cost-effective solution</h3>
@@ -236,7 +236,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Flexible-hiring-models.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Flexible-hiring-models.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Flexible hiring models</h3>
@@ -280,7 +280,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
-// 						<div className="sol-img-png"> <img
+// 						<div className="sol-img-png"> <img width={690} height={350} loading="lazy" decoding="async"
 // 								src="/images/cta/Hire-Dedicated-AngularJS-Developers-From-mTouchlabs.svg"
 // 								alt="hire angular developers" className="img-fluid" /> </div>
 // 					</div>
@@ -402,7 +402,7 @@
 // 								chat.</h2>
 // 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 // 									className="fas fa-user fb-bigon"></i> Contact </a>
-// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
+// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer"
 // 								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
 // 								Whatsapp </a>
 
@@ -410,7 +410,7 @@
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
 // 						<div className="sol-img-png">
-// 							<img src="/images/cta/let's-get-to-chat-angular-dev.svg" alt="working with client"
+// 							<img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/let's-get-to-chat-angular-dev.svg" alt="working with client"
 // 								className="img-fluid" />
 // 						</div>
 // 					</div>

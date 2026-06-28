@@ -18,20 +18,20 @@
 
 // const IMAGES: ImageConfig[] = [
 //     // Southwest pair (Primary gets HUGE sizes and pushed to the far left)
-//     { src: "/images/home/honors/TopMobileappdevelopment.png", alt: "SW 1", width: "240px", height: "250px", targetTx: "-430px", targetTy: "240px", zIndex: 1, isPrimary: true, rangeStart: "contain 0%", rangeEnd: "contain 55%" },
-//     // { src: "/images/home/honors/Appdevelopment.png", alt: "SW 2", width: "240px", height: "260px", targetTx: "-250px", targetTy: "450px", zIndex: 2, rangeStart: "contain 25%", rangeEnd: "contain 65%" },
+//     { src: "/images/home/honors/TopMobileappdevelopment.webp", alt: "SW 1", width: "240px", height: "250px", targetTx: "-430px", targetTy: "240px", zIndex: 1, isPrimary: true, rangeStart: "contain 0%", rangeEnd: "contain 55%" },
+//     // { src: "/images/home/honors/Appdevelopment.webp", alt: "SW 2", width: "240px", height: "260px", targetTx: "-250px", targetTy: "450px", zIndex: 2, rangeStart: "contain 25%", rangeEnd: "contain 65%" },
 
 //     // Northwest pair — spread apart so both are fully visible
-//     { src: "/images/home/honors/Awardwinningdesigners.png", alt: "NW 1", width: "220px", height: "240px", targetTx: "-540px", targetTy: "60px", zIndex: 2, rangeStart: "contain 10%", rangeEnd: "contain 60%" },
-//     { src: "/images/home/honors/NascomInspire.png", alt: "NW 2", width: "220px", height: "220px", targetTx: "-280px", targetTy: "-220px", zIndex: 2, rangeStart: "contain 15%", rangeEnd: "contain 65%" },
+//     { src: "/images/home/honors/Awardwinningdesigners.webp", alt: "NW 1", width: "220px", height: "240px", targetTx: "-540px", targetTy: "60px", zIndex: 2, rangeStart: "contain 10%", rangeEnd: "contain 60%" },
+//     { src: "/images/home/honors/NascomInspire.webp", alt: "NW 2", width: "220px", height: "220px", targetTx: "-280px", targetTy: "-220px", zIndex: 2, rangeStart: "contain 15%", rangeEnd: "contain 65%" },
 
 //     // Southeast pair
-//     { src: "/images/home/honors/Googlerating.png", alt: "SE 1", width: "220px", height: "220px", targetTx: "280px", targetTy: "260px", zIndex: 1, rangeStart: "contain 15%", rangeEnd: "contain 60%" },
+//     { src: "/images/home/honors/Googlerating.webp", alt: "SE 1", width: "220px", height: "220px", targetTx: "280px", targetTy: "260px", zIndex: 1, rangeStart: "contain 15%", rangeEnd: "contain 60%" },
 //     // { src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=900&auto=format&fit=crop&q=60", alt: "SE 2", width: "240px", height: "240px", targetTx: "650px", targetTy: "450px", zIndex: 2, rangeStart: "contain 20%", rangeEnd: "contain 65%" },
 
 //     // Northeast pair — spread apart so both are fully visible
-//     { src: "/images/home/honors/Appdevelopment.png", alt: "NE 1", width: "220px", height: "220px", targetTx: "280px", targetTy: "-220px", zIndex: 2, rangeStart: "contain 25%", rangeEnd: "contain 70%" },
-//     { src: "/images/home/honors/OfficialNASSCOMMember.png", alt: "NE 2", width: "230px", height: "230px", targetTx: "540px", targetTy: "60px", zIndex: 2, rangeStart: "contain 30%", rangeEnd: "contain 75%" },
+//     { src: "/images/home/honors/Appdevelopment.webp", alt: "NE 1", width: "220px", height: "220px", targetTx: "280px", targetTy: "-220px", zIndex: 2, rangeStart: "contain 25%", rangeEnd: "contain 70%" },
+//     { src: "/images/home/honors/OfficialNASSCOMMember.webp", alt: "NE 2", width: "230px", height: "230px", targetTx: "540px", targetTy: "60px", zIndex: 2, rangeStart: "contain 30%", rangeEnd: "contain 75%" },
 // ];
 
 // export function HonorsCode() {
@@ -100,20 +100,20 @@ type ImageConfig = {
 
 const IMAGES: ImageConfig[] = [
     // Southwest pair (Primary gets HUGE sizes and pushed to the far left)
-    { src: "/images/home/honors/TopMobileappdevelopment.png", alt: "SW 1", width: "240px", height: "250px", targetTx: "-430px", targetTy: "240px", zIndex: 1, isPrimary: true, rangeStart: "contain 0%", rangeEnd: "contain 55%" },
-    // { src: "/images/home/honors/Appdevelopment.png", alt: "SW 2", width: "240px", height: "260px", targetTx: "-250px", targetTy: "450px", zIndex: 2, rangeStart: "contain 25%", rangeEnd: "contain 65%" },
+    { src: "/images/home/honors/TopMobileappdevelopment.webp", alt: "SW 1", width: "240px", height: "250px", targetTx: "-430px", targetTy: "240px", zIndex: 1, isPrimary: true, rangeStart: "contain 0%", rangeEnd: "contain 55%" },
+    // { src: "/images/home/honors/Appdevelopment.webp", alt: "SW 2", width: "240px", height: "260px", targetTx: "-250px", targetTy: "450px", zIndex: 2, rangeStart: "contain 25%", rangeEnd: "contain 65%" },
 
     // Northwest pair — spread apart so both are fully visible
-    { src: "/images/home/honors/Awardwinningdesigners.png", alt: "NW 1", width: "220px", height: "240px", targetTx: "-540px", targetTy: "60px", zIndex: 2, rangeStart: "contain 10%", rangeEnd: "contain 60%" },
-    { src: "/images/home/honors/NascomInspire.png", alt: "NW 2", width: "220px", height: "220px", targetTx: "-280px", targetTy: "-220px", zIndex: 2, rangeStart: "contain 15%", rangeEnd: "contain 65%" },
+    { src: "/images/home/honors/Awardwinningdesigners.webp", alt: "NW 1", width: "220px", height: "240px", targetTx: "-540px", targetTy: "60px", zIndex: 2, rangeStart: "contain 10%", rangeEnd: "contain 60%" },
+    { src: "/images/home/honors/NascomInspire.webp", alt: "NW 2", width: "220px", height: "220px", targetTx: "-280px", targetTy: "-220px", zIndex: 2, rangeStart: "contain 15%", rangeEnd: "contain 65%" },
 
     // Southeast pair
-    { src: "/images/home/honors/Googlerating.png", alt: "SE 1", width: "220px", height: "220px", targetTx: "280px", targetTy: "260px", zIndex: 1, rangeStart: "contain 15%", rangeEnd: "contain 60%" },
+    { src: "/images/home/honors/Googlerating.webp", alt: "SE 1", width: "220px", height: "220px", targetTx: "280px", targetTy: "260px", zIndex: 1, rangeStart: "contain 15%", rangeEnd: "contain 60%" },
     // { src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=900&auto=format&fit=crop&q=60", alt: "SE 2", width: "240px", height: "240px", targetTx: "650px", targetTy: "450px", zIndex: 2, rangeStart: "contain 20%", rangeEnd: "contain 65%" },
 
     // Northeast pair — spread apart so both are fully visible
-    { src: "/images/home/honors/Appdevelopment.png", alt: "NE 1", width: "220px", height: "220px", targetTx: "280px", targetTy: "-220px", zIndex: 2, rangeStart: "contain 25%", rangeEnd: "contain 70%" },
-    { src: "/images/home/honors/OfficialNASSCOMMember.png", alt: "NE 2", width: "230px", height: "230px", targetTx: "540px", targetTy: "60px", zIndex: 2, rangeStart: "contain 30%", rangeEnd: "contain 75%" },
+    { src: "/images/home/honors/Appdevelopment.webp", alt: "NE 1", width: "220px", height: "220px", targetTx: "280px", targetTy: "-220px", zIndex: 2, rangeStart: "contain 25%", rangeEnd: "contain 70%" },
+    { src: "/images/home/honors/OfficialNASSCOMMember.webp", alt: "NE 2", width: "230px", height: "230px", targetTx: "540px", targetTy: "60px", zIndex: 2, rangeStart: "contain 30%", rangeEnd: "contain 75%" },
 ];
 
 export function HonorsCode() {

@@ -61,7 +61,7 @@ export default function iOSDevelopment() {
             </div>
             <div className="io-stats io-animate--right">
               <div className="io-stat">
-                <span className="io-stat__icon"><img src="/images/swift.png" alt="Swift" width={36} height={36} style={{borderRadius:"8px"}} /></span>                <span className="io-stat__label">Swift Native</span>
+                <span className="io-stat__icon"><img loading="lazy" decoding="async" src="/images/swift.webp" alt="Swift" width={36} height={36} style={{borderRadius:"8px"}} /></span>                <span className="io-stat__label">Swift Native</span>
               </div>
               <div className="io-stat">
                 <span className="io-stat__icon">📱</span>

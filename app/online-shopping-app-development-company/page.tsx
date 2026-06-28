@@ -16,21 +16,21 @@ const data: ProductPageData = {
     h1Tail: "in Hyderabad",
     subtitle: "Launch a modern online shopping app with smart search, personalized recommendations, secure checkout, and fast delivery.",
     demoHref: "https://youtu.be/CMvX_4uhcnE?si=QLNSxTcBN2tbRASu",
-    leftPhoneImg: "/images/products/shopping/phone1.png",
-    rightPhoneImg: "/images/products/shopping/phone2.png",
+    leftPhoneImg: "/images/products/shopping/phone1.webp",
+    rightPhoneImg: "/images/products/shopping/phone2.webp",
   },
   intro: {
-    img: "/images/products/shopping/phone1.png",
+    img: "/images/products/shopping/phone1.webp",
     label: "Online Shopping Experts",
     h3: "Online Shopping App Development",
     body: [
-      <>mTouch Labs is a NASSCOM award-winning <a href="/mobile-app-development-company" target="_blank">online shopping app development company</a> in Hyderabad, helping retailers and D2C brands build modern shopping experiences.</>,
+      <>mTouch Labs is a NASSCOM award-winning <a href="/mobile-app-development-company" target="_blank" rel="noopener noreferrer">online shopping app development company</a> in Hyderabad, helping retailers and D2C brands build modern shopping experiences.</>,
       <>We build single-brand stores, multi-category marketplaces, fashion and lifestyle apps, and social commerce platforms tailored to your audience and scale.</>,
     ],
   },
   dividerTitle: "Custom Online Shopping App Development",
   endToEnd: {
-    img: "/images/products/shopping/phone2.png",
+    img: "/images/products/shopping/phone2.webp",
     label: "End-to-End Solutions",
     h3: "Complete Shopping App Development",
     body: [
@@ -56,11 +56,11 @@ const data: ProductPageData = {
   screens: {
     alt: "Online shopping app screen",
     images: [
-      "/images/products/shopping/appscreen1.png",
-      "/images/products/shopping/appscreen2.png",
-      "/images/products/shopping/appscreen3.png",
-      "/images/products/shopping/appscreen4.png",
-      "/images/products/shopping/appscreen5.png",
+      "/images/products/shopping/appscreen1.webp",
+      "/images/products/shopping/appscreen2.webp",
+      "/images/products/shopping/appscreen3.webp",
+      "/images/products/shopping/appscreen4.webp",
+      "/images/products/shopping/appscreen5.webp",
     ],
   },
   tabs: {
@@ -95,7 +95,7 @@ const data: ProductPageData = {
     { q: "Do you provide post-launch support?", a: "Yes, we provide ongoing maintenance and enhancements." },
   ],
   cta: {
-    img: "/images/products/shopping/rating.png",
+    img: "/images/products/shopping/rating.webp",
     h2: "Build a Shopping App Customers Love",
     body: "Launch a modern online shopping platform that is scalable, user-friendly, and ready for growth.",
   },

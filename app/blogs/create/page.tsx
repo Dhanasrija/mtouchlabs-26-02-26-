@@ -15,7 +15,7 @@ export default function CreateBlogPage() {
           <h1>Blog Admin Panel</h1>
           <p className="admin-header-sub">Create new blog post</p>
         </div>
-        <a href="/blog" target="_blank" className="admin-header-link">View Blog &rarr;</a>
+        <a href="/blog" target="_blank" rel="noopener noreferrer" className="admin-header-link">View Blog &rarr;</a>
       </div>
 
       <div className="admin-container">

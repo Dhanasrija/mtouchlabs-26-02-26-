@@ -8,7 +8,7 @@ const locations = {
     address: "mTouch Labs Private Limited, #514, Manjeera Trinity Corporate, JNTU – Hitech City Road, Kukatpally, Hyderabad – 500072",
     phone: "+91-9390683154",
     email: "contact@mtouchlabs.com",
-    image: "/images/hyderabad.png",
+    image: "/images/hyderabad.webp",
     mapLink: "https://www.google.com/maps/place/mTouch+Labs+Pvt+Ltd+-+Software+Development+Company/@17.4892271,78.3901496,791m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3bcb90cec63e97d9:0xb045c9dc22129055!8m2!3d17.489222!4d78.3927245!16s%2Fg%2F11b8zhlwcv",
     index: 0
   },
@@ -18,7 +18,7 @@ const locations = {
     address: "mTouch Labs Private Limited, #101, 4th Main Rd, Gayathri Layout, Vijaya Bank Layout, Bilekahalli, Bengaluru, Karnataka - 560076",
     phone: "+91-9014793487",
     email: "contact@mtouchlabs.com",
-    image: "/images/bangalore.png",
+    image: "/images/bangalore.webp",
     mapLink: "https://www.google.com/maps/search/?api=1&query=mTouch+Labs+Bilekahalli+Bengaluru+Karnataka+560076",
     index: 1
   },
@@ -28,7 +28,7 @@ const locations = {
     address: "1111b South Governors Avenue, Suite 48193, Dover, Delaware (DE)-19904 United States (US)",
     phone: "+1 (551) 222-0070",
     email: "contact@mtouchlabs.com",
-    image: "/images/usa.jpg",
+    image: "/images/usa.webp",
     mapLink: "https://maps.app.goo.gl/amg7vRf4qFy6BFZW9",
     index: 2
   }
@@ -39,7 +39,7 @@ const locationList = [locations.hyderabad, locations.bangalore, locations.usa];
 export default function LocationSection() {
   return (
     <>
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         ._location_we_serve_container {
           display: flex;
           align-items: center;
@@ -294,7 +294,7 @@ export default function LocationSection() {
           transform: translateY(-2px);
           color: #3E8CFB;
         }
-      `}</style>
+      `}} />
 
       <section className="_location_we_serve_container">
         <LocationCarousel locations={locations} locationList={locationList} />

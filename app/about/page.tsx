@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "About Us – Leading Software Company",
     description: "mTouch Labs is a top-rated software development company in India with 14+ years of experience delivering mobile apps, web platforms, and enterprise solutions across 12+ countries.",
-    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
   },
 };
 
@@ -110,7 +110,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="abt-who__image-wrap">
-              <img
+              <img width={690} height={539} loading="lazy" decoding="async"
                 src="/images/others/Mobile App Development Process.jpg"
                 alt="mTouch Labs office"
                 className="abt-who__image"

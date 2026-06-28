@@ -13,13 +13,13 @@
 //     url: "https://www.mtouchlabs.com/hire-dedicated-developers-in-india",
 //     siteName: "mTouch Labs",
 //     type: "website",
-//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Dedicated developers | Web Developers | Mobile app developers" }],
+//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Dedicated developers | Web Developers | Mobile app developers" }],
 //   },
 //   twitter: {
 //     card: "summary_large_image",
 //     title: "Dedicated developers | Web Developers | Mobile app developers",
 //     description: "Hire dedicated web and mobile app developers with expertise across technologies. Get skilled developers for your custom projects.",
-//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
 //   },
 // };
 
@@ -41,7 +41,7 @@
 // 								manage the entire development cycle of your project. Our Mobile App Developers and Web
 // 								Developers offer you tailored solutions for your needs of <a
 // 									href="https://www.mtouchlabs.com/top-mobile-app-development-company-in-hyderabad"
-// 									target="_blank">web & mobile applications</a> with
+// 									target="_blank" rel="noopener noreferrer">web & mobile applications</a> with
 // 								front-end, back-end, and full-stack. </p>
 // 							&nbsp;
 // 							<p>We use custom Dedicated developers teams to help enterprises and businesses scale their
@@ -51,7 +51,7 @@
 // 								using cutting-edge tools and technologies for developing high-quality business
 // 								solutions. </p>
 // 							&nbsp;
-// 							<p>We execute the <a href="/mobile-app-development-company" target="_blank"> best mobile app
+// 							<p>We execute the <a href="/mobile-app-development-company" target="_blank" rel="noopener noreferrer"> best mobile app
 // 									development</a> practices while fulfilling your business
 // 								requirements efficiently. We are backed by 20+ full-time Web developers and Mobile App
 // 								Developers with over <span className="yearsOfExcellence">12+</span> years of average
@@ -72,7 +72,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img src="/images/cta/Our-dedicated-developers.svg"
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Our-dedicated-developers.svg"
 // 								alt="Dedicated Developers" className="img-fluid" /> </div>
 // 					</div>
 // 				</div>
@@ -84,7 +84,7 @@
 // 				<div className="row">
 
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img src="/images/cta/Choose-Software-Developers-from mTouchlabs.svg"
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Choose-Software-Developers-from mTouchlabs.svg"
 // 								alt="Dedicated Developers" className="img-fluid" /></div>
 // 					</div>
 
@@ -109,7 +109,7 @@
 // 							<p>With the betterment of technologies, our dedicated programmers keep themselves up to date
 // 								with the latest trends to do very well and offer world-class web and mobile
 // 								applications. With our commitment and knowledge towards application development, our
-// 								<a href="/custom-software-development-company" target="_blank">Software developers</a>
+// 								<a href="/custom-software-development-company" target="_blank" rel="noopener noreferrer">Software developers</a>
 // 								help convert your ideas into reality with their practical
 // 								experience.
 // 							</p>
@@ -148,7 +148,7 @@
 // 			<div className="row mt30">
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Expert-Programmers.svg" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Expert-Programmers.svg" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Expert Programmers</h3>
 // 							<p>Our dedicated developers have more than a decade of experience in Web and Mobile App
@@ -158,7 +158,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Collaborative.svg" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Collaborative.svg" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Collaborative</h3>
 // 							<p>Regular communication through Zoom, Email, and Audio conferencing ensure you have a
@@ -169,7 +169,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Cost-Effective-developers.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Cost-Effective-developers.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Cost-Effective</h3>
@@ -181,7 +181,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Work-With-Supremacy.svg" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Work-With-Supremacy.svg" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Work With Supremacy </h3>
 // 							<p>Our dedicated developers team works with supremacy and finishes the project intelligently
@@ -192,7 +192,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Adaptive-Development.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Adaptive-Development.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Adaptive Development</h3>
@@ -204,7 +204,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Software-Protection.svg" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Software-Protection.svg" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Software Protection</h3>
 // 							<p>With our comprehensive software protection plan, we provide constant post-deployment
@@ -241,7 +241,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
-// 						<div className="sol-img-png"> <img src="/images/cta/Hire-Our-Professional-Dedicated-Developers.svg"
+// 						<div className="sol-img-png"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Hire-Our-Professional-Dedicated-Developers.svg"
 // 								alt="hire dedicated developers" className="img-fluid" /> </div>
 // 					</div>
 // 				</div>
@@ -369,7 +369,7 @@
 // 							<h2>Need any <span className="ree-text rt40">Developers</span> ? Let's get to chat.</h2>
 // 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 // 									className="fas fa-user fb-bigon"></i> Contact </a>
-// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
+// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer"
 // 								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
 // 								Whatsapp </a>
 
@@ -377,7 +377,7 @@
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
 // 						<div className="sol-img-png">
-// 							<img src="/images/cta/let's-get-to-chat-dedicate-developers.svg" alt="working with client"
+// 							<img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/let's-get-to-chat-dedicate-developers.svg" alt="working with client"
 // 								className="img-fluid" />
 // 						</div>
 // 					</div>

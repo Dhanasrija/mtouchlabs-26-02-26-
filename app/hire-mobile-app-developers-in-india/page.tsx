@@ -13,13 +13,13 @@
 //     url: "https://www.mtouchlabs.com/hire-mobile-app-developers-in-india",
 //     siteName: "mTouch Labs",
 //     type: "website",
-//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire Android App Developers in India" }],
+//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Hire Android App Developers in India" }],
 //   },
 //   twitter: {
 //     card: "summary_large_image",
 //     title: "Hire Android App Developers in India",
 //     description: "Hire Android app developers in India from mTouch Labs to build high-quality and user-centric Android applications tailored to your business goals.",
-//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
 //   },
 // };
 
@@ -59,7 +59,7 @@
 // 					</div>
 // 				</div>
 // 				<div className="col-lg-6">
-// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img
+// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img width={690} height={350} loading="lazy" decoding="async"
 // 							src="/images/others/transform-your-idea-into-reality-by-hiring-our-devedicate-mobile-app-developers.svg"
 // 							alt="mTouch Labs" className="img-fluid" /></div>
 // 				</div>
@@ -89,7 +89,7 @@
 // 								you in adding value to your vision through customized applications. </p>
 							 
 // 							<p>Our dedicated <a href="https://www.mtouchlabs.com/mobile-app-development-company"
-// 									target="_blank"> Mobile App Developers in India</a> have decades of experience in
+// 									target="_blank" rel="noopener noreferrer"> Mobile App Developers in India</a> have decades of experience in
 // 								mobile app
 // 								development solutions that span various industries from retail to healthcare and energy.
 // 								mTouchlabs Mobile Application Developers team can dive into your business ecosystem,
@@ -109,7 +109,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async"
 // 								src="/images/cta/most-trusted-mobile-application-developers-in-india.svg"
 // 								alt="mobile-app-developers" className="img-fluid" /> </div>
 // 					</div>
@@ -122,7 +122,7 @@
 // 				<div className="row">
 
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async"
 // 								src="/images/cta/our-dedicated-android-app-developers-and-ios-app-developers.svg"
 // 								alt="mobile-app-developers-in-india" className="img-fluid" /> </div>
 // 					</div>
@@ -142,7 +142,7 @@
 // 								provide more value to both companies and customers. </p>
 							 
 // 							<p> Our dedicated <a href="https://www.mtouchlabs.com/android-app-development-company"
-// 									target="_blank">Android App Developers</a> and dedicated iOS App developers team
+// 									target="_blank" rel="noopener noreferrer">Android App Developers</a> and dedicated iOS App developers team
 // 								adopts a
 // 								structured
 // 								method to consider your needs, plan a sample to fulfill the concept demands, validate
@@ -162,7 +162,7 @@
 // 							<p>Additionally, our dedicated Android App Developers and dedicated iOS App developers in
 // 								India are
 // 								well versed in delivering end-to-end <a
-// 									href="https://www.mtouchlabs.com/hire-mobile-app-designers-in-india" target="_blank">
+// 									href="https://www.mtouchlabs.com/hire-mobile-app-designers-in-india" target="_blank" rel="noopener noreferrer">
 // 									custom mobile app development services </a> for a wide
 // 								range of
 // 								Android and iOS devices.
@@ -198,7 +198,7 @@
 // 			<div className="row mt30">
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Mobile-App-Strategy-hire.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Mobile-App-Strategy-hire.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Mobile App Strategy</h3>
@@ -210,7 +210,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Mobile-App-Designing-hire.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Mobile-App-Designing-hire.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Mobile App Designing</h3>
@@ -222,7 +222,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Mobile-App-Development-hire.svg"
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Mobile-App-Development-hire.svg"
 // 								alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
@@ -236,7 +236,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Support-&-Maintenance-hire.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Support-&-Maintenance-hire.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Support & Maintenance</h3>
@@ -249,7 +249,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Mobile-App-Marketing-hire.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Mobile-App-Marketing-hire.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Mobile App Marketing</h3>
@@ -262,7 +262,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Mobile-App-Porting-hire.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Mobile-App-Porting-hire.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Mobile App Porting</h3>
@@ -301,7 +301,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
-// 						<div className="sol-img-png"> <img
+// 						<div className="sol-img-png"> <img width={690} height={350} loading="lazy" decoding="async"
 // 								src="/images/cta/hire-our-dedicated-mobile-app-developers-in-india.svg"
 // 								alt="hire mobile app developers" className="img-fluid" /> </div>
 // 					</div>
@@ -446,7 +446,7 @@
 // 							<h3>Have a <span className="ree-text rt40">project</span> in mind? Let's get to chat.</h3>
 // 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 // 									className="fas fa-user fb-bigon"></i> Contact </a>
-// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
+// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer"
 // 								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
 // 								Whatsapp </a>
 
@@ -454,7 +454,7 @@
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
 // 						<div className="sol-img-png">
-// 							<img src="/images/cta/let's-get-to-chat-mobile-app-developers.svg" alt="working with client"
+// 							<img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/let's-get-to-chat-mobile-app-developers.svg" alt="working with client"
 // 								className="img-fluid" />
 // 						</div>
 // 					</div>
@@ -516,7 +516,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png",
+        url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp",
         width: 1200,
         height: 630,
         alt: "Hire Mobile App Developers in India",
@@ -529,7 +529,7 @@ export const metadata: Metadata = {
     description:
       "Hire expert mobile app developers in India for scalable and secure applications.",
     images: [
-      "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png",
+      "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp",
     ],
   },
   robots: {

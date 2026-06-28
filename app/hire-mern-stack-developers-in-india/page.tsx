@@ -13,13 +13,13 @@
 //     url: "https://www.mtouchlabs.com/hire-mern-stack-developers-in-india",
 //     siteName: "mTouch Labs",
 //     type: "website",
-//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire MERN stack developers | Dedicated MERN developer" }],
+//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Hire MERN stack developers | Dedicated MERN developer" }],
 //   },
 //   twitter: {
 //     card: "summary_large_image",
 //     title: "Hire MERN stack developers | Dedicated MERN developer",
 //     description: "Hire expert MERN stack developers from mTouch Labs to build robust, scalable, and top-quality web and mobile applications.",
-//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
 //   },
 // };
 
@@ -55,7 +55,7 @@
 // 					</div>
 // 				</div>
 // 				<div className="col-lg-6">
-// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img
+// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img width={690} height={350} loading="lazy" decoding="async"
 // 							src="/images/others/Hire-MERN-Stack-Developers.svg" alt="mTouch Labs" className="img-fluid" />
 // 					</div>
 // 				</div>
@@ -76,7 +76,7 @@
 // 								<span className="ree-text rt40"> Developers </span> From mTouch Labs in India
 // 							</h2>
 // 							<p>Take your business to a high level by hiring dedicated MERN Stack Developers from
-// 								mTouchlabs to build your <a href="/hire-web-developers-in-india" target="_blank">web
+// 								mTouchlabs to build your <a href="/hire-web-developers-in-india" target="_blank" rel="noopener noreferrer">web
 // 									application</a> at an affordable price. Hire MERN Stack
 // 								Developers from us who are well-versed in all technologies like - MongoDB, ReactJS,
 // 								ExpressJS, and NodeJS, along with expertise in Python to deliver and develop fast,
@@ -102,7 +102,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img src="/images/cta/Hire-MERN-Developers-From-mTouchlabs.svg"
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Hire-MERN-Developers-From-mTouchlabs.svg"
 // 								alt="mern stack Developers" className="img-fluid" /> </div>
 // 					</div>
 // 				</div>
@@ -114,7 +114,7 @@
 // 				<div className="row">
 
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img src="/images/cta/Hire-Our-Dedicated-MERN-Stack-Programmers.svg"
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Hire-Our-Dedicated-MERN-Stack-Programmers.svg"
 // 								alt="mern stack web Developers" className="img-fluid" /></div>
 // 					</div>
 
@@ -127,7 +127,7 @@
 // 								Management System), ERP (Enterprise Resource Planning), or eCommerce development; you
 // 								get high-performance and high functional<a
 // 									href="https://www.mtouchlabs.com/key-advantages-of-cross-platform-mobile-app-development"
-// 									target="_blank">cross-platform applications </a> .
+// 									target="_blank" rel="noopener noreferrer">cross-platform applications </a> .
 // 							</p>
 							 
 // 							<p>With the React JS component, our dedicated MERN developers enable the application’s UI to
@@ -139,7 +139,7 @@
 // 							<p>Our team of professional MERN stack developers at mTouchlabs offers a full spectrum of
 // 								MERN stack development services at an affordable cost. From Rapid development to
 // 								providing unique solutions with no Jailbreaking code, our <a
-// 									href="/web-development-company" target="_blank"></a> web development company in
+// 									href="/web-development-company" target="_blank" rel="noopener noreferrer"></a> web development company in
 // 								India offer customized MERN Stack development services
 // 							</p>
 // 							<ul className="ul-list-icon mt30">
@@ -178,7 +178,7 @@
 // 			<div className="row mt30">
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Dedicated-MERN-Developers.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Dedicated-MERN-Developers.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Dedicated MERN Developers</h3>
@@ -189,7 +189,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Enterprise-Development-Solutions.svg"
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Enterprise-Development-Solutions.svg"
 // 								alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Enterprise Development Solutions</h3>
@@ -202,7 +202,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/MEAN-Stack-Migration-&-Integration.svg"
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/MEAN-Stack-Migration-&-Integration.svg"
 // 								alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Migration & Integration</h3>
@@ -215,7 +215,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Fixed-Cost-Project-Based.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Fixed-Cost-Project-Based.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Fixed Cost Project Based</h3>
@@ -227,7 +227,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Flexible-Architecture.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Flexible-Architecture.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Flexible Architecture</h3>
@@ -239,7 +239,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Round-the-Clock-Support.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Round-the-Clock-Support.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Round the Clock Support</h3>
@@ -285,7 +285,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
-// 						<div className="sol-img-png"> <img src="/images/cta/Hire-MERN-Developers-In-India.svg"
+// 						<div className="sol-img-png"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Hire-MERN-Developers-In-India.svg"
 // 								alt="hire mern stack developers" className="img-fluid" /> </div>
 // 					</div>
 // 				</div>
@@ -319,7 +319,7 @@
 // 								to chat.</h3>
 // 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 // 									className="fas fa-user fb-bigon"></i> Contact </a>
-// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
+// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer"
 // 								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
 // 								Whatsapp </a>
 
@@ -327,7 +327,7 @@
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
 // 						<div className="sol-img-png">
-// 							<img src="/images/cta/let's-get-to-chat-hire-mern.svg" alt="working with client"
+// 							<img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/let's-get-to-chat-hire-mern.svg" alt="working with client"
 // 								className="img-fluid" />
 // 						</div>
 // 					</div>

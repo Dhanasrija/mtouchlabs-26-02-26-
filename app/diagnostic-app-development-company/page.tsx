@@ -17,21 +17,21 @@ const data: ProductPageData = {
     h1Tail: "in Hyderabad",
     subtitle: "Launch a feature-rich diagnostic lab app with online test booking, home sample collection, digital reports, and secure payments.",
     demoHref: "https://youtu.be/NtkXvVPIFyU?si=fO6p0X8gi4YW49zx",
-    leftPhoneImg: "/images/products/diagnostic/phone1.png",
-    rightPhoneImg: "/images/products/diagnostic/phone2.png",
+    leftPhoneImg: "/images/products/diagnostic/phone1.webp",
+    rightPhoneImg: "/images/products/diagnostic/phone2.webp",
   },
   intro: {
-    img: "/images/products/diagnostic/phone1.png",
+    img: "/images/products/diagnostic/phone1.webp",
     label: "Diagnostic App Experts",
     h3: "Diagnostic App Development",
     body: [
-      <>mTouch Labs is a NASSCOM award-winning <a href="/mobile-app-development-company" target="_blank">diagnostic app development company</a> in Hyderabad, helping diagnostic chains, hospitals, and labs build modern healthtech platforms.</>,
+      <>mTouch Labs is a NASSCOM award-winning <a href="/mobile-app-development-company" target="_blank" rel="noopener noreferrer">diagnostic app development company</a> in Hyderabad, helping diagnostic chains, hospitals, and labs build modern healthtech platforms.</>,
       <>We build lab test booking apps, home sample collection, digital report apps, and multi-lab aggregator platforms tailored to your scale.</>,
     ],
   },
   dividerTitle: "Custom Diagnostic App Development",
   endToEnd: {
-    img: "/images/products/diagnostic/phone2.png",
+    img: "/images/products/diagnostic/phone2.webp",
     label: "End-to-End Solutions",
     h3: "Complete Diagnostic App Development",
     body: [
@@ -57,11 +57,11 @@ const data: ProductPageData = {
   screens: {
     alt: "Diagnostic app screen",
     images: [
-      "/images/products/diagnostic/appscreen1.png",
-      "/images/products/diagnostic/appscreen2.png",
-      "/images/products/diagnostic/appscreen3.png",
-      "/images/products/diagnostic/appscreen4.png",
-      "/images/products/diagnostic/appscreen5.png",
+      "/images/products/diagnostic/appscreen1.webp",
+      "/images/products/diagnostic/appscreen2.webp",
+      "/images/products/diagnostic/appscreen3.webp",
+      "/images/products/diagnostic/appscreen4.webp",
+      "/images/products/diagnostic/appscreen5.webp",
     ],
   },
   tabs: {
@@ -96,7 +96,7 @@ const data: ProductPageData = {
     { q: "Do you provide post-launch support?", a: "Yes, we provide ongoing maintenance and enhancements." },
   ],
   cta: {
-    img: "/images/products/diagnostic/service1.png",
+    img: "/images/products/diagnostic/service1.webp",
     h2: "Build a Diagnostic App Patients Trust",
     body: "Launch a modern diagnostic platform that is reliable, patient-friendly, and ready for growth.",
   },

@@ -34,7 +34,7 @@ export default function HomeFAQSection() {
 
   return (
     <>
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @keyframes faqBlurIn {
           from { opacity: 0; filter: blur(10px); transform: translateX(-10px); }
           to   { opacity: 1; filter: blur(0);    transform: translateX(0);     }
@@ -53,7 +53,7 @@ export default function HomeFAQSection() {
         ._faq_chevron {
           transition: transform 0.3s ease;
         }
-      `}</style>
+      `}} />
 
       <section style={{ padding: "6rem 0", backgroundColor: "#F3F1FF", position: "relative", zIndex: 1 }}>
         <div className="_faq_container">

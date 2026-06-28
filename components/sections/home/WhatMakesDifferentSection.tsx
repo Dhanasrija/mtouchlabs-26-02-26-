@@ -3,21 +3,21 @@ import { BlurText } from "@/components/sections/home/ui/BlurText";
 
 const row1 = [
   {
-    iconSrc: "/images/home/why/image-6900.png",
+    iconSrc: "/images/home/why/image-6900.webp",
     iconAlt: "End-to-end IT solutions",
     title: "End-to-End IT Solutions",
     description: "Complete digital solutions from idea to launch.",
     image: "/images/home/why/End-to-end IT solutions.png",
   },
   {
-    iconSrc: "/images/home/why/image-6901.png",
+    iconSrc: "/images/home/why/image-6901.webp",
     iconAlt: "AI & emerging technologies",
     title: "Strong expertise in AI & emerging technologies",
     description: "Building smart solutions using AI and modern technologies.",
     image: "/images/home/why/Strong expertise in AI & emerging technologies.png",
   },
   {
-    iconSrc: "/images/home/why/image-6899.png",
+    iconSrc: "/images/home/why/image-6899.webp",
     iconAlt: "Agile development methodology",
     title: "Agile & Scalable Development Approach",
     description: "Fast, flexible delivery with continuous improvements.",
@@ -27,11 +27,11 @@ const row1 = [
 
 const row2 = [
   {
-    iconSrc: "/images/home/why/image-6889-1.png",
+    iconSrc: "/images/home/why/image-6889-1.webp",
     iconAlt: "Transparent communication",
     title: "Transparent communication",
     description: "Clear updates and seamless collaboration at every stage.",
-    image: "/images/home/why/Transparent_communication.png",
+    image: "/images/home/why/Transparent_communication.webp",
   },
   {
     iconSrc: "/images/home/why/maximise 1 (1).png",
@@ -41,7 +41,7 @@ const row2 = [
     image: "/images/home/why/Scalable and future-ready solutions.png",
   },
   {
-    iconSrc: "/images/home/why/image-6886-1.png",
+    iconSrc: "/images/home/why/image-6886-1.webp",
     iconAlt: "Proven Industry Experience",
     title: "Proven Industry Experience & Global Delivery",
     description: "Trusted by startups and enterprises worldwide.",
@@ -52,7 +52,7 @@ const row2 = [
 export default function WhatMakesDifferentSection() {
   return (
     <>
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @keyframes wmFadeUp {
           from { opacity: 0; transform: translateY(60px); }
           to   { opacity: 1; transform: translateY(0);    }
@@ -81,7 +81,7 @@ export default function WhatMakesDifferentSection() {
           opacity: 1;
         }
 
-        /* When any card in the grid is hovered, hide first card's default image */
+        /* When any card in the grid is hovered, hide the first card default image */
         .wm-apart-grid:has(.wm-apart-card:hover) .wm-apart-row--first .wm-apart-card:first-child:not(:hover) .wm-apart-img-panel {
           transform: translateX(100%);
           opacity: 0;
@@ -105,7 +105,7 @@ export default function WhatMakesDifferentSection() {
           width: 48%;
         }
 
-        /* When any card in the grid is hovered, reset first card's state */
+        /* When any card in the grid is hovered, reset the first card state */
         .wm-apart-grid:has(.wm-apart-card:hover) .wm-apart-row--first .wm-apart-card:first-child:not(:hover) {
           flex: 1;
           border-color: #e2e8f0;
@@ -150,7 +150,7 @@ export default function WhatMakesDifferentSection() {
             position: static !important;
           }
         }
-      `}</style>
+      `}} />
       <section className="wm-apart-section">
         <div className="wm-apart-container">
 

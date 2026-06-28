@@ -14,13 +14,13 @@ export const metadata: Metadata = {
     url: "https://www.mtouchlabs.com/digital-marketing-company",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Digital Marketing Agency in India" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Digital Marketing Agency in India" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Digital Marketing Agency in India",
     description: "We are the leading digital marketing company in India. Contact our digital marketing agency in India to get industry-specific digital marketing solutions",
-    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
   },
 };
 
@@ -100,7 +100,7 @@ export default function Page() {
 						</div>
 					</div>
 					<div className="col-lg-6 vcenter">
-						<div className="ct-sol-img"> <img
+						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async"
 								src="/images/cta/generate-more-customers-with-our-best-digital-marketing-company-in-india.svg"
 								alt="Digital marketing" className="img-fluid" /> </div>
 					</div>
@@ -113,7 +113,7 @@ export default function Page() {
 				<div className="row">
 
 					<div className="col-lg-6 vcenter">
-						<div className="ct-sol-img"> <img
+						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async"
 								src="/images/cta/what-makes-us-the-best-digital-marketing-agency-in-india.svg"
 								alt="digital marketing" className="img-fluid" /> </div>
 					</div>
@@ -169,7 +169,7 @@ export default function Page() {
 			<div className="row mt30">
 				<div className="col-lg-4 col-sm-6">
 					<div className="ree-card  mt60">
-						<div className="ree-card-img"><img src="/images/icons/Branding-Consultancy.svg" alt="services" />
+						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Branding-Consultancy.svg" alt="services" />
 						</div>
 						<div className="ree-card-content mt40">
 							<h3 className="mb15">Branding Consultancy</h3>
@@ -180,7 +180,7 @@ export default function Page() {
 				</div>
 				<div className="col-lg-4 col-sm-6">
 					<div className="ree-card  mt60">
-						<div className="ree-card-img"><img src="/images/icons/Social-Media-Marketing-digital.svg"
+						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Social-Media-Marketing-digital.svg"
 								alt="services" /> </div>
 						<div className="ree-card-content mt40">
 							<h3 className="mb15">Social Media Marketing</h3>
@@ -192,7 +192,7 @@ export default function Page() {
 				</div>
 				<div className="col-lg-4 col-sm-6">
 					<div className="ree-card  mt60">
-						<div className="ree-card-img"><img src="/images/icons/Search-Engine-Optimization.svg" alt="services" />
+						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Search-Engine-Optimization.svg" alt="services" />
 						</div>
 						<div className="ree-card-content mt40">
 							<h3 className="mb15">Search Engine Optimization</h3>
@@ -204,7 +204,7 @@ export default function Page() {
 				</div>
 				<div className="col-lg-4 col-sm-6">
 					<div className="ree-card  mt60">
-						<div className="ree-card-img"><img src="/images/icons/Lead-Generation.svg" alt="services" /> </div>
+						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Lead-Generation.svg" alt="services" /> </div>
 						<div className="ree-card-content mt40">
 							<h3 className="mb15">Lead Generation</h3>
 							<p>Skyrocket your sales and boost your profits with our high-quality lead generation
@@ -215,7 +215,7 @@ export default function Page() {
 				</div>
 				<div className="col-lg-4 col-sm-6">
 					<div className="ree-card  mt60">
-						<div className="ree-card-img"><img src="/images/icons/PPC-Advertisement.svg" alt="services" /> </div>
+						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/PPC-Advertisement.svg" alt="services" /> </div>
 						<div className="ree-card-content mt40">
 							<h3 className="mb15">PPC Advertisement</h3>
 							<p>Our cost-effective PPC advertisement provides the best Google Ads campaign management
@@ -226,7 +226,7 @@ export default function Page() {
 				</div>
 				<div className="col-lg-4 col-sm-6">
 					<div className="ree-card  mt60">
-						<div className="ree-card-img"><img src="/images/icons/Ecommerce-Marketing.svg" alt="services" /> </div>
+						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Ecommerce-Marketing.svg" alt="services" /> </div>
 						<div className="ree-card-content mt40">
 							<h3 className="mb15">Ecommerce Marketing</h3>
 							<p>We help optimize your market growth & increase your eCommerce business which helps in
@@ -268,7 +268,7 @@ export default function Page() {
 						</div>
 					</div>
 					<div className="col-lg-6 vcenter text-center">
-						<div className="sol-img-png"> <img
+						<div className="sol-img-png"> <img width={690} height={350} loading="lazy" decoding="async"
 								src="/images/cta/get-in-touch-with-our-world-class-digital-marketing-company-in-india.svg"
 								alt="digital marketing" className="img-fluid" /> </div>
 					</div>
@@ -295,7 +295,7 @@ export default function Page() {
 							<h2>Have a <span className="ree-text rt40">project</span> in mind? Let's get to chat.</h2>
 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 									className="fas fa-user fb-bigon"></i> Contact </a>
-							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
+							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer"
 								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
 								Whatsapp </a>
 
@@ -303,7 +303,7 @@ export default function Page() {
 					</div>
 					<div className="col-lg-6 vcenter text-center">
 						<div className="sol-img-png">
-							<img src="/images/cta/let's-get-to-chat-digital-marketing.svg" alt="working with client"
+							<img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/let's-get-to-chat-digital-marketing.svg" alt="working with client"
 								className="img-fluid" />
 						</div>
 					</div>

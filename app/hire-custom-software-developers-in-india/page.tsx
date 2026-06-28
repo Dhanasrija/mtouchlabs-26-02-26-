@@ -13,13 +13,13 @@
 //     url: "https://www.mtouchlabs.com/hire-custom-software-developers-in-india",
 //     siteName: "mTouch Labs",
 //     type: "website",
-//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire Custom Software Developers in India" }],
+//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Hire Custom Software Developers in India" }],
 //   },
 //   twitter: {
 //     card: "summary_large_image",
 //     title: "Hire Custom Software Developers in India",
 //     description: "Hire custom software developers in India from mTouch Labs to build tailored, scalable, and high-performance software solutions that drive business growth.",
-//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
 //   },
 // };
 
@@ -56,7 +56,7 @@
 // 					</div>
 // 				</div>
 // 				<div className="col-lg-6">
-// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img
+// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img width={690} height={350} loading="lazy" decoding="async"
 // 							src="/images/others/Our-dedicated-Software-developers.svg" alt="mTouch Labs"
 // 							className="img-fluid" /></div>
 // 				</div>
@@ -87,7 +87,7 @@
 
 // 							<p>When you partner with us, you get the most suitable results
 // 								because our <a href="https://www.mtouchlabs.com/custom-software-development-company"
-// 									target="_blank">Custom Software
+// 									target="_blank" rel="noopener noreferrer">Custom Software
 // 									developers</a> are keen on using their in-depth
 // 								experience to deliver cutting-edge software
 // 								applications. Our dedicated Software developers are
@@ -103,7 +103,7 @@
 // 								education categories. You can hire an individual
 // 								developer, hire a team of software
 // 								engineers, and/or hire a <a
-// 									href="https://www.mtouchlabs.com/hire-fullstack-developers-in-india" target="_blank">
+// 									href="https://www.mtouchlabs.com/hire-fullstack-developers-in-india" target="_blank" rel="noopener noreferrer">
 // 									full stack developer </a> with
 // 								expertise in the front end, back end,
 // 								and DevOps.
@@ -117,7 +117,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img src="/images/cta/Dedicated-Custom-Software-Developers.svg"
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Dedicated-Custom-Software-Developers.svg"
 // 								alt="software Developers" className="img-fluid" /> </div>
 // 					</div>
 // 				</div>
@@ -129,7 +129,7 @@
 // 				<div className="row">
 
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img src="/images/cta/Why-Choose-mTouchlabs-Software-Professionals.svg"
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Why-Choose-mTouchlabs-Software-Professionals.svg"
 // 								alt="Dedicated Software Developers" className="img-fluid" />
 // 						</div>
 // 					</div>
@@ -155,7 +155,7 @@
 // 								of positively satisfied clients
 // 								who had taken services of our Dedicated Software
 // 								Professionals for .net,<a
-// 									href="https://www.mtouchlabs.com/mobile-app-development-company" target="_blank">
+// 									href="https://www.mtouchlabs.com/mobile-app-development-company" target="_blank" rel="noopener noreferrer">
 // 									mobile app
 // 									development </a>, PHP, Java, and many other
 // 								assignments. Clients can hire our Software
@@ -213,7 +213,7 @@
 // 			<div className="row mt30">
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Skilled-Software-Programmers.svg"
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Skilled-Software-Programmers.svg"
 // 								alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Skilled Software Programmers</h3>
@@ -225,7 +225,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Project-Management.svg" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Project-Management.svg" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Project Management</h3>
 // 							<p>You can be sure that our experienced Project managers will be
@@ -237,7 +237,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Time-&-Material.svg" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Time-&-Material.svg" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Stellar Results </h3>
 // 							<p>Our expert developers use the latest tech to create
@@ -249,7 +249,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Managed-Team.svg" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Managed-Team.svg" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">High-Quality Development</h3>
 // 							<p>Our highly experienced software professionals develop apps
@@ -261,7 +261,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Reduce-Wastage.svg" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Reduce-Wastage.svg" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Reduce Wastage</h3>
 // 							<p>When you hire our software programmer, we cut down the
@@ -273,7 +273,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Saves-Operation-Cost.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Saves-Operation-Cost.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Save Operational Cost </h3>
@@ -314,7 +314,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
-// 						<div className="sol-img-png"> <img src="/images/cta/Hire-Our-Dedicated-Software-Developers.svg"
+// 						<div className="sol-img-png"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Hire-Our-Dedicated-Software-Developers.svg"
 // 								alt="hire softare developers" className="img-fluid" /> </div>
 // 					</div>
 // 				</div>
@@ -447,7 +447,7 @@
 // 								chat.</h3>
 // 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 // 									className="fas fa-user fb-bigon"></i> Contact </a>
-// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
+// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer"
 // 								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
 // 								Whatsapp </a>
 
@@ -455,7 +455,7 @@
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
 // 						<div className="sol-img-png">
-// 							<img src="/images/cta/let's-get-to-chat-custom-software-dev.svg" alt="working with client"
+// 							<img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/let's-get-to-chat-custom-software-dev.svg" alt="working with client"
 // 								className="img-fluid" />
 // 						</div>
 // 					</div>
@@ -507,7 +507,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png",
+        url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp",
         width: 1200,
         height: 630,
         alt: "Hire Custom Software Developers in India",
@@ -520,7 +520,7 @@ export const metadata: Metadata = {
     description:
       "Build custom software solutions with experienced developers from mTouch Labs.",
     images: [
-      "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png",
+      "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp",
     ],
   },
   robots: {

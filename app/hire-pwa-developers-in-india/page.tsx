@@ -13,13 +13,13 @@
 // //     url: "https://www.mtouchlabs.com/hire-pwa-developers-in-india",
 // //     siteName: "mTouch Labs",
 // //     type: "website",
-// //     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire PWA developers | Dedicated progressive web app developers" }],
+// //     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Hire PWA developers | Dedicated progressive web app developers" }],
 // //   },
 // //   twitter: {
 // //     card: "summary_large_image",
 // //     title: "Hire PWA developers | Dedicated progressive web app developers",
 // //     description: "Hire top PWA developers from mTouch Labs to build fast, reliable, and user-centric progressive web applications.",
-// //     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+// //     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
 // //   },
 // // };
 
@@ -56,7 +56,7 @@
 // // 					</div>
 // // 				</div>
 // // 				<div className="col-lg-6">
-// // 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img
+// // 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img width={690} height={350} loading="lazy" decoding="async"
 // // 							src="/images/others/Hire-PWA-Developers-who-provide-secure-dependable.svg" alt="mTouch Labs"
 // // 							className="img-fluid" /></div>
 // // 				</div>
@@ -84,7 +84,7 @@
 // // 								working on web apps that have greatly enhanced user engagement as well as conversion
 // // 								rates. Hire PWA developers as well as PWA designers experts, who are capable of
 // // 								combining the web and mobile app experiences into <a
-// // 									href="/progressive-web-app-development-company-in-india" target="_blank">progressive
+// // 									href="/progressive-web-app-development-company-in-india" target="_blank" rel="noopener noreferrer">progressive
 // // 									web applications</a>. Engage
 // // 								with our dedicated PWA Programmers to create end-to-end customized apps that aid in
 // // 								business success. </p>
@@ -105,7 +105,7 @@
 // // 						</div>
 // // 					</div>
 // // 					<div className="col-lg-6 vcenter">
-// // 						<div className="ct-sol-img"> <img src="/images/cta/Hire-Dedicated-PWA-Developers-From-mTouchlabs.svg"
+// // 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Hire-Dedicated-PWA-Developers-From-mTouchlabs.svg"
 // // 								alt="pwa developers" className="img-fluid" /> </div>
 // // 					</div>
 // // 				</div>
@@ -117,7 +117,7 @@
 // // 				<div className="row">
 
 // // 					<div className="col-lg-6 vcenter">
-// // 						<div className="ct-sol-img"> <img
+// // 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async"
 // // 								src="/images/cta/Hire-Our-Dedicated-Progressive-Web-App-Developers.svg"
 // // 								alt="pwa development" className="img-fluid" /></div>
 // // 					</div>
@@ -129,7 +129,7 @@
 // // 									Labs in India</span></h2>
 // // 							<p>Choose mTouchlabs to hire Progressive Web App Developers in India at a reasonable rate.
 // // 								Being one of the top <a href="https://www.mtouchlabs.com/ai-role-in-business-automation"
-// // 									target="_blank">PWA development companies in India</a>, mTouchlabs helps you hire
+// // 									target="_blank" rel="noopener noreferrer">PWA development companies in India</a>, mTouchlabs helps you hire
 // // 								Progress Web App Developers to improve your company’s digital experience.
 // // 							</p>
 							 
@@ -183,7 +183,7 @@
 // // 			<div className="row mt30">
 // // 				<div className="col-lg-4 col-sm-6">
 // // 					<div className="ree-card  mt60">
-// // 						<div className="ree-card-img"><img src="/images/icons/Responsive-App.svg" alt="services" /> </div>
+// // 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Responsive-App.svg" alt="services" /> </div>
 // // 						<div className="ree-card-content mt40">
 // // 							<h3 className="mb15">Responsive App</h3>
 // // 							<p>Our PWA developers are proficient in developing flawless progressive web applications
@@ -193,7 +193,7 @@
 // // 				</div>
 // // 				<div className="col-lg-4 col-sm-6">
 // // 					<div className="ree-card  mt60">
-// // 						<div className="ree-card-img"><img src="/images/icons/Custom-Progressive-App.svg" alt="services" />
+// // 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Custom-Progressive-App.svg" alt="services" />
 // // 						</div>
 // // 						<div className="ree-card-content mt40">
 // // 							<h3 className="mb15">Custom Progressive App</h3>
@@ -205,7 +205,7 @@
 // // 				</div>
 // // 				<div className="col-lg-4 col-sm-6">
 // // 					<div className="ree-card  mt60">
-// // 						<div className="ree-card-img"><img src="/images/icons/Mobile-Compatibility.svg" alt="services" />
+// // 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Mobile-Compatibility.svg" alt="services" />
 // // 						</div>
 // // 						<div className="ree-card-content mt40">
 // // 							<h3 className="mb15">Mobile Compatibility</h3>
@@ -218,7 +218,7 @@
 // // 				</div>
 // // 				<div className="col-lg-4 col-sm-6">
 // // 					<div className="ree-card  mt60">
-// // 						<div className="ree-card-img"><img src="/images/icons/Native-App-like-Performance.svg"
+// // 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Native-App-like-Performance.svg"
 // // 								alt="services" /> </div>
 // // 						<div className="ree-card-content mt40">
 // // 							<h3 className="mb15">Native App like Performance</h3>
@@ -230,7 +230,7 @@
 // // 				</div>
 // // 				<div className="col-lg-4 col-sm-6">
 // // 					<div className="ree-card  mt60">
-// // 						<div className="ree-card-img"><img src="/images/icons/Enhanced-Conversions.svg" alt="services" />
+// // 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Enhanced-Conversions.svg" alt="services" />
 // // 						</div>
 // // 						<div className="ree-card-content mt40">
 // // 							<h3 className="mb15">Enhanced Conversions</h3>
@@ -242,7 +242,7 @@
 // // 				</div>
 // // 				<div className="col-lg-4 col-sm-6">
 // // 					<div className="ree-card  mt60">
-// // 						<div className="ree-card-img"><img src="/images/icons/High-speed-Performance.svg" alt="services" />
+// // 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/High-speed-Performance.svg" alt="services" />
 // // 						</div>
 // // 						<div className="ree-card-content mt40">
 // // 							<h3 className="mb15">High-speed Performance</h3>
@@ -288,7 +288,7 @@
 // // 						</div>
 // // 					</div>
 // // 					<div className="col-lg-6 vcenter text-center">
-// // 						<div className="sol-img-png"> <img
+// // 						<div className="sol-img-png"> <img width={690} height={350} loading="lazy" decoding="async"
 // // 								src="/images/cta/Hire-Progressive-Web-App-Developers-For-World-Class-Apps.svg"
 // // 								alt="hire pwa developers" className="img-fluid" /> </div>
 // // 					</div>
@@ -308,7 +308,7 @@
 // // 							<h3>Need any <span className="ree-text rt40"> PWA </span> Developers? Let's get to chat.</h3>
 // // 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 // // 									className="fas fa-user fb-bigon"></i> Contact </a>
-// // 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
+// // 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer"
 // // 								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
 // // 								Whatsapp </a>
 
@@ -316,7 +316,7 @@
 // // 					</div>
 // // 					<div className="col-lg-6 vcenter text-center">
 // // 						<div className="sol-img-png">
-// // 							<img src="/images/cta/let's-get-to-chat-hire-pwa.svg" alt="working with client"
+// // 							<img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/let's-get-to-chat-hire-pwa.svg" alt="working with client"
 // // 								className="img-fluid" />
 // // 						</div>
 // // 					</div>

@@ -13,13 +13,13 @@
 //     url: "https://www.mtouchlabs.com/hire-magento-developers-in-india",
 //     siteName: "mTouch Labs",
 //     type: "website",
-//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire magento developers India | Hire magento 2 developers India" }],
+//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Hire magento developers India | Hire magento 2 developers India" }],
 //   },
 //   twitter: {
 //     card: "summary_large_image",
 //     title: "Hire magento developers India | Hire magento 2 developers India",
 //     description: "Hire expert Magento 2 developers from mTouch Labs for responsive web design and custom eCommerce solutions.",
-//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
 //   },
 // };
 
@@ -56,7 +56,7 @@
 // 					</div>
 // 				</div>
 // 				<div className="col-lg-6">
-// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img
+// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img width={690} height={350} loading="lazy" decoding="async"
 // 							src="/images/others/We-Magento-Developers.svg" alt="mTouch Labs" className="img-fluid" /></div>
 // 				</div>
 // 			</div>
@@ -82,14 +82,14 @@
 // 								update and feature of the Magento platform. Our Dedicated Magento developers are
 // 								especially attentive about every update of Magento with the most recent versions and can
 // 								perhaps provide the best class web-based <a href="/multi-vendor-marketplace-app-builder"
-// 									target="_blank">e-commerce application development</a> for your
+// 									target="_blank" rel="noopener noreferrer">e-commerce application development</a> for your
 // 								business. </p>
 							 
 // 							<p>Hire dedicated Magento Developers to develop easy web development to complex solutions in
 // 								the Magento niche. From SMEs to large enterprises, we have reached and served every
 // 								corner of the world, and thus gained popularity and satisfaction along with happy
 // 								customers. When it comes to hire Magento Developers, we are at the top with our wide
-// 								range of <a href="/web-development-company" target="_blank">web development services</a>
+// 								range of <a href="/web-development-company" target="_blank" rel="noopener noreferrer">web development services</a>
 // 								like web design, Magento 2, and more!
 // 							</p>
 							 
@@ -101,7 +101,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async"
 // 								src="/images/cta/What-Our-Dedicated-Magento-Developers-Facilitate.svg"
 // 								alt="magento Developers" className="img-fluid" /> </div>
 // 					</div>
@@ -114,7 +114,7 @@
 // 				<div className="row">
 
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async"
 // 								src="/images/cta/Hire-Magento-Developers-and-Magento-2-Developers-in-India.svg"
 // 								alt="magento web Developers" className="img-fluid" /></div>
 // 					</div>
@@ -135,7 +135,7 @@
 // 								online.
 // 							</p>
 							 
-// 							<p>Our offshore <a href="/magento-development-company-in-india" target="_blank">Magento Web
+// 							<p>Our offshore <a href="/magento-development-company-in-india" target="_blank" rel="noopener noreferrer">Magento Web
 // 									Developer</a> uses agile methodology as well as traditional coding
 // 								for Magento to provide a very highly Magento web solution that will be best suited for
 // 								your timely needs. Hire Magento 2 Developers from mTouchlabs and you will take the
@@ -179,7 +179,7 @@
 // 			<div className="row mt30">
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Well-trained.svg" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Well-trained.svg" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Well-trained</h3>
 // 							<p>Our Offshore Magento Developers are trained on the various latest technologies and also
@@ -189,7 +189,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Top-class-Management.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Top-class-Management.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Top-class Management</h3>
@@ -201,7 +201,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Greater-Returns.svg" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Greater-Returns.svg" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Greater Returns</h3>
 // 							<p>We will control the cost that you will incur on your development by resolving real-time
@@ -213,7 +213,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/On-time-delivery-hire-magento.svg"
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/On-time-delivery-hire-magento.svg"
 // 								alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">On-time Delivery</h3>
@@ -225,7 +225,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/High-Security.svg" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/High-Security.svg" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">High Security</h3>
 // 							<p>Our remote Magento 2 developers not only provide high secured eCommerce stores but also
@@ -236,7 +236,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Reliable-Support.svg" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Reliable-Support.svg" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Reliable Support</h3>
 // 							<p>We work according to your time zones and can connect with us through various
@@ -280,7 +280,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
-// 						<div className="sol-img-png"> <img src="/images/cta/Hire-offshore-Magento-2-Developer-in-India.svg"
+// 						<div className="sol-img-png"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Hire-offshore-Magento-2-Developer-in-India.svg"
 // 								alt="hire magento developers" className="img-fluid" /> </div>
 // 					</div>
 // 				</div>
@@ -314,7 +314,7 @@
 // 								chat.</h2>
 // 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 // 									className="fas fa-user fb-bigon"></i> Contact </a>
-// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
+// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer"
 // 								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
 // 								Whatsapp </a>
 
@@ -322,7 +322,7 @@
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
 // 						<div className="sol-img-png">
-// 							<img src="/images/cta/let's-get-to-chat-hire-magento.svg" alt="working with client"
+// 							<img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/let's-get-to-chat-hire-magento.svg" alt="working with client"
 // 								className="img-fluid" />
 // 						</div>
 // 					</div>

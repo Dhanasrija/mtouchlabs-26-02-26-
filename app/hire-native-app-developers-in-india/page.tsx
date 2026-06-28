@@ -13,13 +13,13 @@
 // //     url: "https://www.mtouchlabs.com/hire-native-app-developers-in-india",
 // //     siteName: "mTouch Labs",
 // //     type: "website",
-// //     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire Native App Developers in India" }],
+// //     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Hire Native App Developers in India" }],
 // //   },
 // //   twitter: {
 // //     card: "summary_large_image",
 // //     title: "Hire Native App Developers in India",
 // //     description: "Hire native app developers in India from mTouch Labs to build high-performance, platform-specific mobile apps for iOS and Android tailored to your business goals.",
-// //     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+// //     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
 // //   },
 // // };
 
@@ -54,7 +54,7 @@
 // // 					</div>
 // // 				</div>
 // // 				<div className="col-lg-6">
-// // 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img
+// // 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img width={690} height={350} loading="lazy" decoding="async"
 // // 							src="/images/others/Hire-Native-App-Developers.svg" alt="mTouch Labs" className="img-fluid" />
 // // 					</div>
 // // 				</div>
@@ -78,12 +78,12 @@
 // // 								Android, iOS, or Windows Phone. Our team of dedicated Native App Developers provides you
 // // 								with high-quality <a
 // // 									href="https://www.mtouchlabs.com/ios-mobile-app-development-vs-android-mobile-app-development"
-// // 									target="_blank">iOS and Android app development</a>.</p>
+// // 									target="_blank" rel="noopener noreferrer">iOS and Android app development</a>.</p>
 
 // // 							<p>Our Native developers provide you with native mobile app development to meet your
 // // 								specific business needs. mTouchlabs is a reliable <a
 // // 									href="https://www.mtouchlabs.com/artificial-intelligence-transforming-mobile-technology"
-// // 									target="_blank">mobile app development agency</a>, and our
+// // 									target="_blank" rel="noopener noreferrer">mobile app development agency</a>, and our
 // // 								Native App Developers assist businesses to thrive in the mobile-first world. We focus on
 // // 								engineering robust, scalable, and intuitive native apps that can survive and make it on
 // // 								play stores and app stores.</p>
@@ -101,7 +101,7 @@
 // // 						</div>
 // // 					</div>
 // // 					<div className="col-lg-6 vcenter">
-// // 						<div className="ct-sol-img"> <img
+// // 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async"
 // // 								src="/images/cta/Professional-And-Dedicated-Native-App-Developers.svg"
 // // 								alt="Native App Developers" className="img-fluid" /> </div>
 // // 					</div>
@@ -114,7 +114,7 @@
 // // 				<div className="row">
 
 // // 					<div className="col-lg-6 vcenter">
-// // 						<div className="ct-sol-img"> <img src="/images/cta/How-Do-Our-Native-Application-Developers-Work.svg"
+// // 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/How-Do-Our-Native-Application-Developers-Work.svg"
 // // 								alt="Native App Developers" className="img-fluid" /></div>
 // // 					</div>
 
@@ -132,7 +132,7 @@
 // // 							<p>Native Designers implement platform features such as sharing data, audio-video sharing,
 // // 								opening the navigation and drafting an email. Our dedicated <a
 // // 									href="https://www.mtouchlabs.com/native-app-development-company"
-// // 									target="_blank">Native Application
+// // 									target="_blank" rel="noopener noreferrer">Native Application
 // // 									Developers </a> optimize native apps for all specific features of a target platform
 // // 								and
 // // 								influence all available APIs.
@@ -178,7 +178,7 @@
 // // 			<div className="row mt30">
 // // 				<div className="col-lg-4 col-sm-6">
 // // 					<div className="ree-card  mt60">
-// // 						<div className="ree-card-img"><img src="/images/icons/Transparency-native.svg" alt="services" /> </div>
+// // 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Transparency-native.svg" alt="services" /> </div>
 // // 						<div className="ree-card-content mt40">
 // // 							<h3 className="mb15">Transparency</h3>
 // // 							<p>We guarantee to keep complete transparency of the workflow with flexible communication so
@@ -188,7 +188,7 @@
 // // 				</div>
 // // 				<div className="col-lg-4 col-sm-6">
 // // 					<div className="ree-card  mt60">
-// // 						<div className="ree-card-img"><img src="/images/icons/Seamless-UI-Transition-native.svg"
+// // 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Seamless-UI-Transition-native.svg"
 // // 								alt="services" /> </div>
 // // 						<div className="ree-card-content mt40">
 // // 							<h3 className="mb15">Seamless UI Transition</h3>
@@ -200,7 +200,7 @@
 // // 				</div>
 // // 				<div className="col-lg-4 col-sm-6">
 // // 					<div className="ree-card  mt60">
-// // 						<div className="ree-card-img"><img src="/images/icons/New-features-integration.svg" alt="services" />
+// // 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/New-features-integration.svg" alt="services" />
 // // 						</div>
 // // 						<div className="ree-card-content mt40">
 // // 							<h3 className="mb15">New features integration</h3>
@@ -212,7 +212,7 @@
 // // 				</div>
 // // 				<div className="col-lg-4 col-sm-6">
 // // 					<div className="ree-card  mt60">
-// // 						<div className="ree-card-img"><img src="/images/icons/Quality-Assurance.svg" alt="services" /> </div>
+// // 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Quality-Assurance.svg" alt="services" /> </div>
 // // 						<div className="ree-card-content mt40">
 // // 							<h3 className="mb15">Quality Assurance</h3>
 // // 							<p>We will do quality assurance testing and user acceptance testing to fix bug issues for
@@ -223,7 +223,7 @@
 // // 				</div>
 // // 				<div className="col-lg-4 col-sm-6">
 // // 					<div className="ree-card  mt60">
-// // 						<div className="ree-card-img"><img src="/images/icons/Support-native.svg" alt="services" /> </div>
+// // 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Support-native.svg" alt="services" /> </div>
 // // 						<div className="ree-card-content mt40">
 // // 							<h3 className="mb15">Support</h3>
 // // 							<p>Our Native developers are always here to support, and maintenance of your application
@@ -234,7 +234,7 @@
 // // 				</div>
 // // 				<div className="col-lg-4 col-sm-6">
 // // 					<div className="ree-card  mt60">
-// // 						<div className="ree-card-img"><img src="/images/icons/Security.svg" alt="services" /> </div>
+// // 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Security.svg" alt="services" /> </div>
 // // 						<div className="ree-card-content mt40">
 // // 							<h3 className="mb15">Security</h3>
 // // 							<p>Native apps are developed for a single platform and provide better security than
@@ -271,7 +271,7 @@
 // // 						</div>
 // // 					</div>
 // // 					<div className="col-lg-6 vcenter text-center">
-// // 						<div className="sol-img-png"> <img src="/images/cta/Hire-Our-Professional-Native-App-Developers.svg"
+// // 						<div className="sol-img-png"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Hire-Our-Professional-Native-App-Developers.svg"
 // // 								alt="hire Native developers" className="img-fluid" /> </div>
 // // 					</div>
 // // 				</div>
@@ -392,7 +392,7 @@
 // // 							</h3>
 // // 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 // // 									className="fas fa-user fb-bigon"></i> Contact </a>
-// // 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
+// // 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer"
 // // 								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
 // // 								Whatsapp </a>
 
@@ -400,7 +400,7 @@
 // // 					</div>
 // // 					<div className="col-lg-6 vcenter text-center">
 // // 						<div className="sol-img-png">
-// // 							<img src="/images/cta/let's-get-to-chat-native-dev.svg" alt="working with client"
+// // 							<img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/let's-get-to-chat-native-dev.svg" alt="working with client"
 // // 								className="img-fluid" />
 // // 						</div>
 // // 					</div>

@@ -16,13 +16,13 @@ export const metadata: Metadata = {
     url: "https://www.mtouchlabs.com/admin/portfolios/edit/[id]",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Edit Portfolio Admin" }],
+    images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Edit Portfolio Admin" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Edit Portfolio Admin",
     description: "Edit Portfolio Admin",
-    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
   },
 };
 

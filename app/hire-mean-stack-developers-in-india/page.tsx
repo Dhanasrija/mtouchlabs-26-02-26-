@@ -13,13 +13,13 @@
 //     url: "https://www.mtouchlabs.com/hire-mean-stack-developers-in-india",
 //     siteName: "mTouch Labs",
 //     type: "website",
-//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png", width: 1200, height: 630, alt: "Hire MEAN stack developers | Certified MEAN Stack developers" }],
+//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Hire MEAN stack developers | Certified MEAN Stack developers" }],
 //   },
 //   twitter: {
 //     card: "summary_large_image",
 //     title: "Hire MEAN stack developers | Certified MEAN Stack developers",
 //     description: "Hire certified MEAN stack developers from India for high-performance web apps built with MongoDB, Express, Angular, and Node.js.",
-//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.png"],
+//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
 //   },
 // };
 
@@ -55,7 +55,7 @@
 // 					</div>
 // 				</div>
 // 				<div className="col-lg-6">
-// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img
+// 					<div className="sol-img m-mt30" data-aos="fade-in" data-aos-delay="400"><img width={690} height={350} loading="lazy" decoding="async"
 // 							src="/images/others/Hire-Mean-Stack-developers.svg" alt="mTouch Labs" className="img-fluid" />
 // 					</div>
 // 				</div>
@@ -83,14 +83,14 @@
 // 								the same set of technologies to code from the back end to the front end in scalable,
 // 								lightweight Javascript-based architecture. Hire MEAN Stack Developers from us who are
 // 								available to help you extend your teams and build outstanding <a
-// 									href="/web-development-company" target="_blank"> web applications</a>. You can
+// 									href="/web-development-company" target="_blank" rel="noopener noreferrer"> web applications</a>. You can
 // 								now hire Mean stack Programmers to bring your web development ideas to reality with the
 // 								perfect mix of innovation and technology.</p>
 							 
 // 							<p> Our dedicated MEAN Stack Programmers follow the latest DevOps and technical architecture
 // 								to develop top-quality software solutions. Whether you are looking for stunning
 // 								Angular-based frontend development or a powerful <a
-// 									href="/node-js-development-company-in-india" target="_blank">NodeJS</a> based backend
+// 									href="/node-js-development-company-in-india" target="_blank" rel="noopener noreferrer">NodeJS</a> based backend
 // 								engine, you can
 // 								Hire MEAN stack Programmers for seamless solutions.
 // 							</p>
@@ -103,7 +103,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async"
 // 								src="/images/cta/Hire-Dedicated-MEAN-Stack-Developers-From-mTouchlabs.svg"
 // 								alt="mean stack Developers" className="img-fluid" /> </div>
 // 					</div>
@@ -116,7 +116,7 @@
 // 				<div className="row">
 
 // 					<div className="col-lg-6 vcenter">
-// 						<div className="ct-sol-img"> <img src="/images/cta/Choose-Our-Dedicated-MEAN-Stack-Developers.svg"
+// 						<div className="ct-sol-img"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Choose-Our-Dedicated-MEAN-Stack-Developers.svg"
 // 								alt="mean stack web Developers" className="img-fluid" /></div>
 // 					</div>
 
@@ -138,7 +138,7 @@
 							 
 // 							<p> If you want to leverage the <a
 // 									href="https://www.mtouchlabs.com/hire-fullstack-developers-in-india"
-// 									target="_blank">best development stack</a>, you need to hire expert MEAN
+// 									target="_blank" rel="noopener noreferrer">best development stack</a>, you need to hire expert MEAN
 // 								developers to create an application for your business. While having an in-house team is
 // 								an option, you can choose Certified MEAN Stack developers instead of incurring the
 // 								recurrent cost of maintaining a team within your organization.
@@ -179,7 +179,7 @@
 // 			<div className="row mt30">
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Custom-CMS-Development.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Custom-CMS-Development.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Custom CMS Development</h3>
@@ -190,7 +190,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/Enterprise-App-Development.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/Enterprise-App-Development.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">Enterprise App Development</h3>
@@ -202,7 +202,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/MEAN-Stack-Migration-&-Integration.svg"
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/MEAN-Stack-Migration-&-Integration.svg"
 // 								alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">MEAN Stack Migration & Integration</h3>
@@ -215,7 +215,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/MEAN-Stack-API-Development.svg" alt="services" />
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/MEAN-Stack-API-Development.svg" alt="services" />
 // 						</div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">MEAN Stack API Development</h3>
@@ -228,7 +228,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/End-to-End-Services.svg" alt="services" /> </div>
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/End-to-End-Services.svg" alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">End-to-End Services</h3>
 // 							<p>Get end-to-end MEAN Stack development services, with professional experience in each of
@@ -239,7 +239,7 @@
 // 				</div>
 // 				<div className="col-lg-4 col-sm-6">
 // 					<div className="ree-card  mt60">
-// 						<div className="ree-card-img"><img src="/images/icons/MEAN-Stack-Management-Services.svg"
+// 						<div className="ree-card-img"><img width={512} height={512} loading="lazy" decoding="async" src="/images/icons/MEAN-Stack-Management-Services.svg"
 // 								alt="services" /> </div>
 // 						<div className="ree-card-content mt40">
 // 							<h3 className="mb15">MEAN Stack Management Services</h3>
@@ -285,7 +285,7 @@
 // 						</div>
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
-// 						<div className="sol-img-png"> <img src="/images/cta/Hire-Our-Certified-MEAN-Stack-Developers.svg"
+// 						<div className="sol-img-png"> <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/Hire-Our-Certified-MEAN-Stack-Developers.svg"
 // 								alt="hire mean stack developers" className="img-fluid" /> </div>
 // 					</div>
 // 				</div>
@@ -319,7 +319,7 @@
 // 								to chat.</h2>
 // 							<a href="/contact-us" className="ree-btn  ree-btn-grdt1  mt40 mr20"><i
 // 									className="fas fa-user fb-bigon"></i> Contact </a>
-// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank"
+// 							<a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer"
 // 								className="ree-btn  whatsapp-bg mt40 shadows"><i className="fab fa-whatsapp fb-bigon"></i>
 // 								Whatsapp </a>
 
@@ -327,7 +327,7 @@
 // 					</div>
 // 					<div className="col-lg-6 vcenter text-center">
 // 						<div className="sol-img-png">
-// 							<img src="/images/cta/let's-get-to-chat-hire-mean.svg" alt="working with client"
+// 							<img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/let's-get-to-chat-hire-mean.svg" alt="working with client"
 // 								className="img-fluid" />
 // 						</div>
 // 					</div>
