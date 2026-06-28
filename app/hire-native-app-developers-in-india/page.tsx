@@ -77,12 +77,12 @@
 // // 							<p>Native apps are named so because they are developed for specific platforms, such as
 // // 								Android, iOS, or Windows Phone. Our team of dedicated Native App Developers provides you
 // // 								with high-quality <a
-// // 									href="https://mtouchlabs.com/ios-mobile-app-development-vs-android-mobile-app-development"
+// // 									href="https://www.mtouchlabs.com/ios-mobile-app-development-vs-android-mobile-app-development"
 // // 									target="_blank">iOS and Android app development</a>.</p>
 
 // // 							<p>Our Native developers provide you with native mobile app development to meet your
 // // 								specific business needs. mTouchlabs is a reliable <a
-// // 									href="https://mtouchlabs.com/artificial-intelligence-transforming-mobile-technology"
+// // 									href="https://www.mtouchlabs.com/artificial-intelligence-transforming-mobile-technology"
 // // 									target="_blank">mobile app development agency</a>, and our
 // // 								Native App Developers assist businesses to thrive in the mobile-first world. We focus on
 // // 								engineering robust, scalable, and intuitive native apps that can survive and make it on

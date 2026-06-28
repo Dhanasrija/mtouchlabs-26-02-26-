@@ -58,11 +58,11 @@ export default function Page() {
 					<div className="details-port">
 						<h2 className="mb15">About Traders Ground</h2>
 						{/*  <h4>Concept</h4>  */}
-						<p>Traders Ground is your ultimate <a href="https://mtouchlabs.com/" target="_blank">CRM
+						<p>Traders Ground is your ultimate <a href="https://www.mtouchlabs.com/" target="_blank">CRM
 								Application</a> designed and Developed by mTouch Labs. Efficiently bridge the gap
 							between manufacturers, distributors, and retailers in the ever-changing business landscape.
 						</p>
-						<p className="mt15"> This <a href="https://mtouchlabs.com/custom-software-development-company"
+						<p className="mt15"> This <a href="https://www.mtouchlabs.com/custom-software-development-company"
 								target="_blank">CRM Software solution</a> is crafted to revolutionize the way businesses
 							connect, communicate, and collaborate, ensuring a smoother supply chain from production to
 							point-of-sale.
@@ -71,13 +71,13 @@ export default function Page() {
 						{/*  <h4>The Challenges</h4>  */}
 						<p>Traders Ground offers a strong Customer Relationship Management solution that helps
 							businesses connect better with customers, streamline operations, and increase profits.</p>
-						<p className="mt15"> Our <a href="https://mtouchlabs.com/services" target="_blank">CRM Software
+						<p className="mt15"> Our <a href="https://www.mtouchlabs.com/services" target="_blank">CRM Software
 								Development Services</a> are user-friendly and respect your privacy, suitable for all
 							types of businesses
 						</p>
 						&nbsp;
 						{/*  <h4>The Solution</h4> */}
-						<p><a href="https://mtouchlabs.com/mobile-app-development-company" target="_blank">CRM
+						<p><a href="https://www.mtouchlabs.com/mobile-app-development-company" target="_blank">CRM
 								Solutions</a> that helps businesses connect better with customers, streamline
 							operations, and increase profits. Manufacturers can showcase their products in detailed
 							digital catalogs, allowing distributors and retailers to browse, compare, and order directly
@@ -333,22 +333,22 @@ export default function Page() {
 					</div>
 					<div className="heading-paragrapph mt60">
 						<h3 className="mb20 h1">ERP Software Development Services</h3>
-						<p>We offer tailored <a href="https://mtouchlabs.com/enterprise-application-development-company"
+						<p>We offer tailored <a href="https://www.mtouchlabs.com/enterprise-application-development-company"
 								target="_blank">ERP Software Development Services </a>for manufacturers, distributors,
 							retailers, marketers, and agents seeking to streamline their operations and improve
 							efficiency. </p>
 						&nbsp;
-						<p>As experienced <a href="https://mtouchlabs.com/hire-mobile-app-developers-in-india"
+						<p>As experienced <a href="https://www.mtouchlabs.com/hire-mobile-app-developers-in-india"
 								target="_blank">ERP Software Developers </a>, we specialize in providing comprehensive
 							ERP app development that meets the unique needs of our clients. We help businesses leverage
 							technology to optimize their processes and achieve greater profitability.
 						</p>
 						&nbsp;
 						<p>We combine cutting-edge technology with industry best practices to deliver high-quality <a
-								href="https://mtouchlabs.com/android-app-development-company" target="_blank">Custom ERP
+								href="https://www.mtouchlabs.com/android-app-development-company" target="_blank">Custom ERP
 								solutions</a> that empower businesses to compete in today&apos;s fast-paced market. </p>
 						&nbsp;
-						<p> From system integration to data migration, our <a href="https://mtouchlabs.com/services"
+						<p> From system integration to data migration, our <a href="https://www.mtouchlabs.com/services"
 								target="_blank">ERP application development services </a>are tailored to address the
 							unique challenges faced by manufacturers, distributors, retailers, marketers, and agents. We
 							are committed to providing customized ERP solutions that drive growth, increase efficiency,

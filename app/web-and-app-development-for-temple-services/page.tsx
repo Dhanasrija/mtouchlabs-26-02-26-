@@ -79,23 +79,23 @@ export default function Page() {
 						<h2 className="mb15">About Roboride</h2>
 						{/*  <h4>Concept</h4>  */}
 						<p>Roboride Taxi /Auto Booking App is an innovative App developed by mTouch Labs. Our <a
-								href="https://mtouchlabs.com/" target="_blank"> On-Demand Mobile App Development</a>
+								href="https://www.mtouchlabs.com/" target="_blank"> On-Demand Mobile App Development</a>
 							offers a seamless and user-friendly platform for users to book their rides with just a few
 							taps on their smartphone, and access different types of transportation options including
 							Cabs, Autos,taxis and Bikes to meet all your traveling needs.</p>
 						<p className="mt15"> Roboride boasts a range of features that cater to the needs of both passengers
-							and service providers. <a href="https://mtouchlabs.com/" target="_blank"> Taxi Booking App
+							and service providers. <a href="https://www.mtouchlabs.com/" target="_blank"> Taxi Booking App
 							</a>allows users to easily hail a ride, track their driver in real time, and make secure
 							payments through the application. On the other hand, service providers benefit from a
 							streamlined booking process and access to valuable customer data to enhance their services.
 						</p>
 						&nbsp;
 						{/*  <h4>The Challenges</h4>  */}
-						<p><a href="https://mtouchlabs.com/android-app-development-company" target="_blank">Auto Booking
+						<p><a href="https://www.mtouchlabs.com/android-app-development-company" target="_blank">Auto Booking
 								Mobile App </a>stands out as a reliable and robust solution in the market. With a
 							user-friendly interface, reliable functionality, and top-notch security measures, Roboride
 							is the go-to choice for those in need of a hassle-free and efficient transportation service.
-							mTouch Labs<a href="https://mtouchlabs.com/mobile-app-development-company"
+							mTouch Labs<a href="https://www.mtouchlabs.com/mobile-app-development-company"
 								target="_blank">On-Demand Taxi Booking App Development Company </a>is committed to
 							delivering top-notch auto booking application development services to ensure a seamless and
 							efficient experience for our customers.</p>
@@ -376,9 +376,9 @@ export default function Page() {
 					<div className="heading-paragrapph mt60">
 						<h2 className="mb20 h1">Best Cab Booking App Development</h2>
 
-						<p><a href="https://mtouchlabs.com/mobile-app-development-company" target="_blank">Cab Booking
+						<p><a href="https://www.mtouchlabs.com/mobile-app-development-company" target="_blank">Cab Booking
 								Apps </a> become increasingly popular as more people rely on smartphones for everyday
-							tasks. mTouch Labs is a <a href="https://mtouchlabs.com/" target="_blank">Top Mobile
+							tasks. mTouch Labs is a <a href="https://www.mtouchlabs.com/" target="_blank">Top Mobile
 								Application development company in Hyderabad</a> creating user-friendly and efficient
 							taxi booking apps. Roboride typically includes features such as GPS tracking, allowing users
 							to see nearby available taxis/auto/bikes in real-time, as well as the ability to book a ride
@@ -386,10 +386,10 @@ export default function Page() {
 						&nbsp;
 						<p>Users can also see the estimated fare for their trip before confirming the booking, giving
 							them transparency and control over their expenses. Overall, <a
-								href="https://mtouchlabs.com/mobile-app-development-company" target="_blank">The Best
+								href="https://www.mtouchlabs.com/mobile-app-development-company" target="_blank">The Best
 								Cab Booking App Development </a>has revolutionized the way people travel, providing a
 							convenient and reliable alternative to traditional taxi services. With the growing demand
-							for such services, Our<a href="https://mtouchlabs.com/about" target="_blank"> Mobile App
+							for such services, Our<a href="https://www.mtouchlabs.com/about" target="_blank"> Mobile App
 								Development Company </a>continues to innovate and improve these apps to meet the needs
 							of both users and drivers alike.
 						</p>

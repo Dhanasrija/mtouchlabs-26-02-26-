@@ -85,7 +85,7 @@
 // // 								Designers will create pixel-perfect solutions so that your idea is reflected perfectly
 // // 								with the app. Hire Mobile App Designers in India to design highly innovative,
 // // 								rich-featured, and robust mobile apps to match your expectations. Our <a
-// // 									href="https://mtouchlabs.com/hire-ui-ux-designers-in-india" target="_blank">UI/UX
+// // 									href="https://www.mtouchlabs.com/hire-ui-ux-designers-in-india" target="_blank">UI/UX
 // // 									designers</a>
 // // 								create a flawless UI to allow users to experience adorable features. Our Mobile
 // // 								Application Designers are the people who create an innovative interface of a mobile app
@@ -95,7 +95,7 @@
 // // 							<p>Our Ui/UX designers are backed by a proven track record and are determined to convert
 // // 								your dreams into an engaging mobile application. Experience the power of creativity and
 // // 								knowledge from our Dedicated Mobile application Designers in India. When you <a
-// // 									href="https://mtouchlabs.com/hire-mobile-app-designers-in-india"
+// // 									href="https://www.mtouchlabs.com/hire-mobile-app-designers-in-india"
 // // 									target="_blank">hire Mobile
 // // 									Application Designers</a> with us, you are ensuring loyalty and reliability for
 // // 								yourself and
@@ -132,7 +132,7 @@
 // // 									className="ree-text rt40"> Designers </span> <span className="ree-text rt40"> From mTouch
 // // 									Labs? </span></h2>
 // // 							<p>As a leading <a
-// // 									href="https://mtouchlabs.com/best-practices-for-mobile-app-design-trends-in-2022"
+// // 									href="https://www.mtouchlabs.com/best-practices-for-mobile-app-design-trends-in-2022"
 // // 									target="_blank">Mobile app Design Company</a> in India, our Mobile UI designers
 // // 								ensure that our
 // // 								clients get a beautiful and unique design that can improve productivity and ROI. Our

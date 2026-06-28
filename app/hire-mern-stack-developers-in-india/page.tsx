@@ -126,7 +126,7 @@
 // 							<p>Our MERN Developers provide outstanding web applications, be it for a CMS (Content
 // 								Management System), ERP (Enterprise Resource Planning), or eCommerce development; you
 // 								get high-performance and high functional<a
-// 									href="https://mtouchlabs.com/key-advantages-of-cross-platform-mobile-app-development"
+// 									href="https://www.mtouchlabs.com/key-advantages-of-cross-platform-mobile-app-development"
 // 									target="_blank">cross-platform applications </a> .
 // 							</p>
 							 

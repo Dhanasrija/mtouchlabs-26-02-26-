@@ -85,7 +85,7 @@
 // 								frameworks like Selenium, SOAP UI, Load UI, Junit, Chai, Swagger, Postman, and Appium.
 // 								These skills flourish them into Expert and Dedicated Quality analysts for hire. Hire QA
 // 								Team who are a part of any successful <a
-// 									href="https://mtouchlabs.com/top-on-demand-mobile-app-development-ideas-for-startups"
+// 									href="https://www.mtouchlabs.com/top-on-demand-mobile-app-development-ideas-for-startups"
 // 									target="_blank">software development</a> product. At mTouchlabs, we
 // 								have an expert team of manual as well as automated quality assurance engineers with the
 // 								sole purpose to bring out the best quality for our end customers. </p>
@@ -129,7 +129,7 @@
 // 									className="ree-text rt40"> Assurance Team </span> <span className="ree-text rt40"> from
 // 									mTouch Labs in India</span></h2>
 // 							<p>mTouchlabs is an award-winning IT company that embraces <a
-// 									href="https://mtouchlabs.com/does-my-business-need-a-mobile-app" target="_blank">QA
+// 									href="https://www.mtouchlabs.com/does-my-business-need-a-mobile-app" target="_blank">QA
 // 									testing services</a> as an
 // 								essential piece for all our business. We have a dedicated Quality Assurance team who
 // 								help our customers in meeting their quality assurance objectives.

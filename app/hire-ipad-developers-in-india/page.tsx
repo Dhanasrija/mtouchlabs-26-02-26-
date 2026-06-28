@@ -77,7 +77,7 @@
 // 								graphics and immense functionalities. mTouchlabs offers an array of iPad developers and
 // 								iPad programmers who can customize iPad apps to meet business requirements. </p>
 							 
-// 							<p>When you hire <a href="https://mtouchlabs.com/ipad-app-development-company"
+// 							<p>When you hire <a href="https://www.mtouchlabs.com/ipad-app-development-company"
 // 									target="_blank"> iPad developers </a> from mTouchlabs, you can drive efficiency and
 // 								significance
 // 								through iPad apps for the new age enterprise. We have a team of dedicated iPad
@@ -122,7 +122,7 @@
 // 									className="ree-text rt40"> App Developers from </span> <span className="ree-text rt40">
 // 									mTouch Labs? </span></h2>
 // 							<p>We’re the <a
-// 									href="https://mtouchlabs.com/top-mobile-app-development-companies-in-hyderabad"
+// 									href="https://www.mtouchlabs.com/top-mobile-app-development-companies-in-hyderabad"
 // 									target="_blank"> top iPad app development company</a> in India delivering more than
 // 								100 successful
 // 								projects and end-to-end customer-centric iPad mobile app development services. Our iPad
@@ -139,7 +139,7 @@
 // 								functional and robust. Our iPad designers collaborate across all stages of iPad
 // 								development to accelerate digital transformation and shape business strategies. Hire our
 // 								iPad app developers to leverage our <a
-// 									href="https://mtouchlabs.com/navigating-the-world-of-mobile-application-apps"
+// 									href="https://www.mtouchlabs.com/navigating-the-world-of-mobile-application-apps"
 // 									target="_blank"> iPad mobile app development services</a> at an
 // 								affordable cost.
 // 							</p>

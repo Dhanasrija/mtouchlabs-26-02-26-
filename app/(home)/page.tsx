@@ -179,17 +179,17 @@ const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "mTouch Labs",
-  url: "https://mtouchlabs.com",
+  url: "https://www.mtouchlabs.com",
   description:
     "Global software development company delivering custom software, SaaS platforms, Salesforce consulting, and cloud & DevOps solutions.",
   publisher: {
     "@type": "Organization",
     name: "mTouch Labs",
-    url: "https://mtouchlabs.com",
+    url: "https://www.mtouchlabs.com",
   },
   potentialAction: {
     "@type": "SearchAction",
-    target: "https://mtouchlabs.com/search?q={search_term_string}",
+    target: "https://www.mtouchlabs.com/search?q={search_term_string}",
     "query-input": "required name=search_term_string",
   },
 };
@@ -271,8 +271,8 @@ const professionalServiceSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   name: "mTouch Labs",
-  url: "https://mtouchlabs.com",
-  image: "https://mtouchlabs.com/images/web-and-mobile-app-development.png",
+  url: "https://www.mtouchlabs.com",
+  image: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.png",
   description:
     "Global software development company delivering custom software, SaaS platforms, Salesforce consulting, and cloud & DevOps solutions.",
   priceRange: "$$",
@@ -299,7 +299,7 @@ const professionalServiceSchema = {
           name: "Custom Software Development",
           description:
             "Tailored software systems for enterprise application development, business process automation, and scalable backend architecture.",
-          url: "https://mtouchlabs.com/custom-software-development-company",
+          url: "https://www.mtouchlabs.com/custom-software-development-company",
         },
       },
       {
@@ -309,7 +309,7 @@ const professionalServiceSchema = {
           name: "SaaS Product Development",
           description:
             "Scalable SaaS platforms with multi-tenant architecture, subscription systems, API integrations, and cloud-native infrastructure.",
-          url: "https://mtouchlabs.com/saas-development",
+          url: "https://www.mtouchlabs.com/saas-development",
         },
       },
       {
@@ -319,7 +319,7 @@ const professionalServiceSchema = {
           name: "Salesforce Consulting & CRM Solutions",
           description:
             "Salesforce implementation, customization, automation workflows, and CRM integrations for optimized customer relationship management.",
-          url: "https://mtouchlabs.com/salesforce-consulting-services-company",
+          url: "https://www.mtouchlabs.com/salesforce-consulting-services-company",
         },
       },
       {
@@ -329,7 +329,7 @@ const professionalServiceSchema = {
           name: "Cloud & DevOps Engineering",
           description:
             "Cloud-native environments, CI/CD pipelines, infrastructure automation, and scalable deployment solutions on AWS, GCP, and Azure.",
-          url: "https://mtouchlabs.com/devops-services",
+          url: "https://www.mtouchlabs.com/devops-services",
         },
       },
       {
@@ -354,27 +354,27 @@ const siteNavSchema = {
     {
       "@type": "WebPage",
       name: "Custom Software Development Services",
-      url: "https://mtouchlabs.com/custom-software-development-company",
+      url: "https://www.mtouchlabs.com/custom-software-development-company",
     },
     {
       "@type": "WebPage",
       name: "SaaS Development Services",
-      url: "https://mtouchlabs.com/saas-development",
+      url: "https://www.mtouchlabs.com/saas-development",
     },
     {
       "@type": "WebPage",
       name: "Salesforce Consulting Services",
-      url: "https://mtouchlabs.com/salesforce-consulting-services-company",
+      url: "https://www.mtouchlabs.com/salesforce-consulting-services-company",
     },
     {
       "@type": "WebPage",
       name: "Cloud & DevOps Services",
-      url: "https://mtouchlabs.com/devops-services",
+      url: "https://www.mtouchlabs.com/devops-services",
     },
     {
       "@type": "WebPage",
       name: "Contact mTouch Labs",
-      url: "https://mtouchlabs.com/contact-us",
+      url: "https://www.mtouchlabs.com/contact-us",
     },
   ],
 };

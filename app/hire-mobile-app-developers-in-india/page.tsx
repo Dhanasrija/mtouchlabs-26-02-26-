@@ -162,7 +162,7 @@
 // 							<p>Additionally, our dedicated Android App Developers and dedicated iOS App developers in
 // 								India are
 // 								well versed in delivering end-to-end <a
-// 									href="https://mtouchlabs.com/hire-mobile-app-designers-in-india" target="_blank">
+// 									href="https://www.mtouchlabs.com/hire-mobile-app-designers-in-india" target="_blank">
 // 									custom mobile app development services </a> for a wide
 // 								range of
 // 								Android and iOS devices.

@@ -151,7 +151,7 @@
 // 							</p>
 							 
 // 							<p>Hire WooCommerce Programmers in India for creating your
-// 								intuitive <a href="https://mtouchlabs.com/benefits-of-ecommerce-mobile-apps"
+// 								intuitive <a href="https://www.mtouchlabs.com/benefits-of-ecommerce-mobile-apps"
 // 									target="_blank">eCommerce stores</a> where
 // 								our Dedicated WooCommerce Developers adapt to the latest
 // 								trends and develop personalized

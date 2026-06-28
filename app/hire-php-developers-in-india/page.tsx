@@ -116,7 +116,7 @@
 							 
 // 							<p>mTouchlabs dedicated PHP web developers share the same vision of the project execution
 // 								roadmap right from websites, web portals to integrated web applications.<a
-// 									href="https://mtouchlabs.com/hire-laravel-developers-in-india" target="_blank">Hire
+// 									href="https://www.mtouchlabs.com/hire-laravel-developers-in-india" target="_blank">Hire
 // 									Laravel
 // 									Developers</a> who can execute and implement project roadmap right from inception to
 // 								completion. Our dedicated Laravel Developers built web applications of different sizes

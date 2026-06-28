@@ -163,7 +163,7 @@
 //             <p>
 //               mTouch Labs is a NASSCOM award-winning{" "}
 //               <a
-//                 href="https://mtouchlabs.com/online-food-ordering-mobile-app-development"
+//                 href="https://www.mtouchlabs.com/online-food-ordering-mobile-app-development"
 //                 target="_blank"
 //               >
 //                 food delivery app development service
@@ -219,7 +219,7 @@
 //             <p>
 //               We provide end-to-end{" "}
 //               <a
-//                 href="https://mtouchlabs.com/on-demand-service-providers-web-and-mobile-app-development"
+//                 href="https://www.mtouchlabs.com/on-demand-service-providers-web-and-mobile-app-development"
 //                 target="_blank"
 //               >
 //                 food delivery app development services

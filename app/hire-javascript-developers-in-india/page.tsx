@@ -83,7 +83,7 @@
 // 							<p>JavaScript is a famous scripting language that was originally
 // 								designed to enhance web
 // 								pages, whereas now it is widely used in every way
-// 								imaginable.<a href="https://mtouchlabs.com/hire-fullstack-developers-in-india"
+// 								imaginable.<a href="https://www.mtouchlabs.com/hire-fullstack-developers-in-india"
 // 									target="_blank">Hire JS developers</a> from us
 // 								who are rich in expertise with several IDEs and tools
 // 								and frameworks.</p>
@@ -104,7 +104,7 @@
 // 								technical solutions for our
 // 								clients. We combine technical skills and understanding
 // 								to deliver outstanding <a
-// 									href="https://mtouchlabs.com/best-web-development-company-in-hyderabad"
+// 									href="https://www.mtouchlabs.com/best-web-development-company-in-hyderabad"
 // 									target="_blank">web
 // 									development services</a> to our clients across
 // 								the globe. Using cutting-edge technologies
@@ -148,7 +148,7 @@
 // 									from mTouch
 // 									Labs in India</span></h2>
 // 							<p>mTouchlabs is a well-renowned <a
-// 									href="https://mtouchlabs.com/hire-mobile-app-designers-in-india"
+// 									href="https://www.mtouchlabs.com/hire-mobile-app-designers-in-india"
 // 									target="_blank">custom web & mobile app
 // 									development company</a> in India
 // 								blessed with highly-motivated JavaScript engineers,
