@@ -4,6 +4,15 @@ export default function NotFound() {
   return (
     <main
       style={{
+        // ⭐ FIX: a sitewide `main { display: flex; ... }` rule in
+        // public/css/style.css (meant only for the old /thank-you page)
+        // was matching every bare <main> tag, including this one — it
+        // forced this page into a single centered flex ROW, squashing the
+        // heading, subheading, description, and buttons onto one line.
+        // Pinning `display: block` here overrides that rule directly
+        // (inline styles win over external stylesheets), restoring the
+        // normal stacked layout regardless of that global CSS.
+        display: "block",
         textAlign: "center",
         padding: "160px 20px 80px",
         minHeight: "70vh",
@@ -11,6 +20,7 @@ export default function NotFound() {
     >
       <h1
         style={{
+          display: "block",
           fontSize: "72px",
           fontWeight: 800,
           color: "#0C1C32",
@@ -22,6 +32,7 @@ export default function NotFound() {
 
       <h2
         style={{
+          display: "block",
           fontSize: "24px",
           color: "#555",
           marginTop: "16px",
@@ -32,6 +43,7 @@ export default function NotFound() {
 
       <p
         style={{
+          display: "block",
           color: "#777",
           marginTop: "12px",
           fontSize: "16px",

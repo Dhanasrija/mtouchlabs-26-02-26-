@@ -11212,7 +11212,13 @@ select {
 }
 
 /*thank you*/
-main {
+/* ⭐ FIX: this was an unscoped `main` selector — it hijacked EVERY <main>
+   element on the site (forcing flex-row layout, 60vh height, centered
+   content), which broke the 404 page and any other page using a bare
+   <main> tag. The actual .thank-you page markup uses <section
+   className="thank-you">, not <main>, so this rule no longer serves its
+   original purpose. Scoped it down so it can't leak globally again. */
+.thank-you main {
     display: flex;
     justify-content: center;
     align-items: center;
