@@ -1,6 +1,26 @@
-"use client";
 import ProductPageTemplate, { type ProductPageData } from "@/components/templates/ProductPageTemplate";
 import { buildDefaults } from "@/lib/product-defaults";
+
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Taxi Booking App Development Company",
+  description: "Launch a scalable ride-hailing platform with real-time GPS tracking, dynamic pricing, multi-ride options, secure payments, and driver-partner management.",
+  alternates: { canonical: "https://www.mtouchlabs.com/taxi-booking-app-development-company" },
+  openGraph: {
+    title: "Taxi Booking App Development Company | mTouch Labs",
+    description: "Launch a scalable ride-hailing platform with real-time GPS tracking, dynamic pricing, multi-ride options, secure payments, and driver-partner management.",
+    url: "https://www.mtouchlabs.com/taxi-booking-app-development-company",
+    type: "website",
+    siteName: "mTouch Labs",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Taxi Booking App Development Company | mTouch Labs",
+    description: "Launch a scalable ride-hailing platform with real-time GPS tracking, dynamic pricing, multi-ride options, secure payments, and driver-partner management.",
+  },
+};
+
 
 const d = {
   ...buildDefaults("Taxi Booking"),

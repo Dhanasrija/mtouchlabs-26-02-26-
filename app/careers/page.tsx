@@ -644,7 +644,6 @@ export const metadata: Metadata = {
     "AI and Cloud Jobs",
     "Software Engineer Jobs",
   ],
-  metadataBase: new URL("https://www.mtouchlabs.com"),
   alternates: { canonical: "/careers" },
  openGraph: {
     title: "Careers | Join Our Software Development Team",

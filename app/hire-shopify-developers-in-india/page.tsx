@@ -418,7 +418,6 @@ export const metadata: Metadata = {
   title: "Hire Shopify Developers in India",
   description:
     "Hire Shopify developers in India from mTouch Labs to create customized, high-performing eCommerce stores built to convert visitors into customers.",
-  metadataBase: new URL("https://www.mtouchlabs.com"),
   alternates: {
     canonical: "/hire-shopify-developers-in-india",
   },

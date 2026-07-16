@@ -503,7 +503,6 @@ export const metadata: Metadata = {
     "Cross Platform App Developers",
     "Offshore Mobile App Development",
   ],
-  metadataBase: new URL("https://www.mtouchlabs.com"),
   alternates: {
     canonical: "/hire-mobile-app-developers-in-india",
   },

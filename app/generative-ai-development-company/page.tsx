@@ -14,7 +14,6 @@ export const metadata: Metadata = {
     "AI automation solutions",
     "custom AI development company",
   ],
-  metadataBase: new URL("https://www.mtouchlabs.com"),
   alternates: {
     canonical: "/generative-ai-development-company",
   },

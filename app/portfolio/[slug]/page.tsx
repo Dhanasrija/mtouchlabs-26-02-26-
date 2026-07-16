@@ -831,7 +831,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 
-export const dynamic = "force-dynamic";
+// ISR: cache rendered pages for 5 min instead of SSR on every request.
+// Faster TTFB for users and crawlers; new/edited portfolios appear within 5 min.
+export const revalidate = 300;
 
 // ─── DB — fresh connection per request (serverless-safe) ─────────────────────
 function getDb() {

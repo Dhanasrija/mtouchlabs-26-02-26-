@@ -13,6 +13,7 @@ export const metadata: Metadata = {
     "enterprise application development experts",
     "global software development company",
   ],
+  alternates: { canonical: "https://www.mtouchlabs.com/awards-recognition" },
   openGraph: { images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs" }],
     title: "Awards & Recognition",
     description:

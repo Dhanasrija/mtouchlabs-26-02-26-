@@ -479,7 +479,6 @@ export const metadata: Metadata = {
   title: "Hire Salesforce Developers in India",
   description:
     "Hire Salesforce developers in India from mTouch Labs to customize, integrate, and optimize your CRM for scalable business growth.",
-  metadataBase: new URL("https://www.mtouchlabs.com"),
   alternates: {
     canonical: "/hire-salesforce-developers-in-india",
   },

@@ -25,9 +25,11 @@ export default function robots(): MetadataRoute.Robots {
           '/*?dpl=',
           '/*&trk=',
           '/*&dpl=',
-          // Non-content files
-          '/manifest.json',
-          '/llms.txt',
+          // NOTE: /llms.txt and /manifest.json are intentionally NOT disallowed.
+          // Blocking them here would stop AI crawlers from reading llms.txt
+          // (defeating its purpose). Both already carry X-Robots-Tag: noindex
+          // via next.config.js headers, which keeps them out of search results
+          // while staying fetchable.
         ],
       },
       // Explicitly allow the major AI crawlers for AEO visibility

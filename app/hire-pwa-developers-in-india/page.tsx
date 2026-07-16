@@ -724,7 +724,6 @@ export const metadata: Metadata = {
   title: "Hire PWA Developers in India",
   description:
     "Hire PWA developers in India from mTouch Labs to build fast, reliable, and engaging progressive web applications designed for reach and scalability.",
-  metadataBase: new URL("https://www.mtouchlabs.com"),
   alternates: {
     canonical: "/hire-pwa-developers-in-india",
   },

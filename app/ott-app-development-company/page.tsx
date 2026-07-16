@@ -1,6 +1,26 @@
-"use client";
 import ProductPageTemplate, { type ProductPageData } from "@/components/templates/ProductPageTemplate";
 import { buildDefaults } from "@/lib/product-defaults";
+
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "OTT App Development Company",
+  description: "Build scalable, feature-rich OTT streaming platforms for video, audio, and live content delivery across mobile, web, smart TVs, and connected devices.",
+  alternates: { canonical: "https://www.mtouchlabs.com/ott-app-development-company" },
+  openGraph: {
+    title: "OTT App Development Company | mTouch Labs",
+    description: "Build scalable, feature-rich OTT streaming platforms for video, audio, and live content delivery across mobile, web, smart TVs, and connected devices.",
+    url: "https://www.mtouchlabs.com/ott-app-development-company",
+    type: "website",
+    siteName: "mTouch Labs",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "OTT App Development Company | mTouch Labs",
+    description: "Build scalable, feature-rich OTT streaming platforms for video, audio, and live content delivery across mobile, web, smart TVs, and connected devices.",
+  },
+};
+
 
 const d = {
   ...buildDefaults("OTT"),

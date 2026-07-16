@@ -468,7 +468,6 @@ export const metadata: Metadata = {
   title: "Hire Android App Developers in India",
   description:
     "Hire Android app developers in India from mTouch Labs to build robust, scalable, and secure Android applications tailored to your business goals.",
-  metadataBase: new URL("https://www.mtouchlabs.com"),
   alternates: {
     canonical: "/hire-android-app-developers-in-india",
   },

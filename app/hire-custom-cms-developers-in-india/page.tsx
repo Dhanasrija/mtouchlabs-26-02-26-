@@ -358,7 +358,6 @@ export const metadata: Metadata = {
   title: "Hire Custom CMS Developers in India",
   description:
     "Hire custom CMS developers in India from mTouch Labs to build scalable, secure, and fully tailored content management systems.",
-  metadataBase: new URL("https://www.mtouchlabs.com"),
   alternates: {
     canonical: "/hire-custom-cms-developers-in-india",
   },

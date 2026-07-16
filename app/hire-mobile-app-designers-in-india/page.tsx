@@ -728,7 +728,6 @@ export const metadata: Metadata = {
   title: "Hire Mobile App Designers in India",
   description:
     "Hire mobile app designers in India from mTouch Labs to craft seamless, intuitive, and engaging mobile experiences that keep users coming back.",
-  metadataBase: new URL("https://www.mtouchlabs.com"),
   alternates: {
     canonical: "/hire-mobile-app-designers-in-india",
   },

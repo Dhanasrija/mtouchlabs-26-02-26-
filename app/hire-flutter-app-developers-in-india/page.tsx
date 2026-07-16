@@ -450,7 +450,6 @@ export const metadata: Metadata = {
   title: "Hire Flutter App Developers in India",
   description:
     "Hire Flutter app developers in India from mTouch Labs to build fast, scalable, and visually rich cross-platform mobile applications.",
-  metadataBase: new URL("https://www.mtouchlabs.com"),
   alternates: {
     canonical: "/hire-flutter-app-developers-in-india",
   },

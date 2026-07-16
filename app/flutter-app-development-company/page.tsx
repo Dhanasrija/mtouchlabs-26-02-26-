@@ -13,7 +13,6 @@ export const metadata: Metadata = {
     "flutter app development services",
     "hybrid app development",
   ],
-  metadataBase: new URL("https://www.mtouchlabs.com"),
   alternates: {
     canonical: "/flutter-app-development-company",
   },

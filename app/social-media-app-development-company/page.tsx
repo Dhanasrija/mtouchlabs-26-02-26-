@@ -1,6 +1,26 @@
-"use client";
 import ProductPageTemplate, { type ProductPageData } from "@/components/templates/ProductPageTemplate";
 import { buildDefaults } from "@/lib/product-defaults";
+
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Social Media App Development Company",
+  description: "Launch a scalable social media app with feeds, stories, reels, chat, live streaming, and creator monetization.",
+  alternates: { canonical: "https://www.mtouchlabs.com/social-media-app-development-company" },
+  openGraph: {
+    title: "Social Media App Development Company | mTouch Labs",
+    description: "Launch a scalable social media app with feeds, stories, reels, chat, live streaming, and creator monetization.",
+    url: "https://www.mtouchlabs.com/social-media-app-development-company",
+    type: "website",
+    siteName: "mTouch Labs",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Social Media App Development Company | mTouch Labs",
+    description: "Launch a scalable social media app with feeds, stories, reels, chat, live streaming, and creator monetization.",
+  },
+};
+
 
 const d = {
   ...buildDefaults("Social Media"),

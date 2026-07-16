@@ -1,6 +1,26 @@
-"use client";
 import ProductPageTemplate, { type ProductPageData } from "@/components/templates/ProductPageTemplate";
 import { buildDefaults } from "@/lib/product-defaults";
+
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "E-Learning App Development Company",
+  description: "Launch a scalable e-learning platform with virtual classrooms, gamified learning, AI-powered personalization, and LMS integration for modern education…",
+  alternates: { canonical: "https://www.mtouchlabs.com/e-learning-app-development-company" },
+  openGraph: {
+    title: "E-Learning App Development Company | mTouch Labs",
+    description: "Launch a scalable e-learning platform with virtual classrooms, gamified learning, AI-powered personalization, and LMS integration for modern education…",
+    url: "https://www.mtouchlabs.com/e-learning-app-development-company",
+    type: "website",
+    siteName: "mTouch Labs",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "E-Learning App Development Company | mTouch Labs",
+    description: "Launch a scalable e-learning platform with virtual classrooms, gamified learning, AI-powered personalization, and LMS integration for modern education…",
+  },
+};
+
 
 const d = {
   ...buildDefaults("E-Learning"),

@@ -15,22 +15,6 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.mtouchlabs.com/software-development-company-kochi",
-    languages: {
-      "en-AU": "https://www.mtouchlabs.com/software-development-company-australia",
-      "en-CA": "https://www.mtouchlabs.com/software-development-company-canada",
-      "en-AE": "https://www.mtouchlabs.com/software-development-company-united-arab-emirates",
-      "en-DE": "https://www.mtouchlabs.com/software-development-company-germany",
-      "en-IN": "https://www.mtouchlabs.com/software-development-company-india",
-      "en-IE": "https://www.mtouchlabs.com/software-development-company-ireland",
-      "en-KW": "https://www.mtouchlabs.com/software-development-company-kuwait",
-      "en-NZ": "https://www.mtouchlabs.com/software-development-company-new-zealand",
-      "en-QA": "https://www.mtouchlabs.com/software-development-company-qatar",
-      "en-SA": "https://www.mtouchlabs.com/software-development-company-saudi-arabia",
-      "en-SG": "https://www.mtouchlabs.com/software-development-company-singapore",
-      "en-GB": "https://www.mtouchlabs.com/software-development-company-united-kingdom",
-      "en-US": "https://www.mtouchlabs.com/software-development-company-usa",
-      "x-default": "https://www.mtouchlabs.com/software-development-company-india"
-    }
   },
   twitter: {
     card: "summary_large_image",

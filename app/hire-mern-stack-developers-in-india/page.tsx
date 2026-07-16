@@ -368,7 +368,6 @@ export const metadata: Metadata = {
   title: "Hire MERN Stack Developers in India",
   description:
     "Hire MERN stack developers in India from mTouch Labs to build scalable, dynamic, and high-performance web applications.",
-  metadataBase: new URL("https://www.mtouchlabs.com"),
   alternates: {
     canonical: "/hire-mern-stack-developers-in-india",
   },

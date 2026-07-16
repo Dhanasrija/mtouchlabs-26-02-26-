@@ -112,6 +112,16 @@ const nextConfig = {
         statusCode: 301,
       },
       // ===========================
+      // /blogs duplicated /blog (and its metadata code was broken).
+      // Consolidate: /blogs → /blog. Admin routes /blogs/create and
+      // /blogs/edit/* are separate pages and unaffected by this exact-match rule.
+      // ===========================
+      {
+        source: '/blogs',
+        destination: '/blog',
+        statusCode: 301,
+      },
+      // ===========================
       // BLOG REDIRECTS — old /slug → /blog/slug (canonical)
       // Note: actual redirect happens in app/[slug]/page.tsx via Next.js redirect()
       // This config entry is intentionally removed to avoid redirect loops
@@ -138,7 +148,9 @@ const nextConfig = {
       { source: "/portfolio-3", destination: "/portfolio", permanent: true },
       { source: "/devops-services-and-solutions", destination: "/devops-services", permanent: true },
       { source: "/top-healthcare-software-development-company-in-india", destination: "/mobile-app-development-company", permanent: true },
-      { source: "/custom-crm-software-development-company", destination: "/custom-software-development-company", permanent: true },
+      // REMOVED: { source: "/custom-crm-software-development-company", ... } —
+      // this rule was 301-ing away a REAL page (app/custom-crm-software-development-company/
+      // page.tsx exists and is listed in the sitemap) and created two redirect chains.
       { source: "/on-demand-mobile-app-development-solutions-for-your-business-needs", destination: "/on-demand-products-development-company-hyderabad", permanent: true },
       { source: "/top-on-demand-mobile-app-development-ideas-for-startups", destination: "/blog", permanent: true },
       { source: "/mtouch-labs-digital-solutions-for-modern-businesses", destination: "/services", permanent: true },

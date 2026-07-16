@@ -1,6 +1,26 @@
-"use client";
 import ProductPageTemplate, { type ProductPageData } from "@/components/templates/ProductPageTemplate";
 import { buildDefaults } from "@/lib/product-defaults";
+
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Car Wash App Development Company",
+  description: "Launch an on-demand car wash app with live tracking, slot booking, automated scheduling, secure payments, and smart route planning.",
+  alternates: { canonical: "https://www.mtouchlabs.com/car-wash-app-development-company" },
+  openGraph: {
+    title: "Car Wash App Development Company | mTouch Labs",
+    description: "Launch an on-demand car wash app with live tracking, slot booking, automated scheduling, secure payments, and smart route planning.",
+    url: "https://www.mtouchlabs.com/car-wash-app-development-company",
+    type: "website",
+    siteName: "mTouch Labs",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Car Wash App Development Company | mTouch Labs",
+    description: "Launch an on-demand car wash app with live tracking, slot booking, automated scheduling, secure payments, and smart route planning.",
+  },
+};
+
 
 const d = {
   ...buildDefaults("Car Wash"),

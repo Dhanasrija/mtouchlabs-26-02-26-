@@ -1,6 +1,26 @@
-"use client";
 import ProductPageTemplate, { type ProductPageData } from "@/components/templates/ProductPageTemplate";
 import { buildDefaults } from "@/lib/product-defaults";
+
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Milk Delivery App Development Service",
+  description: "Launch a subscription-based milk and daily essentials delivery app with route planning, wallet payments, and automated recurring orders.",
+  alternates: { canonical: "https://www.mtouchlabs.com/milk-delivery-app-development-service" },
+  openGraph: {
+    title: "Milk Delivery App Development Service | mTouch Labs",
+    description: "Launch a subscription-based milk and daily essentials delivery app with route planning, wallet payments, and automated recurring orders.",
+    url: "https://www.mtouchlabs.com/milk-delivery-app-development-service",
+    type: "website",
+    siteName: "mTouch Labs",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Milk Delivery App Development Service | mTouch Labs",
+    description: "Launch a subscription-based milk and daily essentials delivery app with route planning, wallet payments, and automated recurring orders.",
+  },
+};
+
 
 const d = {
   ...buildDefaults("Milk Delivery"),

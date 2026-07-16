@@ -1,6 +1,26 @@
-"use client";
 import ProductPageTemplate, { type ProductPageData } from "@/components/templates/ProductPageTemplate";
 import { buildDefaults } from "@/lib/product-defaults";
+
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Sports and Fitness App Development Company",
+  description: "Launch a scalable fitness app with workout tracking, live classes, wearable integration, nutrition plans, and personalized coaching.",
+  alternates: { canonical: "https://www.mtouchlabs.com/sports-and-fitness-app-development-company" },
+  openGraph: {
+    title: "Sports and Fitness App Development Company | mTouch Labs",
+    description: "Launch a scalable fitness app with workout tracking, live classes, wearable integration, nutrition plans, and personalized coaching.",
+    url: "https://www.mtouchlabs.com/sports-and-fitness-app-development-company",
+    type: "website",
+    siteName: "mTouch Labs",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sports and Fitness App Development Company | mTouch Labs",
+    description: "Launch a scalable fitness app with workout tracking, live classes, wearable integration, nutrition plans, and personalized coaching.",
+  },
+};
+
 
 const d = {
   ...buildDefaults("Sports & Fitness"),

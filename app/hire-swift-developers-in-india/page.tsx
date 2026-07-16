@@ -354,7 +354,6 @@ export const metadata: Metadata = {
   title: "Hire Swift Developers in India",
   description:
     "Hire Swift developers in India from mTouch Labs to build secure, high-performance iOS applications for iPhone and iPad.",
-  metadataBase: new URL("https://www.mtouchlabs.com"),
   alternates: {
     canonical: "/hire-swift-developers-in-india",
   },

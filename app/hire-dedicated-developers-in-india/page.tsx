@@ -402,7 +402,6 @@ export const metadata: Metadata = {
   title: "Hire Dedicated Developers in India",
   description:
     "Hire dedicated developers in India from mTouch Labs to scale your team with skilled professionals across web, mobile, cloud, and AI.",
-  metadataBase: new URL("https://www.mtouchlabs.com"),
   alternates: {
     canonical: "/hire-dedicated-developers-in-india",
   },

@@ -15,7 +15,6 @@ export const metadata: Metadata = {
     "Hire mTouch Labs",
     "mTouch Labs",
   ],
-  metadataBase: new URL("https://www.mtouchlabs.com"),
   alternates: { canonical: "/request-free-quote" },
   openGraph: {
     title: "Request a Free Quote | mTouch Labs",

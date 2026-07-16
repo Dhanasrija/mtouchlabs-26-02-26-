@@ -1,6 +1,26 @@
-"use client";
 import ProductPageTemplate, { type ProductPageData } from "@/components/templates/ProductPageTemplate";
 import { buildDefaults } from "@/lib/product-defaults";
+
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Tickets Booking App Development Company",
+  description: "Launch a scalable ticket booking app for movies, events, travel, and attractions with real-time seat selection and secure payments.",
+  alternates: { canonical: "https://www.mtouchlabs.com/tickets-booking-app-development-company" },
+  openGraph: {
+    title: "Tickets Booking App Development Company | mTouch Labs",
+    description: "Launch a scalable ticket booking app for movies, events, travel, and attractions with real-time seat selection and secure payments.",
+    url: "https://www.mtouchlabs.com/tickets-booking-app-development-company",
+    type: "website",
+    siteName: "mTouch Labs",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tickets Booking App Development Company | mTouch Labs",
+    description: "Launch a scalable ticket booking app for movies, events, travel, and attractions with real-time seat selection and secure payments.",
+  },
+};
+
 
 const d = {
   ...buildDefaults("Ticket Booking"),

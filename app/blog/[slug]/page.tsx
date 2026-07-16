@@ -45,6 +45,10 @@
 
 // const SITE_URL = 'https://www.mtouchlabs.com';
 
+// ISR: cache each post for 5 min — fast cached HTML for crawlers,
+// scheduled/edited posts still show up within 5 minutes.
+export const revalidate = 300;
+
 // // ── Metadata ──
 
 export async function generateMetadata({

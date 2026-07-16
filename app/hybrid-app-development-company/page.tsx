@@ -1443,12 +1443,12 @@ export default function Page() {
 				<div className="Aiservices-testimonial-content">
 					<div className="Aiservices-company-logo-container">
 						<div className="Aiservices-company-logo-div">
-							<img width={142} height={166} loading="lazy" decoding="async" src="/images/brand-logo/Avenue.webp" />
+							<img alt="Avenue" width={142} height={166} loading="lazy" decoding="async" src="/images/brand-logo/Avenue.webp" />
 						</div>
 					</div>
 					<div className="Aiservices-testimonial-text">
 						<div className="Aiservices-rating">
-							<img width={61} height={61} loading="lazy" decoding="async" src="/images/new_services/doublequotes.webp" className="doublequotes_img" />
+							<img alt="Doublequotes" width={61} height={61} loading="lazy" decoding="async" src="/images/new_services/doublequotes.webp" className="doublequotes_img" />
 						</div>
 						<p className="Aiservices-testimonial-quote">
 

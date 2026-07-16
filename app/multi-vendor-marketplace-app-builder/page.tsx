@@ -1,6 +1,26 @@
-"use client";
 import ProductPageTemplate, { type ProductPageData } from "@/components/templates/ProductPageTemplate";
 import { buildDefaults } from "@/lib/product-defaults";
+
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Multi-Vendor Marketplace App Builder",
+  description: "Launch a scalable multi-vendor marketplace with seller onboarding, smart commissions, secure payments, and smooth customer checkout.",
+  alternates: { canonical: "https://www.mtouchlabs.com/multi-vendor-marketplace-app-builder" },
+  openGraph: {
+    title: "Multi-Vendor Marketplace App Builder | mTouch Labs",
+    description: "Launch a scalable multi-vendor marketplace with seller onboarding, smart commissions, secure payments, and smooth customer checkout.",
+    url: "https://www.mtouchlabs.com/multi-vendor-marketplace-app-builder",
+    type: "website",
+    siteName: "mTouch Labs",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Multi-Vendor Marketplace App Builder | mTouch Labs",
+    description: "Launch a scalable multi-vendor marketplace with seller onboarding, smart commissions, secure payments, and smooth customer checkout.",
+  },
+};
+
 
 const d = {
   ...buildDefaults("Multi-Vendor Marketplace"),

@@ -14,7 +14,6 @@ export const metadata: Metadata = {
     "SaaS development company",
     "website development company India",
   ],
-  metadataBase: new URL("https://www.mtouchlabs.com"),
   alternates: {
     canonical: "/web-development-company",
   },

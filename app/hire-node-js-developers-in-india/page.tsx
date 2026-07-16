@@ -459,7 +459,6 @@ export const metadata: Metadata = {
   title: "Hire Node.js Developers in India",
   description:
     "Hire Node.js developers in India from mTouch Labs to build scalable, real-time, and high-performance backend applications.",
-  metadataBase: new URL("https://www.mtouchlabs.com"),
   alternates: {
     canonical: "/hire-node-js-developers-in-india",
   },

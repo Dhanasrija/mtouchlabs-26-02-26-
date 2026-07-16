@@ -26,7 +26,6 @@ import { HonorsCode } from "@/components/sections/home/HonorsCode";
 
 
 export const metadata = {
-  metadataBase: new URL("https://www.mtouchlabs.com"),
   title: {
     absolute: "Software Development Company & IT Solutions | mTouch Labs"
   },

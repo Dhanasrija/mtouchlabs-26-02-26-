@@ -8,7 +8,6 @@ export const metadata: Metadata = {
   title: "Hire UI UX Designers in India",
   description:
     "Hire UI UX designers in India from mTouch Labs to craft intuitive, engaging, and conversion-focused digital experiences for web and mobile platforms.",
-  metadataBase: new URL("https://www.mtouchlabs.com"),
   alternates: {
     canonical: "/hire-ui-ux-designers-in-india",
   },

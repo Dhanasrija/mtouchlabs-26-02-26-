@@ -369,7 +369,6 @@ export const metadata: Metadata = {
   title: "Hire AWS Developers in India",
   description:
     "Hire AWS developers in India from mTouch Labs to build secure, scalable, and cloud-native applications on Amazon Web Services.",
-  metadataBase: new URL("https://www.mtouchlabs.com"),
   alternates: {
     canonical: "/hire-aws-developers-in-india",
   },

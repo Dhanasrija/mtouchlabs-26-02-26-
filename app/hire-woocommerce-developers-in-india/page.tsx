@@ -400,7 +400,6 @@ export const metadata: Metadata = {
   title: "Hire WooCommerce Developers in India",
   description:
     "Hire WooCommerce developers in India from mTouch Labs to build secure, scalable, and conversion-focused WordPress eCommerce stores.",
-  metadataBase: new URL("https://www.mtouchlabs.com"),
   alternates: {
     canonical: "/hire-woocommerce-developers-in-india",
   },

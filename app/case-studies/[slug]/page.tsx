@@ -183,7 +183,8 @@ import TocScrollHighlight from '@/components/TocScrollHighlight';
 import ImageWithFallback from '@/components/ImageWithFallback';
 import CaseStudyGallery from '@/components/CaseStudyGallery';
 import { getCaseStudyImages } from '@/lib/caseStudyImages';
-export const dynamic = "force-dynamic";
+// ISR: cache rendered pages for 5 min instead of SSR on every request.
+export const revalidate = 300;
 
 const SITE_URL = "https://www.mtouchlabs.com";
 

@@ -1,6 +1,26 @@
-"use client";
 import ProductPageTemplate, { type ProductPageData } from "@/components/templates/ProductPageTemplate";
 import { buildDefaults } from "@/lib/product-defaults";
+
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Real Estate App Development Company",
+  description: "Launch a feature-rich real estate app with property listings, virtual tours, smart search, and secure transactions.",
+  alternates: { canonical: "https://www.mtouchlabs.com/real-estate-app-development-company" },
+  openGraph: {
+    title: "Real Estate App Development Company | mTouch Labs",
+    description: "Launch a feature-rich real estate app with property listings, virtual tours, smart search, and secure transactions.",
+    url: "https://www.mtouchlabs.com/real-estate-app-development-company",
+    type: "website",
+    siteName: "mTouch Labs",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Real Estate App Development Company | mTouch Labs",
+    description: "Launch a feature-rich real estate app with property listings, virtual tours, smart search, and secure transactions.",
+  },
+};
+
 
 const d = {
   ...buildDefaults("Real Estate"),

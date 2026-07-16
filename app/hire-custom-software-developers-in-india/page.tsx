@@ -494,7 +494,6 @@ export const metadata: Metadata = {
   title: "Hire Custom Software Developers in India",
   description:
     "Hire custom software developers in India from mTouch Labs to build scalable, secure, and enterprise-grade applications tailored to your needs.",
-  metadataBase: new URL("https://www.mtouchlabs.com"),
   alternates: {
     canonical: "/hire-custom-software-developers-in-india",
   },

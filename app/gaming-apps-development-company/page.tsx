@@ -1,6 +1,26 @@
-"use client";
 import ProductPageTemplate, { type ProductPageData } from "@/components/templates/ProductPageTemplate";
 import { buildDefaults } from "@/lib/product-defaults";
+
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Gaming App Development Company",
+  description: "Build immersive mobile games, multiplayer platforms, AR/VR games, and cross-platform gaming apps with high-performance engines and scalable architecture.",
+  alternates: { canonical: "https://www.mtouchlabs.com/gaming-apps-development-company" },
+  openGraph: {
+    title: "Gaming App Development Company | mTouch Labs",
+    description: "Build immersive mobile games, multiplayer platforms, AR/VR games, and cross-platform gaming apps with high-performance engines and scalable architecture.",
+    url: "https://www.mtouchlabs.com/gaming-apps-development-company",
+    type: "website",
+    siteName: "mTouch Labs",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gaming App Development Company | mTouch Labs",
+    description: "Build immersive mobile games, multiplayer platforms, AR/VR games, and cross-platform gaming apps with high-performance engines and scalable architecture.",
+  },
+};
+
 
 const d = {
   ...buildDefaults("Gaming"),

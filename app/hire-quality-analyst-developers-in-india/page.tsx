@@ -384,7 +384,6 @@ export const metadata: Metadata = {
   title: "Hire Quality Analyst Developers in India",
   description:
     "Hire quality analyst developers in India from mTouch Labs to ensure your applications are secure, stable, and ready for real-world usage.",
-  metadataBase: new URL("https://www.mtouchlabs.com"),
   alternates: {
     canonical: "/hire-quality-analyst-developers-in-india",
   },

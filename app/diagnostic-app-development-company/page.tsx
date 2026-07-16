@@ -1,6 +1,26 @@
-"use client";
 import ProductPageTemplate, { type ProductPageData } from "@/components/templates/ProductPageTemplate";
 import { buildDefaults } from "@/lib/product-defaults";
+
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Diagnostic App Development Company",
+  description: "Launch a feature-rich diagnostic lab app with online test booking, home sample collection, digital reports, and secure payments.",
+  alternates: { canonical: "https://www.mtouchlabs.com/diagnostic-app-development-company" },
+  openGraph: {
+    title: "Diagnostic App Development Company | mTouch Labs",
+    description: "Launch a feature-rich diagnostic lab app with online test booking, home sample collection, digital reports, and secure payments.",
+    url: "https://www.mtouchlabs.com/diagnostic-app-development-company",
+    type: "website",
+    siteName: "mTouch Labs",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Diagnostic App Development Company | mTouch Labs",
+    description: "Launch a feature-rich diagnostic lab app with online test booking, home sample collection, digital reports, and secure payments.",
+  },
+};
+
 
 const d = {
   ...buildDefaults("Diagnostic"),

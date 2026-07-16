@@ -366,7 +366,6 @@ export const metadata: Metadata = {
   title: "Hire Vue.js Developers in India",
   description:
     "Hire Vue.js developers in India from mTouch Labs to build fast, lightweight, and scalable web applications.",
-  metadataBase: new URL("https://www.mtouchlabs.com"),
   alternates: {
     canonical: "/hire-vue-js-developers-in-india",
   },

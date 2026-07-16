@@ -221,7 +221,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   corePages.forEach((path) => {
     entries.push({
       url: `${baseUrl}${path}`,
-      lastModified: staticLastModified,
+      lastModified: today,
       changeFrequency: 'weekly',
       priority: 1.0,
     })
@@ -230,7 +230,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   companyPages.forEach((path) => {
     entries.push({
       url: `${baseUrl}${path}`,
-      lastModified: staticLastModified,
+      lastModified: today,
       changeFrequency: 'monthly',
       priority: 0.7,
     })
@@ -239,7 +239,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   servicePages.forEach((path) => {
     entries.push({
       url: `${baseUrl}${path}`,
-      lastModified: staticLastModified,
+      lastModified: today,
       changeFrequency: 'weekly',
       priority: 0.9,
     })
@@ -248,7 +248,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   hireDeveloperPages.forEach((path) => {
     entries.push({
       url: `${baseUrl}${path}`,
-      lastModified: staticLastModified,
+      lastModified: today,
       changeFrequency: 'monthly',
       priority: 0.8,
     })
@@ -257,7 +257,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   locationPages.forEach((path) => {
     entries.push({
       url: `${baseUrl}${path}`,
-      lastModified: staticLastModified,
+      lastModified: today,
       changeFrequency: 'monthly',
       priority: 0.8,
     })
@@ -266,7 +266,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   legalPages.forEach((path) => {
     entries.push({
       url: `${baseUrl}${path}`,
-      lastModified: staticLastModified,
+      lastModified: today,
       changeFrequency: 'yearly',
       priority: 0.3,
     })
@@ -305,10 +305,7 @@ try {
 
   portfolios.forEach((portfolio: any) => {
     entries.push({
-      // Canonical home is /portfolio/<slug> (middleware 301s the bare /<slug>
-      // to it, and the page's canonical tag points there). The sitemap must
-      // list final URLs, never URLs that redirect.
-      url: `${baseUrl}/portfolio/${portfolio.slug}`,
+      url: `${baseUrl}/${portfolio.slug}`,
       lastModified: portfolio.created_at
         ? new Date(portfolio.created_at).toISOString().split('T')[0]
         : today,

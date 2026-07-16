@@ -451,7 +451,6 @@ export const metadata: Metadata = {
   title: "Hire Hybrid App Developers in India",
   description:
     "Hire hybrid app developers in India from mTouch Labs to build cost-effective, cross-platform mobile apps with seamless performance.",
-  metadataBase: new URL("https://www.mtouchlabs.com"),
   alternates: {
     canonical: "/hire-hybrid-app-developers-in-india",
   },

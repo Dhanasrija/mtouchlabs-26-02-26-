@@ -1,6 +1,26 @@
-"use client";
 import ProductPageTemplate, { type ProductPageData } from "@/components/templates/ProductPageTemplate";
 import { buildDefaults } from "@/lib/product-defaults";
+
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Ecommerce App Development Company",
+  description: "Launch a scalable ecommerce platform with seamless checkout, multi-vendor support, secure payments, and smart recommendations.",
+  alternates: { canonical: "https://www.mtouchlabs.com/ecommerce-app-development-company" },
+  openGraph: {
+    title: "Ecommerce App Development Company | mTouch Labs",
+    description: "Launch a scalable ecommerce platform with seamless checkout, multi-vendor support, secure payments, and smart recommendations.",
+    url: "https://www.mtouchlabs.com/ecommerce-app-development-company",
+    type: "website",
+    siteName: "mTouch Labs",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ecommerce App Development Company | mTouch Labs",
+    description: "Launch a scalable ecommerce platform with seamless checkout, multi-vendor support, secure payments, and smart recommendations.",
+  },
+};
+
 
 const d = {
   ...buildDefaults("Ecommerce"),

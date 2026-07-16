@@ -364,7 +364,6 @@ export const metadata: Metadata = {
   title: "Hire Magento Developers in India",
   description:
     "Hire Magento developers in India from mTouch Labs to build scalable, secure, and high-performance eCommerce websites.",
-  metadataBase: new URL("https://www.mtouchlabs.com"),
   alternates: {
     canonical: "/hire-magento-developers-in-india",
   },

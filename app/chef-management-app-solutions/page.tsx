@@ -1,6 +1,26 @@
-"use client";
 import ProductPageTemplate, { type ProductPageData } from "@/components/templates/ProductPageTemplate";
 import { buildDefaults } from "@/lib/product-defaults";
+
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Chef Management App Solutions",
+  description: "Launch a chef on-demand and kitchen management platform with booking, scheduling, order tracking, and kitchen operations in one app.",
+  alternates: { canonical: "https://www.mtouchlabs.com/chef-management-app-solutions" },
+  openGraph: {
+    title: "Chef Management App Solutions | mTouch Labs",
+    description: "Launch a chef on-demand and kitchen management platform with booking, scheduling, order tracking, and kitchen operations in one app.",
+    url: "https://www.mtouchlabs.com/chef-management-app-solutions",
+    type: "website",
+    siteName: "mTouch Labs",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Chef Management App Solutions | mTouch Labs",
+    description: "Launch a chef on-demand and kitchen management platform with booking, scheduling, order tracking, and kitchen operations in one app.",
+  },
+};
+
 
 const d = {
   ...buildDefaults("Chef Management"),

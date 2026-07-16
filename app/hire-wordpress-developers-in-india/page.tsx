@@ -404,7 +404,6 @@ export const metadata: Metadata = {
   title: "Hire WordPress Developers in India",
   description:
     "Hire WordPress developers in India from mTouch Labs to build secure, custom, and scalable WordPress websites and CMS solutions.",
-  metadataBase: new URL("https://www.mtouchlabs.com"),
   alternates: {
     canonical: "/hire-wordpress-developers-in-india",
   },

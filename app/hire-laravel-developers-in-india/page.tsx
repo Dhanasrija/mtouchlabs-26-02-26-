@@ -412,7 +412,6 @@ export const metadata: Metadata = {
   title: "Hire Laravel Developers in India",
   description:
     "Hire Laravel developers in India from mTouch Labs to build secure, scalable, and API-driven web applications and SaaS platforms.",
-  metadataBase: new URL("https://www.mtouchlabs.com"),
   alternates: {
     canonical: "/hire-laravel-developers-in-india",
   },
