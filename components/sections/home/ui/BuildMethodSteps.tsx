@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { minifyCss } from "@/lib/inline-css";
 
 interface Step {
   label: string;
@@ -14,7 +15,7 @@ interface BuildMethodStepsProps {
 export function BuildMethodSteps({ steps }: BuildMethodStepsProps) {
   return (
     <div className="bm-steps-container no-scrollbar">
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{ __html: minifyCss(`
         /* ⭐ Smaller travel & no overshoot — prevents the section
            looking like it "jumps up" / cards being cut off on scroll. */
         @keyframes bmAntiGravityCard {
@@ -161,7 +162,7 @@ export function BuildMethodSteps({ steps }: BuildMethodStepsProps) {
             max-width: 220px;
           }
         }
-      `}} />
+      `)}} />
       {steps.map((step, i) => {
         const stepDelay = 0.3 + i * 0.6;
         return (

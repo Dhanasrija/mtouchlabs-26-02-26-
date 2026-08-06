@@ -1,5 +1,6 @@
 import { BuildMethodSteps } from "@/components/sections/home/ui/BuildMethodSteps";
 import { BuildMethodWrapper } from "@/components/sections/home/ui/BuildMethodWrapper";
+import { minifyCss } from "@/lib/inline-css";
 
 const steps = [
   {
@@ -31,7 +32,7 @@ const steps = [
 export default function BuildMethod() {
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{ __html: minifyCss(`
         @keyframes bmTitleBlur {
           from { opacity: 0; filter: blur(8px); }
           to   { opacity: 1; filter: blur(0);   }
@@ -42,7 +43,7 @@ export default function BuildMethod() {
         .bm-in-view .bm-title-item {
           animation: bmTitleBlur 0.5s ease-out both;
         }
-      `}} />
+      `)}} />
       <section
         style={{ background: "#F3F1FF", padding: "80px 24px", textAlign: "center", overflowX: "hidden" }}
       >

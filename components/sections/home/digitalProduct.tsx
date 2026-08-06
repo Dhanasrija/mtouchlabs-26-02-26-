@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { minifyCss } from "@/lib/inline-css";
 
 const logos = [
   { src: "/images/home/tech/kezad-logo.webp", alt: "Kezad Group" },
@@ -18,7 +19,7 @@ export default function DigitalProductSection() {
 
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{ __html: minifyCss(`
         @keyframes dpFadeLeft {
           from { opacity: 0; transform: translateX(-30px); }
           to   { opacity: 1; transform: translateX(0);     }
@@ -64,7 +65,7 @@ export default function DigitalProductSection() {
             height: auto !important;
           }
         }
-      `}} />
+      `)}} />
       <section className="dp-section" style={{ backgroundColor: "#FFFFFF", padding: "80px 0", overflow: "hidden" }}>
         <div className="dp-grid" style={{
           maxWidth: "1200px",

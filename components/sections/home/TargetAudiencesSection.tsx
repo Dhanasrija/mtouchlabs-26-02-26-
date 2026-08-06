@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { BlurText } from "@/components/sections/home/ui/BlurText";
+import { minifyCss } from "@/lib/inline-css";
 
 /**
  * Inline helper to split text into individually animated characters.
@@ -41,7 +42,7 @@ export default function WhoWeWorkWithSection() {
 
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{ __html: minifyCss(`
         @keyframes wwwwFadeIn {
           from { opacity: 0; }
           to { opacity: 1; }
@@ -163,7 +164,7 @@ export default function WhoWeWorkWithSection() {
           .target-audiences-section {
   background-color: #F5F5F5;
 }
-      `}} />
+      `)}} />
 
       <section className="target-audiences-section">
         <div className="target-audiences-header">

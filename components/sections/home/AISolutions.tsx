@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { BlurText } from "@/components/sections/home/ui/BlurText";
+import { minifyCss } from "@/lib/inline-css";
 
 const cards = [
   {
@@ -113,7 +114,7 @@ export default function AISolutionsSection() {
       </div>
 
       {/* Scoped CSS animations */}
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{ __html: minifyCss(`
         /* ── Card entrance ─────────────────────────────── */
         @keyframes ais-card-slide-up {
           from {
@@ -159,7 +160,7 @@ export default function AISolutionsSection() {
             transition: none;
           }
         }
-      `}} />
+      `)}} />
     </section>
   );
 }

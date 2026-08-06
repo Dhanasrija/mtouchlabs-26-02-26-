@@ -1,3 +1,4 @@
+import { minifyCss } from "@/lib/inline-css";
 const blogs = [
   {
     href: "/blog/top-generative-ai-tools-for-developers",
@@ -22,7 +23,7 @@ const blogs = [
 export default function BlogSection() {
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{ __html: minifyCss(`
         @keyframes blogFadeUp {
           from { opacity: 0; transform: translateY(30px); }
           to   { opacity: 1; transform: translateY(0);    }
@@ -39,7 +40,7 @@ export default function BlogSection() {
         .blog-ref-card:hover .blog-ref-card-img-wrap img {
           transform: scale(1.04);
         }
-      `}} />
+      `)}} />
       <section className="blog-section-ref">
         <div className="blog-ref-container">
 

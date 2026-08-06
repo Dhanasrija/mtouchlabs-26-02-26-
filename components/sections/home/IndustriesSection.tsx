@@ -1,11 +1,12 @@
 
 import { BlurText } from "@/components/sections/home/ui/BlurText";
 import { IndustriesPills } from "@/components/sections/home/ui/IndustriesPills";
+import { minifyCss } from "@/lib/inline-css";
 
 export default function IndustriesSection() {
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{ __html: minifyCss(`
         /* Mobile: drop absolute layout, show pills in a flex wrap */
         @media (max-width: 768px) {
           .ind-heading {
@@ -19,7 +20,7 @@ export default function IndustriesSection() {
             margin-bottom: 24px;
           }
         }
-      `}} />
+      `)}} />
 
       <section className="ind-section" style={{ overflow: "hidden" }}>
         <div className="ind-container">

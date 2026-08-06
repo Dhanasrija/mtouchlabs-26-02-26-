@@ -478,7 +478,7 @@ const nextConfig = {
 
       // --- Location / case typos ----------------------------------------
       { source: "/top-mobile-app-development-company-in", destination: "/", permanent: true },
-      { source: "/favicon.ico", destination: "/", permanent: true },
+      // { source: "/favicon.ico", destination: "/", permanent: true },
     // { source: "/search?q=%7Bsearch_term_string%7D", destination: "/", permanent: true },
 
       { source: "/best-mobile-app-development-company-in-canada", destination: "/software-development-company-canada", permanent: true },

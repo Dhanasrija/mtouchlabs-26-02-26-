@@ -1,3 +1,4 @@
+import { minifyCss } from "@/lib/inline-css";
 // import React from "react";
 // import { BlurText } from "@/components/sections/home/ui/BlurText";
 // import TestimonialCarousel from "./ui/TestimonialCarousel";
@@ -56,7 +57,7 @@
 // export default function TestimonialSection() {
 //   return (
 //     <>
-//       <style dangerouslySetInnerHTML={{ __html: `
+//       <style dangerouslySetInnerHTML={{ __html: minifyCss(`
 //         @keyframes testiFadeUp {
 //           from { opacity: 0; transform: translateY(30px); }
 //           to   { opacity: 1; transform: translateY(0);    }
@@ -228,7 +229,7 @@
 //             margin-top: 10px;
 //           }
 //         }
-//       `}} />
+//       `)}} />
 
 //       <section className="testi-section">
 //         <div className="testi-container">

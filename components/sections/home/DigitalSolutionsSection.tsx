@@ -251,6 +251,7 @@
 //   );
 // }
 "use client";
+import { minifyCss } from "@/lib/inline-css";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -292,7 +293,7 @@ export default function DigitalSolutionsSection() {
 
   return (
     <section className="fds-section">
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{ __html: minifyCss(`
         .fds-card:focus,
         .fds-card:focus-visible,
         .fds-card:focus-within,
@@ -307,7 +308,7 @@ export default function DigitalSolutionsSection() {
           outline: none !important;
           box-shadow: none !important;
         }
-      `}} />
+      `)}} />
       <div className="fds-container">
 
         {/* ── Header ── */}

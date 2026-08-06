@@ -1,5 +1,6 @@
 import React from "react";
 import LocationCarousel from "./ui/LocationCarousel";
+import { minifyCss } from "@/lib/inline-css";
 
 const locations = {
   hyderabad: {
@@ -39,7 +40,7 @@ const locationList = [locations.hyderabad, locations.bangalore, locations.usa];
 export default function LocationSection() {
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{ __html: minifyCss(`
         ._location_we_serve_container {
           display: flex;
           align-items: center;
@@ -294,7 +295,7 @@ export default function LocationSection() {
           transform: translateY(-2px);
           color: #3E8CFB;
         }
-      `}} />
+      `)}} />
 
       <section className="_location_we_serve_container">
         <LocationCarousel locations={locations} locationList={locationList} />

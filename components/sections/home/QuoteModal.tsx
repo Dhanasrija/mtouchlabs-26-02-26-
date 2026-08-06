@@ -1,3 +1,6 @@
+"use client";
+import { minifyCss } from "@/lib/inline-css";
+
 /* ═══════════════════════════════════════════════════════
    QuoteModal — Pure SSR (Server Component)
    No "use client". No hooks. No React state.
@@ -147,7 +150,7 @@ export default function QuoteModal() {
       </div>
 
       {/* ── Inline styles for validation errors ── */}
-<style dangerouslySetInnerHTML={{ __html: `
+<style dangerouslySetInnerHTML={{ __html: minifyCss(`
   .rq-required {
     color: #ef4444;
     margin-left: 2px;
@@ -375,7 +378,7 @@ select[name="service"] {
   #requestQuoteModal .rq-row { flex-direction: column !important; gap: 10px !important; }
   #requestQuoteModal .rq-col { width: 100% !important; }
 }
-`}} />
+`)}} />
 
       {/* ── Open + Close modal delegation (single source of truth) ── */}
       <script dangerouslySetInnerHTML={{ __html: `

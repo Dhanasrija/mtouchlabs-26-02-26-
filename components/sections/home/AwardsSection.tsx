@@ -1,4 +1,5 @@
 import React from "react";
+import { minifyCss } from "@/lib/inline-css";
 
 // ─────────────────────────────────────────────────────────────
 // Static data
@@ -161,7 +162,7 @@ export default function AwardsSection() {
       </div>
 
       {/* Scoped CSS animations */}
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{ __html: minifyCss(`
         /* ── Responsive — keep award images uncropped on every screen ── */
         @media (max-width: 1024px) {
           .aw-section .aw-grid-marquee {
@@ -260,7 +261,7 @@ export default function AwardsSection() {
             animation: none;
           }
         }
-      `}} />
+      `)}} />
     </section>
   );
 }

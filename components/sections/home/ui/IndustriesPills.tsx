@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { minifyCss } from "@/lib/inline-css";
 
 // ── pill definitions ──────────────────────────────────────────────────────────
 const PILLS = [
@@ -169,7 +170,7 @@ export function IndustriesPills() {
 
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{ __html: minifyCss(`
         /* Pill base overrides for JS-driven layout */
         .ind-pill--js {
           left: 0;
@@ -212,7 +213,7 @@ export function IndustriesPills() {
             opacity: 1 !important;
           }
         }
-      `}} />
+      `)}} />
 
       <div
         ref={wrapRef}

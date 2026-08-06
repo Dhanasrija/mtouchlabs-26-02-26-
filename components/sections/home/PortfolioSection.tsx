@@ -1,5 +1,6 @@
 import React from "react";
 import PortfolioCarousel from "./ui/PortfolioCarousel";
+import { minifyCss } from "@/lib/inline-css";
 
 const portfolioItems = [
   { href: "/telangana-ecommerce-mobile-app-development",                     img: "/images/portfolio/golkonda.webp",                 imgAlt: "Telangana E-commerce App",   title: "Telangana State Government E-commerce online",         tags: "UX, UI, Website, Android and iOS", isDefault: true  },
@@ -14,7 +15,7 @@ const portfolioItems = [
 export default function PortfolioSection() {
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{ __html: minifyCss(`
         .pf-section {
           padding: 80px 0;
           background: #F3F1FF;
@@ -213,7 +214,7 @@ export default function PortfolioSection() {
           .pf-card      { height: 180px; }
           .pf-nav       { width: 32px !important; min-width: 32px !important; height: 32px !important; }
         }
-      `}} />
+      `)}} />
 
       <section className="pf-section">
         <div className="pf-container">

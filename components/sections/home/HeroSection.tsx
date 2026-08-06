@@ -1,3 +1,4 @@
+import { minifyCss } from "@/lib/inline-css";
 // import Link from "next/link";
 
 // export default function HeroSection() {
@@ -106,7 +107,7 @@ export default function HeroSection() {
 
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{ __html: minifyCss(`
         .mtl-new-hero-h1 {
           color: #000000;
         }
@@ -236,7 +237,7 @@ export default function HeroSection() {
             transform: none !important;
           }
         }
-      ` }} />
+      `) }} />
 
       {/* Preload the hero background (homepage LCP/FCP). Next.js hoists
           rel="preload" links into <head>, so this only loads on the home

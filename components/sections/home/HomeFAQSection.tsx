@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { minifyCss } from "@/lib/inline-css";
 
 const homeFaqs = [
   {
@@ -34,7 +35,7 @@ export default function HomeFAQSection() {
 
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{ __html: minifyCss(`
         @keyframes faqBlurIn {
           from { opacity: 0; filter: blur(10px); transform: translateX(-10px); }
           to   { opacity: 1; filter: blur(0);    transform: translateX(0);     }
@@ -53,7 +54,7 @@ export default function HomeFAQSection() {
         ._faq_chevron {
           transition: transform 0.3s ease;
         }
-      `}} />
+      `)}} />
 
       <section style={{ padding: "6rem 0", backgroundColor: "#F3F1FF", position: "relative", zIndex: 1 }}>
         <div className="_faq_container">

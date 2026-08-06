@@ -1,3 +1,4 @@
+import { minifyCss } from "@/lib/inline-css";
 const services = [
   "Web Development",
   "Android App Development",
@@ -42,12 +43,12 @@ const services = [
 export default function TopServicesSection() {
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{ __html: minifyCss(`
         @keyframes tsFadeUp {
           from { opacity: 0; transform: translateY(20px); }
           to   { opacity: 1; transform: translateY(0);    }
         }
-      `}} />
+      `)}} />
       <section className="ts-section" style={{
         backgroundColor: "#fff",
         padding: "20px 0",

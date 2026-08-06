@@ -1,3 +1,4 @@
+import { minifyCss } from "@/lib/inline-css";
 function AnimatedText({
   text,
   startDelay = 0,
@@ -124,7 +125,7 @@ export default function TechnologiesSection() {
 
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{ __html: minifyCss(`
         .tech-radio {
           position: fixed;
           top: 0;
@@ -310,7 +311,7 @@ export default function TechnologiesSection() {
             font-size: 12.5px !important;
           }
         }
-      `}} />
+      `)}} />
 
       {/* Radio inputs — must be siblings of .tech-main for CSS ~ selector */}
       {tabs.map((tab, i) => (

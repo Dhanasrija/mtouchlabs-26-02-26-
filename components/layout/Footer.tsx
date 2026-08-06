@@ -1,3 +1,4 @@
+"use client";
 // //import "../location-pages.css";
 // export default function Footer() {
 //   return (

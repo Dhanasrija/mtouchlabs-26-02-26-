@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { BlurText } from "@/components/sections/home/ui/BlurText";
+import { minifyCss } from "@/lib/inline-css";
 
 const features = [
   {
@@ -23,7 +24,7 @@ const features = [
 export default function WhyBusinessTrustSection() {
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{ __html: minifyCss(`
         @keyframes wbtFadeUp {
           from { opacity: 0; transform: translateY(20px); filter: blur(10px); }
           to   { opacity: 1; transform: translateY(0);     filter: blur(0);    }
@@ -139,7 +140,7 @@ export default function WhyBusinessTrustSection() {
           .wbt-card-image { width: 100%; height: 180px; }
           .wbt-card-title { font-size: 16px; }
         }
-      `}} />
+      `)}} />
       <section className="wm-apart-section">
         <div className="wbt-inner">
           <div className="wbt-header">

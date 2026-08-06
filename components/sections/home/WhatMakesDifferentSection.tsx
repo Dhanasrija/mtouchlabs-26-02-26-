@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { BlurText } from "@/components/sections/home/ui/BlurText";
+import { minifyCss } from "@/lib/inline-css";
 
 const row1 = [
   {
@@ -52,7 +53,7 @@ const row2 = [
 export default function WhatMakesDifferentSection() {
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{ __html: minifyCss(`
         @keyframes wmFadeUp {
           from { opacity: 0; transform: translateY(60px); }
           to   { opacity: 1; transform: translateY(0);    }
@@ -150,7 +151,7 @@ export default function WhatMakesDifferentSection() {
             position: static !important;
           }
         }
-      `}} />
+      `)}} />
       <section className="wm-apart-section">
         <div className="wm-apart-container">
 
