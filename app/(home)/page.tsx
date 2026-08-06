@@ -21,7 +21,6 @@ import DigitalProductSection from "@/components/sections/home/digitalProduct";
 import BuildMethod from "@/components/sections/home/buildMethod";
 import AISolutionsSection from "@/components/sections/home/AISolutions";
 import { HonorsCode } from "@/components/sections/home/HonorsCode";
-import PartnerLogosModal from "@/components/sections/home/PartnerLogosModal";
 
 
 
@@ -47,9 +46,11 @@ export const metadata = {
   authors: [{ name: "mTouch Labs" }],
   creator: "mTouch Labs",
   publisher: "mTouch Labs",
-  alternates: {
-    canonical: "https://www.mtouchlabs.com"
-  },
+  // NOTE: no `alternates.canonical` here. Next 14 hardcodes
+  // `pathname === "/" ? origin : href` when resolving metadata URLs, so the
+  // root canonical ALWAYS loses its trailing slash and no longer matches the
+  // URL the page is served at. The tag is emitted manually in the component
+  // below instead. Do not re-add it here or the page will have two canonicals.
   robots: {
     index: true,
     follow: true,
@@ -62,11 +63,9 @@ export const metadata = {
     }
   },
   category: "technology",
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png"
-  },
+  // NOTE: no `icons` here on purpose. Next.js REPLACES the parent's icons
+  // object wholesale when a page redefines it, so an override here would drop
+  // the 32x32 PNG and the SVG favicon declared in app/layout.tsx.
   openGraph: {
     title: "Software Development Company & IT Solutions | mTouch Labs",
     description:
@@ -86,6 +85,10 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    // Repeated from app/layout.tsx: a page-level `twitter` object replaces the
+    // parent's entirely, so these handles have to be restated or they vanish.
+    site: "@mtouchlabs",
+    creator: "@mtouchlabs",
     title: "Software Development Company & IT Solutions | mTouch Labs",
     description:
       "Custom software development, mobile apps, Salesforce solutions, UI/UX design & enterprise IT services by mTouch Labs.",
@@ -383,6 +386,10 @@ const siteNavSchema = {
 export default function HomePage() {
   return (
     <>
+      {/* Canonical — emitted here rather than via `alternates.canonical` so the
+          trailing slash survives; see the note in the metadata export above. */}
+      <link rel="canonical" href="https://www.mtouchlabs.com/" />
+
       {/* JSON-LD Structured Data for SEO + AEO */}
       <Script
         id="organization-schema"
@@ -442,7 +449,77 @@ export default function HomePage() {
       <DigitalProductSection />
       {/* <TopServicesSection /> */}
       {/* Logo modal — shows all partner logos when "View All" is clicked */}
-      <PartnerLogosModal />
+      <div className="modal-overlay hide" id="openlogoModal">
+        <div className="logomodal">
+          <div
+            className="modal-content"
+            style={{
+              background: "#fff",
+              borderRadius: "20px",
+              position: "relative",
+            }}
+          >
+            <span
+              className="js-close-logo-modal"
+              role="button"
+              tabIndex={0}
+              aria-label="Close partners modal"
+              style={{
+                position: "absolute",
+                top: "15px",
+                right: "20px",
+                fontSize: "28px",
+                cursor: "pointer",
+                color: "#333",
+                fontWeight: "bold",
+              }}
+            >
+              &times;
+            </span>
+            <h3
+              style={{
+                marginBottom: "20px",
+                fontSize: "22px",
+                textAlign: "center",
+              }}
+            >
+              Our Trusted Partners
+            </h3>
+            <div
+              className="logo-modal-grid-inline"
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(5, 1fr)",
+                gap: "20px",
+                overflowY: "auto",
+                maxHeight: "450px",
+                padding: "10px",
+              }}
+            >
+              {[
+                "adjd.png", "l2r.png", "aduri.png", "govt.png", "kezad-logo.png",
+                "paygenpro.png", "payville.png", "kohere.png", "onlyshops.png", "olt.png",
+                "fleuncyo.png", "zuppibuy.png", "paygen.png", "voosh.png", "omvideos.png",
+                "book.png", "uptick.png", "saachi.png", "macServices.png", "drpicklogo.png",
+                "classy.png", "onus.png", "hitech.svg", "zefsci.png", "medbuz.png",
+                "veteach.png", "tanyya.png", "heyman.png", "badham.png", "v.png",
+                "tej.png", "adify.png", "clikget.png", "countryclub.png", "kalp.png",
+                "roboride.png", "ricehub.png",
+              ].map((logo, i) => (
+                <div key={i} className="logo-modal-cell">
+                  <img
+                    src={`/images/home/tech/${logo}`}
+                    alt={`${logo.replace(/\.\w+$/, "")} — mTouch Labs partner`}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
     </>
   );
 }
