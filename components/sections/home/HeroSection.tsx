@@ -1,4 +1,11 @@
-import { minifyCss } from "@/lib/inline-css";
+"use client";
+/*
+  Marked "use client" as an HTML-payload optimisation, not for interactivity.
+  As a server component this section's element tree was serialised a second time
+  into the inlined RSC flight payload on every request. As a client component the
+  SSR'd HTML is byte-for-byte identical, but the tree is no longer duplicated —
+  its JSX lives in a cacheable JS chunk instead.
+*/
 // import Link from "next/link";
 
 // export default function HeroSection() {
@@ -107,137 +114,7 @@ export default function HeroSection() {
 
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: minifyCss(`
-        .mtl-new-hero-h1 {
-          color: #000000;
-        }
-
-        .highlight-word {
-          color: var(--color-signature-blue);
-          font-weight: 700;
-        }
-
-        .hero-cta-btn {
-          display: inline-flex;
-          align-items: center;
-          gap: 14px;
-          background-color: #3E8CFB;
-          color: #fff;
-          font-size: 16px;
-          font-weight: 600;
-          padding: 10px 10px 10px 24px;
-          border-radius: 999px;
-          text-decoration: none;
-          border: none;
-          cursor: pointer;
-          box-shadow: 0 12px 24px rgba(62, 140, 251, 0.3);
-          transition: transform 0.2s ease;
-        }
-
-        .hero-cta-btn:hover {
-          transform: scale(1.04);
-        }
-
-        .hero-cta-btn:active {
-          transform: scale(0.97);
-        }
-
-        .hero-cta-icon {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          width: 36px;
-          height: 36px;
-          border-radius: 50%;
-          background-color: #fff;
-          color: #3E8CFB;
-          font-size: 18px;
-          line-height: 1;
-          flex-shrink: 0;
-        }
-
-        /* ────────────────────────────────────────────────────────
-           NASSCOM HERO BADGE — final, simplest possible setup.
-           SIZING PRINCIPLE: width drives everything, height follows
-           the IMG natural aspect ratio. NO aspect-ratio on the
-           container, NO height:100% on the IMG, NO max-height
-           anywhere. That combination is what was breaking it
-           before — when the hero had limited vertical space (the
-           "minimised" case), aspect-ratio + height:100% forced the
-           IMG into a smaller-than-natural box and the content got
-           clipped. Using height:auto on the IMG is mathematically
-           incapable of cropping.
-
-           SIZE RANGE: 180px on the smallest phones → 280px on huge
-           desktops (around the PNG own intrinsic 266px width, so
-           it stays crisp and never looks oversized).
-           ────────────────────────────────────────────────────── */
-        .nasscom-badge-wrap {
-          display: block !important;
-          width: 100% !important;
-          /* Smooth fluid sizing — no breakpoint cliffs. */
-          max-width: clamp(180px, 18vw + 60px, 280px) !important;
-          /* Also guard the absolute width: it can never exceed
-             the viewport with a comfortable side margin. */
-          max-width: min(clamp(180px, 18vw + 60px, 280px), calc(100vw - 32px)) !important;
-          height: auto !important;
-          max-height: none !important;
-          min-height: 0 !important;
-          margin: 0 auto 14px !important;
-          padding: 0 !important;
-          overflow: visible !important;
-          box-sizing: border-box !important;
-          opacity: 1 !important;
-          visibility: visible !important;
-          position: relative;
-          flex: 0 0 auto !important;
-          flex-shrink: 0 !important;
-        }
-        .nasscom-badge-wrap img {
-          display: block !important;
-          /* Width drives the layout; height follows the PNG
-             intrinsic 1064x280 ratio via height:auto. This is
-             the simplest possible setup and CANNOT crop. */
-          width: 100% !important;
-          height: auto !important;
-          max-width: 100% !important;
-          max-height: none !important;
-          min-width: 0 !important;
-          min-height: 0 !important;
-          object-fit: contain !important;
-          object-position: center center !important;
-          margin: 0 auto !important;
-          padding: 0 !important;
-          border: 0 !important;
-        }
-
-        /* ──────────────────────────────────────────────────────────
-           LCP / FCP FIX — the hero <h1> is the Largest Contentful
-           Paint element on the homepage. The shared .hero-word rule
-           in style.css starts each word at opacity:0 and fades it in
-           with a staggered animation-delay, which means the browser
-           does NOT register the H1 as "painted" until the animation
-           finishes (~1s+). That pushed LCP to ~4.7s. We keep a subtle
-           slide-in but paint the text at FULL opacity from frame 0 so
-           LCP fires immediately. Higher specificity + !important wins
-           over the staggered animation and inline animation-delay.
-           ────────────────────────────────────────────────────────── */
-        .mtl-new-hero .mtl-new-hero-h1 .hero-word {
-          opacity: 1 !important;
-          filter: none !important;
-          animation: heroWordLcpIn 0.4s ease-out both !important;
-        }
-        @keyframes heroWordLcpIn {
-          from { transform: translateX(-8px); }
-          to   { transform: translateX(0); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .mtl-new-hero .mtl-new-hero-h1 .hero-word {
-            animation: none !important;
-            transform: none !important;
-          }
-        }
-      `) }} />
+      
 
       {/* Preload the hero background (homepage LCP/FCP). Next.js hoists
           rel="preload" links into <head>, so this only loads on the home

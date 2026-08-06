@@ -1,6 +1,13 @@
+"use client";
+/*
+  Marked "use client" as an HTML-payload optimisation, not for interactivity.
+  As a server component this section's element tree was serialised a second time
+  into the inlined RSC flight payload on every request. As a client component the
+  SSR'd HTML is byte-for-byte identical, but the tree is no longer duplicated —
+  its JSX lives in a cacheable JS chunk instead.
+*/
 import Image from "next/image";
 import { BlurText } from "@/components/sections/home/ui/BlurText";
-import { minifyCss } from "@/lib/inline-css";
 
 const row1 = [
   {
@@ -53,105 +60,7 @@ const row2 = [
 export default function WhatMakesDifferentSection() {
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: minifyCss(`
-        @keyframes wmFadeUp {
-          from { opacity: 0; transform: translateY(60px); }
-          to   { opacity: 1; transform: translateY(0);    }
-        }
-        @keyframes wmBlurIn {
-          from { opacity: 0; filter: blur(6px); transform: translateX(-24px); }
-          to   { opacity: 1; filter: blur(0);   transform: translateX(0);     }
-        }
-
-        /* Image panel hidden by default — opacity:0 prevents any sliver bleed */
-        .wm-apart-img-panel {
-          transform: translateX(100%);
-          opacity: 0;
-          transition: transform 0.4s ease, opacity 0.4s ease;
-        }
-
-        /* Any card hover reveals its image */
-        .wm-apart-card:hover .wm-apart-img-panel {
-          transform: translateX(0);
-          opacity: 1;
-        }
-
-        /* Row 1 first card: show image by default */
-        .wm-apart-row--first .wm-apart-card:first-child .wm-apart-img-panel {
-          transform: translateX(0);
-          opacity: 1;
-        }
-
-        /* When any card in the grid is hovered, hide the first card default image */
-        .wm-apart-grid:has(.wm-apart-card:hover) .wm-apart-row--first .wm-apart-card:first-child:not(:hover) .wm-apart-img-panel {
-          transform: translateX(100%);
-          opacity: 0;
-        }
-
-        /* Card hover lift */
-        .wm-apart-card {
-          transition: box-shadow 0.3s ease, flex 0.4s ease;
-        }
-        .wm-apart-card:hover {
-          box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-        }
-
-        /* ── First card in row 1: always looks hovered (matches global CSS hover state) ── */
-        .wm-apart-row--first .wm-apart-card:first-child {
-          flex: 2;
-          border-color: #d0d9f0;
-          box-shadow: 0 4px 20px rgba(37, 99, 235, 0.08);
-        }
-        .wm-apart-row--first .wm-apart-card:first-child .wm-apart-card-content {
-          width: 48%;
-        }
-
-        /* When any card in the grid is hovered, reset the first card state */
-        .wm-apart-grid:has(.wm-apart-card:hover) .wm-apart-row--first .wm-apart-card:first-child:not(:hover) {
-          flex: 1;
-          border-color: #e2e8f0;
-          box-shadow: none;
-        }
-        .wm-apart-grid:has(.wm-apart-card:hover) .wm-apart-row--first .wm-apart-card:first-child:not(:hover) .wm-apart-card-content {
-          width: 100%;
-        }
-
-        /* ── Remove the blue icon-box background on hover (global CSS override) ── */
-        .wm-apart-card:hover .wm-apart-icon-box {
-          background: #EEF4FF !important;
-        }
-        .wm-apart-card:hover .wm-apart-icon-box svg {
-          stroke: inherit !important;
-        }
-
-        /* ── Mobile responsive: stack cards vertically and hide image panel ── */
-        @media (max-width: 768px) {
-          .wm-apart-grid {
-            grid-template-columns: 1fr !important;
-            gap: 24px !important;
-          }
-          .wm-apart-row {
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 24px !important;
-          }
-          .wm-apart-card {
-            flex: 1 !important;
-            position: static !important;
-          }
-          .wm-apart-row--first .wm-apart-card:first-child {
-            flex: 1 !important;
-          }
-          .wm-apart-card-content {
-            width: 100% !important;
-            position: static !important;
-          }
-          .wm-apart-img-panel {
-            display: none !important;
-            position: static !important;
-          }
-        }
-      `)}} />
+      
       <section className="wm-apart-section">
         <div className="wm-apart-container">
 

@@ -251,7 +251,6 @@
 //   );
 // }
 "use client";
-import { minifyCss } from "@/lib/inline-css";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -293,22 +292,7 @@ export default function DigitalSolutionsSection() {
 
   return (
     <section className="fds-section">
-      <style dangerouslySetInnerHTML={{ __html: minifyCss(`
-        .fds-card:focus,
-        .fds-card:focus-visible,
-        .fds-card:focus-within,
-        .fds-card:active {
-          outline: none !important;
-          box-shadow: none !important;
-          border-color: transparent !important;
-        }
-        .fds-bento a:focus,
-        .fds-bento a:focus-visible,
-        .fds-bento a:active {
-          outline: none !important;
-          box-shadow: none !important;
-        }
-      `)}} />
+      
       <div className="fds-container">
 
         {/* ── Header ── */}

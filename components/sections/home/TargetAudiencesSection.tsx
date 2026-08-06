@@ -1,6 +1,13 @@
+"use client";
+/*
+  Marked "use client" as an HTML-payload optimisation, not for interactivity.
+  As a server component this section's element tree was serialised a second time
+  into the inlined RSC flight payload on every request. As a client component the
+  SSR'd HTML is byte-for-byte identical, but the tree is no longer duplicated —
+  its JSX lives in a cacheable JS chunk instead.
+*/
 import Image from "next/image";
 import { BlurText } from "@/components/sections/home/ui/BlurText";
-import { minifyCss } from "@/lib/inline-css";
 
 /**
  * Inline helper to split text into individually animated characters.
@@ -42,129 +49,7 @@ export default function WhoWeWorkWithSection() {
 
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: minifyCss(`
-        @keyframes wwwwFadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-
-        @keyframes wwwwCharReveal {
-          from {
-            opacity: 0;
-            filter: blur(10px);
-            transform: translateY(5px);
-          }
-          to {
-            opacity: 1;
-            filter: blur(0px);
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes wwwwCardSlideUp {
-          from {
-            opacity: 0;
-            transform: translateY(50px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .wwww-container--animated {
-          animation: wwwwFadeIn 0.5s ease-out both;
-        }
-
-        .wwww-char {
-          opacity: 0;
-          animation: wwwwCharReveal 0.4s ease-out both;
-        }
-
-        .wwww-card--animated {
-          opacity: 0;
-          animation: wwwwCardSlideUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .wwww-container--animated,
-          .wwww-char,
-          .wwww-card--animated {
-            animation: none;
-            opacity: 1;
-            transform: none;
-            filter: none;
-          }
-        }
-
-        .target-audiences-eyebrow {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 8px;
-          color: #1A1A1A;
-          font-family: 'Inter', sans-serif;
-          font-weight: 500;
-          font-size: 16px;
-          line-height: 22.4px;
-          letter-spacing: 1.92px;
-          text-transform: uppercase;
-          margin-bottom: 20px;
-        }
-
-        .target-audiences-eyebrow-dot {
-          width: 5px;
-          height: 5px;
-          background-color: #1A1A1A;
-          border-radius: 50%;
-        }
-
-        .target-audiences-title {
-          font-family: 'Inter', sans-serif;
-          font-weight: 700;
-          font-size: clamp(32px, 5vw, 48px);
-          line-height: 1.2;
-          letter-spacing: -1.5px;
-          text-align: center;
-          color: #1A1A1A;
-          margin: 0 auto 16px;
-          max-width: 900px;
-        }
-
-        @media (min-width: 1024px) {
-          .target-audiences-title {
-            font-size: 48px;
-            letter-spacing: -2.88px;
-            line-height: 57.6px;
-          }
-        }
-
-        .target-audiences-title-highlight {
-          color: #3E8CFB;
-        }
-
-        .target-audience-title {
-          font-family: 'Inter', sans-serif;
-          font-weight: 600;
-          font-size: 30px;
-          line-height: 41.97px;
-          letter-spacing: -0.96px;
-          color: #1C1C1C;
-          margin-bottom: 12px;
-        }
-
-        .target-audience-description {
-          font-family: 'Inter', sans-serif;
-          font-weight: 400;
-          font-size: 20px;
-          line-height: 32px;
-          color: #3B3B3B;
-          margin: 0;
-        }
-          .target-audiences-section {
-  background-color: #F5F5F5;
-}
-      `)}} />
+      
 
       <section className="target-audiences-section">
         <div className="target-audiences-header">

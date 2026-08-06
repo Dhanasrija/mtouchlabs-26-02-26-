@@ -1,6 +1,13 @@
+"use client";
+/*
+  Marked "use client" as an HTML-payload optimisation, not for interactivity.
+  As a server component this section's element tree was serialised a second time
+  into the inlined RSC flight payload on every request. As a client component the
+  SSR'd HTML is byte-for-byte identical, but the tree is no longer duplicated —
+  its JSX lives in a cacheable JS chunk instead.
+*/
 import { BuildMethodSteps } from "@/components/sections/home/ui/BuildMethodSteps";
 import { BuildMethodWrapper } from "@/components/sections/home/ui/BuildMethodWrapper";
-import { minifyCss } from "@/lib/inline-css";
 
 const steps = [
   {
@@ -32,18 +39,7 @@ const steps = [
 export default function BuildMethod() {
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: minifyCss(`
-        @keyframes bmTitleBlur {
-          from { opacity: 0; filter: blur(8px); }
-          to   { opacity: 1; filter: blur(0);   }
-        }
-        .bm-title-item {
-          opacity: 0;
-        }
-        .bm-in-view .bm-title-item {
-          animation: bmTitleBlur 0.5s ease-out both;
-        }
-      `)}} />
+      
       <section
         style={{ background: "#F3F1FF", padding: "80px 24px", textAlign: "center", overflowX: "hidden" }}
       >

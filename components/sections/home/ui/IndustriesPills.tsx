@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { minifyCss } from "@/lib/inline-css";
 
 // ── pill definitions ──────────────────────────────────────────────────────────
 const PILLS = [
@@ -170,50 +169,7 @@ export function IndustriesPills() {
 
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: minifyCss(`
-        /* Pill base overrides for JS-driven layout */
-        .ind-pill--js {
-          left: 0;
-          top: 0;
-          will-change: transform;
-          cursor: default;
-        }
-
-        /* Mobile: drop absolute layout, show pills in a flex wrap */
-        @media (max-width: 768px) {
-          .ind-pills-wrap--js {
-            display: flex !important;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
-            height: auto !important;
-            min-height: unset !important;
-            margin-top: 0 !important;
-          }
-          .ind-pill--js {
-            position: static !important;
-            transform: none !important;
-            opacity: 1 !important;
-          }
-        }
-
-        /* Reduced-motion: show pills statically */
-        @media (prefers-reduced-motion: reduce) {
-          .ind-pills-wrap--js {
-            display: flex !important;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
-            height: auto !important;
-            min-height: unset !important;
-          }
-          .ind-pill--js {
-            position: static !important;
-            transform: none !important;
-            opacity: 1 !important;
-          }
-        }
-      `)}} />
+      
 
       <div
         ref={wrapRef}

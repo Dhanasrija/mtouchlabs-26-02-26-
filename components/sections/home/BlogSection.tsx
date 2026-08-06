@@ -1,4 +1,11 @@
-import { minifyCss } from "@/lib/inline-css";
+"use client";
+/*
+  Marked "use client" as an HTML-payload optimisation, not for interactivity.
+  As a server component this section's element tree was serialised a second time
+  into the inlined RSC flight payload on every request. As a client component the
+  SSR'd HTML is byte-for-byte identical, but the tree is no longer duplicated —
+  its JSX lives in a cacheable JS chunk instead.
+*/
 const blogs = [
   {
     href: "/blog/top-generative-ai-tools-for-developers",
@@ -23,24 +30,7 @@ const blogs = [
 export default function BlogSection() {
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: minifyCss(`
-        @keyframes blogFadeUp {
-          from { opacity: 0; transform: translateY(30px); }
-          to   { opacity: 1; transform: translateY(0);    }
-        }
-        @keyframes blogBlurIn {
-          from { opacity: 0; filter: blur(8px); }
-          to   { opacity: 1; filter: blur(0);   }
-        }
-        .blog-ref-card-img-wrap img {
-          transition: transform 0.4s ease;
-          width: 100%;
-          display: block;
-        }
-        .blog-ref-card:hover .blog-ref-card-img-wrap img {
-          transform: scale(1.04);
-        }
-      `)}} />
+      
       <section className="blog-section-ref">
         <div className="blog-ref-container">
 

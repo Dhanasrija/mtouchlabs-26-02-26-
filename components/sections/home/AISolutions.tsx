@@ -1,6 +1,13 @@
+"use client";
+/*
+  Marked "use client" as an HTML-payload optimisation, not for interactivity.
+  As a server component this section's element tree was serialised a second time
+  into the inlined RSC flight payload on every request. As a client component the
+  SSR'd HTML is byte-for-byte identical, but the tree is no longer duplicated —
+  its JSX lives in a cacheable JS chunk instead.
+*/
 import Image from "next/image";
 import { BlurText } from "@/components/sections/home/ui/BlurText";
-import { minifyCss } from "@/lib/inline-css";
 
 const cards = [
   {
@@ -114,53 +121,7 @@ export default function AISolutionsSection() {
       </div>
 
       {/* Scoped CSS animations */}
-      <style dangerouslySetInnerHTML={{ __html: minifyCss(`
-        /* ── Card entrance ─────────────────────────────── */
-        @keyframes ais-card-slide-up {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .ais-card-enter {
-          opacity: 0;
-          animation: ais-card-slide-up 0.6s ease-out forwards;
-        }
-
-        /* ── Card hover lift ───────────────────────────── */
-        .ais-card {
-          transition: transform 0.3s ease;
-        }
-        .ais-card:hover {
-          transform: translateY(-8px);
-        }
-
-        /* ── Image hover zoom ──────────────────────────── */
-        .ais-card-image-zoom {
-          transition: transform 0.5s ease-out;
-        }
-        .ais-card-image-box:hover .ais-card-image-zoom {
-          transform: scale(1.08);
-        }
-
-        /* ── Reduced motion ────────────────────────────── */
-        @media (prefers-reduced-motion: reduce) {
-          .ais-card-enter {
-            opacity: 1;
-            animation: none;
-          }
-          .ais-card {
-            transition: none;
-          }
-          .ais-card-image-zoom {
-            transition: none;
-          }
-        }
-      `)}} />
+      
     </section>
   );
 }

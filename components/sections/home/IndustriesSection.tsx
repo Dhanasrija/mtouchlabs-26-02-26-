@@ -1,26 +1,19 @@
+"use client";
+/*
+  Marked "use client" as an HTML-payload optimisation, not for interactivity.
+  As a server component this section's element tree was serialised a second time
+  into the inlined RSC flight payload on every request. As a client component the
+  SSR'd HTML is byte-for-byte identical, but the tree is no longer duplicated —
+  its JSX lives in a cacheable JS chunk instead.
+*/
 
 import { BlurText } from "@/components/sections/home/ui/BlurText";
 import { IndustriesPills } from "@/components/sections/home/ui/IndustriesPills";
-import { minifyCss } from "@/lib/inline-css";
 
 export default function IndustriesSection() {
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: minifyCss(`
-        /* Mobile: drop absolute layout, show pills in a flex wrap */
-        @media (max-width: 768px) {
-          .ind-heading {
-            margin: 0 0 32px !important;
-            font-size: 28px !important;
-            line-height: 1.3 !important;
-            text-align: center;
-          }
-          .ind-eyebrow {
-            justify-content: center;
-            margin-bottom: 24px;
-          }
-        }
-      `)}} />
+      
 
       <section className="ind-section" style={{ overflow: "hidden" }}>
         <div className="ind-container">

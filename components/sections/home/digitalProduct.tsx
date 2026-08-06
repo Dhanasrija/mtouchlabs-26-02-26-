@@ -1,5 +1,12 @@
+"use client";
+/*
+  Marked "use client" as an HTML-payload optimisation, not for interactivity.
+  As a server component this section's element tree was serialised a second time
+  into the inlined RSC flight payload on every request. As a client component the
+  SSR'd HTML is byte-for-byte identical, but the tree is no longer duplicated —
+  its JSX lives in a cacheable JS chunk instead.
+*/
 import Image from "next/image";
-import { minifyCss } from "@/lib/inline-css";
 
 const logos = [
   { src: "/images/home/tech/kezad-logo.webp", alt: "Kezad Group" },
@@ -19,53 +26,7 @@ export default function DigitalProductSection() {
 
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: minifyCss(`
-        @keyframes dpFadeLeft {
-          from { opacity: 0; transform: translateX(-30px); }
-          to   { opacity: 1; transform: translateX(0);     }
-        }
-        @keyframes dpFadeRight {
-          from { opacity: 0; transform: scale(0.95); }
-          to   { opacity: 1; transform: scale(1);    }
-        }
-        @keyframes dpMarquee {
-          from { transform: translateX(0); }
-          to   { transform: translateX(-50%); }
-        }
-        .dp-logo-item {
-          opacity: 0.8;
-          transition: opacity 0.3s;
-        }
-        .dp-logo-item:hover {
-          opacity: 1;
-        }
-        .dp-cta-btn {
-          transition: transform 0.2s ease;
-        }
-        .dp-cta-btn:hover {
-          transform: scale(1.04);
-        }
-        .dp-cta-btn:active {
-          transform: scale(0.97);
-        }
-        @media (max-width: 768px) {
-          .dp-grid {
-            grid-template-columns: 1fr !important;
-            gap: 32px !important;
-            padding: 0 16px !important;
-          }
-          .dp-section {
-            padding: 50px 0 !important;
-          }
-          .dp-right {
-            max-width: 100% !important;
-            aspect-ratio: auto !important;
-            max-height: none !important;
-            width: 100% !important;
-            height: auto !important;
-          }
-        }
-      `)}} />
+      
       <section className="dp-section" style={{ backgroundColor: "#FFFFFF", padding: "80px 0", overflow: "hidden" }}>
         <div className="dp-grid" style={{
           maxWidth: "1200px",

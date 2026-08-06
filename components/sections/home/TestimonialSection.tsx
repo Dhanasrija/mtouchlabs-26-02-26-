@@ -1,4 +1,11 @@
-import { minifyCss } from "@/lib/inline-css";
+"use client";
+/*
+  Marked "use client" as an HTML-payload optimisation, not for interactivity.
+  As a server component this section's element tree was serialised a second time
+  into the inlined RSC flight payload on every request. As a client component the
+  SSR'd HTML is byte-for-byte identical, but the tree is no longer duplicated —
+  its JSX lives in a cacheable JS chunk instead.
+*/
 // import React from "react";
 // import { BlurText } from "@/components/sections/home/ui/BlurText";
 // import TestimonialCarousel from "./ui/TestimonialCarousel";
@@ -57,179 +64,7 @@ import { minifyCss } from "@/lib/inline-css";
 // export default function TestimonialSection() {
 //   return (
 //     <>
-//       <style dangerouslySetInnerHTML={{ __html: minifyCss(`
-//         @keyframes testiFadeUp {
-//           from { opacity: 0; transform: translateY(30px); }
-//           to   { opacity: 1; transform: translateY(0);    }
-//         }
-//         .testi-scroll-wrap {
-//           scroll-snap-type: x mandatory;
-//           -webkit-overflow-scrolling: touch;
-//         }
-//         .testi-card {
-//           scroll-snap-align: start;
-//           opacity: 0;
-//         }
-
-//         .testi-card-enter {
-//           animation: testiFadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
-//         }
-
-//         .testi-eyebrow {
-//           font-family: 'Inter', sans-serif;
-//           font-weight: 500;
-//           font-size: 16px;
-//           line-height: 22.4px;
-//           letter-spacing: 1.92px;
-//           text-transform: uppercase;
-//           color: #1A1A1A;
-//           display: flex;
-//           align-items: center;
-//           gap: 8px;
-//           margin-bottom: 20px;
-//         }
-
-//         .testi-eyebrow-dot {
-//           width: 5px;
-//           height: 5px;
-//           background-color: #1A1A1A;
-//           border-radius: 50%;
-//         }
-
-//         .testi-heading {
-//           font-family: 'Inter', sans-serif;
-//           font-weight: 700;
-//           font-size: 48px;
-//           line-height: 57.6px;
-//           letter-spacing: -2.88px;
-//           color: #1A1A1A;
-//           margin-bottom: 24px;
-//         }
-
-//         .testi-subheading {
-//           font-family: 'Inter', sans-serif;
-//           font-weight: 400;
-//           font-size: 20px;
-//           line-height: 22.4px;
-//           letter-spacing: -0.32px;
-//           color: #585858;
-//           max-width: 600px;
-//         }
-
-//         .testi-quote-text {
-//           font-family: 'Inter', sans-serif;
-//           font-weight: 400;
-//           font-size: 20px;
-//           line-height: 30px;
-//           letter-spacing: -0.4px;
-//           color: #FFFFFF;
-//           display: block;
-//         }
-
-//         .testi-quote-icon {
-//           width: 38px;
-//           height: auto;
-//           margin-bottom: 8px;
-//           display: block;
-//         }
-
-//         .testi-card-name {
-//           font-family: 'Inter', sans-serif;
-//           font-weight: 400;
-//           font-size: 14px;
-//           color: #E5E7EB;
-//           text-align: right;
-//           margin-top: 12px;
-//         }
-
-//         .testi-card-bottom {
-//           padding: 0 22px 15px;
-//         }
-
-//         .testi-nav-btns-container {
-//            display: flex;
-//            justify-content: flex-end;
-//         }
-
-//         .testi-nav-btns {
-//           display: flex;
-//           gap: 15px;
-//           margin-top: 20px;
-//         }
-
-//         .testi-nav-btn {
-//           cursor: pointer;
-//           background: #F3F4F6;
-//           border: none;
-//           width: 44px;
-//           height: 44px;
-//           border-radius: 50%;
-//           display: flex;
-//           align-items: center;
-//           justify-content: center;
-//           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-//         }
-
-//         .testi-nav-btn:hover {
-//           background-color: #3E8CFB;
-//           transform: translateY(-2px);
-//           box-shadow: 0 4px 12px rgba(62, 140, 251, 0.3);
-//         }
-
-//         .testi-nav-btn:hover .testi-nav-icon {
-//           filter: brightness(0) invert(1);
-//         }
-
-//         .testi-nav-icon {
-//           width: 22px;
-//           height: 22px;
-//           object-fit: contain;
-//           transition: filter 0.3s ease;
-//         }
-
-//         @media (max-width: 1024px) {
-//           .testi-heading {
-//             font-size: 36px;
-//             line-height: 44px;
-//             letter-spacing: -1.5px;
-//           }
-//           .testi-subheading {
-//             font-size: 18px;
-//             line-height: 24px;
-//           }
-//         }
-
-//         @media (max-width: 768px) {
-//           .testi-section {
-//             padding: 60px 0;
-//           }
-//           .testi-header-row {
-//             flex-direction: column;
-//             align-items: flex-start;
-//             gap: 20px;
-//           }
-//           .testi-heading {
-//             font-size: 28px;
-//             line-height: 34px;
-//             letter-spacing: -1px;
-//             margin-bottom: 5px;
-//           }
-//           .testi-subheading {
-//             font-size: 16px;
-//             line-height: 22px;
-//           }
-//           .testi-quote-text {
-//             font-size: 16px;
-//             line-height: 24px;
-//           }
-//           .testi-quote-icon {
-//             width: 32px;
-//           }
-//           .testi-nav-btns {
-//             margin-top: 10px;
-//           }
-//         }
-//       `)}} />
+//       
 
 //       <section className="testi-section">
 //         <div className="testi-container">

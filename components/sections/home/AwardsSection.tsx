@@ -1,5 +1,12 @@
+"use client";
+/*
+  Marked "use client" as an HTML-payload optimisation, not for interactivity.
+  As a server component this section's element tree was serialised a second time
+  into the inlined RSC flight payload on every request. As a client component the
+  SSR'd HTML is byte-for-byte identical, but the tree is no longer duplicated —
+  its JSX lives in a cacheable JS chunk instead.
+*/
 import React from "react";
-import { minifyCss } from "@/lib/inline-css";
 
 // ─────────────────────────────────────────────────────────────
 // Static data
@@ -162,106 +169,7 @@ export default function AwardsSection() {
       </div>
 
       {/* Scoped CSS animations */}
-      <style dangerouslySetInnerHTML={{ __html: minifyCss(`
-        /* ── Responsive — keep award images uncropped on every screen ── */
-        @media (max-width: 1024px) {
-          .aw-section .aw-grid-marquee {
-            height: 420px !important;
-            padding: 12px !important;
-          }
-          .aw-column-wrapper { height: 396px !important; }
-        }
-        @media (max-width: 640px) {
-          .aw-section .aw-grid-marquee {
-            height: 360px !important;
-            padding: 10px !important;
-            gap: 10px !important;
-          }
-          .aw-column-wrapper {
-            height: 340px !important;
-            /* Drop the fade mask on small viewports — at this size the
-               mask was visually clipping the corner images. */
-            -webkit-mask-image: none !important;
-            mask-image: none !important;
-          }
-          .aw-card { min-height: 0 !important; padding: 12px !important; }
-        }
-        /* ── Ensure award images never bleed past their card on any
-              viewport, regardless of the marquee position. ── */
-        .aw-section .aw-card {
-          background-size: contain !important;
-          background-position: center center !important;
-          background-repeat: no-repeat !important;
-          /* Cards keep some inner padding so the image edges visually
-             breathe inside the rounded card frame. */
-          background-origin: content-box !important;
-          background-clip: content-box !important;
-        }
-        /* Prevent horizontal overflow at any breakpoint. */
-        .aw-section { overflow-x: clip; }
-        .aw-section .aw-grid-marquee { max-width: 100%; }
-
-        /* ── Marquee ────────────────────────────────────── */
-        @keyframes aw-scroll-up {
-          from { transform: translateY(0); }
-          to   { transform: translateY(-50%); }
-        }
-        @keyframes aw-scroll-down {
-          from { transform: translateY(-50%); }
-          to   { transform: translateY(0); }
-        }
-        .aw-marquee {
-          animation: aw-scroll-up 15s linear infinite;
-        }
-        .aw-marquee-reverse {
-          animation: aw-scroll-down 15s linear infinite;
-        }
-
-        /* ── Container fade-in ─────────────────────────── */
-        @keyframes aw-fade {
-          from { opacity: 0; }
-          to   { opacity: 1; }
-        }
-        .aw-fade-in {
-          opacity: 0;
-          animation: aw-fade 0.6s ease-out forwards;
-        }
-
-        /* ── Character reveal ──────────────────────────── */
-        @keyframes aw-char-reveal {
-          from {
-            opacity: 0;
-            filter: blur(10px);
-            transform: translateY(5px);
-          }
-          to {
-            opacity: 1;
-            filter: blur(0px);
-            transform: translateY(0);
-          }
-        }
-        .aw-char {
-          opacity: 0;
-          animation: aw-char-reveal 0.4s ease-out forwards;
-        }
-
-        /* ── Reduced motion ────────────────────────────── */
-        @media (prefers-reduced-motion: reduce) {
-          .aw-marquee,
-          .aw-marquee-reverse {
-            animation: none;
-          }
-          .aw-fade-in {
-            opacity: 1;
-            animation: none;
-          }
-          .aw-char {
-            opacity: 1;
-            filter: none;
-            animation: none;
-          }
-        }
-      `)}} />
+      
     </section>
   );
 }
