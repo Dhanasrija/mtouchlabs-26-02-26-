@@ -17,6 +17,10 @@ export async function GET(request: NextRequest) {
       const blogIds = blogsToPublish.map((b) => b.id);
       await sql`UPDATE blogs SET status = 'published', published = true, updated_at = NOW() WHERE id = ANY(${blogIds})`;
       revalidatePath('/blog');
+      // Keep the public RSS feed in step with the listing the moment a
+      // scheduled post goes live, so LinkedIn's RSS reader can pick it up
+      // without waiting for the feed's own 5-minute revalidation window.
+      revalidatePath('/blog/rss.xml');
       for (const blog of blogsToPublish) { revalidatePath(`/blog/${blog.slug}`); }
     }
 

@@ -8,6 +8,13 @@ export const metadata: Metadata = {
   description: "Explore articles and trends shaping the future of technology, design, and innovation.",
   alternates: {
     canonical: "https://www.mtouchlabs.com/blog",
+    // RSS autodiscovery — lets feed readers (and LinkedIn) find the feed from
+    // the blog page itself. Does not change the canonical above.
+    types: {
+      "application/rss+xml": [
+        { url: "https://www.mtouchlabs.com/blog/rss.xml", title: "mTouch Labs Blog RSS Feed" },
+      ],
+    },
   },
   openGraph: {
     title: "Blog - Insights & Ideas",

@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test:rss": "node --test scripts/test-rss.mjs",
+    "test:rss:live": "node scripts/check-rss-live.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.80.0",

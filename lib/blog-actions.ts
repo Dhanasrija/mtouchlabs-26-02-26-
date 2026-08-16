@@ -110,6 +110,7 @@ export async function createBlog(formData: FormData): Promise<void> {
 
   revalidatePath('/admin/blogs');
   revalidatePath('/blog');
+  revalidatePath('/blog/rss.xml');
   redirect('/admin/blogs');
 }
 
@@ -181,6 +182,7 @@ export async function updateBlog(formData: FormData): Promise<void> {
 
   revalidatePath('/admin/blogs');
   revalidatePath('/blog');
+  revalidatePath('/blog/rss.xml');
   revalidatePath('/blog/' + slug);
   redirect('/admin/blogs');
 }
@@ -221,6 +223,7 @@ export async function deleteBlog(formData: FormData): Promise<void> {
   }
   revalidatePath('/admin/blogs');
   revalidatePath('/blog');
+  revalidatePath('/blog/rss.xml');
   redirect('/admin/blogs');
 }
 
@@ -235,4 +238,5 @@ export async function togglePublish(formData: FormData): Promise<void> {
   }
   revalidatePath('/admin/blogs');
   revalidatePath('/blog');
+  revalidatePath('/blog/rss.xml');
 }
