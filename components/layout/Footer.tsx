@@ -43,7 +43,7 @@
 //               </a>
 //             </p>
 //             <p>
-//               <a
+//               
 //                 href="https://api.whatsapp.com/message/H5VADFWLMPYIM1?autoload=1&app_absent=0"
 //                 target="_blank" rel="noopener noreferrer"
 //               >
@@ -73,7 +73,7 @@
 //           <div className="transforming-column">
 //             <h3>Reach us</h3>
 //             <div className="iframe-container">
-//               <a
+//               
 //                 className="iframe-link"
 //                 href="https://www.google.com/maps/place/mTouch+Labs+Pvt+Ltd+-+Software+Development+Company/@17.4892271,78.3901496,17z/data=!3m1!4b1!4m6!3m5!1s0x3bcb90cec63e97d9:0xb045c9dc22129055!8m2!3d17.489222!4d78.3927245!16s%2Fg%2F11b8zhlwcv?authuser=0&entry=ttu&g_ep=EgoyMDI1MDQwNi4wIKXMDSoASAFQAw%3D%3D"
 //                 target="_blank"
@@ -163,7 +163,7 @@
 //         <div className="transforming-certificates-one">
 //           <div className="transforming-certificates-img">
 //             <img width={80} height={73} loading="lazy" decoding="async" src="/images/home/iso.webp" alt="mTouch Labs" className="img" />
-//             <a
+//             
 //               target="_blank" rel="noopener noreferrer"
 //               href="https://www.google.com/maps/place/mTouch+Labs+Pvt+Ltd+-+Software+Development+Company/@17.4892271,78.3901496,17z/data=!4m8!3m7!1s0x3bcb90cec63e97d9:0xb045c9dc22129055!8m2!3d17.489222!4d78.3927245!9m1!1b1!16s%2Fg%2F11b8zhlwcv?authuser=0&entry=ttu&g_ep=EgoyMDI1MDQwMi4xIKXMDSoASAFQAw%3D%3D"
 //             >
@@ -222,8 +222,6 @@
 // }
 
 
-import ObfuscatedEmail from "@/components/ObfuscatedEmail";
-
 export default function Footer() {
   return (
     <footer className="ft">
@@ -242,10 +240,10 @@ export default function Footer() {
                 solutions that accelerate business transformation across industries.
               </p>
               <div className="ft-contact-info">
-                <ObfuscatedEmail user="contact" domain="mtouchlabs.com" className="ft-contact-link" ariaLabel="Email mTouch Labs">
+                <a href="mailto:contact@mtouchlabs.com" className="ft-contact-link" aria-label="Email mTouch Labs">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
-                  <span className="ft-email-text">contact [at] mtouchlabs [dot] com</span>
-                </ObfuscatedEmail>
+                  <span className="ft-email-text">contact@mtouchlabs.com</span>
+                </a>
                 <a href="tel:+919390683154" className="ft-contact-link">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
                   +91 9390683154
@@ -305,13 +303,13 @@ export default function Footer() {
                   referrerPolicy="no-referrer-when-downgrade"
                   allowFullScreen
                 />
-                <a
+                
                   className="ft-map-overlay"
                   href="https://maps.app.goo.gl/yDpEjLczZQyQj7w7A"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Open mTouch Labs office location in Google Maps"
-                />
+                /
               </div>
               {/*
                 Brochure CTA — opens the shared brochure modal in-place on
