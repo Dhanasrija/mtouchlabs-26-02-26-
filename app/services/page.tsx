@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { CSSProperties } from "react";
 import Link from "next/link";
 import FAQSchema from "@/components/seo/FAQSchema";
 import "./services-page.css";
@@ -464,6 +465,9 @@ const faqs = [
   },
 ];
 
+/** Stagger delay for the scroll-reveal animation (see services-page.css). */
+const d = (i: number): CSSProperties => ({ "--d": i } as CSSProperties);
+
 export default function ServicesPage() {
   return (
     <main className="svcx">
@@ -477,9 +481,9 @@ export default function ServicesPage() {
         <div className="svcx-container">
           <div className="svcx-hero-inner">
             <div className="svcx-hero-copy">
-              <p className="svcx-eyebrow">Software Development Services</p>
+              <p className="svcx-eyebrow svcx-in" style={d(0)}>Software Development Services</p>
 
-              <h1 className="svcx-h1">
+              <h1 className="svcx-h1 svcx-in" style={d(1)}>
                 End-to-End Software Development,{" "}
                 <span>AI &amp; Digital Solutions</span>
               </h1>
@@ -502,7 +506,7 @@ export default function ServicesPage() {
                 to strategy, design, development, launch, and continuous improvement.
               </p>
 
-              <div className="svcx-hero-ctas">
+              <div className="svcx-hero-ctas svcx-in" style={d(4)}>
                 <Link href="/contact-us" className="svcx-btn svcx-btn-primary">
                   <i className="fa-solid fa-paper-plane" aria-hidden="true" />
                   Let&apos;s Discuss Your Project
@@ -514,7 +518,7 @@ export default function ServicesPage() {
               </div>
             </div>
 
-            <aside className="svcx-hero-panel">
+            <aside className="svcx-hero-panel svcx-in" style={d(3)}>
               <h2>What we deliver</h2>
               <ul className="svcx-panel-list">
                 <li><i className="fa-solid fa-cubes" aria-hidden="true" />Custom software &amp; enterprise platforms</li>
@@ -531,7 +535,7 @@ export default function ServicesPage() {
       {/* ═══════════ SERVICES ═══════════ */}
       <section className="svcx-section" id="services">
         <div className="svcx-container">
-          <div className="svcx-head svcx-head--center">
+          <div className="svcx-head svcx-head--center svcx-reveal">
             <p className="svcx-eyebrow">Our End-to-End Services</p>
             <h2 className="svcx-h2">
               One partner across <em>design, engineering, AI and cloud</em>
@@ -544,8 +548,8 @@ export default function ServicesPage() {
           </div>
 
           <div className="svcx-services-grid">
-            {services.map((s) => (
-              <article className="svcx-service-card" key={s.id} id={s.id}>
+            {services.map((s, i) => (
+              <article className="svcx-service-card svcx-reveal" key={s.id} id={s.id} style={d(i % 3)}>
                 <span className="svcx-service-icon" aria-hidden="true">
                   <i className={s.icon} />
                 </span>
@@ -569,7 +573,7 @@ export default function ServicesPage() {
       {/* ═══════════ PROCESS ═══════════ */}
       <section className="svcx-section svcx-section--soft" id="process">
         <div className="svcx-container">
-          <div className="svcx-head svcx-head--center">
+          <div className="svcx-head svcx-head--center svcx-reveal">
             <p className="svcx-eyebrow">How We Work</p>
             <h2 className="svcx-h2">
               From idea to launch — <em>a complete development lifecycle</em>
@@ -581,8 +585,8 @@ export default function ServicesPage() {
           </div>
 
           <ol className="svcx-process-grid" style={{ listStyle: "none", margin: 0, padding: 0 }}>
-            {processSteps.map((p) => (
-              <li className="svcx-process-card" key={p.num}>
+            {processSteps.map((p, i) => (
+              <li className="svcx-process-card svcx-reveal" key={p.num} style={d(i % 4)}>
                 <span className="svcx-process-num">{p.num}</span>
                 <h3>{p.title}</h3>
                 <p>{p.desc}</p>
@@ -595,7 +599,7 @@ export default function ServicesPage() {
             ))}
           </ol>
 
-          <div className="svcx-loop">
+          <div className="svcx-loop svcx-reveal">
             <div>
               <h3>Continuous improvement</h3>
               <p>
@@ -625,7 +629,7 @@ export default function ServicesPage() {
       {/* ═══════════ TECHNOLOGY ═══════════ */}
       <section className="svcx-section" id="technology">
         <div className="svcx-container">
-          <div className="svcx-head svcx-head--center">
+          <div className="svcx-head svcx-head--center svcx-reveal">
             <p className="svcx-eyebrow">Technology Expertise</p>
             <h2 className="svcx-h2">
               The right stack for <em>your</em> requirements
@@ -638,8 +642,8 @@ export default function ServicesPage() {
           </div>
 
           <div className="svcx-tech-grid">
-            {techGroups.map((t) => (
-              <div className="svcx-tech-card" key={t.title}>
+            {techGroups.map((t, i) => (
+              <div className="svcx-tech-card svcx-reveal" key={t.title} style={d(i % 3)}>
                 <h3>
                   <i className={t.icon} aria-hidden="true" />
                   {t.title}
@@ -658,7 +662,7 @@ export default function ServicesPage() {
       {/* ═══════════ INDUSTRIES ═══════════ */}
       <section className="svcx-section svcx-section--tint" id="industries">
         <div className="svcx-container">
-          <div className="svcx-head svcx-head--center">
+          <div className="svcx-head svcx-head--center svcx-reveal">
             <p className="svcx-eyebrow">Industries We Serve</p>
             <h2 className="svcx-h2">
               Digital solutions built for <em>your sector</em>
@@ -682,8 +686,8 @@ export default function ServicesPage() {
           </div>
 
           <div className="svcx-ind-grid">
-            {industries.map((ind) => (
-              <div className="svcx-ind-card" key={ind.name}>
+            {industries.map((ind, i) => (
+              <div className="svcx-ind-card svcx-reveal" key={ind.name} style={d(i % 5)}>
                 <span className="svcx-ind-icon" aria-hidden="true">
                   <i className={ind.icon} />
                 </span>
@@ -698,7 +702,7 @@ export default function ServicesPage() {
       {/* ═══════════ WHY CHOOSE ═══════════ */}
       <section className="svcx-section" id="why-mtouch-labs">
         <div className="svcx-container">
-          <div className="svcx-head svcx-head--center">
+          <div className="svcx-head svcx-head--center svcx-reveal">
             <p className="svcx-eyebrow">Why mTouch Labs</p>
             <h2 className="svcx-h2">
               Engineering that answers to <em>business outcomes</em>
@@ -709,8 +713,8 @@ export default function ServicesPage() {
           </div>
 
           <div className="svcx-why-grid">
-            {whyChoose.map((w) => (
-              <div className="svcx-why-card" key={w.title}>
+            {whyChoose.map((w, i) => (
+              <div className="svcx-why-card svcx-reveal" key={w.title} style={d(i % 4)}>
                 <span className="svcx-why-icon" aria-hidden="true">
                   <i className={w.icon} />
                 </span>
@@ -722,68 +726,10 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ═══════════ STATS ═══════════ */}
-      <section className="svcx-stats-band">
-        <div className="svcx-container">
-          <div className="svcx-stats-box">
-            <p className="svcx-eyebrow svcx-eyebrow--light" style={{ justifyContent: "center" }}>
-              Proven Development Experience
-            </p>
-            <h2>Track record across mobile, web and enterprise</h2>
-            <p>
-              Our experience spans mobile applications, websites, custom software, SaaS
-              platforms, enterprise applications, AI solutions, and digital products.
-            </p>
-            <div className="svcx-stats-grid">
-              <div className="svcx-stat">
-                <b>1,500+</b>
-                <span>Mobile Apps Developed</span>
-              </div>
-              <div className="svcx-stat">
-                <b>820+</b>
-                <span>Websites Developed</span>
-              </div>
-              <div className="svcx-stat">
-                <b>700+</b>
-                <span>Unique Features Implemented</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════ CTA ═══════════ */}
-      <section className="svcx-cta">
-        <div className="svcx-container">
-          <div className="svcx-cta-box">
-            <h2>Build, modernize &amp; scale your digital product</h2>
-            <p>
-              Launching a new software product, developing an enterprise application,
-              modernizing legacy technology, migrating to AWS, building a SaaS platform, or
-              integrating AI into an existing system — mTouch Labs can help.
-            </p>
-            <p>
-              Have a project in mind? Let&apos;s discuss your requirements, technology
-              challenges, and business goals.
-            </p>
-            <div className="svcx-cta-actions">
-              <Link href="/contact-us" className="svcx-btn svcx-btn-light">
-                Start Your Project
-                <i className="fa-solid fa-arrow-right" aria-hidden="true" />
-              </Link>
-              <Link href="/request-free-quote" className="svcx-btn svcx-btn-outline-light">
-                Request a Consultation
-                <i className="fa-solid fa-arrow-right" aria-hidden="true" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ═══════════ FAQ ═══════════ */}
       <section className="svcx-section svcx-section--soft" id="faq">
         <div className="svcx-container">
-          <div className="svcx-head svcx-head--center">
+          <div className="svcx-head svcx-head--center svcx-reveal">
             <p className="svcx-eyebrow">Frequently Asked Questions</p>
             <h2 className="svcx-h2">
               Answers before you <em>get in touch</em>
@@ -792,7 +738,7 @@ export default function ServicesPage() {
 
           <div className="svcx-faq-list">
             {faqs.map((f, i) => (
-              <details className="svcx-faq-item" key={f.q} {...(i === 0 ? { open: true } : {})}>
+              <details className="svcx-faq-item svcx-reveal" key={f.q} {...(i === 0 ? { open: true } : {})}>
                 <summary className="svcx-faq-q">
                   <span>{f.q}</span>
                   <span className="svcx-faq-icon" aria-hidden="true">
@@ -807,6 +753,36 @@ export default function ServicesPage() {
       </section>
 
       <FAQSchema faqs={faqs} />
+
+      {/* Scroll-reveal. The hiding rules only apply once this script has added
+          `svcx-anim`, so with JS disabled every element renders visible. */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `(function(){
+  var root = document.querySelector('.svcx');
+  if (!root) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) return;
+  root.classList.add('svcx-anim');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -6% 0px', threshold: 0 });
+  root.querySelectorAll('.svcx-reveal').forEach(function(el){ io.observe(el); });
+  /* Safety net: anything the observer somehow never fires for (e.g. an
+     element pinned at the very bottom of the document) is revealed anyway. */
+  window.addEventListener('load', function(){
+    setTimeout(function(){
+      root.querySelectorAll('.svcx-reveal:not(.is-in)').forEach(function(el){
+        var r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) el.classList.add('is-in');
+      });
+    }, 400);
+  });
+})();`,
+        }}
+      />
     </main>
   );
 }
