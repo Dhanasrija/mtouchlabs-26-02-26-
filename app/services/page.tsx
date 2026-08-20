@@ -1,644 +1,812 @@
-// import type { Metadata } from "next";
-
-// export const metadata: Metadata = {
-//   title: "Software Development Services",
-//   description:
-//     "mTouch Labs delivers end-to-end software development services including web application development, mobile app development, custom software engineering, SaaS platforms, Salesforce consulting, and cloud & DevOps solutions.",
-//   keywords: [
-//     "Software Development Services",
-//     "Web Application Development Services",
-//     "Mobile App Development Services",
-//     "Custom Software Development Services",
-//     "SaaS Development Services",
-//     "Salesforce Consulting Services",
-//     "Cloud & DevOps Services",
-//   ],
-//   alternates: {
-//     canonical: "https://www.mtouchlabs.com/services",
-//   },
-//   openGraph: {
-//     title: "Software Development Services",
-//     description:
-//       "Comprehensive software development services including web, mobile, SaaS, enterprise, Salesforce, and cloud solutions.",
-//     url: "https://www.mtouchlabs.com/services",
-//     siteName: "mTouch Labs",
-//     type: "website",
-//   },
-//   twitter: {
-//     card: "summary_large_image",
-//     title: "Software Development Services",
-//     description:
-//       "End-to-end software development services for startups and enterprises worldwide.",
-//   },
-// };
-
-// const designServices = [
-//   { icon: "icon1.png", title: "Website Design", text: "Modern, user-friendly websites with seamless functionality and responsive layouts." },
-//   { icon: "icon2.png", title: "Mobile App Design", text: "Designing intuitive, high-performance mobile app interfaces for iOS and Android." },
-//   { icon: "icon3.png", title: "UX/UI Design", text: "User-centered UX/UI designs focused on clarity, usability, and conversion optimization." },
-//   { icon: "icon4.png", title: "Branding", text: "Creating strong, memorable brand identities that resonate with your target audience." },
-// ];
-
-// const marketingCards = [
-//   { icon: "DigitalMarketing.png", title: "Digital Marketing", text: "Data-driven digital marketing strategies that attract, engage, and convert — driving measurable growth across all channels." },
-//   { icon: "searchEngineoptimization.png", title: "Search Engine Optimization (SEO)", text: "Boost your search rankings with expert SEO that increases visibility, organic traffic, and long-term sustainable growth." },
-//   { icon: "searchengineMarketing.png", title: "Search Engine Marketing (SEM)", text: "Drive instant traffic and high-quality leads with targeted SEM campaigns and cost-effective ad strategies that maximize ROI." },
-//   { icon: "socialMediaMarketing.png", title: "Social Media Marketing (SMM)", text: "Strategic content and smart advertising that builds your brand presence and turns followers into loyal customers." },
-// ];
-
-// const processSteps = [
-//   "Requirement\nGathering", "Strategy", "Design", "Development", "Quality\nAssurance", "Deployment", "Support &\nMaintenance",
-// ];
-
-// const industries = [
-//   { icon: "finance.png", label: "Financial Services" },
-//   { icon: "healthcare.png", label: "Healthcare" },
-//   { icon: "ecommerce.png", label: "Retail & E-Commerce" },
-//   { icon: "tours.png", label: "Logistics & Transportation" },
-//   { icon: "education.png", label: "Education" },
-//   { icon: "events.png", label: "Events" },
-//   { icon: "home.png", label: "Real Estate" },
-//   { icon: "game.png", label: "Gaming" },
-//   { icon: "restaurant.png", label: "Restaurant" },
-//   { icon: "grocery.png", label: "Grocery" },
-//   { icon: "toursandtrvel.png", label: "Manufacturing" },
-//   { icon: "tourstravel.png", label: "SaaS & Technology" },
-// ];
-
-// const faqs = [
-//   { q: "What software development services does mTouch Labs offer?", a: "We provide web application development, mobile app development, custom software engineering, SaaS development, Salesforce consulting, and cloud & DevOps services for startups and enterprises worldwide." },
-//   { q: "Do you provide both web and mobile application development?", a: "Yes. We develop scalable web applications and high-performance mobile apps using modern frameworks and cloud-native infrastructure for both iOS and Android." },
-//   { q: "Does mTouch Labs provide custom software solutions?", a: "Absolutely. We deliver tailored custom software designed around your specific business needs, internal workflows, enterprise requirements, and long-term growth plans." },
-//   { q: "What is the development process?", a: "Our development process includes requirement analysis, strategy planning, UI/UX design, agile development, quality assurance, deployment, and ongoing support & maintenance." },
-//   { q: "Do you work with international clients?", a: "Yes. We serve startups and enterprises across North America, Europe, the Middle East, and APAC with dedicated development teams and 24/7 support." },
-// ];
-
-// export default function ServicesPage() {
-//   return (
-//     <>
-//       <link href="/css/services.css" rel="stylesheet" />
-//       <link href="/css/dev-cards.css" rel="stylesheet" />
-
-//       {/* Hero */}
-//       <section className="services_new_hero">
-//         <div className="container">
-//           <div className="services_hero_content">
-//             <h1 className="services_hero_title">End-to-End <span className="highlight-pink">Software Development</span><br />Services</h1>
-//             <p className="services_hero_description">Comprehensive software development services designed to help startups, growing businesses, and enterprise organizations build scalable, secure, and high-performance digital systems.</p>
-//             <a href="/contact-us" className="btn btn-primary btn_need_expert">Let&apos;s Discuss</a>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Leading Company */}
-//       <section className="services_leading_company">
-//         <div className="container">
-//           <div className="services_leading_wrapper">
-//             <div className="services_leading_content">
-//               <h2 className="services_leading_title">Leading <span className="highlight">Software Development</span><br />Company — Global Delivery</h2>
-//               <p className="services_leading_description">At mTouch Labs, our engineering expertise spans web applications, mobile apps, custom enterprise software, SaaS platforms, Salesforce solutions, and cloud-native infrastructure — delivering measurable business outcomes for global clients.</p>
-//               <h3 className="services_track_record_title">Proven Track Record</h3>
-//               <div className="services_stats_grid">
-//                 <div className="services_stat_card"><div className="stat_number">1500+</div><div className="stat_label">Mobile Apps<br />Developed</div></div>
-//                 <div className="services_stat_card"><div className="stat_number">820+</div><div className="stat_label">Websites<br />Developed</div></div>
-//                 <div className="services_stat_card"><div className="stat_number">700+</div><div className="stat_label">Unique Features<br />Implemented</div></div>
-//               </div>
-//             </div>
-//             <div className="services_leading_image">
-//               <img width={441} height={441} loading="lazy" decoding="async" src="/images/serviceImg/leadingweb.webp" alt="Leading Software Development Company" className="leading_web_img" />
-//             </div>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Design Services — centered title, no "Need an Expert" button */}
-//       <section className="services_design_new">
-//         <div className="container">
-//           <div className="services_design_header" style={{ textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
-//             <div className="services_design_title_group" style={{ maxWidth: "800px", margin: "0 auto" }}>
-//               <h2 className="services_design_title" style={{ textAlign: "center" }}><span className="highlight-blue">Design</span> Services</h2>
-//               <p className="services_design_subtitle" style={{ textAlign: "center" }}>We create <b>customer-centric</b> designs for web and mobile applications, focusing on clarity, usability, and conversion optimization.</p>
-//             </div>
-//           </div>
-//           <div className="services_design_grid">
-//             <div className="services_design_image_col">
-//               <img width={441} height={441} loading="lazy" decoding="async" src="/images/serviceImg/design_services.webp" alt="Design Service" className="design_service_main_img" />
-//             </div>
-//             <div className="services_design_list_col">
-//               {designServices.map((s, i) => (
-//                 <div className="design_service_item" key={i}>
-//                   <div className="design_icon_box"><img src={`/images/serviceImg/${s.icon}`} alt={s.title} /></div>
-//                   <div className="design_text_box"><h4>{s.title}</h4><p>{s.text}</p></div>
-//                 </div>
-//               ))}
-//             </div>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Development Services — centered title, no "Need an Expert" button */}
-//       <section className="services_dev_new">
-//         <div className="container">
-//           <div className="services_dev_header" style={{ textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
-//             <h2 className="services_dev_title" style={{ textAlign: "center" }}><span className="highlight-blue">Development</span> Services</h2>
-//             <p className="services_dev_subtitle" style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto" }}>We deliver results-driven, customized web application development, mobile app development, custom software engineering, and SaaS platform services with utmost professionalism.</p>
-//           </div>
-//           <div className="dev_cards_grid">
-//             <div className="dev_card">
-//               <div className="dev_card_icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" /></svg></div>
-//               <span className="dev_card_num">01</span>
-//               <h3>Web Application Development</h3>
-//               <p>Scalable, secure, and performance-driven web applications — custom web apps, enterprise platforms, API integrations, and progressive web apps.</p>
-//               <ul className="dev_card_tags"><li>React</li><li>Next.js</li><li>Node.js</li><li>PWA</li></ul>
-//             </div>
-//             <div className="dev_card">
-//               <div className="dev_card_icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" /><line x1="12" y1="18" x2="12.01" y2="18" /></svg></div>
-//               <span className="dev_card_num">02</span>
-//               <h3>Mobile App Development</h3>
-//               <p>Robust mobile applications across iOS, Android, and cross-platform frameworks for enterprise mobility and consumer-focused experiences.</p>
-//               <ul className="dev_card_tags"><li>iOS</li><li>Android</li><li>React Native</li><li>Flutter</li></ul>
-//             </div>
-//             <div className="dev_card">
-//               <div className="dev_card_icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" /></svg></div>
-//               <span className="dev_card_num">03</span>
-//               <h3>Custom Software Development</h3>
-//               <p>Tailored enterprise applications, business process automation, workflow management systems, and legacy system modernization.</p>
-//               <ul className="dev_card_tags"><li>Enterprise</li><li>Automation</li><li>Workflows</li><li>APIs</li></ul>
-//             </div>
-//             <div className="dev_card">
-//               <div className="dev_card_icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 00-3-3.87" /><path d="M16 3.13a4 4 0 010 7.75" /></svg></div>
-//               <span className="dev_card_num">04</span>
-//               <h3>SaaS Platform Development</h3>
-//               <p>Scalable SaaS platforms built on multi-tenant architecture with subscription billing, cloud-native infrastructure, and API-driven ecosystems.</p>
-//               <ul className="dev_card_tags"><li>Multi-Tenant</li><li>AWS</li><li>Azure</li><li>Billing</li></ul>
-//             </div>
-//             <div className="dev_card">
-//               <div className="dev_card_icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3c-4.97 0-9 2.69-9 6v6c0 3.31 4.03 6 9 6s9-2.69 9-6V9c0-3.31-4.03-6-9-6z" /><ellipse cx="12" cy="9" rx="9" ry="6" /></svg></div>
-//               <span className="dev_card_num">05</span>
-//               <h3>Salesforce Consulting</h3>
-//               <p>Expert Salesforce implementation, CRM customization, workflow automation, and Sales &amp; Service Cloud integration for operational efficiency.</p>
-//               <ul className="dev_card_tags"><li>Salesforce</li><li>CRM</li><li>Automation</li><li>Cloud</li></ul>
-//             </div>
-//             <div className="dev_card">
-//               <div className="dev_card_icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z" /></svg></div>
-//               <span className="dev_card_num">06</span>
-//               <h3>Cloud &amp; DevOps</h3>
-//               <p>Secure cloud architecture, migration &amp; modernization, CI/CD pipelines, infrastructure automation, and DevOps consulting services.</p>
-//               <ul className="dev_card_tags"><li>CI/CD</li><li>Docker</li><li>Kubernetes</li><li>Terraform</li></ul>
-//             </div>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Marketing Services — centered title, no "Need an Expert" button */}
-//       <section className="services_marketing_new">
-//         <div className="container">
-//           <div className="services_mkt_main_grid">
-//             <div className="services_mkt_text_col" style={{ textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
-//               <h2 className="services_mkt_title" style={{ textAlign: "center" }}><span className="highlight-blue">Marketing Services</span> That<br />Drive Growth</h2>
-//               <p className="services_mkt_subtitle" style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto" }}>Boost your online presence with comprehensive digital marketing solutions designed to attract, engage, and convert your audience into loyal customers.</p>
-//             </div>
-//             <div className="services_mkt_cards_grid">
-//               {marketingCards.map((c, i) => (
-//                 <div className="mkt_service_card" key={i}>
-//                   <div className="mkt_icon_wrapper"><img src={`/images/serviceImg/${c.icon}`} alt={c.title} className="mkt_icon_img" /></div>
-//                   <h3>{c.title}</h3>
-//                   <p>{c.text}</p>
-//                 </div>
-//               ))}
-//             </div>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Process */}
-//       <section className="process">
-//         <div className="container">
-//           <div className="sec-header">
-//             <h2 className="section-title">Software Development<br /><span className="highlight">Process We Follow</span></h2>
-//             <div className="process_subtitle_wrapper">
-//               <p className="section-sub"><b>Our software development team</b> follows an agile methodology to ensure a successful, on-time launch of your application to the market.</p>
-//             </div>
-//           </div>
-//           <div className="process-wrapper">
-//             <button className="process-scroll-btn process-scroll-left" id="scrollLeft"><i className="fas fa-chevron-left"></i></button>
-//             <div className="process-steps-new">
-//               {processSteps.map((step, i) => (
-//                 <div className={`process-step-new${i === 0 ? " ps-active" : ""}`} key={i}>
-//                   <div className="ps-card"><span className="ps-number">{i + 1}</span><h4 dangerouslySetInnerHTML={{ __html: step.replace("\n", "<br/>") }} /></div>
-//                 </div>
-//               ))}
-//             </div>
-//             <button className="process-scroll-btn process-scroll-right" id="scrollRight"><i className="fas fa-chevron-right"></i></button>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Industries */}
-//       <section className="industries">
-//         <div className="container industries-container">
-//           <div className="industries-text-col">
-//             <h2 className="section-title">Industries <span className="text-black">We Serve</span></h2>
-//             <div className="industries-description">
-//               <p>We provide software development services across diverse industries — building scalable solutions tailored to each sector&apos;s unique requirements.</p>
-//             </div>
-//           </div>
-//           <div className="industries-grid-col">
-//             <div className="industry-grid">
-//               {industries.map((ind, i) => (
-//                 <div className="industry-card" key={i}>
-//                   <div className="ind-icon"><img src={`/images/serviceImg/${ind.icon}`} alt={ind.label} /></div>
-//                   <h4>{ind.label}</h4>
-//                 </div>
-//               ))}
-//             </div>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Project CTA */}
-//       <section className="project-cta-new">
-//         <div className="container">
-//           <div className="cta-new-wrapper">
-//             <div className="cta-new-image"><img width={468} height={468} loading="lazy" decoding="async" src="/images/serviceImg/haveproject.webp" alt="Contact Us" /></div>
-//             <div className="cta-new-content">
-//               <h2>Have a <strong>Project in</strong><br /><strong>mind?</strong> <span className="highlight-blue">Let&apos;s chat.</span></h2>
-//               <p>Have a project in mind? Let&apos;s connect, discuss your ideas, and turn them into scalable, high-performance digital solutions.</p>
-//               <div className="cta-new-btns">
-//                 <a href="/contact-us" className="btn btn-primary cta-btn-blue"><i className="fas fa-phone-alt"></i> Contact Us</a>
-//                 <a href="https://wa.me/919390683154" target="_blank" rel="noopener noreferrer" className="btn btn-outline cta-btn-whatsapp"><i className="fab fa-whatsapp"></i> Whatsapp</a>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* FAQ — matching product page style with chevron icons */}
-//       <div style={{ padding: "6rem 0", backgroundColor: "rgba(243, 246, 253, 1)" }}>
-//         <div className="_faq_container">
-//           <div className="_faq_header">
-//             <h2 className="_faq_title">Your Questions <span className="_faq_title_highlight">Answered</span> Clearly</h2>
-//             <p className="_faq_subtitle">Everything you need to know about mTouch Labs software development services</p>
-//           </div>
-//           <div className="_faq_list">
-//             {faqs.map((f, i) => (
-//               <div className={`_faq_item${i === 0 ? " active glow" : ""}`} key={i}>
-//                 <button className="_faq_question">
-//                   <span>{f.q}</span>
-//                   <span className="_faq_chevron" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#08182b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9l6 6 6-6" /></svg></span>
-//                 </button>
-//                 <div className="_faq_answer"><p className="_faq_answer_text">{f.a}</p></div>
-//               </div>
-//             ))}
-//           </div>
-//         </div>
-//       </div>
-
-//     <script dangerouslySetInnerHTML={{ __html: `
-//       (function() {
-//         function initProcessLoop() {
-//           var steps = document.querySelectorAll('.process-step-new');
-//           if (!steps.length) return setTimeout(initProcessLoop, 300);
-//           var idx = 0;
-//           function loop() {
-//             steps.forEach(function(s) { s.classList.remove('ps-active'); });
-//             steps[idx].classList.add('ps-active');
-//             idx = (idx + 1) % steps.length;
-//           }
-//           loop();
-//           setInterval(loop, 2000);
-//         }
-//         initProcessLoop();
-
-//         function initDesignHover() {
-//           var items = document.querySelectorAll('.design_service_item');
-//           if (!items.length) return setTimeout(initDesignHover, 300);
-//           items[0].classList.add('ds-active');
-//           items.forEach(function(item) {
-//             item.addEventListener('mouseenter', function() {
-//               items.forEach(function(i) { i.classList.remove('ds-active'); });
-//               item.classList.add('ds-active');
-//             });
-//           });
-//         }
-//         initDesignHover();
-
-//         function initFaqToggle() {
-//           var items = document.querySelectorAll('._faq_item');
-//           if (!items.length) return setTimeout(initFaqToggle, 300);
-//           items.forEach(function(item) {
-//             var btn = item.querySelector('._faq_question');
-//             if (!btn) return;
-//             btn.addEventListener('click', function() {
-//               var isOpen = item.classList.contains('active');
-//               items.forEach(function(i) { i.classList.remove('active', 'glow'); });
-//               if (!isOpen) { item.classList.add('active', 'glow'); }
-//             });
-//           });
-//         }
-//         initFaqToggle();
-//       })();
-//     `}} />
-//     </>
-//   );
-// }
 import type { Metadata } from "next";
 import Link from "next/link";
 import FAQSchema from "@/components/seo/FAQSchema";
-import "../it-solutions-company/style.css";
+import "./services-page.css";
 
 export const metadata: Metadata = {
-  title: "Software Development Services",
+  title: "Software Development Services | mTouch Labs",
   description:
-    "mTouch Labs delivers end-to-end software development services including web and mobile app development, SaaS platforms, Salesforce, and cloud solutions.",
+    "Explore end-to-end software development services including AI, custom software, web, mobile, SaaS, enterprise, AWS, Salesforce, and cloud solutions.",
   keywords: [
     "Software Development Services",
-    "Web Application Development Services",
-    "Mobile App Development Services",
-    "Custom Software Development Services",
-    "SaaS Development Services",
-    "Salesforce Consulting Services",
-    "Cloud & DevOps Services",
+    "Custom Software Development",
+    "Web Application Development",
+    "Mobile App Development",
+    "AI Development Services",
+    "SaaS Development",
+    "Enterprise Application Development",
+    "Salesforce Consulting",
+    "AWS Cloud Services",
+    "DevOps Services",
   ],
-  alternates: { canonical: "https://www.mtouchlabs.com/services" },
- openGraph: {
-    title: "Software Development Services",
-    description: "Comprehensive software development services including web, mobile, SaaS, enterprise, Salesforce, and cloud solutions.",
+  alternates: {
+    canonical: "https://www.mtouchlabs.com/services",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    title: "End-to-End Software Development Services | mTouch Labs",
+    description:
+      "Build, modernize, and scale digital products with mTouch Labs. Explore AI, custom software, web, mobile, SaaS, enterprise, AWS, Salesforce, and cloud services.",
     url: "https://www.mtouchlabs.com/services",
     siteName: "mTouch Labs",
     type: "website",
-    images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "mTouch Labs Services" }],
+    images: [
+      {
+        url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp",
+        width: 1200,
+        height: 630,
+        alt: "Software Development Services - mTouch Labs",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Software Development Services",
-    description: "End-to-end software development services for startups and enterprises worldwide.",
-    images: ["/images/Light.png"],
+    site: "@mtouchlabs",
+    title: "Software Development Services | mTouch Labs",
+    description:
+      "End-to-end software development, AI, SaaS, web, mobile, enterprise, AWS, Salesforce, and cloud solutions.",
+    images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
   },
 };
-const designServices = [
-  { icon: "icon1.png", title: "Website Design", text: "Modern, user-friendly websites with seamless functionality and responsive layouts." },
-  { icon: "icon2.png", title: "Mobile App Design", text: "Designing intuitive, high-performance mobile app interfaces for iOS and Android." },
-  { icon: "icon3.png", title: "UX/UI Design", text: "User-centered UX/UI designs focused on clarity, usability, and conversion optimization." },
-  { icon: "icon4.png", title: "Branding", text: "Creating strong, memorable brand identities that resonate with your target audience." },
+
+/* ─────────────────────────────────────────────────────────────
+   Service categories — the core of the page. Every `link` below
+   points at an existing route in this app.
+   ───────────────────────────────────────────────────────────── */
+type Service = {
+  id: string;
+  icon: string;
+  title: string;
+  short: string;
+  desc: string;
+  caps: string[];
+  link: string;
+  linkLabel: string;
+};
+
+const services: Service[] = [
+  {
+    id: "custom-software",
+    icon: "fa-solid fa-cubes",
+    title: "Custom Software Development",
+    short: "Custom software",
+    desc: "Software built around your business processes, workflows, and operational requirements — scalable from day one and designed to keep growing with you.",
+    caps: [
+      "Custom business applications",
+      "Enterprise software",
+      "Workflow management",
+      "Process automation",
+      "Legacy modernization",
+      "API-driven applications",
+      "Third-party integrations",
+    ],
+    link: "/custom-software-development-company",
+    linkLabel: "Explore Custom Software Development",
+  },
+  {
+    id: "web-development",
+    icon: "fa-solid fa-display",
+    title: "Web Application Development",
+    short: "Web apps",
+    desc: "Secure, high-performance web applications for customers, employees, and partners — from business portals to complex enterprise platforms and SaaS products.",
+    caps: [
+      "React",
+      "Next.js",
+      "Node.js",
+      "Progressive web apps",
+      "Enterprise web applications",
+      "E-commerce platforms",
+      "Customer portals",
+      "API development",
+    ],
+    link: "/web-development-company",
+    linkLabel: "Explore Web Development Services",
+  },
+  {
+    id: "mobile-apps",
+    icon: "fa-solid fa-mobile-screen-button",
+    title: "Mobile App Development",
+    short: "Mobile apps",
+    desc: "Native and cross-platform mobile experiences with scalable architecture, intuitive interfaces, secure integrations, and consistently high performance.",
+    caps: [
+      "iOS development",
+      "Android development",
+      "Flutter",
+      "React Native",
+      "Enterprise mobility",
+      "App modernization",
+      "Maintenance & support",
+    ],
+    link: "/mobile-app-development-company",
+    linkLabel: "Explore Mobile App Development",
+  },
+  {
+    id: "ai",
+    icon: "fa-solid fa-brain",
+    title: "AI & Generative AI Development",
+    short: "AI & GenAI",
+    desc: "Practical AI, embedded where it earns its keep — inside your applications, products, workflows, customer experiences, and enterprise systems.",
+    caps: [
+      "Generative AI",
+      "AI agents",
+      "AI chatbots",
+      "Retrieval-Augmented Generation (RAG)",
+      "Machine learning",
+      "Predictive analytics",
+      "Intelligent automation",
+      "AI integration",
+    ],
+    link: "/generative-ai-development-company",
+    linkLabel: "Explore AI Development Services",
+  },
+  {
+    id: "saas",
+    icon: "fa-solid fa-layer-group",
+    title: "SaaS Product Development",
+    short: "SaaS products",
+    desc: "The full SaaS lifecycle — product strategy and architecture through development, deployment, integrations, billing, and ongoing optimization.",
+    caps: [
+      "Multi-tenant architecture",
+      "Subscription management",
+      "Recurring billing",
+      "Role-based access control",
+      "Admin dashboards",
+      "Cloud-native architecture",
+      "AI-powered SaaS features",
+    ],
+    link: "/saas-development-services",
+    linkLabel: "Explore SaaS Development Services",
+  },
+  {
+    id: "enterprise",
+    icon: "fa-solid fa-building-columns",
+    title: "Enterprise Application Development",
+    short: "Enterprise apps",
+    desc: "Secure, integrated enterprise applications built around complex workflows, departments, data, and the systems your business already runs on.",
+    caps: [
+      "Business management platforms",
+      "Internal workflow systems",
+      "Employee & partner portals",
+      "Enterprise dashboards",
+      "CRM & ERP integrations",
+      "Business automation",
+      "System integration",
+    ],
+    link: "/enterprise-application-development-company",
+    linkLabel: "Explore Enterprise Application Development",
+  },
+  {
+    id: "design",
+    icon: "fa-solid fa-pen-ruler",
+    title: "UI/UX & Product Design",
+    short: "UI/UX design",
+    desc: "Digital products that are intuitive, accessible, and aligned with real user needs — designed alongside your product and engineering teams, not in isolation.",
+    caps: [
+      "Product design",
+      "Website & app design",
+      "UX research",
+      "User journey mapping",
+      "Wireframing",
+      "Prototyping",
+      "Design systems",
+    ],
+    link: "/ui-ux-design-company",
+    linkLabel: "Explore UI/UX Design Services",
+  },
+  {
+    id: "salesforce",
+    icon: "fa-solid fa-cloud-bolt",
+    title: "Salesforce Consulting & Development",
+    short: "Salesforce",
+    desc: "Sales, service, and business processes optimized on Salesforce — configured, customized, and integrated around how your organization actually works.",
+    caps: [
+      "Salesforce consulting",
+      "Implementation",
+      "Customization",
+      "Sales Cloud",
+      "Service Cloud",
+      "Lightning migration",
+      "Workflow automation",
+      "CRM modernization",
+    ],
+    link: "/salesforce-consulting-services-company",
+    linkLabel: "Explore Salesforce Services",
+  },
+  {
+    id: "cloud",
+    icon: "fa-brands fa-aws",
+    title: "AWS Cloud Services & DevOps",
+    short: "AWS & DevOps",
+    desc: "Build, migrate, modernize, and manage secure cloud environments — with the delivery pipelines and automation that keep releases fast and predictable.",
+    caps: [
+      "AWS architecture",
+      "Cloud migration",
+      "Application modernization",
+      "Cloud-native development",
+      "Cloud security",
+      "Managed services",
+      "CI/CD",
+      "Docker",
+      "Kubernetes",
+      "Terraform",
+    ],
+    link: "/aws-cloud-services",
+    linkLabel: "Explore AWS & Cloud Services",
+  },
+  {
+    id: "security",
+    icon: "fa-solid fa-shield-halved",
+    title: "Cybersecurity Services",
+    short: "Cybersecurity",
+    desc: "Security built into the technology lifecycle rather than bolted on at the end — protecting applications, infrastructure, data, and business systems.",
+    caps: [
+      "Application security",
+      "Cloud security",
+      "Security assessment",
+      "Vulnerability assessment",
+      "Secure development",
+      "Infrastructure security",
+      "Security monitoring",
+      "Risk management",
+    ],
+    link: "/cyber-security-services-company",
+    linkLabel: "Explore Cybersecurity Services",
+  },
+  {
+    id: "qa-testing",
+    icon: "fa-solid fa-vial-circle-check",
+    title: "QA & Software Testing",
+    short: "QA & testing",
+    desc: "Independent quality engineering that catches problems before your users do — across functionality, performance, security, and every integration in between.",
+    caps: [
+      "Manual testing",
+      "Test automation",
+      "API testing",
+      "Performance testing",
+      "Security testing",
+      "Regression testing",
+      "Device & browser coverage",
+    ],
+    link: "/quality-assurance-and-testing-services",
+    linkLabel: "Explore QA & Testing Services",
+  },
+  {
+    id: "marketing",
+    icon: "fa-solid fa-chart-line",
+    title: "Digital Marketing Services",
+    short: "Digital marketing",
+    desc: "Great technology is only half of digital growth. We help you increase visibility, reach the right audiences, and generate qualified opportunities online.",
+    caps: [
+      "SEO",
+      "PPC",
+      "SEM",
+      "App Store Optimization",
+      "Social media marketing",
+      "Content marketing",
+      "Performance marketing",
+    ],
+    link: "/digital-marketing-services",
+    linkLabel: "Explore Digital Marketing Services",
+  },
 ];
 
-const devServices = [
-  { num: "01", icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>, title: "Web Application Development", desc: "Scalable, secure, and performance-driven web applications — custom web apps, enterprise platforms, API integrations, and progressive web apps.", tags: ["React","Next.js","Node.js","PWA"], link: "/web-development-company" },
-  { num: "02", icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>, title: "Mobile App Development", desc: "Robust mobile applications across iOS, Android, and cross-platform frameworks for enterprise mobility and consumer-focused experiences.", tags: ["iOS","Android","React Native","Flutter"], link: "/mobile-app-development-company" },
-  { num: "03", icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>, title: "Custom Software Development", desc: "Tailored enterprise applications, business process automation, workflow management systems, and legacy system modernization.", tags: ["Enterprise","Automation","Workflows","APIs"], link: "/custom-software-development-company" },
-  { num: "04", icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>, title: "SaaS Platform Development", desc: "Scalable SaaS platforms built on multi-tenant architecture with subscription billing, cloud-native infrastructure, and API-driven ecosystems.", tags: ["Multi-Tenant","AWS","Azure","Billing"], link: "/saas-development-services" },
-  { num: "05", icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3c-4.97 0-9 2.69-9 6v6c0 3.31 4.03 6 9 6s9-2.69 9-6V9c0-3.31-4.03-6-9-6z"/><ellipse cx="12" cy="9" rx="9" ry="6"/></svg>, title: "Salesforce Consulting", desc: "Expert Salesforce implementation, CRM customization, workflow automation, and Sales & Service Cloud integration for operational efficiency.", tags: ["Salesforce","CRM","Automation","Cloud"], link: "/salesforce-consulting-services-company" },
-  { num: "06", icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg>, title: "Cloud & DevOps", desc: "Secure cloud architecture, migration & modernization, CI/CD pipelines, infrastructure automation, and DevOps consulting services.", tags: ["CI/CD","Docker","Kubernetes","Terraform"], link: "/devops-services" },
+const processSteps = [
+  {
+    num: "01",
+    title: "Discovery & Requirements",
+    desc: "We start by understanding your objectives, users, challenges, integrations, and the outcomes you expect.",
+    keys: ["Requirements analysis", "Business discovery", "Technical assessment"],
+  },
+  {
+    num: "02",
+    title: "Strategy & Planning",
+    desc: "Requirements become a practical product roadmap and a technical plan your team can act on.",
+    keys: ["Product strategy", "Technology selection", "Architecture", "Roadmap"],
+  },
+  {
+    num: "03",
+    title: "UI/UX Design",
+    desc: "User journeys and interfaces that are intuitive, accessible, and aligned with your product goals.",
+    keys: ["UX research", "User flows", "Wireframes", "Prototypes", "Design systems"],
+  },
+  {
+    num: "04",
+    title: "Development",
+    desc: "Engineering with scalable architecture, secure coding practices, modern technologies, and agile delivery.",
+    keys: ["Frontend", "Backend", "Mobile", "APIs", "Databases", "AI integration"],
+  },
+  {
+    num: "05",
+    title: "Quality Assurance",
+    desc: "Validation across functionality, usability, performance, security, integrations, and compatibility.",
+    keys: ["Functional", "API", "Integration", "Performance", "Security", "UAT"],
+  },
+  {
+    num: "06",
+    title: "Deployment & Launch",
+    desc: "Production readiness, infrastructure configuration, deployment, monitoring, and hands-on launch support.",
+    keys: ["Cloud deployment", "CI/CD", "Monitoring", "Launch support"],
+  },
+  {
+    num: "07",
+    title: "Support, Maintenance & Scale",
+    desc: "Our engagement continues after launch with support, optimization, enhancements, and scalability work.",
+    keys: ["Maintenance", "Optimization", "Security updates", "Enhancements", "Scaling"],
+  },
+  {
+    num: "08",
+    title: "Measure & Iterate",
+    desc: "Analytics, user feedback, and performance data turn into the next prioritized release rather than a backlog nobody reads.",
+    keys: ["Analytics", "User feedback", "A/B testing", "Roadmap review", "Continuous delivery"],
+  },
 ];
 
-const marketingCards = [
-  { icon: "DigitalMarketing.png", title: "Digital Marketing", text: "Data-driven digital marketing strategies that attract, engage, and convert — driving measurable growth across all channels." },
-  { icon: "searchEngineoptimization.png", title: "Search Engine Optimization (SEO)", text: "Boost your search rankings with expert SEO that increases visibility, organic traffic, and long-term sustainable growth." },
-  { icon: "searchengineMarketing.png", title: "Search Engine Marketing (SEM)", text: "Drive instant traffic and high-quality leads with targeted SEM campaigns and cost-effective ad strategies that maximize ROI." },
-  { icon: "socialMediaMarketing.png", title: "Social Media Marketing (SMM)", text: "Strategic content and smart advertising that builds your brand presence and turns followers into loyal customers." },
+const techGroups = [
+  {
+    icon: "fa-solid fa-code",
+    title: "Web & Application",
+    items: ["React", "Next.js", "Node.js", "TypeScript", "Modern web stacks"],
+  },
+  {
+    icon: "fa-solid fa-mobile-screen",
+    title: "Mobile",
+    items: ["iOS", "Android", "Flutter", "React Native"],
+  },
+  {
+    icon: "fa-solid fa-robot",
+    title: "AI & Data",
+    items: ["Generative AI", "Machine learning", "Data science", "RAG", "AI agents", "Automation"],
+  },
+  {
+    icon: "fa-solid fa-cloud",
+    title: "Cloud & DevOps",
+    items: ["AWS", "Azure", "Docker", "Kubernetes", "Terraform", "CI/CD"],
+  },
+  {
+    icon: "fa-solid fa-diagram-project",
+    title: "Enterprise",
+    items: ["Salesforce", "APIs", "Integrations", "Enterprise platforms", "Business systems"],
+  },
+  {
+    icon: "fa-solid fa-database",
+    title: "Data & Storage",
+    items: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Firebase", "Data pipelines"],
+  },
 ];
-
-const processSteps = ["Requirement\nGathering","Strategy","Design","Development","Quality\nAssurance","Deployment","Support &\nMaintenance"];
 
 const industries = [
-  { icon: "finance.png", label: "Financial Services" },
-  { icon: "healthcare.png", label: "Healthcare" },
-  { icon: "ecommerce.png", label: "Retail & E-Commerce" },
-  { icon: "tours.png", label: "Logistics & Transportation" },
-  { icon: "education.png", label: "Education" },
-  { icon: "events.png", label: "Events" },
-  { icon: "home.png", label: "Real Estate" },
-  { icon: "game.png", label: "Gaming" },
-  { icon: "restaurant.png", label: "Restaurant" },
-  { icon: "grocery.png", label: "Grocery" },
-  { icon: "toursandtrvel.png", label: "Manufacturing" },
-  { icon: "tourstravel.png", label: "SaaS & Technology" },
+  { icon: "fa-solid fa-building-columns", name: "Financial Services & FinTech", desc: "Secure financial applications, automation, and data-driven platforms." },
+  { icon: "fa-solid fa-heart-pulse", name: "Healthcare", desc: "Patient platforms, workflow systems, and digital health solutions." },
+  { icon: "fa-solid fa-cart-shopping", name: "Retail & E-Commerce", desc: "Marketplaces, customer apps, inventory, and business automation." },
+  { icon: "fa-solid fa-truck-fast", name: "Logistics & Transportation", desc: "Fleet management, tracking, delivery apps, and operational dashboards." },
+  { icon: "fa-solid fa-industry", name: "Manufacturing", desc: "Enterprise applications, workflow automation, and connected systems." },
+  { icon: "fa-solid fa-graduation-cap", name: "Education", desc: "Learning platforms, management systems, and digital learning experiences." },
+  { icon: "fa-solid fa-house-chimney", name: "Real Estate", desc: "Property platforms, portals, CRM integrations, and workflow solutions." },
+  { icon: "fa-solid fa-cloud-arrow-up", name: "SaaS & Technology", desc: "SaaS products, cloud platforms, AI-powered applications, and APIs." },
+  { icon: "fa-solid fa-plane-departure", name: "Travel & Hospitality", desc: "Booking platforms, customer apps, and operational systems." },
+  { icon: "fa-solid fa-landmark", name: "Government & Enterprise", desc: "Secure digital platforms, modernization, and transformation programs." },
+];
+
+const whyChoose = [
+  { icon: "fa-solid fa-infinity", title: "End-to-End Technology Expertise", desc: "Strategy, UI/UX, development, AI, cloud, testing, deployment, marketing, and support — across the full product lifecycle." },
+  { icon: "fa-solid fa-bullseye", title: "Business-Focused Engineering", desc: "We build around business objectives, user requirements, operational challenges, and measurable outcomes." },
+  { icon: "fa-solid fa-microchip", title: "AI-Ready Development", desc: "Generative AI, AI agents, RAG, automation, intelligent search, and machine learning inside modern applications." },
+  { icon: "fa-solid fa-arrow-up-right-dots", title: "Scalable Architecture", desc: "Designed for scalability, performance, security, integrations, and long-term maintainability." },
+  { icon: "fa-solid fa-shield", title: "Enterprise-Grade Solutions", desc: "An approach suited to complex systems, security requirements, integrations, and evolving business needs." },
+  { icon: "fa-solid fa-people-group", title: "Agile & Collaborative Delivery", desc: "We work with your stakeholders through discovery, design, development, testing, and continuous improvement." },
+  { icon: "fa-solid fa-globe", title: "Global Technology Partner", desc: "Startups, growing businesses, and enterprises across international markets." },
+  { icon: "fa-solid fa-medal", title: "Proven Development Experience", desc: "Mobile apps, websites, custom software, SaaS platforms, enterprise applications, and AI solutions." },
 ];
 
 const faqs = [
-  { q: "What software development services does mTouch Labs offer?", a: "We provide web application development, mobile app development, custom software engineering, SaaS development, Salesforce consulting, and cloud & DevOps services for startups and enterprises worldwide." },
-  { q: "Do you provide both web and mobile application development?", a: "Yes. We develop scalable web applications and high-performance mobile apps using modern frameworks and cloud-native infrastructure for both iOS and Android." },
-  { q: "Does mTouch Labs provide custom software solutions?", a: "Absolutely. We deliver tailored custom software designed around your specific business needs, internal workflows, enterprise requirements, and long-term growth plans." },
-  { q: "What is the development process?", a: "Our development process includes requirement analysis, strategy planning, UI/UX design, agile development, quality assurance, deployment, and ongoing support & maintenance." },
-  { q: "Do you work with international clients?", a: "Yes. We serve startups and enterprises across North America, Europe, the Middle East, and APAC with dedicated development teams and 24/7 support." },
+  {
+    q: "What software development services does mTouch Labs provide?",
+    a: "mTouch Labs provides end-to-end software development services including custom software development, web application development, mobile app development, AI and Generative AI development, SaaS product development, enterprise application development, UI/UX design, Salesforce services, AWS and cloud services, DevOps, cybersecurity, and digital marketing.",
+  },
+  {
+    q: "Does mTouch Labs provide end-to-end software development?",
+    a: "Yes. Our capabilities cover the complete product lifecycle, including discovery, strategy, UI/UX design, development, quality assurance, deployment, support, maintenance, and continuous improvement.",
+  },
+  {
+    q: "Does mTouch Labs develop custom software?",
+    a: "Yes. We develop customized software around specific business processes, workflows, integrations, users, and scalability requirements.",
+  },
+  {
+    q: "Does mTouch Labs provide AI development services?",
+    a: "Yes. Our AI capabilities include Generative AI applications, AI agents, RAG-based solutions, AI chatbots, intelligent automation, machine learning, predictive analytics, and AI integration.",
+  },
+  {
+    q: "Can you develop a SaaS product from scratch?",
+    a: "Yes. We support SaaS development from product discovery and architecture through UI/UX, development, cloud deployment, integrations, subscription management, billing, and ongoing optimization.",
+  },
+  {
+    q: "Does mTouch Labs provide AWS cloud services?",
+    a: "Yes. Our AWS and cloud services include cloud architecture, AWS migration, application modernization, infrastructure management, cloud-native development, security, DevOps, CI/CD, and managed cloud services.",
+  },
+  {
+    q: "Do you provide UI/UX design along with development?",
+    a: "Yes. Our UI/UX and product design teams can work alongside engineering teams to design complete digital experiences for web, mobile, SaaS, and enterprise applications.",
+  },
+  {
+    q: "Do you provide Salesforce consulting?",
+    a: "Yes. We provide Salesforce consulting, implementation, customization, integrations, Sales Cloud, Service Cloud, Lightning migration, workflow automation, and CRM modernization services.",
+  },
+  {
+    q: "Can you modernize a legacy application?",
+    a: "Yes. We assess existing applications and help modernize architecture, interfaces, infrastructure, integrations, and functionality while considering business continuity and migration requirements.",
+  },
+  {
+    q: "Do you provide cybersecurity services?",
+    a: "Yes. We provide cybersecurity capabilities including application security, cloud security, security assessments, vulnerability assessments, secure development practices, and infrastructure security.",
+  },
+  {
+    q: "Do you provide digital marketing services?",
+    a: "Yes. Our digital marketing services include SEO, PPC, SEM, ASO, social media marketing, content marketing, digital advertising, and performance marketing.",
+  },
+  {
+    q: "What is your software development process?",
+    a: "Our process follows a continuous lifecycle: Discovery, Strategy and Planning, UI/UX Design, Development, Quality Assurance, Deployment, Support and Scale, and Continuous Improvement.",
+  },
+  {
+    q: "Do you work with startups and enterprises?",
+    a: "Yes. We work with startups, growing businesses, and enterprises that need custom digital products, SaaS platforms, AI solutions, enterprise applications, cloud modernization, and technology transformation.",
+  },
+  {
+    q: "How much does software development cost?",
+    a: "The cost depends on project scope, features, integrations, technology requirements, design complexity, team composition, security requirements, and timeline. A project assessment is required to provide an accurate estimate.",
+  },
+  {
+    q: "Do you provide software maintenance and support?",
+    a: "Yes. We provide ongoing application maintenance, technical support, performance optimization, security updates, feature enhancements, bug fixes, and scaling support.",
+  },
 ];
 
 export default function ServicesPage() {
   return (
-    <>
-      <link href="/css/services.css" rel="stylesheet" />
+    <main className="svcx">
+      {/* ═══════════ HERO ═══════════ */}
+      <section className="svcx-hero">
+        <div className="svcx-hero-grid" aria-hidden="true" />
+        <div className="svcx-blob svcx-blob-a" aria-hidden="true" />
+        <div className="svcx-blob svcx-blob-b" aria-hidden="true" />
+        <div className="svcx-blob svcx-blob-c" aria-hidden="true" />
 
-      {/* ═══════════ HERO (itsc-hero style) ═══════════ */}
-      <div className="itsc-page">
-        <section className="itsc-hero">
-          <div className="itsc-hero-grid" aria-hidden="true" />
-          <div className="itsc-blob itsc-blob-a" aria-hidden="true" />
-          <div className="itsc-blob itsc-blob-b" aria-hidden="true" />
-          <div className="itsc-blob itsc-blob-c" aria-hidden="true" />
+        <div className="svcx-container">
+          <div className="svcx-hero-inner">
+            <div className="svcx-hero-copy">
+              <p className="svcx-eyebrow">Software Development Services</p>
 
-          <div className="itsc-container">
-            <div className="itsc-hero-content">
-              <div className="itsc-badge">
-                <span className="itsc-badge-dot" />
-                Our Services
-              </div>
-
-              <h1 className="itsc-h1">
-                End-to-End Software Development
-                <br />
-                <span className="itsc-h1-gradient">Services</span>
+              <h1 className="svcx-h1">
+                End-to-End Software Development,{" "}
+                <span>AI &amp; Digital Solutions</span>
               </h1>
 
-              <p className="itsc-hero-sub">
-                Comprehensive software development services designed to help startups, growing businesses,
-                and enterprise organizations build scalable, secure, and high-performance{" "}
-                <Link className="itsc-inline-link" href="/it-services-digital-transformation-company">
-                  digital systems
+              <p>
+                mTouch Labs helps startups, growing businesses, and enterprises build,
+                modernize, and scale digital products — from{" "}
+                <Link className="svcx-link" href="/custom-software-development-company">
+                  custom software development
+                </Link>{" "}
+                and web and mobile applications to{" "}
+                <Link className="svcx-link" href="/generative-ai-development-company">
+                  AI development services
+                </Link>
+                , SaaS platforms, and cloud-native systems.
+              </p>
+              <p>
+                Starting something new, modernizing a legacy application, automating a
+                process, or adding AI to a platform you already run? We take it from idea
+                to strategy, design, development, launch, and continuous improvement.
+              </p>
+
+              <div className="svcx-hero-ctas">
+                <Link href="/contact-us" className="svcx-btn svcx-btn-primary">
+                  <i className="fa-solid fa-paper-plane" aria-hidden="true" />
+                  Let&apos;s Discuss Your Project
+                </Link>
+                <Link href="/portfolio" className="svcx-btn svcx-btn-ghost">
+                  View Our Work
+                  <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+                </Link>
+              </div>
+            </div>
+
+            <aside className="svcx-hero-panel">
+              <h2>What we deliver</h2>
+              <ul className="svcx-panel-list">
+                <li><i className="fa-solid fa-cubes" aria-hidden="true" />Custom software &amp; enterprise platforms</li>
+                <li><i className="fa-solid fa-mobile-screen-button" aria-hidden="true" />Web, mobile &amp; SaaS products</li>
+                <li><i className="fa-solid fa-brain" aria-hidden="true" />AI, Generative AI &amp; automation</li>
+                <li><i className="fa-solid fa-cloud" aria-hidden="true" />AWS cloud, DevOps &amp; security</li>
+                <li><i className="fa-solid fa-pen-ruler" aria-hidden="true" />UI/UX design &amp; product strategy</li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════ SERVICES ═══════════ */}
+      <section className="svcx-section" id="services">
+        <div className="svcx-container">
+          <div className="svcx-head svcx-head--center">
+            <p className="svcx-eyebrow">Our End-to-End Services</p>
+            <h2 className="svcx-h2">
+              One partner across <em>design, engineering, AI and cloud</em>
+            </h2>
+            <p className="svcx-lead">
+              Software engineering, AI, product design, cloud, enterprise technology,
+              cybersecurity, and digital marketing under one roof — combined into solutions
+              that map to your business goals.
+            </p>
+          </div>
+
+          <div className="svcx-services-grid">
+            {services.map((s) => (
+              <article className="svcx-service-card" key={s.id} id={s.id}>
+                <span className="svcx-service-icon" aria-hidden="true">
+                  <i className={s.icon} />
+                </span>
+                <h3>{s.title}</h3>
+                <p>{s.desc}</p>
+                <ul className="svcx-caps">
+                  {s.caps.map((c) => (
+                    <li key={c}>{c}</li>
+                  ))}
+                </ul>
+                <Link href={s.link} className="svcx-service-link">
+                  {s.linkLabel}
+                  <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+                </Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════ PROCESS ═══════════ */}
+      <section className="svcx-section svcx-section--soft" id="process">
+        <div className="svcx-container">
+          <div className="svcx-head svcx-head--center">
+            <p className="svcx-eyebrow">How We Work</p>
+            <h2 className="svcx-h2">
+              From idea to launch — <em>a complete development lifecycle</em>
+            </h2>
+            <p className="svcx-lead">
+              Business strategy, product design, engineering, quality assurance, deployment,
+              and ongoing support in one continuous cycle.
+            </p>
+          </div>
+
+          <ol className="svcx-process-grid" style={{ listStyle: "none", margin: 0, padding: 0 }}>
+            {processSteps.map((p) => (
+              <li className="svcx-process-card" key={p.num}>
+                <span className="svcx-process-num">{p.num}</span>
+                <h3>{p.title}</h3>
+                <p>{p.desc}</p>
+                <ul className="svcx-process-keys">
+                  {p.keys.map((k) => (
+                    <li key={k}>{k}</li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ol>
+
+          <div className="svcx-loop">
+            <div>
+              <h3>Continuous improvement</h3>
+              <p>
+                Software development does not end at launch. User feedback, analytics,
+                performance data, and new business requirements feed straight back into the
+                next iteration of your{" "}
+                <Link className="svcx-link" href="/it-services-digital-transformation-company">
+                  digital platform
                 </Link>
                 .
               </p>
-
-              <div className="itsc-ctas">
-                <Link href="/contact-us" className="itsc-btn itsc-btn-primary">
-                  <i className="fa-solid fa-paper-plane" />
-                  Let&apos;s Discuss
-                </Link>
-                <Link href="/portfolio" className="itsc-btn itsc-btn-ghost">
-                  View Case Studies
-                  <i className="fa-solid fa-arrow-right" />
-                </Link>
-              </div>
+            </div>
+            <div className="svcx-loop-steps">
+              <span>Discover</span>
+              <span>Plan</span>
+              <span>Design</span>
+              <span>Develop</span>
+              <span>Test</span>
+              <span>Launch</span>
+              <span>Support</span>
+              <span>Improve</span>
             </div>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
 
-      {/* ═══ LEADING COMPANY ═══ */}
-      <section className="srv-leading">
-        <div className="srv-inner">
-          <div className="srv-leading-center">
-            <h2 className="srv-leading-title">
-              Leading <span className="srv-highlight">Software Development</span><br />Company — Global Delivery
+      {/* ═══════════ TECHNOLOGY ═══════════ */}
+      <section className="svcx-section" id="technology">
+        <div className="svcx-container">
+          <div className="svcx-head svcx-head--center">
+            <p className="svcx-eyebrow">Technology Expertise</p>
+            <h2 className="svcx-h2">
+              The right stack for <em>your</em> requirements
             </h2>
-            <p className="srv-leading-desc">
-              At mTouch Labs, our engineering expertise spans web applications, mobile apps, custom enterprise software, SaaS platforms, Salesforce solutions, and cloud-native infrastructure — delivering measurable business outcomes for global clients.
+            <p className="svcx-lead">
+              We choose technology based on business requirements, product complexity,
+              scalability goals, security needs, and the ecosystem you already run — not on
+              what happens to be fashionable.
             </p>
-            <h3 className="srv-leading-subtitle">Proven Track Record</h3>
           </div>
-          <div className="srv-stats-row">
-            <div className="srv-stat-box"><div className="srv-stat-num">1,500+</div><div className="srv-stat-label">Mobile Apps<br/>Developed</div></div>
-            <div className="srv-stat-box"><div className="srv-stat-num">820+</div><div className="srv-stat-label">Websites<br/>Developed</div></div>
-            <div className="srv-stat-box"><div className="srv-stat-num">700+</div><div className="srv-stat-label">Unique Features<br/>Implemented</div></div>
-          </div>
-        </div>
-      </section>
 
-      {/* ═══ DESIGN SERVICES ═══ */}
-      <section className="srv-design">
-        <div className="srv-inner">
-          <div className="srv-section-header">
-            <h2 className="srv-section-title"><span className="srv-highlight-blue">Design</span> Services</h2>
-            <p className="srv-section-desc">We create <b>customer-centric</b> designs for web and mobile applications, focusing on clarity, usability, and conversion optimization.</p>
-          </div>
-          <div className="srv-design-grid">
-            <div><img width={441} height={441} loading="lazy" decoding="async" src="/images/serviceImg/design_services.webp" alt="Design Services — mTouch Labs" className="srv-design-img" /></div>
-            <div className="srv-design-list">
-              {designServices.map((s, i) => (
-                <div className="srv-design-item" key={i}>
-                  <div className="srv-design-icon"><img src={`/images/serviceImg/${s.icon}`} alt={s.title} /></div>
-                  <div><h4>{s.title}</h4><p>{s.text}</p></div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══ DEVELOPMENT SERVICES ═══ */}
-      <section className="srv-dev">
-        <div className="srv-inner">
-          <div className="srv-section-header">
-            <h2 className="srv-section-title"><span className="srv-highlight-blue">Development</span> Services</h2>
-            <p className="srv-section-desc">We deliver results-driven, customized web application development, mobile app development, custom software engineering, and SaaS platform services.</p>
-          </div>
-          <div className="srv-dev-grid">
-            {devServices.map((s) => (
-              <div className="srv-dev-card" key={s.num}>
-                <div className="srv-dev-card-icon">{s.icon}</div>
-                <span className="srv-dev-card-num">{s.num}</span>
-                <h3>{s.title}</h3>
-                <p>{s.desc}</p>
-                <ul className="srv-dev-tags">{s.tags.map((t) => <li key={t}>{t}</li>)}</ul>
-                <Link href={s.link} className="srv-card-link">Learn More →</Link>
+          <div className="svcx-tech-grid">
+            {techGroups.map((t) => (
+              <div className="svcx-tech-card" key={t.title}>
+                <h3>
+                  <i className={t.icon} aria-hidden="true" />
+                  {t.title}
+                </h3>
+                <ul>
+                  {t.items.map((i) => (
+                    <li key={i}>{i}</li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ═══ MARKETING SERVICES ═══ */}
-      <section className="srv-marketing">
-        <div className="srv-inner">
-          <div className="srv-section-header">
-            <h2 className="srv-section-title"><span className="srv-highlight-blue">Marketing Services</span> That Drive Growth</h2>
-            <p className="srv-section-desc">Boost your online presence with comprehensive digital marketing solutions designed to attract, engage, and convert your audience into loyal customers.</p>
+      {/* ═══════════ INDUSTRIES ═══════════ */}
+      <section className="svcx-section svcx-section--tint" id="industries">
+        <div className="svcx-container">
+          <div className="svcx-head svcx-head--center">
+            <p className="svcx-eyebrow">Industries We Serve</p>
+            <h2 className="svcx-h2">
+              Digital solutions built for <em>your sector</em>
+            </h2>
+            <p className="svcx-lead">
+              We deliver{" "}
+              <Link className="svcx-link" href="/app-and-web-development-for-ecommerce-services">
+                e-commerce development
+              </Link>
+              ,{" "}
+              <Link className="svcx-link" href="/diagnostic-app-development-company">
+                healthcare software development
+              </Link>
+              , and{" "}
+              <Link className="svcx-link" href="/saas-development-services">
+                SaaS development
+              </Link>{" "}
+              alongside enterprise solutions for organizations across industries and
+              business models.
+            </p>
           </div>
-          <div className="srv-mkt-grid">
-            {marketingCards.map((c, i) => (
-              <div className="srv-mkt-card" key={i}>
-                <div className="srv-mkt-icon"><img src={`/images/serviceImg/${c.icon}`} alt={c.title} /></div>
-                <h3>{c.title}</h3>
-                <p>{c.text}</p>
+
+          <div className="svcx-ind-grid">
+            {industries.map((ind) => (
+              <div className="svcx-ind-card" key={ind.name}>
+                <span className="svcx-ind-icon" aria-hidden="true">
+                  <i className={ind.icon} />
+                </span>
+                <h3>{ind.name}</h3>
+                <p>{ind.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ═══ PROCESS ═══ */}
-      <section className="srv-process">
-        <div className="srv-inner">
-          <div className="srv-section-header">
-            <h2 className="srv-section-title"><span className="srv-highlight">Software Development</span> Process We Follow</h2>
-            <p className="srv-section-desc"><b>Our software development team</b> follows an agile methodology to ensure a successful, on-time launch of your application to the market.</p>
+      {/* ═══════════ WHY CHOOSE ═══════════ */}
+      <section className="svcx-section" id="why-mtouch-labs">
+        <div className="svcx-container">
+          <div className="svcx-head svcx-head--center">
+            <p className="svcx-eyebrow">Why mTouch Labs</p>
+            <h2 className="svcx-h2">
+              Engineering that answers to <em>business outcomes</em>
+            </h2>
+            <p className="svcx-lead">
+              Eight reasons teams keep us on their roadmap after the first release.
+            </p>
           </div>
-          <div className="srv-process-row">
-            <button className="srv-process-scroll-btn" id="srvScrollLeft"><i className="fas fa-chevron-left"></i></button>
-            <div className="srv-process-steps">
-             {processSteps.map((step, i) => (
-<div className="srv-process-step" key={i}>                  <div className="srv-process-card">
-                    <span className="srv-process-num">{i + 1}</span>
-                    <h4 dangerouslySetInnerHTML={{ __html: step.replace("\n", "<br/>") }} />
-                  </div>
-                </div>
-              ))}
-            </div>
-            <button className="srv-process-scroll-btn" id="srvScrollRight"><i className="fas fa-chevron-right"></i></button>
+
+          <div className="svcx-why-grid">
+            {whyChoose.map((w) => (
+              <div className="svcx-why-card" key={w.title}>
+                <span className="svcx-why-icon" aria-hidden="true">
+                  <i className={w.icon} />
+                </span>
+                <h3>{w.title}</h3>
+                <p>{w.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ═══ INDUSTRIES ═══ */}
-      <section className="srv-industries">
-        <div className="srv-inner">
-          <div className="srv-industries-grid">
-            <div>
-              <h2 className="srv-industries-title">Industries <span className="srv-highlight">We Serve</span></h2>
-              <p className="srv-industries-desc">We provide software development services across diverse industries — building scalable solutions tailored to each sector&apos;s unique requirements.</p>
-            </div>
-            <div className="srv-ind-cards">
-              {industries.map((ind, i) => (
-                <div className="srv-ind-card" key={i}>
-                  <div className="srv-ind-card-icon"><img src={`/images/serviceImg/${ind.icon}`} alt={ind.label} /></div>
-                  <h4>{ind.label}</h4>
-                </div>
-              ))}
+      {/* ═══════════ STATS ═══════════ */}
+      <section className="svcx-stats-band">
+        <div className="svcx-container">
+          <div className="svcx-stats-box">
+            <p className="svcx-eyebrow svcx-eyebrow--light" style={{ justifyContent: "center" }}>
+              Proven Development Experience
+            </p>
+            <h2>Track record across mobile, web and enterprise</h2>
+            <p>
+              Our experience spans mobile applications, websites, custom software, SaaS
+              platforms, enterprise applications, AI solutions, and digital products.
+            </p>
+            <div className="svcx-stats-grid">
+              <div className="svcx-stat">
+                <b>1,500+</b>
+                <span>Mobile Apps Developed</span>
+              </div>
+              <div className="svcx-stat">
+                <b>820+</b>
+                <span>Websites Developed</span>
+              </div>
+              <div className="svcx-stat">
+                <b>700+</b>
+                <span>Unique Features Implemented</span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-    {/* ═══ CTA ═══ */}
-      <section className="hd-cta">
-        <div className="hd-ctaInner">
-          <h2 className="hd-ctaTitle">Have a Project in Mind?</h2>
-          <p className="hd-ctaDesc">Let&apos;s connect, discuss your ideas, and turn them into impactful, user-focused solutions.</p>
-          <div className="hd-ctaBtns">
-            <Link href="/contact-us" className="hd-ctaPrimary">Contact Us →</Link>
-            <a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer" className="hd-ctaWa">WhatsApp →</a>
+      {/* ═══════════ CTA ═══════════ */}
+      <section className="svcx-cta">
+        <div className="svcx-container">
+          <div className="svcx-cta-box">
+            <h2>Build, modernize &amp; scale your digital product</h2>
+            <p>
+              Launching a new software product, developing an enterprise application,
+              modernizing legacy technology, migrating to AWS, building a SaaS platform, or
+              integrating AI into an existing system — mTouch Labs can help.
+            </p>
+            <p>
+              Have a project in mind? Let&apos;s discuss your requirements, technology
+              challenges, and business goals.
+            </p>
+            <div className="svcx-cta-actions">
+              <Link href="/contact-us" className="svcx-btn svcx-btn-light">
+                Start Your Project
+                <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+              </Link>
+              <Link href="/request-free-quote" className="svcx-btn svcx-btn-outline-light">
+                Request a Consultation
+                <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ═══ FAQ ═══ */}
-      <section className="srv-faq">
-        <div className="srv-inner">
-          <div className="srv-section-header">
-            <h2 className="srv-section-title">Your Questions <span className="srv-highlight">Answered</span> Clearly</h2>
-            <p className="srv-section-desc">Everything you need to know about mTouch Labs software development services.</p>
+      {/* ═══════════ FAQ ═══════════ */}
+      <section className="svcx-section svcx-section--soft" id="faq">
+        <div className="svcx-container">
+          <div className="svcx-head svcx-head--center">
+            <p className="svcx-eyebrow">Frequently Asked Questions</p>
+            <h2 className="svcx-h2">
+              Answers before you <em>get in touch</em>
+            </h2>
           </div>
-          <div className="srv-faq-wrap">
-            <div className="srv-faq-list">
-              {faqs.map((f, i) => (
-                <details className="srv-faq-item" key={i} {...(i === 0 ? { open: true } : {})}>
-                  <summary className="srv-faq-q">
-                    <span className="srv-faq-q-text">{f.q}</span>
-                    <span className="srv-faq-chevron">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-                    </span>
-                  </summary>
-                  <div className="srv-faq-a">{f.a}</div>
-                </details>
-              ))}
-            </div>
+
+          <div className="svcx-faq-list">
+            {faqs.map((f, i) => (
+              <details className="svcx-faq-item" key={f.q} {...(i === 0 ? { open: true } : {})}>
+                <summary className="svcx-faq-q">
+                  <span>{f.q}</span>
+                  <span className="svcx-faq-icon" aria-hidden="true">
+                    <i className="fa-solid fa-plus" />
+                  </span>
+                </summary>
+                <p className="svcx-faq-a">{f.a}</p>
+              </details>
+            ))}
           </div>
         </div>
       </section>
 
       <FAQSchema faqs={faqs} />
-
-      {/* ═══ Scripts ═══ */}
-    </>
+    </main>
   );
 }

@@ -1,0 +1,182 @@
+/* ═══════════════════════════════════════════════════════════════
+   Careers — hero introduction + "submit your resume" section.
+   Selectors are deliberately more specific than the shared .itsc-*
+   rules they adjust, so they win regardless of stylesheet order.
+   Colours and typography come from /public/css/brand.css.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── Hero introduction (replaces the old stats grid + CTA row) ─── */
+.itsc-page .cr-hero-intro-title {
+  font-family: var(--font-primary, 'Poppins', sans-serif);
+  font-size: clamp(20px, 2.3vw, 26px);
+  line-height: 1.4;
+  font-weight: 700;
+  color: var(--color-deep-indigo, #0C1C32);
+  max-width: 820px;
+  margin: 40px auto 16px;
+}
+
+.itsc-page .cr-hero-intro-text {
+  font-family: var(--font-primary, 'Poppins', sans-serif);
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 400;
+  color: var(--color-slate-grey, #777777);
+  max-width: 820px;
+  margin: 0 auto 14px;
+}
+
+.itsc-page .cr-hero-intro-text-last { margin-bottom: 0; }
+
+/* ─── Submit your resume ─── */
+.cr-resume {
+  padding: 90px 0;
+  background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
+}
+
+.cr-resume-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.cr-resume-card {
+  position: relative;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 56px 44px;
+  border-radius: 24px;
+  border: 1px solid #E5E9F2;
+  background: #FFFFFF;
+  box-shadow: 0 18px 60px -28px rgba(62, 140, 251, .35);
+  text-align: center;
+  overflow: hidden;
+}
+
+.cr-resume-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #3E8CFB, #011D80);
+}
+
+.cr-resume-icon {
+  width: 66px;
+  height: 66px;
+  margin: 0 auto 22px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  color: #FFFFFF;
+  background: linear-gradient(135deg, #3E8CFB 0%, #011D80 100%);
+  box-shadow: 0 14px 30px -12px rgba(62, 140, 251, .7);
+}
+
+.cr-resume-heading {
+  font-family: var(--font-primary, 'Poppins', sans-serif);
+  font-size: clamp(23px, 3vw, 32px);
+  line-height: 1.3;
+  font-weight: 700;
+  color: var(--color-deep-indigo, #0C1C32);
+  margin: 0 0 14px;
+}
+
+.cr-resume-text {
+  font-family: var(--font-primary, 'Poppins', sans-serif);
+  font-size: 16px;
+  line-height: 28px;
+  color: var(--color-slate-grey, #777777);
+  max-width: 640px;
+  margin: 0 auto 30px;
+}
+
+.cr-resume-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 26px;
+}
+
+.cr-resume .cr-resume-btn-primary,
+.cr-resume .cr-resume-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 30px;
+  border-radius: 999px;
+  font-family: var(--font-primary, 'Poppins', sans-serif);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  border: 2px solid transparent;
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease, border-color .25s ease;
+}
+
+.cr-resume .cr-resume-btn-primary {
+  background: linear-gradient(135deg, #3E8CFB 0%, #011D80 100%);
+  color: #FFFFFF;
+  box-shadow: 0 12px 30px -12px rgba(62, 140, 251, .8);
+}
+.cr-resume .cr-resume-btn-primary:hover {
+  transform: translateY(-2px);
+  color: #FFFFFF;
+  background: linear-gradient(135deg, #011D80 0%, #3E8CFB 100%);
+}
+
+.cr-resume .cr-resume-btn-secondary {
+  background: #FFFFFF;
+  color: #3E8CFB;
+  border-color: #3E8CFB;
+}
+.cr-resume .cr-resume-btn-secondary:hover {
+  transform: translateY(-2px);
+  background: #3E8CFB;
+  color: #FFFFFF;
+}
+
+.cr-resume-note {
+  font-family: var(--font-primary, 'Poppins', sans-serif);
+  font-size: 14.5px;
+  line-height: 25px;
+  color: var(--color-slate-grey, #777777);
+  margin: 0 0 10px;
+}
+.cr-resume-note a {
+  color: #3E8CFB;
+  font-weight: 600;
+  text-decoration: none;
+}
+.cr-resume-note a:hover { color: #011D80; }
+
+.cr-resume-loc {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-primary, 'Poppins', sans-serif);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #1E293B;
+  background: #F8FAFC;
+  border: 1px solid #E5E9F2;
+  border-radius: 999px;
+  padding: 8px 18px;
+  margin: 6px 0 0;
+}
+.cr-resume-loc i { color: #3E8CFB; font-size: 12px; }
+
+@media (max-width: 720px) {
+  .itsc-page .cr-hero-intro-title { margin-top: 30px; font-size: 20px; }
+  .itsc-page .cr-hero-intro-text { font-size: 15px; line-height: 26px; }
+  .cr-resume { padding: 60px 0; }
+  .cr-resume-card { padding: 38px 22px; border-radius: 20px; }
+  .cr-resume-actions { flex-direction: column; }
+  .cr-resume .cr-resume-btn-primary,
+  .cr-resume .cr-resume-btn-secondary { justify-content: center; }
+}

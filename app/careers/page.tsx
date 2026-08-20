@@ -631,6 +631,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import "../it-solutions-company/style.css";
+import "./careers-hero.css";
 
 export const metadata: Metadata = {
   title: "Careers | Join Our Software Development Team",
@@ -824,54 +825,29 @@ export default function Page() {
                   for global businesses.
                 </p>
 
-                <div className="itsc-ctas">
-                  <a href="#open-positions" className="itsc-btn itsc-btn-primary">
-                    <i className="fa-solid fa-paper-plane" />
-                    View Open Positions
-                  </a>
-                  <a href="/about" className="itsc-btn itsc-btn-ghost">
-                    Our Culture
-                    <i className="fa-solid fa-arrow-right" />
-                  </a>
-                </div>
-
-                <div className="itsc-stats-grid">
-                  <div className="itsc-stat-card">
-                    <span className="itsc-stat-val">50+</span>
-                    <span className="itsc-stat-lbl">Open Positions</span>
-                  </div>
-                  <div className="itsc-stat-card">
-                    <span className="itsc-stat-val">4.8★</span>
-                    <span className="itsc-stat-lbl">Glassdoor Rating</span>
-                  </div>
-                  <div className="itsc-stat-card">
-                    <span className="itsc-stat-val">6</span>
-                    <span className="itsc-stat-lbl">Office Locations</span>
-                  </div>
-                  <div className="itsc-stat-card">
-                    <span className="itsc-stat-val">100%</span>
-                    <span className="itsc-stat-lbl">Learning Budget</span>
-                  </div>
-                </div>
+                {/* Careers introduction — sits where the stats/CTA block used to be */}
+                <h2 className="cr-hero-intro-title">
+                  Join a Leading Software Development &amp; AI Solutions Company
+                </h2>
+                <p className="cr-hero-intro-text">
+                  At mTouch Labs, we build scalable software, enterprise platforms, AI-powered
+                  systems, and cloud-native applications for global businesses. Behind every
+                  successful solution is a passionate team of developers, designers, engineers,
+                  and innovators.
+                </p>
+                <p className="cr-hero-intro-text cr-hero-intro-text-last">
+                  If you&apos;re looking for meaningful software development careers, exciting IT
+                  job opportunities, and a culture that values growth and innovation —
+                  you&apos;ll thrive here.
+                </p>
               </div>
             </div>
           </section>
         </div>
 
-        {/* ===== 2 · INTRO ===== */}
-        <section className="cr-intro scroll-reveal">
-          <div className="cr-intro-container">
-            <h2 className="cr-intro-heading">Join a Leading Software Development &amp; AI Solutions Company</h2>
-            <div className="cr-intro-divider"></div>
-            <p className="cr-intro-body">At mTouch Labs, we build scalable software, enterprise platforms, AI-powered systems, and cloud-native applications for global businesses. Behind every successful solution is a passionate team of developers, designers, engineers, and innovators.</p>
-            <p className="cr-intro-body cr-intro-highlight">If you&apos;re looking for meaningful software development careers, exciting IT job opportunities, and a culture that values growth and innovation — you&apos;ll thrive here.</p>
-          </div>
-        </section>
-
-        {/* ===== 3 · WHY WORK ===== */}
+        {/* ===== 2 · WHY WORK ===== */}
         <section className="cr-why scroll-reveal">
           <div className="cr-why-container">
-            <div className="cr-section-label">Our Culture</div>
             <h2 className="cr-section-heading">Why Work at <span className="cr-accent">mTouch Labs?</span></h2>
             <div className="cr-why-grid">
               <div className="cr-why-card sr-card" style={{ animationDelay: "0s" }}>
@@ -902,29 +878,41 @@ export default function Page() {
           </div>
         </section>
 
-        {/* ===== 4 · CURRENT OPPORTUNITIES ===== */}
-        <section className="cr-jobs scroll-reveal" id="open-positions">
-          <div className="cr-jobs-container">
-            <div className="cr-section-label">Join Us</div>
-            <h2 className="cr-section-heading">Current <span className="cr-accent">Opportunities</span></h2>
-            <p className="cr-jobs-sub">We are hiring talented professionals across multiple roles and locations.</p>
-            <div className="cr-jobs-filter">
-              <div className="cr-filter-item"><i className="fas fa-map-marker-alt"></i>
-                <select id="opFilterLocation"><option value="">All Locations</option><option value="Hyderabad">Hyderabad</option><option value="Bangalore">Bangalore</option><option value="Remote">Remote</option></select>
+        {/* ===== 3 · SUBMIT YOUR RESUME ===== */}
+        <section className="cr-resume scroll-reveal" id="submit-resume">
+          <div className="cr-resume-container">
+            <div className="cr-resume-card">
+              <div className="cr-resume-icon"><i className="fas fa-file-arrow-up" aria-hidden="true"></i></div>
+              <h2 className="cr-resume-heading">Looking for a Job at <span className="cr-accent">mTouch Labs?</span></h2>
+              <p className="cr-resume-text">
+                We hire year-round across software development, mobile, cloud, DevOps, Salesforce,
+                AI and design. Send us your resume and our talent team will get in touch when a
+                role matches your skills and experience.
+              </p>
+              <div className="cr-resume-actions">
+                <a
+                  href="mailto:careers@mtouchlabs.com?subject=Job%20Application%20%E2%80%93%20mTouch%20Labs&amp;body=Hi%20mTouch%20Labs%20team%2C%0A%0APlease%20find%20my%20resume%20attached.%0A%0AName%3A%0ARole%20of%20interest%3A%0ATotal%20experience%3A%0APreferred%20location%3A%0A%0AThank%20you."
+                  className="cr-resume-btn-primary"
+                >
+                  <i className="fas fa-paper-plane" aria-hidden="true"></i> Submit Your Resume
+                </a>
+                <a href="/contact-us" className="cr-resume-btn-secondary">
+                  <i className="fas fa-headset" aria-hidden="true"></i> Talk to Our Team
+                </a>
               </div>
-              <div className="cr-filter-item"><i className="fas fa-briefcase"></i>
-                <select id="opFilterRole"><option value="">All Roles</option><option value="Full Stack Developer">Full Stack Developer</option><option value="React & Node.js Developer">React &amp; Node.js Developer</option><option value="Mobile App Developer (iOS, Android, Hybrid)">Mobile App Developer</option><option value="Salesforce Developer">Salesforce Developer</option><option value="DevOps Engineer">DevOps Engineer</option><option value="QA & Automation Engineer">QA &amp; Automation Engineer</option><option value="AI / Machine Learning Engineer">AI / ML Engineer</option><option value="UI/UX Designer">UI/UX Designer</option><option value="Project Manager">Project Manager</option></select>
-              </div>
-              <button className="cr-filter-btn" id="opApplyFilter">Apply Filter</button>
+              <p className="cr-resume-note">
+                Email your CV to{" "}
+                <a href="mailto:careers@mtouchlabs.com">careers@mtouchlabs.com</a> — please attach
+                it as a PDF and mention the role you&apos;re interested in.
+              </p>
+              <p className="cr-resume-loc">
+                <i className="fas fa-map-marker-alt" aria-hidden="true"></i> Hyderabad, Bangalore &amp; Remote
+              </p>
             </div>
-            <div className="cr-jobs-grid" id="opCardsGrid"></div>
-            <p className="cr-jobs-none" id="opNoResults" style={{ display: "none" }}>No positions found matching your filters.</p>
-            <div className="cr-jobs-pagination" id="opPagination"></div>
-            <div className="cr-jobs-locations"><i className="fas fa-map-marker-alt"></i><span>Locations: Hyderabad, Bangalore &amp; Remote Roles</span></div>
           </div>
         </section>
 
-        {/* ===== 5 · WHAT WE VALUE ===== */}
+        {/* ===== 3 · WHAT WE VALUE ===== */}
         <section className="cr-values scroll-reveal">
           <div className="cr-values-container">
             <div className="cr-section-label">Our Principles</div>
@@ -940,7 +928,7 @@ export default function Page() {
           </div>
         </section>
 
-        {/* ===== 6 · FAQ ===== */}
+        {/* ===== 4 · FAQ ===== */}
         <section className="cr-faq scroll-reveal">
           <div className="cr-faq-container">
             <div className="cr-section-label">Got Questions?</div>
@@ -966,7 +954,7 @@ export default function Page() {
           </div>
         </section>
 
-        {/* ===== 7 · READY TO JOIN ===== */}
+        {/* ===== 5 · READY TO JOIN ===== */}
         <section className="cr-cta scroll-reveal">
           <div className="cr-cta-shapes"><span></span><span></span><span></span></div>
           <div className="cr-cta-inner">
@@ -975,7 +963,7 @@ export default function Page() {
             <p className="cr-cta-tagline">Let&apos;s build the future of digital innovation together.</p>
             <div className="cr-cta-actions">
               <a href="/contact-us" className="cr-cta-btn-primary"><i className="fas fa-headset"></i> Contact Us</a>
-              <a href="#open-positions" className="cr-cta-btn-secondary"><i className="fas fa-briefcase"></i> View Positions</a>
+              <a href="#submit-resume" className="cr-cta-btn-secondary"><i className="fas fa-paper-plane"></i> Send Your Resume</a>
             </div>
           </div>
         </section>
@@ -1055,6 +1043,9 @@ function init(){
   function fetchOpenings(){
     var grid = document.getElementById('opCardsGrid');
     var noRes = document.getElementById('opNoResults');
+    /* The public careers page no longer lists individual openings — candidates
+       email their resume instead. Skip the network call when the grid is absent. */
+    if(!grid){ return Promise.resolve(); }
     if(grid){ grid.innerHTML = '<div class="cr-jobs-loading" style="grid-column:1/-1;padding:40px;text-align:center;color:#6b7280;"><i class="fas fa-spinner fa-spin"></i> Loading open positions…</div>'; }
     return fetch(OPENINGS_API_URL, { method: 'GET', cache: 'no-store' })
       .then(function(r){ if(!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
@@ -1100,8 +1091,9 @@ function init(){
     pag.innerHTML=dots;
   }
 
-  function applyFilters(){var loc=document.getElementById('opFilterLocation').value,role=document.getElementById('opFilterRole').value;filteredJobs=jobs.filter(function(j){return(!loc||j.location===loc)&&(!role||j.role===role);});currentPage=0;renderCards();}
-  document.getElementById('opApplyFilter').addEventListener('click',applyFilters);
+  function applyFilters(){var locEl=document.getElementById('opFilterLocation'),roleEl=document.getElementById('opFilterRole');if(!locEl||!roleEl)return;var loc=locEl.value,role=roleEl.value;filteredJobs=jobs.filter(function(j){return(!loc||j.location===loc)&&(!role||j.role===role);});currentPage=0;renderCards();}
+  var opApplyBtn=document.getElementById('opApplyFilter');
+  if(opApplyBtn){opApplyBtn.addEventListener('click',applyFilters);}
 
   /* ── Viewport-aware custom dropdown (replaces native <select> in filter bar) ── */
   function initCustomDropdowns(){

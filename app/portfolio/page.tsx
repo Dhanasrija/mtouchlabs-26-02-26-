@@ -1,188 +1,11 @@
-// import type { Metadata } from "next";
-
-// export const metadata: Metadata = {
-//   title: "Portfolio | Web And Mobile App Development",
-//   description: "Explore our portfolio of innovative web and mobile apps built by our experienced Android and iOS app development team.",
-//   alternates: {
-//     canonical: "https://www.mtouchlabs.com/portfolio",
-//   },
-// // 
-//   openGraph: {
-//     title: "Portfolio | Web And Mobile App Development",
-//     description: "Explore our portfolio of innovative web and mobile apps built by our experienced Android and iOS app development team.",
-//     url: "https://www.mtouchlabs.com/portfolio",
-//     siteName: "mTouch Labs",
-//     type: "website",
-//     images: [{ url: "https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp", width: 1200, height: 630, alt: "Portfolio | Web And Mobile App Development" }],
-//   },
-//   twitter: {
-//     card: "summary_large_image",
-//     title: "Portfolio | Web And Mobile App Development",
-//     description: "Explore our portfolio of innovative web and mobile apps built by our experienced Android and iOS app development team.",
-//     images: ["https://www.mtouchlabs.com/images/web-and-mobile-app-development.webp"],
-//   },
-// };
-
-
-// export default function Page() {
-//   return (
-//     <>
-//       {/* Hero Section */}
-//       <link href="/css/portfolio-listing.css" rel="stylesheet" />
-//       <section className="portfolio-hero" style={{ backgroundImage: "url(/images/portfolio-bg.webp)", backgroundPosition: "center bottom" }} style={{ backgroundImage: "url(/images/portfolio-bg.webp)" }} style={{ backgroundImage: "url('/images/portfolio-bg.webp')" }}>
-//         <div className="container">
-//           <div className="row align-items-center">
-//             <div className="col-lg-7">
-//               <div className="portfolio-hero-content">
-//                 <h1 data-aos="fade-up" data-aos-delay="200">
-//                   Our <span className="highlight-orange">Portfolio</span>
-//                 </h1>
-//                 <p data-aos="fade-up" data-aos-delay="400">
-//                   See how we transform ideas into powerful digital experiences.
-//                 </p>
-//               </div>
-//             </div>
-//             <div className="col-lg-5"></div>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Portfolio Items */}
-//       <div className="blog-block sec-pad pt80">
-//         <div className="container">
-//           <div className="blog-filter-section mb50">
-//             <div className="blog-filter-buttons">
-//               <button className="blog-filter-btn active" data-filter="all">All</button>
-//               <button className="blog-filter-btn" data-filter="Ecommerce">Ecommerce</button>
-//               <button className="blog-filter-btn" data-filter="CRM">CRM</button>
-//               <button className="blog-filter-btn" data-filter="Online Services">Online Services</button>
-//               <button className="blog-filter-btn" data-filter="Ed-tech">Ed-tech</button>
-//               <button className="blog-filter-btn" data-filter="Retail Management">Retail Management</button>
-//               <button className="blog-filter-btn" data-filter="Real Estate">Real Estate</button>
-//               <button className="blog-filter-btn" data-filter="Transport Management">Transport Management</button>
-//               <button className="blog-filter-btn" data-filter="Legal">Legal</button>
-//               <button className="blog-filter-btn" data-filter="Health Care">Health Care</button>
-//               <button className="blog-filter-btn" data-filter="social media">Social Media</button>
-//               <button className="blog-filter-btn" data-filter="utility">Utility</button>
-//             </div>
-//           </div>
-//           <div className="blog-post">
-//             <div className="row" id="blog-cards-container">
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-
-//       {/* CTA Section */}
-//       <section className="r-bg-a sec-pad">
-//         <div className="container">
-//           <div className="ree">
-//             <div className="row">
-//               <div className="col-lg-6 vcenter">
-//                 <div className="cta-heading">
-//                   <h2 className="mb15">Hire world-class <span className="ree-text rt40">Web and Mobile App development team</span> for your <span className="ree-text rt40">Project</span></h2>
-//                   <p>Contact our Web and Mobile App Development Company if you have any app ideas. We have a professional Android and iOS App Development Team who develop clients&apos; projects excellently and deliver the project on a timeline.</p>
-//                   <a href="/contact-us" className="ree-btn ree-btn-grdt1 mw-80 mt40">Start Your Project <i className="fas fa-arrow-right fa-btn"></i></a>
-//                 </div>
-//               </div>
-//               <div className="col-lg-6 vcenter">
-//                 <div className="ct-sol-img">
-//                   <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/developers.svg" alt="app mockup" className="img-fluid" />
-//                 </div>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* FAQ Section */}
-//       <div className="resources-faq-wrapper">
-//         <div className="_faq_container">
-//           <div className="_faq_header">
-//             <h2 className="_faq_title">Your Questions <span className="_faq_title_highlight">Answered</span> Clearly</h2>
-//             <p className="_faq_subtitle">Everything you need to know about Mtouchlabs</p>
-//           </div>
-
-//           <div className="_faq_list">
-//             <div className="_faq_item active glow">
-//               <button className="_faq_question">
-//                 <span>What does mTouch Labs portfolio include?</span>
-//                 <span className="_faq_chevron" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#08182b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9l6 6 6-6" /></svg></span>
-//               </button>
-//               <div className="_faq_answer">
-//                 <p className="_faq_answer_text">The portfolio showcases a wide range of digital products created by mTouch Labs, including mobile apps, business websites, e-commerce platforms, SaaS products, and custom software solutions across multiple industries.</p>
-//               </div>
-//             </div>
-
-//             <div className="_faq_item">
-//               <button className="_faq_question">
-//                 <span>Can I request a project similar to something in mTouch Labs portfolio?</span>
-//                 <span className="_faq_chevron" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#08182b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9l6 6 6-6" /></svg></span>
-//               </button>
-//               <div className="_faq_answer">
-//                 <p className="_faq_answer_text">Yes, you can. If you see a project that matches your vision or business model, the team can build a customized version tailored to your features, branding, and workflow requirements.</p>
-//               </div>
-//             </div>
-
-//             <div className="_faq_item">
-//               <button className="_faq_question">
-//                 <span>Do you work on both mobile and web development projects?</span>
-//                 <span className="_faq_chevron" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#08182b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9l6 6 6-6" /></svg></span>
-//               </button>
-//               <div className="_faq_answer">
-//                 <p className="_faq_answer_text">Absolutely. The portfolio includes end-to-end mobile app development (Android, iOS, Flutter) as well as modern web development projects using scalable, secure, and high-performance technologies.</p>
-//               </div>
-//             </div>
-
-//             <div className="_faq_item">
-//               <button className="_faq_question">
-//                 <span>How can I get a quote for a project like the ones in your portfolio?</span>
-//                 <span className="_faq_chevron" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#08182b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9l6 6 6-6" /></svg></span>
-//               </button>
-//               <div className="_faq_answer">
-//                 <p className="_faq_answer_text">You can submit your project details through the &ldquo;Get Quote&rdquo; section on the portfolio page. Once received, the team will review your requirements and send you an estimated cost and timeline.</p>
-//               </div>
-//             </div>
-
-//             <div className="_faq_item">
-//               <button className="_faq_question">
-//                 <span>Are all projects in the portfolio custom-built for clients?</span>
-//                 <span className="_faq_chevron" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#08182b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9l6 6 6-6" /></svg></span>
-//               </button>
-//               <div className="_faq_answer">
-//                 <p className="_faq_answer_text">Yes. Each project featured in the portfolio was designed, developed, and deployed based on individual client needs, ensuring unique outcomes aligned with their business goals.</p>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-
-//       <script dangerouslySetInnerHTML={{ __html: `
-//         (function() {
-//           function initFaq() {
-//             var items = document.querySelectorAll('._faq_item');
-//             if (!items.length) return setTimeout(initFaq, 300);
-//             items.forEach(function(item) {
-//               item.querySelector('._faq_question').addEventListener('click', function() {
-//                 var isActive = item.classList.contains('active');
-//                 items.forEach(function(i) { i.classList.remove('active'); i.classList.remove('glow'); });
-//                 if (!isActive) { item.classList.add('active'); item.classList.add('glow'); }
-//               });
-//             });
-//           }
-//           initFaq();
-//         })();
-//       `}} />
-//     </>
-//   );
-// }
-
 import type { Metadata } from "next";
-import "../it-solutions-company/style.css";
+import Link from "next/link";
+import FAQSchema from "@/components/seo/FAQSchema";
+import "./portfolio-grid.css";
 
 export const metadata: Metadata = {
   title: "Portfolio | Web And Mobile App Development",
-  description: "Explore mTouch Labs' portfolio of innovative web and mobile apps built across eCommerce, CRM, Ed-tech, Healthcare, and Retail by our expert Android, iOS and full-stack teams.",
+  description: "Explore mTouch Labs' portfolio of innovative web and mobile apps built across eCommerce, healthcare, education, mobility, enterprise and social platforms by our expert Android, iOS and full-stack teams.",
   keywords: ["mTouch Labs portfolio", "web app portfolio", "mobile app portfolio", "android app case studies", "ios app case studies", "enterprise software portfolio"],
   alternates: {
     canonical: "https://www.mtouchlabs.com/portfolio",
@@ -190,7 +13,7 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
   openGraph: {
     title: "Portfolio | Web And Mobile App Development",
-    description: "Explore mTouch Labs' portfolio of web and mobile apps across eCommerce, CRM, Ed-tech, Healthcare, and Retail.",
+    description: "Explore mTouch Labs' portfolio of web and mobile apps across eCommerce, healthcare, education, mobility, enterprise and social platforms.",
     url: "https://www.mtouchlabs.com/portfolio",
     siteName: "mTouch Labs",
     type: "website",
@@ -206,199 +29,131 @@ export const metadata: Metadata = {
   },
 };
 
+/**
+ * Six fixed portfolio categories. The `filter` value must match the
+ * `category` field of every project in /public/js/portfolio.js exactly
+ * (the comparison there is case-insensitive).
+ */
+const CATEGORIES: { label: string; filter: string }[] = [
+  { label: "All Projects", filter: "all" },
+  { label: "eCommerce & Retail", filter: "eCommerce & Retail" },
+  { label: "Food, Grocery & Delivery", filter: "Food, Grocery & Delivery" },
+  { label: "Healthcare & Education", filter: "Healthcare & Education" },
+  { label: "Real Estate & Mobility", filter: "Real Estate & Mobility" },
+  { label: "Enterprise, CRM & Service Platforms", filter: "Enterprise, CRM & Service Platforms" },
+  { label: "Social, Media & Lifestyle", filter: "Social, Media & Lifestyle" },
+];
+
+const faqs = [
+  {
+    q: "What does the mTouch Labs portfolio include?",
+    a: "The portfolio showcases a wide range of digital products created by mTouch Labs, including mobile apps, business websites, e-commerce platforms, SaaS products, and custom software solutions across multiple industries.",
+  },
+  {
+    q: "Can I request a project similar to something in the mTouch Labs portfolio?",
+    a: "Yes, you can. If you see a project that matches your vision or business model, the team can build a customized version tailored to your features, branding, and workflow requirements.",
+  },
+  {
+    q: "Do you work on both mobile and web development projects?",
+    a: "Absolutely. The portfolio includes end-to-end mobile app development (Android, iOS, Flutter) as well as modern web development projects using scalable, secure, and high-performance technologies.",
+  },
+  {
+    q: "How can I get a quote for a project like the ones in your portfolio?",
+    a: "Share your project details through our contact form. Once received, the team will review your requirements and send you an estimated cost and timeline.",
+  },
+  {
+    q: "Are all projects in the portfolio custom-built for clients?",
+    a: "Yes. Each project featured in the portfolio was designed, developed, and deployed based on individual client needs, ensuring unique outcomes aligned with their business goals.",
+  },
+];
+
 export default function Page() {
   return (
-    <>
-      {/* Force white background around the portfolio cards/filter area — overrides any inherited dark styles */}
-      <style dangerouslySetInnerHTML={{ __html: `
-        .blog-block,
-        .blog-block .container,
-        .blog-block .blog-filter-section,
-        .blog-block .blog-post,
-        .blog-block #blog-cards-container,
-        .resources-faq-wrapper {
-          background: #ffffff !important;
-        }
-        .blog-block,
-        .resources-faq-wrapper {
-          color: #1a1a2e;
-        }
-        /* Filter buttons readable on white */
-        .blog-filter-btn { background:#f3f4f6 !important; color:#374151 !important; }
-        .blog-filter-btn.active { background: linear-gradient(135deg,#3B82F6,#4f8ef7) !important; color:#ffffff !important; }
-      ` }} />
-
-      {/* ═══════════ HERO (itsc-hero style) ═══════════ */}
-      <div className="itsc-page">
-        <section className="itsc-hero">
-          <div className="itsc-hero-grid" aria-hidden="true" />
-          <div className="itsc-blob itsc-blob-a" aria-hidden="true" />
-          <div className="itsc-blob itsc-blob-b" aria-hidden="true" />
-          <div className="itsc-blob itsc-blob-c" aria-hidden="true" />
-
-          <div className="itsc-container">
-            <div className="itsc-hero-content">
-              <div className="itsc-badge">
-                <span className="itsc-badge-dot" />
-                Our Portfolio
-              </div>
-
-              <h1 className="itsc-h1">
-                Our Portfolio of
-                <br />
-                <span className="itsc-h1-gradient">Digital Experiences</span>
-              </h1>
-
-              <p className="itsc-hero-sub">
-                See how we transform ideas into powerful digital experiences across web, mobile, and
-                enterprise platforms — crafted by our expert{" "}
-                <a className="itsc-inline-link" href="/mobile-app-development-company">
-                  Android, iOS and full-stack teams
-                </a>
-                .
-              </p>
-
-              <div className="itsc-ctas">
-                <a href="/contact-us" className="itsc-btn itsc-btn-primary">
-                  <i className="fa-solid fa-paper-plane" />
-                  Start Your Project
-                </a>
-                <a href="/services" className="itsc-btn itsc-btn-ghost">
-                  Explore Services
-                  <i className="fa-solid fa-arrow-right" />
-                </a>
-              </div>
-            </div>
+    <main className="pf-listing">
+      {/* ═══════════ CATEGORY FILTER BAR — first thing on the page ═══════════ */}
+      <section className="pf-filterbar" aria-label="Portfolio categories">
+        <div className="pf-container">
+          <div className="pf-filterbar-head">
+            <h1 className="pf-title">
+              Our <span>Portfolio</span>
+            </h1>
           </div>
-        </section>
-      </div>
 
-      {/* Portfolio Items */}
-      <div className="blog-block sec-pad pt80">
-        <div className="container">
-          <div className="blog-filter-section mb50">
-            <div className="blog-filter-buttons">
-              <button className="blog-filter-btn active" data-filter="all">All</button>
-              <button className="blog-filter-btn" data-filter="Ecommerce">Ecommerce</button>
-              <button className="blog-filter-btn" data-filter="CRM">CRM</button>
-              <button className="blog-filter-btn" data-filter="Online Services">Online Services</button>
-              <button className="blog-filter-btn" data-filter="Ed-tech">Ed-tech</button>
-              <button className="blog-filter-btn" data-filter="Retail Management">Retail Management</button>
-              <button className="blog-filter-btn" data-filter="Real Estate">Real Estate</button>
-              <button className="blog-filter-btn" data-filter="Transport Management">Transport Management</button>
-              <button className="blog-filter-btn" data-filter="Legal">Legal</button>
-              <button className="blog-filter-btn" data-filter="Health Care">Health Care</button>
-              <button className="blog-filter-btn" data-filter="social media">Social Media</button>
-              <button className="blog-filter-btn" data-filter="utility">Utility</button>
-            </div>
-          </div>
-          <div className="blog-post">
-            <div className="row" id="blog-cards-container">
-            </div>
+          <div className="blog-filter-buttons" role="group" aria-label="Filter projects by category">
+            {CATEGORIES.map((c, i) => (
+              <button
+                key={c.filter}
+                type="button"
+                className={`blog-filter-btn${i === 0 ? " active" : ""}`}
+                data-filter={c.filter}
+                aria-pressed={i === 0 ? "true" : "false"}
+              >
+                {c.label}
+              </button>
+            ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* CTA Section */}
-      <section className="r-bg-a sec-pad">
-        <div className="container">
-          <div className="ree">
-            <div className="row">
-              <div className="col-lg-6 vcenter">
-                <div className="cta-heading">
-                  <h2 className="mb15">Hire world-class <span className="ree-text rt40">Web and Mobile App development team</span> for your <span className="ree-text rt40">Project</span></h2>
-                  <p>Contact our Web and Mobile App Development Company if you have any app ideas. We have a professional Android and iOS App Development Team who develop clients&apos; projects excellently and deliver the project on a timeline.</p>
-                  <a href="/contact-us" className="ree-btn ree-btn-grdt1 mw-80 mt40">Start Your Project <i className="fas fa-arrow-right fa-btn"></i></a>
-                </div>
-              </div>
-              <div className="col-lg-6 vcenter">
-                <div className="ct-sol-img">
-                  <img width={690} height={350} loading="lazy" decoding="async" src="/images/cta/developers.svg" alt="app mockup" className="img-fluid" />
-                </div>
-              </div>
+      {/* ═══════════ PROJECT GRID ═══════════ */}
+      <section className="pf-grid-section" id="portfolio-grid">
+        <div className="pf-container">
+          <div className="blog-post">
+            {/* Cards are rendered by /public/js/portfolio.js */}
+            <div id="blog-cards-container" />
+          </div>
+          <div id="pagination-container" />
+        </div>
+      </section>
+
+      {/* ═══════════ CTA ═══════════ */}
+      <section className="pf-cta">
+        <div className="pf-container">
+          <div className="pf-cta-box">
+            <h2>Hire a world-class web and mobile app development team</h2>
+            <p>
+              Have an app idea? Our Android, iOS and full-stack engineers build and ship
+              client projects to a fixed timeline — with the same care you see in every
+              project above.
+            </p>
+            <div className="pf-cta-actions">
+              <Link href="/contact-us" className="pf-btn pf-btn-solid">
+                Start Your Project <i className="fas fa-arrow-right" aria-hidden="true" />
+              </Link>
+              <Link href="/services" className="pf-btn pf-btn-outline">
+                Explore Services
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <div className="resources-faq-wrapper">
-        <div className="_faq_container">
-          <div className="_faq_header">
-            <h2 className="_faq_title">Your Questions <span className="_faq_title_highlight">Answered</span> Clearly</h2>
-            <p className="_faq_subtitle">Everything you need to know about Mtouchlabs</p>
+      {/* ═══════════ FAQ ═══════════ */}
+      <section className="pf-faq">
+        <div className="pf-container">
+          <div className="pf-faq-head">
+            <h2>
+              Your Questions <span>Answered</span> Clearly
+            </h2>
+            <p>Everything you need to know about the mTouch Labs portfolio.</p>
           </div>
-
-          <div className="_faq_list">
-            <div className="_faq_item active glow">
-              <button className="_faq_question">
-                <span>What does mTouch Labs portfolio include?</span>
-                <span className="_faq_chevron" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#08182b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9l6 6 6-6" /></svg></span>
-              </button>
-              <div className="_faq_answer">
-                <p className="_faq_answer_text">The portfolio showcases a wide range of digital products created by mTouch Labs, including mobile apps, business websites, e-commerce platforms, SaaS products, and custom software solutions across multiple industries.</p>
-              </div>
-            </div>
-
-            <div className="_faq_item">
-              <button className="_faq_question">
-                <span>Can I request a project similar to something in mTouch Labs portfolio?</span>
-                <span className="_faq_chevron" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#08182b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9l6 6 6-6" /></svg></span>
-              </button>
-              <div className="_faq_answer">
-                <p className="_faq_answer_text">Yes, you can. If you see a project that matches your vision or business model, the team can build a customized version tailored to your features, branding, and workflow requirements.</p>
-              </div>
-            </div>
-
-            <div className="_faq_item">
-              <button className="_faq_question">
-                <span>Do you work on both mobile and web development projects?</span>
-                <span className="_faq_chevron" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#08182b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9l6 6 6-6" /></svg></span>
-              </button>
-              <div className="_faq_answer">
-                <p className="_faq_answer_text">Absolutely. The portfolio includes end-to-end mobile app development (Android, iOS, Flutter) as well as modern web development projects using scalable, secure, and high-performance technologies.</p>
-              </div>
-            </div>
-
-            <div className="_faq_item">
-              <button className="_faq_question">
-                <span>How can I get a quote for a project like the ones in your portfolio?</span>
-                <span className="_faq_chevron" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#08182b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9l6 6 6-6" /></svg></span>
-              </button>
-              <div className="_faq_answer">
-                <p className="_faq_answer_text">You can submit your project details through the &ldquo;Get Quote&rdquo; section on the portfolio page. Once received, the team will review your requirements and send you an estimated cost and timeline.</p>
-              </div>
-            </div>
-
-            <div className="_faq_item">
-              <button className="_faq_question">
-                <span>Are all projects in the portfolio custom-built for clients?</span>
-                <span className="_faq_chevron" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#08182b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9l6 6 6-6" /></svg></span>
-              </button>
-              <div className="_faq_answer">
-                <p className="_faq_answer_text">Yes. Each project featured in the portfolio was designed, developed, and deployed based on individual client needs, ensuring unique outcomes aligned with their business goals.</p>
-              </div>
-            </div>
+          <div className="pf-faq-list">
+            {faqs.map((f, i) => (
+              <details className="pf-faq-item" key={f.q} {...(i === 0 ? { open: true } : {})}>
+                <summary className="pf-faq-q">
+                  <span>{f.q}</span>
+                  <span className="pf-faq-icon" aria-hidden="true">
+                    <i className="fas fa-plus" />
+                  </span>
+                </summary>
+                <p className="pf-faq-a">{f.a}</p>
+              </details>
+            ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      <script dangerouslySetInnerHTML={{ __html: `
-        (function() {
-          function initFaq() {
-            var items = document.querySelectorAll('._faq_item');
-            if (!items.length) return setTimeout(initFaq, 300);
-            items.forEach(function(item) {
-              item.querySelector('._faq_question').addEventListener('click', function() {
-                var isActive = item.classList.contains('active');
-                items.forEach(function(i) { i.classList.remove('active'); i.classList.remove('glow'); });
-                if (!isActive) { item.classList.add('active'); item.classList.add('glow'); }
-              });
-            });
-          }
-          initFaq();
-        })();
-      `}} />
-    </>
+      <FAQSchema faqs={faqs} />
+    </main>
   );
 }
