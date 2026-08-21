@@ -100,10 +100,13 @@
   letter-spacing: -.4px;
   margin: 0 0 14px;
 }
-/* One accent word per heading — a single flat blue, never a gradient. */
+/* Accent word — the same blue→navy gradient used on Portfolio & Careers. */
 .svcx-h2 em {
   font-style: normal;
-  color: var(--blue);
+  background: linear-gradient(90deg, var(--blue) 0%, var(--navy) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 .svcx-lead {
   font-size: 17px;
@@ -136,26 +139,30 @@
   transition: transform .22s ease, box-shadow .22s ease, background .22s ease,
               color .22s ease, border-color .22s ease;
 }
+/* Same primary/secondary pair used across the site (see .itsc-btn-*). */
 .svcx a.svcx-btn-primary {
-  background: var(--ink);
+  background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%);
   color: #FFFFFF;
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 12px 40px -12px rgba(62, 140, 251, .55);
 }
 .svcx a.svcx-btn-primary:hover {
   transform: translateY(-2px);
   color: #FFFFFF;
-  background: var(--navy);
+  background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+  box-shadow: 0 10px 26px rgba(62, 140, 251, .34);
 }
 .svcx a.svcx-btn-ghost {
   background: var(--paper);
-  color: var(--ink);
-  border-color: var(--line);
+  color: var(--blue);
+  border-color: var(--blue);
+  box-shadow: 0 2px 6px rgba(62, 140, 251, .08);
 }
 .svcx a.svcx-btn-ghost:hover {
   transform: translateY(-2px);
-  border-color: var(--ink);
-  color: var(--ink);
-  background: var(--paper);
+  border-color: var(--blue);
+  color: #FFFFFF;
+  background: var(--blue);
+  box-shadow: 0 8px 20px -6px rgba(62, 140, 251, .5);
 }
 .svcx a.svcx-btn-light {
   background: #FFFFFF;
@@ -236,9 +243,12 @@
   letter-spacing: -.8px;
   margin: 0 0 22px;
 }
-/* Accent phrase: flat blue. No underline, no gradient. */
+/* Accent phrase — same blue→navy gradient as the other pages' titles. */
 .svcx-h1 span {
-  color: var(--blue);
+  background: linear-gradient(90deg, var(--blue) 0%, var(--navy) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   white-space: nowrap;
 }
 .svcx-hero-copy p {
@@ -445,30 +455,118 @@
   padding: 3px 9px;
 }
 
-.svcx-loop {
-  margin-top: 40px;
-  padding: 30px 32px;
+/* ── Continuous improvement: horizontal flow chart ── */
+.svcx-flow {
+  margin-top: 44px;
+  padding: 34px 34px 30px;
   border-radius: var(--radius);
   border: 1px solid var(--line);
   background: var(--paper);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 26px;
-  flex-wrap: wrap;
 }
-.svcx-loop h3 { font-size: 18px; line-height: 27px; font-weight: 700; color: var(--ink); margin: 0 0 6px; }
-.svcx-loop p { font-size: 14.5px; line-height: 24px; color: var(--muted); margin: 0; max-width: 520px; }
-.svcx-loop-steps { display: flex; flex-wrap: wrap; gap: 7px; }
-.svcx-loop-steps span {
-  padding: 7px 14px;
-  border-radius: 7px;
-  background: var(--stone);
-  border: 1px solid var(--line-2);
+.svcx-flow-head { text-align: center; max-width: 680px; margin: 0 auto 34px; }
+.svcx-flow-head h3 { font-size: 19px; line-height: 28px; font-weight: 700; color: var(--ink); margin: 0 0 8px; }
+.svcx-flow-head p { font-size: 14.5px; line-height: 25px; color: var(--muted); margin: 0; }
+
+.svcx-flow-track {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  align-items: start;
+  gap: 0;
+}
+/* The rail the nodes sit on. */
+.svcx-flow-track::before {
+  content: "";
+  position: absolute;
+  top: 23px;
+  left: 6%;
+  right: 6%;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--line);
+}
+/* A blue segment that sweeps along the rail, over and over. */
+.svcx-flow-track::after {
+  content: "";
+  position: absolute;
+  top: 23px;
+  left: 6%;
+  width: 22%;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, var(--blue), var(--navy), transparent);
+  animation: svcxFlowSweep 4.5s cubic-bezier(.65, 0, .35, 1) infinite;
+}
+@keyframes svcxFlowSweep {
+  0%   { transform: translateX(0); opacity: 0; }
+  8%   { opacity: 1; }
+  88%  { opacity: 1; }
+  100% { transform: translateX(355%); opacity: 0; }
+}
+
+.svcx-flow-node {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  padding: 0 4px;
+}
+.svcx-flow-dot {
+  position: relative;
+  z-index: 1;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: var(--ink-2);
+  background: var(--paper);
+  border: 2px solid var(--line);
+  transition: transform .3s ease, color .3s ease, border-color .3s ease, background .3s ease;
+}
+/* Each node lights up in sequence, on a loop that matches the sweep. */
+.svcx-flow-node .svcx-flow-dot { animation: svcxNodePulse 4.5s ease-in-out infinite; }
+.svcx-flow-node:nth-child(1) .svcx-flow-dot { animation-delay: .00s; }
+.svcx-flow-node:nth-child(2) .svcx-flow-dot { animation-delay: .45s; }
+.svcx-flow-node:nth-child(3) .svcx-flow-dot { animation-delay: .90s; }
+.svcx-flow-node:nth-child(4) .svcx-flow-dot { animation-delay: 1.35s; }
+.svcx-flow-node:nth-child(5) .svcx-flow-dot { animation-delay: 1.80s; }
+.svcx-flow-node:nth-child(6) .svcx-flow-dot { animation-delay: 2.25s; }
+.svcx-flow-node:nth-child(7) .svcx-flow-dot { animation-delay: 2.70s; }
+.svcx-flow-node:nth-child(8) .svcx-flow-dot { animation-delay: 3.15s; }
+.svcx-flow-node:nth-child(9) .svcx-flow-dot { animation-delay: 3.60s; }
+@keyframes svcxNodePulse {
+  0%, 100% { border-color: var(--line); color: var(--ink-2); transform: scale(1); }
+  6%       { border-color: var(--blue); color: var(--blue); transform: scale(1.12); }
+  16%      { border-color: var(--line); color: var(--ink-2); transform: scale(1); }
+}
+.svcx-flow-node:hover .svcx-flow-dot {
+  border-color: var(--blue);
+  color: #FFFFFF;
+  background: var(--blue);
+  transform: scale(1.1);
+}
+.svcx-flow-label {
   font-size: 12.5px;
+  line-height: 18px;
   font-weight: 600;
   color: var(--ink-2);
 }
+/* The final node closes the loop back to the start. */
+.svcx-flow-node--loop .svcx-flow-dot--loop {
+  border-style: dashed;
+  border-color: rgba(62, 140, 251, .55);
+  color: var(--blue);
+}
+.svcx-flow-node--loop .svcx-flow-label { color: var(--blue); }
 
 /* ═══════════ TECHNOLOGY ═══════════ */
 .svcx-tech-grid {
@@ -542,12 +640,14 @@
   align-items: center;
   justify-content: center;
   font-size: 16px;
-  color: var(--ink);
-  background: var(--stone);
-  border: 1px solid var(--line);
-  transition: background .3s ease, color .3s ease, border-color .3s ease;
+  /* colour + background come from an inline style, one hue per industry */
+  border: 1px solid transparent;
+  transition: transform .3s ease, box-shadow .3s ease;
 }
-.svcx-ind-card:hover .svcx-ind-icon { background: var(--ink); border-color: var(--ink); color: #FFFFFF; }
+.svcx-ind-card:hover .svcx-ind-icon {
+  transform: scale(1.08) rotate(-4deg);
+  box-shadow: 0 8px 18px -8px currentColor;
+}
 .svcx-ind-card h3 { font-size: 14.5px; line-height: 21px; font-weight: 700; color: var(--ink); margin: 0 0 6px; }
 .svcx-ind-card p { font-size: 12.5px; line-height: 20px; color: var(--muted); margin: 0; }
 
@@ -662,6 +762,16 @@
   .svcx-tech-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .svcx-why-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .svcx-ind-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  /* Flow chart scrolls sideways rather than crushing nine nodes together. */
+  .svcx-flow { padding: 30px 20px 26px; }
+  .svcx-flow-track {
+    grid-auto-columns: 104px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 6px;
+  }
+  .svcx-flow-track::-webkit-scrollbar { display: none; }
+  .svcx-flow-track::before, .svcx-flow-track::after { display: none; }
 }
 
 @media (max-width: 720px) {
@@ -673,14 +783,145 @@
   .svcx-tech-grid,
   .svcx-why-grid { grid-template-columns: minmax(0, 1fr); }
   .svcx-ind-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .svcx-ledger-row { grid-template-columns: minmax(0, 1fr); }
+  .svcx-ledger-cell { border-left: 0; border-top: 1px solid var(--line); padding: 34px 22px 30px; }
+  .svcx-ledger-cell:first-child { border-top: 0; }
+  .svcx-cta { padding-bottom: 62px; }
+  .svcx-cta-inner { padding: 48px 22px; border-radius: 20px; }
+  .svcx-cta-actions { flex-direction: column; align-items: stretch; }
+  .svcx-cta-actions .svcx-btn { justify-content: center; }
   .svcx-hero-ctas { flex-direction: column; align-items: stretch; }
   .svcx-hero-ctas .svcx-btn { justify-content: center; }
-  .svcx-loop { padding: 24px 20px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .svcx * { transition: none !important; animation: none !important; }
 }
+
+/* ═══════════ PROVEN EXPERIENCE — counter ledger ═══════════
+   Deliberately not a dark panel: three oversized figures on paper,
+   split by hairlines, each with a rule that draws itself in.       */
+.svcx-ledger { background: var(--stone-2); }
+.svcx-ledger-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  overflow: hidden;
+}
+.svcx-ledger-cell {
+  position: relative;
+  padding: 46px 30px 42px;
+  text-align: center;
+  border-left: 1px solid var(--line);
+  transition: background .35s ease;
+}
+.svcx-ledger-cell:first-child { border-left: 0; }
+.svcx-ledger-cell:hover { background: var(--stone-2); }
+
+.svcx-ledger-icon {
+  width: 44px;
+  height: 44px;
+  margin: 0 auto 18px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: var(--blue);
+  background: rgba(62, 140, 251, .10);
+  transition: transform .35s ease;
+}
+.svcx-ledger-cell:hover .svcx-ledger-icon { transform: translateY(-3px); }
+
+.svcx-ledger-num {
+  display: block;
+  font-size: clamp(38px, 5vw, 58px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -.03em;
+  background: linear-gradient(90deg, var(--blue) 0%, var(--navy) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-variant-numeric: tabular-nums;
+}
+/* Rule under each figure — draws out from the centre when revealed. */
+.svcx-ledger-rule {
+  display: block;
+  width: 0;
+  height: 3px;
+  border-radius: 3px;
+  margin: 18px auto 16px;
+  background: linear-gradient(90deg, var(--blue), var(--navy));
+  transition: width .9s cubic-bezier(.22, 1, .36, 1);
+  transition-delay: calc(var(--d, 0) * 140ms + 260ms);
+}
+.svcx-ledger-row.is-in .svcx-ledger-rule,
+.svcx:not(.svcx-anim) .svcx-ledger-rule { width: 54px; }
+
+.svcx-ledger-label {
+  display: block;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+/* ═══════════ CTA — animated gradient frame ═══════════
+   A 2px conic-gradient border that rotates slowly around a white
+   panel. Light, not a black box.                                   */
+.svcx-cta { padding: 0 0 100px; background: var(--paper); }
+.svcx-cta-frame {
+  position: relative;
+  border-radius: 26px;
+  padding: 2px;
+  overflow: hidden;
+  isolation: isolate;
+  background: linear-gradient(120deg, rgba(62, 140, 251, .55), rgba(1, 29, 128, .45), rgba(62, 140, 251, .18), rgba(1, 29, 128, .5));
+  background-size: 300% 300%;
+  animation: svcxFrameShift 12s ease-in-out infinite;
+  box-shadow: 0 26px 60px -34px rgba(1, 29, 128, .45);
+}
+@keyframes svcxFrameShift {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+.svcx-cta-inner {
+  position: relative;
+  border-radius: 24px;
+  padding: 74px 44px;
+  text-align: center;
+  background:
+    radial-gradient(620px 300px at 18% 0%, rgba(62, 140, 251, .08), transparent 60%),
+    radial-gradient(520px 280px at 86% 100%, rgba(1, 29, 128, .07), transparent 60%),
+    var(--paper);
+}
+.svcx-cta-h2 {
+  font-size: clamp(26px, 3.4vw, 38px);
+  line-height: 1.24;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -.6px;
+  margin: 0 0 16px;
+}
+.svcx-cta-h2 em {
+  font-style: normal;
+  background: linear-gradient(90deg, var(--blue) 0%, var(--navy) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.svcx-cta-p {
+  font-size: 16px;
+  line-height: 28px;
+  color: var(--muted);
+  max-width: 680px;
+  margin: 0 auto 14px;
+}
+.svcx-cta-p--tight { margin-bottom: 0; }
+.svcx-cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 32px; }
 
 /* ═══════════════════════════════════════════════════════════════
    MOTION
@@ -745,14 +986,12 @@
 /* ── Micro-interactions ── */
 /* Capability chips lift very slightly under the cursor. */
 .svcx .svcx-caps li,
-.svcx .svcx-tech-card li,
-.svcx .svcx-loop-steps span {
+.svcx .svcx-tech-card li {
   transition: background .25s ease, border-color .25s ease,
               color .25s ease, transform .25s ease;
 }
 .svcx .svcx-caps li:hover,
-.svcx .svcx-tech-card li:hover,
-.svcx .svcx-loop-steps span:hover {
+.svcx .svcx-tech-card li:hover {
   background: #FFFFFF;
   border-color: #D9D5CF;
   color: var(--ink);
@@ -778,8 +1017,12 @@
   .svcx .svcx-hero-copy p,
   .svcx .svcx-panel-list li,
   .svcx .svcx-blob,
+  .svcx .svcx-flow-track::after,
+  .svcx .svcx-flow-dot,
+  .svcx .svcx-cta-frame,
   .svcx .svcx-faq-item[open] .svcx-faq-a {
     animation: none !important;
   }
+  .svcx .svcx-ledger-rule { width: 54px !important; transition: none !important; }
   .svcx .svcx-reveal { opacity: 1 !important; transform: none !important; }
 }

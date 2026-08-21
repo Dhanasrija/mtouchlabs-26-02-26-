@@ -345,6 +345,18 @@ const processSteps = [
   },
 ];
 
+/** Continuous-improvement cycle rendered as a horizontal flow chart. */
+const FLOW = [
+  { label: "Discover", icon: "fa-solid fa-magnifying-glass" },
+  { label: "Plan", icon: "fa-solid fa-list-check" },
+  { label: "Design", icon: "fa-solid fa-pen-ruler" },
+  { label: "Develop", icon: "fa-solid fa-code" },
+  { label: "Test", icon: "fa-solid fa-vial" },
+  { label: "Launch", icon: "fa-solid fa-rocket" },
+  { label: "Support", icon: "fa-solid fa-headset" },
+  { label: "Improve", icon: "fa-solid fa-arrow-trend-up" },
+];
+
 const techGroups = [
   {
     icon: "fa-solid fa-code",
@@ -379,16 +391,16 @@ const techGroups = [
 ];
 
 const industries = [
-  { icon: "fa-solid fa-building-columns", name: "Financial Services & FinTech", desc: "Secure financial applications, automation, and data-driven platforms." },
-  { icon: "fa-solid fa-heart-pulse", name: "Healthcare", desc: "Patient platforms, workflow systems, and digital health solutions." },
-  { icon: "fa-solid fa-cart-shopping", name: "Retail & E-Commerce", desc: "Marketplaces, customer apps, inventory, and business automation." },
-  { icon: "fa-solid fa-truck-fast", name: "Logistics & Transportation", desc: "Fleet management, tracking, delivery apps, and operational dashboards." },
-  { icon: "fa-solid fa-industry", name: "Manufacturing", desc: "Enterprise applications, workflow automation, and connected systems." },
-  { icon: "fa-solid fa-graduation-cap", name: "Education", desc: "Learning platforms, management systems, and digital learning experiences." },
-  { icon: "fa-solid fa-house-chimney", name: "Real Estate", desc: "Property platforms, portals, CRM integrations, and workflow solutions." },
-  { icon: "fa-solid fa-cloud-arrow-up", name: "SaaS & Technology", desc: "SaaS products, cloud platforms, AI-powered applications, and APIs." },
-  { icon: "fa-solid fa-plane-departure", name: "Travel & Hospitality", desc: "Booking platforms, customer apps, and operational systems." },
-  { icon: "fa-solid fa-landmark", name: "Government & Enterprise", desc: "Secure digital platforms, modernization, and transformation programs." },
+  { icon: "fa-solid fa-building-columns", name: "Financial Services & FinTech", desc: "Secure financial applications, automation, and data-driven platforms.", c: "#2563EB", bg: "#E8EFFE" },
+  { icon: "fa-solid fa-heart-pulse", name: "Healthcare", desc: "Patient platforms, workflow systems, and digital health solutions.", c: "#E11D48", bg: "#FDE8ED" },
+  { icon: "fa-solid fa-cart-shopping", name: "Retail & E-Commerce", desc: "Marketplaces, customer apps, inventory, and business automation.", c: "#7C3AED", bg: "#F1EAFE" },
+  { icon: "fa-solid fa-truck-fast", name: "Logistics & Transportation", desc: "Fleet management, tracking, delivery apps, and operational dashboards.", c: "#EA580C", bg: "#FDEDE3" },
+  { icon: "fa-solid fa-industry", name: "Manufacturing", desc: "Enterprise applications, workflow automation, and connected systems.", c: "#0891B2", bg: "#E2F4F8" },
+  { icon: "fa-solid fa-graduation-cap", name: "Education", desc: "Learning platforms, management systems, and digital learning experiences.", c: "#059669", bg: "#E1F5EE" },
+  { icon: "fa-solid fa-house-chimney", name: "Real Estate", desc: "Property platforms, portals, CRM integrations, and workflow solutions.", c: "#4F46E5", bg: "#EBEAFD" },
+  { icon: "fa-solid fa-cloud-arrow-up", name: "SaaS & Technology", desc: "SaaS products, cloud platforms, AI-powered applications, and APIs.", c: "#0EA5E9", bg: "#E2F3FD" },
+  { icon: "fa-solid fa-plane-departure", name: "Travel & Hospitality", desc: "Booking platforms, customer apps, and operational systems.", c: "#DB2777", bg: "#FCE8F2" },
+  { icon: "fa-solid fa-landmark", name: "Government & Enterprise", desc: "Secure digital platforms, modernization, and transformation programs.", c: "#475569", bg: "#EDEFF2" },
 ];
 
 const whyChoose = [
@@ -599,8 +611,8 @@ export default function ServicesPage() {
             ))}
           </ol>
 
-          <div className="svcx-loop svcx-reveal">
-            <div>
+          <div className="svcx-flow svcx-reveal">
+            <div className="svcx-flow-head">
               <h3>Continuous improvement</h3>
               <p>
                 Software development does not end at launch. User feedback, analytics,
@@ -612,16 +624,23 @@ export default function ServicesPage() {
                 .
               </p>
             </div>
-            <div className="svcx-loop-steps">
-              <span>Discover</span>
-              <span>Plan</span>
-              <span>Design</span>
-              <span>Develop</span>
-              <span>Test</span>
-              <span>Launch</span>
-              <span>Support</span>
-              <span>Improve</span>
-            </div>
+
+            <ol className="svcx-flow-track" aria-label="Continuous improvement cycle">
+              {FLOW.map((f, i) => (
+                <li className="svcx-flow-node" key={f.label} style={d(i)}>
+                  <span className="svcx-flow-dot" aria-hidden="true">
+                    <i className={f.icon} />
+                  </span>
+                  <span className="svcx-flow-label">{f.label}</span>
+                </li>
+              ))}
+              <li className="svcx-flow-node svcx-flow-node--loop" style={d(FLOW.length)}>
+                <span className="svcx-flow-dot svcx-flow-dot--loop" aria-hidden="true">
+                  <i className="fa-solid fa-rotate-left" />
+                </span>
+                <span className="svcx-flow-label">Repeat</span>
+              </li>
+            </ol>
           </div>
         </div>
       </section>
@@ -688,7 +707,11 @@ export default function ServicesPage() {
           <div className="svcx-ind-grid">
             {industries.map((ind, i) => (
               <div className="svcx-ind-card svcx-reveal" key={ind.name} style={d(i % 5)}>
-                <span className="svcx-ind-icon" aria-hidden="true">
+                <span
+                  className="svcx-ind-icon"
+                  aria-hidden="true"
+                  style={{ color: ind.c, background: ind.bg, borderColor: ind.bg } as CSSProperties}
+                >
                   <i className={ind.icon} />
                 </span>
                 <h3>{ind.name}</h3>
@@ -722,6 +745,77 @@ export default function ServicesPage() {
                 <p>{w.desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════ PROVEN EXPERIENCE — counter ledger ═══════════ */}
+      <section className="svcx-section svcx-ledger" id="experience">
+        <div className="svcx-container">
+          <div className="svcx-head svcx-head--center svcx-reveal">
+            <p className="svcx-eyebrow">Proven Development Experience</p>
+            <h2 className="svcx-h2">
+              Track record across <em>mobile, web and enterprise</em>
+            </h2>
+            <p className="svcx-lead">
+              Our experience spans mobile applications, websites, custom software, SaaS
+              platforms, enterprise applications, AI solutions, and digital products.
+            </p>
+          </div>
+
+          <div className="svcx-ledger-row svcx-reveal">
+            {[
+              { n: 1500, suffix: "+", label: "Mobile Apps Developed", icon: "fa-solid fa-mobile-screen-button" },
+              { n: 820, suffix: "+", label: "Websites Developed", icon: "fa-solid fa-display" },
+              { n: 700, suffix: "+", label: "Unique Features Implemented", icon: "fa-solid fa-wand-magic-sparkles" },
+            ].map((st, i) => (
+              <div className="svcx-ledger-cell" key={st.label} style={d(i)}>
+                <span className="svcx-ledger-icon" aria-hidden="true">
+                  <i className={st.icon} />
+                </span>
+                <span className="svcx-ledger-num">
+                  <span className="svcx-count" data-to={st.n}>
+                    {st.n.toLocaleString("en-US")}
+                  </span>
+                  {st.suffix}
+                </span>
+                <span className="svcx-ledger-rule" aria-hidden="true" />
+                <span className="svcx-ledger-label">{st.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════ CTA — animated gradient frame ═══════════ */}
+      <section className="svcx-cta">
+        <div className="svcx-container">
+          <div className="svcx-cta-frame svcx-reveal">
+            <div className="svcx-cta-inner">
+              <p className="svcx-eyebrow">Let&apos;s Build</p>
+              <h2 className="svcx-cta-h2">
+                Build, modernize &amp; scale your <em>digital product</em>
+              </h2>
+              <p className="svcx-cta-p">
+                Launching a new software product, developing an enterprise application,
+                modernizing legacy technology, migrating to AWS, building a SaaS platform, or
+                integrating AI into an existing system — mTouch Labs can help.
+              </p>
+              <p className="svcx-cta-p svcx-cta-p--tight">
+                Have a project in mind? Let&apos;s discuss your requirements, technology
+                challenges, and business goals.
+              </p>
+              <div className="svcx-cta-actions">
+                <Link href="/contact-us" className="svcx-btn svcx-btn-primary">
+                  Start Your Project
+                  <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+                </Link>
+                <Link href="/request-free-quote" className="svcx-btn svcx-btn-ghost">
+                  Request a Consultation
+                  <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -770,6 +864,30 @@ export default function ServicesPage() {
     });
   }, { rootMargin: '0px 0px -6% 0px', threshold: 0 });
   root.querySelectorAll('.svcx-reveal').forEach(function(el){ io.observe(el); });
+
+  /* Count-up for the experience figures — runs once, when they scroll in. */
+  var counters = root.querySelectorAll('.svcx-count');
+  if (counters.length) {
+    var cio = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (!e.isIntersecting) return;
+        cio.unobserve(e.target);
+        var el = e.target;
+        var to = parseInt(el.getAttribute('data-to'), 10) || 0;
+        var dur = 1400, t0 = null;
+        function frame(ts){
+          if (t0 === null) t0 = ts;
+          var k = Math.min((ts - t0) / dur, 1);
+          var eased = 1 - Math.pow(1 - k, 3);
+          el.textContent = Math.round(to * eased).toLocaleString('en-US');
+          if (k < 1) requestAnimationFrame(frame);
+        }
+        el.textContent = '0';
+        requestAnimationFrame(frame);
+      });
+    }, { threshold: 0.4 });
+    counters.forEach(function(el){ cio.observe(el); });
+  }
   /* Safety net: anything the observer somehow never fires for (e.g. an
      element pinned at the very bottom of the document) is revealed anyway. */
   window.addEventListener('load', function(){
