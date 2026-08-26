@@ -143,6 +143,7 @@ export async function middleware(request: NextRequest) {
         !pathname.startsWith('/terms') &&
         !pathname.startsWith('/refund') &&
         !pathname.startsWith('/hire-') &&
+        !pathname.startsWith('/software-development-company-') &&
         !pathname.startsWith('/on-demand') &&
         !pathname.startsWith('/sitemap') &&
         !pathname.startsWith('/robots') &&
@@ -190,6 +191,7 @@ export async function middleware(request: NextRequest) {
       !pathname.startsWith('/terms') &&
       !pathname.startsWith('/refund') &&
       !pathname.startsWith('/hire-') &&
+      !pathname.startsWith('/software-development-company-') &&
       !pathname.startsWith('/on-demand') &&
       !pathname.startsWith('/sitemap') &&
       !pathname.startsWith('/robots') &&

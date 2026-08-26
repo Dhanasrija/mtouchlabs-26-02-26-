@@ -77,6 +77,7 @@ export default function SoftwareDevelopmentCompanyChennai() {
             <div>
               <h2 className="loc-introTitle">Supporting Chennai's Digital Growth</h2>
               <p className="loc-introText">Chennai has a thriving technology ecosystem with growing demand for scalable digital solutions. We help businesses modernize operations, launch platforms, and implement AI-driven automation.</p>
+              <p className="loc-introText">The same teams support clients through our <Link href="/software-development-company-hyderabad">Hyderabad head office</Link>, and our <Link href="/software-development-company-india">India-wide overview</Link> covers how we deliver across the country.</p>
               
             </div>
             <div className="loc-introStats">

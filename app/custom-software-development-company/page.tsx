@@ -156,7 +156,8 @@ export default function CustomSoftwareDevelopment() {
           <p className="sd-about__text">Many companies start with ready-made tools because they&apos;re quick to adopt. But as operations grow, these tools often become bottlenecks rather than solutions. Custom software solves this by aligning technology with your exact needs.</p>
           <p className="sd-about__text">Custom software makes sense when your workflows are unique and not supported by standard tools, when you need integrations across multiple systems, when scalability is a priority, when data control and security are critical, or when you want to build a product, not just use one &mdash; including native and hybrid <a href="/mobile-app-development-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>mobile app development</a>.</p>
           <p className="sd-about__text">Instead of adapting your business to software, custom solutions adapt to you. Combined with our{" "}
-            <a href="/ui-ux-design-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>UI/UX design capabilities</a>, we deliver software that is both powerful and intuitive.
+            <a href="/ui-ux-design-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>UI/UX design capabilities</a>, we deliver software that is both powerful and intuitive. Delivery is handled by our{" "}
+            <a href="/software-development-company-hyderabad" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>software product development team in Hyderabad</a>.
           </p>
         </div>
         <div className="sd-stats sd-animate--right">

@@ -5,30 +5,13 @@ import FAQSchema from "@/components/seo/FAQSchema";
 import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
-  title: "Software Development Company in Hyderabad | mTouch Labs",
-  description: "Looking for a trusted software development company in Hyderabad? mTouch Labs delivers custom software, AI, web, mobile app, SaaS, and enterprise software development services for startups and businesses worldwide.",
-  keywords: [
-    "Software Development Company Hyderabad",
-    "Software Development Services Hyderabad",
-    "Custom Software Development Hyderabad",
-    "Enterprise Software Development Hyderabad",
-    "Software Developers Hyderabad",
-    "IT Company Hyderabad",
-    "AI Development Company Hyderabad",
-    "Mobile App Development Hyderabad",
-    "Web Development Company Hyderabad",
-    "SaaS Development Company Hyderabad",
-    "Cloud Application Development Hyderabad",
-    "Digital Transformation Hyderabad",
-    "Business Software Development",
-    "ERP Development Hyderabad",
-    "CRM Software Development Hyderabad",
-    "Software Consulting Hyderabad",
-    "Software Outsourcing Hyderabad",
-    "Dedicated Development Team Hyderabad"
-  ],
+  // Brand intentionally omitted: app/layout.tsx defines
+  // `title.template = "%s | mTouch Labs"`, which appends it automatically.
+  // Including it here rendered "… | mTouch Labs | mTouch Labs".
+  title: "Software Development Company in Hyderabad",
+  description: "mTouch Labs builds custom software, enterprise, SaaS, web and mobile applications from our Hyderabad development centre. Talk to our team.",
   openGraph: {
-    images: [{ url: "/images/software-development-company-hyderabad.webp", width: 1200, height: 630, alt: "Software Development Company in Hyderabad - mTouch Labs" }],
+    images: [{ url: "/images/Light.png", width: 1200, height: 630, alt: "Software Development Company in Hyderabad - mTouch Labs" }],
     title: "Software Development Company in Hyderabad | mTouch Labs",
     description: "mTouch Labs is a leading Software Development Company in Hyderabad offering custom software, enterprise applications, mobile apps, cloud services, and AI solutions.",
     url: "https://www.mtouchlabs.com/software-development-company-hyderabad",
@@ -43,7 +26,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Software Development Company in Hyderabad | mTouch Labs",
     description: "mTouch Labs — software development company serving Hyderabad with custom software, cloud, AI and enterprise applications.",
-    images: [{ url: "/images/software-development-company-hyderabad.webp", alt: "mTouch Labs Software Development Company in Hyderabad" }]
+    images: [{ url: "/images/Light.png", alt: "mTouch Labs Software Development Company in Hyderabad" }]
   },
   robots: {
     index: true, follow: true,
@@ -61,12 +44,17 @@ export const metadata: Metadata = {
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
+  "@id": "https://www.mtouchlabs.com/software-development-company-hyderabad#localbusiness",
   "name": "mTouch Labs — Software Development in Hyderabad",
   "url": "https://www.mtouchlabs.com/software-development-company-hyderabad",
   "description": "mTouch Labs — custom software, enterprise apps, cloud and AI for clients in Hyderabad.",
-  "image": "https://www.mtouchlabs.com/images/software-development-company-hyderabad.webp",
+  "image": "https://www.mtouchlabs.com/images/Light.png",
   "priceRange": "$$",
-  "areaServed": { "@type": "Country", "name": "Hyderabad" },
+  "areaServed": {
+    "@type": "City",
+    "name": "Hyderabad",
+    "containedInPlace": { "@type": "AdministrativeArea", "name": "Telangana", "addressCountry": "IN" }
+  },
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Manjeera Trinity Corporate, 514, JNTU - Hitech City Rd, Kukatpally Housing Board Colony, K P H B Phase 3, Kukatpally",
@@ -77,8 +65,24 @@ const localBusinessSchema = {
   },
   "telephone": "+91-9390683154",
   "email": "contact@mtouchlabs.com",
-  "provider": { "@type": "Organization", "name": "mTouch Labs", "url": "https://www.mtouchlabs.com" },
-  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "150", "bestRating": "5" }
+  "provider": { "@id": "https://www.mtouchlabs.com/#organization" },
+  "parentOrganization": { "@id": "https://www.mtouchlabs.com/#organization" },
+  // Commercial services already described in the page body, made machine-readable
+  // and explicitly scoped to Hyderabad. No capability is claimed here that the
+  // page does not already list.
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Software Development Services in Hyderabad",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Software Development", "serviceType": "Custom Software Development", "areaServed": { "@type": "City", "name": "Hyderabad" }, "provider": { "@id": "https://www.mtouchlabs.com/#organization" } } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Software Product Development", "serviceType": "Software Product Development", "areaServed": { "@type": "City", "name": "Hyderabad" }, "provider": { "@id": "https://www.mtouchlabs.com/#organization" } } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Software Application Development", "serviceType": "Software Application Development", "areaServed": { "@type": "City", "name": "Hyderabad" }, "provider": { "@id": "https://www.mtouchlabs.com/#organization" } } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Enterprise Software Development", "serviceType": "Enterprise Software Development", "areaServed": { "@type": "City", "name": "Hyderabad" }, "provider": { "@id": "https://www.mtouchlabs.com/#organization" } } }
+    ]
+  }
+  // NOTE: aggregateRating removed. Google requires rating markup to reflect
+  // review content that is visible on the page; none is rendered here.
+  // Re-add only alongside real, displayed reviews.
 };
 
 const locationBreadcrumb = {
@@ -86,7 +90,7 @@ const locationBreadcrumb = {
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mtouchlabs.com/" },
-    { "@type": "ListItem", "position": 2, "name": "Locations", "item": "https://www.mtouchlabs.com/services" },
+    { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.mtouchlabs.com/services" },
     { "@type": "ListItem", "position": 3, "name": "Software Development Company in Hyderabad", "item": "https://www.mtouchlabs.com/software-development-company-hyderabad" }
   ]
 };
@@ -335,11 +339,11 @@ const SERVICES_STATS: { i: IconName; n?: string; l: string }[] = [
 
 const SERVICES: { i: IconName; t: string; d: string; href?: string }[] = [
   { i: "code", t: "Custom Software Development", d: "Tailored enterprise-grade software solutions designed for scalability, performance, and security.", href: "/custom-software-development-company" },
-  { i: "building", t: "Enterprise Applications", d: "Robust ERP, CRM, and workflow automation platforms for operational efficiency.", href: "/enterprise-software-development-company" },
+  { i: "building", t: "Enterprise Applications", d: "Robust ERP, CRM, and workflow automation platforms for operational efficiency.", href: "/enterprise-application-development-company" },
   { i: "phone", t: "Mobile App Development", d: "iOS, Android, and cross-platform applications for startups and enterprises.", href: "/mobile-app-development-company" },
-  { i: "cloud", t: "Cloud Services & Migration", d: "Cloud-native architecture, infrastructure management, and secure migration strategies.", href: "/cloud-application-development-company" },
-  { i: "cpu", t: "AI & Intelligent Automation", d: "AI-powered analytics, automation tools, and predictive systems for smarter decisions.", href: "/ai-development-company" },
-  { i: "rocket", t: "SaaS Product Development", d: "Multi-tenant, subscription-ready SaaS platforms from MVP to enterprise scale.", href: "/saas-development-company" },
+  { i: "cloud", t: "Cloud Services & Migration", d: "Cloud-native architecture, infrastructure management, and secure migration strategies.", href: "/cloud-services" },
+  { i: "cpu", t: "AI & Intelligent Automation", d: "AI-powered analytics, automation tools, and predictive systems for smarter decisions.", href: "/generative-ai-development-company" },
+  { i: "rocket", t: "SaaS Product Development", d: "Multi-tenant, subscription-ready SaaS platforms from MVP to enterprise scale.", href: "/saas-development-services" },
   { i: "globe", t: "Web Application Development", d: "Responsive, high-performance web portals, marketplaces, and business applications.", href: "/web-development-company" },
   { i: "link", t: "API Development & Integration", d: "Secure APIs and enterprise integrations that connect your software ecosystem." },
   { i: "refresh", t: "Legacy Application Modernization", d: "Transform outdated systems into modern, secure, cloud-ready applications." },
@@ -357,21 +361,21 @@ const SERVICE_DETAILS: DetailProps[] = [
     benefits: ["Tailored to your business needs", "Easy integration with existing systems", "Scalable architecture for future growth"],
   },
   {
-    n: "02", t: "Enterprise Software Development", href: "/enterprise-software-development-company",
+    n: "02", t: "Enterprise Software Development", href: "/enterprise-application-development-company",
     d: "Modern enterprises require intelligent software that connects teams, automates operations, and delivers real-time insights. We develop enterprise applications that improve collaboration, simplify business processes, and support organizational growth.",
     label: "Enterprise Solutions",
     tags: ["Enterprise Resource Planning (ERP)", "Customer Relationship Management (CRM)", "Procurement Systems", "Supply Chain Management", "Business Intelligence Dashboards", "Document Management Systems"],
     benefits: ["Increased productivity", "Better business visibility", "Enterprise-grade security"],
   },
   {
-    n: "03", t: "AI & Generative AI Development", href: "/ai-development-company",
+    n: "03", t: "AI & Generative AI Development", href: "/generative-ai-development-company",
     d: "Harness the power of Artificial Intelligence to automate operations, improve decision-making, and deliver personalized customer experiences. We develop AI-powered solutions that help businesses innovate faster and operate smarter.",
     label: "AI Solutions",
     tags: ["AI Chatbots", "Generative AI Applications", "AI Assistants", "Machine Learning Models", "Predictive Analytics", "Intelligent Document Processing", "AI Workflow Automation", "Recommendation Engines"],
     benefits: ["Reduce manual effort", "Improve customer engagement", "Unlock actionable business insights"],
   },
   {
-    n: "04", t: "SaaS Product Development", href: "/saas-development-company",
+    n: "04", t: "SaaS Product Development", href: "/saas-development-services",
     d: "Launch scalable Software-as-a-Service (SaaS) platforms designed for subscription-based business models. From MVP development to enterprise SaaS applications, we help businesses build secure, cloud-native products that scale with demand.",
     label: "We Build",
     tags: ["B2B SaaS Platforms", "B2C SaaS Applications", "Multi-Tenant Solutions", "Subscription Management", "Admin Dashboards", "API-Driven SaaS Products"],
@@ -381,7 +385,7 @@ const SERVICE_DETAILS: DetailProps[] = [
     n: "05", t: "Web Application Development", href: "/web-development-company",
     d: "Develop responsive, secure, and high-performance web applications using modern frameworks and cloud technologies. Our solutions are designed to deliver exceptional user experiences across desktop and mobile devices.",
     label: "Applications We Develop",
-    tags: ["Enterprise Portals", "Customer Portals", "Vendor Portals", "Business Applications", <Link href="/ecommerce-development-company" key="ecom">eCommerce Platforms</Link>, "Marketplace Solutions", "Progressive Web Apps (PWAs)"],
+    tags: ["Enterprise Portals", "Customer Portals", "Vendor Portals", "Business Applications", <Link href="/ecommerce-app-development-company" key="ecom">eCommerce Platforms</Link>, "Marketplace Solutions", "Progressive Web Apps (PWAs)"],
     benefits: ["Responsive design", "High performance", "SEO-friendly architecture"],
   },
   {
@@ -392,7 +396,7 @@ const SERVICE_DETAILS: DetailProps[] = [
     benefits: ["Better user engagement", "Cross-platform compatibility", "Faster development cycles"],
   },
   {
-    n: "07", t: "Cloud Application Development", href: "/cloud-application-development-company",
+    n: "07", t: "Cloud Application Development", href: "/cloud-services",
     d: "Adopt cloud-first technologies that improve scalability, performance, and operational efficiency. Our cloud experts help businesses migrate, modernize, and optimize applications for AWS, Azure, and Google Cloud.",
     label: "Cloud Services",
     tags: ["Cloud Migration", "Cloud-Native Development", "AWS Solutions", "Microsoft Azure", "Google Cloud Platform", "Serverless Applications", "Cloud Infrastructure Management"],
@@ -444,7 +448,7 @@ const SOLUTIONS: { i: IconName; t: string; d: ReactNode }[] = [
   { i: "bulb", t: "Startup & MVP Solutions", d: "Fast, cost-effective MVPs that help startups validate and launch quickly." },
   {
     i: "truck", t: "On-Demand & Delivery App Solutions",
-    d: <><Link href="/food-delivery-app-development-company">Food delivery</Link>, <Link href="/grocery-delivery-app-development-company">grocery delivery</Link>, and <Link href="/taxi-booking-app-development-company">taxi booking</Link> apps built for scale.</>,
+    d: <><Link href="/food-delivery-app-development-service">Food delivery</Link>, <Link href="/grocery-delivery-app-development-company">grocery delivery</Link>, and <Link href="/taxi-booking-app-development-company">taxi booking</Link> apps built for scale.</>,
   },
 ];
 
@@ -815,9 +819,9 @@ const LOC_CSS = `
 export default function SoftwareDevelopmentCompanyHyderabad() {
   return (
     <div className="loc-page">
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+      {/* Fonts (Inter + Sora) are requested once in app/layout.tsx.
+          A body-level <link> here added a third render-blocking
+          stylesheet on an origin the layout already preconnects to. */}
       <style>{LOC_CSS}</style>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(locationBreadcrumb) }} />
@@ -826,7 +830,7 @@ export default function SoftwareDevelopmentCompanyHyderabad() {
       <nav className="loc-breadcrumb" aria-label="Breadcrumb">
         <Link href="/">Home</Link>
         <span className="loc-breadcrumbSep">/</span>
-        <Link href="/services">Locations</Link>
+        <Link href="/services">Services</Link>
         <span className="loc-breadcrumbSep">/</span>
         <span className="loc-breadcrumbCurrent">Software Development Company in Hyderabad</span>
       </nav>
@@ -846,8 +850,8 @@ export default function SoftwareDevelopmentCompanyHyderabad() {
             <div>
               <h2 className="loc-introTitle">Build Intelligent Software Solutions That Drive Business Growth</h2>
               <p className="loc-introText">Technology is reshaping the way businesses operate, compete, and grow. From startups building their first digital product to enterprises modernizing legacy systems, organizations need software that is secure, scalable, and designed for long-term success. Choosing the right software development partner is not just about writing code — it&apos;s about building technology that solves business challenges, improves efficiency, and creates measurable value.</p>
-              <p className="loc-introText">mTouch Labs is a leading <strong>Software Development Company in Hyderabad</strong>, helping startups, SMEs, enterprises, and government organizations transform ideas into innovative digital solutions. With over 14 years of experience, 500+ global clients, and expertise across <Link href="/custom-software-development-company">Custom Software Development</Link>, <Link href="/ai-development-company">AI</Link>, Enterprise Applications, SaaS, <Link href="/web-development-company">Web Development</Link>, <Link href="/mobile-app-development-company">Mobile Apps</Link>, Cloud Solutions, and Digital Transformation, we deliver technology that empowers businesses to innovate with confidence.</p>
-              <p className="loc-introText">From strategy and architecture to development, deployment, and long-term support, our experienced team works closely with clients to build software that aligns with their business goals, accelerates growth, and adapts to future demands.</p>
+              <p className="loc-introText">mTouch Labs is a leading <strong>Software Development Company in Hyderabad</strong>, helping startups, SMEs, enterprises, and government organizations transform ideas into innovative digital solutions. With over 14 years of experience, 500+ global clients, and expertise across <Link href="/custom-software-development-company">Custom Software Development</Link>, <Link href="/generative-ai-development-company">AI</Link>, Enterprise Applications, SaaS, <Link href="/web-development-company">Web Development</Link>, <Link href="/mobile-app-development-company">Mobile Apps</Link>, Cloud Solutions, and Digital Transformation, we deliver technology that empowers businesses to innovate with confidence.</p>
+              <p className="loc-introText">From strategy and architecture to development, deployment, and long-term support, our experienced team works closely with clients to build software that aligns with their business goals, accelerates growth, and adapts to future demands. You can browse our <Link href="/portfolio">product portfolio</Link> and read detailed <Link href="/case-studies">client case studies</Link> to see how we approach delivery.</p>
               <div className="loc-introTags">
                 {["HITEC City", "Gachibowli", "Madhapur", "Kondapur", "Financial District"].map((a) => <span className="loc-introTag" key={a}>{a}</span>)}
               </div>
@@ -1073,7 +1077,7 @@ export default function SoftwareDevelopmentCompanyHyderabad() {
         <div className="loc-sectionInner">
           <div className="loc-sectionHeader">
             <h2 className="loc-sectionTitle">Why Partner with <span className="loc-highlight">mTouch Labs?</span></h2>
-            <p className="loc-sectionDesc">Choosing the right software development partner goes beyond technical capabilities. It requires a team that understands your business, embraces innovation, and remains committed to your long-term success.</p>
+            <p className="loc-sectionDesc">Choosing the right software development partner goes beyond technical capabilities. It requires a team that understands your business, embraces innovation, and remains committed to your long-term success. See our <Link href="/clutch">Clutch profile</Link> and <Link href="/nasscom-membership">NASSCOM membership</Link> for independent context on who we are.</p>
           </div>
           <div className="loc-whyGrid">{WHY_PARTNER.map((w) => <Why key={w.t} {...w} />)}</div>
         </div>
@@ -1090,6 +1094,7 @@ export default function SoftwareDevelopmentCompanyHyderabad() {
               <p className="loc-contactRow"><span className="loc-ci"><Icon name="phoneCall" size={18} /></span><span><a href="tel:+919390683154">+91 9390683154</a></span></p>
               <p className="loc-contactRow"><span className="loc-ci"><Icon name="mail" size={18} /></span><span><a href="mailto:contact@mtouchlabs.com">contact@mtouchlabs.com</a></span></p>
               <p className="loc-contactRow"><span className="loc-ci"><Icon name="clock" size={18} /></span><span>Monday – Friday | 9:30 AM – 6:30 PM</span></p>
+              <p className="loc-introText">We also support teams elsewhere in the country — see our <Link href="/software-development-company-india">nationwide delivery overview</Link>, or the <Link href="/software-development-company-bangalore">Bangalore</Link> and <Link href="/software-development-company-chennai">Chennai</Link> pages.</p>
               <p className="loc-introText"><strong>Serving businesses across:</strong></p>
               <div className="loc-introTags">{AREAS.map((a) => <span className="loc-introTag" key={a}>{a}</span>)}</div>
             </div>

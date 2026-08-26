@@ -7,6 +7,7 @@
   its JSX lives in a cacheable JS chunk instead.
 */
 import React from "react";
+import Link from "next/link";
 import LocationCarousel from "./ui/LocationCarousel";
 
 const locations = {
@@ -51,6 +52,14 @@ export default function LocationSection() {
 
       <section className="_location_we_serve_container">
         <LocationCarousel locations={locations} locationList={locationList} />
+        {/* Contextual link to the Hyderabad location page. The head office is
+            our largest delivery centre; this points local commercial intent at
+            the page that actually serves it. */}
+        <p className="_location_we_serve_note" style={{ textAlign: "center", marginTop: "1.25rem" }}>
+          Read more about{" "}
+          <Link href="/software-development-company-hyderabad">custom software development in Hyderabad</Link>{" "}
+          at our head office.
+        </p>
       </section>
     </>
   );

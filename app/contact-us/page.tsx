@@ -874,7 +874,7 @@ export default function ContactUsPage() {
       <section className="ct-offices" id="offices">
         <div className="ct-offices__inner">
           <h2 className="ct-offices__heading">Visit Us <span className="ct-offices__accent">Worldwide</span></h2>
-          <p className="ct-offices__sub">With offices across 3 continents, we&apos;re always close to you. Find the nearest mTouch Labs office below.</p>
+          <p className="ct-offices__sub">With offices across 3 continents, we&apos;re always close to you. Find the nearest mTouch Labs office below. Our head office also has its own overview of <a href="/software-development-company-hyderabad" className="ct-offices__link">what we build for Hyderabad businesses</a>.</p>
           <div className="ct-offices__tabs" id="officeTabs">{offices.map((o,i)=>(<button key={o.id} className={`ct-offices__tab${i===0?" ct-offices__tab--active":""}`} data-office={o.id} type="button"><span>{o.flag}</span> {o.city.split(",")[0]}, {o.city.includes("USA")?"USA":o.city.split(",").pop()?.trim()}</button>))}</div>
           {offices.map((o,i)=>(<div key={o.id} className={`ct-offices__panel${i===0?" ct-offices__panel--active":""}`} data-panel={o.id}><div className="ct-offices__panel-grid">
             <div className="ct-offices__map"><iframe src={o.mapEmbed} width="100%" height="100%" style={{border:0,borderRadius:"16px"}} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title={`mTouch Labs ${o.city} office`} /></div>

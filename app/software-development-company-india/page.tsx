@@ -90,6 +90,12 @@ export default function SoftwareDevelopmentCompanyIndia() {
             </h2>
             <p className="loc-sectionDesc">
               End-to-end software development services tailored for India businesses.
+              City pages:{" "}
+              <Link href="/software-development-company-hyderabad">Hyderabad</Link>,{" "}
+              <Link href="/software-development-company-bangalore">Bangalore</Link>,{" "}
+              <Link href="/software-development-company-chennai">Chennai</Link>,{" "}
+              <Link href="/software-development-company-coimbatore">Coimbatore</Link> and{" "}
+              <Link href="/software-development-company-kochi">Kochi</Link>.
             </p>
           </div>
           <div className="loc-servicesGrid">
