@@ -98,6 +98,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/product-design-services',
     '/design-system-development',
     // AI / ML / Data / IoT
+    '/ai-chatbot-development-company',
     '/generative-ai-development-company',
     '/machine-learning-development-company',
     '/data-science-solutions',

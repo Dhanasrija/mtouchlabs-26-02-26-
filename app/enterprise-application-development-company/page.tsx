@@ -43,7 +43,8 @@ export default function EnterpriseApplicationDevelopment() {
             expertise ensures every enterprise solution is tailored to your unique business requirements.
           </p>
           <p className="ea-about__text">Enterprise software must function as strategic infrastructure — not just a digital tool. From large-scale ERP platforms to{" "}
-            <a href="/web-development-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>cloud-native web applications</a>, we design systems built for resilience and performance at scale.
+            <a href="/web-development-company" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>cloud-native web applications</a>, we design systems built for resilience and performance at scale — delivered from our{" "}
+            <a href="/software-development-company-hyderabad" style={{color: "#2563eb", textDecoration: "none", fontWeight: 600}}>Hyderabad delivery centre</a>.
           </p>
         </div>
         <div className="ea-stats ea-animate--right">
