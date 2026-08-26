@@ -188,6 +188,9 @@ export default function NavbarView({
     "/e-learning-app-development-company", "/gaming-apps-development-company", "/ott-app-development-company",
     "/diagnostic-app-development-company", "/sports-and-fitness-app-development-company",
     "/social-media-app-development-company",
+    // AI-powered products
+    "/ai-chatbot-development-company", "/ai-customer-support-system",
+    "/ai-sales-assistant-development",
   ]);
 
   // ── All resource (hire) page URLs ──
@@ -675,6 +678,10 @@ export default function NavbarView({
                           <div className="home-mega-item-icon"><img loading="lazy" decoding="async" src="/images/nav/socialmedia.webp" alt="Social media" width="28" height="28" /></div>
                           <div className="home-mega-item-text"><span className="home-mega-item-label">Social &amp; Media Apps</span><span className="home-mega-item-desc">Community building and content sharing platforms</span></div>
                         </div>
+                        <div className="home-mega-item js-home-mega-item" data-target="prod-ai">
+                          <div className="home-mega-item-icon"><img loading="lazy" decoding="async" src="/images/nav/ai_data_intelligence.webp" alt="AI-powered products" width="28" height="28" /></div>
+                          <div className="home-mega-item-text"><span className="home-mega-item-label">AI-Powered Products</span><span className="home-mega-item-desc">Production AI assistants built on LLMs, RAG and your business systems</span></div>
+                        </div>
                       </div>
                       <div className="home-mega-content">
                         <div className="home-mega-panel active" id="prod-ondemand">
@@ -727,6 +734,14 @@ export default function NavbarView({
                           <h4 className="home-mega-panel-title">Social &amp; Media Apps</h4>
                           <div className="menu-inner-block-a"><div className="inner-blockss"><ul className="menu-li-link">
                             <li><a href="/social-media-app-development-company"><span className="mega-link-title">Social Media App</span><span className="mega-link-desc">Community platforms with feeds, chat &amp; sharing</span></a></li>
+                          </ul></div></div>
+                        </div>
+                        <div className="home-mega-panel" id="prod-ai">
+                          <h4 className="home-mega-panel-title">AI-Powered Products</h4>
+                          <div className="menu-inner-block-a"><div className="inner-blockss"><ul className="menu-li-link">
+                            <li><a href="/ai-chatbot-development-company"><span className="mega-link-title">AI Chatbot Development</span><span className="mega-link-desc">Custom AI chatbots with LLM integration, RAG and enterprise connectors</span></a></li>
+                            <li><a href="/ai-customer-support-system"><span className="mega-link-title">AI Customer Support System</span><span className="mega-link-desc">Automated resolution with knowledge retrieval, ticket routing and human handoff</span></a></li>
+                            <li><a href="/ai-sales-assistant-development"><span className="mega-link-title">AI Sales Assistant</span><span className="mega-link-desc">Lead qualification, prospect engagement and CRM-connected sales automation</span></a></li>
                           </ul></div></div>
                         </div>
                       </div>
@@ -1071,6 +1086,14 @@ export default function NavbarView({
                   <a href="#">Social &amp; Media Apps</a>
                   <ul>
                     <li><a href="/social-media-app-development-company">Social Media App</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">AI-Powered Products</a>
+                  <ul>
+                    <li><a href="/ai-chatbot-development-company">AI Chatbot Development</a></li>
+                    <li><a href="/ai-customer-support-system">AI Customer Support System</a></li>
+                    <li><a href="/ai-sales-assistant-development">AI Sales Assistant</a></li>
                   </ul>
                 </li>
               </ul>
