@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import ServiceHero from "@/components/sections/ServiceHero";
 
-const IMG = "/images/products/AI/ai_chatbot_development";
+const IMG = "/images/products/ai_chatbot_development";
 
 export const metadata: Metadata = {
   title: "AI Chatbot Development Company | Custom AI Chatbots | mTouch Labs",
@@ -458,7 +458,7 @@ export default function AIChatbotDevelopmentCompany() {
               src={`${IMG}/ai-chatbot-vs-traditional-chatbot.webp`}
               alt="AI chatbot vs traditional rule-based chatbot comparison"
               width={1200}
-              height={692}
+              height={700}
               loading="lazy"
             />
           </div>
@@ -548,8 +548,8 @@ export default function AIChatbotDevelopmentCompany() {
             <img
               src={`${IMG}/custom-ai-chatbot-development.webp`}
               alt="Custom AI chatbot development interface"
-              width={1200}
-              height={900}
+              width={1000}
+              height={750}
               loading="lazy"
             />
           </div>
