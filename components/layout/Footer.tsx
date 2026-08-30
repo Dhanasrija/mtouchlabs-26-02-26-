@@ -360,6 +360,11 @@ export default function Footer() {
               <h5 className="ft-region-label"><span className="ft-region-dot" /> AMERICAS</h5>
               <ul className="ft-region-list">
                 <li><a href="/software-development-company-usa">United States</a></li>
+                <li><a href="/software-development-company-new-york">New York</a></li>
+                <li><a href="/software-development-company-california">California</a></li>
+                <li><a href="/software-development-company-texas">Texas</a></li>
+                <li><a href="/software-development-company-florida">Florida</a></li>
+                <li><a href="/software-development-company-illinois">Illinois</a></li>
                 <li><a href="/software-development-company-canada">Canada</a></li>
               </ul>
             </div>
