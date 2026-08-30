@@ -75,6 +75,57 @@
   --color-text: #222222;
   --color-text-light: #777777;
   --color-text-white: #FFFFFF;
+
+  /* ============================================
+     SEMANTIC UI TOKENS
+     --------------------------------------------
+     Every value below resolves to a colour from the
+     brand palette above, or to that palette colour at
+     reduced opacity. Nothing new is introduced.
+     Components should reference THESE tokens rather
+     than raw hexes, so a palette change propagates.
+
+     Note on contrast: white text on Signature Blue
+     measures 3.30:1. That clears the 3:1 bar for UI
+     components and large text, but is below the 4.5:1
+     AA bar for small text — so keep button labels at
+     15px+ semibold or larger. Heritage Navy and Deep
+     Indigo stay in the palette for dark surfaces and
+     print; they are deliberately NOT used as UI fills
+     because they read as indigo beside Signature Blue.
+     ============================================ */
+
+  /* Primary CTA — filled.
+     Signature Blue, matching the buttons already used on the homepage
+     (e.g. the active location pill and the technology tabs). Hover
+     darkens the same hue rather than switching to navy, so the brand
+     colour never shifts. */
+  --cta-primary-bg: var(--color-signature-blue);
+  --cta-primary-bg-hover: var(--color-signature-blue);
+  --cta-primary-text: var(--color-white);
+
+  /* Secondary CTA — outlined */
+  --cta-secondary-bg: var(--color-white);
+  --cta-secondary-bg-hover: rgba(62, 140, 251, 0.10);
+  --cta-secondary-text: var(--color-signature-blue);
+  --cta-secondary-text-hover: var(--color-signature-blue);
+  --cta-secondary-border: var(--color-signature-blue);
+
+  /* Text roles */
+  --heading-color: var(--color-carbon-black);
+  --body-color: var(--color-text);
+  --muted-color: var(--color-slate-grey);
+  --link-color: var(--color-signature-blue);
+  --link-color-hover: var(--color-signature-blue);
+
+  /* Surfaces derived from Signature Blue */
+  --brand-tint: rgba(62, 140, 251, 0.08);
+  --brand-tint-strong: rgba(62, 140, 251, 0.14);
+  --brand-line: rgba(62, 140, 251, 0.28);
+  --brand-glow: rgba(62, 140, 251, 0.30);
+  --navy-glow: rgba(1, 29, 128, 0.26);
+  --surface-dark: var(--color-deep-indigo);
+  --surface-darkest: var(--color-carbon-black);
 }
 
 /* ============================================
@@ -264,3 +315,39 @@ p:not([class]) {
     --tag-size: 12px; --tag-line: 20px;
   }
 }
+
+/* ============================================
+   LINKS — ONE BEHAVIOUR EVERYWHERE
+   --------------------------------------------
+   Fixes: some links changed colour on hover, some
+   stayed, some picked up an underline. Every content
+   link is now Signature Blue, never underlined, and
+   hover only dims it — the hue never changes.
+
+   TWO LAYERS OF EXCLUSION, both needed:
+     1. by class    — buttons, tabs, pills, CTAs,
+                      logos, menus carry their own
+                      colours (white on blue, etc.)
+     2. by ancestor — header, footer, nav, mega-menu
+                      and admin keep their existing
+                      link treatment untouched
+   Ancestor exclusions live inside :not() rather than
+   in a separate override rule, because this selector's
+   specificity (many attribute :not()s) would otherwise
+   beat any override and repaint the footer blue.
+
+   NOTE: each selector must stay on ONE line. A line
+   break inserts a descendant combinator and the rule
+   silently targets the wrong elements.
+
+   Escape hatch: add `data-plain-link` to any anchor
+   that should keep its own styling.
+   ============================================ */
+a:not([class*="btn"]):not([class*="Btn"]):not([class*="button"]):not([class*="Button"]):not([class*="nav"]):not([class*="Nav"]):not([class*="menu"]):not([class*="Menu"]):not([class*="logo"]):not([class*="Logo"]):not([class*="tab"]):not([class*="Tab"]):not([class*="pill"]):not([class*="cta"]):not([class*="Cta"]):not([class*="CTA"]):not([class*="card"]):not([class*="Card"]):not([class*="title"]):not([class*="Title"]):not([class*="heading"]):not([class*="Heading"]):not([data-plain-link]):not(header a):not(footer a):not(nav a):not([class*="admin"] a):not([class*="mega-menu"] a) { color: var(--link-color); text-decoration: none; transition: opacity 0.18s ease; }
+a:not([class*="btn"]):not([class*="Btn"]):not([class*="button"]):not([class*="Button"]):not([class*="nav"]):not([class*="Nav"]):not([class*="menu"]):not([class*="Menu"]):not([class*="logo"]):not([class*="Logo"]):not([class*="tab"]):not([class*="Tab"]):not([class*="pill"]):not([class*="cta"]):not([class*="Cta"]):not([class*="CTA"]):not([class*="card"]):not([class*="Card"]):not([class*="title"]):not([class*="Title"]):not([class*="heading"]):not([class*="Heading"]):not([data-plain-link]):not(header a):not(footer a):not(nav a):not([class*="admin"] a):not([class*="mega-menu"] a):visited { color: var(--link-color); }
+a:not([class*="btn"]):not([class*="Btn"]):not([class*="button"]):not([class*="Button"]):not([class*="nav"]):not([class*="Nav"]):not([class*="menu"]):not([class*="Menu"]):not([class*="logo"]):not([class*="Logo"]):not([class*="tab"]):not([class*="Tab"]):not([class*="pill"]):not([class*="cta"]):not([class*="Cta"]):not([class*="CTA"]):not([class*="card"]):not([class*="Card"]):not([class*="title"]):not([class*="Title"]):not([class*="heading"]):not([class*="Heading"]):not([data-plain-link]):not(header a):not(footer a):not(nav a):not([class*="admin"] a):not([class*="mega-menu"] a):hover { color: var(--link-color); text-decoration: none; opacity: 0.72; }
+a:not([class*="btn"]):not([class*="Btn"]):not([class*="button"]):not([class*="Button"]):not([class*="nav"]):not([class*="Nav"]):not([class*="menu"]):not([class*="Menu"]):not([class*="logo"]):not([class*="Logo"]):not([class*="tab"]):not([class*="Tab"]):not([class*="pill"]):not([class*="cta"]):not([class*="Cta"]):not([class*="CTA"]):not([class*="card"]):not([class*="Card"]):not([class*="title"]):not([class*="Title"]):not([class*="heading"]):not([class*="Heading"]):not([data-plain-link]):not(header a):not(footer a):not(nav a):not([class*="admin"] a):not([class*="mega-menu"] a):focus { color: var(--link-color); text-decoration: none; }
+a:not([class*="btn"]):not([class*="Btn"]):not([class*="button"]):not([class*="Button"]):not([class*="nav"]):not([class*="Nav"]):not([class*="menu"]):not([class*="Menu"]):not([class*="logo"]):not([class*="Logo"]):not([class*="tab"]):not([class*="Tab"]):not([class*="pill"]):not([class*="cta"]):not([class*="Cta"]):not([class*="CTA"]):not([class*="card"]):not([class*="Card"]):not([class*="title"]):not([class*="Title"]):not([class*="heading"]):not([class*="Heading"]):not([data-plain-link]):not(header a):not(footer a):not(nav a):not([class*="admin"] a):not([class*="mega-menu"] a):active { color: var(--link-color); text-decoration: none; opacity: 0.6; }
+
+/* Keyboard focus stays visible and on-brand, everywhere. */
+a:focus-visible { outline: 2px solid var(--color-signature-blue); outline-offset: 3px; border-radius: 4px; }

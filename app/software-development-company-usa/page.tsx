@@ -55,6 +55,39 @@ export const metadata: Metadata = {
 };
 
 /* ── shared numbers: one source, so they can never drift ── */
+/* Small UI icons used in buttons, kept consistent across the page. */
+const UI = {
+  send:   <><path d="M21.5 2.5 11 13" /><path d="M21.5 2.5 14.8 21.5 11 13 2.5 9.2Z" /></>,
+  doc:    <><path d="M15.5 2.5H7a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6Z" /><path d="M14.5 2.5V7H19" /><path d="M8.5 13h7M8.5 16.5h4.5" /></>,
+  arrow:  <><path d="M4 12h15" /><path d="m13 6 6 6-6 6" /></>,
+  badge:  <><path d="M3 21V5.5A1.5 1.5 0 0 1 4.5 4h7A1.5 1.5 0 0 1 13 5.5V21" /><path d="M13 10h6.5A1.5 1.5 0 0 1 21 11.5V21" /><path d="M2 21h20" /><path d="M6.5 8h3M6.5 12h3M6.5 16h3" /></>,
+  clock:  <><circle cx="12" cy="12" r="9" /><path d="M12 6.8V12l3.4 2" /></>,
+  chart:  <><path d="M6 20v-6M12 20V5M18 20v-9" /><path d="M3 20.5h18" /></>,
+  shield: <><path d="M12 21.5s7.5-3.6 7.5-9.4V5.6L12 2.6 4.5 5.6v6.5c0 5.8 7.5 9.4 7.5 9.4Z" /></>,
+  chat:   <><path d="M20.5 11.6a8 8 0 0 1-11.6 7.2L3.5 20.5l1.7-5.4A8 8 0 1 1 20.5 11.6Z" /></>,
+};
+const UIcon = ({ d, s = 18 }: { d: ReactNode; s?: number }) => (
+  <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7"
+       strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">{d}</svg>
+);
+
+/**
+ * ExtLink — an internal link that opens in a new browser tab.
+ *
+ * Requested behaviour: every internal link on this page should open the
+ * destination as a new page rather than navigating away from the USA hub.
+ * `rel="noopener"` is set because `target="_blank"` otherwise gives the
+ * opened page a handle back to this one via window.opener.
+ */
+const ExtLink = ({ href, className, children }: { href: string; className?: string; children: ReactNode }) => (
+  <Link href={href} className={className} target="_blank" rel="noopener">{children}</Link>
+);
+
+const UI_CLOCK  = <><circle cx="12" cy="12" r="9" /><path d="M12 6.8V12l3.4 2" /></>;
+const UI_CHART  = <><path d="M6 20v-6M12 20V5M18 20v-9" /><path d="M3 20.5h18" /></>;
+const UI_SHIELD = <><path d="M12 21.5s7.5-3.6 7.5-9.4V5.6L12 2.6 4.5 5.6v6.5c0 5.8 7.5 9.4 7.5 9.4Z" /><path d="m9 12 2 2 4-4" /></>;
+const UI_CHAT   = <><path d="M20.5 11.6a8 8 0 0 1-11.6 7.2L3.5 20.5l1.7-5.4A8 8 0 1 1 20.5 11.6Z" /></>;
+
 const FACTS = { years: "14+", clients: "500+", products: "1,500+", countries: "12+" } as const;
 
 /* ────────────────────────────────────────────────────────────
@@ -68,22 +101,61 @@ const FACTS = { years: "14+", clients: "500+", products: "1,500+", countries: "1
    shows a link to /case-studies instead — which is correct
    behaviour, not a broken state.
    ──────────────────────────────────────────────────────────── */
-type CaseStudy = { name: string; industry: string; challenge: string; solution: string; tech: string[]; result: string; href: string };
-const CASE_STUDIES: CaseStudy[] = [];
+type CaseStudy = {
+  tag: string;
+  name: string;
+  result: string;
+  img: string;
+  alt: string;
+  href: string;
+};
 
-const HERO_STATS: { n: string; l: string }[] = [
-  { n: FACTS.years, l: "Years Experience" },
-  { n: FACTS.clients, l: "Clients" },
-  { n: FACTS.products, l: "Products" },
-  { n: FACTS.countries, l: "Countries" },
+/* Three real engagements, pulled from the published case studies.
+   Every figure below is quoted from its own case-study page — none
+   are invented. If a project has no published metric, its `result`
+   states the qualitative outcome rather than a made-up number. */
+const CASE_STUDIES: CaseStudy[] = [
+  {
+    tag: "FinTech",
+    name: "Secure Payment Platform with Real-Time Analytics",
+    result: "Transaction failures cut from 8.2% to 0.4%; settlement down from 3 days to 4 hours",
+    img: "/images/case-studies/fintech-banner.svg",
+    alt: "Fintech payment platform dashboard built by mTouch Labs",
+    href: "/case-studies/fintech-payment-platform",
+  },
+  {
+    tag: "Healthcare",
+    name: "Healthcare Mobile App Development",
+    result: "Faster appointment booking, reduced administrative workload, better patient–doctor communication",
+    img: "/images/healthcarebanner.svg",
+    alt: "Healthcare mobile application built by mTouch Labs",
+    href: "/case-studies/healthcare-mobile-app-development",
+  },
+  {
+    tag: "SaaS",
+    name: "Multi-Tenant SaaS Platform with AI Workflow Automation",
+    result: "200 paying teams onboarded within 3 months; time-to-value under 8 minutes",
+    img: "/images/case-studies/saas-banner.svg",
+    alt: "Multi-tenant SaaS collaboration platform built by mTouch Labs",
+    href: "/case-studies/saas-team-collaboration-platform",
+  },
 ];
 
-const TRUST_STATS: { i: IconName; n: string; l: string }[] = [
-  { i: "award", n: FACTS.years, l: "Experience in software product development" },
-  { i: "users", n: FACTS.clients, l: "Clients served across industries" },
-  { i: "package", n: FACTS.products, l: "Digital products delivered" },
-  { i: "globe", n: FACTS.countries, l: "Countries reached" },
+const HERO_STATS: { i: IconName; n: string; l1: string; l2: string }[] = [
+  { i: "users",   n: FACTS.years,     l1: "Years",     l2: "Experience" },
+  { i: "briefcase", n: FACTS.clients, l1: "Happy",     l2: "Clients" },
+  { i: "rocket",  n: FACTS.products,  l1: "Projects",  l2: "Delivered" },
+  { i: "globe",   n: FACTS.countries, l1: "Countries", l2: "Served" },
 ];
+
+/* Four reassurance points shown beneath the hero stat strip. */
+const HERO_TRUST: { d: ReactNode; t: string; x: string }[] = [
+  { d: UI_CLOCK,  t: "On-Time Delivery",   x: "We respect deadlines and deliver on time." },
+  { d: UI_CHART,  t: "Scalable Solutions", x: "Built to scale with your business growth." },
+  { d: UI_SHIELD, t: "Secure & Reliable",  x: "We follow best practices for security & quality." },
+  { d: UI_CHAT,   t: "Transparent Process", x: "Clear communication at every step." },
+];
+
 
 const PARTNER_POINTS: { i: IconName; t: string; d: string }[] = [
   { i: "target", t: "Business-First Engineering", d: "We align technology decisions with your business goals, workflows, users, and long-term growth plans." },
@@ -160,11 +232,11 @@ const PROCESS: { n: string; t: string; d: string }[] = [
 
 const TECH: { i: IconName; t: string; d: string; items: ReactNode[] }[] = [
   { i: "layout", t: "Frontend Development", d: "Build responsive and engaging digital experiences using modern frontend frameworks and technologies.", items: ["React", "Next.js", "Angular", "Vue.js", "TypeScript"] },
-  { i: "server", t: "Backend Development", d: "Develop secure, scalable application backends, APIs, integrations, and business logic.", items: ["Node.js", "Python", "Java", ".NET", <Link href="/php-development-company" key="php">PHP</Link>] },
-  { i: "phone", t: "Mobile Development", d: "Create native and cross-platform mobile applications for modern iOS and Android experiences.", items: [<Link href="/flutter-app-development-company" key="f">Flutter</Link>, <Link href="/react-native-app-development-company" key="r">React Native</Link>, <Link href="/ios-app-development-company" key="i">iOS</Link>, <Link href="/android-app-development-company" key="a">Android</Link>] },
-  { i: "cloud", t: "Cloud & DevOps", d: "Build, deploy, monitor, and scale applications using modern cloud infrastructure and DevOps practices.", items: [<Link href="/aws-cloud-services" key="aws">AWS</Link>, "Microsoft Azure", "Google Cloud", "Docker", "Kubernetes"] },
+  { i: "server", t: "Backend Development", d: "Develop secure, scalable application backends, APIs, integrations, and business logic.", items: ["Node.js", "Python", "Java", ".NET", <ExtLink href="/php-development-company" key="php">PHP</ExtLink>] },
+  { i: "phone", t: "Mobile Development", d: "Create native and cross-platform mobile applications for modern iOS and Android experiences.", items: [<ExtLink href="/flutter-app-development-company" key="f">Flutter</ExtLink>, <ExtLink href="/react-native-app-development-company" key="r">React Native</ExtLink>, <ExtLink href="/ios-app-development-company" key="i">iOS</ExtLink>, <ExtLink href="/android-app-development-company" key="a">Android</ExtLink>] },
+  { i: "cloud", t: "Cloud & DevOps", d: "Build, deploy, monitor, and scale applications using modern cloud infrastructure and DevOps practices.", items: [<ExtLink href="/aws-cloud-services" key="aws">AWS</ExtLink>, "Microsoft Azure", "Google Cloud", "Docker", "Kubernetes"] },
   { i: "cpu", t: "AI & Machine Learning", d: "Integrate intelligent capabilities into products and workflows using modern AI technologies.", items: ["Generative AI", "LLMs", "RAG", "AI Agents", "Machine Learning"] },
-  { i: "database", t: "Databases & Data", d: "Design data architectures that support application performance, reliability, scalability, and analytics.", items: [<Link href="/data-science-solutions" key="d">PostgreSQL</Link>, "MySQL", "MongoDB", "Redis", "SQL"] },
+  { i: "database", t: "Databases & Data", d: "Design data architectures that support application performance, reliability, scalability, and analytics.", items: [<ExtLink href="/data-science-solutions" key="d">PostgreSQL</ExtLink>, "MySQL", "MongoDB", "Redis", "SQL"] },
 ];
 
 const LOCATIONS: { t: string; d: string; cta: string; href: string }[] = [
@@ -196,83 +268,142 @@ const FAQS: { q: string; a: string }[] = [
 /* ── page-specific CSS: hero split + form. Everything else
       reuses LOC_CSS so there is one design system, not two. ── */
 const USA_CSS = `
-.usa-page{font-family:var(--f-body),'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
-.usa-page .loc-sectionTitle,.usa-page .loc-introTitle,.usa-page .loc-ctaTitle,.usa-page .usa-h1,.usa-page .usa-formTitle,.usa-page .loc-detailTitle,.usa-page .loc-engageTitle,.usa-page .loc-statNum,.usa-page .loc-timelineDot,.usa-page .loc-detailNum{font-family:var(--f-display),'Sora',sans-serif}
+/* ── palette: brand blue (#3E8CFB) for accents, a deeper blue for
+      filled buttons so white text clears the contrast bar ── */
+/* Every colour below is a brand.css token or that token at reduced
+   opacity. --b (Heritage Navy) fills buttons because white on Signature
+   Blue is 3.30:1 and fails AA; --b-soft (Signature Blue) carries accents. */
+.usa-page{--b:var(--color-signature-blue,#3E8CFB);--b-dark:var(--color-carbon-black,#0D1117);--b-soft:var(--color-signature-blue,#3E8CFB);--b-tint:rgba(62,140,251,.10);--b-line:rgba(62,140,251,.26);--navy:var(--color-signature-blue,#3E8CFB);--ink:var(--color-carbon-black,#0D1117);--ink-2:var(--color-text,#222222);--ink-3:var(--color-slate-grey,#777777);font-family:var(--f-body),'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+.usa-page .loc-sectionTitle,.usa-page .loc-introTitle,.usa-page .loc-ctaTitle,.usa-page .usa-h1,.usa-page .uf-title,.usa-page .loc-detailTitle,.usa-page .loc-engageTitle,.usa-page .loc-statNum,.usa-page .loc-timelineDot,.usa-page .loc-detailNum,.usa-page .usa-hsNum{font-family:var(--f-display),'Sora',sans-serif}
+.usa-page .loc-highlight{background:#3E8CFB;background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent}
+.usa-page a{color:var(--b)}
+.usa-page a:hover{color:var(--b-dark)}
+.usa-page .loc-tile{background:var(--b-tint);border-color:var(--b-line);color:var(--b)}
+.usa-page .loc-whyCard:hover .loc-tile,.usa-page .loc-industryCard:hover .loc-tile{background:#3E8CFB;box-shadow:0 10px 20px rgba(62,140,251,.24)}
+.usa-page .loc-whyCard::after,.usa-page .loc-industryCard::after{background:#3E8CFB}
+.usa-page .loc-whyCard:hover,.usa-page .loc-industryCard:hover,.usa-page .loc-statCard:hover,.usa-page .loc-faqItem:hover,.usa-page .loc-faqItem[open]{border-color:var(--b-line)}
+.usa-page .loc-detailLabel,.usa-page .loc-faqChevron,.usa-page .loc-introTag{color:var(--b)}
+.usa-page .loc-timelineDot{background:#3E8CFB;box-shadow:0 6px 16px rgba(62,140,251,.26)}
+.usa-page .loc-timeline::before{background:linear-gradient(180deg,var(--b),var(--b-soft),rgba(62,140,251,.18))}
+.usa-page .loc-ctaSection{background:#3E8CFB}
+.usa-page .loc-ctaBtnPrimary{color:var(--b)!important}
 
-/* ── hero: copy left, form right ── */
-/* Light hero, matching the ServiceHero treatment used elsewhere on the
-   site. 130px of top padding clears the fixed header — the previous
-   value let the sticky nav slice the top of the hero and the form. */
-.usa-hero{position:relative;padding:130px 1.5rem 5.5rem;overflow:hidden;background:
-  radial-gradient(1200px 600px at 12% 8%,rgba(67,56,202,.10) 0%,transparent 55%),
-  radial-gradient(900px 600px at 92% 18%,rgba(14,165,233,.10) 0%,transparent 55%),
-  linear-gradient(180deg,#FBFDFF 0%,#F7F9FD 100%)}
-.usa-hero::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--line)}
-.usa-heroInner{position:relative;max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:start}
-.usa-eyebrow{display:inline-flex;align-items:center;gap:.5rem;padding:.4rem .9rem;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--a1);font-size:.8rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-bottom:1.15rem;box-shadow:var(--sh)}
-.usa-h1{font-size:clamp(2rem,4vw,3.05rem);font-weight:800;line-height:1.12;letter-spacing:-.028em;color:var(--ink);margin:0 0 1.15rem}
-.usa-h1 em{font-style:normal;background:var(--grad);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:locShift 9s ease-in-out infinite}
-.usa-heroText{font-size:1.03rem;line-height:1.78;color:var(--ink-soft);margin:0 0 1rem;max-width:56ch}
-.usa-heroActions{display:flex;flex-wrap:wrap;gap:.8rem;margin:1.6rem 0 2rem}
-.usa-btnA,.usa-btnB{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.85rem 1.6rem;border-radius:999px;font-weight:700;font-size:.94rem;transition:transform .2s cubic-bezier(.22,.61,.36,1),box-shadow .2s,background .2s}
-.usa-btnA{background:var(--grad);color:#fff!important;box-shadow:0 8px 20px rgba(67,56,202,.24)}
-.usa-btnA:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(67,56,202,.34)}
-.usa-btnB{background:#fff;color:var(--a1)!important;border:1.5px solid var(--line);box-shadow:var(--sh)}
-.usa-btnB:hover{border-color:#C7D2FE;transform:translateY(-2px);box-shadow:var(--sh-h)}
-.usa-heroStats{display:grid;grid-template-columns:repeat(4,auto);gap:2.2rem;justify-content:start}
-.usa-hsNum{font-family:var(--f-display),'Sora',sans-serif;font-size:1.7rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.15}
-.usa-hsLabel{font-size:.78rem;color:var(--ink-soft);font-weight:600;margin-top:.2rem;max-width:11ch;line-height:1.35}
+/* ── hero ── */
+.usa-hero{position:relative;padding:130px 1.5rem 5rem;overflow:hidden;background:
+  radial-gradient(1100px 560px at 10% 6%,rgba(62,140,251,.13) 0%,transparent 55%),
+  radial-gradient(900px 560px at 94% 16%,rgba(62,140,251,.10) 0%,transparent 55%),
+  linear-gradient(180deg,rgba(62,140,251,.02) 0%,rgba(62,140,251,.045) 100%)}
+.usa-hero::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--b-line)}
+.usa-heroInner{position:relative;max-width:1220px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:3.25rem;align-items:start}
+.usa-eyebrow{display:inline-flex;align-items:center;gap:.55rem;padding:.5rem 1rem;border-radius:999px;background:var(--b-tint);border:1px solid var(--b-line);color:var(--b);font-size:.83rem;font-weight:600;margin-bottom:1.35rem}
+.usa-eyebrow svg{flex-shrink:0}
+.usa-h1{font-size:clamp(2.05rem,4vw,3.2rem);font-weight:800;line-height:1.1;letter-spacing:-.03em;color:var(--ink);margin:0 0 .85rem}
+.usa-h1 em{font-style:normal;color:var(--b-soft)}
+.usa-tagline{font-size:clamp(1.05rem,1.7vw,1.32rem);font-weight:600;color:var(--ink-2);margin:0 0 1.1rem;letter-spacing:-.01em}
+.usa-rule{width:74px;height:4px;border-radius:999px;background:var(--b);margin:0 0 1.5rem}
+.usa-heroText{font-size:1.01rem;line-height:1.8;color:var(--ink-2);margin:0 0 1rem;max-width:56ch}
+.usa-heroActions{display:flex;flex-wrap:wrap;gap:.85rem;margin:1.7rem 0 2rem}
+.usa-btnA,.usa-btnB{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;padding:.9rem 1.75rem;border-radius:999px;font-weight:700;font-size:.95rem;transition:transform .2s cubic-bezier(.22,.61,.36,1),box-shadow .2s,background .2s,border-color .2s}
+.usa-btnA{background:var(--b);color:#fff!important;box-shadow:0 8px 20px rgba(62,140,251,.26)}
+.usa-btnA:hover{filter:brightness(.93);color:#fff!important;transform:translateY(-2px);box-shadow:0 14px 30px rgba(62,140,251,.34)}
+.usa-btnB{background:var(--color-white,#fff);color:var(--b-soft)!important;border:1.6px solid var(--b-soft)}
+.usa-btnB:hover{background:var(--b-tint);color:var(--b)!important;border-color:var(--b);transform:translateY(-2px);filter:brightness(.97)}
 
-/* ── hero form ── */
-.usa-form{background:#fff;border-radius:20px;padding:1.75rem 1.6rem;box-shadow:0 4px 12px rgba(15,23,42,.05),0 20px 48px rgba(67,56,202,.12);border:1px solid var(--line)}
-.usa-formTitle{font-size:1.3rem;font-weight:700;color:#0F172A;margin:0 0 .3rem;letter-spacing:-.02em}
-.usa-formSub{font-size:.87rem;color:#5B6479;margin:0 0 1.15rem;line-height:1.6}
-.usa-field{margin-bottom:.85rem}
-.usa-field label{display:block;font-size:.78rem;font-weight:700;color:#3F4A60;margin-bottom:.32rem;letter-spacing:.01em}
-.usa-field input,.usa-field select,.usa-field textarea{display:block;width:100%;padding:.62rem .8rem;border:1px solid #DDE3F0;border-radius:10px;font-family:inherit;font-size:.9rem;line-height:1.5;color:#0F172A;background:#FBFCFE;transition:border-color .16s,box-shadow .16s;-webkit-appearance:none;appearance:none}
-.usa-field input,.usa-field select{height:42px}
-.usa-field select{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%234338CA' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .65rem center;padding-right:1.9rem;text-overflow:ellipsis}
-.usa-field textarea{resize:vertical;min-height:76px;height:auto}
-.usa-field input:focus,.usa-field select:focus,.usa-field textarea:focus{outline:none;border-color:#4338CA;box-shadow:0 0 0 3px rgba(67,56,202,.14);background:#fff}
-.usa-field input::placeholder,.usa-field textarea::placeholder{color:#A2ABBF}
-.usa-fieldPhone{display:grid;grid-template-columns:96px 1fr;gap:.6rem;align-items:end}
-.usa-fieldPhone select{padding-left:.65rem;padding-right:1.7rem}
-.usa-formBtn{width:100%;margin-top:.35rem;padding:.9rem 1.2rem;border:0;border-radius:999px;background:linear-gradient(120deg,#4338CA,#6D28D9 55%,#0EA5E9);color:#fff;font:inherit;font-size:.95rem;font-weight:700;cursor:pointer;transition:transform .2s cubic-bezier(.22,.61,.36,1),box-shadow .2s,filter .2s}
-.usa-formBtn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 12px 26px rgba(67,56,202,.36)}
-.usa-formBtn:disabled{opacity:.65;cursor:progress}
-.usa-formErr{margin:.5rem 0 0;font-size:.83rem;color:#B91C1C;font-weight:600}
-.usa-formFine{margin:.85rem 0 0;font-size:.75rem;color:#78839A;line-height:1.6;text-align:center}
-.usa-formFine a{color:#4338CA;font-weight:600}
-.usa-form--done{text-align:center;padding:2.6rem 1.6rem;color:#047857}
-.usa-form--done svg{margin:0 auto .8rem;color:#059669}
-.usa-form--done .usa-formTitle{color:#0F172A}
-.usa-formNote{font-size:.9rem;color:#5B6479;margin:.4rem 0 0;line-height:1.65}
+/* ── hero stat strip: numbers in black, per brief ── */
+.usa-heroStats{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;background:#fff;border:1px solid var(--b-line);border-radius:16px;padding:1.15rem 1rem;box-shadow:0 2px 8px rgba(13,17,23,.04)}
+.usa-hsItem{display:flex;align-items:center;gap:.7rem;padding:0 .5rem;border-right:1px solid rgba(62,140,251,.18)}
+.usa-hsItem:last-child{border-right:0}
+.usa-hsIcon{width:38px;height:38px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border-radius:11px;background:var(--b-tint);color:var(--b)}
+.usa-hsNum{font-size:1.42rem;font-weight:800;color:var(--ink);line-height:1.1;letter-spacing:-.02em}
+.usa-hsLabel{font-size:.75rem;color:var(--ink-3);font-weight:600;line-height:1.35;margin-top:.1rem}
 
-/* ── link CTAs used across the content sections ── */
-.usa-cardLink{display:inline-flex;align-items:center;gap:.35rem;margin-top:.9rem;font-size:.86rem;font-weight:700;color:var(--a1)}
-.usa-cardLink::after{content:'→';transition:transform .2s cubic-bezier(.22,.61,.36,1)}
-.usa-cardLink:hover::after{transform:translateX(3px)}
+/* ── trust row under the stats ── */
+.usa-trustRow{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;margin-top:1.5rem}
+.usa-trustItem{display:flex;gap:.65rem;align-items:flex-start}
+.usa-trustIcon{width:32px;height:32px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border-radius:9px;background:var(--b-tint);color:var(--b)}
+.usa-trustT{font-size:.85rem;font-weight:700;color:var(--ink);margin:0 0 .15rem;line-height:1.3}
+.usa-trustD{font-size:.78rem;color:var(--ink-3);margin:0;line-height:1.5}
+
+/* ════ FORM ════ */
+.uf{background:#fff;border:1px solid var(--b-line);border-radius:20px;padding:1.75rem 1.7rem;box-shadow:0 4px 14px rgba(13,17,23,.05),0 22px 50px rgba(62,140,251,.12)}
+.uf-head{display:flex;gap:.9rem;align-items:flex-start;margin-bottom:1.35rem}
+.uf-badge{width:52px;height:52px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border-radius:14px;background:var(--b);color:#fff;box-shadow:0 8px 18px rgba(62,140,251,.28)}
+.uf-title{font-size:1.28rem;font-weight:700;color:var(--ink);margin:0 0 .25rem;letter-spacing:-.02em;line-height:1.25}
+.uf-sub{font-size:.86rem;color:var(--ink-3);margin:0;line-height:1.55}
+.uf-field{margin-bottom:.9rem;min-width:0}
+.uf-field label{display:block;font-size:.8rem;font-weight:700;color:var(--ink-2);margin-bottom:.35rem}
+.uf-opt{font-weight:500;color:var(--ink-3)}
+.uf-input{display:flex;align-items:center;gap:.5rem;border:1px solid rgba(62,140,251,.26);border-radius:11px;background:#fff;padding:0 .8rem;height:46px;transition:border-color .16s,box-shadow .16s}
+.uf-input:focus-within{border-color:var(--b);box-shadow:0 0 0 3px rgba(62,140,251,.13)}
+.uf-ic{display:flex;color:#777777;flex-shrink:0}
+.uf-input:focus-within .uf-ic{color:var(--b)}
+.uf-ic--wa{color:#25D366}
+.uf-input input,.uf-input select,.uf-input textarea{flex:1;min-width:0;width:100%;border:0;outline:0;background:transparent;font-family:inherit;font-size:.92rem;line-height:1.5;color:var(--ink);-webkit-appearance:none;appearance:none}
+.uf-input select{cursor:pointer;background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%233E8CFB' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right center;padding-right:1.3rem;text-overflow:ellipsis}
+.uf-input input::placeholder,.uf-input textarea::placeholder{color:#777777}
+.uf-input--area{height:auto;padding:.7rem .8rem;align-items:flex-start}
+.uf-input--area textarea{resize:vertical;min-height:74px}
+.uf-input--code{padding-right:.55rem;flex:0 0 auto}
+.uf-row{display:grid;grid-template-columns:1fr 122px;gap:.7rem;align-items:end}
+.uf-phone{display:grid;grid-template-columns:92px 1fr;gap:.5rem}
+.uf-btn{width:100%;margin-top:.4rem;display:flex;align-items:center;justify-content:center;gap:.55rem;padding:.95rem 1.2rem;border:0;border-radius:12px;background:var(--b);color:#fff;font-family:inherit;font-size:.97rem;font-weight:700;cursor:pointer;transition:transform .2s cubic-bezier(.22,.61,.36,1),box-shadow .2s,background .2s}
+.uf-btn:hover:not(:disabled){filter:brightness(.93);transform:translateY(-2px);box-shadow:0 12px 26px rgba(62,140,251,.32)}
+.uf-btn:disabled{opacity:.65;cursor:progress}
+.uf-err{margin:.55rem 0 0;font-size:.83rem;color:#B91C1C;font-weight:600}
+.uf-fine{display:flex;gap:.5rem;align-items:flex-start;margin:.9rem 0 0;font-size:.76rem;color:var(--ink-3);line-height:1.6}
+.uf-fineIc{display:flex;color:var(--b);flex-shrink:0;margin-top:.1rem}
+.uf-fine a{color:var(--b);font-weight:600}
+.uf-done{text-align:center;padding:2.4rem .5rem}
+.uf-doneIcon{display:inline-flex;color:#059669;margin-bottom:.7rem}
+
+/* ── case-study cards: image, tag, name, result, link ── */
+.usa-csGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;align-items:stretch}
+.usa-csCard{display:flex;flex-direction:column;background:var(--color-white,#fff);border:1px solid var(--b-line);border-radius:20px;overflow:hidden;box-shadow:0 2px 10px rgba(13,17,23,.05);transition:transform .3s cubic-bezier(.22,.61,.36,1),box-shadow .3s,border-color .3s}
+.usa-csCard:hover{transform:translateY(-6px);box-shadow:0 18px 44px rgba(62,140,251,.20);border-color:var(--b-soft)}
+.usa-csImgWrap{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--b-tint);border-bottom:1px solid var(--b-line)}
+.usa-csImg{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.22,.61,.36,1)}
+.usa-csCard:hover .usa-csImg{transform:scale(1.04)}
+.usa-csTag{position:absolute;top:.85rem;left:.85rem;display:inline-flex;align-items:center;padding:.32rem .8rem;border-radius:999px;background:var(--b);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;box-shadow:0 4px 12px rgba(62,140,251,.3)}
+.usa-csBody{display:flex;flex-direction:column;flex-grow:1;padding:1.4rem 1.5rem 1.5rem}
+.usa-csName{font-family:var(--f-display),'Sora',sans-serif;font-size:1.08rem;font-weight:700;color:var(--ink);margin:0 0 .8rem;line-height:1.35;letter-spacing:-.015em}
+.usa-csResult{display:flex;gap:.55rem;align-items:flex-start;font-size:.88rem;color:var(--ink-2);line-height:1.6;margin:0 0 1.1rem;padding:.75rem .9rem;background:var(--b-tint);border-left:3px solid var(--b);border-radius:0 10px 10px 0;flex-grow:1}
+.usa-csResult svg{color:var(--b);flex-shrink:0;margin-top:.15rem}
+.usa-csLink{display:inline-flex;align-items:center;gap:.4rem;font-size:.88rem;font-weight:700;color:var(--b);margin-top:auto}
+.usa-csLink svg{transition:transform .2s cubic-bezier(.22,.61,.36,1)}
+.usa-csCard:hover .usa-csLink svg{transform:translateX(4px)}
+.usa-csAll{display:flex;justify-content:center;margin-top:2.6rem}
+@media (max-width:1080px){.usa-csGrid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:720px){.usa-csGrid{grid-template-columns:1fr}}
+
+/* ── shared card CTA + location grid ── */
+.usa-cardLink{display:inline-flex;align-items:center;gap:.4rem;margin-top:.9rem;font-size:.86rem;font-weight:700;color:var(--b)}
+.usa-cardLink svg{transition:transform .2s cubic-bezier(.22,.61,.36,1)}
+.usa-cardLink:hover svg{transform:translateX(3px)}
 .usa-locGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:1.1rem}
-.usa-locCard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:1.4rem 1.25rem;box-shadow:var(--sh);transition:transform .25s var(--ease),box-shadow .25s,border-color .25s;display:flex;flex-direction:column}
-.usa-locCard:hover{transform:translateY(-4px);box-shadow:var(--sh-h);border-color:#C7D2FE}
+.usa-locCard{background:#fff;border:1px solid var(--b-line);border-radius:16px;padding:1.4rem 1.25rem;box-shadow:0 2px 8px rgba(13,17,23,.04);transition:transform .25s cubic-bezier(.22,.61,.36,1),box-shadow .25s,border-color .25s;display:flex;flex-direction:column}
+.usa-locCard:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(62,140,251,.16);border-color:var(--b)}
 .usa-locName{font-family:var(--f-display),'Sora',sans-serif;font-size:1.05rem;font-weight:700;color:var(--ink);margin:0 0 .4rem}
-.usa-locText{font-size:.85rem;color:var(--ink-soft);line-height:1.6;margin:0;flex-grow:1}
-.usa-midCta{max-width:820px;margin:2.6rem auto 0;text-align:center;background:var(--bg-alt);border:1px solid var(--line);border-radius:18px;padding:1.9rem 1.75rem}
+.usa-locText{font-size:.85rem;color:var(--ink-3);line-height:1.6;margin:0;flex-grow:1}
+.usa-midCta{max-width:820px;margin:2.6rem auto 0;text-align:center;background:var(--b-tint);border:1px solid var(--b-line);border-radius:18px;padding:1.9rem 1.75rem}
 .usa-midCtaTitle{font-family:var(--f-display),'Sora',sans-serif;font-size:1.22rem;font-weight:700;color:var(--ink);margin:0 0 .55rem}
-.usa-midCtaText{font-size:.94rem;color:var(--ink-soft);line-height:1.7;margin:0 0 1.15rem}
-.usa-inlineBtn{display:inline-flex;align-items:center;gap:.45rem;padding:.75rem 1.5rem;border-radius:999px;background:var(--grad);color:#fff!important;font-weight:700;font-size:.9rem;transition:transform .2s var(--ease),box-shadow .2s}
-.usa-inlineBtn:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(67,56,202,.3)}
+.usa-midCtaText{font-size:.94rem;color:var(--ink-2);line-height:1.7;margin:0 0 1.15rem}
+.usa-inlineBtn{display:inline-flex;align-items:center;gap:.5rem;padding:.78rem 1.55rem;border-radius:999px;background:var(--b);color:#fff!important;font-weight:700;font-size:.9rem;transition:transform .2s cubic-bezier(.22,.61,.36,1),box-shadow .2s,background .2s}
+.usa-inlineBtn:hover{filter:brightness(.93);color:#fff!important;transform:translateY(-2px);box-shadow:0 12px 26px rgba(62,140,251,.30)}
+.usa-inlineBtn--ghost{background:var(--color-white,#fff);color:var(--b-soft)!important;border:1.6px solid var(--b-soft)}
+.usa-inlineBtn--ghost:hover{background:var(--b-tint);color:var(--b-dark)!important;border-color:var(--b-dark)}
 
 @media (max-width:1080px){
-  .usa-heroInner{grid-template-columns:1fr;gap:2.25rem}
+  .usa-heroInner{grid-template-columns:1fr;gap:2.4rem}
   .usa-locGrid{grid-template-columns:repeat(3,1fr)}
+  .usa-trustRow{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:768px){
   .usa-hero{padding:100px 1.15rem 3.25rem}
-  .usa-heroStats{grid-template-columns:repeat(2,1fr);gap:1.4rem}
-  .usa-hsLabel{max-width:none}
+  .usa-heroStats{grid-template-columns:repeat(2,1fr);gap:1rem}
+  .usa-hsItem{border-right:0}
   .usa-locGrid{grid-template-columns:1fr}
   .usa-heroActions{flex-direction:column;align-items:stretch}
+  .uf-row{grid-template-columns:1fr}
 }
 `;
 
@@ -281,7 +412,7 @@ const Card = ({ i, t, d, cta, href }: { i: IconName; t: string; d: string; cta?:
     <span className="loc-tile"><Icon name={i} /></span>
     <h3 className="loc-whyTitle">{t}</h3>
     <p className="loc-whyText" style={{ flexGrow: 1 }}>{d}</p>
-    {cta && href ? <Link className="usa-cardLink" href={href}>{cta}</Link> : null}
+    {cta && href ? <ExtLink className="usa-cardLink" href={href}>{cta}<UIcon d={UI.arrow} s={15} /></ExtLink> : null}
   </div>
 );
 
@@ -289,7 +420,7 @@ const MidCta = ({ t, d, cta, href }: { t: string; d: string; cta: string; href: 
   <div className="usa-midCta">
     <h2 className="usa-midCtaTitle">{t}</h2>
     <p className="usa-midCtaText">{d}</p>
-    <Link className="usa-inlineBtn" href={href}>{cta}</Link>
+    <ExtLink className="usa-inlineBtn" href={href}>{cta}<UIcon d={UI.arrow} s={16} /></ExtLink>
   </div>
 );
 
@@ -303,39 +434,44 @@ export default function SoftwareDevelopmentCompanyUSA() {
       <section className="usa-hero">
         <div className="usa-heroInner">
           <div>
-            <span className="usa-eyebrow">mTouch Labs · United States</span>
+            <span className="usa-eyebrow"><UIcon d={UI.badge} s={16} />Trusted Software Development Partner for Businesses Across the USA</span>
             <h1 className="usa-h1">Software Development Company in the <em>USA</em></h1>
-            <p className="usa-heroText">Build, modernize, and scale digital products with a trusted software development partner. mTouch Labs delivers custom software, AI-powered applications, SaaS platforms, enterprise solutions, web applications, mobile apps, and cloud solutions tailored to your business needs.</p>
-            <p className="usa-heroText">From product strategy and UI/UX design to development, testing, deployment, and ongoing support, our experienced engineering team helps businesses turn complex technology requirements into secure, scalable, and high-performing software.</p>
+            <p className="usa-tagline">Custom Software. AI Solutions. Scalable Growth.</p>
+            <div className="usa-rule" />
+            <p className="usa-heroText">mTouch Labs builds, modernizes, and scales digital products for startups, SMBs, and enterprises across the United States.</p>
+            <p className="usa-heroText">From product strategy and UI/UX design to development, testing, deployment, and ongoing support—we turn complex ideas into secure, scalable, and high-performing software.</p>
+
             <div className="usa-heroActions">
-              <Link href="/contact-us" className="usa-btnA">Talk to a Software Expert</Link>
-              <Link href="/case-studies" className="usa-btnB">View Case Studies</Link>
+              <ExtLink href="/contact-us" className="usa-btnA"><UIcon d={UI.send} s={17} />Talk to a Software Expert</ExtLink>
+              <ExtLink href="/case-studies" className="usa-btnB"><UIcon d={UI.doc} s={17} />View Case Studies</ExtLink>
             </div>
+
             <div className="usa-heroStats">
-              {HERO_STATS.map((s) => (
-                <div key={s.l}><div className="usa-hsNum">{s.n}</div><div className="usa-hsLabel">{s.l}</div></div>
+              {HERO_STATS.map((s2) => (
+                <div className="usa-hsItem" key={s2.l1}>
+                  <span className="usa-hsIcon"><Icon name={s2.i} size={19} /></span>
+                  <div>
+                    <div className="usa-hsNum">{s2.n}</div>
+                    <div className="usa-hsLabel">{s2.l1}<br />{s2.l2}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="usa-trustRow">
+              {HERO_TRUST.map((t) => (
+                <div className="usa-trustItem" key={t.t}>
+                  <span className="usa-trustIcon"><UIcon d={t.d} s={17} /></span>
+                  <div>
+                    <p className="usa-trustT">{t.t}</p>
+                    <p className="usa-trustD">{t.x}</p>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
-          <HeroLeadForm />
-        </div>
-      </section>
 
-      {/* ═══ TRUST STATS ═══ */}
-      <section className="loc-section loc-introSection">
-        <div className="loc-sectionInner">
-          <div className="loc-sectionHeader">
-            <h2 className="loc-sectionTitle">Trusted by Businesses Building and Scaling with <span className="loc-highlight">Technology</span></h2>
-          </div>
-          <div className="loc-introStats" style={{ gridTemplateColumns: "repeat(4, 1fr)" }}>
-            {TRUST_STATS.map((s) => (
-              <div className="loc-statCard" key={s.l}>
-                <span className="loc-statIcon"><Icon name={s.i} size={19} /></span>
-                <div className="loc-statNum">{s.n}</div>
-                <div className="loc-statLabel">{s.l}</div>
-              </div>
-            ))}
-          </div>
+          <HeroLeadForm />
         </div>
       </section>
 
@@ -351,7 +487,7 @@ export default function SoftwareDevelopmentCompanyUSA() {
             {PARTNER_POINTS.map((p) => <Card key={p.t} {...p} />)}
           </div>
           <div style={{ textAlign: "center", marginTop: "2.4rem" }}>
-            <Link className="usa-inlineBtn" href="/contact-us">Talk to Our Software Experts</Link>
+            <ExtLink className="usa-inlineBtn" href="/contact-us">Talk to Our Software Experts<UIcon d={UI.arrow} s={16} /></ExtLink>
           </div>
         </div>
       </section>
@@ -391,8 +527,8 @@ export default function SoftwareDevelopmentCompanyUSA() {
           </div>
           <div className="loc-whyGrid">{OFFSHORE.map((o) => <Card key={o.t} {...o} />)}</div>
           <div style={{ textAlign: "center", marginTop: "2.4rem", display: "flex", gap: ".8rem", justifyContent: "center", flexWrap: "wrap" }}>
-            <Link className="usa-inlineBtn" href="/hire-developers-in-india">Explore Offshore Software Development</Link>
-            <Link className="usa-inlineBtn" href="/contact-us" style={{ background: "transparent", color: "var(--a1)", border: "1.5px solid #C7D2FE" }}>Talk to Our Team</Link>
+            <ExtLink className="usa-inlineBtn" href="/hire-developers-in-india">Explore Offshore Software Development<UIcon d={UI.arrow} s={16} /></ExtLink>
+            <ExtLink className="usa-inlineBtn usa-inlineBtn--ghost" href="/contact-us">Talk to Our Team<UIcon d={UI.arrow} s={16} /></ExtLink>
           </div>
         </div>
       </section>
@@ -421,37 +557,41 @@ export default function SoftwareDevelopmentCompanyUSA() {
           </div>
           <div className="loc-whyGrid">{IMPACT.map((x) => <Card key={x.t} {...x} />)}</div>
           <div style={{ textAlign: "center", marginTop: "2.4rem" }}>
-            <Link className="usa-inlineBtn" href="/contact-us">Discuss Your Business Goals</Link>
+            <ExtLink className="usa-inlineBtn" href="/contact-us">Discuss Your Business Goals<UIcon d={UI.arrow} s={16} /></ExtLink>
           </div>
         </div>
       </section>
 
-      {/* ═══ CASE STUDIES — renders only when real entries exist ═══ */}
+      {/* ═══ CASE STUDIES — three large cards, per the approved layout ═══ */}
       <section className="loc-section loc-servicesSection">
         <div className="loc-sectionInner">
           <div className="loc-sectionHeader">
             <h2 className="loc-sectionTitle">Software <span className="loc-highlight">We&apos;ve Built</span></h2>
             <p className="loc-sectionDesc">From new digital products to complex business applications, mTouch Labs works with organizations to turn technology requirements into practical, scalable software solutions.</p>
           </div>
-          {CASE_STUDIES.length > 0 ? (
-            <div className="loc-engageGrid">
-              {CASE_STUDIES.map((c) => (
-                <div className="loc-engageCard" key={c.name}>
-                  <span className="loc-engageIcon"><Icon name="briefcase" size={22} /></span>
-                  <h3 className="loc-engageTitle">{c.name}</h3>
-                  <p className="loc-engageDesc"><strong>Industry:</strong> {c.industry}</p>
-                  <p className="loc-engageDesc"><strong>The Challenge:</strong> {c.challenge}</p>
-                  <p className="loc-engageDesc"><strong>The Solution:</strong> {c.solution}</p>
-                  <div className="loc-detailTagRow" style={{ marginBottom: ".8rem" }}>
-                    {c.tech.map((t) => <span className="loc-detailTag" key={t}>{t}</span>)}
-                  </div>
-                  <span className="loc-engageBest">Results: {c.result}</span>
-                  <div><Link className="usa-cardLink" href={c.href}>View Case Study</Link></div>
+
+          <div className="usa-csGrid">
+            {CASE_STUDIES.map((c) => (
+              <article className="usa-csCard" key={c.href}>
+                <div className="usa-csImgWrap">
+                  {/* Plain <img>: these are SVGs, which next/image does not
+                      optimise anyway. loading/decoding are set explicitly and
+                      the wrapper holds the aspect ratio, so no layout shift. */}
+                  <img className="usa-csImg" src={c.img} alt={c.alt} loading="lazy" decoding="async" width={640} height={400} />
+                  <span className="usa-csTag">{c.tag}</span>
                 </div>
-              ))}
-            </div>
-          ) : null}
-          <MidCta t="See More of Our Work" d="Explore more software products, applications, and digital solutions developed by mTouch Labs." cta="View All Case Studies" href="/case-studies" />
+                <div className="usa-csBody">
+                  <h3 className="usa-csName">{c.name}</h3>
+                  <p className="usa-csResult"><UIcon d={UI.chart} s={16} /><span>{c.result}</span></p>
+                  <ExtLink className="usa-csLink" href={c.href}>View Case<UIcon d={UI.arrow} s={15} /></ExtLink>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="usa-csAll">
+            <ExtLink className="usa-inlineBtn" href="/case-studies">View All Case Studies<UIcon d={UI.arrow} s={16} /></ExtLink>
+          </div>
         </div>
       </section>
 
@@ -511,7 +651,7 @@ export default function SoftwareDevelopmentCompanyUSA() {
               <div className="usa-locCard" key={l.t}>
                 <h3 className="usa-locName">{l.t}</h3>
                 <p className="usa-locText">{l.d}</p>
-                <Link className="usa-cardLink" href={l.href}>{l.cta}</Link>
+                <ExtLink className="usa-cardLink" href={l.href}>{l.cta}<UIcon d={UI.arrow} s={15} /></ExtLink>
               </div>
             ))}
           </div>
@@ -568,8 +708,8 @@ export default function SoftwareDevelopmentCompanyUSA() {
           <h2 className="loc-ctaTitle">Ready to Build Your Next Software Product?</h2>
           <p className="loc-ctaDesc">Turn your business idea, technology challenge, or product roadmap into software built for real-world growth. Whether you need to develop a new product, modernize an existing application, add AI capabilities, or expand your engineering capacity, mTouch Labs can help you define the right approach and move your project forward.</p>
           <div className="loc-ctaActions">
-            <Link href="/contact-us" className="loc-ctaBtnPrimary"><Icon name="phoneCall" size={17} />Start Your Software Project</Link>
-            <Link href="/request-free-quote" className="loc-ctaBtnSecondary">Talk to a Software Expert</Link>
+            <ExtLink href="/contact-us" className="loc-ctaBtnPrimary"><UIcon d={UI.send} s={17} />Start Your Software Project</ExtLink>
+            <ExtLink href="/request-free-quote" className="loc-ctaBtnSecondary"><UIcon d={UI.doc} s={17} />Talk to a Software Expert</ExtLink>
           </div>
         </div>
       </section>

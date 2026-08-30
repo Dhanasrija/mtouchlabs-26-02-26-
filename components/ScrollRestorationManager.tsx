@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import { usePathname } from "next/navigation";
 
 /**
@@ -13,7 +13,21 @@ import { usePathname } from "next/navigation";
  *      switch restoration to 'manual' so the browser never does this.
  *   2. On client-side route changes we explicitly jump to the top so the new
  *      page always starts where the user expects.
+ *
+ * ⚠️ TIMING — why this uses useLayoutEffect, not useEffect.
+ *   `useEffect` runs AFTER the browser has painted. On a client-side
+ *   navigation the new page therefore painted once at the OLD scroll offset
+ *   before the reset landed. If you clicked a link in the footer you saw the
+ *   next page's footer for a frame or two, then it snapped to the top — the
+ *   exact "it loads at the bottom then jumps" bug.
+ *   `useLayoutEffect` runs synchronously after DOM mutation and BEFORE paint,
+ *   so the reset happens in the same frame and nothing intermediate is ever
+ *   shown. React warns if useLayoutEffect runs during SSR, so we fall back to
+ *   useEffect on the server, where it never executes anyway.
  */
+const useIsomorphicLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
+
 export default function ScrollRestorationManager() {
   const pathname = usePathname();
 
@@ -24,8 +38,6 @@ export default function ScrollRestorationManager() {
     }
     const previous = window.history.scrollRestoration;
     window.history.scrollRestoration = "manual";
-    // Ensure the very first paint of this document is at the top.
-    window.scrollTo(0, 0);
     return () => {
       try {
         window.history.scrollRestoration = previous;
@@ -35,9 +47,12 @@ export default function ScrollRestorationManager() {
     };
   }, []);
 
-  // Reset scroll on every route change.
-  useEffect(() => {
+  // Reset scroll on every route change — before paint, so there is no flash.
+  useIsomorphicLayoutEffect(() => {
     if (typeof window === "undefined") return;
+    // A real in-page anchor (#section) should be honoured rather than
+    // overridden, so only force the top when there is no hash target.
+    if (window.location.hash) return;
     window.scrollTo(0, 0);
   }, [pathname]);
 
