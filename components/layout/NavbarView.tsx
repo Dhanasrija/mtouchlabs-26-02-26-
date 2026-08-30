@@ -190,7 +190,7 @@ export default function NavbarView({
     "/social-media-app-development-company",
     // AI-powered products
     "/ai-chatbot-development-company", "/ai-customer-support-system",
-    "/ai-sales-assistant-development",
+    "/ai-sales-assistant-development", "/ai-recommendation-engine-development",
   ]);
 
   // ── All resource (hire) page URLs ──
@@ -742,6 +742,7 @@ export default function NavbarView({
                             <li><a href="/ai-chatbot-development-company"><span className="mega-link-title">AI Chatbot Development</span><span className="mega-link-desc">Custom AI chatbots with LLM integration, RAG and enterprise connectors</span></a></li>
                             <li><a href="/ai-customer-support-system"><span className="mega-link-title">AI Customer Support System</span><span className="mega-link-desc">Automated resolution with knowledge retrieval, ticket routing and human handoff</span></a></li>
                             <li><a href="/ai-sales-assistant-development"><span className="mega-link-title">AI Sales Assistant</span><span className="mega-link-desc">Lead qualification, prospect engagement and CRM-connected sales automation</span></a></li>
+                            <li><a href="/ai-recommendation-engine-development"><span className="mega-link-title">AI Recommendation Engine</span><span className="mega-link-desc">Personalized product, content and service recommendations at low latency</span></a></li>
                           </ul></div></div>
                         </div>
                       </div>
@@ -1094,6 +1095,7 @@ export default function NavbarView({
                     <li><a href="/ai-chatbot-development-company">AI Chatbot Development</a></li>
                     <li><a href="/ai-customer-support-system">AI Customer Support System</a></li>
                     <li><a href="/ai-sales-assistant-development">AI Sales Assistant</a></li>
+                    <li><a href="/ai-recommendation-engine-development">AI Recommendation Engine</a></li>
                   </ul>
                 </li>
               </ul>
