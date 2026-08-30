@@ -1,1017 +1,479 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
+import { Sora, Inter } from "next/font/google";
 import FAQSchema from "@/components/seo/FAQSchema";
-import ServiceHero from "@/components/sections/ServiceHero";
+import HeroLeadForm from "./HeroLeadForm";
+import { Icon, type IconName, LOC_CSS } from "@/components/locations/LocationKit";
 
 /* ════════════════════════════════════════════════════════════
-   SHARED CONSTANTS — single source of truth for the numbers.
-   Anything quoted more than once on the page comes from here so
-   it can never drift between sections.
+   SPEED NOTES — why this page is built the way it is
+   ────────────────────────────────────────────────────────────
+   1. Fonts come from next/font (self-hosted, preloaded, zero
+      layout shift). The old page loaded Google Fonts with a
+      render-blocking <link> in the body, which delayed LCP by
+      a full round-trip to fonts.googleapis.com.
+   2. Exactly one client component on the page — the hero form.
+      Everything else is a server component and ships no JS.
+   3. No framer-motion, no form library, no phone-input package.
+      Scroll reveals are CSS `animation-timeline: view()`.
+   4. The hero is above-the-fold HTML with no images, so LCP is
+      a text paint rather than a network fetch.
    ════════════════════════════════════════════════════════════ */
-const FACTS = {
-  years: "14+",
-  clients: "500+",
-  phoneDisplay: "+1 (551) 222-0070",
-  phoneHref: "tel:+15512220070",
-  email: "contact@mtouchlabs.com",
-  hours: "Mon–Fri, 9:00 AM – 6:00 PM EST",
-  street: "1111B South Governors Avenue, Suite 48193",
-  city: "Dover",
-  region: "DE",
-  zip: "19904",
-} as const;
+
+const sora = Sora({ subsets: ["latin"], weight: ["600", "700", "800"], display: "swap", variable: "--f-display" });
+const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700"], display: "swap", variable: "--f-body" });
+
+const ORIGIN = "https://www.mtouchlabs.com";
+const URL_PATH = `${ORIGIN}/software-development-company-usa`;
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.mtouchlabs.com"),
-  // `absolute` prevents the root layout's "%s | mTouch Labs" template from
-  // appending the brand a second time (the live page rendered it twice).
-  title: {
-    absolute: "Software Development Company in USA | mTouch Labs",
-  },
+  metadataBase: new URL(ORIGIN),
+  // `absolute` stops the root layout's "%s | mTouch Labs" template
+  // appending the brand a second time.
+  title: { absolute: "Software Development Company in USA | mTouch Labs" },
   description:
-    "Software development company in the USA building custom software, AI applications, SaaS platforms, enterprise systems and mobile apps. Dover, DE office. 14+ years, 500+ clients.",
-  alternates: {
-    canonical: "https://www.mtouchlabs.com/software-development-company-usa",
-  },
+    "Looking for a software development company in the USA? mTouch Labs provides custom software, AI, SaaS, web, mobile, cloud, and modernization solutions for US businesses.",
+  alternates: { canonical: URL_PATH },
   openGraph: {
     title: "Software Development Company in USA | mTouch Labs",
     description:
-      "Custom software, AI, SaaS and enterprise development for US businesses. Fixed-scope, dedicated team or staff augmentation.",
-    url: "https://www.mtouchlabs.com/software-development-company-usa",
+      "mTouch Labs provides custom software, AI, SaaS, web, mobile, cloud, and modernization solutions for businesses across the USA.",
+    url: URL_PATH,
     siteName: "mTouch Labs",
     type: "website",
     locale: "en_US",
-    images: [
-      {
-        url: "/images/og/software-development-company-usa.webp",
-        width: 1200,
-        height: 630,
-        alt: "mTouch Labs — Software Development Company in USA",
-      },
-    ],
+    images: [{ url: "/images/og/software-development-company-usa.webp", width: 1200, height: 630, alt: "Software Development Company in USA - mTouch Labs" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Software Development Company in USA | mTouch Labs",
-    description:
-      "Custom software, AI, SaaS and enterprise development for US businesses.",
+    description: "Custom software, AI, SaaS, web, mobile, cloud, and modernization solutions for US businesses.",
     images: ["/images/og/software-development-company-usa.webp"],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-snippet": -1,
-      "max-image-preview": "large",
-      "max-video-preview": -1,
-    },
-  },
-  category: "Technology",
-  authors: [{ name: "mTouch Labs", url: "https://www.mtouchlabs.com" }],
-  creator: "mTouch Labs",
-  publisher: "mTouch Labs",
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-snippet": -1, "max-image-preview": "large", "max-video-preview": -1 } },
 };
 
-/* ── STRUCTURED DATA ───────────────────────────────────────── */
-const professionalServiceSchema = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  name: "mTouch Labs — US Operations",
-  url: "https://www.mtouchlabs.com/software-development-company-usa",
-  description:
-    "Custom software, enterprise applications, SaaS platforms, AI solutions and cloud engineering for businesses across the United States.",
-  image: "https://www.mtouchlabs.com/images/og/software-development-company-usa.webp",
-  priceRange: "$$",
-  parentOrganization: {
-    "@type": "Organization",
-    name: "mTouch Labs Pvt. Ltd.",
-    url: "https://www.mtouchlabs.com",
-  },
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: FACTS.street,
-    addressLocality: FACTS.city,
-    addressRegion: FACTS.region,
-    postalCode: FACTS.zip,
-    addressCountry: "US",
-  },
-  telephone: "+1-551-222-0070",
-  email: FACTS.email,
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-    opens: "09:00",
-    closes: "18:00",
-  },
-  areaServed: { "@type": "Country", name: "United States" },
-  sameAs: [
-    "https://www.linkedin.com/company/mtouchlabs/",
-    "https://twitter.com/mtouchlabs",
-  ],
-};
+/* ── shared numbers: one source, so they can never drift ── */
+const FACTS = { years: "14+", clients: "500+", products: "1,500+", countries: "12+" } as const;
 
-const locationBreadcrumb = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.mtouchlabs.com/" },
-    { "@type": "ListItem", position: 2, name: "Locations", item: "https://www.mtouchlabs.com/services" },
-    {
-      "@type": "ListItem",
-      position: 3,
-      name: "Software Development Company in USA",
-      item: "https://www.mtouchlabs.com/software-development-company-usa",
-    },
-  ],
-};
+/* ────────────────────────────────────────────────────────────
+   ⚠️  CASE STUDIES — READ BEFORE DEPLOY
+   The supplied copy for this section was a template with
+   [Client / Product Name] style placeholders. Publishing those
+   verbatim would put visible placeholder text on a live page,
+   so the section renders ONLY when real entries exist below.
+   Fill this array with real, verified case studies and the
+   section appears automatically. Leave it empty and the page
+   shows a link to /case-studies instead — which is correct
+   behaviour, not a broken state.
+   ──────────────────────────────────────────────────────────── */
+type CaseStudy = { name: string; industry: string; challenge: string; solution: string; tech: string[]; result: string; href: string };
+const CASE_STUDIES: CaseStudy[] = [];
 
-/* ════════════════════════════════════════════════════════════
-   ICON SET — single stroke weight, 24×24 grid, currentColor
-   ════════════════════════════════════════════════════════════ */
-const ICONS = {
-  activity: <><path d="M22 12h-4l-3 9-6-18-3 9H2" /></>,
-  award: <><circle cx="12" cy="9" r="6" /><path d="M8.6 14.2 7.4 22 12 19.4 16.6 22l-1.2-7.8" /></>,
-  barChart: <><path d="M6 20v-6M12 20V5M18 20v-9" /><path d="M3 20.5h18" /></>,
-  book: <><path d="M2.5 4h5.5a3.5 3.5 0 0 1 3.5 3.5V20a3 3 0 0 0-3-2.4H2.5Z" /><path d="M21.5 4H16a3.5 3.5 0 0 0-3.5 3.5V20a3 3 0 0 1 3-2.4h6Z" /></>,
-  briefcase: <><rect x="2.5" y="7" width="19" height="13.5" rx="2.2" /><path d="M15.5 20.5V5.6a1.6 1.6 0 0 0-1.6-1.6h-3.8A1.6 1.6 0 0 0 8.5 5.6v14.9" /><path d="M2.5 12.2h19" /></>,
-  building: <><path d="M3 21V5.5A1.5 1.5 0 0 1 4.5 4h7A1.5 1.5 0 0 1 13 5.5V21" /><path d="M13 10h6.5A1.5 1.5 0 0 1 21 11.5V21" /><path d="M2 21h20" /><path d="M6.5 8h3M6.5 12h3M6.5 16h3M16.5 14h1.5M16.5 17.5h1.5" /></>,
-  cart: <><circle cx="9.5" cy="20" r="1.4" /><circle cx="18.5" cy="20" r="1.4" /><path d="M2 3h2.6l2.5 12.1a1.7 1.7 0 0 0 1.7 1.4h8.9a1.7 1.7 0 0 0 1.7-1.4L21.5 7H6" /></>,
-  check: <><path d="M20 6.5 9.5 17 4 11.5" /></>,
-  checkSquare: <><path d="m9 12 2.5 2.5L17 9" /><path d="M20.5 12.5V19a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9" /></>,
-  chevron: <><path d="m6 9 6 6 6-6" /></>,
-  clipboard: <><path d="M15.5 4.5H18a2 2 0 0 1 2 2V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6.5a2 2 0 0 1 2-2h2.5" /><rect x="8.5" y="2.5" width="7" height="4" rx="1.4" /><path d="M8.5 12h7M8.5 16h4.5" /></>,
-  clock: <><circle cx="12" cy="12" r="9" /><path d="M12 6.8V12l3.4 2" /></>,
-  cloud: <><path d="M17.4 19H7a4.5 4.5 0 0 1-.9-8.9 6 6 0 0 1 11.5-.5 4.75 4.75 0 0 1-.2 9.4Z" /></>,
-  code: <><path d="m8 6-6 6 6 6" /><path d="m16 6 6 6-6 6" /><path d="M14 3.8 10 20.2" /></>,
-  compass: <><circle cx="12" cy="12" r="9" /><path d="m15.6 8.4-2 5.2-5.2 2 2-5.2Z" /></>,
-  cpu: <><rect x="6.5" y="6.5" width="11" height="11" rx="2.5" /><rect x="10" y="10" width="4" height="4" rx="1" /><path d="M10 3v3.5M14 3v3.5M10 17.5V21M14 17.5V21M3 10h3.5M3 14h3.5M17.5 10H21M17.5 14H21" /></>,
-  creditCard: <><rect x="2" y="4.5" width="20" height="15" rx="2.5" /><path d="M2 9.5h20" /><path d="M6 15h3" /></>,
-  database: <><ellipse cx="12" cy="5.5" rx="8" ry="3" /><path d="M4 5.5v13c0 1.66 3.58 3 8 3s8-1.34 8-3v-13" /><path d="M20 12c0 1.66-3.58 3-8 3s-8-1.34-8-3" /></>,
-  dollar: <><path d="M12 2.5v19" /><path d="M16.8 6.2H9.6a3.4 3.4 0 0 0 0 6.8h4.8a3.4 3.4 0 0 1 0 6.8H6.6" /></>,
-  edit: <><path d="M12.5 20.5h9" /><path d="M16.8 3.3a2.15 2.15 0 0 1 3 3L7.5 18.6l-4 1 1-4Z" /></>,
-  eye: <><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z" /><circle cx="12" cy="12" r="3.2" /></>,
-  factory: <><path d="M2.5 20.5V9.6l6 3.9V9.6l6 3.9V4.5h6.9v16Z" /><path d="M2 20.5h20" /><path d="M17.5 8.5v3M17.5 15v2.5" /></>,
-  globe: <><circle cx="12" cy="12" r="9" /><path d="M3 12h18" /><path d="M12 3a14.5 14.5 0 0 1 3.8 9A14.5 14.5 0 0 1 12 21a14.5 14.5 0 0 1-3.8-9A14.5 14.5 0 0 1 12 3Z" /></>,
-  grid: <><rect x="3.5" y="3.5" width="7" height="7" rx="1.6" /><rect x="13.5" y="3.5" width="7" height="7" rx="1.6" /><rect x="3.5" y="13.5" width="7" height="7" rx="1.6" /><rect x="13.5" y="13.5" width="7" height="7" rx="1.6" /></>,
-  headphones: <><path d="M3.5 17.5V12a8.5 8.5 0 0 1 17 0v5.5" /><path d="M20.5 18.5a2 2 0 0 1-2 2h-.5a1.8 1.8 0 0 1-1.8-1.8v-3a1.8 1.8 0 0 1 1.8-1.8h2.5Z" /><path d="M3.5 18.5a2 2 0 0 0 2 2H6a1.8 1.8 0 0 0 1.8-1.8v-3A1.8 1.8 0 0 0 6 13.9H3.5Z" /></>,
-  home: <><path d="M3.5 9.8 12 3l8.5 6.8V20a1.6 1.6 0 0 1-1.6 1.6H5.1A1.6 1.6 0 0 1 3.5 20Z" /><path d="M9.5 21.6v-7h5v7" /></>,
-  infinity: <><path d="M7.5 8.6a3.4 3.4 0 1 0 0 6.8c2.3 0 3.1-1.9 4.5-3.4s2.2-3.4 4.5-3.4a3.4 3.4 0 1 1 0 6.8c-2.3 0-3.1-1.9-4.5-3.4S9.8 8.6 7.5 8.6Z" /></>,
-  landmark: <><path d="M3.2 9.8 12 4.5l8.8 5.3" /><path d="M5.8 11v7M9.9 11v7M14.1 11v7M18.2 11v7" /><path d="M3 21h18" /></>,
-  layout: <><rect x="3" y="3.5" width="18" height="17" rx="2.4" /><path d="M3 9.2h18" /><path d="M9.2 9.2v11.3" /></>,
-  link: <><path d="M10 13.4a4.4 4.4 0 0 0 6.6.5l2.6-2.6a4.4 4.4 0 0 0-6.2-6.2l-1.5 1.5" /><path d="M14 10.6a4.4 4.4 0 0 0-6.6-.5l-2.6 2.6a4.4 4.4 0 0 0 6.2 6.2l1.5-1.5" /></>,
-  lock: <><rect x="4" y="10.5" width="16" height="10.5" rx="2.4" /><path d="M7.8 10.5V7.6a4.2 4.2 0 0 1 8.4 0v2.9" /></>,
-  bulb: <><path d="M9.2 18h5.6" /><path d="M10 21h4" /><path d="M12 3a6 6 0 0 1 3.6 10.8c-.5.4-.8 1-.8 1.6v.6H9.2v-.6c0-.6-.3-1.2-.8-1.6A6 6 0 0 1 12 3Z" /></>,
-  mail: <><rect x="2.5" y="4.5" width="19" height="15" rx="2.4" /><path d="m3.5 6.5 8.5 6 8.5-6" /></>,
-  mapPin: <><path d="M20 10.4c0 6-8 11.6-8 11.6s-8-5.6-8-11.6a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10.2" r="2.8" /></>,
-  message: <><path d="M20.5 11.6a8 8 0 0 1-11.6 7.2L3.5 20.5l1.7-5.4A8 8 0 1 1 20.5 11.6Z" /></>,
-  monitor: <><rect x="2.5" y="3.5" width="19" height="13" rx="2.4" /><path d="M8.5 20.5h7M12 16.5v4" /></>,
-  package: <><path d="M20.5 15.8V8.2a2 2 0 0 0-1-1.73l-6.5-3.7a2 2 0 0 0-2 0l-6.5 3.7a2 2 0 0 0-1 1.73v7.6a2 2 0 0 0 1 1.73l6.5 3.7a2 2 0 0 0 2 0l6.5-3.7a2 2 0 0 0 1-1.73Z" /><path d="m3.8 7.2 8.2 4.7 8.2-4.7" /><path d="M12 21.4v-9.5" /></>,
-  phone: <><rect x="6" y="2" width="12" height="20" rx="2.6" /><path d="M10.5 18.4h3" /></>,
-  phoneCall: <><path d="M21 16.9v2.6a2 2 0 0 1-2.2 2 19.4 19.4 0 0 1-8.5-3A19.1 19.1 0 0 1 4.4 13a19.4 19.4 0 0 1-3-8.5A2 2 0 0 1 3.4 2.3H6a2 2 0 0 1 2 1.7 12.5 12.5 0 0 0 .7 2.8 2 2 0 0 1-.5 2.1L7.1 10a15.7 15.7 0 0 0 5.9 5.9l1.1-1.1a2 2 0 0 1 2.1-.5 12.5 12.5 0 0 0 2.8.7 2 2 0 0 1 1.7 2Z" /></>,
-  refresh: <><path d="M20.5 12a8.5 8.5 0 1 1-2.5-6" /><path d="M20.5 3.5V9.5H14.5" /></>,
-  repeat: <><path d="m16.8 2.5 3.7 3.6-3.7 3.6" /><path d="M3.5 12v-1.9a4 4 0 0 1 4-4h13" /><path d="m7.2 21.5-3.7-3.6 3.7-3.6" /><path d="M20.5 12v1.9a4 4 0 0 1-4 4h-13" /></>,
-  rocket: <><path d="M12 2.5c2.8 2.2 4.2 5.4 4.2 8.8L14 15.4h-4L7.8 11.3c0-3.4 1.4-6.6 4.2-8.8Z" /><circle cx="12" cy="9.8" r="1.7" /><path d="M9.6 15.7 7.5 21l4.5-2.2L16.5 21l-2.1-5.3" /></>,
-  send: <><path d="M21.5 2.5 11 13" /><path d="M21.5 2.5 14.8 21.5 11 13 2.5 9.2Z" /></>,
-  server: <><rect x="2.5" y="3" width="19" height="7.5" rx="2.2" /><rect x="2.5" y="13.5" width="19" height="7.5" rx="2.2" /><path d="M6.5 6.7h.01M6.5 17.2h.01" /><path d="M11 6.7h6M11 17.2h6" /></>,
-  settings: <><circle cx="12" cy="12" r="3.2" /><path d="M12 2.5v2.4M12 19.1v2.4M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.9 19.1l1.7-1.7M17.4 6.6l1.7-1.7" /></>,
-  shield: <><path d="M12 21.5s7.5-3.6 7.5-9.4V5.6L12 2.6 4.5 5.6v6.5c0 5.8 7.5 9.4 7.5 9.4Z" /></>,
-  sparkles: <><path d="m12 3 1.7 4.6L18.3 9l-4.6 1.7L12 15.3l-1.7-4.6L5.7 9l4.6-1.4Z" /><path d="m18.5 15 .8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8Z" /></>,
-  target: <><circle cx="12" cy="12" r="8.5" /><circle cx="12" cy="12" r="4.8" /><circle cx="12" cy="12" r="1.4" /></>,
-  tool: <><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94Z" /></>,
-  trendingUp: <><path d="M22 7 13.5 15.5 9 11l-7 7" /><path d="M16.5 7H22v5.5" /></>,
-  truck: <><path d="M2.5 5.5h11v11h-11z" /><path d="M13.5 9h3.4l3.1 3v4.5h-6.5Z" /><circle cx="7" cy="18.5" r="2" /><circle cx="17.5" cy="18.5" r="2" /></>,
-  users: <><path d="M16.5 20.5v-1.8a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v1.8" /><circle cx="9.2" cy="7.5" r="3.8" /><path d="M22 20.5v-1.8a4 4 0 0 0-3-3.85" /><path d="M15.5 3.9a4 4 0 0 1 0 7.4" /></>,
-  zap: <><path d="M13 2.5 4.5 13.4H11l-1 8.1 8.5-10.9H12Z" /></>,
-};
-type IconName = keyof typeof ICONS;
-
-function Icon({ name, size = 22 }: { name: IconName; size?: number }) {
-  return (
-    <svg className="loc-icon" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
-      {ICONS[name]}
-    </svg>
-  );
-}
-
-/* ════════════════════════════════════════════════════════════
-   BUILDING BLOCKS
-   ════════════════════════════════════════════════════════════ */
-const Stat = ({ i, n, l }: { i: IconName; n?: string; l: string }) => (
-  <div className="loc-statCard">
-    <span className="loc-statIcon"><Icon name={i} size={19} /></span>
-    {n ? <div className="loc-statNum">{n}</div> : null}
-    <div className="loc-statLabel">{l}</div>
-  </div>
-);
-
-const Why = ({ i, t, d }: { i: IconName; t: string; d?: ReactNode }) => (
-  <div className="loc-whyCard">
-    <span className="loc-tile loc-tile--sm"><Icon name={i} size={20} /></span>
-    <div><h3 className="loc-whyTitle">{t}</h3>{d ? <p className="loc-whyText">{d}</p> : null}</div>
-  </div>
-);
-
-const Industry = ({ i, t, d }: { i: IconName; t: string; d?: string }) => (
-  <div className="loc-industryCard">
-    <span className="loc-tile loc-tile--round"><Icon name={i} size={23} /></span>
-    <h3 className="loc-industryName">{t}</h3>
-    {d ? <p className="loc-serviceDesc">{d}</p> : null}
-  </div>
-);
-
-/* Jump chips — in-page anchors only. These deliberately carry NO
-   outbound internal links: every service link lives once, in its
-   detail block below, so no anchor text is ever duplicated. */
-const Jump = ({ i, t, to }: { i: IconName; t: string; to: string }) => (
-  <a className="loc-chipCard" href={`#${to}`}>
-    <span className="loc-chipIcon"><Icon name={i} size={20} /></span>
-    <span className="loc-chipText">{t}</span>
-  </a>
-);
-
-const Tech = ({ i, t, items }: { i: IconName; t: string; items: ReactNode[] }) => (
-  <div className="loc-whyCard">
-    <span className="loc-tile loc-tile--sm"><Icon name={i} size={20} /></span>
-    <div>
-      <h3 className="loc-whyTitle">{t}</h3>
-      <div className="loc-introTags">{items.map((x, k) => <span className="loc-introTag" key={k}>{x}</span>)}</div>
-    </div>
-  </div>
-);
-
-type DetailProps = { id: string; n: string; t: string; href?: string; d: ReactNode; label: string; tags: ReactNode[] };
-const Detail = ({ id, n, t, href, d, label, tags }: DetailProps) => (
-  <div className="loc-detailCard" id={id}>
-    <div className="loc-detailHead">
-      <div className="loc-detailNum">{n}</div>
-      <h3 className="loc-detailTitle">{href ? <Link href={href}>{t}</Link> : t}</h3>
-    </div>
-    <p className="loc-detailDesc">{d}</p>
-    <div className="loc-detailBlock">
-      <p className="loc-detailLabel">{label}</p>
-      <div className="loc-detailTagRow">{tags.map((x, k) => <span className="loc-detailTag" key={k}>{x}</span>)}</div>
-    </div>
-  </div>
-);
-
-const Step = ({ n, t, d, tags }: { n: string; t: string; d: ReactNode; tags: ReactNode[] }) => (
-  <div className="loc-timelineItem">
-    <div className="loc-timelineDot">{n}</div>
-    <div className="loc-timelineBody">
-      <h3 className="loc-timelineTitle">{t}</h3>
-      <p className="loc-timelineDesc">{d}</p>
-      <div className="loc-detailTagRow">{tags.map((x, k) => <span className="loc-detailTag" key={k}>{x}</span>)}</div>
-    </div>
-  </div>
-);
-
-const Engage = ({ i, t, d, best }: { i: IconName; t: ReactNode; d: string; best: string }) => (
-  <div className="loc-engageCard">
-    <span className="loc-engageIcon"><Icon name={i} size={22} /></span>
-    <h3 className="loc-engageTitle">{t}</h3>
-    <p className="loc-engageDesc">{d}</p>
-    <span className="loc-engageBest">Best when: {best}</span>
-  </div>
-);
-
-const Story = ({ i, t, challenge, solution, outcome }: { i: IconName; t: string; challenge: string; solution: string; outcome: string }) => (
-  <div className="loc-engageCard">
-    <span className="loc-engageIcon"><Icon name={i} size={22} /></span>
-    <h3 className="loc-engageTitle">{t}</h3>
-    <p className="loc-engageDesc"><strong>Challenge:</strong> {challenge}</p>
-    <p className="loc-engageDesc"><strong>Solution:</strong> {solution}</p>
-    <span className="loc-engageBest">Outcome: {outcome}</span>
-  </div>
-);
-
-const Faq = ({ q, a }: { q: string; a: string }) => (
-  <details className="loc-faqItem">
-    <summary className="loc-faqQuestion">
-      <span className="loc-faqQuestionText">{q}</span>
-      <span className="loc-faqChevron"><Icon name="chevron" size={16} /></span>
-    </summary>
-    <div className="loc-faqAnswer">{a}</div>
-  </details>
-);
-
-/* ════════════════════════════════════════════════════════════
-   CONTENT
-   ────────────────────────────────────────────────────────────
-   THEME OWNERSHIP — each theme has exactly one owner. If you are
-   about to add a line here, check it is not already owned:
-
-     Positioning / who we serve ....... INTRO
-     Company numbers (years, clients) . INTRO stats + CREDENTIALS
-     Pain points ...................... CHALLENGES
-     How we work / differentiators .... WHY_CHOOSE
-     What we build .................... CAPABILITIES (detail blocks)
-     Commercial models, support ....... ENGAGEMENT
-     Legacy / cloud / DevOps .......... MODERNIZATION
-     Agile, CI/CD, QA, security ....... PROCESS
-     Industries ....................... INDUSTRIES
-     Contracts, IP, cost, timezone .... FAQS
-   ════════════════════════════════════════════════════════════ */
-
-/* ── INTRO: the only place the headline numbers are set out ── */
-const INTRO_STATS: { i: IconName; n?: string; l: string }[] = [
-  { i: "award", n: FACTS.years, l: "Years in Business" },
-  { i: "users", n: FACTS.clients, l: "Clients Served" },
-  { i: "grid", n: "9", l: "Industries Served" },
-  { i: "rocket", l: "Startups to Enterprise" },
+const HERO_STATS: { n: string; l: string }[] = [
+  { n: FACTS.years, l: "Years Experience" },
+  { n: FACTS.clients, l: "Clients" },
+  { n: FACTS.products, l: "Products" },
+  { n: FACTS.countries, l: "Countries" },
 ];
 
-/* ── CHALLENGES: pain points only. No differentiators here. ── */
-const CHALLENGES: { i: IconName; t: string; d: ReactNode }[] = [
-  {
-    i: "server",
-    t: "Your software is holding back growth",
-    d: <>Legacy applications raise maintenance costs and make every new feature expensive. We rebuild on scalable architectures with modern UX and secure integrations — see our approach to <Link href="/it-services-digital-transformation-company">digital transformation</Link>.</>,
-  },
-  {
-    i: "rocket",
-    t: "You need to ship faster than you currently can",
-    d: "We put something usable in front of real users in weeks, not at the end. You find out what's wrong while it's still cheap to change, instead of after the budget is spent.",
-  },
-  {
-    i: "cpu",
-    t: "You want AI in the product, not in a slide deck",
-    d: "We start from a business problem — response times, document backlog, manual triage — and implement the narrowest AI solution that fixes it.",
-  },
-  {
-    i: "link",
-    t: "Your systems don't talk to each other",
-    d: "Disconnected tools mean duplicate data entry and no single source of truth. We build integration layers and automated workflows that connect what you already run.",
-  },
-  {
-    i: "trendingUp",
-    t: "Traffic is growing faster than the platform",
-    d: "Cloud-native, microservices-based rearchitecture, sized against your projected load rather than today's.",
-  },
-  {
-    i: "users",
-    t: "You can't hire engineers fast enough",
-    d: <>Architects, developers, QA and DevOps available in weeks rather than quarters. We can also advise before you commit through <Link href="/it-solutions-company">technology consulting</Link>.</>,
-  },
+const TRUST_STATS: { i: IconName; n: string; l: string }[] = [
+  { i: "award", n: FACTS.years, l: "Experience in software product development" },
+  { i: "users", n: FACTS.clients, l: "Clients served across industries" },
+  { i: "package", n: FACTS.products, l: "Digital products delivered" },
+  { i: "globe", n: FACTS.countries, l: "Countries reached" },
 ];
 
-/* ── WHY: how we work. No pain points, no service names, no stats. ── */
-const WHY_CHOOSE: { i: IconName; t: string; d: string }[] = [
-  { i: "target", t: "We start with the business case, not the tech stack", d: "Every feature has to trace back to a number you care about: cost, revenue, retention, hours saved. Features that can't are the first ones we cut from scope." },
-  { i: "code", t: "Senior engineers on your project, not just on the pitch call", d: "The architects who scope your system are the ones who build it. No handover to a junior bench after the contract is signed." },
-  { i: "clipboard", t: "Estimates that hold up", d: "Discovery produces a written architecture and a milestone plan before development starts. When scope changes, we re-estimate in writing rather than absorbing it silently and slipping." },
-  { i: "eye", t: "You can see the work in progress", d: "You never have to ask where things stand — the answer is already written down and the current build is already deployed somewhere you can open it." },
-  { i: "globe", t: "Cross-timezone by design, not by accident", d: "An Eastern-time front office with a Hyderabad delivery centre behind it. You get a reply during your working day and a build that moved overnight." },
-  { i: "infinity", t: "We stay past launch", d: "Most of our client relationships are measured in years, because the team that shipped v1 is still the cheapest team to build v2. Nobody has to re-learn your codebase." },
+const PARTNER_POINTS: { i: IconName; t: string; d: string }[] = [
+  { i: "target", t: "Business-First Engineering", d: "We align technology decisions with your business goals, workflows, users, and long-term growth plans." },
+  { i: "cpu", t: "Modern Technology Expertise", d: "Build with modern technologies across AI, cloud, SaaS, web, mobile, APIs, and enterprise applications." },
+  { i: "shield", t: "Scalable & Secure Solutions", d: "We engineer software with scalability, performance, security, maintainability, and future integration requirements in mind." },
+  { i: "refresh", t: "Flexible Development Models", d: "Choose the engagement model that fits your needs—from project-based development to dedicated teams and offshore engineering support." },
 ];
 
-/* ── SERVICES INDEX: in-page jump links only, zero prose. ── */
-const SERVICE_INDEX: { i: IconName; t: string; to: string }[] = [
-  { i: "code", t: "Custom Software", to: "svc-01" },
-  { i: "building", t: "Enterprise Software", to: "svc-02" },
-  { i: "rocket", t: "SaaS Products", to: "svc-03" },
-  { i: "cpu", t: "AI Solutions", to: "svc-04" },
-  { i: "globe", t: "Web Platforms", to: "svc-05" },
-  { i: "phone", t: "Mobile Apps", to: "svc-06" },
+/* Service URLs mapped to routes that actually exist in this app.
+   The supplied linking plan used slugs (/custom-software-development,
+   /ai-software-development, /saas-development, /web-development,
+   /cloud-computing, /software-modernization, /offshore-software-development,
+   /software-development-services) that return 404 here. Each is
+   remapped to the real page below; see the note in the response. */
+const SERVICES: { i: IconName; t: string; d: string; cta: string; href: string }[] = [
+  { i: "code", t: "Custom Software Development", d: "Build software designed specifically around your business processes, users, workflows, integrations, and growth objectives. We develop purpose-built applications that address requirements off-the-shelf software cannot.", cta: "Explore Custom Software Development", href: "/custom-software-development-company" },
+  { i: "building", t: "Enterprise Software Development", d: "Develop secure and scalable enterprise applications that connect business processes, teams, data, and systems. We help organizations build new platforms and enhance complex existing environments.", cta: "Explore Enterprise Software Development", href: "/enterprise-application-development-company" },
+  { i: "cpu", t: "AI Software Development", d: "Integrate practical AI capabilities into products and business processes with generative AI, large language models, AI assistants, intelligent automation, RAG applications, and AI-powered workflows.", cta: "Explore AI Development", href: "/generative-ai-development-company" },
+  { i: "rocket", t: "SaaS Product Development", d: "Turn a software concept into a scalable SaaS product with product architecture, intuitive user experiences, integrations, cloud infrastructure, and ongoing engineering support.", cta: "Explore SaaS Development", href: "/saas-development-services" },
+  { i: "globe", t: "Web Application Development", d: "Create secure, responsive, and scalable web applications for customers, employees, partners, and business operations—from portals and dashboards to marketplaces and workflow platforms.", cta: "Explore Web Application Development", href: "/web-development-company" },
+  { i: "phone", t: "Mobile App Development", d: "Build mobile applications for iOS and Android that connect seamlessly with your digital products, backend systems, APIs, and business workflows.", cta: "Explore Mobile App Development", href: "/mobile-app-development-company" },
+  { i: "cloud", t: "Cloud Software Development", d: "Develop and modernize cloud-based applications using scalable architectures, APIs, cloud infrastructure, DevOps practices, and modern deployment approaches.", cta: "Explore Cloud Development", href: "/cloud-services" },
+  { i: "refresh", t: "Software Modernization", d: "Transform legacy applications and outdated technology stacks through application re-engineering, architecture modernization, cloud migration, API integration, performance optimization, and security improvements.", cta: "Explore Software Modernization", href: "/it-services-digital-transformation-company" },
+  { i: "layout", t: "UI/UX & Product Design", d: "Design digital products people can actually use—research, user flows, wireframes, interface design, and clickable prototypes that validate the experience before engineering begins.", cta: "Explore UI/UX Design", href: "/ui-ux-design-company" },
 ];
 
-/* ── CAPABILITIES: the single owner of "what we build". ── */
-const CAPABILITIES: DetailProps[] = [
-  {
-    id: "svc-01", n: "01", t: "Custom Software Development", href: "/custom-software-development-company",
-    d: "Off-the-shelf tools make you reshape your workflow around their assumptions. Custom software goes the other way — it encodes how your business actually runs, then automates the parts that don't need a person.",
-    label: "Solutions Include",
-    tags: [
-      "Business management systems",
-      <Link href="/custom-crm-software-development-company" key="crm">CRM &amp; ERP solutions</Link>,
-      "HR and workforce platforms",
-      "Inventory and supply chain systems",
-      "Workflow automation",
-      "Customer and vendor portals",
-      "Internal business applications",
-      "Reporting and analytics dashboards",
-    ],
-  },
-  {
-    id: "svc-02", n: "02", t: "Enterprise Software Development", href: "/enterprise-application-development-company",
-    d: "Systems that multiple departments and locations depend on daily, built for uptime, auditability and integration with the estate you already have.",
-    label: "Systems We Build",
-    tags: [
-      "Enterprise portals",
-      "Operational dashboards",
-      "Large-scale business applications",
-      "Multi-department workflow systems",
-      "Role-based access and audit trails",
-      "Integration with existing ERP and identity providers",
-    ],
-  },
-  {
-    id: "svc-03", n: "03", t: "SaaS Product Development", href: "/saas-development-services",
-    d: "Whether you're launching subscription software or converting an on-premise product into a cloud platform, the hard parts are tenancy, billing and cost-per-customer. That's where we spend the design time.",
-    label: "Key Features",
-    tags: [
-      "Multi-tenant architecture",
-      "Subscription and billing management",
-      "Secure authentication",
-      "User and role management",
-      "API and webhook integrations",
-      "Analytics dashboards",
-      "Autoscaling infrastructure",
-      "Performance monitoring",
-    ],
-  },
-  {
-    id: "svc-04", n: "04", t: "AI-Powered Business Solutions", href: "/generative-ai-development-company",
-    d: "AI earns its place when it removes work or shortens a decision. We scope against a measurable baseline, then build the smallest system that beats it.",
-    label: "Our AI Capabilities",
-    tags: [
-      <Link href="/ai-chatbot-development-company" key="bot">Chatbots and virtual assistants</Link>,
-      <Link href="/ai-customer-support-system" key="sup">AI customer support</Link>,
-      <Link href="/ai-recommendation-engine-development" key="rec">Recommendation engines</Link>,
-      <Link href="/machine-learning-development-company" key="ml">Predictive analytics</Link>,
-      "Intelligent document processing",
-      "Knowledge management and AI search",
-      "Retrieval-Augmented Generation (RAG)",
-      "LLM integrations",
-    ],
-  },
-  {
-    id: "svc-05", n: "05", t: "Web & Customer Experience Platforms", href: "/web-development-company",
-    d: "For most businesses the web application is the product experience. Ours are built for speed, accessibility and search visibility from the first sprint.",
-    label: "Platforms We Build",
-    tags: [
-      "Customer self-service portals",
-      "B2B and B2C platforms",
-      "Business dashboards",
-      <Link href="/multi-vendor-marketplace-app-builder" key="mkt">Marketplace platforms</Link>,
-      "Booking and reservation systems",
-      <Link href="/e-learning-app-development-company" key="lms">Learning management systems</Link>,
-      "Membership platforms",
-      <Link href="/progressive-web-app-development-company-in-india" key="pwa">Progressive Web Apps</Link>,
-    ],
-  },
-  {
-    id: "svc-06", n: "06", t: "Mobile App Development", href: "/mobile-app-development-company",
-    d: "Concept and UI/UX through development, store submission and post-release monitoring — native where performance demands it, cross-platform where it doesn't.",
-    label: "App Types We Ship",
-    tags: [
-      "Enterprise mobility",
-      "Consumer apps",
-      <Link href="/on-demand-service-mobile-app-development" key="odm">On-demand service apps</Link>,
-      <Link href="/ecommerce-app-development-company" key="ecom">eCommerce apps</Link>,
-      "Business productivity apps",
-      "Store submission and release management",
-      "Post-release crash and performance monitoring",
-    ],
-  },
+const CHALLENGES: { i: IconName; t: string; d: string; cta: string; href: string }[] = [
+  { i: "rocket", t: "Launch a New Digital Product", d: "Have an idea for a new application, platform, or digital product? We help transform your concept into a market-ready solution through product planning, UX/UI design, engineering, testing, and launch support.", cta: "Start a New Product", href: "/product-design-services" },
+  { i: "server", t: "Modernize Legacy Technology", d: "Outdated software can slow down operations, increase maintenance costs, and limit business growth. We help modernize legacy applications while reducing disruption to critical business processes.", cta: "Explore Software Modernization", href: "/it-solutions-company" },
+  { i: "sparkles", t: "Add AI to Existing Products", d: "AI can improve how your customers interact with your product and how your teams manage everyday workflows. We help identify practical AI opportunities and integrate intelligent capabilities into existing applications.", cta: "Explore AI Solutions", href: "/machine-learning-development-company" },
+  { i: "trendingUp", t: "Scale a Growing Platform", d: "As users, transactions, data, and integrations increase, your software needs to keep up. We help improve architecture, performance, infrastructure, and engineering capacity to support continued growth.", cta: "Scale Your Platform", href: "/cloud-migration-services" },
+  { i: "link", t: "Connect Your Business Systems", d: "Disconnected applications can create manual work and fragmented data. We help connect your software, APIs, databases, third-party platforms, and business workflows to create more efficient digital operations.", cta: "Discuss Your Integration Needs", href: "/devops-services" },
+  { i: "users", t: "Strengthen Your Engineering Capacity", d: "When your internal team needs additional expertise or development capacity, we can provide flexible engineering support through dedicated teams and offshore development models.", cta: "Explore Development Teams", href: "/hire-dedicated-developers-in-india" },
 ];
 
-/* ── INDUSTRIES: one line each. Detail belongs on industry pages. ── */
-const INDUSTRIES: { i: IconName; t: string; d: string }[] = [
-  { i: "activity", t: "Healthcare", d: "Telemedicine, patient management, scheduling, EHR integrations, AI-assisted clinical tools." },
-  { i: "landmark", t: "Financial Services", d: "Digital banking, payments, lending, investment platforms, onboarding, fraud detection." },
-  { i: "cart", t: "Retail & eCommerce", d: "Omnichannel commerce, marketplaces, inventory, loyalty programs." },
-  { i: "factory", t: "Manufacturing", d: "Production management, warehouse automation, supplier portals, quality management." },
-  { i: "truck", t: "Logistics & Transportation", d: "Fleet management, shipment tracking, route optimization, delivery platforms." },
-  { i: "home", t: "Real Estate", d: "Property management, CRM, listing portals, tenant and document management." },
-  { i: "book", t: "Education", d: "LMS, virtual classrooms, assessments, student information systems." },
-  { i: "send", t: "Travel & Hospitality", d: "Booking engines, reservations, itinerary management, loyalty." },
-  { i: "shield", t: "Insurance", d: "Policy management, claims processing, underwriting, fraud detection." },
+const OFFSHORE: { i: IconName; t: string; d: string }[] = [
+  { i: "users", t: "Dedicated Development Teams", d: "Build a dedicated team around your product, technology stack, business requirements, and development roadmap." },
+  { i: "settings", t: "Flexible Engagement Models", d: "Choose project-based development, dedicated engineering teams, or extended development support based on your needs." },
+  { i: "message", t: "Seamless US Collaboration", d: "Maintain clear communication, project visibility, regular updates, and structured collaboration with your US-based stakeholders." },
+  { i: "infinity", t: "End-to-End Engineering Support", d: "Access expertise across product development, UI/UX, software engineering, AI, cloud, QA, DevOps, maintenance, and modernization." },
+  { i: "award", t: "Built for Long-Term Partnerships", d: "Work with a development team that can evolve with your product—from initial development and launch to continuous improvement and scaling." },
+  { i: "checkSquare", t: "Quality Assurance Included", d: "Dedicated QA engineers test functionality, performance, security, and device compatibility throughout development—not as a separate line item at the end." },
 ];
 
-/* ── ENGAGEMENT: sole owner of commercial models and of support. ── */
-const ENGAGEMENT: { i: IconName; t: ReactNode; d: string; best: string }[] = [
-  {
-    i: "package",
-    t: "Fixed-scope project",
-    d: "Defined deliverables, a fixed timeline and an agreed price, set after discovery rather than before it.",
-    best: "requirements are stable and the outcome is well understood — an MVP, a migration, a defined module.",
-  },
-  {
-    i: "users",
-    t: <Link href="/hire-dedicated-developers-in-india">Dedicated development team</Link>,
-    d: "A ring-fenced team — engineers, QA, DevOps and a project manager — working only on your roadmap, billed monthly.",
-    best: "the product is evolving and scope is a moving target.",
-  },
-  {
-    i: "briefcase",
-    t: <Link href="/hire-developers-in-india">IT staff augmentation</Link>,
-    d: "Individual specialists embedded in your existing team, reporting into your leads and working in your process and tooling.",
-    best: "you have the management capacity but not the headcount.",
-  },
-  {
-    i: "tool",
-    t: <Link href="/app-maintenance-support-services">Ongoing support &amp; optimization</Link>,
-    d: "An SLA-backed retainer after launch: bug fixes, security patching, cloud cost review, performance tuning and scheduled enhancements.",
-    best: "the product is live — available on top of any of the three models above.",
-  },
+const INDUSTRIES: { i: IconName; t: string; d: string; cta: string; href: string }[] = [
+  { i: "activity", t: "Healthcare", d: "Develop digital healthcare solutions that improve workflows, patient experiences, data management, and connected healthcare operations.", cta: "Explore Healthcare Solutions", href: "/diagnostic-app-development-company" },
+  { i: "landmark", t: "Financial Services & FinTech", d: "Build secure financial applications, digital platforms, workflow solutions, dashboards, and technology systems designed for modern financial businesses.", cta: "Explore FinTech Solutions", href: "/custom-crm-software-development-company" },
+  { i: "cart", t: "Retail & eCommerce", d: "Create digital commerce experiences, customer applications, inventory solutions, marketplaces, and connected retail platforms.", cta: "Explore Retail & eCommerce Solutions", href: "/app-and-web-development-for-ecommerce-services" },
+  { i: "factory", t: "Manufacturing", d: "Modernize manufacturing operations with connected applications, workflow automation, dashboards, integrations, and digital platforms.", cta: "Explore Manufacturing Solutions", href: "/best-iot-development-company-in-india" },
+  { i: "truck", t: "Logistics & Transportation", d: "Develop solutions for tracking, fleet operations, logistics workflows, business visibility, automation, and connected transportation systems.", cta: "Explore Logistics Solutions", href: "/taxi-booking-app-development-company" },
+  { i: "home", t: "Real Estate", d: "Build property platforms, customer portals, management applications, workflow solutions, and digital experiences for real estate businesses.", cta: "Explore Real Estate Solutions", href: "/web-and-app-development-for-real-estate-services" },
+  { i: "book", t: "Education", d: "Develop learning platforms, education portals, management systems, collaboration tools, and digital experiences for education providers.", cta: "Explore Education Solutions", href: "/web-and-app-development-for-education-services" },
+  { i: "send", t: "Travel & Hospitality", d: "Create booking platforms, customer applications, operational systems, digital experiences, and integrations for travel and hospitality businesses.", cta: "Explore Travel & Hospitality Solutions", href: "/hotel-booking-app-development-company" },
 ];
 
-/* ── MODERNIZATION: sole owner of legacy, cloud and DevOps.
-      Deliberately carries NO internal links — this section is a
-      capability list, not a navigation block. ── */
-const MODERNIZATION: { i: IconName; t: string }[] = [
-  { i: "refresh", t: "Legacy system modernization" },
-  { i: "cloud", t: "Cloud application development" },
-  { i: "repeat", t: "Cloud migration & cost optimization" },
-  { i: "link", t: "API-first architecture" },
-  { i: "grid", t: "Microservices decomposition" },
-  { i: "infinity", t: "DevOps automation" },
-  { i: "barChart", t: "Data analytics & BI" },
-  { i: "server", t: "Enterprise integration" },
-  { i: "monitor", t: "Observability and monitoring" },
-  { i: "zap", t: "Performance optimization" },
+const IMPACT: { i: IconName; t: string; d: string }[] = [
+  { i: "rocket", t: "Launch Products Faster", d: "Move from concept to market with a structured approach to product planning, design, development, testing, and deployment." },
+  { i: "repeat", t: "Improve Operational Efficiency", d: "Replace manual and disconnected processes with digital workflows, automation, integrations, and purpose-built business applications." },
+  { i: "sparkles", t: "Create Better Customer Experiences", d: "Build intuitive digital products that make it easier for customers to discover, purchase, communicate, manage, and access your services." },
+  { i: "grid", t: "Reduce Technology Complexity", d: "Modernize outdated systems, connect disconnected applications, and create technology environments that are easier to manage and evolve." },
+  { i: "trendingUp", t: "Scale With Confidence", d: "Build software and infrastructure capable of supporting growing users, data, transactions, integrations, and business requirements." },
+  { i: "users", t: "Expand Engineering Capacity", d: "Access additional software engineering expertise when your internal team needs greater development capacity or specialized technology skills." },
 ];
 
-/* ── PROCESS: sole owner of Agile, CI/CD, QA and security. Full
-      lists — do not truncate these to three tags to fit a card. ── */
-const PROCESS: { n: string; t: string; d: ReactNode; tags: ReactNode[] }[] = [
-  {
-    n: "01", t: "Discovery & Product Strategy",
-    d: "We define the problem before proposing the build. The output is a written document you own, whether or not you continue with us.",
-    tags: [
-      "Business and stakeholder workshops",
-      "Product vision alignment",
-      <Link href="/ux-research-services" key="ux">User journey mapping</Link>,
-      "Technical feasibility assessment",
-      "Feature prioritization",
-      "Solution architecture",
-      "Delivery roadmap and estimate",
-    ],
-  },
-  {
-    n: "02", t: "Agile Engineering & Continuous Delivery",
-    d: "Each sprint ends in something you can click. Priorities can change between sprints without restarting the plan.",
-    tags: [
-      "Sprint planning and estimation",
-      "Weekly progress reviews",
-      "Sprint demos",
-      "CI/CD pipelines",
-      "Transparent reporting",
-      "Named point of contact",
-    ],
-  },
-  {
-    n: "03", t: "Quality Built Into Every Release",
-    d: <>QA engineers join at sprint one, not before launch. Defects found in the sprint they were introduced cost a fraction of defects found in UAT — the full scope of our <Link href="/quality-assurance-and-testing-services">QA and testing services</Link> applies to every build.</>,
-    tags: [
-      "Functional testing",
-      "Automated testing",
-      "Regression testing",
-      "API testing",
-      "Cross-browser testing",
-      "Mobile device testing",
-      "Performance and load testing",
-      "Security validation",
-      "User acceptance testing",
-    ],
-  },
-  {
-    n: "04", t: "Security by Design",
-    d: <>Security decisions are made at architecture time, because retrofitting them is where budgets go to die. Higher-assurance programmes bring in our <Link href="/cyber-security-services-company">cyber security team</Link> from discovery onward.</>,
-    tags: [
-      "Secure coding standards",
-      "Role-based access control",
-      "Multi-factor authentication",
-      "Data encryption at rest and in transit",
-      "Secure API development",
-      "Vulnerability assessments",
-      <Link href="/cloud-security-services" key="cs">Cloud security baselines</Link>,
-      "Compliance-ready architecture",
-    ],
-  },
+const PROCESS: { n: string; t: string; d: string }[] = [
+  { n: "01", t: "Discovery & Requirements", d: "We start by understanding your business objectives, target users, workflows, technical requirements, integrations, and project constraints. This helps define the scope and priorities before development begins." },
+  { n: "02", t: "Product Strategy & Architecture", d: "We translate requirements into a practical product roadmap and technical architecture. Our team evaluates the right technologies, application structure, integrations, scalability requirements, and development approach." },
+  { n: "03", t: "UI/UX Design", d: "We create intuitive user experiences and interfaces around your users and business workflows. Designs and prototypes help validate product flows before engineering begins." },
+  { n: "04", t: "Software Development", d: "Our engineering team builds the product using an iterative development approach, with regular reviews and feedback throughout the development cycle." },
+  { n: "05", t: "Testing & Quality Assurance", d: "We test functionality, usability, performance, compatibility, security, and integrations to identify issues and ensure the product meets defined requirements." },
+  { n: "06", t: "Deployment & Launch", d: "Once the product is ready, we prepare the production environment, deployment process, monitoring, and release activities needed to launch reliably." },
+  { n: "07", t: "Support & Continuous Improvement", d: "After launch, we can continue with maintenance, enhancements, performance optimization, security updates, modernization, and new feature development as your business evolves." },
 ];
 
-/* ── TECH ── */
-const TECH: { i: IconName; t: string; items: ReactNode[] }[] = [
-  { i: "layout", t: "Frontend", items: ["React.js", "Next.js", "Angular", "Vue.js", "TypeScript", "HTML5", "CSS3"] },
-  { i: "server", t: "Backend", items: ["Node.js", "Java", "Python", ".NET", <Link href="/php-development-company" key="php">PHP</Link>, "Laravel", "Spring Boot"] },
-  { i: "phone", t: "Mobile", items: [<Link href="/flutter-app-development-company" key="f">Flutter</Link>, <Link href="/react-native-app-development-company" key="r">React Native</Link>, <Link href="/android-app-development-company" key="a">Native Android</Link>, <Link href="/ios-app-development-company" key="i">Native iOS</Link>] },
-  { i: "cloud", t: "Cloud & DevOps", items: [<Link href="/aws-cloud-services" key="aws">AWS</Link>, "Microsoft Azure", "Google Cloud", "Docker", "Kubernetes", "Jenkins", "GitHub Actions", "Terraform"] },
-  { i: "cpu", t: "Artificial Intelligence", items: ["OpenAI", "LangChain", "RAG", "AI agents", "Machine learning", "NLP", "Intelligent automation"] },
-  { i: "database", t: "Databases", items: ["PostgreSQL", "MySQL", "MongoDB", "SQL Server", "Redis"] },
+const TECH: { i: IconName; t: string; d: string; items: ReactNode[] }[] = [
+  { i: "layout", t: "Frontend Development", d: "Build responsive and engaging digital experiences using modern frontend frameworks and technologies.", items: ["React", "Next.js", "Angular", "Vue.js", "TypeScript"] },
+  { i: "server", t: "Backend Development", d: "Develop secure, scalable application backends, APIs, integrations, and business logic.", items: ["Node.js", "Python", "Java", ".NET", <Link href="/php-development-company" key="php">PHP</Link>] },
+  { i: "phone", t: "Mobile Development", d: "Create native and cross-platform mobile applications for modern iOS and Android experiences.", items: [<Link href="/flutter-app-development-company" key="f">Flutter</Link>, <Link href="/react-native-app-development-company" key="r">React Native</Link>, <Link href="/ios-app-development-company" key="i">iOS</Link>, <Link href="/android-app-development-company" key="a">Android</Link>] },
+  { i: "cloud", t: "Cloud & DevOps", d: "Build, deploy, monitor, and scale applications using modern cloud infrastructure and DevOps practices.", items: [<Link href="/aws-cloud-services" key="aws">AWS</Link>, "Microsoft Azure", "Google Cloud", "Docker", "Kubernetes"] },
+  { i: "cpu", t: "AI & Machine Learning", d: "Integrate intelligent capabilities into products and workflows using modern AI technologies.", items: ["Generative AI", "LLMs", "RAG", "AI Agents", "Machine Learning"] },
+  { i: "database", t: "Databases & Data", d: "Design data architectures that support application performance, reliability, scalability, and analytics.", items: [<Link href="/data-science-solutions" key="d">PostgreSQL</Link>, "MySQL", "MongoDB", "Redis", "SQL"] },
 ];
 
-/* ── CREDENTIALS: verifiable facts only. Not a claims list. ── */
-const CREDENTIALS: { i: IconName; t: string; d: ReactNode }[] = [
-  { i: "checkSquare", t: "ISO-certified processes", d: <>Documented, audited delivery and information-security processes.</> },
-  { i: "award", t: "NASSCOM member", d: <>Listed with India's national technology industry body — <Link href="/nasscom-membership">see the membership</Link>.</> },
-  { i: "target", t: "Independently reviewed", d: <>Client reviews published on <Link href="/clutch">Clutch</Link>, and our <Link href="/awards-recognition">awards and recognition</Link>.</> },
-  { i: "mapPin", t: "Three offices", d: <>Dover (Delaware), Hyderabad and Bangalore — all staffed engineering or operations sites.</> },
+const LOCATIONS: { t: string; d: string; cta: string; href: string }[] = [
+  { t: "New York", d: "Software development solutions for startups, businesses, and enterprises across New York.", cta: "Software Development Company in New York", href: "/software-development-company-new-york" },
+  { t: "California", d: "Custom software and digital product development solutions for businesses across California.", cta: "Software Development Company in California", href: "/software-development-company-california" },
+  { t: "Texas", d: "Scalable software development and engineering solutions for businesses across Texas.", cta: "Software Development Company in Texas", href: "/software-development-company-texas" },
+  { t: "Florida", d: "Custom software development and digital solutions for businesses across Florida.", cta: "Software Development Company in Florida", href: "/software-development-company-florida" },
+  { t: "Illinois", d: "Software development and technology solutions for businesses across Illinois.", cta: "Software Development Company in Illinois", href: "/software-development-company-illinois" },
 ];
 
-/* ── OUTCOMES ── */
-const STORIES: { i: IconName; t: string; challenge: string; solution: string; outcome: string }[] = [
-  { i: "building", t: "Enterprise Business Management Platform", challenge: "A growing enterprise ran on several disconnected systems, producing duplicate records, manual reconciliation and no consolidated view of operations.", solution: "A centralized platform unifying core business functions with workflow automation and real-time reporting.", outcome: "Reduced manual effort, consolidated reporting, architecture sized for further expansion" },
-  { i: "cpu", t: "AI-Powered Customer Support Assistant", challenge: "A service organization needed faster customer response times without growing the support team.", solution: "A virtual assistant grounded in the company's knowledge base, resolving routine queries and escalating cleanly to human agents.", outcome: "Faster first response, higher deflection rate, lower cost per ticket" },
-  { i: "cloud", t: "Cloud-Based SaaS Platform", challenge: "A startup needed a secure multi-tenant platform that could absorb rapid customer growth.", solution: "Cloud-native SaaS build with subscription management, authentication, API integrations and analytics.", outcome: "Launched on schedule, scaled without rearchitecture" },
-  { i: "factory", t: "Legacy Modernization for a Manufacturer", challenge: "A mid-market manufacturer ran production on an outdated on-premise system with no real-time visibility.", solution: "Cloud-native rebuild with live production dashboards and API integration into the existing ERP.", outcome: "Less unplanned downtime, faster reporting, cross-team visibility" },
+const ENGAGEMENT: { i: IconName; t: string; d: string }[] = [
+  { i: "rocket", t: "Product Development", d: "Build a new digital product from concept through launch and beyond." },
+  { i: "users", t: "Dedicated Engineering Support", d: "Extend your internal capabilities with dedicated development resources aligned with your roadmap." },
+  { i: "tool", t: "Application Enhancement", d: "Improve, expand, integrate, or modernize an existing application without replacing everything at once." },
 ];
 
-const CITIES = ["New York", "San Francisco Bay Area", "Austin", "Chicago", "Boston", "Seattle", "Dallas", "Philadelphia", "Washington D.C.", "Delaware"];
-
-/* ── FAQ: every question answers something NOT stated on the page. ── */
 const FAQS: { q: string; a: string }[] = [
-  {
-    q: "What does a software development project cost?",
-    a: "Most of our US engagements fall into bands: under $10K for a small scoped build or integration, $10K–$25K for an MVP or single module, $25K–$50K for a full product build, $50K–$100K for enterprise platforms, and $100K+ for multi-year programs. Discovery produces a fixed estimate before development starts.",
-  },
-  {
-    q: "What engagement models do you offer, and which suits us?",
-    a: "Fixed-scope when requirements are stable, a dedicated team when the roadmap is still moving, and staff augmentation when you have management capacity but not headcount. If you're unsure, we'll recommend one after discovery — including telling you when a smaller engagement is the right call.",
-  },
-  {
-    q: "How do you handle the time zone difference?",
-    a: "Every meeting you are expected to attend is booked in your working hours, not ours. A question raised before lunch is normally answered the same day. Escalations route to a named contact on US hours rather than a shared inbox, so nothing waits overnight for a reply.",
-  },
-  {
-    q: "Who owns the code and IP?",
-    a: "You do, on payment. Contracts assign all IP, source code and documentation to your organization. Repositories can sit in your GitHub or Azure DevOps org from day one so you always hold the code.",
-  },
-  {
-    q: "Will you sign an NDA before we share details?",
-    a: "Yes, before the first technical discussion. We can work under your NDA, MSA and security requirements.",
-  },
-  {
-    q: "Can you work within our compliance requirements?",
-    a: "We build to compliance-ready architecture — encryption, access control, audit logging and data residency controls — and work inside your existing compliance program. Tell us which framework applies (HIPAA, PCI DSS, SOC 2, GDPR) during discovery so it shapes the architecture rather than being retrofitted.",
-  },
-  {
-    q: "How quickly can a team start?",
-    a: "Typically two to four weeks from signed agreement for a standard stack, and longer for niche specializations. Discovery can often begin sooner while the team is assembled.",
-  },
-  {
-    q: "What happens when requirements change mid-project?",
-    a: "Change is expected, so it's priced. Anything inside the agreed scope gets reprioritized within the sprint plan at no extra cost; anything that expands scope gets a written re-estimate before work starts.",
-  },
-  {
-    q: "How long does a project take?",
-    a: "It depends on scope, integrations and how quickly decisions get made on your side. Discovery ends with a milestone roadmap and dated deliverables, so you're working from dates rather than a range.",
-  },
-  {
-    q: "How do we get started?",
-    a: "Book a consultation and we'll spend the first call on your business goals rather than our capabilities. You'll leave it with a recommended approach and a written proposal.",
-  },
+  { q: "What does a software development company do?", a: "A software development company helps businesses plan, design, build, test, deploy, and maintain software applications and digital products. This can include custom business software, web and mobile applications, SaaS platforms, AI solutions, cloud applications, integrations, and software modernization." },
+  { q: "Does mTouch Labs provide software development services for US businesses?", a: "Yes. mTouch Labs works with startups, growing businesses, and enterprises across the United States, providing software development and engineering solutions based on their business goals and technology requirements." },
+  { q: "What types of software can mTouch Labs develop?", a: "mTouch Labs develops custom business applications, enterprise software, SaaS products, web applications, mobile applications, AI-powered software, cloud applications, and modernized legacy systems." },
+  { q: "Does mTouch Labs offer offshore software development?", a: "Yes. mTouch Labs provides offshore software development and dedicated engineering support for businesses that need additional development capacity, specialized expertise, or a flexible technology team." },
+  { q: "Can mTouch Labs work with our existing development team?", a: "Yes. mTouch Labs can complement an existing engineering organization with additional development capacity and specialized technical expertise. The engagement can be structured around your team's roadmap, project requirements, and technology needs." },
+  { q: "Does mTouch Labs provide software development services across the USA?", a: "Yes. mTouch Labs works with businesses across the United States, including companies in markets such as New York, California, Texas, Florida, and Illinois. Our teams can collaborate remotely with businesses across different locations and support projects based on their requirements." },
+  { q: "How long does software development take?", a: "The timeline depends on the product scope, functionality, integrations, technical complexity, design requirements, and team structure. A smaller application may require less development time than a complex enterprise platform. A more accurate timeline can be established after evaluating your requirements." },
+  { q: "How much does custom software development cost?", a: "Custom software development costs vary based on factors such as product complexity, features, integrations, technology requirements, design, development timeline, testing, and ongoing support. A project assessment can provide a more relevant estimate based on your specific requirements." },
+  { q: "How do I start a software development project with mTouch Labs?", a: "Start by sharing your business objectives, product idea or existing application, key requirements, and expected outcomes. Our team can review your requirements and discuss the appropriate development approach, scope, engagement model, and next steps." },
 ];
 
-/* ════════════════════════════════════════════════════════════
-   STYLES
-   ════════════════════════════════════════════════════════════ */
-const LOC_CSS = `
-.loc-page{--ink:#0F172A;--ink-soft:#4A5568;--ink-faint:#94A3B8;--bg:#FFFFFF;--bg-alt:#F7F9FD;--line:#E7EBF3;--a1:#4338CA;--a2:#0EA5E9;--grad:linear-gradient(120deg,#4338CA 0%,#6D28D9 45%,#0EA5E9 100%);--tile:linear-gradient(135deg,#EEF2FF,#E0F2FE);--sh:0 1px 2px rgba(15,23,42,.04),0 8px 24px rgba(15,23,42,.05);--sh-h:0 6px 14px rgba(15,23,42,.06),0 22px 44px rgba(67,56,202,.13);--ease:cubic-bezier(.22,.61,.36,1);font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased}
-.loc-page *{box-sizing:border-box}
-.loc-page a{color:var(--a1);text-decoration:none;font-weight:600;transition:color .15s ease}
-.loc-page a:hover{color:var(--a2)}
-.loc-page :focus-visible{outline:2px solid var(--a1);outline-offset:3px;border-radius:8px}
-.loc-icon{display:block;flex-shrink:0}
-.loc-page [id^="svc-"]{scroll-margin-top:96px}
+/* ── page-specific CSS: hero split + form. Everything else
+      reuses LOC_CSS so there is one design system, not two. ── */
+const USA_CSS = `
+.usa-page{font-family:var(--f-body),'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+.usa-page .loc-sectionTitle,.usa-page .loc-introTitle,.usa-page .loc-ctaTitle,.usa-page .usa-h1,.usa-page .usa-formTitle,.usa-page .loc-detailTitle,.usa-page .loc-engageTitle,.usa-page .loc-statNum,.usa-page .loc-timelineDot,.usa-page .loc-detailNum{font-family:var(--f-display),'Sora',sans-serif}
 
-/* ── section shell ── */
-.loc-section{padding:4.75rem 1.5rem}
-.loc-introSection,.loc-whySection{background:var(--bg-alt)}
-.loc-servicesSection,.loc-industriesSection,.loc-processSection,.loc-faqSection{background:var(--bg)}
-.loc-sectionInner{max-width:1160px;margin:0 auto}
-.loc-sectionHeader{text-align:center;max-width:820px;margin:0 auto 3rem}
-.loc-sectionTitle{font-family:'Sora','Inter',sans-serif;font-size:clamp(1.6rem,2.6vw,2.4rem);font-weight:700;line-height:1.22;color:var(--ink);margin:0 0 .9rem;letter-spacing:-.022em}
-.loc-highlight{background:var(--grad);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:locShift 9s ease-in-out infinite}
-.loc-sectionDesc{font-size:1.04rem;color:var(--ink-soft);line-height:1.78;margin:0 auto;max-width:820px;text-align:center}
+/* ── hero: copy left, form right ── */
+/* Light hero, matching the ServiceHero treatment used elsewhere on the
+   site. 130px of top padding clears the fixed header — the previous
+   value let the sticky nav slice the top of the hero and the form. */
+.usa-hero{position:relative;padding:130px 1.5rem 5.5rem;overflow:hidden;background:
+  radial-gradient(1200px 600px at 12% 8%,rgba(67,56,202,.10) 0%,transparent 55%),
+  radial-gradient(900px 600px at 92% 18%,rgba(14,165,233,.10) 0%,transparent 55%),
+  linear-gradient(180deg,#FBFDFF 0%,#F7F9FD 100%)}
+.usa-hero::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--line)}
+.usa-heroInner{position:relative;max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:start}
+.usa-eyebrow{display:inline-flex;align-items:center;gap:.5rem;padding:.4rem .9rem;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--a1);font-size:.8rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-bottom:1.15rem;box-shadow:var(--sh)}
+.usa-h1{font-size:clamp(2rem,4vw,3.05rem);font-weight:800;line-height:1.12;letter-spacing:-.028em;color:var(--ink);margin:0 0 1.15rem}
+.usa-h1 em{font-style:normal;background:var(--grad);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:locShift 9s ease-in-out infinite}
+.usa-heroText{font-size:1.03rem;line-height:1.78;color:var(--ink-soft);margin:0 0 1rem;max-width:56ch}
+.usa-heroActions{display:flex;flex-wrap:wrap;gap:.8rem;margin:1.6rem 0 2rem}
+.usa-btnA,.usa-btnB{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.85rem 1.6rem;border-radius:999px;font-weight:700;font-size:.94rem;transition:transform .2s cubic-bezier(.22,.61,.36,1),box-shadow .2s,background .2s}
+.usa-btnA{background:var(--grad);color:#fff!important;box-shadow:0 8px 20px rgba(67,56,202,.24)}
+.usa-btnA:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(67,56,202,.34)}
+.usa-btnB{background:#fff;color:var(--a1)!important;border:1.5px solid var(--line);box-shadow:var(--sh)}
+.usa-btnB:hover{border-color:#C7D2FE;transform:translateY(-2px);box-shadow:var(--sh-h)}
+.usa-heroStats{display:grid;grid-template-columns:repeat(4,auto);gap:2.2rem;justify-content:start}
+.usa-hsNum{font-family:var(--f-display),'Sora',sans-serif;font-size:1.7rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.15}
+.usa-hsLabel{font-size:.78rem;color:var(--ink-soft);font-weight:600;margin-top:.2rem;max-width:11ch;line-height:1.35}
 
-/* ── intro grid ── */
-.loc-introGrid{display:grid;grid-template-columns:1.6fr 1fr;gap:3rem;align-items:start}
-.loc-introTitle{font-family:'Sora','Inter',sans-serif;font-size:clamp(1.38rem,2.2vw,1.95rem);font-weight:700;color:var(--ink);margin:0 0 1.1rem;letter-spacing:-.02em}
-.loc-introText{font-size:1.02rem;color:var(--ink-soft);margin:0 0 1.05rem;line-height:1.82}
-.loc-introText:last-child{margin-bottom:0}
-.loc-introText strong{color:var(--ink);font-weight:600}
-.loc-introTags{display:flex;flex-wrap:wrap;gap:.55rem;margin:1rem 0 1.4rem}
-.loc-introTag{display:inline-flex;align-items:center;padding:.42rem .9rem;background:#fff;border:1px solid var(--line);border-radius:999px;font-size:.83rem;font-weight:600;color:var(--a1);white-space:nowrap;transition:transform .2s var(--ease),border-color .2s,box-shadow .2s}
-.loc-introTag:hover{transform:translateY(-2px);border-color:#C7D2FE;box-shadow:0 6px 14px rgba(67,56,202,.1)}
-.loc-introTag a{color:inherit}
-.loc-introTag a:hover{color:var(--a2)}
+/* ── hero form ── */
+.usa-form{background:#fff;border-radius:20px;padding:1.75rem 1.6rem;box-shadow:0 4px 12px rgba(15,23,42,.05),0 20px 48px rgba(67,56,202,.12);border:1px solid var(--line)}
+.usa-formTitle{font-size:1.3rem;font-weight:700;color:#0F172A;margin:0 0 .3rem;letter-spacing:-.02em}
+.usa-formSub{font-size:.87rem;color:#5B6479;margin:0 0 1.15rem;line-height:1.6}
+.usa-field{margin-bottom:.85rem}
+.usa-field label{display:block;font-size:.78rem;font-weight:700;color:#3F4A60;margin-bottom:.32rem;letter-spacing:.01em}
+.usa-field input,.usa-field select,.usa-field textarea{display:block;width:100%;padding:.62rem .8rem;border:1px solid #DDE3F0;border-radius:10px;font-family:inherit;font-size:.9rem;line-height:1.5;color:#0F172A;background:#FBFCFE;transition:border-color .16s,box-shadow .16s;-webkit-appearance:none;appearance:none}
+.usa-field input,.usa-field select{height:42px}
+.usa-field select{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%234338CA' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .65rem center;padding-right:1.9rem;text-overflow:ellipsis}
+.usa-field textarea{resize:vertical;min-height:76px;height:auto}
+.usa-field input:focus,.usa-field select:focus,.usa-field textarea:focus{outline:none;border-color:#4338CA;box-shadow:0 0 0 3px rgba(67,56,202,.14);background:#fff}
+.usa-field input::placeholder,.usa-field textarea::placeholder{color:#A2ABBF}
+.usa-fieldPhone{display:grid;grid-template-columns:96px 1fr;gap:.6rem;align-items:end}
+.usa-fieldPhone select{padding-left:.65rem;padding-right:1.7rem}
+.usa-formBtn{width:100%;margin-top:.35rem;padding:.9rem 1.2rem;border:0;border-radius:999px;background:linear-gradient(120deg,#4338CA,#6D28D9 55%,#0EA5E9);color:#fff;font:inherit;font-size:.95rem;font-weight:700;cursor:pointer;transition:transform .2s cubic-bezier(.22,.61,.36,1),box-shadow .2s,filter .2s}
+.usa-formBtn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 12px 26px rgba(67,56,202,.36)}
+.usa-formBtn:disabled{opacity:.65;cursor:progress}
+.usa-formErr{margin:.5rem 0 0;font-size:.83rem;color:#B91C1C;font-weight:600}
+.usa-formFine{margin:.85rem 0 0;font-size:.75rem;color:#78839A;line-height:1.6;text-align:center}
+.usa-formFine a{color:#4338CA;font-weight:600}
+.usa-form--done{text-align:center;padding:2.6rem 1.6rem;color:#047857}
+.usa-form--done svg{margin:0 auto .8rem;color:#059669}
+.usa-form--done .usa-formTitle{color:#0F172A}
+.usa-formNote{font-size:.9rem;color:#5B6479;margin:.4rem 0 0;line-height:1.65}
 
-/* ── icon tiles ── */
-.loc-tile{width:48px;height:48px;display:inline-flex;align-items:center;justify-content:center;border-radius:14px;background:var(--tile);border:1px solid #E3E9F7;color:var(--a1);margin-bottom:1.05rem;transition:background .3s var(--ease),color .3s,transform .35s var(--ease),box-shadow .3s}
-.loc-tile--sm{width:44px;height:44px;border-radius:13px;margin-bottom:0;flex-shrink:0}
-.loc-tile--round{width:54px;height:54px;border-radius:50%;margin:0 auto .85rem}
-.loc-whyCard:hover .loc-tile,.loc-industryCard:hover .loc-tile{background:var(--grad);border-color:transparent;color:#fff;transform:translateY(-2px) rotate(-5deg) scale(1.06);box-shadow:0 10px 20px rgba(67,56,202,.26)}
+/* ── link CTAs used across the content sections ── */
+.usa-cardLink{display:inline-flex;align-items:center;gap:.35rem;margin-top:.9rem;font-size:.86rem;font-weight:700;color:var(--a1)}
+.usa-cardLink::after{content:'→';transition:transform .2s cubic-bezier(.22,.61,.36,1)}
+.usa-cardLink:hover::after{transform:translateX(3px)}
+.usa-locGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:1.1rem}
+.usa-locCard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:1.4rem 1.25rem;box-shadow:var(--sh);transition:transform .25s var(--ease),box-shadow .25s,border-color .25s;display:flex;flex-direction:column}
+.usa-locCard:hover{transform:translateY(-4px);box-shadow:var(--sh-h);border-color:#C7D2FE}
+.usa-locName{font-family:var(--f-display),'Sora',sans-serif;font-size:1.05rem;font-weight:700;color:var(--ink);margin:0 0 .4rem}
+.usa-locText{font-size:.85rem;color:var(--ink-soft);line-height:1.6;margin:0;flex-grow:1}
+.usa-midCta{max-width:820px;margin:2.6rem auto 0;text-align:center;background:var(--bg-alt);border:1px solid var(--line);border-radius:18px;padding:1.9rem 1.75rem}
+.usa-midCtaTitle{font-family:var(--f-display),'Sora',sans-serif;font-size:1.22rem;font-weight:700;color:var(--ink);margin:0 0 .55rem}
+.usa-midCtaText{font-size:.94rem;color:var(--ink-soft);line-height:1.7;margin:0 0 1.15rem}
+.usa-inlineBtn{display:inline-flex;align-items:center;gap:.45rem;padding:.75rem 1.5rem;border-radius:999px;background:var(--grad);color:#fff!important;font-weight:700;font-size:.9rem;transition:transform .2s var(--ease),box-shadow .2s}
+.usa-inlineBtn:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(67,56,202,.3)}
 
-/* ── stat cards ── */
-.loc-introStats{display:grid;grid-template-columns:repeat(2,1fr);gap:.9rem;align-content:start}
-.loc-statCard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:1.25rem .9rem;text-align:center;box-shadow:var(--sh);transition:transform .25s var(--ease),box-shadow .25s,border-color .25s}
-.loc-statCard:hover{transform:translateY(-3px);box-shadow:var(--sh-h);border-color:#C7D2FE}
-.loc-statIcon{width:36px;height:36px;margin:0 auto .55rem;display:flex;align-items:center;justify-content:center;border-radius:11px;background:var(--tile);color:var(--a1);transition:background .3s var(--ease),color .3s,transform .35s var(--ease)}
-.loc-statCard:hover .loc-statIcon{background:var(--grad);color:#fff;transform:rotate(-6deg) scale(1.07)}
-.loc-statNum{font-family:'Sora','Inter',sans-serif;font-size:1.5rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.15}
-.loc-statLabel{margin-top:.25rem;font-size:.8rem;font-weight:600;color:var(--ink-soft);line-height:1.4}
-
-/* ── card grids ── */
-.loc-whyGrid,.loc-industriesGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;align-items:stretch}
-.loc-whyCard,.loc-industryCard{position:relative;background:#fff;border:1px solid var(--line);border-radius:18px;padding:1.7rem;box-shadow:var(--sh);transition:transform .28s var(--ease),box-shadow .28s,border-color .28s;display:flex;flex-direction:column;height:100%;overflow:hidden}
-.loc-whyCard::after,.loc-industryCard::after{content:'';position:absolute;inset:0 0 auto 0;height:3px;background:var(--grad);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
-.loc-whyCard:hover::after,.loc-industryCard:hover::after{transform:scaleX(1)}
-.loc-whyCard:hover,.loc-industryCard:hover{transform:translateY(-5px);box-shadow:var(--sh-h);border-color:#C7D2FE}
-.loc-serviceDesc{font-size:.92rem;color:var(--ink-soft);line-height:1.68;margin:0;flex-grow:1}
-.loc-whyCard{flex-direction:row;align-items:flex-start;gap:1rem}
-.loc-whyTitle{font-size:1rem;font-weight:700;color:var(--ink);margin:0 0 .28rem;line-height:1.4}
-.loc-whyText{font-size:.9rem;color:var(--ink-soft);margin:0;line-height:1.62}
-.loc-whyCard .loc-introTags{margin:.6rem 0 0}
-.loc-whyCard .loc-introTag{font-size:.74rem;padding:.28rem .65rem}
-.loc-industryCard{align-items:center;text-align:center}
-.loc-industryName{font-size:1rem;font-weight:700;color:var(--ink);margin:0 0 .4rem}
-.loc-industryCard .loc-serviceDesc{text-align:center;flex-grow:0}
-
-/* ── jump chips (in-page anchors) ── */
-.loc-chipGrid{display:grid;grid-template-columns:repeat(6,1fr);gap:.85rem;margin-bottom:2.6rem}
-.loc-chipCard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:1.05rem .7rem;text-align:center;font-size:.84rem;font-weight:600;color:var(--ink);box-shadow:var(--sh);display:flex;flex-direction:column;align-items:center;gap:.5rem;line-height:1.4;transition:transform .25s var(--ease),box-shadow .25s,color .25s,border-color .25s}
-.loc-chipText{color:var(--ink)}
-.loc-chipIcon{width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:var(--tile);color:var(--a1);transition:background .3s var(--ease),color .3s,transform .35s var(--ease)}
-.loc-chipCard:hover{transform:translateY(-4px);box-shadow:var(--sh-h);border-color:#C7D2FE}
-.loc-chipCard:hover .loc-chipText{color:var(--a1)}
-.loc-chipCard:hover .loc-chipIcon{background:var(--grad);color:#fff;transform:rotate(-6deg) scale(1.07)}
-.loc-chipGrid--5{grid-template-columns:repeat(5,1fr);margin-bottom:0}
-
-/* ── detail cards ── */
-.loc-detailGrid{display:grid;grid-template-columns:1fr;gap:1.4rem}
-.loc-detailCard{position:relative;background:#fff;border:1px solid var(--line);border-radius:20px;padding:1.9rem 2.1rem;box-shadow:var(--sh);overflow:hidden;transition:transform .28s var(--ease),box-shadow .28s,border-color .28s}
-.loc-detailCard::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--grad);opacity:.85;transform:scaleY(.4);transform-origin:top;transition:transform .45s var(--ease)}
-.loc-detailCard:hover::before{transform:scaleY(1)}
-.loc-detailCard:hover{transform:translateY(-3px);box-shadow:var(--sh-h);border-color:#C7D2FE}
-.loc-detailHead{display:flex;align-items:center;gap:.9rem;margin-bottom:.85rem}
-.loc-detailNum{flex-shrink:0;width:42px;height:42px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:var(--tile);color:var(--a1);font-family:'Sora','Inter',sans-serif;font-weight:800;font-size:.9rem;transition:background .3s var(--ease),color .3s}
-.loc-detailCard:hover .loc-detailNum{background:var(--grad);color:#fff}
-.loc-detailTitle{font-family:'Sora','Inter',sans-serif;font-size:1.18rem;font-weight:700;color:var(--ink);margin:0;letter-spacing:-.01em}
-.loc-detailTitle a{color:var(--ink)}
-.loc-detailTitle a:hover{color:var(--a1)}
-.loc-detailDesc{font-size:.95rem;color:var(--ink-soft);line-height:1.78;margin:0 0 1.1rem}
-.loc-detailBlock{margin-bottom:.9rem}
-.loc-detailBlock:last-child{margin-bottom:0}
-.loc-detailLabel{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--a1);margin:0 0 .55rem}
-.loc-detailTagRow{display:flex;flex-wrap:wrap;gap:.45rem}
-.loc-detailTag{display:inline-flex;align-items:center;padding:.38rem .8rem;background:var(--bg-alt);border:1px solid var(--line);border-radius:999px;font-size:.79rem;font-weight:600;color:var(--ink-soft);transition:background .2s,color .2s,border-color .2s,transform .2s var(--ease)}
-.loc-detailTag:hover{background:#fff;color:var(--a1);border-color:#C7D2FE;transform:translateY(-2px)}
-.loc-detailTag a{color:inherit}
-.loc-detailTag a:hover{color:var(--a2)}
-
-/* ── timeline ── */
-.loc-timeline{position:relative;max-width:860px;margin:0 auto}
-.loc-timeline::before{content:'';position:absolute;left:27px;top:10px;bottom:10px;width:2px;background:linear-gradient(180deg,#4338CA,#0EA5E9,#E6EAF2)}
-.loc-timelineItem{position:relative;display:flex;gap:1.4rem;padding-bottom:2rem}
-.loc-timelineItem:last-child{padding-bottom:0}
-.loc-timelineDot{position:relative;z-index:1;flex-shrink:0;width:56px;height:56px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:var(--grad);color:#fff;font-family:'Sora','Inter',sans-serif;font-weight:800;font-size:1.05rem;box-shadow:0 6px 16px rgba(67,56,202,.28)}
-.loc-timelineDot::after{content:'';position:absolute;inset:-6px;border-radius:50%;border:1.5px solid #C7D2FE;opacity:0;transform:scale(.85);transition:opacity .35s,transform .35s var(--ease)}
-.loc-timelineItem:hover .loc-timelineDot::after{opacity:1;transform:scale(1)}
-.loc-timelineBody{background:#fff;border:1px solid var(--line);border-radius:16px;padding:1.25rem 1.55rem;flex:1;min-width:0;box-shadow:var(--sh);transition:transform .25s var(--ease),box-shadow .25s,border-color .25s}
-.loc-timelineItem:hover .loc-timelineBody{transform:translateX(5px);box-shadow:var(--sh-h);border-color:#C7D2FE}
-.loc-timelineTitle{font-size:1.04rem;font-weight:700;color:var(--ink);margin:0 0 .35rem}
-.loc-timelineDesc{font-size:.9rem;color:var(--ink-soft);margin:0;line-height:1.68}
-.loc-timelineBody .loc-detailTagRow{margin-top:.75rem}
-
-/* ── engagement / story cards ── */
-.loc-engageGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem}
-.loc-engageCard{background:#fff;border:1px solid var(--line);border-radius:20px;padding:1.9rem;box-shadow:var(--sh);transition:transform .28s var(--ease),box-shadow .28s,border-color .28s}
-.loc-engageCard:hover{transform:translateY(-5px);box-shadow:var(--sh-h);border-color:#C7D2FE}
-.loc-engageIcon{width:52px;height:52px;display:inline-flex;align-items:center;justify-content:center;background:var(--grad);color:#fff;border-radius:15px;margin-bottom:1.05rem;box-shadow:0 8px 18px rgba(67,56,202,.24);transition:transform .35s var(--ease)}
-.loc-engageCard:hover .loc-engageIcon{transform:rotate(-6deg) scale(1.06)}
-.loc-engageTitle{font-family:'Sora','Inter',sans-serif;font-size:1.1rem;font-weight:700;color:var(--ink);margin:0 0 .55rem}
-.loc-engageTitle a{color:var(--ink)}
-.loc-engageTitle a:hover{color:var(--a1)}
-.loc-engageDesc{font-size:.92rem;color:var(--ink-soft);line-height:1.72;margin:0 0 .8rem}
-.loc-engageDesc strong{color:var(--ink)}
-.loc-engageBest{display:inline-flex;align-items:center;gap:.4rem;font-size:.82rem;font-weight:700;color:var(--a1);background:var(--bg-alt);padding:.5rem .9rem;border-radius:10px;margin-top:.2rem}
-
-/* ── credentials strip ── */
-.loc-trustGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem}
-.loc-trustCard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:1.4rem 1.25rem;box-shadow:var(--sh);transition:transform .25s var(--ease),box-shadow .25s,border-color .25s}
-.loc-trustCard:hover{transform:translateY(-4px);box-shadow:var(--sh-h);border-color:#C7D2FE}
-.loc-trustIcon{width:42px;height:42px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:var(--tile);color:var(--a1);margin-bottom:.8rem;transition:background .3s var(--ease),color .3s,transform .35s var(--ease)}
-.loc-trustCard:hover .loc-trustIcon{background:var(--grad);color:#fff;transform:rotate(-6deg) scale(1.07)}
-.loc-trustTitle{font-size:.98rem;font-weight:700;color:var(--ink);margin:0 0 .3rem}
-.loc-trustText{font-size:.86rem;color:var(--ink-soft);margin:0;line-height:1.6}
-
-/* ── contact rows / office ── */
-.loc-contactRow{display:flex;align-items:flex-start;gap:.7rem;font-size:.98rem;color:var(--ink-soft);margin:0 0 .75rem;line-height:1.7}
-.loc-contactRow span.loc-ci{color:var(--a1);margin-top:.22rem}
-.loc-contactRow strong{color:var(--ink)}
-.loc-officeRightCol{display:flex;flex-direction:column;height:100%;gap:1.1rem}
-.loc-mapWrap{position:relative;flex:1;min-height:240px;border-radius:16px;overflow:hidden;box-shadow:var(--sh);border:1px solid var(--line)}
-.loc-mapFrame{width:100%;height:100%;border:0;display:block;filter:saturate(.9)}
-.loc-mapOverlay{position:absolute;inset:0;background:transparent;transition:background .25s}
-.loc-mapOverlay:hover{background:rgba(67,56,202,.06)}
-.loc-mapBadge{position:absolute;bottom:12px;left:12px;display:inline-flex;align-items:center;gap:.4rem;background:#fff;padding:.5rem .9rem;border-radius:999px;font-size:.78rem;font-weight:700;color:var(--a1);box-shadow:var(--sh);pointer-events:none}
-.loc-officeNote{font-size:.9rem;color:var(--ink-soft);line-height:1.7;margin:1.4rem 0 0;padding-top:1.1rem;border-top:1px dashed var(--line)}
-
-/* ── breadcrumb ── */
-.loc-breadcrumb{max-width:1160px;margin:0 auto;padding:1.1rem 1.5rem 0;display:flex;align-items:center;flex-wrap:wrap;gap:.4rem;font-size:.85rem}
-.loc-breadcrumb a{color:var(--ink-soft);font-weight:500}
-.loc-breadcrumb a:hover{color:var(--a1)}
-.loc-breadcrumbSep{color:var(--ink-faint)}
-.loc-breadcrumbCurrent{color:var(--ink);font-weight:600}
-
-/* ── FAQ ── */
-.loc-faqList{display:flex;flex-direction:column;gap:.7rem;max-width:880px;margin:0 auto}
-.loc-faqItem{background:var(--bg-alt);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:border-color .25s,box-shadow .25s,background .25s}
-.loc-faqItem:hover{border-color:#C7D2FE}
-.loc-faqItem[open]{background:#fff;box-shadow:var(--sh);border-color:#C7D2FE}
-.loc-faqQuestion{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.1rem 1.35rem;cursor:pointer;list-style:none;font-weight:600;color:var(--ink);font-size:.97rem}
-.loc-faqQuestion::-webkit-details-marker{display:none}
-.loc-faqChevron{flex-shrink:0;display:flex;color:var(--a1);transition:transform .3s var(--ease)}
-.loc-faqItem[open] .loc-faqChevron{transform:rotate(180deg)}
-.loc-faqAnswer{padding:0 1.35rem 1.25rem;font-size:.92rem;color:var(--ink-soft);line-height:1.75}
-
-/* ── CTA ── */
-.loc-ctaSection{position:relative;background:var(--grad);padding:4.25rem 1.5rem;overflow:hidden}
-.loc-ctaSection::before,.loc-ctaSection::after{content:'';position:absolute;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.16),transparent 70%);pointer-events:none}
-.loc-ctaSection::before{top:-220px;left:-140px;animation:locFloat 16s ease-in-out infinite}
-.loc-ctaSection::after{bottom:-260px;right:-120px;animation:locFloat 20s ease-in-out infinite reverse}
-.loc-ctaInner{position:relative;max-width:800px;margin:0 auto;text-align:center}
-.loc-ctaTitle{font-family:'Sora','Inter',sans-serif;font-size:clamp(1.5rem,2.4vw,2.05rem);font-weight:700;color:#fff;margin:0 0 1rem;letter-spacing:-.02em}
-.loc-ctaDesc{font-size:1rem;color:rgba(255,255,255,.92);line-height:1.78;margin:0 0 2rem}
-.loc-ctaActions{display:flex;flex-wrap:wrap;gap:.85rem;justify-content:center}
-.loc-ctaBtnPrimary,.loc-ctaBtnSecondary{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.9rem 1.8rem;border-radius:999px;font-weight:700;font-size:.95rem;overflow:hidden}
-.loc-ctaBtnPrimary{background:#fff;color:var(--a1)!important;transition:transform .2s var(--ease),box-shadow .2s}
-.loc-ctaBtnPrimary::after{content:'';position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(67,56,202,.14) 50%,transparent 65%);transform:translateX(-130%);transition:transform .7s var(--ease)}
-.loc-ctaBtnPrimary:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(0,0,0,.2)}
-.loc-ctaBtnPrimary:hover::after{transform:translateX(130%)}
-.loc-ctaBtnSecondary{background:transparent;color:#fff!important;border:1.5px solid rgba(255,255,255,.6);transition:background .2s,transform .2s var(--ease),border-color .2s}
-.loc-ctaBtnSecondary:hover{background:rgba(255,255,255,.14);border-color:#fff;transform:translateY(-2px)}
-
-/* ── motion ── */
-@keyframes locFadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
-@keyframes locShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
-@keyframes locFloat{0%,100%{transform:translate(0,0)}50%{transform:translate(46px,34px)}}
-.loc-sectionHeader,.loc-statCard,.loc-whyCard,.loc-industryCard,.loc-chipCard,.loc-detailCard,.loc-engageCard,.loc-trustCard,.loc-timelineItem,.loc-faqItem,.loc-mapWrap{animation:locFadeUp .65s var(--ease) both}
-@supports (animation-timeline:view()){
-  .loc-sectionHeader,.loc-statCard,.loc-whyCard,.loc-industryCard,.loc-chipCard,.loc-detailCard,.loc-engageCard,.loc-trustCard,.loc-timelineItem,.loc-faqItem,.loc-mapWrap{animation-timeline:view();animation-range:entry 0% cover 16%}
+@media (max-width:1080px){
+  .usa-heroInner{grid-template-columns:1fr;gap:2.25rem}
+  .usa-locGrid{grid-template-columns:repeat(3,1fr)}
 }
-@supports (interpolate-size:allow-keywords){
-  .loc-page{interpolate-size:allow-keywords}
-  .loc-faqItem::details-content{block-size:0;overflow:hidden;transition:block-size .32s var(--ease),content-visibility .32s allow-discrete}
-  .loc-faqItem[open]::details-content{block-size:auto}
-}
-@media (prefers-reduced-motion:reduce){
-  .loc-page *,.loc-page *::before,.loc-page *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
-}
-
-/* ── responsive ── */
-@media (max-width:980px){
-  .loc-whyGrid,.loc-industriesGrid{grid-template-columns:repeat(2,1fr)}
-  .loc-introGrid{grid-template-columns:1fr;gap:2rem}
-  .loc-introStats{grid-template-columns:repeat(4,1fr)}
-  .loc-engageGrid{grid-template-columns:1fr}
-  .loc-chipGrid,.loc-chipGrid--5{grid-template-columns:repeat(3,1fr)}
-  .loc-trustGrid{grid-template-columns:repeat(2,1fr)}
-}
-@media (max-width:640px){
-  .loc-section{padding:3rem 1.15rem}
-  .loc-detailCard{padding:1.5rem 1.35rem}
-  .loc-chipGrid,.loc-chipGrid--5{grid-template-columns:repeat(2,1fr)}
-  .loc-timeline::before{left:22px}
-  .loc-timelineDot{width:44px;height:44px;font-size:.95rem}
-  .loc-timelineItem{gap:.95rem}
-  .loc-whyGrid,.loc-industriesGrid,.loc-trustGrid{grid-template-columns:1fr}
-  .loc-introStats{grid-template-columns:repeat(2,1fr)}
-  .loc-ctaActions{flex-direction:column;align-items:stretch}
+@media (max-width:768px){
+  .usa-hero{padding:100px 1.15rem 3.25rem}
+  .usa-heroStats{grid-template-columns:repeat(2,1fr);gap:1.4rem}
+  .usa-hsLabel{max-width:none}
+  .usa-locGrid{grid-template-columns:1fr}
+  .usa-heroActions{flex-direction:column;align-items:stretch}
 }
 `;
 
-/* ════════════════════════════════════════════════════════════
-   PAGE
-   ════════════════════════════════════════════════════════════ */
+const Card = ({ i, t, d, cta, href }: { i: IconName; t: string; d: string; cta?: string; href?: string }) => (
+  <div className="loc-whyCard" style={{ flexDirection: "column", alignItems: "flex-start" }}>
+    <span className="loc-tile"><Icon name={i} /></span>
+    <h3 className="loc-whyTitle">{t}</h3>
+    <p className="loc-whyText" style={{ flexGrow: 1 }}>{d}</p>
+    {cta && href ? <Link className="usa-cardLink" href={href}>{cta}</Link> : null}
+  </div>
+);
+
+const MidCta = ({ t, d, cta, href }: { t: string; d: string; cta: string; href: string }) => (
+  <div className="usa-midCta">
+    <h2 className="usa-midCtaTitle">{t}</h2>
+    <p className="usa-midCtaText">{d}</p>
+    <Link className="usa-inlineBtn" href={href}>{cta}</Link>
+  </div>
+);
+
 export default function SoftwareDevelopmentCompanyUSA() {
   return (
-    <div className="loc-page">
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
-      <style>{LOC_CSS}</style>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(locationBreadcrumb) }} />
+    <div className={`loc-page usa-page ${sora.variable} ${inter.variable}`}>
+      <style>{LOC_CSS + USA_CSS}</style>
+      <FAQSchema faqs={FAQS} />
 
-      {/* ═══ BREADCRUMB ═══ */}
-      <nav className="loc-breadcrumb" aria-label="Breadcrumb">
-        <Link href="/">Home</Link>
-        <span className="loc-breadcrumbSep">/</span>
-        <Link href="/services">Locations</Link>
-        <span className="loc-breadcrumbSep">/</span>
-        <span className="loc-breadcrumbCurrent">Software Development Company in USA</span>
-      </nav>
-
-      {/* ═══ HERO ═══
-          The hero subtitle is NEVER reused as the first H2 below —
-          that was the single worst duplication on the previous page. */}
-      <ServiceHero
-        badge="mTouch Labs · United States"
-        titleLead="Software Development Company in the"
-        titleAccent="USA"
-        description={<>Custom software, AI applications, SaaS platforms and enterprise systems for startups, ISVs and enterprises across the United States.</>}
-        primaryLabel="Let's Discuss Your Project"
-        primaryHref="/contact-us"
-        secondaryLabel="See Our Work"
-        secondaryHref="/portfolio"
-      />
-
-      {/* ═══ INTRO — owns positioning and the headline numbers ═══ */}
-      <section className="loc-section loc-introSection">
-        <div className="loc-sectionInner">
-          <div className="loc-introGrid">
-            <div>
-              <p className="loc-introText">Technology has stopped being a support function. It now decides how fast you ship, how customers experience your brand, and how much of your operation runs without manual effort.</p>
-              <p className="loc-introText">mTouch Labs is a <strong>software development company in the USA</strong> working with startups, growing businesses, ISVs and enterprises to turn ideas into production software. We handle the full arc — product discovery, architecture, engineering, cloud deployment, and the ongoing work that keeps a product competitive after launch.</p>
-              <p className="loc-introText">What that looks like in practice depends on where you are. Some clients come to us with a validated idea and no engineering team. Others have a working product that has outgrown its architecture. A few need experienced engineers embedded alongside their own for a year or more. Our <Link href="/services">software product development</Link> engagements are built around which of those you actually are.</p>
+      {/* ═══ HERO — copy left, lead form right ═══ */}
+      <section className="usa-hero">
+        <div className="usa-heroInner">
+          <div>
+            <span className="usa-eyebrow">mTouch Labs · United States</span>
+            <h1 className="usa-h1">Software Development Company in the <em>USA</em></h1>
+            <p className="usa-heroText">Build, modernize, and scale digital products with a trusted software development partner. mTouch Labs delivers custom software, AI-powered applications, SaaS platforms, enterprise solutions, web applications, mobile apps, and cloud solutions tailored to your business needs.</p>
+            <p className="usa-heroText">From product strategy and UI/UX design to development, testing, deployment, and ongoing support, our experienced engineering team helps businesses turn complex technology requirements into secure, scalable, and high-performing software.</p>
+            <div className="usa-heroActions">
+              <Link href="/contact-us" className="usa-btnA">Talk to a Software Expert</Link>
+              <Link href="/case-studies" className="usa-btnB">View Case Studies</Link>
             </div>
-            <div className="loc-introStats">{INTRO_STATS.map((s) => <Stat key={s.l} {...s} />)}</div>
+            <div className="usa-heroStats">
+              {HERO_STATS.map((s) => (
+                <div key={s.l}><div className="usa-hsNum">{s.n}</div><div className="usa-hsLabel">{s.l}</div></div>
+              ))}
+            </div>
           </div>
+          <HeroLeadForm />
         </div>
       </section>
 
-      {/* ═══ CHALLENGES — owns pain points ═══ */}
-      <section className="loc-section loc-servicesSection">
-        <div className="loc-sectionInner">
-          <div className="loc-sectionHeader">
-            <h2 className="loc-sectionTitle">Business Challenges We <span className="loc-highlight">Help Solve</span></h2>
-            <p className="loc-sectionDesc">Six situations that bring US businesses to us, and what we actually do about each one.</p>
-          </div>
-          <div className="loc-whyGrid">{CHALLENGES.map((c) => <Why key={c.t} {...c} />)}</div>
-        </div>
-      </section>
-
-      {/* ═══ WHY US — owns how we work. No pain points, no stats. ═══ */}
-      <section className="loc-section loc-whySection">
-        <div className="loc-sectionInner">
-          <div className="loc-sectionHeader">
-            <h2 className="loc-sectionTitle">Why US Businesses Choose <span className="loc-highlight">mTouch Labs</span></h2>
-            <p className="loc-sectionDesc">Not a capability list — the working practices you would notice in the first month of an engagement.</p>
-          </div>
-          <div className="loc-whyGrid">{WHY_CHOOSE.map((w) => <Why key={w.t} {...w} />)}</div>
-        </div>
-      </section>
-
-      {/* ═══ SERVICES — owns "what we build".
-           The chips are in-page jump links, not repeat internal links:
-           every service URL appears exactly once, in its detail block. ═══ */}
-      <section className="loc-section loc-servicesSection">
-        <div className="loc-sectionInner">
-          <div className="loc-sectionHeader">
-            <h2 className="loc-sectionTitle">Software Development Services for <span className="loc-highlight">US Businesses</span></h2>
-            <p className="loc-sectionDesc">Jump to a capability, or read straight through.</p>
-          </div>
-          <nav className="loc-chipGrid" aria-label="Services on this page">
-            {SERVICE_INDEX.map((s) => <Jump key={s.to} {...s} />)}
-          </nav>
-          <div className="loc-detailGrid">{CAPABILITIES.map((c) => <Detail key={c.id} {...c} />)}</div>
-        </div>
-      </section>
-
-      {/* ═══ MODERNIZATION — owns legacy, cloud and DevOps ═══ */}
+      {/* ═══ TRUST STATS ═══ */}
       <section className="loc-section loc-introSection">
         <div className="loc-sectionInner">
           <div className="loc-sectionHeader">
-            <h2 className="loc-sectionTitle">Legacy Modernization &amp; <span className="loc-highlight">Cloud Engineering</span></h2>
-            <p className="loc-sectionDesc">The work that sits underneath everything above: moving off aging infrastructure without stopping the business.</p>
+            <h2 className="loc-sectionTitle">Trusted by Businesses Building and Scaling with <span className="loc-highlight">Technology</span></h2>
           </div>
-          <div className="loc-chipGrid loc-chipGrid--5">
-            {MODERNIZATION.map((c, k) => (
-              <div className="loc-chipCard" key={k}>
-                <span className="loc-chipIcon"><Icon name={c.i} size={20} /></span>
-                <span className="loc-chipText">{c.t}</span>
+          <div className="loc-introStats" style={{ gridTemplateColumns: "repeat(4, 1fr)" }}>
+            {TRUST_STATS.map((s) => (
+              <div className="loc-statCard" key={s.l}>
+                <span className="loc-statIcon"><Icon name={s.i} size={19} /></span>
+                <div className="loc-statNum">{s.n}</div>
+                <div className="loc-statLabel">{s.l}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ═══ INDUSTRIES ═══ */}
-      <section className="loc-section loc-industriesSection">
+      {/* ═══ PARTNER ═══ */}
+      <section className="loc-section loc-servicesSection">
         <div className="loc-sectionInner">
           <div className="loc-sectionHeader">
-            <h2 className="loc-sectionTitle">Industries We <span className="loc-highlight">Build For</span></h2>
-            <p className="loc-sectionDesc">Domain knowledge shortens discovery. These are the sectors where we already know the workflows and the regulatory shape of the problem.</p>
+            <h2 className="loc-sectionTitle">Your Software Development Partner for the <span className="loc-highlight">US Market</span></h2>
+            <p className="loc-sectionDesc">Building software for the US market requires more than development resources. You need a technology partner that understands business objectives, user expectations, scalability, security, and the demands of a rapidly changing digital landscape.</p>
+            <p className="loc-sectionDesc" style={{ marginTop: "1rem" }}>mTouch Labs helps startups, growing businesses, and enterprises turn ideas, business challenges, and technology requirements into scalable digital products. From product discovery and architecture to development, testing, deployment, and ongoing support, we provide end-to-end software engineering capabilities under one roof.</p>
           </div>
-          <div className="loc-industriesGrid">{INDUSTRIES.map((x) => <Industry key={x.t} {...x} />)}</div>
+          <div className="loc-whyGrid" style={{ gridTemplateColumns: "repeat(4, 1fr)" }}>
+            {PARTNER_POINTS.map((p) => <Card key={p.t} {...p} />)}
+          </div>
+          <div style={{ textAlign: "center", marginTop: "2.4rem" }}>
+            <Link className="usa-inlineBtn" href="/contact-us">Talk to Our Software Experts</Link>
+          </div>
         </div>
       </section>
 
-      {/* ═══ ENGAGEMENT — sole owner of commercials and of support ═══ */}
+      {/* ═══ SERVICES ═══ */}
       <section className="loc-section loc-introSection">
         <div className="loc-sectionInner">
           <div className="loc-sectionHeader">
-            <h2 className="loc-sectionTitle">How You Can <span className="loc-highlight">Work With Us</span></h2>
-            <p className="loc-sectionDesc">Three ways to buy engineering from us, plus the retainer that keeps a live product healthy.</p>
+            <h2 className="loc-sectionTitle">Software Development Services <span className="loc-highlight">in the USA</span></h2>
+            <p className="loc-sectionDesc">From new product development to legacy modernization, mTouch Labs provides end-to-end software development services for startups, growing businesses, and enterprises across the USA.</p>
+            <p className="loc-sectionDesc" style={{ marginTop: "1rem" }}>Our team helps businesses plan, design, develop, test, deploy, and continuously improve software products using modern engineering practices and technologies. Whether you need a custom business application, an AI-powered product, a scalable SaaS platform, or a modern cloud solution, we tailor the development approach to your business objectives and technical requirements.</p>
           </div>
-          <div className="loc-engageGrid">{ENGAGEMENT.map((e, k) => <Engage key={k} {...e} />)}</div>
+          <div className="loc-whyGrid">{SERVICES.map((s) => <Card key={s.t} {...s} />)}</div>
+          <MidCta t="Let's Build Software That Moves Your Business Forward" d="Have a product idea, an existing application that needs improvement, or a complex technology challenge? Our team can help you define the right solution, development approach, and technology strategy." cta="Discuss Your Project" href="/contact-us" />
         </div>
       </section>
 
-      {/* ═══ DELIVERY — sole owner of Agile, CI/CD, QA and security.
-           Full lists are rendered; do not truncate to three tags. ═══ */}
+      {/* ═══ CHALLENGES ═══ */}
+      <section className="loc-section loc-servicesSection">
+        <div className="loc-sectionInner">
+          <div className="loc-sectionHeader">
+            <h2 className="loc-sectionTitle">What Can We Help Your Business <span className="loc-highlight">Solve?</span></h2>
+            <p className="loc-sectionDesc">Technology projects often begin with a business challenge—a new product to launch, an outdated application to replace, disconnected systems to integrate, or a growing platform that needs to scale.</p>
+            <p className="loc-sectionDesc" style={{ marginTop: "1rem" }}>mTouch Labs helps businesses across the USA turn these challenges into practical, scalable technology solutions.</p>
+          </div>
+          <div className="loc-whyGrid">{CHALLENGES.map((c) => <Card key={c.t} {...c} />)}</div>
+        </div>
+      </section>
+
+      {/* ═══ OFFSHORE ═══ */}
+      <section className="loc-section loc-introSection">
+        <div className="loc-sectionInner">
+          <div className="loc-sectionHeader">
+            <h2 className="loc-sectionTitle">Offshore Software Development for <span className="loc-highlight">US Businesses</span></h2>
+            <p className="loc-sectionDesc">Extend your engineering capacity with a dedicated offshore software development team that works as an extension of your business. mTouch Labs helps US startups, growing companies, and enterprises access experienced technology talent for product development, application engineering, AI, cloud, QA, and ongoing software enhancement.</p>
+            <p className="loc-sectionDesc" style={{ marginTop: "1rem" }}>Our flexible engagement models allow you to add the expertise and development capacity you need without the complexity of building and managing an entire engineering team internally.</p>
+          </div>
+          <div className="loc-whyGrid">{OFFSHORE.map((o) => <Card key={o.t} {...o} />)}</div>
+          <div style={{ textAlign: "center", marginTop: "2.4rem", display: "flex", gap: ".8rem", justifyContent: "center", flexWrap: "wrap" }}>
+            <Link className="usa-inlineBtn" href="/hire-developers-in-india">Explore Offshore Software Development</Link>
+            <Link className="usa-inlineBtn" href="/contact-us" style={{ background: "transparent", color: "var(--a1)", border: "1.5px solid #C7D2FE" }}>Talk to Our Team</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ INDUSTRIES ═══ */}
+      <section className="loc-section loc-servicesSection">
+        <div className="loc-sectionInner">
+          <div className="loc-sectionHeader">
+            <h2 className="loc-sectionTitle">Software Development Solutions for <span className="loc-highlight">US Industries</span></h2>
+            <p className="loc-sectionDesc">Every industry has different customers, workflows, regulations, operational challenges, and technology requirements. mTouch Labs develops software solutions tailored to the way businesses operate, helping organizations create better digital experiences, streamline processes, and build scalable technology platforms.</p>
+          </div>
+          <div className="loc-whyGrid" style={{ gridTemplateColumns: "repeat(4, 1fr)" }}>
+            {INDUSTRIES.map((x) => <Card key={x.t} {...x} />)}
+          </div>
+          <MidCta t="Looking for a Solution for Your Industry?" d="Tell us about your business, technology requirements, and challenges. Our team can help identify the right software approach for your industry and business objectives." cta="Discuss Your Industry Needs" href="/contact-us" />
+        </div>
+      </section>
+
+      {/* ═══ IMPACT ═══ */}
+      <section className="loc-section loc-introSection">
+        <div className="loc-sectionInner">
+          <div className="loc-sectionHeader">
+            <h2 className="loc-sectionTitle">Software That Delivers <span className="loc-highlight">Business Impact</span></h2>
+            <p className="loc-sectionDesc">Software development should do more than deliver features. The right technology can help your business launch faster, simplify operations, improve customer experiences, and create a stronger foundation for growth.</p>
+            <p className="loc-sectionDesc" style={{ marginTop: "1rem" }}>mTouch Labs focuses on building software around measurable business needs—helping organizations turn technology investments into practical business outcomes.</p>
+          </div>
+          <div className="loc-whyGrid">{IMPACT.map((x) => <Card key={x.t} {...x} />)}</div>
+          <div style={{ textAlign: "center", marginTop: "2.4rem" }}>
+            <Link className="usa-inlineBtn" href="/contact-us">Discuss Your Business Goals</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ CASE STUDIES — renders only when real entries exist ═══ */}
+      <section className="loc-section loc-servicesSection">
+        <div className="loc-sectionInner">
+          <div className="loc-sectionHeader">
+            <h2 className="loc-sectionTitle">Software <span className="loc-highlight">We&apos;ve Built</span></h2>
+            <p className="loc-sectionDesc">From new digital products to complex business applications, mTouch Labs works with organizations to turn technology requirements into practical, scalable software solutions.</p>
+          </div>
+          {CASE_STUDIES.length > 0 ? (
+            <div className="loc-engageGrid">
+              {CASE_STUDIES.map((c) => (
+                <div className="loc-engageCard" key={c.name}>
+                  <span className="loc-engageIcon"><Icon name="briefcase" size={22} /></span>
+                  <h3 className="loc-engageTitle">{c.name}</h3>
+                  <p className="loc-engageDesc"><strong>Industry:</strong> {c.industry}</p>
+                  <p className="loc-engageDesc"><strong>The Challenge:</strong> {c.challenge}</p>
+                  <p className="loc-engageDesc"><strong>The Solution:</strong> {c.solution}</p>
+                  <div className="loc-detailTagRow" style={{ marginBottom: ".8rem" }}>
+                    {c.tech.map((t) => <span className="loc-detailTag" key={t}>{t}</span>)}
+                  </div>
+                  <span className="loc-engageBest">Results: {c.result}</span>
+                  <div><Link className="usa-cardLink" href={c.href}>View Case Study</Link></div>
+                </div>
+              ))}
+            </div>
+          ) : null}
+          <MidCta t="See More of Our Work" d="Explore more software products, applications, and digital solutions developed by mTouch Labs." cta="View All Case Studies" href="/case-studies" />
+        </div>
+      </section>
+
+      {/* ═══ PROCESS ═══ */}
       <section className="loc-section loc-processSection">
         <div className="loc-sectionInner">
           <div className="loc-sectionHeader">
-            <h2 className="loc-sectionTitle">How We <span className="loc-highlight">Deliver</span></h2>
-            <p className="loc-sectionDesc">Four stages, each with a defined output you can inspect before the next one starts.</p>
+            <h2 className="loc-sectionTitle">How We <span className="loc-highlight">Develop Software</span></h2>
+            <p className="loc-sectionDesc">A successful software product starts with a clear understanding of the business problem and ends with a solution that can evolve as your business grows. Our development process brings together product strategy, user experience, engineering, quality assurance, and continuous improvement.</p>
           </div>
-          <div className="loc-timeline">{PROCESS.map((p) => <Step key={p.n} {...p} />)}</div>
+          <div className="loc-timeline">
+            {PROCESS.map((p) => (
+              <div className="loc-timelineItem" key={p.n}>
+                <div className="loc-timelineDot">{p.n}</div>
+                <div className="loc-timelineBody">
+                  <h3 className="loc-timelineTitle">{p.t}</h3>
+                  <p className="loc-timelineDesc">{p.d}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <MidCta t="From Idea to Scalable Software" d="Whether you're starting a new product or improving an existing application, our process is designed to keep business goals, user needs, and technology decisions aligned throughout the software lifecycle." cta="Start Your Software Project" href="/contact-us" />
         </div>
       </section>
 
@@ -1019,110 +481,98 @@ export default function SoftwareDevelopmentCompanyUSA() {
       <section className="loc-section loc-introSection">
         <div className="loc-sectionInner">
           <div className="loc-sectionHeader">
-            <h2 className="loc-sectionTitle">Technology We <span className="loc-highlight">Build With</span></h2>
-            <p className="loc-sectionDesc">We choose stacks for maintainability and hiring depth, not novelty.</p>
+            <h2 className="loc-sectionTitle">Technology <span className="loc-highlight">Expertise</span></h2>
+            <p className="loc-sectionDesc">The right technology stack depends on your product, users, integrations, performance requirements, security needs, and long-term growth plans. Our engineering teams work across modern technologies to build and evolve software for different business requirements.</p>
           </div>
-          <div className="loc-whyGrid">{TECH.map((t) => <Tech key={t.t} {...t} />)}</div>
-        </div>
-      </section>
-
-      {/* ═══ CREDENTIALS — verifiable facts only, not a claims list ═══ */}
-      <section className="loc-section loc-whySection">
-        <div className="loc-sectionInner">
-          <div className="loc-sectionHeader">
-            <h2 className="loc-sectionTitle">Credentials You Can <span className="loc-highlight">Check</span></h2>
-            <p className="loc-sectionDesc">Four facts about the company, rather than four adjectives about the work.</p>
-          </div>
-          <div className="loc-trustGrid">
-            {CREDENTIALS.map((c) => (
-              <div className="loc-trustCard" key={c.t}>
-                <span className="loc-trustIcon"><Icon name={c.i} size={20} /></span>
-                <h3 className="loc-trustTitle">{c.t}</h3>
-                <p className="loc-trustText">{c.d}</p>
+          <div className="loc-whyGrid">
+            {TECH.map((t) => (
+              <div className="loc-whyCard" style={{ flexDirection: "column", alignItems: "flex-start" }} key={t.t}>
+                <span className="loc-tile"><Icon name={t.i} /></span>
+                <h3 className="loc-whyTitle">{t.t}</h3>
+                <p className="loc-whyText" style={{ flexGrow: 1 }}>{t.d}</p>
+                <div className="loc-introTags" style={{ margin: ".8rem 0 0" }}>
+                  {t.items.map((x, k) => <span className="loc-introTag" key={k}>{x}</span>)}
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ═══ CLIENT OUTCOMES ═══ */}
+      {/* ═══ LOCATIONS ═══ */}
       <section className="loc-section loc-servicesSection">
         <div className="loc-sectionInner">
           <div className="loc-sectionHeader">
-            <h2 className="loc-sectionTitle">Client <span className="loc-highlight">Outcomes</span></h2>
-            <p className="loc-sectionDesc">Four representative engagements — the situation, what we built, and what changed afterwards.</p>
+            <h2 className="loc-sectionTitle">Software Development Services <span className="loc-highlight">Across the USA</span></h2>
+            <p className="loc-sectionDesc">mTouch Labs works with startups, growing businesses, and enterprises across the United States, providing software development solutions tailored to different business and technology requirements. Explore our software development services by location:</p>
           </div>
-          <div className="loc-engageGrid">{STORIES.map((s) => <Story key={s.t} {...s} />)}</div>
-          <p className="loc-sectionDesc" style={{ marginTop: "2rem" }}>
-            <Link href="/case-studies">Read the full case studies →</Link>
-          </p>
+          <div className="usa-locGrid">
+            {LOCATIONS.map((l) => (
+              <div className="usa-locCard" key={l.t}>
+                <h3 className="usa-locName">{l.t}</h3>
+                <p className="usa-locText">{l.d}</p>
+                <Link className="usa-cardLink" href={l.href}>{l.cta}</Link>
+              </div>
+            ))}
+          </div>
+          <MidCta t="Need Software Development for Your US Business?" d="Whether you are launching a new product, modernizing an existing application, or expanding your engineering capacity, our team can discuss your requirements and recommend the right development approach." cta="Talk to Our Software Experts" href="/contact-us" />
         </div>
       </section>
 
-      {/* ═══ OFFICE ═══ */}
+      {/* ═══ PARTNERSHIP / ENGAGEMENT ═══ */}
       <section className="loc-section loc-introSection">
         <div className="loc-sectionInner">
-          <div className="loc-introGrid" style={{ alignItems: "stretch" }}>
-            <div>
-              <h2 className="loc-introTitle">Our USA Office</h2>
-              <p className="loc-introText">Meet our team to talk through requirements, modernization plans or a product idea.</p>
-              <p className="loc-contactRow"><span className="loc-ci"><Icon name="mapPin" size={18} /></span><span><strong>mTouch Labs — US Operations</strong> — {FACTS.street}, {FACTS.city}, {FACTS.region} {FACTS.zip}, United States</span></p>
-              <p className="loc-contactRow"><span className="loc-ci"><Icon name="phoneCall" size={18} /></span><span><a href={FACTS.phoneHref}>{FACTS.phoneDisplay}</a></span></p>
-              <p className="loc-contactRow"><span className="loc-ci"><Icon name="mail" size={18} /></span><span><a href={`mailto:${FACTS.email}`}>{FACTS.email}</a></span></p>
-              <p className="loc-contactRow"><span className="loc-ci"><Icon name="clock" size={18} /></span><span>{FACTS.hours}</span></p>
-              <p className="loc-introText"><strong>Serving clients nationwide, including:</strong></p>
-              <div className="loc-introTags">{CITIES.map((c) => <span className="loc-introTag" key={c}>{c}</span>)}</div>
-              <p className="loc-officeNote">
-                Engineering delivery is supported from our <Link href="/software-development-company-hyderabad">Hyderabad development centre</Link>. We also work with clients in <Link href="/software-development-company-canada">Canada</Link> and the <Link href="/software-development-company-united-kingdom">United Kingdom</Link>.
-              </p>
-            </div>
-            <div className="loc-officeRightCol">
-              <div className="loc-introStats">
-                <Stat i="building" l="Dover, Delaware — US Operations" />
-                <Stat i="globe" l="Nationwide Delivery" />
-              </div>
-              <div className="loc-mapWrap">
-                <iframe
-                  className="loc-mapFrame"
-                  src="https://www.google.com/maps?q=1111B+South+Governors+Avenue+Suite+48193+Dover+DE+19904&output=embed"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="mTouch Labs USA office location on Google Maps"
-                />
-                <a href="https://maps.app.goo.gl/RUQSXXJ8hCP2RMRd7" target="_blank" rel="noopener noreferrer" className="loc-mapOverlay" aria-label="Get directions to our Dover, Delaware office" />
-                <span className="loc-mapBadge"><Icon name="mapPin" size={14} />Get Directions</span>
-              </div>
-            </div>
+          <div className="loc-sectionHeader">
+            <h2 className="loc-sectionTitle">A Software Development Partner for <span className="loc-highlight">US Businesses</span></h2>
+            <p className="loc-sectionDesc">Working with a technology partner should feel straightforward, regardless of where your business is located. mTouch Labs collaborates with US businesses through structured communication, transparent project coordination, and flexible engagement models designed around your requirements.</p>
+            <p className="loc-sectionDesc" style={{ marginTop: "1rem" }}>From initial discovery through development and ongoing product enhancement, our teams work closely with stakeholders to keep priorities, timelines, and technical decisions aligned.</p>
           </div>
+          <h3 className="loc-introTitle" style={{ textAlign: "center", marginBottom: "1.5rem" }}>Flexible Engagement for Different Business Needs</h3>
+          <p className="loc-sectionDesc" style={{ marginBottom: "2rem" }}>Whether you need a complete product development team, additional engineering capacity, or support for an existing application, we can structure the engagement around your project requirements.</p>
+          <div className="loc-whyGrid">
+            {ENGAGEMENT.map((e) => (
+              <div className="loc-whyCard" style={{ flexDirection: "column", alignItems: "flex-start" }} key={e.t}>
+                <span className="loc-tile"><Icon name={e.i} /></span>
+                <h3 className="loc-whyTitle">{e.t}</h3>
+                <p className="loc-whyText">{e.d}</p>
+              </div>
+            ))}
+          </div>
+          <MidCta t="Clear Communication From Start to Finish" d="We establish clear communication channels, project milestones, development priorities, and regular progress updates so your team can stay informed throughout the engagement. Tell us about your business goals, existing technology, project requirements, and development challenges." cta="Talk to Our Software Experts" href="/contact-us" />
         </div>
       </section>
 
-      {/* ═══ FAQ — owns commercials, IP, contracts and time zones.
-           Rendered from the same FAQS array that feeds the schema,
-           so the visible copy and the JSON-LD can never drift. ═══ */}
+      {/* ═══ FAQ ═══ */}
       <section className="loc-section loc-faqSection">
         <div className="loc-sectionInner">
           <div className="loc-sectionHeader">
-            <h2 className="loc-sectionTitle">Frequently Asked <span className="loc-highlight">Questions</span></h2>
-            <p className="loc-sectionDesc">Ten questions this page does not answer elsewhere.</p>
+            <h2 className="loc-sectionTitle">Frequently Asked Questions About <span className="loc-highlight">Software Development in the USA</span></h2>
           </div>
-          <div className="loc-faqList">{FAQS.map((f) => <Faq key={f.q} {...f} />)}</div>
+          <div className="loc-faqList">
+            {FAQS.map((f) => (
+              <details className="loc-faqItem" key={f.q}>
+                <summary className="loc-faqQuestion">
+                  <span className="loc-faqQuestionText">{f.q}</span>
+                  <span className="loc-faqChevron"><Icon name="chevron" size={16} /></span>
+                </summary>
+                <div className="loc-faqAnswer">{f.a}</div>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* ═══ CTA — an actual call to action, not a restated intro ═══ */}
+      {/* ═══ FINAL CTA ═══ */}
       <section className="loc-ctaSection">
         <div className="loc-ctaInner">
-          <h2 className="loc-ctaTitle">Let&apos;s Talk</h2>
-          <p className="loc-ctaDesc">Tell us what you&apos;re trying to build and we&apos;ll tell you what it takes.</p>
+          <h2 className="loc-ctaTitle">Ready to Build Your Next Software Product?</h2>
+          <p className="loc-ctaDesc">Turn your business idea, technology challenge, or product roadmap into software built for real-world growth. Whether you need to develop a new product, modernize an existing application, add AI capabilities, or expand your engineering capacity, mTouch Labs can help you define the right approach and move your project forward.</p>
           <div className="loc-ctaActions">
-            <Link href="/contact-us" className="loc-ctaBtnPrimary"><Icon name="phoneCall" size={17} />Book a Free Consultation</Link>
-            <Link href="/request-free-quote" className="loc-ctaBtnSecondary">Request a Proposal</Link>
+            <Link href="/contact-us" className="loc-ctaBtnPrimary"><Icon name="phoneCall" size={17} />Start Your Software Project</Link>
+            <Link href="/request-free-quote" className="loc-ctaBtnSecondary">Talk to a Software Expert</Link>
           </div>
         </div>
       </section>
-
-      <FAQSchema faqs={FAQS} />
     </div>
   );
 }

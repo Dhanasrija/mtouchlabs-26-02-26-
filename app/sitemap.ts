@@ -206,6 +206,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/software-development-company-united-arab-emirates',
     '/software-development-company-united-kingdom',
     '/software-development-company-usa',
+    // US state pages — children of /software-development-company-usa
+    '/software-development-company-new-york',
+    '/software-development-company-california',
+    '/software-development-company-texas',
+    '/software-development-company-florida',
+    '/software-development-company-illinois',
   ]
 
   // ===========================
