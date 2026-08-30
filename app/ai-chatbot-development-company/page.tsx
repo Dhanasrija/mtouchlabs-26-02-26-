@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import type { ReactNode } from "react";
 import ServiceHero from "@/components/sections/ServiceHero";
 
 const IMG = "/images/products/ai_chatbot_development";
@@ -30,8 +29,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: `${IMG}/ai-chatbot-development-company-mtouchlabs.webp`,
-        width: 1200,
-        height: 630,
+        width: 1600,
+        height: 900,
         alt: "AI chatbot development company by mTouch Labs",
       },
     ],
@@ -86,102 +85,17 @@ const FAQS: { q: string; a: string }[] = [
   },
 ];
 
-const INDUSTRIES: { label: string; icon: ReactNode }[] = [
-  {
-    label: "E-commerce",
-    icon: (
-      <>
-        <path d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h8.1a2 2 0 0 0 2-1.55L21 8H6" />
-        <circle cx="10" cy="20" r="1.3" />
-        <circle cx="18" cy="20" r="1.3" />
-      </>
-    ),
-  },
-  {
-    label: "SaaS",
-    icon: (
-      <>
-        <path d="M17.6 18H7a4.4 4.4 0 0 1-.7-8.75A5.6 5.6 0 0 1 17.1 9.6a4.2 4.2 0 0 1 .5 8.4z" />
-      </>
-    ),
-  },
-  {
-    label: "Healthcare",
-    icon: (
-      <>
-        <path d="M12 20.5S4 15.9 4 10.3A4.3 4.3 0 0 1 12 8a4.3 4.3 0 0 1 8 2.3c0 5.6-8 10.2-8 10.2z" />
-        <path d="M12 11v3.4M10.3 12.7h3.4" />
-      </>
-    ),
-  },
-  {
-    label: "Finance",
-    icon: (
-      <>
-        <circle cx="12" cy="12" r="8.4" />
-        <path d="M14.4 9.2a2.7 2.7 0 0 0-2.4-1.3c-1.4 0-2.5.9-2.5 2s1.1 1.9 2.5 1.9 2.5.8 2.5 1.9-1.1 2-2.5 2a2.7 2.7 0 0 1-2.4-1.3M12 6.2v1.7M12 16.1v1.7" />
-      </>
-    ),
-  },
-  {
-    label: "Education",
-    icon: (
-      <>
-        <path d="M12 4 2.8 8.4 12 12.8l9.2-4.4L12 4z" />
-        <path d="M6 10.6v4.6c0 1.6 2.7 2.9 6 2.9s6-1.3 6-2.9v-4.6" />
-      </>
-    ),
-  },
-  {
-    label: "Real Estate",
-    icon: (
-      <>
-        <path d="M3.4 10.4 12 3.8l8.6 6.6" />
-        <path d="M5.6 12v7.4a.8.8 0 0 0 .8.8h11.2a.8.8 0 0 0 .8-.8V12" />
-        <path d="M10 20.2v-5h4v5" />
-      </>
-    ),
-  },
-  {
-    label: "Retail",
-    icon: (
-      <>
-        <path d="M4.2 8h15.6l-1.1 11.3a1 1 0 0 1-1 .9H6.3a1 1 0 0 1-1-.9L4.2 8z" />
-        <path d="M8.8 8V6.4a3.2 3.2 0 0 1 6.4 0V8" />
-      </>
-    ),
-  },
-  {
-    label: "Enterprise",
-    icon: (
-      <>
-        <path d="M4 20.4V5.2a1 1 0 0 1 1-1h7.4a1 1 0 0 1 1 1v15.2" />
-        <path d="M13.4 20.4V10h5.6a1 1 0 0 1 1 1v9.4M2.6 20.4h18.8" />
-        <path d="M7 8h3M7 11.6h3M7 15.2h3M16.4 13.6h1M16.4 17h1" />
-      </>
-    ),
-  },
-  {
-    label: "Customer Support",
-    icon: (
-      <>
-        <path d="M4.4 14v-1.8a7.6 7.6 0 0 1 15.2 0V14" />
-        <rect x="2.6" y="13.4" width="3.8" height="6.2" rx="1.9" />
-        <rect x="17.6" y="13.4" width="3.8" height="6.2" rx="1.9" />
-        <path d="M19.5 19.6a3.4 3.4 0 0 1-3.4 2.6h-1.7" />
-      </>
-    ),
-  },
-  {
-    label: "Professional Services",
-    icon: (
-      <>
-        <rect x="2.8" y="7.4" width="18.4" height="12.4" rx="1.8" />
-        <path d="M8.8 7.4V5.6a1.8 1.8 0 0 1 1.8-1.8h2.8a1.8 1.8 0 0 1 1.8 1.8v1.8" />
-        <path d="M2.8 12.6h18.4M11 12.6v2.2h2v-2.2" />
-      </>
-    ),
-  },
+const INDUSTRIES = [
+  "E-commerce",
+  "SaaS",
+  "Healthcare",
+  "Finance",
+  "Education",
+  "Real Estate",
+  "Retail",
+  "Enterprise",
+  "Customer Support",
+  "Professional Services",
 ];
 
 export default function AIChatbotDevelopmentCompany() {
@@ -243,20 +157,20 @@ export default function AIChatbotDevelopmentCompany() {
       />
 
       {/* ═════════════ PAGE-LOCAL FIGURE STYLES ═════════════
-          Scoped to .acb-* so nothing here can leak into other pages.
+          Scoped to .aip-* so nothing here can leak into other pages.
           Kept inline (same pattern as ServiceHero) so no CSS bundle
           rebuild is needed to ship this page. */}
       <style
         dangerouslySetInnerHTML={{
           __html: `
-.acb-figure {
+.aip-figure {
   max-width: 1140px;
   margin: 0 auto;
   padding: 0 24px;
 }
-.acb-figure--tight { max-width: 900px; }
-.acb-figure--flush { margin-top: 8px; }
-.acb-figure__frame {
+.aip-figure--tight { max-width: 900px; }
+.aip-figure--flush { margin-top: 8px; }
+.aip-figure__frame {
   border-radius: 18px;
   overflow: hidden;
   border: 1px solid #E5E9F2;
@@ -264,12 +178,12 @@ export default function AIChatbotDevelopmentCompany() {
   box-shadow: 0 18px 50px -28px rgba(1, 29, 128, .28);
   line-height: 0;
 }
-.acb-figure__frame img {
+.aip-figure__frame img {
   display: block;
   width: 100%;
   height: auto;
 }
-.acb-figure__caption {
+.aip-figure__caption {
   margin: 14px 0 0;
   text-align: center;
   font-family: var(--font-primary, 'Poppins', sans-serif);
@@ -277,11 +191,11 @@ export default function AIChatbotDevelopmentCompany() {
   line-height: 22px;
   color: var(--color-slate-grey, #777777);
 }
-.acb-figure-band {
+.aip-figure-band {
   padding: 54px 0 10px;
   background: linear-gradient(180deg, #FFFFFF 0%, #F9FBFF 100%);
 }
-.acb-note {
+.aip-note {
   max-width: 900px;
   margin: 30px auto 0;
   padding: 18px 22px;
@@ -293,7 +207,7 @@ export default function AIChatbotDevelopmentCompany() {
   line-height: 26px;
   color: #33415C;
 }
-.acb-industries {
+.aip-industries {
   max-width: 1140px;
   margin: 0 auto;
   padding: 0 24px;
@@ -302,12 +216,10 @@ export default function AIChatbotDevelopmentCompany() {
   gap: 12px;
   justify-content: center;
 }
-.acb-industry-pill {
-  position: relative;
+.aip-industry-pill {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
-  padding: 10px 20px 10px 16px;
+  padding: 10px 20px;
   border-radius: 999px;
   border: 1px solid #E5E9F2;
   background: #FFFFFF;
@@ -317,54 +229,61 @@ export default function AIChatbotDevelopmentCompany() {
   color: #1B2A4A;
   box-shadow: 0 8px 22px -18px rgba(1, 29, 128, .45);
   cursor: default;
-  isolation: isolate;
-  transition:
-    transform .32s cubic-bezier(.22,.61,.36,1),
-    box-shadow .32s cubic-bezier(.22,.61,.36,1),
-    border-color .32s ease,
-    color .32s ease;
 }
-/* Soft blue halo that blooms out from behind the pill on hover. */
-.acb-industry-pill::before {
-  content: '';
-  position: absolute;
-  inset: -3px;
-  z-index: -1;
-  border-radius: 999px;
-  background: radial-gradient(60% 120% at 50% 50%, rgba(62,140,251,.55) 0%, rgba(62,140,251,0) 72%);
-  opacity: 0;
-  filter: blur(9px);
-  transition: opacity .32s ease;
-  pointer-events: none;
+.aip-flow {
+  max-width: 1140px;
+  margin: 0 auto 6px;
+  padding: 0 24px;
 }
-.acb-industry-pill:hover {
-  transform: translateY(-3px);
-  border-color: rgba(62,140,251,.55);
-  color: #011D80;
-  box-shadow:
-    0 0 0 4px rgba(62,140,251,.10),
-    0 16px 34px -16px rgba(62,140,251,.55);
+.aip-flow__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
 }
-.acb-industry-pill:hover::before { opacity: 1; }
-.acb-industry-pill__ico {
-  flex: 0 0 18px;
+.aip-step {
+  position: relative;
+  padding: 26px 24px 24px;
+  border-radius: 16px;
+  border: 1px solid #E5E9F2;
+  background: #FFFFFF;
+  box-shadow: 0 18px 44px -32px rgba(1, 29, 128, .32);
+}
+.aip-step__num {
+  display: block;
+  font-family: var(--font-primary, 'Poppins', sans-serif);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
   color: #2F7BF6;
-  transition: transform .32s cubic-bezier(.22,.61,.36,1), filter .32s ease;
+  margin-bottom: 10px;
 }
-.acb-industry-pill:hover .acb-industry-pill__ico {
-  transform: scale(1.12);
-  filter: drop-shadow(0 0 6px rgba(62,140,251,.75));
+.aip-step__title {
+  margin: 0 0 8px;
+  font-family: var(--font-primary, 'Poppins', sans-serif);
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 28px;
+  color: #011D80;
 }
-@media (prefers-reduced-motion: reduce) {
-  .acb-industry-pill,
-  .acb-industry-pill::before,
-  .acb-industry-pill__ico { transition: none; }
-  .acb-industry-pill:hover { transform: none; }
-  .acb-industry-pill:hover .acb-industry-pill__ico { transform: none; }
+.aip-step__text {
+  margin: 0;
+  font-family: var(--font-primary, 'Poppins', sans-serif);
+  font-size: 15px;
+  line-height: 26px;
+  color: var(--ga-text, #444444);
+}
+@media (max-width: 1024px) {
+  .aip-flow__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .aip-flow__list { grid-template-columns: 1fr; }
 }
 @media (max-width: 768px) {
-  .acb-figure, .acb-industries { padding: 0 18px; }
-  .acb-figure-band { padding: 38px 0 6px; }
+  .aip-figure, .aip-industries, .aip-flow { padding: 0 18px; }
+  .aip-figure-band { padding: 38px 0 6px; }
 }
 `,
         }}
@@ -391,18 +310,18 @@ export default function AIChatbotDevelopmentCompany() {
       />
 
       {/* ═════════════ HERO FIGURE ═════════════ */}
-      <section className="acb-figure-band">
-        <figure className="acb-figure">
-          <div className="acb-figure__frame">
+      <section className="aip-figure-band">
+        <figure className="aip-figure">
+          <div className="aip-figure__frame">
             <img
               src={`${IMG}/ai-chatbot-development-company-mtouchlabs.webp`}
-              alt="AI chatbot development company by mTouch Labs"
-              width={1200}
-              height={630}
+              alt="AI chatbot development ecosystem by mTouch Labs — NLP, knowledge base, automation and multi-channel deployment"
+              width={1600}
+              height={900}
               loading="eager"
             />
           </div>
-          <figcaption className="acb-figure__caption">
+          <figcaption className="aip-figure__caption">
             The mTouch Labs AI chatbot development ecosystem — NLP &amp; NLU, knowledge retrieval,
             intelligent automation, and multi-channel deployment.
           </figcaption>
@@ -451,18 +370,18 @@ export default function AIChatbotDevelopmentCompany() {
       </section>
 
       {/* ═════════════ AI VS TRADITIONAL FIGURE ═════════════ */}
-      <section className="acb-figure-band">
-        <figure className="acb-figure">
-          <div className="acb-figure__frame">
+      <section className="aip-figure-band">
+        <figure className="aip-figure">
+          <div className="aip-figure__frame">
             <img
               src={`${IMG}/ai-chatbot-vs-traditional-chatbot.webp`}
               alt="AI chatbot vs traditional rule-based chatbot comparison"
-              width={1200}
-              height={700}
+              width={1600}
+              height={957}
               loading="lazy"
             />
           </div>
-          <figcaption className="acb-figure__caption">
+          <figcaption className="aip-figure__caption">
             Rule-based chatbots dead-end into keyword matching. An AI chatbot understands the query,
             retrieves the right knowledge, and resolves it.
           </figcaption>
@@ -542,9 +461,9 @@ export default function AIChatbotDevelopmentCompany() {
       </section>
 
       {/* ═════════════ DASHBOARD FIGURE ═════════════ */}
-      <section className="acb-figure-band">
-        <figure className="acb-figure">
-          <div className="acb-figure__frame">
+      <section className="aip-figure-band">
+        <figure className="aip-figure">
+          <div className="aip-figure__frame">
             <img
               src={`${IMG}/custom-ai-chatbot-development.webp`}
               alt="Custom AI chatbot development interface"
@@ -553,7 +472,7 @@ export default function AIChatbotDevelopmentCompany() {
               loading="lazy"
             />
           </div>
-          <figcaption className="acb-figure__caption">
+          <figcaption className="aip-figure__caption">
             A custom chatbot console: live conversation volume, CSAT, resolution rate, and response time —
             so conversational AI stays measurable.
           </figcaption>
@@ -667,9 +586,9 @@ export default function AIChatbotDevelopmentCompany() {
       </section>
 
       {/* ═════════════ ARCHITECTURE FIGURE ═════════════ */}
-      <section className="acb-figure-band">
-        <figure className="acb-figure">
-          <div className="acb-figure__frame">
+      <section className="aip-figure-band">
+        <figure className="aip-figure">
+          <div className="aip-figure__frame">
             <img
               src={`${IMG}/ai-chatbot-architecture-rag-llm.webp`}
               alt="AI chatbot architecture with LLM and RAG"
@@ -678,12 +597,12 @@ export default function AIChatbotDevelopmentCompany() {
               loading="lazy"
             />
           </div>
-          <figcaption className="acb-figure__caption">
+          <figcaption className="aip-figure__caption">
             AI chatbot architecture — user interaction layer, NLU and orchestration, knowledge and business
             system connectors, and a secured cloud deployment layer.
           </figcaption>
         </figure>
-        <p className="acb-note">
+        <p className="aip-note">
           This architecture helps businesses create more useful conversational experiences without forcing
           customers to navigate rigid menus.
         </p>
@@ -765,9 +684,9 @@ export default function AIChatbotDevelopmentCompany() {
       </section>
 
       {/* ═════════════ USE CASES FIGURE ═════════════ */}
-      <section className="acb-figure-band">
-        <figure className="acb-figure">
-          <div className="acb-figure__frame">
+      <section className="aip-figure-band">
+        <figure className="aip-figure">
+          <div className="aip-figure__frame">
             <img
               src={`${IMG}/ai-chatbot-use-cases-business.webp`}
               alt="AI chatbot use cases for customer support and sales"
@@ -776,7 +695,7 @@ export default function AIChatbotDevelopmentCompany() {
               loading="lazy"
             />
           </div>
-          <figcaption className="acb-figure__caption">
+          <figcaption className="aip-figure__caption">
             Four high-value AI chatbot use cases — customer support, sales qualification, HR automation, and
             IT service desk.
           </figcaption>
@@ -839,9 +758,9 @@ export default function AIChatbotDevelopmentCompany() {
         </div>
       </section>
 
-      <section className="acb-figure-band">
-        <figure className="acb-figure">
-          <div className="acb-figure__frame">
+      <section className="aip-figure-band">
+        <figure className="aip-figure">
+          <div className="aip-figure__frame">
             <img
               src={`${IMG}/generative-ai-chatbot-case-study-mtouchlabs.webp`}
               alt="Generative AI chatbot developed by mTouch Labs"
@@ -850,7 +769,7 @@ export default function AIChatbotDevelopmentCompany() {
               loading="lazy"
             />
           </div>
-          <figcaption className="acb-figure__caption">
+          <figcaption className="aip-figure__caption">
             What our chatbot builds are engineered around — omnichannel deployment, retrieval and context,
             secure enterprise integration, and actionable analytics.
           </figcaption>
@@ -919,8 +838,42 @@ export default function AIChatbotDevelopmentCompany() {
             </p>
           </div>
         </div>
-        <figure className="acb-figure acb-figure--flush">
-          <div className="acb-figure__frame">
+        <div className="aip-flow">
+          <ol className="aip-flow__list">
+            <li className="aip-step">
+              <span className="aip-step__num">01</span>
+              <h4 className="aip-step__title">Discovery</h4>
+              <p className="aip-step__text">Understand your users, business objectives, conversation requirements, data sources, and existing systems.</p>
+            </li>
+            <li className="aip-step">
+              <span className="aip-step__num">02</span>
+              <h4 className="aip-step__title">AI &amp; Solution Architecture</h4>
+              <p className="aip-step__text">Select the model strategy, design the knowledge and retrieval layer, and define integrations and escalation rules.</p>
+            </li>
+            <li className="aip-step">
+              <span className="aip-step__num">03</span>
+              <h4 className="aip-step__title">Data &amp; Knowledge Preparation</h4>
+              <p className="aip-step__text">Clean, chunk, embed, and index your approved content so every answer can be retrieved reliably.</p>
+            </li>
+            <li className="aip-step">
+              <span className="aip-step__num">04</span>
+              <h4 className="aip-step__title">Development &amp; Integration</h4>
+              <p className="aip-step__text">Build the conversation logic, LLM wiring, APIs, and connectors into your business systems.</p>
+            </li>
+            <li className="aip-step">
+              <span className="aip-step__num">05</span>
+              <h4 className="aip-step__title">Testing &amp; Evaluation</h4>
+              <p className="aip-step__text">Evaluate answer quality, retrieval accuracy, edge cases, and fallback behaviour before launch.</p>
+            </li>
+            <li className="aip-step">
+              <span className="aip-step__num">06</span>
+              <h4 className="aip-step__title">Deployment &amp; Optimization</h4>
+              <p className="aip-step__text">Ship to production, monitor real conversations, and keep improving accuracy and coverage.</p>
+            </li>
+          </ol>
+        </div>
+        <figure className="aip-figure aip-figure--flush">
+          <div className="aip-figure__frame">
             <img
               src={`${IMG}/ai-chatbot-development-process.webp`}
               alt="AI chatbot development process from discovery to deployment"
@@ -929,7 +882,7 @@ export default function AIChatbotDevelopmentCompany() {
               loading="lazy"
             />
           </div>
-          <figcaption className="acb-figure__caption">
+          <figcaption className="aip-figure__caption">
             Discovery &middot; AI &amp; Solution Architecture &middot; Data &amp; Knowledge Preparation
             &middot; Development &amp; Integration &middot; Testing &amp; Evaluation &middot; Deployment
             &amp; Optimization
@@ -944,28 +897,14 @@ export default function AIChatbotDevelopmentCompany() {
             AI Chatbot Development for <span className="ga-text-accent">Multiple Industries</span>
           </h2>
         </div>
-        <div className="acb-industries">
+        <div className="aip-industries">
           {INDUSTRIES.map((ind) => (
-            <span key={ind.label} className="acb-industry-pill">
-              <svg
-                className="acb-industry-pill__ico"
-                viewBox="0 0 24 24"
-                width="18"
-                height="18"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                {ind.icon}
-              </svg>
-              {ind.label}
+            <span key={ind} className="aip-industry-pill">
+              {ind}
             </span>
           ))}
         </div>
-        <p className="acb-note">
+        <p className="aip-note">
           The chatbot architecture and knowledge sources are adapted to the specific requirements of each
           business.
         </p>
