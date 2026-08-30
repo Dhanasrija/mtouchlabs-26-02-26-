@@ -9,6 +9,7 @@ import QuoteModal from "@/components/sections/home/QuoteModal";
 import Analytics from "@/components/Analytics";
 import AOSRefresh from "@/components/AOSRefresh";
 import ScrollRestorationManager from "@/components/ScrollRestorationManager";
+import ExternalizeInternalLinks from "@/components/ExternalizeInternalLinks";
 import type { Viewport } from "next";
 
 export const viewport: Viewport = {
@@ -222,6 +223,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <Analytics />
         <AOSRefresh />
         <ScrollRestorationManager />
+        {/* Makes every internal link open in a new tab, site-wide.
+            Skips #hash, mailto/tel, external hosts, /admin and
+            anything marked data-same-tab. */}
+        <ExternalizeInternalLinks />
         {/* Request Quote Modal Overlay (shared) */}
         <QuoteModal />
         {/* Brochure Modal Overlay */}

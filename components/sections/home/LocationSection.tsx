@@ -48,19 +48,32 @@ const locationList = [locations.hyderabad, locations.bangalore, locations.usa];
 export default function LocationSection() {
   return (
     <>
-      
-
       <section className="_location_we_serve_container">
         <LocationCarousel locations={locations} locationList={locationList} />
-        {/* Contextual link to the Hyderabad location page. The head office is
-            our largest delivery centre; this points local commercial intent at
-            the page that actually serves it. */}
-        <p className="_location_we_serve_note" style={{ textAlign: "center", marginTop: "1.25rem" }}>
+      </section>
+
+      {/* ⚠️ This note MUST stay OUTSIDE `_location_we_serve_container`.
+          That container is `display:flex` with `gap:60px`, so anything placed
+          inside it becomes a third flex item alongside the left copy block and
+          the right card carousel. An unstyled <p> there takes its own column,
+          squeezes the carousel's flex-basis, and collapses the office images to
+          slivers — which is exactly what was happening. Keeping it in a sibling
+          block preserves the two-column layout. */}
+      <div className="_location_we_serve_note_wrap">
+        <p className="_location_we_serve_note">
           Read more about{" "}
           <Link href="/software-development-company-hyderabad">custom software development in Hyderabad</Link>{" "}
           at our head office.
         </p>
-      </section>
+      </div>
+
+      <style>{`
+        ._location_we_serve_note_wrap{background:#FFFFFF;width:100vw;position:relative;left:50%;transform:translateX(-50%);padding:0 60px 56px;text-align:center}
+        ._location_we_serve_note{font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:#585858;margin:0}
+        ._location_we_serve_note a{color:#3E8CFB;font-weight:600;text-decoration:none}
+        ._location_we_serve_note a:hover{text-decoration:underline}
+        @media (max-width:1024px){._location_we_serve_note_wrap{padding:0 20px 36px}}
+      `}</style>
     </>
   );
 }
