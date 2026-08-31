@@ -664,9 +664,9 @@ export default function Page() {
           --gold:     #FAC759;
           --grey:     #777777;
           --white:    #FFFFFF;
-          --light:    #F4F7FF;
-          --green:    #2ECC71;
-          --green-dk: #1a9e52;
+          --light:    rgba(62,140,251,.05);
+          --green:    #3E8CFB;
+          --green-dk: #3E8CFB;
 
           /* brand.css type scale */
           --h1: clamp(30px, 5vw, 52px);
@@ -691,13 +691,13 @@ export default function Page() {
           font-family: var(--fp);
           font-size: var(--tag);
           font-weight: 500;
-          background: #f8f9fd;
-          border-bottom: 1px solid #e5e8f5;
-          color: #555;
+          background: rgba(62,140,251,.035);
+          border-bottom: 1px solid rgba(62,140,251,.16);
+          color: var(--grey);
         }
-        .gd-crumb a { color: #555; text-decoration: none; transition: color .2s; }
+        .gd-crumb a { color: var(--grey); text-decoration: none; transition: color .2s; }
         .gd-crumb a:hover, .gd-crumb .active { color: var(--blue); font-weight: 600; }
-        .gd-sep { margin: 0 8px; color: #ccc; }
+        .gd-sep { margin: 0 8px; color: rgba(119,119,119,.55); }
 
         /* ════════════════════════════════
            BUTTONS
@@ -705,16 +705,16 @@ export default function Page() {
         .gd-btn {
           display: inline-flex; align-items: center; gap: 8px;
           font-family: var(--fp); font-size: var(--tag); font-weight: 600;
-          letter-spacing: .3px; padding: 13px 28px; border-radius: 10px;
+          letter-spacing: .3px; padding: 13px 28px; border-radius: 999px;
           border: 2px solid var(--blue); background: var(--blue);
           color: #ffffff !important; cursor: pointer; text-decoration: none;
           transition: all .22s ease; line-height: 1;
         }
-        .gd-btn:hover { background: var(--navy); border-color: var(--navy); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(62,140,251,.35); }
+        .gd-btn:hover { background: var(--blue); border-color: var(--blue); filter: brightness(.93); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(62,140,251,.35); }
         .gd-btn-outline { background: transparent; color: var(--blue) !important; }
         .gd-btn-outline:hover { background: var(--blue); color: #fff !important; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(62,140,251,.25); }
-        .gd-btn-gold { background: var(--gold); border-color: var(--gold); color: var(--navy) !important; }
-        .gd-btn-gold:hover { background: #e6b340; border-color: #e6b340; box-shadow: 0 8px 24px rgba(250,199,89,.4); transform: translateY(-2px); }
+        .gd-btn-gold { background: var(--blue); border-color: var(--blue); color: #fff !important; }
+        .gd-btn-gold:hover { background: var(--blue); border-color: var(--blue); filter: brightness(.93); box-shadow: 0 8px 24px rgba(62,140,251,.34); transform: translateY(-2px); }
 
         /* ════════════════════════════════
            LABEL PILL
@@ -725,8 +725,8 @@ export default function Page() {
           color: var(--blue); background: rgba(62,140,251,.1);
           padding: 5px 14px; border-radius: 40px; margin-bottom: 12px;
         }
-        .gd-pill.green { color: var(--green-dk); background: rgba(46,204,113,.12); }
-        .gd-pill.gold  { color: #b27d00; background: rgba(250,199,89,.18); }
+        .gd-pill.green { color: var(--green-dk); background: rgba(62,140,251,.12); }
+        .gd-pill.gold  { color: var(--black); background: rgba(250,199,89,.20); }
 
         /* ════════════════════════════════
            HERO
@@ -734,13 +734,13 @@ export default function Page() {
         .gd-hero {
           display: flex; align-items: center; justify-content: center;
           gap: 48px; padding: 72px 80px 64px;
-          background: linear-gradient(160deg, #edfff4 0%, #f4f9ff 55%, #fffbf0 100%);
+          background: rgba(62,140,251,.05);
           position: relative; overflow: hidden;
         }
         .gd-hero::before {
           content: ''; position: absolute; top: -100px; right: -100px;
           width: 380px; height: 380px;
-          background: radial-gradient(circle, rgba(46,204,113,.12) 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(62,140,251,.12) 0%, transparent 70%);
           pointer-events: none;
         }
         .gd-hero::after {
@@ -766,7 +766,7 @@ export default function Page() {
         .gd-h1 .accent { color: var(--blue); }
         .gd-hero-sub {
           font-family: var(--fp); font-size: var(--b3); line-height: 1.75;
-          color: #5a6480; max-width: 460px; margin: 0 auto 32px;
+          color: var(--grey); max-width: 460px; margin: 0 auto 32px;
         }
 
         /* ════════════════════════════════
@@ -777,8 +777,8 @@ export default function Page() {
         .gd-h4 { font-family:var(--fp); font-size:var(--h4); line-height:1.34; font-weight:700; color:var(--indigo); margin-bottom:12px; }
         /* Default .gd-body is used on LIGHT bg only.
            Dark bg sections use their own selectors: .gd-custom-band, .gd-cta (white text). */
-        .gd-body { font-family:var(--fp); font-size:var(--b3); line-height:1.75; color:#1a1a2e; }
-        .gd-body-light { color:#1a1a2e; }
+        .gd-body { font-family:var(--fp); font-size:var(--b3); line-height:1.75; color:var(--black); }
+        .gd-body-light { color:var(--black); }
         .gd-body-dark { color:#ffffff; }
 
         /* ════════════════════════════════
@@ -792,7 +792,7 @@ export default function Page() {
         }
         .gd-key-card {
           background: var(--light); border-radius: 18px; padding: 28px 20px 24px;
-          border: 1px solid #e0eaff; text-align: center;
+          border: 1px solid rgba(62,140,251,.14); text-align: center;
           transition: transform .22s, box-shadow .22s;
         }
         .gd-key-card:hover { transform: translateY(-6px); box-shadow: 0 12px 36px rgba(62,140,251,.13); }
@@ -825,7 +825,7 @@ export default function Page() {
            CUSTOMIZABLE BAND
         ════════════════════════════════ */
         .gd-custom-band {
-          background: linear-gradient(135deg, var(--indigo) 0%, #0a2550 100%);
+          background: var(--indigo);
           padding: 56px 80px; color: #ffffff;
         }
         .gd-custom-band h1, .gd-custom-band h2, .gd-custom-band h3, .gd-custom-band h4,
@@ -853,7 +853,7 @@ export default function Page() {
         }
         .gd-svc-card {
           background: #fff; border-radius: 18px; padding: 28px 18px 24px;
-          border: 1px solid #eaeeff; text-align: center;
+          border: 1px solid rgba(62,140,251,.12); text-align: center;
           transition: transform .22s, box-shadow .22s, border-color .22s;
         }
         .gd-svc-card:hover { transform: translateY(-6px); box-shadow: 0 12px 36px rgba(62,140,251,.13); border-color: rgba(62,140,251,.25); }
@@ -866,7 +866,7 @@ export default function Page() {
         .gi2 { background: #e8f9f0; }
         .gi3 { background: #fff4e6; }
         .gi4 { background: #fef9e7; }
-        .gi5 { background: #f3e8ff; }
+        .gi5 { background: #e0f2f1; }
         .gi6 { background: #e8fcff; }
         .gi7 { background: #fde8ee; }
         .gi8 { background: #e8fff3; }
@@ -958,7 +958,7 @@ export default function Page() {
         #gtab-admin:checked     ~ .gd-tab-btns ~ #gpanel-admin { display: block; }
         .gd-panel {
           background: var(--light); border-radius: 20px; padding: 36px 40px;
-          text-align: left; border: 1px solid #dce4f8;
+          text-align: left; border: 1px solid rgba(62,140,251,.20);
         }
         .gd-panel ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
         .gd-panel ul li {
@@ -977,7 +977,7 @@ export default function Page() {
         .gd-success-card {
           background: #fff; border-radius: 16px; padding: 24px 28px;
           display: flex; align-items: center; gap: 16px;
-          border: 1px solid #e0eaff;
+          border: 1px solid rgba(62,140,251,.14);
           box-shadow: 0 2px 10px rgba(0,0,0,.05);
           transition: transform .22s, box-shadow .22s;
           min-width: 200px;
@@ -998,7 +998,7 @@ export default function Page() {
         }
         .gd-cost-factor {
           background: var(--light); border-radius: 14px; padding: 22px 16px;
-          border: 1px solid #e0eaff; text-align: center;
+          border: 1px solid rgba(62,140,251,.14); text-align: center;
           transition: transform .2s, box-shadow .2s;
         }
         .gd-cost-factor:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(62,140,251,.12); }
@@ -1018,7 +1018,7 @@ export default function Page() {
         }
         .gd-process-step {
           background: #fff; border-radius: 18px; padding: 32px 24px;
-          border: 1px solid #e0eaff; text-align: center;
+          border: 1px solid rgba(62,140,251,.14); text-align: center;
           transition: transform .22s, box-shadow .22s;
         }
         .gd-process-step:hover { transform: translateY(-5px); box-shadow: 0 10px 32px rgba(62,140,251,.12); }
@@ -1037,7 +1037,7 @@ export default function Page() {
         .gd-benefit-grid { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; max-width: 900px; margin: 36px auto 0; }
         .gd-benefit-card {
           background: var(--light); border-radius: 14px; padding: 22px 28px;
-          display: flex; align-items: center; gap: 14px; border: 1px solid #e0eaff;
+          display: flex; align-items: center; gap: 14px; border: 1px solid rgba(62,140,251,.14);
           transition: transform .2s, box-shadow .2s;
         }
         .gd-benefit-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(62,140,251,.12); }
@@ -1055,7 +1055,7 @@ export default function Page() {
           background:#fff; border-radius:14px; padding:16px 20px;
           box-shadow:0 2px 10px rgba(0,0,0,.06); display:flex;
           align-items:center; justify-content:center;
-          transition:transform .2s,box-shadow .2s; border:1px solid #e8eaf5;
+          transition:transform .2s,box-shadow .2s; border:1px solid rgba(62,140,251,.14);
         }
         .gd-tech-item:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(0,0,0,.1); }
 
@@ -1066,7 +1066,7 @@ export default function Page() {
         .gd-faq-list { max-width: 800px; margin: 36px auto 0; display: flex; flex-direction: column; gap: 10px; text-align: left; }
         .gd-faq-item {
           background: var(--light); border-radius: 14px; overflow: hidden;
-          border: 1px solid #e0eaff; box-shadow: 0 2px 8px rgba(0,0,0,.04);
+          border: 1px solid rgba(62,140,251,.14); box-shadow: 0 2px 8px rgba(0,0,0,.04);
           transition: box-shadow .2s;
         }
         .gd-faq-item.open { box-shadow: 0 4px 20px rgba(62,140,251,.13); border-color: rgba(62,140,251,.35); }
@@ -1085,7 +1085,7 @@ export default function Page() {
           font-size:18px; font-weight:400; flex-shrink:0;
           transition:transform .25s, background .2s; line-height:1;
         }
-        .gd-faq-item.open .gd-faq-icon { transform:rotate(45deg); background:var(--blue); color:#fff; }
+        .gd-faq-item.open .gd-faq-icon { background:var(--blue); color:#fff; }
         .gd-faq-body { max-height:0; overflow:hidden; transition:max-height .35s ease; }
         .gd-faq-item.open .gd-faq-body { max-height:300px; }
         .gd-faq-a { font-family:var(--fp); font-size:14px; line-height:1.8; color:var(--grey); padding:0 24px 20px; }
@@ -1094,7 +1094,7 @@ export default function Page() {
            FINAL CTA
         ════════════════════════════════ */
         .gd-cta {
-          background: linear-gradient(130deg, var(--navy) 0%, var(--indigo) 60%, #020b24 100%);
+          background: var(--indigo);
           padding: 72px 80px; display: flex; align-items: center; gap: 64px; color: #ffffff;
         }
         .gd-cta h1, .gd-cta h2, .gd-cta h3, .gd-cta h4, .gd-cta h5, .gd-cta h6,
@@ -1444,7 +1444,7 @@ export default function Page() {
               <div key={i} className={`gd-faq-item${openFaq === i ? " open" : ""}`}>
                 <div className="gd-faq-q" onClick={() => toggleFaq(i)}>
                   {f.q}
-                  <span className="gd-faq-icon">+</span>
+                  <span className="gd-faq-icon">{openFaq === i ? "\u00d7" : "+"}</span>
                 </div>
                 <div className="gd-faq-body">
                   <p className="gd-faq-a">{f.a}</p>

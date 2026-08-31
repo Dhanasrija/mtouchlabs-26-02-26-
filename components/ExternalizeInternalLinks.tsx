@@ -27,6 +27,8 @@ import { usePathname } from "next/navigation";
  *   • external hosts   — already leave the site
  *   • /admin           — an internal tool; a new tab per click
  *                        would make it unusable
+ *   • header / nav / footer / mega-menu — site navigation
+ *                        must navigate in place, not spawn tabs
  *   • download links   — the browser handles those itself
  *   • [data-same-tab]  — explicit opt-out for any anchor
  *
@@ -54,6 +56,14 @@ function shouldOpenInNewTab(a: HTMLAnchorElement): boolean {
   }
   if (url.origin !== window.location.origin) return false;      // external
   if (url.pathname.startsWith("/admin")) return false;          // internal tool
+
+  // Navigation chrome must navigate in place. Only links in the BODY of a
+  // page open a new tab — the header, nav, mega-menu and footer are how
+  // people move around the site, and spawning a tab per click there makes
+  // browsing unusable.
+  if (a.closest("header, nav, footer, [class*='mega-menu'], [class*='navbar'], [class*='Navbar'], [class*='footer'], [class*='ft-']")) {
+    return false;
+  }
   // Pure in-page anchor (same path, only the hash differs).
   if (url.pathname === window.location.pathname && url.hash) return false;
 

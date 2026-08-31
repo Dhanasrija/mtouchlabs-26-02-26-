@@ -59,7 +59,6 @@ export default function ServiceHero({
 /* ═════ ServiceHero (itsc-* hero, shared) ═════ */
 .svc-hero-wrap {
   --brand: var(--color-signature-blue, #3E8CFB);
-  --brand-dark: var(--color-heritage-navy, #011D80);
   --ink: var(--color-carbon-black, #0D1117);
   --muted: var(--color-slate-grey, #777777);
   --line: #E5E9F2;
@@ -111,7 +110,7 @@ export default function ServiceHero({
 .svc-blob-b {
   width: 380px; height: 380px;
   top: 40px; right: -80px;
-  background: radial-gradient(circle, #011D80, transparent 70%);
+  background: radial-gradient(circle, rgba(62,140,251,.55), transparent 70%);
 }
 .svc-blob-c {
   width: 260px; height: 260px;
@@ -167,10 +166,7 @@ export default function ServiceHero({
   margin: 0 0 22px;
 }
 .svc-hero-h1-accent {
-  background: linear-gradient(90deg, var(--brand) 0%, var(--brand-dark) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--brand);
 }
 .svc-hero-sub {
   font-family: var(--font-primary, 'Poppins', sans-serif);
@@ -234,7 +230,7 @@ export default function ServiceHero({
 .svc-hero-wrap .svc-hero-btn i { font-size: 14px !important; line-height: 1 !important; }
 .svc-hero-wrap a.svc-hero-btn-primary,
 .svc-hero-wrap .svc-hero-btn-primary {
-  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%) !important;
+  background: var(--brand) !important;
   color: #fff !important;
   box-shadow: 0 12px 40px -12px rgba(62, 140, 251, .35) !important;
   border-color: transparent !important;
@@ -249,14 +245,14 @@ export default function ServiceHero({
 .svc-hero-wrap .svc-hero-btn-ghost {
   background: #ffffff !important;
   color: var(--ink) !important;
-  border: 1px solid var(--line) !important;
+  border: 1.6px solid var(--brand) !important;
 }
 .svc-hero-wrap a.svc-hero-btn-ghost:hover,
 .svc-hero-wrap .svc-hero-btn-ghost:hover {
   transform: translateY(-2px) !important;
   border-color: var(--brand) !important;
-  color: var(--brand) !important;
-  background: #ffffff !important;
+  color: var(--ink) !important;
+  background: rgba(62,140,251,.08) !important;
 }
 @media (max-width: 768px) {
   .svc-hero { padding: 90px 0 70px; }

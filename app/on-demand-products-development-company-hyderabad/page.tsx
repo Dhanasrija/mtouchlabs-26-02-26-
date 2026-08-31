@@ -708,12 +708,12 @@ export default function OnDemandProductsPage() {
           <h2 className="odm-section__title">Our On-Demand Product <span className="odm-accent">Development Services</span></h2>
           <div className="odm-grid odm-grid--3">
             {[
-              { icon: "fas fa-code", title: "Custom On-Demand App Development", desc: "We develop fully customized on-demand mobile and web applications for iOS, Android, and cross-platform frameworks.", color: "#2563eb" },
-              { icon: "fas fa-store", title: "Multi-Vendor Marketplace Development", desc: "Build scalable platforms that connect multiple service providers with customers in real-time.", color: "#7c3aed" },
+              { icon: "fas fa-code", title: "Custom On-Demand App Development", desc: "We develop fully customized on-demand mobile and web applications for iOS, Android, and cross-platform frameworks.", color: "#2563EB" },
+              { icon: "fas fa-store", title: "Multi-Vendor Marketplace Development", desc: "Build scalable platforms that connect multiple service providers with customers in real-time.", color: "#DB2777" },
               { icon: "fas fa-map-marker-alt", title: "Real-Time Tracking & Notifications", desc: "GPS tracking, push notifications, order status updates, and real-time analytics.", color: "#059669" },
-              { icon: "fas fa-credit-card", title: "Secure Payment Integration", desc: "Integrated payment gateways, wallet systems, and subscription models.", color: "#d97706" },
-              { icon: "fas fa-cloud", title: "Cloud-Based Scalable Architecture", desc: "Robust backend infrastructure with high scalability and security.", color: "#0891b2" },
-              { icon: "fas fa-robot", title: "AI-Powered Automation", desc: "Smart recommendations, predictive analytics, and intelligent user matching.", color: "#dc2626" },
+              { icon: "fas fa-credit-card", title: "Secure Payment Integration", desc: "Integrated payment gateways, wallet systems, and subscription models.", color: "#D97706" },
+              { icon: "fas fa-cloud", title: "Cloud-Based Scalable Architecture", desc: "Robust backend infrastructure with high scalability and security.", color: "#0891B2" },
+              { icon: "fas fa-robot", title: "AI-Powered Automation", desc: "Smart recommendations, predictive analytics, and intelligent user matching.", color: "#E11D48" },
             ].map((s, i) => (
               <div key={i} className="odm-card odm-scroll-reveal" style={{ transitionDelay: `${i * 0.1}s` }}>
                 <div className="odm-card__icon-wrap" style={{ background: `${s.color}15` }}>
@@ -735,12 +735,12 @@ export default function OnDemandProductsPage() {
           <h2 className="odm-section__title">Industries We <span className="odm-accent">Serve</span></h2>
           <div className="odm-industries">
             {[
-              { icon: "fas fa-utensils", name: "Food & Restaurant", color: "#dc2626" },
+              { icon: "fas fa-utensils", name: "Food & Restaurant", color: "#E11D48" },
               { icon: "fas fa-heartbeat", name: "Healthcare & Telemedicine", color: "#059669" },
-              { icon: "fas fa-truck", name: "Transportation & Logistics", color: "#d97706" },
-              { icon: "fas fa-shopping-bag", name: "E-commerce & Retail", color: "#7c3aed" },
-              { icon: "fas fa-home", name: "Beauty & Home Services", color: "#0891b2" },
-              { icon: "fas fa-graduation-cap", name: "Education & Skill Platforms", color: "#2563eb" },
+              { icon: "fas fa-truck", name: "Transportation & Logistics", color: "#D97706" },
+              { icon: "fas fa-shopping-bag", name: "E-commerce & Retail", color: "#DB2777" },
+              { icon: "fas fa-home", name: "Beauty & Home Services", color: "#0891B2" },
+              { icon: "fas fa-graduation-cap", name: "Education & Skill Platforms", color: "#2563EB" },
             ].map((ind, i) => (
               <div key={i} className="odm-industry odm-scroll-reveal" style={{ transitionDelay: `${i * 0.08}s` }}>
                 <div className="odm-industry__icon" style={{ background: `${ind.color}12`, color: ind.color }}>

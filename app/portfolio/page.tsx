@@ -139,7 +139,7 @@ export default function Page() {
           </div>
           <div className="pf-faq-list">
             {faqs.map((f, i) => (
-              <details className="pf-faq-item" key={f.q} {...(i === 0 ? { open: true } : {})}>
+              <details className="pf-faq-item" name="pf-faq" key={f.q} {...(i === 0 ? { open: true } : {})}>
                 <summary className="pf-faq-q">
                   <span>{f.q}</span>
                   <span className="pf-faq-icon" aria-hidden="true">

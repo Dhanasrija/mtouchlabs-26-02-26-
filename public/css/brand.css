@@ -351,3 +351,185 @@ a:not([class*="btn"]):not([class*="Btn"]):not([class*="button"]):not([class*="Bu
 
 /* Keyboard focus stays visible and on-brand, everywhere. */
 a:focus-visible { outline: 2px solid var(--color-signature-blue); outline-offset: 3px; border-radius: 4px; }
+
+
+/* ============================================
+   SITE-WIDE CTA & BUTTON STANDARD
+   --------------------------------------------
+   One pattern on every page except the homepage,
+   which keeps its own bespoke sections.
+
+     CTA band       flat Signature Blue #3E8CFB
+     Primary btn    flat Signature Blue, white text,
+                    999px pill, hover darkens same hue
+     Secondary btn  white fill, 1.6px Signature Blue
+                    border, ink text, 999px pill
+
+   No gradients into Heritage Navy — that blue→navy
+   blend is what read as "indigo" on the older pages.
+   Navy and Deep Indigo stay in the palette for dark
+   surfaces and print, not for CTAs.
+
+   Homepage classes (_location_we_serve_*, pf-*,
+   tech-*, wwww-*) are untouched: they are not
+   matched by any selector below.
+   ============================================ */
+
+/* ── CTA bands: Deep Indigo, the palette's dark surface ── */
+.fd-cta,
+.loc-ctaSection,
+.ga-cta__inner,
+.svcx-cta-inner,
+[class*="cta-section"]:not([class*="_location_we_serve"]),
+[class*="ctaSection"]:not([class*="_location_we_serve"]) {
+  background: var(--color-deep-indigo) !important;
+}
+
+/* Text inside a CTA band is white. */
+.fd-cta, .fd-cta h1, .fd-cta h2, .fd-cta h3, .fd-cta p,
+.loc-ctaSection, .loc-ctaSection h2, .loc-ctaSection p,
+.ga-cta__inner, .ga-cta__heading, .ga-cta__text,
+.svcx-cta-inner, .svcx-cta-inner h2, .svcx-cta-inner p {
+  color: var(--color-white) !important;
+}
+.fd-cta p, .loc-ctaSection p, .ga-cta__text, .svcx-cta-inner p {
+  color: rgba(255, 255, 255, 0.82) !important;
+}
+.fd-cta em, .loc-ctaSection em, .svcx-cta-inner em,
+.loc-ctaSection .loc-highlight, .svcx-cta-inner .svcx-cta-h em {
+  color: var(--color-signature-blue) !important;
+  background: none !important;
+  -webkit-text-fill-color: var(--color-signature-blue) !important;
+}
+
+/* ── Primary buttons: flat Signature Blue, 999px pill ── */
+.fd-btn:not(.fd-btn-outline):not(.fd-btn-gold),
+.svc-hero-btn-primary,
+.svcx-btn-primary,
+.svcx-btn-light,
+.ga-cta__button,
+.loc-ctaBtnPrimary {
+  background: var(--cta-primary-bg) !important;
+  border: 1.6px solid var(--cta-primary-bg) !important;
+  border-radius: 999px !important;
+  color: var(--cta-primary-text) !important;
+}
+.fd-btn:not(.fd-btn-outline):not(.fd-btn-gold):hover,
+.svc-hero-btn-primary:hover,
+.svcx-btn-primary:hover,
+.ga-cta__button:hover,
+.loc-ctaBtnPrimary:hover {
+  filter: brightness(0.93);
+  color: var(--cta-primary-text) !important;
+}
+
+/* ── Secondary buttons ──
+   On a light background: white fill, blue border, ink text.
+   On a dark CTA band: transparent, white border, white text. */
+.fd-btn-outline,
+.svc-hero-btn-ghost,
+.svcx-btn-ghost,
+.loc-ctaBtnSecondary {
+  background: var(--cta-secondary-bg) !important;
+  border: 1.6px solid var(--cta-secondary-border) !important;
+  border-radius: 999px !important;
+  color: var(--heading-color) !important;
+}
+.fd-btn-outline:hover,
+.svc-hero-btn-ghost:hover,
+.svcx-btn-ghost:hover {
+  background: var(--cta-secondary-bg-hover) !important;
+  border-color: var(--cta-secondary-border) !important;
+  color: var(--heading-color) !important;
+}
+
+.fd-cta .fd-btn-outline,
+.loc-ctaSection .loc-ctaBtnSecondary,
+.ga-cta__inner .fd-btn-outline,
+.svcx-cta-inner .svcx-btn-ghost,
+.svcx-btn-outline-light {
+  background: transparent !important;
+  border: 1.6px solid rgba(255, 255, 255, 0.55) !important;
+  border-radius: 999px !important;
+  color: var(--color-white) !important;
+}
+.fd-cta .fd-btn-outline:hover,
+.loc-ctaSection .loc-ctaBtnSecondary:hover,
+.ga-cta__inner .fd-btn-outline:hover,
+.svcx-cta-inner .svcx-btn-ghost:hover,
+.svcx-btn-outline-light:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: var(--color-white) !important;
+  color: var(--color-white) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   NO GRADIENT TEXT OUTSIDE THE HOMEPAGE
+   Legacy sheets (bundle.css, style.css, services.css) paint accent
+   words with a multi-hue gradient clipped to the glyphs, so the text
+   fades to a second colour by the end of the word. Every such class
+   is listed here and flattened to a flat brand colour: accent words
+   and quote marks take Signature Blue, figures take Carbon Black so
+   stat numbers read the same on every page.
+
+   Homepage classes are deliberately absent and keep their gradients:
+   .ree-tt, .Home_page_rotate_text, .New-Home-inner-headings span,
+   .Home-section-AI, .cubespinner div, .data-ai-home-*,
+   .main-home-section-header, .AICard-header .purple
+   ═══════════════════════════════════════════════════════════════ */
+
+/* — Accent words → Signature Blue — */
+.sub-headinghealthcare-card,
+.healthcare-cards-heading,
+.sub-headinghealthcare-card-two,
+.aitemplet-header-h1tag span,
+.aitemplet-heading-h3tag span,
+.aitemplet-section-two span,
+.aitemplet-info-box span,
+.aitemplet-div-heading span,
+.aitemplet-section-five-left h2 .highlight,
+.section-tag,
+.new_contact_heading_section h3 span,
+.cr-hero-accent,
+.mob-highlight,
+.odm-accent-glow,
+.macs-text-accent,
+.macs-hero__title-glow,
+.macs-testimonial__quote,
+.csd-hero__title-gradient,
+.csd-testimonial__quote-mark,
+.blv3-title-gradient,
+.cw-label-text,
+.hma-hl,
+.hd-hero-blue,
+.social-hero-span,
+.xp-glow,
+.its-section__h2 em,
+.its-hero__h1-accent,
+.sp-hero__title-grad {
+  background: none !important;
+  background-image: none !important;
+  background-size: auto !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: var(--color-signature-blue) !important;
+  color: var(--color-signature-blue) !important;
+  animation: none !important;
+}
+
+/* — Figures → Carbon Black, matching the stat numbers on /services — */
+.hma-introTrustNum,
+.macs-why__num,
+.phases-panel-num {
+  background: none !important;
+  background-image: none !important;
+  background-size: auto !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: var(--color-carbon-black) !important;
+  color: var(--color-carbon-black) !important;
+  animation: none !important;
+}
+
+/* Italic accent in .its-section__h2 em reads as an accent word, not a quote. */
+.its-section__h2 em { font-style: normal !important; }

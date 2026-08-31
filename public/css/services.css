@@ -696,11 +696,8 @@
 }
 
 .its-section__h2 em {
-  font-style: italic;
-  background: linear-gradient(90deg, var(--its-cyan), #7ba4ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-style: normal;
+  color: var(--color-signature-blue, #3E8CFB);
 }
 
 .its-section__lead {
@@ -852,12 +849,7 @@
 
 .its-hero__h1-accent {
   display: inline-block;
-  background: linear-gradient(135deg, #3E8CFB 0%, #011D80 50%, #3E8CFB 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: its-shimmer 4s linear 1s infinite;
+  color: var(--color-signature-blue, #3E8CFB);
 }
 
 .its-hero__sub {

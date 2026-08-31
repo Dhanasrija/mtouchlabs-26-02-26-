@@ -46809,10 +46809,7 @@ button.aw-cta__button { border: none; cursor: pointer; font-family: inherit; }
 }
 
 .social-hero-span {
-  background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-signature-blue, #3E8CFB);
 }
 
 .social-hero-gif {
@@ -48137,7 +48134,7 @@ button.aw-cta__button { border: none; cursor: pointer; font-family: inherit; }
 
 /* --- helpers --- */
 .xp-gold { color: var(--xp-gold) !important; }
-.xp-glow { background: linear-gradient(135deg, #f59e0b, #e8a025) !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; background-clip: text !important; }
+.xp-glow { color: var(--color-signature-blue, #3E8CFB) !important; }
 .xp-w { width: 100% !important; max-width: 1200px !important; margin-left: auto !important; margin-right: auto !important; padding-left: 24px !important; padding-right: 24px !important; }
 
 /* --- tag / label --- */

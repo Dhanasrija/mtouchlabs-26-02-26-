@@ -95,6 +95,7 @@
 
 import { Metadata } from "next";
 import Script from "next/script";
+import OpenAILeadOnce from "@/components/OpenAILeadOnce";
 
 export const metadata: Metadata = {
   title: "Thank You",
@@ -163,6 +164,12 @@ export default function ThankYouPage({
         {`window.dataLayer = window.dataLayer || [];
 window.dataLayer.push(${dataLayerPayload});`}
       </Script>
+
+      {/* OpenAI Pixel — sends `lead_created` once, and only if the quote
+          form left a pending marker behind. This page is reachable only
+          behind the one-time cookie set by /api/request-quote, so it is
+          never reached without a successful submission. */}
+      {source === "quote" && <OpenAILeadOnce />}
 
       <img width={1854} height={374} loading="lazy" decoding="async" src="/images/logo-black.svg" alt="Logo" className="logo-thankyou" />
 

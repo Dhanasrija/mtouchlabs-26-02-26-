@@ -205,7 +205,7 @@ export default function AIChatbotDevelopmentCompany() {
   font-family: var(--font-primary, 'Poppins', sans-serif);
   font-size: 15px;
   line-height: 26px;
-  color: #33415C;
+  color: #222222;
 }
 .aip-industries {
   max-width: 1140px;
@@ -226,7 +226,7 @@ export default function AIChatbotDevelopmentCompany() {
   font-family: var(--font-primary, 'Poppins', sans-serif);
   font-size: 15px;
   font-weight: 500;
-  color: #1B2A4A;
+  color: #0D1117;
   box-shadow: 0 8px 22px -18px rgba(1, 29, 128, .45);
   cursor: default;
 }
@@ -257,7 +257,7 @@ export default function AIChatbotDevelopmentCompany() {
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 1.4px;
-  color: #2F7BF6;
+  color: #3E8CFB;
   margin-bottom: 10px;
 }
 .aip-step__title {
@@ -266,14 +266,14 @@ export default function AIChatbotDevelopmentCompany() {
   font-size: 19px;
   font-weight: 600;
   line-height: 28px;
-  color: #011D80;
+  color: #3E8CFB;
 }
 .aip-step__text {
   margin: 0;
   font-family: var(--font-primary, 'Poppins', sans-serif);
   font-size: 15px;
   line-height: 26px;
-  color: var(--ga-text, #444444);
+  color: var(--ga-text, #222222);
 }
 @media (max-width: 1024px) {
   .aip-flow__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -413,7 +413,7 @@ export default function AIChatbotDevelopmentCompany() {
               <p className="ga-service-card__text">
                 Chatbots powered by large language models that can understand questions and generate natural,
                 context-aware responses. See our{" "}
-                <a href="/generative-ai-development-company" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>generative AI development</a> capabilities.
+                <a href="/generative-ai-development-company" style={{ color: "#3E8CFB", textDecoration: "none", fontWeight: 600 }}>generative AI development</a> capabilities.
               </p>
             </div>
             <div className="ga-service-card ga-animate--scale">
@@ -553,7 +553,7 @@ export default function AIChatbotDevelopmentCompany() {
               <p className="ga-service-card__text">
                 We evaluate chatbot responses, retrieval quality, conversation flows, edge cases, performance,
                 and integration behaviour before and after deployment — backed by our{" "}
-                <a href="/quality-assurance-and-testing-services" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>QA and testing</a> practice.
+                <a href="/quality-assurance-and-testing-services" style={{ color: "#3E8CFB", textDecoration: "none", fontWeight: 600 }}>QA and testing</a> practice.
               </p>
             </div>
           </div>
@@ -642,7 +642,7 @@ export default function AIChatbotDevelopmentCompany() {
               <p className="ga-service-card__text">
                 Help customers discover products, answer product questions, provide recommendations, and assist
                 throughout the buying journey across your{" "}
-                <a href="/ecommerce-app-development-company" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>ecommerce platform</a>.
+                <a href="/ecommerce-app-development-company" style={{ color: "#3E8CFB", textDecoration: "none", fontWeight: 600 }}>ecommerce platform</a>.
               </p>
             </div>
             <div className="ga-service-card ga-animate--scale">
@@ -651,7 +651,7 @@ export default function AIChatbotDevelopmentCompany() {
               <p className="ga-service-card__text">
                 Create in-product assistants that help users understand features, search documentation,
                 troubleshoot issues, and complete tasks inside your{" "}
-                <a href="/saas-development-services" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>SaaS product</a>.
+                <a href="/saas-development-services" style={{ color: "#3E8CFB", textDecoration: "none", fontWeight: 600 }}>SaaS product</a>.
               </p>
             </div>
             <div className="ga-service-card ga-animate--scale">
@@ -713,8 +713,8 @@ export default function AIChatbotDevelopmentCompany() {
               mTouch Labs combines AI engineering with full-scale software product development, allowing
               chatbot capabilities to be integrated into websites, mobile applications, SaaS products, and
               enterprise systems. Browse our{" "}
-              <a href="/portfolio" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>portfolio</a> and{" "}
-              <a href="/case-studies" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>case studies</a> for shipped examples.
+              <a href="/portfolio" style={{ color: "#3E8CFB", textDecoration: "none", fontWeight: 600 }}>portfolio</a> and{" "}
+              <a href="/case-studies" style={{ color: "#3E8CFB", textDecoration: "none", fontWeight: 600 }}>case studies</a> for shipped examples.
             </p>
             <div className="ga-reliable__pillars">
               <div className="ga-pillar"><span className="ga-pillar__dot"></span><span className="ga-pillar__label">Business-first AI — the problem before the model</span></div>
@@ -923,38 +923,38 @@ export default function AIChatbotDevelopmentCompany() {
           </div>
           <div className="ga-services__grid ga-stagger">
             <a href="/generative-ai-development-company" className="ga-service-card ga-animate--scale" style={{ color: "inherit", textDecoration: "none", display: "block", position: "relative" }}>
-              <h4 className="ga-service-card__title">Generative AI Development <span style={{ float: "right", color: "#2563eb", fontWeight: 700 }} aria-hidden>→</span></h4>
+              <h4 className="ga-service-card__title">Generative AI Development <span style={{ float: "right", color: "#3E8CFB", fontWeight: 700 }} aria-hidden>→</span></h4>
               <p className="ga-service-card__text">
                 LLM-powered applications, RAG pipelines, and AI automation built for production — not demos.
               </p>
             </a>
             <a href="/machine-learning-development-company" className="ga-service-card ga-animate--scale" style={{ color: "inherit", textDecoration: "none", display: "block", position: "relative" }}>
-              <h4 className="ga-service-card__title">Machine Learning Development <span style={{ float: "right", color: "#2563eb", fontWeight: 700 }} aria-hidden>→</span></h4>
+              <h4 className="ga-service-card__title">Machine Learning Development <span style={{ float: "right", color: "#3E8CFB", fontWeight: 700 }} aria-hidden>→</span></h4>
               <p className="ga-service-card__text">
                 Predictive models, classification, and intelligence layers that sit behind conversational
                 experiences.
               </p>
             </a>
             <a href="/custom-software-development-company" className="ga-service-card ga-animate--scale" style={{ color: "inherit", textDecoration: "none", display: "block", position: "relative" }}>
-              <h4 className="ga-service-card__title">Custom Software Development <span style={{ float: "right", color: "#2563eb", fontWeight: 700 }} aria-hidden>→</span></h4>
+              <h4 className="ga-service-card__title">Custom Software Development <span style={{ float: "right", color: "#3E8CFB", fontWeight: 700 }} aria-hidden>→</span></h4>
               <p className="ga-service-card__text">
                 Tailor-made software that aligns with your workflows, integrates with your systems, and scales.
               </p>
             </a>
             <a href="/custom-crm-software-development-company" className="ga-service-card ga-animate--scale" style={{ color: "inherit", textDecoration: "none", display: "block", position: "relative" }}>
-              <h4 className="ga-service-card__title">Custom CRM Development <span style={{ float: "right", color: "#2563eb", fontWeight: 700 }} aria-hidden>→</span></h4>
+              <h4 className="ga-service-card__title">Custom CRM Development <span style={{ float: "right", color: "#3E8CFB", fontWeight: 700 }} aria-hidden>→</span></h4>
               <p className="ga-service-card__text">
                 The system your lead-qualification chatbot hands qualified conversations off to.
               </p>
             </a>
             <a href="/mobile-app-development-company" className="ga-service-card ga-animate--scale" style={{ color: "inherit", textDecoration: "none", display: "block", position: "relative" }}>
-              <h4 className="ga-service-card__title">Mobile App Development <span style={{ float: "right", color: "#2563eb", fontWeight: 700 }} aria-hidden>→</span></h4>
+              <h4 className="ga-service-card__title">Mobile App Development <span style={{ float: "right", color: "#3E8CFB", fontWeight: 700 }} aria-hidden>→</span></h4>
               <p className="ga-service-card__text">
                 Android and iOS delivery, ready to embed in-app AI assistants and intelligent workflows.
               </p>
             </a>
             <a href="/ui-ux-design-company" className="ga-service-card ga-animate--scale" style={{ color: "inherit", textDecoration: "none", display: "block", position: "relative" }}>
-              <h4 className="ga-service-card__title">UI/UX Design Services <span style={{ float: "right", color: "#2563eb", fontWeight: 700 }} aria-hidden>→</span></h4>
+              <h4 className="ga-service-card__title">UI/UX Design Services <span style={{ float: "right", color: "#3E8CFB", fontWeight: 700 }} aria-hidden>→</span></h4>
               <p className="ga-service-card__text">
                 Conversation and interface design that makes AI features feel natural and trustworthy.
               </p>

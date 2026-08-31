@@ -10,6 +10,7 @@ import {
 } from "react";
 import { useRouter } from "next/navigation";
 import "./style.css";
+import { markQuoteLeadPending } from "@/lib/openaiLead";
 
 /* ─────────────────────────────────────────────
    Types & Data
@@ -658,6 +659,18 @@ export function FreeRequestQuoteClient() {
               event_label: "request_free_quote_form",
             });
           }
+        } catch {
+          /* never block redirect on analytics errors */
+        }
+
+        // ── OpenAI Pixel: Lead conversion ──
+        // We are past the `res.ok` check, so the submission has genuinely
+        // succeeded. We do NOT send the event here: the hard navigation
+        // below can discard a just-queued pixel request. Instead we record
+        // a one-time marker, and /thank-you sends `lead_created` once the
+        // confirmation page is up. See lib/openaiLead.ts.
+        try {
+          markQuoteLeadPending();
         } catch {
           /* never block redirect on analytics errors */
         }

@@ -698,19 +698,6 @@ const servicesOptions = ["Mobile App Development","Web Application Development",
 
 const offices = [
   {
-    id: "usa",
-    flag: "\u{1F1FA}\u{1F1F8}",
-    city: "Dover, Delaware, United States",
-    label: "US Operations",
-    company: "mTouch Labs",
-    address: "1111B South Governors Avenue, Suite 48193, Dover, DE 19904, United States",
-    phone: "+1 (551) 222-0070",
-    email: "contact@mtouchlabs.com",
-    hours: "Mon–Fri, 9:00 AM – 6:00 PM EST",
-    mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3100.5!2d-75.5254408!3d39.1395519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c763817472e2c3%3A0x102e4f6c800dacbd!2smTouch%20AI%20Labs!5e0!3m2!1sen!2sus!4v1700000000000",
-    mapUrl: "https://maps.app.goo.gl/RUQSXXJ8hCP2RMRd7"
-  },
-  {
     id: "hyderabad",
     hq: true,
     flag: "\u{1F1EE}\u{1F1F3}",
@@ -723,6 +710,19 @@ const offices = [
     hours: "Mon–Fri, 9:30 AM – 6:30 PM IST",
     mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.7!2d78.3927245!3d17.489222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb90cec63e97d9%3A0xb045c9dc22129055!2smTouch%20Labs!5e0!3m2!1sen!2sin!4v1700000000000",
     mapUrl: "https://maps.app.goo.gl/vHVVC1vzkR2hS7Ek7"
+  },
+  {
+    id: "usa",
+    flag: "\u{1F1FA}\u{1F1F8}",
+    city: "Dover, Delaware, United States",
+    label: "US Operations",
+    company: "mTouch Labs",
+    address: "1111B South Governors Avenue, Suite 48193, Dover, DE 19904, United States",
+    phone: "+1 (551) 222-0070",
+    email: "contact@mtouchlabs.com",
+    hours: "Mon–Fri, 9:00 AM – 6:00 PM EST",
+    mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3100.5!2d-75.5254408!3d39.1395519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c763817472e2c3%3A0x102e4f6c800dacbd!2smTouch%20AI%20Labs!5e0!3m2!1sen!2sus!4v1700000000000",
+    mapUrl: "https://maps.app.goo.gl/RUQSXXJ8hCP2RMRd7"
   },
   {
     id: "bengaluru",
@@ -909,7 +909,10 @@ export default function ContactUsPage() {
       <section className="ent-cta-banner"><div className="ent-cta-banner__inner">
         <h2 className="ent-cta-banner__title">Ready to Accelerate Your Digital Transformation?</h2>
         <p className="ent-cta-banner__text">Connect with mTouch Labs today and speak with our enterprise technology experts.</p>
-        <button type="button" className="ent-cta-banner__btn js-open-modal">Get Started Now <ArrowIcon /></button>
+        <div className="ent-cta-banner__actions">
+          <button type="button" className="ent-cta-banner__btn js-open-modal">Get Started Now <ArrowIcon /></button>
+          <a href="/portfolio" className="ent-cta-banner__btn-secondary">View Our Work <ArrowIcon /></a>
+        </div>
       </div></section>
 
       {/* ════════ SCRIPTS ════════ */}

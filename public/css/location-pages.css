@@ -954,10 +954,7 @@
 }
 
 .hma-hl {
-  background: linear-gradient(90deg, var(--color-signature-blue), var(--color-bright-horizon));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--color-signature-blue, #3E8CFB);
 }
 
 /* ── Hero CTAs ── */
@@ -1089,12 +1086,8 @@
   font-family: var(--font-primary);
   font-size: 40px;
   font-weight: 800;
-  color: var(--color-deep-indigo);
+  color: var(--color-carbon-black, #0D1117);
   line-height: 1.2;
-  background: linear-gradient(135deg, var(--color-deep-indigo), var(--color-signature-blue));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .hma-introTrustLabel {
@@ -2031,10 +2024,7 @@
 }
 .hd-hero-gold { color: var(--color-bright-horizon); }
 .hd-hero-blue {
-  background: linear-gradient(135deg, #60a5fa, var(--color-signature-blue), #93c5fd);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-signature-blue, #3E8CFB);
 }
 
 .hd-hero-desc {

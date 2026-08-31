@@ -200,15 +200,19 @@ const OFFSHORE: { i: IconName; t: string; d: string }[] = [
   { i: "checkSquare", t: "Quality Assurance Included", d: "Dedicated QA engineers test functionality, performance, security, and device compatibility throughout development—not as a separate line item at the end." },
 ];
 
-const INDUSTRIES: { i: IconName; t: string; d: string; cta: string; href: string }[] = [
-  { i: "activity", t: "Healthcare", d: "Develop digital healthcare solutions that improve workflows, patient experiences, data management, and connected healthcare operations.", cta: "Explore Healthcare Solutions", href: "/diagnostic-app-development-company" },
-  { i: "landmark", t: "Financial Services & FinTech", d: "Build secure financial applications, digital platforms, workflow solutions, dashboards, and technology systems designed for modern financial businesses.", cta: "Explore FinTech Solutions", href: "/custom-crm-software-development-company" },
-  { i: "cart", t: "Retail & eCommerce", d: "Create digital commerce experiences, customer applications, inventory solutions, marketplaces, and connected retail platforms.", cta: "Explore Retail & eCommerce Solutions", href: "/app-and-web-development-for-ecommerce-services" },
-  { i: "factory", t: "Manufacturing", d: "Modernize manufacturing operations with connected applications, workflow automation, dashboards, integrations, and digital platforms.", cta: "Explore Manufacturing Solutions", href: "/best-iot-development-company-in-india" },
-  { i: "truck", t: "Logistics & Transportation", d: "Develop solutions for tracking, fleet operations, logistics workflows, business visibility, automation, and connected transportation systems.", cta: "Explore Logistics Solutions", href: "/taxi-booking-app-development-company" },
-  { i: "home", t: "Real Estate", d: "Build property platforms, customer portals, management applications, workflow solutions, and digital experiences for real estate businesses.", cta: "Explore Real Estate Solutions", href: "/web-and-app-development-for-real-estate-services" },
-  { i: "book", t: "Education", d: "Develop learning platforms, education portals, management systems, collaboration tools, and digital experiences for education providers.", cta: "Explore Education Solutions", href: "/web-and-app-development-for-education-services" },
-  { i: "send", t: "Travel & Hospitality", d: "Create booking platforms, customer applications, operational systems, digital experiences, and integrations for travel and hospitality businesses.", cta: "Explore Travel & Hospitality Solutions", href: "/hotel-booking-app-development-company" },
+/* Industries are presentational only — icon + text, no links, per brief. */
+/* Industry tiles: icon + name only, no copy and no links, per brief.
+   `k` alternates the two brand accents (Signature Blue / Bright
+   Horizon) so the row reads as colourful without leaving the palette. */
+const INDUSTRIES: { i: IconName; t: string }[] = [
+  { i: "activity", t: "Healthcare" },
+  { i: "landmark", t: "Financial Services & FinTech" },
+  { i: "cart", t: "Retail & eCommerce" },
+  { i: "factory", t: "Manufacturing" },
+  { i: "truck", t: "Logistics & Transportation" },
+  { i: "home", t: "Real Estate" },
+  { i: "book", t: "Education" },
+  { i: "send", t: "Travel & Hospitality" },
 ];
 
 const IMPACT: { i: IconName; t: string; d: string }[] = [
@@ -274,8 +278,9 @@ const USA_CSS = `
    opacity. --b (Heritage Navy) fills buttons because white on Signature
    Blue is 3.30:1 and fails AA; --b-soft (Signature Blue) carries accents. */
 .usa-page{--b:var(--color-signature-blue,#3E8CFB);--b-dark:var(--color-carbon-black,#0D1117);--b-soft:var(--color-signature-blue,#3E8CFB);--b-tint:rgba(62,140,251,.10);--b-line:rgba(62,140,251,.26);--navy:var(--color-signature-blue,#3E8CFB);--ink:var(--color-carbon-black,#0D1117);--ink-2:var(--color-text,#222222);--ink-3:var(--color-slate-grey,#777777);font-family:var(--f-body),'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
-.usa-page .loc-sectionTitle,.usa-page .loc-introTitle,.usa-page .loc-ctaTitle,.usa-page .usa-h1,.usa-page .uf-title,.usa-page .loc-detailTitle,.usa-page .loc-engageTitle,.usa-page .loc-statNum,.usa-page .loc-timelineDot,.usa-page .loc-detailNum,.usa-page .usa-hsNum{font-family:var(--f-display),'Sora',sans-serif}
-.usa-page .loc-highlight{background:#3E8CFB;background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent}
+.usa-page .loc-sectionTitle,.usa-page .loc-introTitle,.usa-page .loc-ctaTitle,.usa-page .usa-h1,.usa-page .uf-title,.usa-page .loc-detailTitle,.usa-page .loc-engageTitle,.usa-page .loc-statNum,.usa-page .loc-timelineDot,.usa-page .loc-detailNum,.usa-page .usa-numValue,.usa-page .usa-csName,.usa-page .usa-indName,.usa-page .usa-locName,.usa-page .usa-midCtaTitle{font-family:var(--f-display),'Sora',sans-serif}
+.usa-page .loc-highlight{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:var(--b-soft)}
+.usa-page .loc-timelineDot{color:#fff}
 .usa-page a{color:var(--b)}
 .usa-page a:hover{color:var(--b-dark)}
 .usa-page .loc-tile{background:var(--b-tint);border-color:var(--b-line);color:var(--b)}
@@ -285,8 +290,11 @@ const USA_CSS = `
 .usa-page .loc-detailLabel,.usa-page .loc-faqChevron,.usa-page .loc-introTag{color:var(--b)}
 .usa-page .loc-timelineDot{background:#3E8CFB;box-shadow:0 6px 16px rgba(62,140,251,.26)}
 .usa-page .loc-timeline::before{background:linear-gradient(180deg,var(--b),var(--b-soft),rgba(62,140,251,.18))}
-.usa-page .loc-ctaSection{background:#3E8CFB}
-.usa-page .loc-ctaBtnPrimary{color:var(--b)!important}
+.usa-page .loc-ctaSection{background:var(--color-deep-indigo,#0C1C32)}
+.usa-page .loc-ctaBtnPrimary{background:var(--b-soft);color:#fff!important;border:1.6px solid var(--b-soft)}
+.usa-page .loc-ctaBtnPrimary:hover{filter:brightness(.93);color:#fff!important}
+.usa-page .loc-ctaBtnSecondary{background:transparent;color:#fff!important;border:1.6px solid rgba(255,255,255,.55)!important}
+.usa-page .loc-ctaBtnSecondary:hover{background:rgba(255,255,255,.12);color:#fff!important;border-color:#fff!important}
 
 /* ── hero ── */
 .usa-hero{position:relative;padding:130px 1.5rem 5rem;overflow:hidden;background:
@@ -295,7 +303,7 @@ const USA_CSS = `
   linear-gradient(180deg,rgba(62,140,251,.02) 0%,rgba(62,140,251,.045) 100%)}
 .usa-hero::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--b-line)}
 .usa-heroInner{position:relative;max-width:1220px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:3.25rem;align-items:start}
-.usa-eyebrow{display:inline-flex;align-items:center;gap:.55rem;padding:.5rem 1rem;border-radius:999px;background:var(--b-tint);border:1px solid var(--b-line);color:var(--b);font-size:.83rem;font-weight:600;margin-bottom:1.35rem}
+.usa-eyebrow{display:inline-flex;align-items:center;gap:.5rem;color:var(--b-soft);font-size:.86rem;font-weight:600;margin-bottom:1.1rem;letter-spacing:.01em}
 .usa-eyebrow svg{flex-shrink:0}
 .usa-h1{font-size:clamp(2.05rem,4vw,3.2rem);font-weight:800;line-height:1.1;letter-spacing:-.03em;color:var(--ink);margin:0 0 .85rem}
 .usa-h1 em{font-style:normal;color:var(--b-soft)}
@@ -306,16 +314,8 @@ const USA_CSS = `
 .usa-btnA,.usa-btnB{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;padding:.9rem 1.75rem;border-radius:999px;font-weight:700;font-size:.95rem;transition:transform .2s cubic-bezier(.22,.61,.36,1),box-shadow .2s,background .2s,border-color .2s}
 .usa-btnA{background:var(--b);color:#fff!important;box-shadow:0 8px 20px rgba(62,140,251,.26)}
 .usa-btnA:hover{filter:brightness(.93);color:#fff!important;transform:translateY(-2px);box-shadow:0 14px 30px rgba(62,140,251,.34)}
-.usa-btnB{background:var(--color-white,#fff);color:var(--b-soft)!important;border:1.6px solid var(--b-soft)}
-.usa-btnB:hover{background:var(--b-tint);color:var(--b)!important;border-color:var(--b);transform:translateY(-2px);filter:brightness(.97)}
-
-/* ── hero stat strip: numbers in black, per brief ── */
-.usa-heroStats{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;background:#fff;border:1px solid var(--b-line);border-radius:16px;padding:1.15rem 1rem;box-shadow:0 2px 8px rgba(13,17,23,.04)}
-.usa-hsItem{display:flex;align-items:center;gap:.7rem;padding:0 .5rem;border-right:1px solid rgba(62,140,251,.18)}
-.usa-hsItem:last-child{border-right:0}
-.usa-hsIcon{width:38px;height:38px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border-radius:11px;background:var(--b-tint);color:var(--b)}
-.usa-hsNum{font-size:1.42rem;font-weight:800;color:var(--ink);line-height:1.1;letter-spacing:-.02em}
-.usa-hsLabel{font-size:.75rem;color:var(--ink-3);font-weight:600;line-height:1.35;margin-top:.1rem}
+.usa-btnB{background:var(--color-white,#fff);color:var(--ink)!important;border:1.6px solid var(--b-soft)}
+.usa-btnB:hover{background:var(--b-tint);color:var(--ink)!important;border-color:var(--b-soft);transform:translateY(-2px)}
 
 /* ── trust row under the stats ── */
 .usa-trustRow{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;margin-top:1.5rem}
@@ -337,24 +337,51 @@ const USA_CSS = `
 .uf-input:focus-within{border-color:var(--b);box-shadow:0 0 0 3px rgba(62,140,251,.13)}
 .uf-ic{display:flex;color:#777777;flex-shrink:0}
 .uf-input:focus-within .uf-ic{color:var(--b)}
-.uf-ic--wa{color:#25D366}
-.uf-input input,.uf-input select,.uf-input textarea{flex:1;min-width:0;width:100%;border:0;outline:0;background:transparent;font-family:inherit;font-size:.92rem;line-height:1.5;color:var(--ink);-webkit-appearance:none;appearance:none}
+/* The inner control must never draw its own box — global input styles in
+   bundle.css add a border/shadow on hover and focus, which appeared as a
+   second rounded rectangle inside the field. Neutralised in every state. */
+.uf-input input,.uf-input select,.uf-input textarea,.uf-input input:hover,.uf-input select:hover,.uf-input textarea:hover,.uf-input input:focus,.uf-input select:focus,.uf-input textarea:focus,.uf-input input:active,.uf-input select:active,.uf-input textarea:active{flex:1;min-width:0;width:100%;border:0!important;outline:0!important;box-shadow:none!important;background-color:transparent!important;font-family:inherit;font-size:.92rem;line-height:1.5;color:var(--ink);-webkit-appearance:none;appearance:none;border-radius:0;margin:0}
+.uf-input:hover{border-color:var(--b-soft)}
 .uf-input select{cursor:pointer;background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%233E8CFB' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right center;padding-right:1.3rem;text-overflow:ellipsis}
 .uf-input input::placeholder,.uf-input textarea::placeholder{color:#777777}
 .uf-input--area{height:auto;padding:.7rem .8rem;align-items:flex-start}
 .uf-input--area textarea{resize:vertical;min-height:74px}
 .uf-input--code{padding-right:.55rem;flex:0 0 auto}
-.uf-row{display:grid;grid-template-columns:1fr 122px;gap:.7rem;align-items:end}
 .uf-phone{display:grid;grid-template-columns:92px 1fr;gap:.5rem}
 .uf-btn{width:100%;margin-top:.4rem;display:flex;align-items:center;justify-content:center;gap:.55rem;padding:.95rem 1.2rem;border:0;border-radius:12px;background:var(--b);color:#fff;font-family:inherit;font-size:.97rem;font-weight:700;cursor:pointer;transition:transform .2s cubic-bezier(.22,.61,.36,1),box-shadow .2s,background .2s}
 .uf-btn:hover:not(:disabled){filter:brightness(.93);transform:translateY(-2px);box-shadow:0 12px 26px rgba(62,140,251,.32)}
 .uf-btn:disabled{opacity:.65;cursor:progress}
 .uf-err{margin:.55rem 0 0;font-size:.83rem;color:#B91C1C;font-weight:600}
-.uf-fine{display:flex;gap:.5rem;align-items:flex-start;margin:.9rem 0 0;font-size:.76rem;color:var(--ink-3);line-height:1.6}
-.uf-fineIc{display:flex;color:var(--b);flex-shrink:0;margin-top:.1rem}
-.uf-fine a{color:var(--b);font-weight:600}
+.uf-consent{display:flex;gap:.6rem;align-items:flex-start;margin:.25rem 0 .2rem}
+.uf-consent input[type="checkbox"]{flex-shrink:0;width:17px;height:17px;margin-top:.15rem;accent-color:var(--b);cursor:pointer}
+.uf-consent label{font-size:.78rem;font-weight:400;color:var(--ink-3);line-height:1.6;margin:0;cursor:pointer}
+.uf-consent a{color:var(--b);font-weight:600}
 .uf-done{text-align:center;padding:2.4rem .5rem}
 .uf-doneIcon{display:inline-flex;color:#059669;margin-bottom:.7rem}
+
+/* ── "By the Numbers" — the stats, now their own section ── */
+.usa-numGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
+.usa-numCard{text-align:center;background:var(--color-white,#fff);border:1px solid var(--b-line);border-radius:18px;padding:2rem 1.25rem;box-shadow:0 2px 10px rgba(13,17,23,.05);transition:transform .25s cubic-bezier(.22,.61,.36,1),box-shadow .25s,border-color .25s}
+.usa-numCard:hover{transform:translateY(-5px);box-shadow:0 16px 38px rgba(62,140,251,.18);border-color:var(--b-soft)}
+.usa-numIcon{width:56px;height:56px;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;border-radius:16px;background:var(--b-tint);color:var(--b);transition:background .3s,color .3s,transform .35s cubic-bezier(.22,.61,.36,1)}
+.usa-numCard:hover .usa-numIcon{background:var(--b);color:#fff;transform:rotate(-6deg) scale(1.06)}
+.usa-numValue{font-family:var(--f-display),'Sora',sans-serif;font-size:2.3rem;font-weight:800;color:var(--ink);line-height:1.05;letter-spacing:-.03em}
+.usa-numLabel{margin-top:.45rem;font-size:.88rem;font-weight:600;color:var(--ink-3);line-height:1.4}
+.usa-numGrid + .usa-trustRow{margin-top:2.2rem}
+@media (max-width:980px){.usa-numGrid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.usa-numGrid{grid-template-columns:1fr}}
+
+/* ── industry cards: icon + text only, no links ── */
+.usa-indGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.3rem}
+.usa-indCard{display:flex;flex-direction:column;align-items:center;text-align:center;background:var(--color-white,#fff);border:1px solid var(--b-line);border-radius:18px;padding:1.9rem 1.1rem;box-shadow:0 2px 10px rgba(13,17,23,.05);transition:transform .25s cubic-bezier(.22,.61,.36,1),box-shadow .25s,border-color .25s}
+.usa-indCard:hover{transform:translateY(-5px);box-shadow:0 16px 38px rgba(62,140,251,.18);border-color:var(--b-soft)}
+.usa-indIcon{width:62px;height:62px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:var(--b-tint);color:var(--b-soft);margin-bottom:1rem;transition:background .3s,color .3s,transform .35s cubic-bezier(.22,.61,.36,1)}
+.usa-indCard--alt .usa-indIcon{background:rgba(250,199,89,.20);color:#B07D0A}
+.usa-indCard:hover .usa-indIcon{background:var(--b-soft);color:#fff;transform:rotate(-6deg) scale(1.08)}
+.usa-indCard--alt:hover .usa-indIcon{background:var(--color-bright-horizon,#FAC759);color:var(--ink)}
+.usa-indName{font-family:var(--f-display),'Sora',sans-serif;font-size:1rem;font-weight:700;color:var(--ink);margin:0;line-height:1.35}
+@media (max-width:1080px){.usa-indGrid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.usa-indGrid{grid-template-columns:1fr}}
 
 /* ── case-study cards: image, tag, name, result, link ── */
 .usa-csGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;align-items:stretch}
@@ -389,7 +416,7 @@ const USA_CSS = `
 .usa-midCtaText{font-size:.94rem;color:var(--ink-2);line-height:1.7;margin:0 0 1.15rem}
 .usa-inlineBtn{display:inline-flex;align-items:center;gap:.5rem;padding:.78rem 1.55rem;border-radius:999px;background:var(--b);color:#fff!important;font-weight:700;font-size:.9rem;transition:transform .2s cubic-bezier(.22,.61,.36,1),box-shadow .2s,background .2s}
 .usa-inlineBtn:hover{filter:brightness(.93);color:#fff!important;transform:translateY(-2px);box-shadow:0 12px 26px rgba(62,140,251,.30)}
-.usa-inlineBtn--ghost{background:var(--color-white,#fff);color:var(--b-soft)!important;border:1.6px solid var(--b-soft)}
+.usa-inlineBtn--ghost{background:var(--color-white,#fff);color:var(--ink)!important;border:1.6px solid var(--b-soft)}
 .usa-inlineBtn--ghost:hover{background:var(--b-tint);color:var(--b-dark)!important;border-color:var(--b-dark)}
 
 @media (max-width:1080px){
@@ -399,11 +426,8 @@ const USA_CSS = `
 }
 @media (max-width:768px){
   .usa-hero{padding:100px 1.15rem 3.25rem}
-  .usa-heroStats{grid-template-columns:repeat(2,1fr);gap:1rem}
-  .usa-hsItem{border-right:0}
   .usa-locGrid{grid-template-columns:1fr}
   .usa-heroActions{flex-direction:column;align-items:stretch}
-  .uf-row{grid-template-columns:1fr}
 }
 `;
 
@@ -442,33 +466,10 @@ export default function SoftwareDevelopmentCompanyUSA() {
             <p className="usa-heroText">From product strategy and UI/UX design to development, testing, deployment, and ongoing support—we turn complex ideas into secure, scalable, and high-performing software.</p>
 
             <div className="usa-heroActions">
-              <ExtLink href="/contact-us" className="usa-btnA"><UIcon d={UI.send} s={17} />Talk to a Software Expert</ExtLink>
+              <ExtLink href="/contact-us" className="usa-btnA"><UIcon d={UI.send} s={17} />Talk to Expert</ExtLink>
               <ExtLink href="/case-studies" className="usa-btnB"><UIcon d={UI.doc} s={17} />View Case Studies</ExtLink>
             </div>
 
-            <div className="usa-heroStats">
-              {HERO_STATS.map((s2) => (
-                <div className="usa-hsItem" key={s2.l1}>
-                  <span className="usa-hsIcon"><Icon name={s2.i} size={19} /></span>
-                  <div>
-                    <div className="usa-hsNum">{s2.n}</div>
-                    <div className="usa-hsLabel">{s2.l1}<br />{s2.l2}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="usa-trustRow">
-              {HERO_TRUST.map((t) => (
-                <div className="usa-trustItem" key={t.t}>
-                  <span className="usa-trustIcon"><UIcon d={t.d} s={17} /></span>
-                  <div>
-                    <p className="usa-trustT">{t.t}</p>
-                    <p className="usa-trustD">{t.x}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
 
           <HeroLeadForm />
@@ -486,9 +487,6 @@ export default function SoftwareDevelopmentCompanyUSA() {
           <div className="loc-whyGrid" style={{ gridTemplateColumns: "repeat(4, 1fr)" }}>
             {PARTNER_POINTS.map((p) => <Card key={p.t} {...p} />)}
           </div>
-          <div style={{ textAlign: "center", marginTop: "2.4rem" }}>
-            <ExtLink className="usa-inlineBtn" href="/contact-us">Talk to Our Software Experts<UIcon d={UI.arrow} s={16} /></ExtLink>
-          </div>
         </div>
       </section>
 
@@ -501,7 +499,6 @@ export default function SoftwareDevelopmentCompanyUSA() {
             <p className="loc-sectionDesc" style={{ marginTop: "1rem" }}>Our team helps businesses plan, design, develop, test, deploy, and continuously improve software products using modern engineering practices and technologies. Whether you need a custom business application, an AI-powered product, a scalable SaaS platform, or a modern cloud solution, we tailor the development approach to your business objectives and technical requirements.</p>
           </div>
           <div className="loc-whyGrid">{SERVICES.map((s) => <Card key={s.t} {...s} />)}</div>
-          <MidCta t="Let's Build Software That Moves Your Business Forward" d="Have a product idea, an existing application that needs improvement, or a complex technology challenge? Our team can help you define the right solution, development approach, and technology strategy." cta="Discuss Your Project" href="/contact-us" />
         </div>
       </section>
 
@@ -514,51 +511,6 @@ export default function SoftwareDevelopmentCompanyUSA() {
             <p className="loc-sectionDesc" style={{ marginTop: "1rem" }}>mTouch Labs helps businesses across the USA turn these challenges into practical, scalable technology solutions.</p>
           </div>
           <div className="loc-whyGrid">{CHALLENGES.map((c) => <Card key={c.t} {...c} />)}</div>
-        </div>
-      </section>
-
-      {/* ═══ OFFSHORE ═══ */}
-      <section className="loc-section loc-introSection">
-        <div className="loc-sectionInner">
-          <div className="loc-sectionHeader">
-            <h2 className="loc-sectionTitle">Offshore Software Development for <span className="loc-highlight">US Businesses</span></h2>
-            <p className="loc-sectionDesc">Extend your engineering capacity with a dedicated offshore software development team that works as an extension of your business. mTouch Labs helps US startups, growing companies, and enterprises access experienced technology talent for product development, application engineering, AI, cloud, QA, and ongoing software enhancement.</p>
-            <p className="loc-sectionDesc" style={{ marginTop: "1rem" }}>Our flexible engagement models allow you to add the expertise and development capacity you need without the complexity of building and managing an entire engineering team internally.</p>
-          </div>
-          <div className="loc-whyGrid">{OFFSHORE.map((o) => <Card key={o.t} {...o} />)}</div>
-          <div style={{ textAlign: "center", marginTop: "2.4rem", display: "flex", gap: ".8rem", justifyContent: "center", flexWrap: "wrap" }}>
-            <ExtLink className="usa-inlineBtn" href="/hire-developers-in-india">Explore Offshore Software Development<UIcon d={UI.arrow} s={16} /></ExtLink>
-            <ExtLink className="usa-inlineBtn usa-inlineBtn--ghost" href="/contact-us">Talk to Our Team<UIcon d={UI.arrow} s={16} /></ExtLink>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══ INDUSTRIES ═══ */}
-      <section className="loc-section loc-servicesSection">
-        <div className="loc-sectionInner">
-          <div className="loc-sectionHeader">
-            <h2 className="loc-sectionTitle">Software Development Solutions for <span className="loc-highlight">US Industries</span></h2>
-            <p className="loc-sectionDesc">Every industry has different customers, workflows, regulations, operational challenges, and technology requirements. mTouch Labs develops software solutions tailored to the way businesses operate, helping organizations create better digital experiences, streamline processes, and build scalable technology platforms.</p>
-          </div>
-          <div className="loc-whyGrid" style={{ gridTemplateColumns: "repeat(4, 1fr)" }}>
-            {INDUSTRIES.map((x) => <Card key={x.t} {...x} />)}
-          </div>
-          <MidCta t="Looking for a Solution for Your Industry?" d="Tell us about your business, technology requirements, and challenges. Our team can help identify the right software approach for your industry and business objectives." cta="Discuss Your Industry Needs" href="/contact-us" />
-        </div>
-      </section>
-
-      {/* ═══ IMPACT ═══ */}
-      <section className="loc-section loc-introSection">
-        <div className="loc-sectionInner">
-          <div className="loc-sectionHeader">
-            <h2 className="loc-sectionTitle">Software That Delivers <span className="loc-highlight">Business Impact</span></h2>
-            <p className="loc-sectionDesc">Software development should do more than deliver features. The right technology can help your business launch faster, simplify operations, improve customer experiences, and create a stronger foundation for growth.</p>
-            <p className="loc-sectionDesc" style={{ marginTop: "1rem" }}>mTouch Labs focuses on building software around measurable business needs—helping organizations turn technology investments into practical business outcomes.</p>
-          </div>
-          <div className="loc-whyGrid">{IMPACT.map((x) => <Card key={x.t} {...x} />)}</div>
-          <div style={{ textAlign: "center", marginTop: "2.4rem" }}>
-            <ExtLink className="usa-inlineBtn" href="/contact-us">Discuss Your Business Goals<UIcon d={UI.arrow} s={16} /></ExtLink>
-          </div>
         </div>
       </section>
 
@@ -595,6 +547,55 @@ export default function SoftwareDevelopmentCompanyUSA() {
         </div>
       </section>
 
+      {/* ═══ OFFSHORE ═══ */}
+      <section className="loc-section loc-introSection">
+        <div className="loc-sectionInner">
+          <div className="loc-sectionHeader">
+            <h2 className="loc-sectionTitle">Offshore Software Development for <span className="loc-highlight">US Businesses</span></h2>
+            <p className="loc-sectionDesc">Extend your engineering capacity with a dedicated offshore software development team that works as an extension of your business. mTouch Labs helps US startups, growing companies, and enterprises access experienced technology talent for product development, application engineering, AI, cloud, QA, and ongoing software enhancement.</p>
+            <p className="loc-sectionDesc" style={{ marginTop: "1rem" }}>Our flexible engagement models allow you to add the expertise and development capacity you need without the complexity of building and managing an entire engineering team internally.</p>
+          </div>
+          <div className="loc-whyGrid">{OFFSHORE.map((o) => <Card key={o.t} {...o} />)}</div>
+          <div style={{ textAlign: "center", marginTop: "2.4rem", display: "flex", gap: ".8rem", justifyContent: "center", flexWrap: "wrap" }}>
+            <ExtLink className="usa-inlineBtn" href="/hire-developers-in-india">Explore Offshore Software Development<UIcon d={UI.arrow} s={16} /></ExtLink>
+            <ExtLink className="usa-inlineBtn usa-inlineBtn--ghost" href="/contact-us">Talk to Our Team<UIcon d={UI.arrow} s={16} /></ExtLink>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ INDUSTRIES ═══ */}
+      <section className="loc-section loc-servicesSection">
+        <div className="loc-sectionInner">
+          <div className="loc-sectionHeader">
+            <h2 className="loc-sectionTitle">Software Development Solutions for <span className="loc-highlight">US Industries</span></h2>
+            <p className="loc-sectionDesc">Every industry has different customers, workflows, regulations, operational challenges, and technology requirements. mTouch Labs develops software solutions tailored to the way businesses operate, helping organizations create better digital experiences, streamline processes, and build scalable technology platforms.</p>
+          </div>
+          <div className="usa-indGrid">
+            {INDUSTRIES.map((x, k) => (
+              <div className={`usa-indCard ${k % 2 ? "usa-indCard--alt" : ""}`} key={x.t}>
+                <span className="usa-indIcon"><Icon name={x.i} size={27} /></span>
+                <h3 className="usa-indName">{x.t}</h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ IMPACT ═══ */}
+      <section className="loc-section loc-introSection">
+        <div className="loc-sectionInner">
+          <div className="loc-sectionHeader">
+            <h2 className="loc-sectionTitle">Software That Delivers <span className="loc-highlight">Business Impact</span></h2>
+            <p className="loc-sectionDesc">Software development should do more than deliver features. The right technology can help your business launch faster, simplify operations, improve customer experiences, and create a stronger foundation for growth.</p>
+            <p className="loc-sectionDesc" style={{ marginTop: "1rem" }}>mTouch Labs focuses on building software around measurable business needs—helping organizations turn technology investments into practical business outcomes.</p>
+          </div>
+          <div className="loc-whyGrid">{IMPACT.map((x) => <Card key={x.t} {...x} />)}</div>
+          <div style={{ textAlign: "center", marginTop: "2.4rem" }}>
+            <ExtLink className="usa-inlineBtn" href="/contact-us">Discuss Your Business Goals<UIcon d={UI.arrow} s={16} /></ExtLink>
+          </div>
+        </div>
+      </section>
+
       {/* ═══ PROCESS ═══ */}
       <section className="loc-section loc-processSection">
         <div className="loc-sectionInner">
@@ -613,7 +614,6 @@ export default function SoftwareDevelopmentCompanyUSA() {
               </div>
             ))}
           </div>
-          <MidCta t="From Idea to Scalable Software" d="Whether you're starting a new product or improving an existing application, our process is designed to keep business goals, user needs, and technology decisions aligned throughout the software lifecycle." cta="Start Your Software Project" href="/contact-us" />
         </div>
       </section>
 
@@ -655,7 +655,6 @@ export default function SoftwareDevelopmentCompanyUSA() {
               </div>
             ))}
           </div>
-          <MidCta t="Need Software Development for Your US Business?" d="Whether you are launching a new product, modernizing an existing application, or expanding your engineering capacity, our team can discuss your requirements and recommend the right development approach." cta="Talk to Our Software Experts" href="/contact-us" />
         </div>
       </section>
 
@@ -678,7 +677,36 @@ export default function SoftwareDevelopmentCompanyUSA() {
               </div>
             ))}
           </div>
-          <MidCta t="Clear Communication From Start to Finish" d="We establish clear communication channels, project milestones, development priorities, and regular progress updates so your team can stay informed throughout the engagement. Tell us about your business goals, existing technology, project requirements, and development challenges." cta="Talk to Our Software Experts" href="/contact-us" />
+        </div>
+      </section>
+
+      {/* ═══ BY THE NUMBERS — moved out of the hero, own H2 ═══ */}
+      <section className="loc-section loc-introSection">
+        <div className="loc-sectionInner">
+          <div className="loc-sectionHeader">
+            <h2 className="loc-sectionTitle">mTouch Labs <span className="loc-highlight">By the Numbers</span></h2>
+            <p className="loc-sectionDesc">Fourteen years of building software, and what that adds up to.</p>
+          </div>
+          <div className="usa-numGrid">
+            {HERO_STATS.map((s2) => (
+              <div className="usa-numCard" key={s2.l1}>
+                <span className="usa-numIcon"><Icon name={s2.i} size={26} /></span>
+                <div className="usa-numValue">{s2.n}</div>
+                <div className="usa-numLabel">{s2.l1} {s2.l2}</div>
+              </div>
+            ))}
+          </div>
+          <div className="usa-trustRow">
+            {HERO_TRUST.map((t) => (
+              <div className="usa-trustItem" key={t.t}>
+                <span className="usa-trustIcon"><UIcon d={t.d} s={17} /></span>
+                <div>
+                  <p className="usa-trustT">{t.t}</p>
+                  <p className="usa-trustD">{t.x}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
