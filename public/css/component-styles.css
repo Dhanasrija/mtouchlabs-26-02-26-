@@ -63,3 +63,938 @@
 
 /* ── components/sections/home/ui/IndustriesPills.tsx ── */
 .ind-pill--js{left: 0;top: 0;will-change: transform;cursor: default}@media (max-width: 768px){.ind-pills-wrap--js{display: flex !important;flex-wrap: wrap;justify-content: center;gap: 12px;height: auto !important;min-height: unset !important;margin-top: 0 !important}.ind-pill--js{position: static !important;transform: none !important;opacity: 1 !important}}@media (prefers-reduced-motion: reduce){.ind-pills-wrap--js{display: flex !important;flex-wrap: wrap;justify-content: center;gap: 12px;height: auto !important;min-height: unset !important}.ind-pill--js{position: static !important;transform: none !important;opacity: 1 !important}}
+/* ══════════════════════════════════════════════════════════════════════
+   BRAND OVERRIDES — this file is the LAST stylesheet on the page, so
+   these rules win over bundle.css even on !important ties. Every
+   selector is prefixed with `body` (specificity 0,1,1) so it also beats
+   the single-class !important rules the legacy sheets use.
+   Homepage classes are deliberately absent.
+   ══════════════════════════════════════════════════════════════════════ */
+
+/* ── 1. No gradient text outside the homepage ──
+   Legacy sheets clip a two-hue gradient to the glyphs, so accent words
+   fade to a second colour by the end of the word. Accent words take
+   Signature Blue; figures take Carbon Black so stat numbers read the
+   same on every page. */
+body .sub-headinghealthcare-card,
+body .healthcare-cards-heading,
+body .sub-headinghealthcare-card-two,
+body .aitemplet-header-h1tag span,
+body .aitemplet-heading-h3tag span,
+body .aitemplet-section-two span,
+body .aitemplet-info-box span,
+body .aitemplet-div-heading span,
+body .aitemplet-section-five-left h2 .highlight,
+body .section-tag,
+body .new_contact_heading_section h3 span,
+body .cr-hero-accent,
+body .mob-highlight,
+body .odm-accent,
+body .odm-accent-glow,
+body .macs-text-accent,
+body .macs-hero__title-glow,
+body .macs-testimonial__quote,
+body .csd-hero__title-gradient,
+body .csd-testimonial__quote-mark,
+body .blv3-title-gradient,
+body .cw-label-text,
+body .hma-hl,
+body .hd-hero-blue,
+body .social-hero-span,
+body .xp-glow,
+body .its-section__h2 em,
+body .its-hero__h1-accent,
+body .sp-hero__title-grad {
+  background: none !important;
+  background-image: none !important;
+  background-size: auto !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: var(--color-signature-blue, #3E8CFB) !important;
+  color: var(--color-signature-blue, #3E8CFB) !important;
+  animation: none !important;
+}
+body .its-section__h2 em { font-style: normal !important; }
+
+body .hma-introTrustNum,
+body .macs-why__num,
+body .phases-panel-num {
+  background: none !important;
+  background-image: none !important;
+  background-size: auto !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: var(--color-carbon-black, #0D1117) !important;
+  color: var(--color-carbon-black, #0D1117) !important;
+  animation: none !important;
+}
+
+/* ── 2. On-Demand Products page (.odm-*) on the brand palette ── */
+
+/* Body links: brand blue, no underline of any kind, opacity hover —
+   the same behaviour as every other internal link on the site. */
+body .odm-link,
+body .odm-link--light {
+  border-bottom: 0 !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+  transition: opacity .18s ease !important;
+}
+body .odm-link { color: var(--color-signature-blue, #3E8CFB) !important; }
+body .odm-link--light { color: #FFFFFF !important; }
+body .odm-link:hover,
+body .odm-link--light:hover {
+  opacity: .72 !important;
+  border-bottom: 0 !important;
+}
+
+/* Text + surfaces */
+/* Ink + muted only on LIGHT sections. The `--light` variants and anything
+   inside a dark band keep white text — a Carbon Black heading on the Deep
+   Indigo "Why Choose" band would be unreadable. */
+body .odm-section__title:not(.odm-section__title--light),
+body .odm-split__text h2,
+body .odm-card__title,
+body .odm-industry,
+body .odm-img-badge,
+body .odm-check-chip,
+body .odm-faq-item summary { color: var(--color-carbon-black, #0D1117) !important; }
+body .odm-split__text p,
+body .odm-card__desc,
+body .odm-closing:not(.odm-closing--light),
+body .odm-process__label,
+body .odm-process__num,
+body .odm-faq-item p { color: var(--color-slate-grey, #777777) !important; }
+
+/* ── Dark bands (.odm-section--dark / --gradient) always read light ── */
+body .odm-section--dark,
+body .odm-section--gradient { color: #FFFFFF !important; }
+body .odm-section--dark .odm-section__title,
+body .odm-section--gradient .odm-section__title,
+body .odm-section--dark h2,
+body .odm-section--gradient h2,
+body .odm-section--dark h3,
+body .odm-section--gradient h3 { color: #FFFFFF !important; }
+body .odm-section--dark .odm-closing,
+body .odm-section--gradient .odm-closing,
+body .odm-section--dark p,
+body .odm-section--gradient p { color: rgba(255,255,255,.82) !important; }
+body .odm-section--dark .odm-label,
+body .odm-section--gradient .odm-label {
+  color: rgba(255,255,255,.72) !important;
+  background: transparent !important;
+}
+body .odm-section--dark .odm-why-card,
+body .odm-section--gradient .odm-why-card {
+  color: rgba(255,255,255,.9) !important;
+  background: rgba(255,255,255,.05) !important;
+  border-color: rgba(255,255,255,.12) !important;
+}
+body .odm-section--dark .odm-why-card:hover,
+body .odm-section--gradient .odm-why-card:hover {
+  background: rgba(255,255,255,.09) !important;
+  border-color: rgba(255,255,255,.22) !important;
+}
+/* Links inside a dark band: white, opacity hover — not Signature Blue on navy. */
+body .odm-section--dark a:not([class*="btn"]),
+body .odm-section--gradient a:not([class*="btn"]) {
+  color: #FFFFFF !important;
+  border-bottom: 0 !important;
+  text-decoration: none !important;
+}
+body .odm-section--dark a:not([class*="btn"]):hover,
+body .odm-section--gradient a:not([class*="btn"]):hover { opacity: .72 !important; }
+
+body .odm-section--alt { background: rgba(62,140,251,.05) !important; }
+body .odm-section--dark,
+body .odm-section--gradient,
+body .odm-hero,
+body .odm-hero__gradient { background: var(--color-deep-indigo, #0C1C32) !important; }
+body .odm-hero__glow--2 { background: var(--color-signature-blue, #3E8CFB) !important; }
+body .odm-hero__badge {
+  background: rgba(62,140,251,.15) !important;
+  color: var(--color-signature-blue, #3E8CFB) !important;
+}
+body .odm-check-chip {
+  background: rgba(62,140,251,.05) !important;
+  border-color: rgba(62,140,251,.22) !important;
+}
+body .odm-check-chip:hover {
+  background: rgba(62,140,251,.10) !important;
+  border-color: rgba(62,140,251,.45) !important;
+}
+body .odm-card,
+body .odm-industry,
+body .odm-faq-item { border-color: rgba(62,140,251,.22) !important; }
+body .odm-faq-item:hover { border-color: rgba(62,140,251,.45) !important; }
+body .odm-faq-item[open] summary { border-bottom-color: rgba(62,140,251,.22) !important; }
+body .odm-process__line { background: var(--color-signature-blue, #3E8CFB) !important; }
+body .odm-process__dot { border-color: rgba(62,140,251,.22) !important; }
+body .odm-why-card__icon {
+  background: rgba(62,140,251,.15) !important;
+  color: var(--color-signature-blue, #3E8CFB) !important;
+}
+body .odm-img-badge i { color: var(--color-bright-horizon, #FAC759) !important; }
+body .odm-label--light {
+  color: var(--color-signature-blue, #3E8CFB) !important;
+  background: rgba(62,140,251,.12) !important;
+}
+
+/* Buttons — the site standard: 999px pill, flat Signature Blue primary
+   that darkens rather than turning navy on hover. */
+body .odm-btn { border-radius: 999px !important; border-width: 1.6px !important; }
+body .odm-btn--primary,
+body .odm-btn--white {
+  background: var(--color-signature-blue, #3E8CFB) !important;
+  border-color: var(--color-signature-blue, #3E8CFB) !important;
+  color: #FFFFFF !important;
+}
+body .odm-btn--primary:hover,
+body .odm-btn--white:hover {
+  background: var(--color-signature-blue, #3E8CFB) !important;
+  filter: brightness(.93) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px) !important;
+}
+body .odm-btn--ghost,
+body .odm-btn--ghost-light {
+  background: transparent !important;
+  color: #FFFFFF !important;
+  border: 1.6px solid rgba(255,255,255,.55) !important;
+}
+body .odm-btn--ghost:hover,
+body .odm-btn--ghost-light:hover {
+  background: rgba(255,255,255,.10) !important;
+  border-color: rgba(255,255,255,.8) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px) !important;
+}
+
+/* FAQ — explicit + / × swap instead of rotating the plus. */
+body .odm-faq-item[open] .odm-faq-icon { transform: none !important; }
+body .odm-faq-icon::after { content: "+" !important; }
+body .odm-faq-item[open] .odm-faq-icon::after { content: "\00d7" !important; }
+
+/* Final CTA — identical band, type and buttons to .svcx-cta on /services. */
+body .odm-cta {
+  background: var(--color-deep-indigo, #0C1C32) !important;
+  padding: 88px 0 !important;
+}
+body .odm-cta__glow { background: radial-gradient(circle, rgba(62,140,251,.15) 0%, transparent 70%) !important; }
+body .odm-cta h2 {
+  font-size: clamp(26px, 3.4vw, 38px) !important;
+  font-weight: 700 !important;
+  line-height: 1.24 !important;
+  letter-spacing: -.6px !important;
+  color: #FFFFFF !important;
+  margin: 18px 0 16px !important;
+}
+body .odm-cta h2 em,
+body .odm-cta h2 span {
+  font-style: normal !important;
+  color: var(--color-signature-blue, #3E8CFB) !important;
+  -webkit-text-fill-color: var(--color-signature-blue, #3E8CFB) !important;
+  background: none !important;
+}
+body .odm-cta p {
+  font-size: 16px !important;
+  line-height: 28px !important;
+  color: rgba(255,255,255,.82) !important;
+}
+body .odm-cta .odm-label { color: rgba(255,255,255,.72) !important; background: transparent !important; }
+
+/* ── 3. Product pages (.fd-* template and the .gd-* / .fd-* page clones) ──
+   `body`-prefixed so these outrank the single-class rules in each page's
+   own inline <style>, whatever the document order. Gold was being used as
+   the primary CTA fill on some of these pages; the primary is Signature
+   Blue everywhere, gold stays a small accent only. */
+body .fd-btn,
+body .gd-btn { border-radius: 999px !important; }
+body .fd-btn-gold,
+body .gd-btn-gold,
+body .fd-btn:not(.fd-btn-outline),
+body .gd-btn:not(.gd-btn-outline) {
+  background: var(--color-signature-blue, #3E8CFB) !important;
+  border-color: var(--color-signature-blue, #3E8CFB) !important;
+  color: #FFFFFF !important;
+}
+body .fd-btn-gold:hover,
+body .gd-btn-gold:hover,
+body .fd-btn:not(.fd-btn-outline):hover,
+body .gd-btn:not(.gd-btn-outline):hover {
+  background: var(--color-signature-blue, #3E8CFB) !important;
+  border-color: var(--color-signature-blue, #3E8CFB) !important;
+  filter: brightness(.93) !important;
+  color: #FFFFFF !important;
+}
+/* Secondary: white fill, blue border, ink label — the site standard. */
+body .fd-btn-outline,
+body .gd-btn-outline {
+  background: #FFFFFF !important;
+  border-color: var(--color-signature-blue, #3E8CFB) !important;
+  color: var(--color-carbon-black, #0D1117) !important;
+}
+body .fd-btn-outline:hover,
+body .gd-btn-outline:hover {
+  background: rgba(62,140,251,.08) !important;
+  border-color: var(--color-signature-blue, #3E8CFB) !important;
+  color: var(--color-carbon-black, #0D1117) !important;
+  filter: none !important;
+}
+/* Closing CTA band: one flat Deep Indigo surface, never a gradient. */
+body .fd-cta,
+body .gd-cta { background: var(--color-deep-indigo, #0C1C32) !important; }
+body .fd-cta,  body .fd-cta h2,  body .fd-cta h3,
+body .gd-cta,  body .gd-cta h2,  body .gd-cta h3 { color: #FFFFFF !important; }
+body .fd-cta p,
+body .gd-cta p { color: rgba(255,255,255,.82) !important; }
+/* Secondary button on the dark band inverts to a white outline. */
+body .fd-cta .fd-btn-outline,
+body .gd-cta .gd-btn-outline {
+  background: transparent !important;
+  border-color: rgba(255,255,255,.55) !important;
+  color: #FFFFFF !important;
+}
+body .fd-cta .fd-btn-outline:hover,
+body .gd-cta .gd-btn-outline:hover {
+  background: rgba(255,255,255,.10) !important;
+  border-color: rgba(255,255,255,.8) !important;
+}
+/* FAQ: no rotated plus — the open state shows an explicit × . */
+body .fd-faq-item.open .fd-faq-icon,
+body .gd-faq-item.open .gd-faq-icon { transform: none !important; }
+
+/* ── 4. Hire-developers pages (.hd-* and .hma-*) ──
+   /hire-developers-in-india plus the ~35 hire-<tech>-developers-in-india
+   resource pages. Two near-identical families with slightly different
+   class names; both are normalised to the /services FAQ and CTA here so
+   there is one shape and one palette across all of them. */
+
+/* Headings: Carbon Black with Signature Blue accents — no gold, no navy. */
+body .hd-header h1, body .hd-header h2, body .hd-header h3,
+body .hma-header h1, body .hma-header h2, body .hma-header h3,
+body .hd-faqQText, body .hma-faqQ,
+body .hd-faqTitle, body .hma-faqTitle,
+body .hd-modelCardTitle, body .hma-modelCardTitle {
+  color: var(--color-carbon-black, #0D1117) !important;
+}
+body .hd-hl, body .hd-hlb,
+body .hma-hl, body .hma-hlb {
+  color: var(--color-signature-blue, #3E8CFB) !important;
+  -webkit-text-fill-color: var(--color-signature-blue, #3E8CFB) !important;
+  background: none !important;
+  font-weight: 700 !important;
+}
+
+/* FAQ — same card and the same explicit + / × as .svcx-faq on /services.
+   The chevron is an inline <svg> in the markup, so it is hidden and the
+   glyph drawn with ::after instead of being rotated. */
+body .hd-faqItem, body .hma-faqItem,
+body .hd-faq-item {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(62,140,251,.22) !important;
+  border-radius: 14px !important;
+}
+body .hd-faqItem:hover, body .hma-faqItem:hover, body .hd-faq-item:hover {
+  border-color: rgba(62,140,251,.45) !important;
+  box-shadow: 0 4px 20px rgba(62,140,251,.10) !important;
+}
+body .hd-faqItem[open], body .hma-faqItem[open], body .hd-faq-item.active {
+  border-color: rgba(62,140,251,.45) !important;
+  box-shadow: 0 4px 20px rgba(62,140,251,.10) !important;
+}
+body .hd-faqChev svg, body .hma-faqChev svg,
+body .hd-faq-chevron svg { display: none !important; }
+body .hd-faqChev, body .hma-faqChev, body .hd-faq-chevron {
+  width: 26px !important;
+  height: 26px !important;
+  min-width: 26px !important;
+  border-radius: 7px !important;
+  background: rgba(62,140,251,.06) !important;
+  border: 1px solid rgba(62,140,251,.22) !important;
+  color: var(--color-slate-grey, #777777) !important;
+  transform: none !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+body .hd-faqChev::after, body .hma-faqChev::after,
+body .hd-faq-chevron::after { content: "+" !important; }
+body .hd-faqItem[open] .hd-faqChev,
+body .hma-faqItem[open] .hma-faqChev,
+body .hd-faq-item.active .hd-faq-chevron {
+  background: var(--color-signature-blue, #3E8CFB) !important;
+  border-color: var(--color-signature-blue, #3E8CFB) !important;
+  color: #FFFFFF !important;
+  transform: none !important;
+}
+body .hd-faqItem[open] .hd-faqChev::after,
+body .hma-faqItem[open] .hma-faqChev::after,
+body .hd-faq-item.active .hd-faq-chevron::after {
+  content: "\00d7" !important;
+  font-size: 17px !important;
+}
+body .hd-faqItem[open] .hd-faqChev svg,
+body .hma-faqItem[open] .hma-faqChev svg { transform: none !important; }
+body .hd-faqA, body .hma-faqA, body .hd-faq-a p {
+  color: var(--color-slate-grey, #777777) !important;
+}
+
+/* CTA — one flat Deep Indigo band, exactly as .svcx-cta on /services.
+   Replaces the 4-stop navy→black gradients both families used. */
+body .hd-cta, body .hma-cta {
+  background: var(--color-deep-indigo, #0C1C32) !important;
+  padding: 88px 24px !important;
+}
+body .hd-cta::before, body .hma-cta::before { background: none !important; }
+body .hd-ctaTitle, body .hma-ctaTitle,
+body .hd-cta-inner h2 { color: #FFFFFF !important; }
+body .hd-ctaDesc, body .hma-ctaDesc,
+body .hd-cta-inner > p { color: rgba(255,255,255,.82) !important; }
+body .hd-cta-tagline { color: rgba(255,255,255,.72) !important; }
+
+/* Primary: flat Signature Blue 999px pill that darkens on hover — never a
+   gradient, and never inverting to transparent. */
+body .hd-ctaPrimary, body .hma-ctaPrimary, body .hd-cta-btn-primary {
+  background: var(--color-signature-blue, #3E8CFB) !important;
+  border: 1.6px solid var(--color-signature-blue, #3E8CFB) !important;
+  border-radius: 999px !important;
+  color: #FFFFFF !important;
+  padding: 15px 28px !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+}
+body .hd-ctaPrimary:hover, body .hma-ctaPrimary:hover, body .hd-cta-btn-primary:hover {
+  background: var(--color-signature-blue, #3E8CFB) !important;
+  border-color: var(--color-signature-blue, #3E8CFB) !important;
+  filter: brightness(.93) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 26px rgba(62,140,251,.34) !important;
+}
+body .hd-ctaPrimary::before, body .hma-ctaPrimary::before,
+body .hd-ctaPrimary::after,  body .hma-ctaPrimary::after { display: none !important; }
+
+/* Secondary (incl. the WhatsApp button): white outline on the dark band,
+   the same secondary treatment /services uses. */
+body .hd-ctaWa, body .hma-ctaWa, body .hd-cta-btn-secondary {
+  background: transparent !important;
+  border: 1.6px solid rgba(255,255,255,.55) !important;
+  border-radius: 999px !important;
+  color: #FFFFFF !important;
+  padding: 15px 28px !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+}
+body .hd-ctaWa:hover, body .hma-ctaWa:hover, body .hd-cta-btn-secondary:hover {
+  background: rgba(255,255,255,.10) !important;
+  border-color: rgba(255,255,255,.8) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px) !important;
+  box-shadow: none !important;
+}
+
+/* ── 5. hd-/hma- dark bands ──
+   .hd-modelsSection ("Flexible Hiring Models") and its siblings are dark
+   surfaces. Section 4 above sets header headings to Carbon Black, which
+   would be unreadable there, so the dark bands are restated as light. */
+body .hd-modelsSection,
+body .hd-techSection,
+body .hma-modelsSection,
+body .hma-techSection {
+  background: var(--color-deep-indigo, #0C1C32) !important;
+}
+body .hd-modelsSection::before,
+body .hma-modelsSection::before { background: none !important; }
+body .hd-modelsSection .hd-title,
+body .hd-modelsSection .hd-header h1,
+body .hd-modelsSection .hd-header h2,
+body .hd-modelsSection .hd-header h3,
+body .hd-modelsSection .hd-modelCardTitle,
+body .hma-modelsSection .hma-modelCardTitle,
+body .hma-modelsSection .hma-header h2 { color: #FFFFFF !important; }
+body .hd-modelsSection .hd-subtitle,
+body .hd-modelsSection .hd-modelCardDesc,
+body .hd-modelsSection p,
+body .hma-modelsSection .hma-modelCardDesc,
+body .hma-modelsSection p { color: rgba(255,255,255,.82) !important; }
+body .hd-modelsSection .hd-hl,
+body .hd-modelsSection .hd-hlb,
+body .hma-modelsSection .hma-hl,
+body .hma-modelsSection .hma-hlb {
+  color: var(--color-signature-blue, #3E8CFB) !important;
+  -webkit-text-fill-color: var(--color-signature-blue, #3E8CFB) !important;
+}
+body .hd-modelCard::after, body .hma-modelCard::after { background: none !important; }
+body .hd-modelCard, body .hma-modelCard {
+  background: rgba(255,255,255,.05) !important;
+  border-color: rgba(255,255,255,.12) !important;
+}
+body .hd-modelCard:hover, body .hma-modelCard:hover {
+  background: rgba(255,255,255,.09) !important;
+  border-color: rgba(255,255,255,.22) !important;
+}
+
+/* ── 6. /portfolio — FAQ + CTA on the /services pattern ── */
+/* The CTA was a rounded 24px panel of stacked radial gradients floating on
+   white; it becomes the same full-bleed flat Deep Indigo band. */
+body .pf-cta { padding: 0 !important; background: var(--color-deep-indigo, #0C1C32) !important; }
+body .pf-cta .pf-container { padding-top: 88px !important; padding-bottom: 88px !important; }
+body .pf-cta-box {
+  background: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+body .pf-cta-box h2 { color: #FFFFFF !important; }
+body .pf-cta-box p  { color: rgba(255,255,255,.82) !important; }
+/* Primary = Signature Blue fill (was white); secondary = white outline. */
+body .pf-btn-solid {
+  background: var(--color-signature-blue, #3E8CFB) !important;
+  border-color: var(--color-signature-blue, #3E8CFB) !important;
+  color: #FFFFFF !important;
+}
+body .pf-btn-solid:hover {
+  background: var(--color-signature-blue, #3E8CFB) !important;
+  filter: brightness(.93) !important;
+  color: #FFFFFF !important;
+}
+/* The .pf-btn base is `border: 1px solid transparent`, so setting only
+   border-color left a hairline thinner and fainter than the secondary on
+   /services. The full shorthand pins it to the same 1.6px / .55 white as brand.css. */
+body .pf-btn-outline {
+  background: transparent !important;
+  border: 1.6px solid rgba(255,255,255,.55) !important;
+  color: #FFFFFF !important;
+}
+body .pf-btn-outline:hover {
+  background: rgba(255,255,255,.10) !important;
+  border: 1.6px solid rgba(255,255,255,.8) !important;
+  color: #FFFFFF !important;
+}
+body .pf-btn-solid { border: 1.6px solid var(--color-signature-blue, #3E8CFB) !important; }
+
+/* Breathing room between the closing CTA band and the FAQ heading —
+   .pf-faq had no top padding at all. */
+body .pf-faq { padding-top: 80px !important; }
+body .pf-faq-head { margin-bottom: 40px !important; }
+/* Gradient heading accent → flat Signature Blue. */
+body .pf-faq-head h2 span {
+  background: none !important;
+  background-clip: border-box !important;
+  -webkit-background-clip: border-box !important;
+  -webkit-text-fill-color: var(--color-signature-blue, #3E8CFB) !important;
+  color: var(--color-signature-blue, #3E8CFB) !important;
+}
+body .pf-faq-head h2 { color: var(--color-carbon-black, #0D1117) !important; }
+/* Explicit + / × instead of rotating the plus. */
+body .pf-faq-item[open] .pf-faq-icon { transform: none !important; }
+body .pf-faq-icon i { display: none !important; }
+body .pf-faq-icon::after { content: "+" !important; font-size: 15px !important; font-weight: 600 !important; line-height: 1 !important; }
+body .pf-faq-item[open] .pf-faq-icon::after { content: "\00d7" !important; font-size: 17px !important; }
+
+/* ── 7. /careers — brand palette + the /services CTA ── */
+body .cr-cta {
+  background: var(--color-deep-indigo, #0C1C32) !important;
+  padding: 88px 5% !important;
+}
+body .cr-cta-shapes { display: none !important; }
+body .cr-cta-inner h2 { color: #FFFFFF !important; }
+body .cr-cta-inner > p { color: rgba(255,255,255,.82) !important; }
+body .cr-cta-tagline { color: rgba(255,255,255,.72) !important; }
+body .cr-cta-btn-primary, body .cr-cta-btn-secondary {
+  border-radius: 999px !important;
+  border-width: 1.6px !important;
+  padding: 15px 28px !important;
+  min-width: 0 !important;
+}
+body .cr-cta-btn-primary {
+  background: var(--color-signature-blue, #3E8CFB) !important;
+  border-color: var(--color-signature-blue, #3E8CFB) !important;
+  color: #FFFFFF !important;
+}
+body .cr-cta-btn-primary:hover {
+  background: var(--color-signature-blue, #3E8CFB) !important;
+  border-color: var(--color-signature-blue, #3E8CFB) !important;
+  filter: brightness(.93) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 10px 26px rgba(62,140,251,.34) !important;
+}
+body .cr-cta-btn-secondary {
+  background: transparent !important;
+  border: 1.6px solid rgba(255,255,255,.55) !important;
+  color: #FFFFFF !important;
+}
+body .cr-cta-btn-secondary:hover {
+  border-color: rgba(255,255,255,.8) !important;
+  background: rgba(255,255,255,.10) !important;
+}
+/* Headings: Carbon Black with Signature Blue accents. */
+body .cr-faq-q, body .cr-faq-container h2,
+body ._faq_title { color: var(--color-carbon-black, #0D1117) !important; }
+body ._faq_title_highlight { color: var(--color-signature-blue, #3E8CFB) !important; }
+body .cr-faq-item { border-color: rgba(62,140,251,.22) !important; border-radius: 14px !important; }
+body .cr-faq-item.active,
+body .cr-faq-item:hover {
+  border-color: rgba(62,140,251,.45) !important;
+  box-shadow: 0 4px 20px rgba(62,140,251,.10) !important;
+}
+/* Chevron → the same + / × circle used on /services. */
+body .cr-faq-chevron svg, body ._faq_chevron svg { display: none !important; }
+body .cr-faq-chevron, body ._faq_chevron {
+  width: 26px !important; height: 26px !important; min-width: 26px !important;
+  border-radius: 7px !important;
+  background: rgba(62,140,251,.06) !important;
+  border: 1px solid rgba(62,140,251,.22) !important;
+  color: var(--color-slate-grey, #777777) !important;
+  transform: none !important;
+  font-size: 15px !important; font-weight: 600 !important; line-height: 1 !important;
+  display: inline-flex !important; align-items: center !important; justify-content: center !important;
+}
+body .cr-faq-chevron::after, body ._faq_chevron::after { content: "+" !important; }
+body .cr-faq-item.active .cr-faq-chevron,
+body ._faq_item.active ._faq_chevron {
+  background: var(--color-signature-blue, #3E8CFB) !important;
+  border-color: var(--color-signature-blue, #3E8CFB) !important;
+  color: #FFFFFF !important;
+  transform: none !important;
+}
+body .cr-faq-item.active .cr-faq-chevron::after,
+body ._faq_item.active ._faq_chevron::after { content: "\00d7" !important; font-size: 17px !important; }
+body .cr-faq-a a:hover { text-decoration: none !important; opacity: .72 !important; }
+
+/* ── 8. /contact-us — FAQ + CTA on the /services pattern ── */
+body .ent-cta-banner {
+  background: var(--color-deep-indigo, #0C1C32) !important;
+  padding: 88px 24px !important;
+  border-radius: 0 !important;
+}
+body .ent-cta-banner::before, body .ent-cta-banner::after { background: none !important; }
+body .ent-cta-banner__title { color: #FFFFFF !important; }
+body .ent-cta-banner__text  { color: rgba(255,255,255,.82) !important; }
+body .ent-cta-banner__btn {
+  background: var(--color-signature-blue, #3E8CFB) !important;
+  border: 1.6px solid var(--color-signature-blue, #3E8CFB) !important;
+  border-radius: 999px !important;
+  color: #FFFFFF !important;
+  padding: 15px 28px !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+}
+body .ent-cta-banner__btn:hover {
+  background: var(--color-signature-blue, #3E8CFB) !important;
+  filter: brightness(.93) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 26px rgba(62,140,251,.34) !important;
+}
+body .ent-faq__title, body .ent-faq__question { color: var(--color-carbon-black, #0D1117) !important; }
+body .ent-faq__accent {
+  background: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: var(--color-signature-blue, #3E8CFB) !important;
+  color: var(--color-signature-blue, #3E8CFB) !important;
+}
+body .ent-faq__item { border-color: rgba(62,140,251,.22) !important; border-radius: 14px !important; }
+body .ent-faq__item--active, body .ent-faq__item:hover {
+  border-color: rgba(62,140,251,.45) !important;
+  box-shadow: 0 4px 20px rgba(62,140,251,.10) !important;
+}
+body .ent-faq__chevron svg { display: none !important; }
+body .ent-faq__chevron {
+  width: 26px !important; height: 26px !important; min-width: 26px !important;
+  border-radius: 7px !important;
+  background: rgba(62,140,251,.06) !important;
+  border: 1px solid rgba(62,140,251,.22) !important;
+  color: var(--color-slate-grey, #777777) !important;
+  transform: none !important;
+  font-size: 15px !important; font-weight: 600 !important; line-height: 1 !important;
+  display: inline-flex !important; align-items: center !important; justify-content: center !important;
+}
+body .ent-faq__chevron::after { content: "+" !important; }
+body .ent-faq__item--active .ent-faq__chevron {
+  background: var(--color-signature-blue, #3E8CFB) !important;
+  border-color: var(--color-signature-blue, #3E8CFB) !important;
+  color: #FFFFFF !important;
+  transform: none !important;
+}
+body .ent-faq__item--active .ent-faq__chevron::after { content: "\00d7" !important; font-size: 17px !important; }
+
+/* ── 9. hire-* resource pages: explicit typography + every dark band ──
+   These pages (.hd-* main, .hma-* resource pages) mix light and dark
+   sections. Two rules were needed: text must be Carbon Black / Slate Grey
+   with Signature Blue reserved for accents, and every dark surface must be
+   restated as light-on-dark or its text disappears. Both families are
+   pinned below rather than relying on what each legacy sheet happens to
+   set. */
+
+/* Light sections: headings Carbon Black, body Slate Grey. */
+body .hd-page, body .hma-page { color: var(--color-text, #222222) !important; }
+body .hd-title, body .hma-title,
+body .hd-whyCardTitle, body .hma-whyCardTitle,
+body .hd-bText, body .hma-bText,
+body .hd-pLabel, body .hma-pLabel,
+body .hd-indTag, body .hma-indTag,
+body .hd-introTrustNum, body .hma-introTrustNum {
+  color: var(--color-carbon-black, #0D1117) !important;
+  -webkit-text-fill-color: var(--color-carbon-black, #0D1117) !important;
+}
+body .hd-subtitle, body .hma-subtitle,
+body .hd-whyCardDesc, body .hma-whyCardDesc,
+body .hd-introDesc, body .hma-introDesc,
+body .hd-introTrustLabel, body .hma-introTrustLabel,
+body .hd-pNum, body .hma-pNum,
+body .hd-closing, body .hma-closing {
+  color: var(--color-slate-grey, #777777) !important;
+}
+/* Signature Blue is for accents only — highlights, labels, taglines. */
+body .hd-hl, body .hd-hlb, body .hma-hl, body .hma-hlb,
+body .hd-section-label, body .hma-section-label,
+body .hd-introTagline, body .hma-introTagline,
+body .hd-hero-blue {
+  color: var(--color-signature-blue, #3E8CFB) !important;
+  -webkit-text-fill-color: var(--color-signature-blue, #3E8CFB) !important;
+  background: none !important;
+}
+/* Blue-on-white step numbers stay white — they sit on a blue disc. */
+body .hma-pNum { color: var(--color-white, #FFFFFF) !important; }
+
+/* ── Every dark band, restated light-on-dark ──
+   .hd-hero / .hma-hero, .hd-modelsSection / .hma-modelsSection,
+   .hd-techSection, .hd-cta / .hma-cta. */
+body .hd-hero, body .hma-hero,
+body .hd-modelsSection, body .hma-modelsSection,
+body .hd-techSection, body .hma-techSection,
+body .hd-cta, body .hma-cta {
+  background: var(--color-deep-indigo, #0C1C32) !important;
+}
+body .hd-hero::before, body .hma-hero::before,
+body .hd-hero::after, body .hma-hero::after,
+body .hd-modelsSection::before, body .hma-modelsSection::before,
+body .hd-techSection::before, body .hma-techSection::before { background: none !important; }
+
+body .hd-hero, body .hma-hero,
+body .hd-hero h1, body .hd-hero h2, body .hd-hero h3,
+body .hma-hero h1, body .hma-hero h2, body .hma-hero h3,
+body .hd-heroTitle, body .hma-heroTitle,
+body .hd-modelsSection .hd-title, body .hma-modelsSection .hma-title,
+body .hd-techSection .hd-title, body .hma-techSection .hma-title,
+body .hd-modelsSection .hd-modelCardTitle, body .hma-modelsSection .hma-modelCardTitle,
+body .hd-techSection h3, body .hma-techSection h3,
+body .hd-cta .hd-ctaTitle, body .hma-cta .hma-ctaTitle {
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+body .hd-hero p, body .hma-hero p,
+body .hd-heroSub, body .hma-heroSub,
+body .hd-modelsSection .hd-subtitle, body .hma-modelsSection .hma-subtitle,
+body .hd-techSection .hd-subtitle, body .hma-techSection .hma-subtitle,
+body .hd-modelsSection .hd-modelCardDesc, body .hma-modelsSection .hma-modelCardDesc,
+body .hd-modelsSection p, body .hma-modelsSection p,
+body .hd-techSection p, body .hma-techSection p {
+  color: rgba(255,255,255,.82) !important;
+}
+/* Accents on a dark band stay Signature Blue — it reads clearly on navy. */
+body .hd-hero .hd-hl, body .hd-hero .hd-hlb,
+body .hma-hero .hma-hl, body .hma-hero .hma-hlb,
+body .hd-modelsSection .hd-hl, body .hd-modelsSection .hd-hlb,
+body .hma-modelsSection .hma-hl, body .hma-modelsSection .hma-hlb,
+body .hd-techSection .hd-hl, body .hma-techSection .hma-hl {
+  color: var(--color-signature-blue, #3E8CFB) !important;
+  -webkit-text-fill-color: var(--color-signature-blue, #3E8CFB) !important;
+}
+/* Eyebrow/label text on a dark band goes translucent white, not blue. */
+body .hd-hero .hd-section-label, body .hma-hero .hma-section-label,
+body .hd-modelsSection .hd-section-label, body .hma-modelsSection .hma-section-label,
+body .hd-hero .hd-heroBadge, body .hma-hero .hma-heroBadge {
+  color: rgba(255,255,255,.72) !important;
+  background: rgba(255,255,255,.06) !important;
+  border-color: rgba(255,255,255,.16) !important;
+}
+/* Cards on a dark band: translucent white, never a white/pale fill. */
+body .hd-techSection .hd-techCard, body .hma-techSection .hma-techCard,
+body .hd-modelsSection .hd-modelCard, body .hma-modelsSection .hma-modelCard {
+  background: rgba(255,255,255,.05) !important;
+  border-color: rgba(255,255,255,.12) !important;
+  color: rgba(255,255,255,.9) !important;
+}
+body .hd-techSection .hd-techList li, body .hma-techSection .hma-techList li {
+  color: rgba(255,255,255,.82) !important;
+}
+
+/* Contact CTA now has a button pair, like /services. */
+body .ent-cta-banner__actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+body .ent-cta-banner__btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent !important;
+  border: 1.6px solid rgba(255,255,255,.55) !important;
+  border-radius: 999px !important;
+  color: #FFFFFF !important;
+  padding: 15px 28px !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: background .22s ease, border-color .22s ease, transform .22s ease;
+}
+body .ent-cta-banner__btn-secondary:hover {
+  background: rgba(255,255,255,.12) !important;
+  border-color: var(--color-white, #FFFFFF) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px);
+  opacity: 1 !important;
+}
+
+/* ── 10. Location pages (.loc-*) — one CTA for all of them ──
+   /software-development-company-hyderabad carries its own inline copy of
+   LOC_CSS, while the other footer location pages fall back to
+   location-pages.css in the bundle — which is why their CTAs did not match.
+   Pinning the canonical CTA here (last stylesheet, `body`-prefixed) makes
+   every location page render the identical band and button pair, and the
+   same pair used on /services.
+   It also fixes the primary button flipping to a white fill on hover:
+   location-pages.css had `.loc-ctaBtnPrimary:hover { background:#fff }` and
+   the Hyderabad inline copy set a white fill at rest, so the blue was only
+   ever holding by cascade accident. */
+
+/* The band. */
+body .loc-ctaSection {
+  background: var(--color-deep-indigo, #0C1C32) !important;
+  padding: 88px 24px !important;
+}
+body .loc-ctaSection::before,
+body .loc-ctaSection::after {
+  background: radial-gradient(circle, rgba(62,140,251,.15), transparent 70%) !important;
+}
+body .loc-ctaInner { max-width: 800px !important; margin: 0 auto !important; text-align: center !important; }
+body .loc-ctaTitle {
+  font-size: clamp(26px, 3.4vw, 38px) !important;
+  line-height: 1.24 !important;
+  font-weight: 700 !important;
+  letter-spacing: -.6px !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  margin: 0 0 16px !important;
+}
+body .loc-ctaDesc {
+  font-size: 16px !important;
+  line-height: 28px !important;
+  color: rgba(255,255,255,.82) !important;
+  margin: 0 auto 0 !important;
+}
+body .loc-ctaActions {
+  display: flex !important;
+  gap: 14px !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  margin-top: 32px !important;
+}
+
+/* Primary: flat Signature Blue pill, white label, darkens on hover.
+   The `background` is restated on :hover so nothing can flip it to white. */
+body .loc-ctaBtnPrimary,
+body .loc-ctaSection .loc-ctaBtnPrimary {
+  background: var(--color-signature-blue, #3E8CFB) !important;
+  border: 1.6px solid var(--color-signature-blue, #3E8CFB) !important;
+  border-radius: 999px !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  padding: 15px 28px !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+}
+body .loc-ctaBtnPrimary:hover,
+body .loc-ctaBtnPrimary:focus,
+body .loc-ctaBtnPrimary:active,
+body .loc-ctaSection .loc-ctaBtnPrimary:hover {
+  background: var(--color-signature-blue, #3E8CFB) !important;
+  border-color: var(--color-signature-blue, #3E8CFB) !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  filter: brightness(.93) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 26px rgba(62,140,251,.34) !important;
+}
+/* The sliding sheen read as a white wipe across the blue fill. */
+body .loc-ctaBtnPrimary::after { background: none !important; content: none !important; }
+
+/* Secondary: transparent with the standard white outline. */
+body .loc-ctaBtnSecondary,
+body .loc-ctaSection .loc-ctaBtnSecondary {
+  background: transparent !important;
+  border: 1.6px solid rgba(255,255,255,.55) !important;
+  border-radius: 999px !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  padding: 15px 28px !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+}
+body .loc-ctaBtnSecondary:hover,
+body .loc-ctaSection .loc-ctaBtnSecondary:hover {
+  background: rgba(255,255,255,.12) !important;
+  border-color: var(--color-white, #FFFFFF) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Heading accents on location pages: flat Signature Blue, no clipped
+   gradient and no shifting animation. */
+body .loc-highlight {
+  background: none !important;
+  background-size: auto !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: var(--color-signature-blue, #3E8CFB) !important;
+  color: var(--color-signature-blue, #3E8CFB) !important;
+  animation: none !important;
+}
+
+/* ── 11. Location hero (top CTA) secondary buttons ──
+   The five US state pages used `.st-btnB { border: 1.5px solid var(--line) }`
+   — and `--line` is rgba(62,140,251,.22), a 22%-alpha hairline that reads as
+   no border at all. The USA page's `.usa-btnB` and the ServiceHero ghost on
+   every other location page use a solid Signature Blue border, so these are
+   pinned to that same secondary: white fill, 1.6px Signature Blue, ink label. */
+body .st-btnB,
+body .usa-btnB {
+  background: var(--color-white, #FFFFFF) !important;
+  border: 1.6px solid var(--color-signature-blue, #3E8CFB) !important;
+  border-radius: 999px !important;
+  color: var(--color-carbon-black, #0D1117) !important;
+  -webkit-text-fill-color: var(--color-carbon-black, #0D1117) !important;
+}
+body .st-btnB:hover,
+body .usa-btnB:hover {
+  background: rgba(62,140,251,.08) !important;
+  border-color: var(--color-signature-blue, #3E8CFB) !important;
+  color: var(--color-carbon-black, #0D1117) !important;
+  transform: translateY(-2px) !important;
+}
+/* Primary in the same pair: flat Signature Blue, darkens on hover. */
+body .st-btnA,
+body .usa-btnA {
+  background: var(--color-signature-blue, #3E8CFB) !important;
+  border: 1.6px solid var(--color-signature-blue, #3E8CFB) !important;
+  border-radius: 999px !important;
+  color: #FFFFFF !important;
+}
+body .st-btnA:hover,
+body .usa-btnA:hover {
+  background: var(--color-signature-blue, #3E8CFB) !important;
+  filter: brightness(.93) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px) !important;
+}

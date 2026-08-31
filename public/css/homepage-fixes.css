@@ -598,8 +598,7 @@ html.aos-loaded [data-aos] { opacity: 1; }
 }
 /* "& IT Solutions" — blue → yellow gradient */
 .sp-hero__title-grad {
-  background: linear-gradient(90deg, #fff 0%, #7aabf5 20%, var(--color-signature-blue) 40%, #8a8a7a 60%, #bfaa6a 78%, var(--color-bright-horizon) 90%, #d4a840 100%);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  color: var(--color-signature-blue, #3E8CFB);
 }
 
 /* Description */

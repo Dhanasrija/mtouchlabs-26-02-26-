@@ -195,7 +195,7 @@ export default function AIRecommendationEngineDevelopment() {
   font-family: var(--font-primary, 'Poppins', sans-serif);
   font-size: 15px;
   line-height: 26px;
-  color: #33415C;
+  color: #222222;
 }
 .aip-industries {
   max-width: 1140px;
@@ -216,7 +216,7 @@ export default function AIRecommendationEngineDevelopment() {
   font-family: var(--font-primary, 'Poppins', sans-serif);
   font-size: 15px;
   font-weight: 500;
-  color: #1B2A4A;
+  color: #0D1117;
   box-shadow: 0 8px 22px -18px rgba(1, 29, 128, .45);
   cursor: default;
 }
@@ -247,7 +247,7 @@ export default function AIRecommendationEngineDevelopment() {
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 1.4px;
-  color: #2F7BF6;
+  color: #3E8CFB;
   margin-bottom: 10px;
 }
 .aip-step__title {
@@ -256,14 +256,14 @@ export default function AIRecommendationEngineDevelopment() {
   font-size: 19px;
   font-weight: 600;
   line-height: 28px;
-  color: #011D80;
+  color: #3E8CFB;
 }
 .aip-step__text {
   margin: 0;
   font-family: var(--font-primary, 'Poppins', sans-serif);
   font-size: 15px;
   line-height: 26px;
-  color: var(--ga-text, #444444);
+  color: var(--ga-text, #222222);
 }
 @media (max-width: 1024px) {
   .aip-flow__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -394,7 +394,7 @@ export default function AIRecommendationEngineDevelopment() {
               <h4 className="ga-service-card__title">Product Recommendation Engine</h4>
               <p className="ga-service-card__text">
                 Help shoppers discover relevant products using behavioural and product-level signals across your{" "}
-                <a href="/ecommerce-app-development-company" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>ecommerce platform</a>.
+                <a href="/ecommerce-app-development-company" style={{ color: "#3E8CFB", textDecoration: "none", fontWeight: 600 }}>ecommerce platform</a>.
               </p>
             </div>
             <div className="ga-service-card ga-animate--scale">
@@ -691,7 +691,7 @@ export default function AIRecommendationEngineDevelopment() {
               <h4 className="ga-service-card__title">E-commerce</h4>
               <p className="ga-service-card__text">
                 Recommend products from browsing behaviour, purchases and product relationships — recommended-for-you, similar products, frequently bought together and personalized offers across your{" "}
-                <a href="/ecommerce-app-development-company" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>ecommerce platform</a>.
+                <a href="/ecommerce-app-development-company" style={{ color: "#3E8CFB", textDecoration: "none", fontWeight: 600 }}>ecommerce platform</a>.
               </p>
             </div>
             <div className="ga-service-card ga-animate--scale">
@@ -713,7 +713,7 @@ export default function AIRecommendationEngineDevelopment() {
               <h4 className="ga-service-card__title">SaaS Platforms</h4>
               <p className="ga-service-card__text">
                 Personalize features, content, workflows and resources from user activity — feature discovery, template suggestions and onboarding paths inside your{" "}
-                <a href="/saas-development-services" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>SaaS product</a>.
+                <a href="/saas-development-services" style={{ color: "#3E8CFB", textDecoration: "none", fontWeight: 600 }}>SaaS product</a>.
               </p>
             </div>
             <div className="ga-service-card ga-animate--scale">
@@ -721,7 +721,7 @@ export default function AIRecommendationEngineDevelopment() {
               <h4 className="ga-service-card__title">Marketplaces</h4>
               <p className="ga-service-card__text">
                 Help users discover relevant sellers, products, services and listings — listing relevance, seller matching and category discovery, often paired with{" "}
-                <a href="/multi-vendor-marketplace-app-builder" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>multi-vendor marketplace development</a>.
+                <a href="/multi-vendor-marketplace-app-builder" style={{ color: "#3E8CFB", textDecoration: "none", fontWeight: 600 }}>multi-vendor marketplace development</a>.
               </p>
             </div>
             <div className="ga-service-card ga-animate--scale">
@@ -769,8 +769,8 @@ export default function AIRecommendationEngineDevelopment() {
               We combine AI development, software engineering, data engineering and application development,
               so the engine operates as part of a working product rather than an isolated machine learning
               component. Browse our{" "}
-              <a href="/portfolio" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>portfolio</a> and{" "}
-              <a href="/case-studies" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>case studies</a> for shipped examples.
+              <a href="/portfolio" style={{ color: "#3E8CFB", textDecoration: "none", fontWeight: 600 }}>portfolio</a> and{" "}
+              <a href="/case-studies" style={{ color: "#3E8CFB", textDecoration: "none", fontWeight: 600 }}>case studies</a> for shipped examples.
             </p>
             <div className="ga-reliable__pillars">
               <div className="ga-pillar"><span className="ga-pillar__dot"></span><span className="ga-pillar__label">Product-focused AI — designed around the actual user journey</span></div>
@@ -1025,37 +1025,37 @@ export default function AIRecommendationEngineDevelopment() {
           </div>
           <div className="ga-services__grid ga-stagger">
             <a href="/machine-learning-development-company" className="ga-service-card ga-animate--scale" style={{ color: "inherit", textDecoration: "none", display: "block", position: "relative" }}>
-              <h4 className="ga-service-card__title">Machine Learning Development <span style={{ float: "right", color: "#2563eb", fontWeight: 700 }} aria-hidden>→</span></h4>
+              <h4 className="ga-service-card__title">Machine Learning Development <span style={{ float: "right", color: "#3E8CFB", fontWeight: 700 }} aria-hidden>→</span></h4>
               <p className="ga-service-card__text">
                 The ranking and propensity models behind personalised relevance.
               </p>
             </a>
             <a href="/generative-ai-development-company" className="ga-service-card ga-animate--scale" style={{ color: "inherit", textDecoration: "none", display: "block", position: "relative" }}>
-              <h4 className="ga-service-card__title">Generative AI Development <span style={{ float: "right", color: "#2563eb", fontWeight: 700 }} aria-hidden>→</span></h4>
+              <h4 className="ga-service-card__title">Generative AI Development <span style={{ float: "right", color: "#3E8CFB", fontWeight: 700 }} aria-hidden>→</span></h4>
               <p className="ga-service-card__text">
                 LLM-powered applications, RAG pipelines and production AI automation.
               </p>
             </a>
             <a href="/ai-sales-assistant-development" className="ga-service-card ga-animate--scale" style={{ color: "inherit", textDecoration: "none", display: "block", position: "relative" }}>
-              <h4 className="ga-service-card__title">AI Sales Assistant <span style={{ float: "right", color: "#2563eb", fontWeight: 700 }} aria-hidden>→</span></h4>
+              <h4 className="ga-service-card__title">AI Sales Assistant <span style={{ float: "right", color: "#3E8CFB", fontWeight: 700 }} aria-hidden>→</span></h4>
               <p className="ga-service-card__text">
                 Guided selling that uses recommendations inside a sales conversation.
               </p>
             </a>
             <a href="/ai-chatbot-development-company" className="ga-service-card ga-animate--scale" style={{ color: "inherit", textDecoration: "none", display: "block", position: "relative" }}>
-              <h4 className="ga-service-card__title">AI Chatbot Development <span style={{ float: "right", color: "#2563eb", fontWeight: 700 }} aria-hidden>→</span></h4>
+              <h4 className="ga-service-card__title">AI Chatbot Development <span style={{ float: "right", color: "#3E8CFB", fontWeight: 700 }} aria-hidden>→</span></h4>
               <p className="ga-service-card__text">
                 Conversational discovery on top of the same catalogue signals.
               </p>
             </a>
             <a href="/ecommerce-app-development-company" className="ga-service-card ga-animate--scale" style={{ color: "inherit", textDecoration: "none", display: "block", position: "relative" }}>
-              <h4 className="ga-service-card__title">E-commerce Development <span style={{ float: "right", color: "#2563eb", fontWeight: 700 }} aria-hidden>→</span></h4>
+              <h4 className="ga-service-card__title">E-commerce Development <span style={{ float: "right", color: "#3E8CFB", fontWeight: 700 }} aria-hidden>→</span></h4>
               <p className="ga-service-card__text">
                 The storefront the recommendation rails live inside.
               </p>
             </a>
             <a href="/saas-development-services" className="ga-service-card ga-animate--scale" style={{ color: "inherit", textDecoration: "none", display: "block", position: "relative" }}>
-              <h4 className="ga-service-card__title">SaaS Development <span style={{ float: "right", color: "#2563eb", fontWeight: 700 }} aria-hidden>→</span></h4>
+              <h4 className="ga-service-card__title">SaaS Development <span style={{ float: "right", color: "#3E8CFB", fontWeight: 700 }} aria-hidden>→</span></h4>
               <p className="ga-service-card__text">
                 In-product personalisation for your software platform.
               </p>

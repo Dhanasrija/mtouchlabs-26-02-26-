@@ -239,7 +239,7 @@ export const LOC_CSS = `
 .loc-faqAnswer{padding:0 1.35rem 1.25rem;font-size:.92rem;color:var(--ink-soft);line-height:1.75}
 
 /* ── CTA ── */
-.loc-ctaSection{position:relative;background:var(--grad);padding:4.25rem 1.5rem;overflow:hidden}
+.loc-ctaSection{position:relative;background:var(--color-deep-indigo,#0C1C32);padding:4.25rem 1.5rem;overflow:hidden}
 .loc-ctaSection::before,.loc-ctaSection::after{content:'';position:absolute;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.16),transparent 70%);pointer-events:none}
 .loc-ctaSection::before{top:-220px;left:-140px;animation:locFloat 16s ease-in-out infinite}
 .loc-ctaSection::after{bottom:-260px;right:-120px;animation:locFloat 20s ease-in-out infinite reverse}
@@ -248,11 +248,11 @@ export const LOC_CSS = `
 .loc-ctaDesc{font-size:1rem;color:rgba(255,255,255,.92);line-height:1.78;margin:0 0 2rem}
 .loc-ctaActions{display:flex;flex-wrap:wrap;gap:.85rem;justify-content:center}
 .loc-ctaBtnPrimary,.loc-ctaBtnSecondary{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.9rem 1.8rem;border-radius:999px;font-weight:700;font-size:.95rem;overflow:hidden}
-.loc-ctaBtnPrimary{background:#fff;color:var(--a1)!important;transition:transform .2s var(--ease),box-shadow .2s}
+.loc-ctaBtnPrimary{background:var(--a2);color:#fff!important;transition:transform .2s var(--ease),box-shadow .2s}
 .loc-ctaBtnPrimary::after{content:'';position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(62,140,251,.14) 50%,transparent 65%);transform:translateX(-130%);transition:transform .7s var(--ease)}
 .loc-ctaBtnPrimary:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(0,0,0,.2)}
 .loc-ctaBtnPrimary:hover::after{transform:translateX(130%)}
-.loc-ctaBtnSecondary{background:transparent;color:#fff!important;border:1.5px solid rgba(255,255,255,.6);transition:background .2s,transform .2s var(--ease),border-color .2s}
+.loc-ctaBtnSecondary{background:transparent;color:#fff!important;border:1.6px solid rgba(255,255,255,.55);transition:background .2s,transform .2s var(--ease),border-color .2s}
 .loc-ctaBtnSecondary:hover{background:rgba(255,255,255,.14);border-color:#fff;transform:translateY(-2px)}
 
 /* ── motion ── */

@@ -184,32 +184,32 @@ export default function ProductPageTemplate({ data }: { data: ProductPageData })
         :root {
           --fp:     'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
           --blue:   #3E8CFB;
-          --navy:   #011D80;
+          --navy:   #011D80;   /* palette only — never a fill, reads as indigo */
           --indigo: #0C1C32;
           --black:  #0D1117;
           --gold:   #FAC759;
           --grey:   #777777;
           --white:  #FFFFFF;
-          --light:  #F4F7FF;
+          --light:  rgba(62,140,251,.05);
         }
 
         /* Global body dark-bg override — product pages use light theme. */
         html:has(.fd-root), body:has(.fd-root) { background: #ffffff !important; }
         .fd-root * { box-sizing: border-box; }
-        .fd-root { font-family: var(--fp); color: #1a1a2e; background: #ffffff; }
+        .fd-root { font-family: var(--fp); color: var(--black); background: var(--white); }
 
         .fd-breadcrumb {
           padding: 14px 48px; font-family: var(--fp); font-size: 13px;
-          font-weight: 500; background: #f8f9fd; border-bottom: 1px solid #e5e8f5; color: #444;
+          font-weight: 500; background: rgba(62,140,251,.035); border-bottom: 1px solid rgba(62,140,251,.16); color: var(--grey);
         }
-        .fd-breadcrumb a { color: #444; text-decoration: none; transition: color .2s; }
+        .fd-breadcrumb a { color: var(--grey); text-decoration: none; transition: color .2s; }
         .fd-breadcrumb a:hover { color: var(--blue); }
         .fd-breadcrumb a.active { color: var(--blue); font-weight: 600; }
-        .fd-sep { margin: 0 8px; color: #bbb; }
+        .fd-sep { margin: 0 8px; color: rgba(119,119,119,.55); }
 
         .fd-hero {
           padding: 72px 48px 64px;
-          background: linear-gradient(160deg, #eef4ff 0%, #f8f9fd 60%, #fff8ec 100%);
+          background: rgba(62, 140, 251, .05);
           position: relative; overflow: hidden; display: flex;
           align-items: center; justify-content: center; gap: 48px;
         }
@@ -245,30 +245,30 @@ export default function ProductPageTemplate({ data }: { data: ProductPageData })
         }
         .fd-h1 .accent { color: var(--blue); }
         .fd-hero-sub {
-          font-family: var(--fp); font-size: 16px; line-height: 1.75; color: #5a6480;
+          font-family: var(--fp); font-size: 16px; line-height: 1.75; color: var(--grey);
           max-width: 480px; margin: 0 auto 32px; font-weight: 400;
         }
 
         .fd-btn {
           display: inline-flex; align-items: center; gap: 8px;
           font-family: var(--fp); font-size: 14px; font-weight: 600; letter-spacing: 0.3px;
-          padding: 14px 30px; border-radius: 10px;
+          padding: 14px 30px; border-radius: 999px;
           border: 2px solid var(--blue); background: var(--blue);
           color: #ffffff !important; cursor: pointer; text-decoration: none;
           transition: all 0.22s ease; line-height: 1;
         }
         .fd-btn:hover {
-          background: var(--navy); border-color: var(--navy); color: #ffffff !important;
+          background: var(--blue); border-color: var(--blue); color: #ffffff !important; filter: brightness(.93);
           transform: translateY(-2px); box-shadow: 0 8px 24px rgba(62,140,251,.38);
         }
-        .fd-btn-outline { background: transparent; color: var(--blue) !important; border-color: var(--blue); }
+        .fd-btn-outline { background: #ffffff; color: var(--ink) !important; border-color: var(--blue); }
         .fd-btn-outline:hover {
-          background: var(--blue); color: #ffffff !important; border-color: var(--blue);
+          background: rgba(62,140,251,.08); color: var(--ink) !important; border-color: var(--blue);
           transform: translateY(-2px); box-shadow: 0 8px 24px rgba(62,140,251,.25);
         }
         .fd-btn-gold { background: var(--gold); border-color: var(--gold); color: var(--navy) !important; }
         .fd-btn-gold:hover {
-          background: #e6b340; border-color: #e6b340; color: var(--navy) !important;
+          background: var(--gold); filter: brightness(.93); border-color: var(--gold); color: var(--black) !important;
           box-shadow: 0 8px 24px rgba(250,199,89,.4); transform: translateY(-2px);
         }
 
@@ -291,13 +291,13 @@ export default function ProductPageTemplate({ data }: { data: ProductPageData })
         }
         .fd-h3 {
           font-family: var(--fp); font-size: clamp(20px, 2.8vw, 32px); line-height: 1.28;
-          font-weight: 700; color: #000; margin-bottom: 14px;
+          font-weight: 700; color: var(--black); margin-bottom: 14px;
         }
         /* Default .fd-body is used on LIGHT bg only (cards, tabs, why, cost, process, tech, two-col).
            Dark bg sections use their own classes: .fd-ai-desc and .fd-cta-text p (white text). */
-        .fd-body { font-family: var(--fp); font-size: 16px; line-height: 1.75; color: #1a1a2e; font-weight: 400; }
+        .fd-body { font-family: var(--fp); font-size: 16px; line-height: 1.75; color: var(--black); font-weight: 400; }
         /* Explicit light-bg class available if .fd-body needs to be reinforced */
-        .fd-body-light { color: #1a1a2e; }
+        .fd-body-light { color: var(--black); }
         /* Explicit dark-bg class for any future white-on-dark body copy */
         .fd-body-dark { color: #ffffff; }
 
@@ -307,7 +307,7 @@ export default function ProductPageTemplate({ data }: { data: ProductPageData })
           width: 100%; max-width: 960px; height: 420px;
           object-fit: contain; object-position: center;
           border-radius: 16px; box-shadow: 0 4px 32px rgba(0,0,0,.08);
-          background: #f4f6fb;
+          background: rgba(62,140,251,.045);
         }
         @media (max-width: 1024px) { .fd-features-banner img { height: 360px; } }
         @media (max-width: 768px)  { .fd-features-banner img { height: 280px; } }
@@ -340,7 +340,7 @@ export default function ProductPageTemplate({ data }: { data: ProductPageData })
         .fd-cards-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 40px; }
         .fd-card {
           background: #fff; border-radius: 18px; padding: 28px 20px 24px; text-align: center;
-          border: 1px solid #eaeeff; transition: transform .22s, box-shadow .22s, border-color .22s;
+          border: 1px solid rgba(62,140,251,.08); transition: transform .22s, box-shadow .22s, border-color .22s;
         }
         .fd-card:hover {
           transform: translateY(-6px); box-shadow: 0 12px 36px rgba(62,140,251,.13);
@@ -352,7 +352,7 @@ export default function ProductPageTemplate({ data }: { data: ProductPageData })
           font-size: 28px; margin: 0 auto 16px;
         }
         .ic1{background:#e8f0ff}.ic2{background:#e8f9f0}.ic3{background:#fff4e6}
-        .ic4{background:#fef9e7}.ic5{background:#f3e8ff}.ic6{background:#e8fcff}
+        .ic4{background:#fef9e7}.ic5{background:#e0f2f1}.ic6{background:#e8fcff}
         .ic7{background:#fde8ee}.ic8{background:#e8fff3}
         .fd-card h6 { font-family:var(--fp); font-size:15px; font-weight:700; color:var(--indigo); margin-bottom:8px; }
         .fd-card p  { font-family:var(--fp); font-size:13px; line-height:1.65; color:var(--grey); }
@@ -390,7 +390,7 @@ export default function ProductPageTemplate({ data }: { data: ProductPageData })
         .fd-tab-btn.active { background: var(--blue); color:#fff; box-shadow:0 4px 14px rgba(62,140,251,.3); }
         .fd-tab-panel {
           background:var(--light); border-radius:20px; padding:36px 40px;
-          text-align:left; border:1px solid #dce4f8;
+          text-align:left; border:1px solid rgba(62,140,251,.20);
         }
         .fd-tab-panel ul { list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:14px; padding:0; margin:0; }
         .fd-tab-panel ul li {
@@ -399,7 +399,7 @@ export default function ProductPageTemplate({ data }: { data: ProductPageData })
         }
         .fd-tab-panel ul li::before { content:'✓'; position:absolute; left:0; color:var(--blue); font-weight:800; font-size:14px; }
 
-        .fd-ai { background:linear-gradient(140deg,#020e3a 0%,var(--indigo) 50%,#040d1c 100%); padding:72px 24px; text-align:center; color:#ffffff; }
+        .fd-ai { background:var(--indigo); padding:72px 24px; text-align:center; color:#ffffff; }
         .fd-ai h1, .fd-ai h2, .fd-ai h3, .fd-ai h4, .fd-ai h5, .fd-ai h6,
         .fd-ai p, .fd-ai li { color:#ffffff; }
         .fd-ai .fd-ai-card p { color: rgba(255,255,255,.75); }
@@ -429,7 +429,7 @@ export default function ProductPageTemplate({ data }: { data: ProductPageData })
         .fd-why-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
         .fd-why-card {
           background:var(--light); border-radius:18px; padding:28px 18px 24px;
-          border:1px solid #e3eaff; transition:transform .22s,box-shadow .22s;
+          border:1px solid rgba(62,140,251,.10); transition:transform .22s,box-shadow .22s;
         }
         .fd-why-card:hover { transform:translateY(-5px); box-shadow:0 10px 32px rgba(62,140,251,.12); }
         .fd-why-icon { font-size:34px; display:block; margin-bottom:12px; }
@@ -442,7 +442,7 @@ export default function ProductPageTemplate({ data }: { data: ProductPageData })
         .fd-cost-inner { max-width:960px; margin:0 auto; }
         .fd-cost .fd-body { margin-bottom:36px; }
         .fd-cost-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-bottom:28px; }
-        .fd-cost-card { background:#fff; border-radius:18px; padding:36px 24px; border:1px solid #e0e8ff; transition:transform .22s; }
+        .fd-cost-card { background:#fff; border-radius:18px; padding:36px 24px; border:1px solid rgba(62,140,251,.12); transition:transform .22s; }
         .fd-cost-card:hover { transform:translateY(-5px); }
         .fd-cost-card.highlight { background:var(--blue); border-color:var(--blue); box-shadow:0 12px 36px rgba(62,140,251,.3); }
         .fd-cost-card.highlight .fd-cost-tier,
@@ -457,7 +457,7 @@ export default function ProductPageTemplate({ data }: { data: ProductPageData })
         .fd-process-grid { display:flex; justify-content:center; gap:0; position:relative; }
         .fd-process-grid::before {
           content:''; position:absolute; top:36px; left:10%; right:10%;
-          height:2px; background:linear-gradient(90deg,var(--blue),var(--gold)); opacity:.25;
+          height:2px; background:var(--blue); opacity:.25;
         }
         .fd-process-step { flex:1; padding:0 16px; text-align:center; position:relative; }
         .fd-step-num {
@@ -478,7 +478,7 @@ export default function ProductPageTemplate({ data }: { data: ProductPageData })
           background:#fff; border-radius:14px; padding:16px 20px;
           box-shadow:0 2px 10px rgba(0,0,0,.06); display:flex;
           align-items:center; justify-content:center;
-          transition:transform .2s,box-shadow .2s; border:1px solid #e8eaf5;
+          transition:transform .2s,box-shadow .2s; border:1px solid rgba(62,140,251,.14);
         }
         .fd-tech-item:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(0,0,0,.1); }
 
@@ -486,7 +486,7 @@ export default function ProductPageTemplate({ data }: { data: ProductPageData })
         .fd-industries-grid { display:flex; flex-wrap:wrap; gap:16px; justify-content:center; max-width:960px; margin:36px auto 0; }
         .fd-industry-card {
           background:var(--light); border-radius:14px; padding:20px 28px;
-          display:flex; align-items:center; gap:12px; border:1px solid #e0e8ff;
+          display:flex; align-items:center; gap:12px; border:1px solid rgba(62,140,251,.12);
           transition:transform .2s,box-shadow .2s;
         }
         .fd-industry-card:hover { transform:translateY(-3px); box-shadow:0 6px 20px rgba(62,140,251,.12); }
@@ -497,7 +497,7 @@ export default function ProductPageTemplate({ data }: { data: ProductPageData })
         .fd-faq-list { max-width:800px; margin:36px auto 0; display:flex; flex-direction:column; gap:10px; text-align:left; }
         .fd-faq-item {
           background:#fff; border-radius:14px; overflow:hidden;
-          border:1px solid #e0e8ff; box-shadow:0 2px 8px rgba(0,0,0,.04);
+          border:1px solid rgba(62,140,251,.12); box-shadow:0 2px 8px rgba(0,0,0,.04);
           transition:box-shadow .2s;
         }
         .fd-faq-item.open { box-shadow:0 4px 20px rgba(62,140,251,.12); border-color:rgba(62,140,251,.3); }
@@ -516,13 +516,13 @@ export default function ProductPageTemplate({ data }: { data: ProductPageData })
           font-size:18px; font-weight:400; flex-shrink:0;
           transition:transform .25s, background .2s; line-height:1;
         }
-        .fd-faq-item.open .fd-faq-icon { transform:rotate(45deg); background:var(--blue); color:#fff; }
+        .fd-faq-item.open .fd-faq-icon { transform:none; background:var(--blue); color:#fff; }
         .fd-faq-body { max-height:0; overflow:hidden; transition:max-height .35s ease, padding .3s ease; }
         .fd-faq-item.open .fd-faq-body { max-height:500px; }
         .fd-faq-a { font-family:var(--fp); font-size:14px; line-height:1.8; color:var(--grey); padding:0 24px 20px; }
 
         .fd-cta {
-          background:linear-gradient(130deg,var(--navy) 0%,var(--indigo) 60%,#020b24 100%);
+          background:var(--indigo);
           padding:72px 80px; display:flex; align-items:center; gap:64px; color:#ffffff;
         }
         .fd-cta h1, .fd-cta h2, .fd-cta h3, .fd-cta h4, .fd-cta h5, .fd-cta h6,
@@ -532,7 +532,7 @@ export default function ProductPageTemplate({ data }: { data: ProductPageData })
         .fd-cta-img {
           width: 360px; height: 360px; object-fit: cover;
           border-radius: 24px; box-shadow: 0 16px 48px rgba(0,0,0,.5);
-          background: #0a1744;
+          background: var(--indigo);
         }
         .fd-cta-text { flex:1; }
         .fd-cta-text .fd-label { background:rgba(250,199,89,.15); color:var(--gold); }
@@ -820,7 +820,7 @@ export default function ProductPageTemplate({ data }: { data: ProductPageData })
               <div key={i} className={`fd-faq-item${openFaq === i ? " open" : ""}`}>
                 <div className="fd-faq-q" onClick={() => toggleFaq(i)}>
                   {f.q}
-                  <span className="fd-faq-icon">+</span>
+                  <span className="fd-faq-icon">{openFaq === i ? "\u00d7" : "+"}</span>
                 </div>
                 <div className="fd-faq-body">
                   <p className="fd-faq-a">{f.a}</p>

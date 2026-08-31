@@ -147,7 +147,7 @@ export default function GenerativeAIDevelopment() {
         titleLead="Generative"
         titleAccent="AI"
         titleTail="Development Company"
-        description={<>Production-Ready AI Solutions That Go Beyond Demos Generative AI is no longer experimental—it's becoming the foundation of how modern digital products think, respond, and evolve. At mTouch Labs, we build practical, production-ready generative AI solutions that help businesses transform ideas into intelligent systems that can generate content, automate workflows, and deliver context-aware experiences at scale—embedded directly into your <a href="/mobile-app-development-company" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>mobile apps</a> where relevant.</>}
+        description={<>Production-Ready AI Solutions That Go Beyond Demos Generative AI is no longer experimental—it's becoming the foundation of how modern digital products think, respond, and evolve. At mTouch Labs, we build practical, production-ready generative AI solutions that help businesses transform ideas into intelligent systems that can generate content, automate workflows, and deliver context-aware experiences at scale—embedded directly into your <a href="/mobile-app-development-company" style={{ color: "#3E8CFB", textDecoration: "none", fontWeight: 600 }}>mobile apps</a> where relevant.</>}
       />
 
       {/* ===== ABOUT ===== */}
@@ -159,10 +159,10 @@ export default function GenerativeAIDevelopment() {
                 What Makes <span className="ga-text-accent">Generative AI</span> Valuable for Businesses?
               </h2>
               <p className="ga-about__text">
-                Most organizations don&apos;t need &ldquo;AI for the sake of AI.&rdquo; They need systems that reduce effort, improve accuracy, and unlock new capabilities. The key is not just adopting AI&mdash;but implementing it in a way that fits your workflows, users, and <a href="/ui-ux-design-company" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>UI/UX design</a>.
+                Most organizations don&apos;t need &ldquo;AI for the sake of AI.&rdquo; They need systems that reduce effort, improve accuracy, and unlock new capabilities. The key is not just adopting AI&mdash;but implementing it in a way that fits your workflows, users, and <a href="/ui-ux-design-company" style={{ color: "#3E8CFB", textDecoration: "none", fontWeight: 600 }}>UI/UX design</a>.
               </p>
               <p className="ga-about__text">
-                Whether you&apos;re exploring AI for the first time or scaling an existing product, we focus on building solutions that are reliable, secure, and aligned with real business outcomes that integrate with your existing <a href="/custom-software-development-company" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>software ecosystem</a>.
+                Whether you&apos;re exploring AI for the first time or scaling an existing product, we focus on building solutions that are reliable, secure, and aligned with real business outcomes that integrate with your existing <a href="/custom-software-development-company" style={{ color: "#3E8CFB", textDecoration: "none", fontWeight: 600 }}>software ecosystem</a>.
               </p>
               <ul className="ga-checklist">
                 <li className="ga-checklist__item"><span className="ga-checklist__icon">✓</span><span>Faster content generation without sacrificing quality</span></li>
@@ -197,7 +197,7 @@ export default function GenerativeAIDevelopment() {
                 Benefits of <span className="ga-text-accent">Generative AI</span> for Your Business
               </h2>
               <p className="ga-whoweare__text">
-                Implementing generative AI can unlock significant advantages across your organization. Explore our <a href="/blog" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>generative AI use cases</a> for inspiration.
+                Implementing generative AI can unlock significant advantages across your organization. Explore our <a href="/blog" style={{ color: "#3E8CFB", textDecoration: "none", fontWeight: 600 }}>generative AI use cases</a> for inspiration.
               </p>
               <ul className="ga-checklist">
                 <li className="ga-checklist__item"><span className="ga-checklist__icon">✓</span><span>Reduced operational costs &amp; faster time-to-market</span></li>
@@ -227,7 +227,7 @@ export default function GenerativeAIDevelopment() {
               <span className="ga-service-card__badge ga-service-card__badge--icon">🧠</span>
               <h4 className="ga-service-card__title">Custom Generative AI Solutions</h4>
               <p className="ga-service-card__text">
-                We create tailored AI models and applications designed around your business requirements&mdash;from <a href="/ecommerce-app-development-company" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>ecommerce personalization</a> to enterprise workflows.
+                We create tailored AI models and applications designed around your business requirements&mdash;from <a href="/ecommerce-app-development-company" style={{ color: "#3E8CFB", textDecoration: "none", fontWeight: 600 }}>ecommerce personalization</a> to enterprise workflows.
               </p>
             </div>
             <div className="ga-service-card ga-animate--scale">
@@ -241,7 +241,7 @@ export default function GenerativeAIDevelopment() {
               <span className="ga-service-card__badge ga-service-card__badge--icon">⚙️</span>
               <h4 className="ga-service-card__title">AI-Powered Automation</h4>
               <p className="ga-service-card__text">
-                We automate processes such as document handling, support responses, and internal workflows using AI-driven systems. Read our <a href="/blog" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>LLM vs machine learning</a> primer.
+                We automate processes such as document handling, support responses, and internal workflows using AI-driven systems. Read our <a href="/blog" style={{ color: "#3E8CFB", textDecoration: "none", fontWeight: 600 }}>LLM vs machine learning</a> primer.
               </p>
             </div>
             <div className="ga-service-card ga-animate--scale">
@@ -255,7 +255,7 @@ export default function GenerativeAIDevelopment() {
               <span className="ga-service-card__badge ga-service-card__badge--icon">🔗</span>
               <h4 className="ga-service-card__title">AI Integration with Web &amp; Mobile Apps</h4>
               <p className="ga-service-card__text">
-                We embed AI capabilities into digital products, enhancing functionality without disrupting user experience across your <a href="/web-development-company" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>web platforms</a> and mobile applications.
+                We embed AI capabilities into digital products, enhancing functionality without disrupting user experience across your <a href="/web-development-company" style={{ color: "#3E8CFB", textDecoration: "none", fontWeight: 600 }}>web platforms</a> and mobile applications.
               </p>
             </div>
           </div>
@@ -320,7 +320,7 @@ export default function GenerativeAIDevelopment() {
             Our Approach to <span className="ga-text-accent">Generative AI Development</span>
           </h2>
           <p className="ga-delivery__text">
-            Building AI is not just about models&mdash;it&apos;s about reliability, usability, and scalability. Curious about the <a href="/blog" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>cost of AI development</a>? We publish practical breakdowns.
+            Building AI is not just about models&mdash;it&apos;s about reliability, usability, and scalability. Curious about the <a href="/blog" style={{ color: "#3E8CFB", textDecoration: "none", fontWeight: 600 }}>cost of AI development</a>? We publish practical breakdowns.
           </p>
           <div className="ga-delivery__steps">
             <div className="ga-step"><span className="ga-step__circle">Problem Definition</span></div>
@@ -348,7 +348,7 @@ export default function GenerativeAIDevelopment() {
               Why <span className="ga-text-accent">Choose mTouch Labs</span>?
             </h2>
             <p className="ga-reliable__text">
-              AI projects often fail not because of technology&mdash;but because of poor execution. We combine AI expertise with strong product development capabilities, ensuring that what we build is not just intelligent&mdash;but usable. Browse our <a href="/portfolio" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>portfolio</a> for shipped examples.
+              AI projects often fail not because of technology&mdash;but because of poor execution. We combine AI expertise with strong product development capabilities, ensuring that what we build is not just intelligent&mdash;but usable. Browse our <a href="/portfolio" style={{ color: "#3E8CFB", textDecoration: "none", fontWeight: 600 }}>portfolio</a> for shipped examples.
             </p>
             <div className="ga-reliable__pillars">
               <div className="ga-pillar"><span className="ga-pillar__dot"></span><span className="ga-pillar__label">Practical &amp; aligned with business goals</span></div>
@@ -440,25 +440,25 @@ export default function GenerativeAIDevelopment() {
           </div>
           <div className="ga-services__grid ga-stagger">
             <a href="/custom-software-development-company" className="ga-service-card ga-animate--scale" style={{ color: "inherit", textDecoration: "none", display: "block", position: "relative" }}>
-              <h4 className="ga-service-card__title">Custom Software Development <span style={{ float: "right", color: "#2563eb", fontWeight: 700 }} aria-hidden>→</span></h4>
+              <h4 className="ga-service-card__title">Custom Software Development <span style={{ float: "right", color: "#3E8CFB", fontWeight: 700 }} aria-hidden>→</span></h4>
               <p className="ga-service-card__text">
                 Tailor-made software that aligns with your workflows, integrates with your systems, and scales with your business.
               </p>
             </a>
             <a href="/web-development-company" className="ga-service-card ga-animate--scale" style={{ color: "inherit", textDecoration: "none", display: "block", position: "relative" }}>
-              <h4 className="ga-service-card__title">Web Development Services <span style={{ float: "right", color: "#2563eb", fontWeight: 700 }} aria-hidden>→</span></h4>
+              <h4 className="ga-service-card__title">Web Development Services <span style={{ float: "right", color: "#3E8CFB", fontWeight: 700 }} aria-hidden>→</span></h4>
               <p className="ga-service-card__text">
                 Scalable, secure web platforms and SaaS products that pair perfectly with AI-powered capabilities.
               </p>
             </a>
             <a href="/mobile-app-development-company" className="ga-service-card ga-animate--scale" style={{ color: "inherit", textDecoration: "none", display: "block", position: "relative" }}>
-              <h4 className="ga-service-card__title">Mobile App Development <span style={{ float: "right", color: "#2563eb", fontWeight: 700 }} aria-hidden>→</span></h4>
+              <h4 className="ga-service-card__title">Mobile App Development <span style={{ float: "right", color: "#3E8CFB", fontWeight: 700 }} aria-hidden>→</span></h4>
               <p className="ga-service-card__text">
                 End-to-end mobile delivery for Android and iOS, ready to embed AI assistants, automation, and intelligent workflows.
               </p>
             </a>
             <a href="/ui-ux-design-company" className="ga-service-card ga-animate--scale" style={{ color: "inherit", textDecoration: "none", display: "block", position: "relative" }}>
-              <h4 className="ga-service-card__title">UI/UX Design Services <span style={{ float: "right", color: "#2563eb", fontWeight: 700 }} aria-hidden>→</span></h4>
+              <h4 className="ga-service-card__title">UI/UX Design Services <span style={{ float: "right", color: "#3E8CFB", fontWeight: 700 }} aria-hidden>→</span></h4>
               <p className="ga-service-card__text">
                 Human-centered design that makes AI features feel natural, trustworthy, and easy to adopt.
               </p>

@@ -193,7 +193,7 @@ export default function AISalesAssistantDevelopment() {
   font-family: var(--font-primary, 'Poppins', sans-serif);
   font-size: 15px;
   line-height: 26px;
-  color: #33415C;
+  color: #222222;
 }
 .aip-industries {
   max-width: 1140px;
@@ -214,7 +214,7 @@ export default function AISalesAssistantDevelopment() {
   font-family: var(--font-primary, 'Poppins', sans-serif);
   font-size: 15px;
   font-weight: 500;
-  color: #1B2A4A;
+  color: #0D1117;
   box-shadow: 0 8px 22px -18px rgba(1, 29, 128, .45);
   cursor: default;
 }
@@ -245,7 +245,7 @@ export default function AISalesAssistantDevelopment() {
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 1.4px;
-  color: #2F7BF6;
+  color: #3E8CFB;
   margin-bottom: 10px;
 }
 .aip-step__title {
@@ -254,14 +254,14 @@ export default function AISalesAssistantDevelopment() {
   font-size: 19px;
   font-weight: 600;
   line-height: 28px;
-  color: #011D80;
+  color: #3E8CFB;
 }
 .aip-step__text {
   margin: 0;
   font-family: var(--font-primary, 'Poppins', sans-serif);
   font-size: 15px;
   line-height: 26px;
-  color: var(--ga-text, #444444);
+  color: var(--ga-text, #222222);
 }
 @media (max-width: 1024px) {
   .aip-flow__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -392,7 +392,7 @@ export default function AISalesAssistantDevelopment() {
               <h4 className="ga-service-card__title">AI Sales Chat Assistant</h4>
               <p className="ga-service-card__text">
                 Engage website visitors and prospects through natural conversations while providing relevant information about your products or services. Related:{" "}
-                <a href="/ai-chatbot-development-company" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>AI Chatbot Development</a>.
+                <a href="/ai-chatbot-development-company" style={{ color: "#3E8CFB", textDecoration: "none", fontWeight: 600 }}>AI Chatbot Development</a>.
               </p>
             </div>
             <div className="ga-service-card ga-animate--scale">
@@ -407,7 +407,7 @@ export default function AISalesAssistantDevelopment() {
               <h4 className="ga-service-card__title">AI Product Recommendation</h4>
               <p className="ga-service-card__text">
                 Help prospects discover products, plans, or services based on their requirements, preferences, and available business information — often paired with an{" "}
-                <a href="/ai-recommendation-engine-development" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>AI recommendation engine</a>.
+                <a href="/ai-recommendation-engine-development" style={{ color: "#3E8CFB", textDecoration: "none", fontWeight: 600 }}>AI recommendation engine</a>.
               </p>
             </div>
             <div className="ga-service-card ga-animate--scale">
@@ -422,7 +422,7 @@ export default function AISalesAssistantDevelopment() {
               <h4 className="ga-service-card__title">CRM-Connected Assistant</h4>
               <p className="ga-service-card__text">
                 Connect AI sales workflows with{" "}
-                <a href="/custom-crm-software-development-company" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>CRM systems</a> to support lead management, customer information retrieval, and defined sales processes.
+                <a href="/custom-crm-software-development-company" style={{ color: "#3E8CFB", textDecoration: "none", fontWeight: 600 }}>CRM systems</a> to support lead management, customer information retrieval, and defined sales processes.
               </p>
             </div>
             <div className="ga-service-card ga-animate--scale">
@@ -586,7 +586,7 @@ export default function AISalesAssistantDevelopment() {
               <h4 className="ga-service-card__title">E-commerce Sales Assistance</h4>
               <p className="ga-service-card__text">
                 Help shoppers discover products, understand features, compare options and receive relevant recommendations across your{" "}
-                <a href="/ecommerce-app-development-company" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>ecommerce platform</a>.
+                <a href="/ecommerce-app-development-company" style={{ color: "#3E8CFB", textDecoration: "none", fontWeight: 600 }}>ecommerce platform</a>.
               </p>
             </div>
             <div className="ga-service-card ga-animate--scale">
@@ -594,7 +594,7 @@ export default function AISalesAssistantDevelopment() {
               <h4 className="ga-service-card__title">SaaS Sales</h4>
               <p className="ga-service-card__text">
                 Answer questions about features, integrations, plans and capabilities while helping prospects find the right fit for your{" "}
-                <a href="/saas-development-services" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>SaaS product</a>.
+                <a href="/saas-development-services" style={{ color: "#3E8CFB", textDecoration: "none", fontWeight: 600 }}>SaaS product</a>.
               </p>
             </div>
             <div className="ga-service-card ga-animate--scale">
@@ -690,7 +690,7 @@ export default function AISalesAssistantDevelopment() {
               <h4 className="ga-service-card__title">Both, Connected</h4>
               <p className="ga-service-card__text">
                 The same conversational layer can serve support, sales and self-service. See{" "}
-                <a href="/ai-customer-support-system" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>AI customer support</a> for the third intent.
+                <a href="/ai-customer-support-system" style={{ color: "#3E8CFB", textDecoration: "none", fontWeight: 600 }}>AI customer support</a> for the third intent.
               </p>
             </div>
           </div>
@@ -706,8 +706,8 @@ export default function AISalesAssistantDevelopment() {
             <p className="ga-reliable__text">
               We combine AI development, software engineering, data technologies and application development
               to create sales AI that fits real business environments. Browse our{" "}
-              <a href="/portfolio" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>portfolio</a> and{" "}
-              <a href="/case-studies" style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>case studies</a> for shipped examples.
+              <a href="/portfolio" style={{ color: "#3E8CFB", textDecoration: "none", fontWeight: 600 }}>portfolio</a> and{" "}
+              <a href="/case-studies" style={{ color: "#3E8CFB", textDecoration: "none", fontWeight: 600 }}>case studies</a> for shipped examples.
             </p>
             <div className="ga-reliable__pillars">
               <div className="ga-pillar"><span className="ga-pillar__dot"></span><span className="ga-pillar__label">Business-specific AI — built around your qualification process</span></div>
@@ -898,37 +898,37 @@ export default function AISalesAssistantDevelopment() {
           </div>
           <div className="ga-services__grid ga-stagger">
             <a href="/ai-chatbot-development-company" className="ga-service-card ga-animate--scale" style={{ color: "inherit", textDecoration: "none", display: "block", position: "relative" }}>
-              <h4 className="ga-service-card__title">AI Chatbot Development <span style={{ float: "right", color: "#2563eb", fontWeight: 700 }} aria-hidden>→</span></h4>
+              <h4 className="ga-service-card__title">AI Chatbot Development <span style={{ float: "right", color: "#3E8CFB", fontWeight: 700 }} aria-hidden>→</span></h4>
               <p className="ga-service-card__text">
                 The conversational layer an AI sales assistant often uses as its front end.
               </p>
             </a>
             <a href="/ai-customer-support-system" className="ga-service-card ga-animate--scale" style={{ color: "inherit", textDecoration: "none", display: "block", position: "relative" }}>
-              <h4 className="ga-service-card__title">AI Customer Support System <span style={{ float: "right", color: "#2563eb", fontWeight: 700 }} aria-hidden>→</span></h4>
+              <h4 className="ga-service-card__title">AI Customer Support System <span style={{ float: "right", color: "#3E8CFB", fontWeight: 700 }} aria-hidden>→</span></h4>
               <p className="ga-service-card__text">
                 The same conversational core, pointed at resolution instead of revenue.
               </p>
             </a>
             <a href="/ai-recommendation-engine-development" className="ga-service-card ga-animate--scale" style={{ color: "inherit", textDecoration: "none", display: "block", position: "relative" }}>
-              <h4 className="ga-service-card__title">AI Recommendation Engine <span style={{ float: "right", color: "#2563eb", fontWeight: 700 }} aria-hidden>→</span></h4>
+              <h4 className="ga-service-card__title">AI Recommendation Engine <span style={{ float: "right", color: "#3E8CFB", fontWeight: 700 }} aria-hidden>→</span></h4>
               <p className="ga-service-card__text">
                 Product and plan recommendations behind guided selling.
               </p>
             </a>
             <a href="/custom-crm-software-development-company" className="ga-service-card ga-animate--scale" style={{ color: "inherit", textDecoration: "none", display: "block", position: "relative" }}>
-              <h4 className="ga-service-card__title">Custom CRM Development <span style={{ float: "right", color: "#2563eb", fontWeight: 700 }} aria-hidden>→</span></h4>
+              <h4 className="ga-service-card__title">Custom CRM Development <span style={{ float: "right", color: "#3E8CFB", fontWeight: 700 }} aria-hidden>→</span></h4>
               <p className="ga-service-card__text">
                 The system your qualified leads and sales activity land in.
               </p>
             </a>
             <a href="/generative-ai-development-company" className="ga-service-card ga-animate--scale" style={{ color: "inherit", textDecoration: "none", display: "block", position: "relative" }}>
-              <h4 className="ga-service-card__title">Generative AI Development <span style={{ float: "right", color: "#2563eb", fontWeight: 700 }} aria-hidden>→</span></h4>
+              <h4 className="ga-service-card__title">Generative AI Development <span style={{ float: "right", color: "#3E8CFB", fontWeight: 700 }} aria-hidden>→</span></h4>
               <p className="ga-service-card__text">
                 LLM-powered applications, RAG pipelines and production AI automation.
               </p>
             </a>
             <a href="/machine-learning-development-company" className="ga-service-card ga-animate--scale" style={{ color: "inherit", textDecoration: "none", display: "block", position: "relative" }}>
-              <h4 className="ga-service-card__title">Machine Learning Development <span style={{ float: "right", color: "#2563eb", fontWeight: 700 }} aria-hidden>→</span></h4>
+              <h4 className="ga-service-card__title">Machine Learning Development <span style={{ float: "right", color: "#3E8CFB", fontWeight: 700 }} aria-hidden>→</span></h4>
               <p className="ga-service-card__text">
                 Scoring and propensity models behind sales intelligence.
               </p>

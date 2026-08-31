@@ -10,6 +10,7 @@ import Analytics from "@/components/Analytics";
 import AOSRefresh from "@/components/AOSRefresh";
 import ScrollRestorationManager from "@/components/ScrollRestorationManager";
 import ExternalizeInternalLinks from "@/components/ExternalizeInternalLinks";
+import FaqAccordion from "@/components/FaqAccordion";
 import type { Viewport } from "next";
 
 export const viewport: Viewport = {
@@ -162,6 +163,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }}
         />
 
+        {/* ========== OPENAI PIXEL — Global, all pages ==========
+            Setup code from OpenAI Ads Manager, pasted verbatim and present
+            exactly once. Lives in <head> as requested. The snippet installs
+            the `oaiq` queue stub synchronously and loads oaiq.min.js async,
+            so it does not block rendering.
+            The Lead conversion is sent from /thank-you — see
+            lib/openaiLead.ts. Do not add a second copy anywhere. ========== */}
+        <script
+          id="openai-pixel"
+          dangerouslySetInnerHTML={{
+            __html: `!function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");oaiq("init",{pixelId:"9YggQeUSmz7yJiNTG2JR8q",debug:true});`,
+          }}
+        />
+
         {/* ========== CSS — BUNDLED ==========
             All 17 local stylesheets (bootstrap.min, plugin.min, all.min,
             ionicon.min, style, responsive, mega-menu, about, blog,
@@ -171,7 +186,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             single file by scripts/_css_bundle.py. This drops 16 render-blocking
             requests to 1. Re-run that script after editing any source CSS, then
             bump the ?v= cache-buster below. ========== */}
-        <link href="/css/bundle.css?v=20260628b" rel="stylesheet" />
+        <link href="/css/bundle.css?v=20260831a" rel="stylesheet" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
           href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
@@ -204,7 +219,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             HTML response). Extracted to a cacheable file by hand; MUST stay the
             last stylesheet so these rules keep the precedence they had as
             body-level <style> tags. Bump ?v= when editing it. */}
-        <link href="/css/component-styles.css?v=1" rel="stylesheet" />
+        <link href="/css/component-styles.css?v=8" rel="stylesheet" />
 
         {/* Favicon links are emitted by the `icons` field in the metadata export above */}
       </head>
@@ -227,6 +242,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             Skips #hash, mailto/tel, external hosts, /admin and
             anything marked data-same-tab. */}
         <ExternalizeInternalLinks />
+        <FaqAccordion />
         {/* Request Quote Modal Overlay (shared) */}
         <QuoteModal />
         {/* Brochure Modal Overlay */}

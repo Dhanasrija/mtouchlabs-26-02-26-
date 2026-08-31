@@ -60,6 +60,11 @@ export const metadata: Metadata = {
 type Service = {
   id: string;
   icon: string;
+  /* Per-service icon colour + tint. Hues reuse the same set already used by
+     the industry cards below, so the page has one colour system rather
+     than two. No purples — Signature Blue and Bright Horizon anchor it. */
+  c: string;
+  bg: string;
   title: string;
   short: string;
   desc: string;
@@ -71,6 +76,8 @@ type Service = {
 const services: Service[] = [
   {
     id: "custom-software",
+    c: "#3E8CFB",
+    bg: "rgba(62,140,251,.12)",
     icon: "fa-solid fa-cubes",
     title: "Custom Software Development",
     short: "Custom software",
@@ -89,6 +96,8 @@ const services: Service[] = [
   },
   {
     id: "web-development",
+    c: "#0891B2",
+    bg: "#E2F4F8",
     icon: "fa-solid fa-display",
     title: "Web Application Development",
     short: "Web apps",
@@ -108,6 +117,8 @@ const services: Service[] = [
   },
   {
     id: "mobile-apps",
+    c: "#059669",
+    bg: "#E1F5EE",
     icon: "fa-solid fa-mobile-screen-button",
     title: "Mobile App Development",
     short: "Mobile apps",
@@ -126,6 +137,8 @@ const services: Service[] = [
   },
   {
     id: "ai",
+    c: "#2563EB",
+    bg: "#E8EFFE",
     icon: "fa-solid fa-brain",
     title: "AI & Generative AI Development",
     short: "AI & GenAI",
@@ -145,6 +158,8 @@ const services: Service[] = [
   },
   {
     id: "saas",
+    c: "#0EA5E9",
+    bg: "#E2F3FD",
     icon: "fa-solid fa-layer-group",
     title: "SaaS Product Development",
     short: "SaaS products",
@@ -163,6 +178,8 @@ const services: Service[] = [
   },
   {
     id: "enterprise",
+    c: "#475569",
+    bg: "#EDEFF2",
     icon: "fa-solid fa-building-columns",
     title: "Enterprise Application Development",
     short: "Enterprise apps",
@@ -181,6 +198,8 @@ const services: Service[] = [
   },
   {
     id: "design",
+    c: "#DB2777",
+    bg: "#FCE8F2",
     icon: "fa-solid fa-pen-ruler",
     title: "UI/UX & Product Design",
     short: "UI/UX design",
@@ -199,6 +218,8 @@ const services: Service[] = [
   },
   {
     id: "salesforce",
+    c: "#EA580C",
+    bg: "#FDEDE3",
     icon: "fa-solid fa-cloud-bolt",
     title: "Salesforce Consulting & Development",
     short: "Salesforce",
@@ -218,6 +239,8 @@ const services: Service[] = [
   },
   {
     id: "cloud",
+    c: "#B07D0A",
+    bg: "rgba(250,199,89,.20)",
     icon: "fa-brands fa-aws",
     title: "AWS Cloud Services & DevOps",
     short: "AWS & DevOps",
@@ -239,6 +262,8 @@ const services: Service[] = [
   },
   {
     id: "security",
+    c: "#E11D48",
+    bg: "#FDE8ED",
     icon: "fa-solid fa-shield-halved",
     title: "Cybersecurity Services",
     short: "Cybersecurity",
@@ -258,6 +283,8 @@ const services: Service[] = [
   },
   {
     id: "qa-testing",
+    c: "#0D9488",
+    bg: "#E0F2F1",
     icon: "fa-solid fa-vial-circle-check",
     title: "QA & Software Testing",
     short: "QA & testing",
@@ -276,6 +303,8 @@ const services: Service[] = [
   },
   {
     id: "marketing",
+    c: "#D97706",
+    bg: "#FEF3E2",
     icon: "fa-solid fa-chart-line",
     title: "Digital Marketing Services",
     short: "Digital marketing",
@@ -393,25 +422,25 @@ const techGroups = [
 const industries = [
   { icon: "fa-solid fa-building-columns", name: "Financial Services & FinTech", desc: "Secure financial applications, automation, and data-driven platforms.", c: "#2563EB", bg: "#E8EFFE" },
   { icon: "fa-solid fa-heart-pulse", name: "Healthcare", desc: "Patient platforms, workflow systems, and digital health solutions.", c: "#E11D48", bg: "#FDE8ED" },
-  { icon: "fa-solid fa-cart-shopping", name: "Retail & E-Commerce", desc: "Marketplaces, customer apps, inventory, and business automation.", c: "#7C3AED", bg: "#F1EAFE" },
+  { icon: "fa-solid fa-cart-shopping", name: "Retail & E-Commerce", desc: "Marketplaces, customer apps, inventory, and business automation.", c: "#B07D0A", bg: "rgba(250,199,89,.20)" },
   { icon: "fa-solid fa-truck-fast", name: "Logistics & Transportation", desc: "Fleet management, tracking, delivery apps, and operational dashboards.", c: "#EA580C", bg: "#FDEDE3" },
   { icon: "fa-solid fa-industry", name: "Manufacturing", desc: "Enterprise applications, workflow automation, and connected systems.", c: "#0891B2", bg: "#E2F4F8" },
   { icon: "fa-solid fa-graduation-cap", name: "Education", desc: "Learning platforms, management systems, and digital learning experiences.", c: "#059669", bg: "#E1F5EE" },
-  { icon: "fa-solid fa-house-chimney", name: "Real Estate", desc: "Property platforms, portals, CRM integrations, and workflow solutions.", c: "#4F46E5", bg: "#EBEAFD" },
+  { icon: "fa-solid fa-house-chimney", name: "Real Estate", desc: "Property platforms, portals, CRM integrations, and workflow solutions.", c: "#3E8CFB", bg: "rgba(62,140,251,.12)" },
   { icon: "fa-solid fa-cloud-arrow-up", name: "SaaS & Technology", desc: "SaaS products, cloud platforms, AI-powered applications, and APIs.", c: "#0EA5E9", bg: "#E2F3FD" },
   { icon: "fa-solid fa-plane-departure", name: "Travel & Hospitality", desc: "Booking platforms, customer apps, and operational systems.", c: "#DB2777", bg: "#FCE8F2" },
   { icon: "fa-solid fa-landmark", name: "Government & Enterprise", desc: "Secure digital platforms, modernization, and transformation programs.", c: "#475569", bg: "#EDEFF2" },
 ];
 
 const whyChoose = [
-  { icon: "fa-solid fa-infinity", title: "End-to-End Technology Expertise", desc: "Strategy, UI/UX, development, AI, cloud, testing, deployment, marketing, and support — across the full product lifecycle." },
-  { icon: "fa-solid fa-bullseye", title: "Business-Focused Engineering", desc: "We build around business objectives, user requirements, operational challenges, and measurable outcomes." },
-  { icon: "fa-solid fa-microchip", title: "AI-Ready Development", desc: "Generative AI, AI agents, RAG, automation, intelligent search, and machine learning inside modern applications." },
-  { icon: "fa-solid fa-arrow-up-right-dots", title: "Scalable Architecture", desc: "Designed for scalability, performance, security, integrations, and long-term maintainability." },
-  { icon: "fa-solid fa-shield", title: "Enterprise-Grade Solutions", desc: "An approach suited to complex systems, security requirements, integrations, and evolving business needs." },
-  { icon: "fa-solid fa-people-group", title: "Agile & Collaborative Delivery", desc: "We work with your stakeholders through discovery, design, development, testing, and continuous improvement." },
-  { icon: "fa-solid fa-globe", title: "Global Technology Partner", desc: "Startups, growing businesses, and enterprises across international markets." },
-  { icon: "fa-solid fa-medal", title: "Proven Development Experience", desc: "Mobile apps, websites, custom software, SaaS platforms, enterprise applications, and AI solutions." },
+  { icon: "fa-solid fa-infinity", c: "#3E8CFB", bg: "rgba(62,140,251,.12)", title: "End-to-End Technology Expertise", desc: "Strategy, UI/UX, development, AI, cloud, testing, deployment, marketing, and support — across the full product lifecycle." },
+  { icon: "fa-solid fa-bullseye", c: "#E11D48", bg: "#FDE8ED", title: "Business-Focused Engineering", desc: "We build around business objectives, user requirements, operational challenges, and measurable outcomes." },
+  { icon: "fa-solid fa-microchip", c: "#2563EB", bg: "#E8EFFE", title: "AI-Ready Development", desc: "Generative AI, AI agents, RAG, automation, intelligent search, and machine learning inside modern applications." },
+  { icon: "fa-solid fa-arrow-up-right-dots", c: "#059669", bg: "#E1F5EE", title: "Scalable Architecture", desc: "Designed for scalability, performance, security, integrations, and long-term maintainability." },
+  { icon: "fa-solid fa-shield", c: "#0891B2", bg: "#E2F4F8", title: "Enterprise-Grade Solutions", desc: "An approach suited to complex systems, security requirements, integrations, and evolving business needs." },
+  { icon: "fa-solid fa-people-group", c: "#DB2777", bg: "#FCE8F2", title: "Agile & Collaborative Delivery", desc: "We work with your stakeholders through discovery, design, development, testing, and continuous improvement." },
+  { icon: "fa-solid fa-globe", c: "#0D9488", bg: "#E0F2F1", title: "Global Technology Partner", desc: "Startups, growing businesses, and enterprises across international markets." },
+  { icon: "fa-solid fa-medal", c: "#B07D0A", bg: "rgba(250,199,89,.20)", title: "Proven Development Experience", desc: "Mobile apps, websites, custom software, SaaS platforms, enterprise applications, and AI solutions." },
 ];
 
 const faqs = [
@@ -562,7 +591,11 @@ export default function ServicesPage() {
           <div className="svcx-services-grid">
             {services.map((s, i) => (
               <article className="svcx-service-card svcx-reveal" key={s.id} id={s.id} style={d(i % 3)}>
-                <span className="svcx-service-icon" aria-hidden="true">
+                <span
+                  className="svcx-service-icon"
+                  aria-hidden="true"
+                  style={{ ["--c" as string]: s.c, ["--bg" as string]: s.bg }}
+                >
                   <i className={s.icon} />
                 </span>
                 <h3>{s.title}</h3>
@@ -738,7 +771,11 @@ export default function ServicesPage() {
           <div className="svcx-why-grid">
             {whyChoose.map((w, i) => (
               <div className="svcx-why-card svcx-reveal" key={w.title} style={d(i % 4)}>
-                <span className="svcx-why-icon" aria-hidden="true">
+                <span
+                  className="svcx-why-icon"
+                  aria-hidden="true"
+                  style={{ ["--c" as string]: w.c, ["--bg" as string]: w.bg }}
+                >
                   <i className={w.icon} />
                 </span>
                 <h3>{w.title}</h3>
@@ -767,12 +804,12 @@ export default function ServicesPage() {
 
           <div className="svcx-ledger-row svcx-reveal">
             {[
-              { n: 1500, suffix: "+", label: "Mobile Apps Developed", icon: "fa-solid fa-mobile-screen-button" },
-              { n: 820, suffix: "+", label: "Websites Developed", icon: "fa-solid fa-display" },
-              { n: 700, suffix: "+", label: "Unique Features Implemented", icon: "fa-solid fa-wand-magic-sparkles" },
+              { n: 1500, suffix: "+", label: "Mobile Apps Developed", icon: "fa-solid fa-mobile-screen-button", c: "#3E8CFB", bg: "rgba(62,140,251,.12)" },
+              { n: 820, suffix: "+", label: "Websites Developed", icon: "fa-solid fa-display", c: "#059669", bg: "#E1F5EE" },
+              { n: 700, suffix: "+", label: "Unique Features Implemented", icon: "fa-solid fa-wand-magic-sparkles", c: "#B07D0A", bg: "rgba(250,199,89,.20)" },
             ].map((st, i) => (
               <div className="svcx-ledger-cell" key={st.label} style={d(i)}>
-                <span className="svcx-ledger-icon" aria-hidden="true">
+                <span className="svcx-ledger-icon" aria-hidden="true" style={{ ["--c" as string]: st.c, ["--bg" as string]: st.bg }}>
                   <i className={st.icon} />
                 </span>
                 <span className="svcx-ledger-num">
@@ -789,7 +826,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ═══════════ CTA — animated gradient frame ═══════════ */}
+      {/* ═══════════ CTA — full-bleed dark band (Deep Indigo) ═══════════ */}
       <section className="svcx-cta">
         <div className="svcx-container">
           <div className="svcx-cta-frame svcx-reveal">
@@ -809,11 +846,11 @@ export default function ServicesPage() {
               </p>
               <div className="svcx-cta-actions">
                 <Link href="/contact-us" className="svcx-btn svcx-btn-primary">
-                  Start Your Project
+                  Let&apos;s Discuss Your Project
                   <i className="fa-solid fa-arrow-right" aria-hidden="true" />
                 </Link>
-                <Link href="/request-free-quote" className="svcx-btn svcx-btn-ghost">
-                  Request a Consultation
+                <Link href="/portfolio" className="svcx-btn svcx-btn-ghost">
+                  View Our Work
                   <i className="fa-solid fa-arrow-right" aria-hidden="true" />
                 </Link>
               </div>
@@ -834,12 +871,13 @@ export default function ServicesPage() {
 
           <div className="svcx-faq-list">
             {faqs.map((f, i) => (
-              <details className="svcx-faq-item svcx-reveal" key={f.q} {...(i === 0 ? { open: true } : {})}>
+              /* `name` makes these an exclusive accordion natively — opening one
+                 closes the others, no JavaScript. Chrome 120+, Safari 17.2+,
+                 Firefox 130+; older browsers just allow several open at once. */
+              <details className="svcx-faq-item svcx-reveal" name="svcx-faq" key={f.q} {...(i === 0 ? { open: true } : {})}>
                 <summary className="svcx-faq-q">
                   <span>{f.q}</span>
-                  <span className="svcx-faq-icon" aria-hidden="true">
-                    <i className="fa-solid fa-plus" />
-                  </span>
+                  <span className="svcx-faq-icon" aria-hidden="true" />
                 </summary>
                 <p className="svcx-faq-a">{f.a}</p>
               </details>

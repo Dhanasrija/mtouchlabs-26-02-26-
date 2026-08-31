@@ -7,11 +7,11 @@
    page surface is warm neutral (paper / stone / ink) and the brand
    blue is reserved for links, the highlighted word in a heading, the
    primary CTA, and hover states. Nothing is a blue gradient wash.
-     ink      #0F172A  headings, dark bands
-     stone    #F7F6F4  section surfaces (warm, not blue)
-     line     #E7E5E1  hairlines
+     ink      #0D1117  headings (Carbon Black, from brand.css)
+     stone    rgba(62,140,251,.045)  section surfaces (warm, not blue)
+     line     rgba(62,140,251,.22)  hairlines
      blue     #3E8CFB  accent only  (--color-signature-blue)
-     navy     #011D80  primary CTA hover (--color-heritage-navy)
+     navy     #011D80  palette only - NOT used for CTAs (reads as indigo)
    No yellow/gold anywhere, and no underlines under any heading.
    Typography: Poppins (--font-primary) with the brand H1–H4 scale.
    ═══════════════════════════════════════════════════════════════ */
@@ -20,16 +20,18 @@
   --blue: var(--color-signature-blue, #3E8CFB);
   --navy: var(--color-heritage-navy, #011D80);
 
-  --ink: #0F172A;
-  --ink-2: #29323F;
-  --ink-3: #4B5563;
-  --muted: #6B7280;
+  /* Text + lines resolve to brand.css tokens. The previous values were
+     slate/stone greys that sat outside the palette. */
+  --ink: var(--color-carbon-black, #0D1117);
+  --ink-2: var(--color-text, #222222);
+  --ink-3: var(--color-text, #222222);
+  --muted: var(--color-slate-grey, #777777);
 
-  --line: #E7E5E1;
-  --line-2: #F0EEEA;
+  --line: rgba(62, 140, 251, .22);
+  --line-2: rgba(62, 140, 251, .10);
   --paper: #FFFFFF;
-  --stone: #F7F6F4;
-  --stone-2: #FBFAF8;
+  --stone: rgba(62,140,251,.045);
+  --stone-2: #FFFFFF;
 
   --radius: 20px;
   --radius-sm: 13px;
@@ -87,7 +89,7 @@
   width: 22px;
   height: 2px;
   border-radius: 2px;
-  background: #C9C4BC;
+  background: rgba(62,140,251,.40);
 }
 .svcx-eyebrow--light { color: rgba(255, 255, 255, .70); }
 .svcx-eyebrow--light::before { background: rgba(255, 255, 255, .45); }
@@ -100,13 +102,10 @@
   letter-spacing: -.4px;
   margin: 0 0 14px;
 }
-/* Accent word — the same blue→navy gradient used on Portfolio & Careers. */
+/* Accent word — solid Signature Blue (the blue→navy gradient read as indigo). */
 .svcx-h2 em {
   font-style: normal;
-  background: linear-gradient(90deg, var(--blue) 0%, var(--navy) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--blue);
 }
 .svcx-lead {
   font-size: 17px;
@@ -128,7 +127,7 @@
   align-items: center;
   gap: 10px;
   padding: 15px 28px;
-  border-radius: 10px;
+  border-radius: 999px;
   font-weight: 600;
   font-size: 15px;
   line-height: 1.2;
@@ -141,34 +140,35 @@
 }
 /* Same primary/secondary pair used across the site (see .itsc-btn-*). */
 .svcx a.svcx-btn-primary {
-  background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%);
+  background: var(--blue);
   color: #FFFFFF;
-  box-shadow: 0 12px 40px -12px rgba(62, 140, 251, .55);
+  box-shadow: 0 12px 40px -12px rgba(62, 140, 251, .35);
 }
 .svcx a.svcx-btn-primary:hover {
   transform: translateY(-2px);
   color: #FFFFFF;
-  background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+  background: var(--blue);
+  filter: brightness(.93);
   box-shadow: 0 10px 26px rgba(62, 140, 251, .34);
 }
 .svcx a.svcx-btn-ghost {
-  background: var(--paper);
-  color: var(--blue);
+  background: #FFFFFF;
+  color: var(--ink);
   border-color: var(--blue);
   box-shadow: 0 2px 6px rgba(62, 140, 251, .08);
 }
 .svcx a.svcx-btn-ghost:hover {
   transform: translateY(-2px);
   border-color: var(--blue);
-  color: #FFFFFF;
-  background: var(--blue);
-  box-shadow: 0 8px 20px -6px rgba(62, 140, 251, .5);
+  color: var(--ink);
+  background: rgba(62, 140, 251, .08);
+  box-shadow: 0 8px 20px -6px rgba(62, 140, 251, .25);
 }
 .svcx a.svcx-btn-light {
   background: #FFFFFF;
   color: var(--ink);
 }
-.svcx a.svcx-btn-light:hover { transform: translateY(-2px); color: var(--navy); }
+.svcx a.svcx-btn-light:hover { transform: translateY(-2px); color: var(--blue); }
 .svcx a.svcx-btn-outline-light {
   background: transparent;
   color: #FFFFFF;
@@ -243,12 +243,9 @@
   letter-spacing: -.8px;
   margin: 0 0 22px;
 }
-/* Accent phrase — same blue→navy gradient as the other pages' titles. */
+/* Accent phrase — solid Signature Blue, matching every other page. */
 .svcx-h1 span {
-  background: linear-gradient(90deg, var(--blue) 0%, var(--navy) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--blue);
   white-space: nowrap;
 }
 .svcx-hero-copy p {
@@ -330,7 +327,7 @@
 }
 .svcx-service-card:hover {
   transform: translateY(-5px);
-  border-color: #D9D5CF;
+  border-color: rgba(62, 140, 251, .45);
   box-shadow: var(--shadow-md);
 }
 .svcx-service-card:hover::before { transform: scaleX(1); }
@@ -344,15 +341,16 @@
   align-items: center;
   justify-content: center;
   font-size: 19px;
-  color: var(--ink);
-  background: var(--stone);
-  border: 1px solid var(--line);
+  /* --c / --bg are set inline per service; brand blue is the fallback. */
+  color: var(--c, var(--blue));
+  background: var(--bg, rgba(62, 140, 251, .10));
+  border: 1px solid transparent;
   margin-bottom: 20px;
   transition: background .3s ease, color .3s ease, border-color .3s ease;
 }
 .svcx-service-card:hover .svcx-service-icon {
-  background: var(--ink);
-  border-color: var(--ink);
+  background: var(--c, var(--blue));
+  border-color: var(--c, var(--blue));
   color: #FFFFFF;
 }
 .svcx-service-card h3 {
@@ -397,9 +395,9 @@
   font-weight: 600;
   color: var(--blue);
   text-decoration: none;
-  transition: color .25s ease, gap .25s ease;
+  transition: opacity .18s ease, gap .25s ease;
 }
-.svcx a.svcx-service-link:hover { color: var(--navy); gap: 12px; }
+.svcx a.svcx-service-link:hover { color: var(--blue); opacity: .72; gap: 12px; }
 .svcx a.svcx-service-link i { font-size: 11px; }
 
 /* ═══════════ PROCESS ═══════════ */
@@ -416,7 +414,7 @@
   background: var(--paper);
   transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
 }
-.svcx-process-card:hover { transform: translateY(-4px); border-color: #D9D5CF; box-shadow: var(--shadow-md); }
+.svcx-process-card:hover { transform: translateY(-4px); border-color: rgba(62, 140, 251, .45); box-shadow: var(--shadow-md); }
 /* Large ghosted numeral — neutral stone, not a blue gradient. */
 .svcx-process-num {
   display: block;
@@ -424,7 +422,7 @@
   font-weight: 800;
   line-height: 1;
   letter-spacing: -.04em;
-  color: #DAD6D0;
+  color: rgba(62,140,251,.30);
   margin-bottom: 14px;
 }
 .svcx-process-card:hover .svcx-process-num { color: var(--blue); }
@@ -498,7 +496,7 @@
   width: 22%;
   height: 2px;
   border-radius: 2px;
-  background: linear-gradient(90deg, transparent, var(--blue), var(--navy), transparent);
+  background: linear-gradient(90deg, transparent, var(--blue), transparent);
   animation: svcxFlowSweep 4.5s cubic-bezier(.65, 0, .35, 1) infinite;
 }
 @keyframes svcxFlowSweep {
@@ -581,7 +579,7 @@
   background: var(--paper);
   transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
 }
-.svcx-tech-card:hover { transform: translateY(-4px); border-color: #D9D5CF; box-shadow: var(--shadow-md); }
+.svcx-tech-card:hover { transform: translateY(-4px); border-color: rgba(62, 140, 251, .45); box-shadow: var(--shadow-md); }
 .svcx-tech-card h3 {
   display: flex;
   align-items: center;
@@ -630,7 +628,7 @@
   text-align: center;
   transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
 }
-.svcx-ind-card:hover { transform: translateY(-4px); border-color: #D9D5CF; box-shadow: var(--shadow-sm); }
+.svcx-ind-card:hover { transform: translateY(-4px); border-color: rgba(62, 140, 251, .45); box-shadow: var(--shadow-sm); }
 .svcx-ind-icon {
   width: 44px;
   height: 44px;
@@ -675,7 +673,7 @@
   background: var(--blue);
   transition: width .35s ease, left .35s ease;
 }
-.svcx-why-card:hover { transform: translateY(-4px); border-color: #D9D5CF; box-shadow: var(--shadow-md); }
+.svcx-why-card:hover { transform: translateY(-4px); border-color: rgba(62, 140, 251, .45); box-shadow: var(--shadow-md); }
 .svcx-why-card:hover::after { width: 100%; left: 0; }
 .svcx-why-icon {
   width: 42px;
@@ -685,10 +683,17 @@
   align-items: center;
   justify-content: center;
   font-size: 15px;
-  color: var(--ink);
-  background: var(--stone);
-  border: 1px solid var(--line);
+  /* --c / --bg are set inline per card; brand blue is the fallback. */
+  color: var(--c, var(--blue));
+  background: var(--bg, rgba(62, 140, 251, .10));
+  border: 1px solid transparent;
   margin-bottom: 18px;
+  transition: background .3s ease, color .3s ease, transform .3s ease;
+}
+.svcx-why-card:hover .svcx-why-icon {
+  background: var(--c, var(--blue));
+  color: #FFFFFF;
+  transform: translateY(-2px);
 }
 .svcx-why-card h3 { font-size: 16.5px; line-height: 24px; font-weight: 700; color: var(--ink); margin: 0 0 8px; }
 .svcx-why-card p { font-size: 14.5px; line-height: 24px; color: var(--muted); margin: 0; }
@@ -702,7 +707,7 @@
   overflow: hidden;
   transition: border-color .3s ease, box-shadow .3s ease;
 }
-.svcx-faq-item[open] { border-color: #D9D5CF; box-shadow: var(--shadow-sm); }
+.svcx-faq-item[open] { border-color: rgba(62, 140, 251, .45); box-shadow: var(--shadow-sm); }
 .svcx-faq-q {
   display: flex;
   justify-content: space-between;
@@ -728,24 +733,37 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 10px;
-  transition: transform .3s ease, background .3s ease, color .3s ease, border-color .3s ease;
+  font-size: 11px;
+  position: relative;
+  transition: background .3s ease, color .3s ease, border-color .3s ease;
 }
+/* Explicit + / × swap rather than rotating the plus, so the open state
+   reads unambiguously as "close this". Drawn with ::before rather than two
+   <i> elements so no icon-font stylesheet can force both to show at once. */
+.svcx-faq-icon::before {
+  content: "+";
+  font-family: var(--fs, inherit);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+}
+.svcx-faq-item[open] .svcx-faq-icon::before { content: "\00d7"; font-size: 17px; }
+.svcx-faq-plus, .svcx-faq-cross { display: none !important; }
 .svcx-faq-item[open] .svcx-faq-icon {
-  transform: rotate(45deg);
-  background: var(--ink);
-  border-color: var(--ink);
+  transform: none;
+  background: var(--blue);
+  border-color: var(--blue);
   color: #FFFFFF;
 }
 .svcx-faq-a { padding: 0 22px 20px; margin: 0; font-size: 15px; line-height: 26px; color: var(--muted); }
-.svcx-faq-a a { color: var(--blue); font-weight: 600; text-decoration: none; }
-.svcx-faq-a a:hover { color: var(--navy); text-decoration: none; }
+.svcx-faq-a a { color: var(--blue); font-weight: 600; text-decoration: none; transition: opacity .18s ease; }
+.svcx-faq-a a:hover { color: var(--blue); opacity: .72; text-decoration: none; }
 
 /* Inline links inside body copy — colour only, no underline */
-.svcx a.svcx-link { color: var(--blue); font-weight: 600; text-decoration: none; transition: color .25s ease; }
-.svcx a.svcx-link:hover { color: var(--navy); text-decoration: none; }
+.svcx a.svcx-link { color: var(--blue); font-weight: 600; text-decoration: none; transition: opacity .18s ease; }
+.svcx a.svcx-link:hover { color: var(--blue); opacity: .72; text-decoration: none; }
 .svcx a.svcx-link-light { color: #FFFFFF; font-weight: 600; text-decoration: none; }
-.svcx a.svcx-link-light:hover { color: rgba(255, 255, 255, .78); text-decoration: none; }
+.svcx a.svcx-link-light:hover { color: #FFFFFF; opacity: .72; text-decoration: none; }
 
 /* ═══════════ RESPONSIVE ═══════════ */
 @media (max-width: 1180px) {
@@ -786,8 +804,8 @@
   .svcx-ledger-row { grid-template-columns: minmax(0, 1fr); }
   .svcx-ledger-cell { border-left: 0; border-top: 1px solid var(--line); padding: 34px 22px 30px; }
   .svcx-ledger-cell:first-child { border-top: 0; }
-  .svcx-cta { padding-bottom: 62px; }
-  .svcx-cta-inner { padding: 48px 22px; border-radius: 20px; }
+  .svcx-cta .svcx-container { padding-top: 60px; padding-bottom: 60px; }
+  .svcx-cta-inner { padding: 0; border-radius: 0; }
   .svcx-cta-actions { flex-direction: column; align-items: stretch; }
   .svcx-cta-actions .svcx-btn { justify-content: center; }
   .svcx-hero-ctas { flex-direction: column; align-items: stretch; }
@@ -829,8 +847,8 @@
   align-items: center;
   justify-content: center;
   font-size: 16px;
-  color: var(--blue);
-  background: rgba(62, 140, 251, .10);
+  color: var(--c, var(--blue));
+  background: var(--bg, rgba(62, 140, 251, .10));
   transition: transform .35s ease;
 }
 .svcx-ledger-cell:hover .svcx-ledger-icon { transform: translateY(-3px); }
@@ -841,10 +859,7 @@
   font-weight: 800;
   line-height: 1;
   letter-spacing: -.03em;
-  background: linear-gradient(90deg, var(--blue) 0%, var(--navy) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--ink);
   font-variant-numeric: tabular-nums;
 }
 /* Rule under each figure — draws out from the centre when revealed. */
@@ -854,7 +869,7 @@
   height: 3px;
   border-radius: 3px;
   margin: 18px auto 16px;
-  background: linear-gradient(90deg, var(--blue), var(--navy));
+  background: var(--blue);
   transition: width .9s cubic-bezier(.22, 1, .36, 1);
   transition-delay: calc(var(--d, 0) * 140ms + 260ms);
 }
@@ -872,17 +887,27 @@
 /* ═══════════ CTA — animated gradient frame ═══════════
    A 2px conic-gradient border that rotates slowly around a white
    panel. Light, not a black box.                                   */
-.svcx-cta { padding: 0 0 100px; background: var(--paper); }
+/* Full-bleed CTA band — the whole section is the dark surface, edge to edge.
+   It was previously a rounded 26px panel with an animated gradient border,
+   which read as a floating box rather than a closing band. */
+.svcx-cta {
+  padding: 0;
+  background: var(--color-deep-indigo, #0C1C32);
+}
+.svcx-cta .svcx-container { padding-top: 88px; padding-bottom: 88px; }
+.svcx-cta-inner { background: transparent !important; }
+.svcx-cta-inner .svcx-cta-h, .svcx-cta-inner .svcx-cta-p { color: #FFFFFF !important; }
+.svcx-cta-inner .svcx-cta-p { color: rgba(255,255,255,.82) !important; }
+.svcx-cta-inner .svcx-cta-h em { color: var(--blue) !important; }
+.svcx-cta .svcx-eyebrow { color: rgba(255,255,255,.72) !important; }
+.svcx-cta .svcx-eyebrow::before { background: rgba(255,255,255,.45); }
 .svcx-cta-frame {
   position: relative;
-  border-radius: 26px;
-  padding: 2px;
-  overflow: hidden;
-  isolation: isolate;
-  background: linear-gradient(120deg, rgba(62, 140, 251, .55), rgba(1, 29, 128, .45), rgba(62, 140, 251, .18), rgba(1, 29, 128, .5));
-  background-size: 300% 300%;
-  animation: svcxFrameShift 12s ease-in-out infinite;
-  box-shadow: 0 26px 60px -34px rgba(1, 29, 128, .45);
+  border-radius: 0;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  animation: none;
 }
 @keyframes svcxFrameShift {
   0%, 100% { background-position: 0% 50%; }
@@ -890,13 +915,10 @@
 }
 .svcx-cta-inner {
   position: relative;
-  border-radius: 24px;
-  padding: 74px 44px;
+  border-radius: 0;
+  padding: 0;
   text-align: center;
-  background:
-    radial-gradient(620px 300px at 18% 0%, rgba(62, 140, 251, .08), transparent 60%),
-    radial-gradient(520px 280px at 86% 100%, rgba(1, 29, 128, .07), transparent 60%),
-    var(--paper);
+  background: transparent;
 }
 .svcx-cta-h2 {
   font-size: clamp(26px, 3.4vw, 38px);
@@ -908,10 +930,7 @@
 }
 .svcx-cta-h2 em {
   font-style: normal;
-  background: linear-gradient(90deg, var(--blue) 0%, var(--navy) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--blue);
 }
 .svcx-cta-p {
   font-size: 16px;
@@ -993,7 +1012,7 @@
 .svcx .svcx-caps li:hover,
 .svcx .svcx-tech-card li:hover {
   background: #FFFFFF;
-  border-color: #D9D5CF;
+  border-color: rgba(62, 140, 251, .45);
   color: var(--ink);
   transform: translateY(-1px);
 }

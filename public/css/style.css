@@ -14538,10 +14538,8 @@ select {
 }
 
 .sub-headinghealthcare-card {
-    background: linear-gradient(90.29deg, #45bdbf 0.21%, #005c7b 99.79%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     font-weight: bold;
+    color: var(--color-signature-blue, #3E8CFB);
 }
 
 .healthcare-app-card img {
@@ -14664,10 +14662,8 @@ select {
     font-size: 30px;
     text-align: center;
     margin-bottom: 30px;
-    background: linear-gradient(90.29deg, #45bdbf 0.21%, #005c7b 99.79%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     font-weight: bold;
+    color: var(--color-signature-blue, #3E8CFB);
 }
 
 .healthcarecard {
@@ -14888,9 +14884,7 @@ select {
 }
 
 .sub-headinghealthcare-card-two {
-    color: #001959;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--color-signature-blue, #3E8CFB);
     font-weight: bold;
 }
 
@@ -18678,11 +18672,8 @@ select {
 
 .aitemplet-header-h1tag span,
 .aitemplet-heading-h3tag span {
-    background: linear-gradient(86.75deg, #1565d8 2.69%, #dd1813 74.26%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
     display: inline-block;
+    color: var(--color-signature-blue, #3E8CFB);
 }
 
 .aitemplet-header-one h5 {
@@ -18786,11 +18777,8 @@ select {
 }
 
 .aitemplet-section-two span {
-    background: linear-gradient(86.75deg, #1565d8 2.69%, #dd1813 74.26%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
     display: inline-block;
+    color: var(--color-signature-blue, #3E8CFB);
 }
 
 .aitemplet-section-two-Empower {
@@ -18956,11 +18944,8 @@ select {
 }
 
 .aitemplet-info-box span {
-    background: linear-gradient(86.75deg, #1565d8 2.69%, #dd1813 74.26%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
     display: inline-block;
+    color: var(--color-signature-blue, #3E8CFB);
 }
 
 /*keybefetis*/
@@ -19052,11 +19037,8 @@ select {
 }
 
 .aitemplet-div-heading span {
-    background: linear-gradient(86.75deg, #1565d8 2.69%, #dd1813 74.26%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
     display: inline-block;
+    color: var(--color-signature-blue, #3E8CFB);
 }
 
 .aitemplet-div-heading p {
@@ -19258,11 +19240,8 @@ select {
 }
 
 .aitemplet-section-five-left h2 .highlight {
-    background: linear-gradient(86.75deg, #1565d8 2.69%, #dd1813 74.26%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
     display: inline-block;
+    color: var(--color-signature-blue, #3E8CFB);
 }
 
 .aitemplet-section-five-left p {
@@ -24547,15 +24526,7 @@ select {
 
     font-size: 22px;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.9);
-    background: linear-gradient(80.9deg,
-            #ffeffc 0%,
-            #eb9cff 33.33%,
-            #ff86c3 66.67%,
-            #c4d2ff 100%);
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
+    color: var(--color-signature-blue, #3E8CFB);
 
 }
 
@@ -27528,10 +27499,7 @@ span.hero-h1-highlight {
 }
 
 .new_contact_heading_section h3 span {
-    background: linear-gradient(90deg, #0B64F4 0%, #0DA2E7 50%, #0DA2E7 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--color-signature-blue, #3E8CFB);
 }
 
 .new_contact_heading_section p {
@@ -32094,10 +32062,7 @@ select.new_contact_input {
 }
 
 .cr-hero-accent {
-    background: linear-gradient(135deg, #60a5fa, var(--color-signature-blue), #93c5fd);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--color-signature-blue, #3E8CFB);
 }
 
 .cr-hero-gold {
@@ -34772,17 +34737,7 @@ select.new_contact_input {
 
 /* Highlight span */
 .mob-highlight {
-    color: var(--mob-accent);
-    background: linear-gradient(90deg,
-            var(--mob-accent),
-            #ff8a3d,
-            var(--mob-accent),
-            #ff8a3d);
-    background-size: 300% 100%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: mobShimmer 4s linear infinite;
+    color: var(--color-signature-blue, #3E8CFB);
 }
 
 .mob-banner__subtitle {
@@ -35500,7 +35455,7 @@ select.new_contact_input {
     left: 0;
     width: 100%;
     height: 3px;
-    background: var(--mob-gradient-1);
+    background: var(--color-signature-blue, #3E8CFB);
     border-radius: 2px;
     animation: mobGlowPulse 3s ease-in-out infinite;
 }
@@ -35905,13 +35860,10 @@ select.new_contact_input {
     font-size: 3.2rem;
     font-weight: 800;
     line-height: 1;
-    background: linear-gradient(135deg, #f59e0b, #f97316);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
     opacity: 0.55;
     user-select: none;
     animation: numPulse 2.5s ease-in-out infinite;
+    color: var(--color-signature-blue, #3E8CFB);
 }
 
 @keyframes numPulse {
@@ -37138,35 +37090,30 @@ hero section compamny overview*/
 }
 
 .odm-accent-glow {
-    background: linear-gradient(135deg, #facc15, #eab308) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    background-clip: text !important;
+    color: var(--color-signature-blue, #3E8CFB) !important;
 }
 
 .odm-link {
     color: var(--color-signature-blue) !important;
-    text-decoration: none !important;
     font-weight: 600 !important;
-    border-bottom: 1px dashed #93c5fd !important;
+        border-bottom: 0 !important;
     transition: all 0.3s !important;
 }
 
 .odm-link:hover {
-    border-bottom-color: var(--color-signature-blue) !important;
-}
+        opacity: .72 !important;
+    }
 
 .odm-link--light {
-    color: #93c5fd !important;
+    color: #FFFFFF !important;
     text-decoration: none !important;
     font-weight: 600 !important;
-    border-bottom: 1px dashed rgba(147, 197, 253, 0.4) !important;
-    transition: all 0.3s !important;
+    transition: opacity .18s ease !important;
 }
 
 .odm-link--light:hover {
-    color: #fff !important;
-    border-bottom-color: #fff !important;
+    color: #FFFFFF !important;
+    opacity: .72 !important;
 }
 
 /* ─── SCROLL REVEAL ANIMATION ─── */
@@ -37248,7 +37195,7 @@ hero section compamny overview*/
     color: var(--color-signature-blue) !important;
     margin-bottom: 12px !important;
     padding: 4px 12px !important;
-    background: #eff6ff !important;
+    background: rgba(62,140,251,.05) !important;
     border-radius: 4px !important;
 }
 
@@ -37261,7 +37208,7 @@ hero section compamny overview*/
 }
 
 .odm-label--light {
-    color: #93c5fd !important;
+    color: var(--color-signature-blue, #3E8CFB) !important;
     background: rgba(147, 197, 253, 0.1) !important;
 }
 
@@ -37272,7 +37219,7 @@ hero section compamny overview*/
     display: flex !important;
     align-items: center !important;
     overflow: hidden !important;
-    background: #030712 !important;
+    background: var(--color-deep-indigo, #0C1C32) !important;
 }
 
 .odm-hero__bg {
@@ -37284,7 +37231,7 @@ hero section compamny overview*/
 .odm-hero__gradient {
     position: absolute !important;
     inset: 0 !important;
-    background: linear-gradient(135deg, rgba(3, 7, 18, 0.97) 0%, rgba(30, 58, 138, 0.8) 50%, rgba(3, 7, 18, 0.95) 100%) !important;
+    background: var(--color-deep-indigo, #0C1C32);
 }
 
 .odm-hero__grid-pattern {
@@ -37313,7 +37260,7 @@ hero section compamny overview*/
 .odm-hero__glow--2 {
     width: 300px !important;
     height: 300px !important;
-    background: #7c3aed !important;
+    background: var(--color-signature-blue, #3E8CFB) !important;
     bottom: -80px !important;
     left: 5% !important;
     animation-delay: 4s !important;
@@ -37342,8 +37289,8 @@ hero section compamny overview*/
 
 .odm-hero__badge {
     display: inline-block !important;
-    background: rgba(37, 99, 235, 0.15) !important;
-    color: #60a5fa !important;
+    background: rgba(62,140,251, 0.15) !important;
+    color: var(--color-signature-blue, #3E8CFB) !important;
     font-size: 11px !important;
     font-weight: 700 !important;
     padding: 6px 16px !important;
@@ -37354,7 +37301,7 @@ hero section compamny overview*/
     margin-top: 20px !important;   /* 👈 ADD THIS */
     margin-bottom: 20px !important;
 
-    border: 1px solid rgba(37, 99, 235, 0.25) !important;
+    border: 1px solid rgba(62,140,251, 0.25) !important;
     backdrop-filter: blur(4px) !important;
 }
 
@@ -37458,7 +37405,7 @@ hero section compamny overview*/
     align-items: center !important;
     gap: 8px !important;
     padding: 13px 26px !important;
-    border-radius: 10px !important;
+    border-radius: 999px !important;
     font-size: 14px !important;
     font-weight: 600 !important;
     text-decoration: none !important;
@@ -37473,29 +37420,30 @@ hero section compamny overview*/
 }
 
 .odm-btn--primary:hover {
-    background: var(--color-heritage-navy) !important;
+    background: var(--color-signature-blue) !important;
+        filter: brightness(.93) !important;
     transform: translateY(-2px) !important;
-    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.35) !important;
+    box-shadow: 0 8px 24px rgba(62,140,251, 0.35) !important;
 }
 
 .odm-btn--glow {
-    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.25) !important;
+    box-shadow: 0 4px 16px rgba(62,140,251, 0.25) !important;
 }
 
 .odm-btn--ghost {
     background: transparent !important;
     color: #fff !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.34) !important;
 }
 
 .odm-btn--ghost:hover {
-    background: rgba(255, 255, 255, 0.06) !important;
-    border-color: rgba(255, 255, 255, 0.35) !important;
+    background: rgba(255, 255, 255, 0.10) !important;
+    border-color: rgba(255, 255, 255, 0.8) !important;
 }
 
 .odm-btn--white {
-    background: #fff !important;
-    color: #0f172a !important;
+    background: var(--color-signature-blue) !important;
+    color: #fff !important;
 }
 
 .odm-btn--white:hover {
@@ -37509,11 +37457,12 @@ hero section compamny overview*/
 .odm-btn--ghost-light {
     background: transparent !important;
     color: #fff !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.34) !important;
 }
 
 .odm-btn--ghost-light:hover {
-    background: rgba(255, 255, 255, 0.06) !important;
+    background: rgba(255, 255, 255, 0.10) !important;
+    border-color: rgba(255, 255, 255, 0.8) !important;
 }
 
 /* ─── TAG ─── */
@@ -37536,21 +37485,21 @@ hero section compamny overview*/
 }
 
 .odm-section--alt {
-    background: #f8fafc !important;
+    background: rgba(62,140,251,.05) !important;
 }
 
 .odm-section--dark {
-    background: #0f172a !important;
+    background: var(--color-deep-indigo, #0C1C32) !important;
 }
 
 .odm-section--gradient {
-    background: linear-gradient(135deg, #0f172a 0%, #1e2a4a 50%, #0f172a 100%) !important;
+    background: var(--color-deep-indigo, #0C1C32) !important;
 }
 
 .odm-section__title {
     font-size: 36px !important;
     font-weight: 800 !important;
-    color: #1a1a2e !important;
+    color: var(--color-carbon-black, #0D1117) !important;
     margin: 0 0 40px !important;
     text-align: center !important;
     line-height: 1.25 !important;
@@ -37575,14 +37524,14 @@ hero section compamny overview*/
 .odm-split__text h2 {
     font-size: 34px !important;
     font-weight: 800 !important;
-    color: #1a1a2e !important;
+    color: var(--color-carbon-black, #0D1117) !important;
     margin: 0 0 18px !important;
     line-height: 1.25 !important;
 }
 
 .odm-split__text p {
     font-size: 16px !important;
-    color: #475569 !important;
+    color: var(--color-slate-grey, #777777) !important;
     line-height: 1.8 !important;
     margin: 0 0 16px !important;
 }
@@ -37609,7 +37558,7 @@ hero section compamny overview*/
     border-radius: 8px !important;
     font-size: 13px !important;
     font-weight: 700 !important;
-    color: #1a1a2e !important;
+    color: var(--color-carbon-black, #0D1117) !important;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
     display: flex !important;
     align-items: center !important;
@@ -37617,7 +37566,7 @@ hero section compamny overview*/
 }
 
 .odm-img-badge i {
-    color: #f59e0b !important;
+    color: var(--color-bright-horizon, #FAC759) !important;
 }
 
 /* ─── CHECKLIST GRID ─── */
@@ -37633,18 +37582,18 @@ hero section compamny overview*/
     align-items: center !important;
     gap: 8px !important;
     padding: 8px 16px !important;
-    background: #f8fafc !important;
-    border: 1px solid #e2e8f0 !important;
+    background: rgba(62,140,251,.05) !important;
+    border: 1px solid rgba(62,140,251,.22) !important;
     border-radius: 8px !important;
     font-size: 14px !important;
-    color: #1a1a2e !important;
+    color: var(--color-carbon-black, #0D1117) !important;
     font-weight: 500 !important;
     transition: all 0.3s !important;
 }
 
 .odm-check-chip:hover {
-    background: #eff6ff !important;
-    border-color: #93c5fd !important;
+    background: rgba(62,140,251,.05) !important;
+    border-color: var(--color-signature-blue, #3E8CFB) !important;
 }
 
 .odm-check-dot {
@@ -37675,7 +37624,7 @@ hero section compamny overview*/
 /* ─── CARDS ─── */
 .odm-card {
     background: #fff !important;
-    border: 1px solid #e2e8f0 !important;
+    border: 1px solid rgba(62,140,251,.22) !important;
     border-radius: 14px !important;
     padding: 32px !important;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
@@ -37708,13 +37657,13 @@ hero section compamny overview*/
 .odm-card__title {
     font-size: 18px !important;
     font-weight: 700 !important;
-    color: #1a1a2e !important;
+    color: var(--color-carbon-black, #0D1117) !important;
     margin: 0 0 10px !important;
 }
 
 .odm-card__desc {
     font-size: 14px !important;
-    color: #64748b !important;
+    color: var(--color-slate-grey, #777777) !important;
     line-height: 1.7 !important;
     margin: 0 !important;
 }
@@ -37748,11 +37697,11 @@ hero section compamny overview*/
     gap: 12px !important;
     padding: 16px 24px !important;
     background: #fff !important;
-    border: 1px solid #e2e8f0 !important;
+    border: 1px solid rgba(62,140,251,.22) !important;
     border-radius: 12px !important;
     font-size: 15px !important;
     font-weight: 600 !important;
-    color: #1a1a2e !important;
+    color: var(--color-carbon-black, #0D1117) !important;
     transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
@@ -37810,9 +37759,9 @@ hero section compamny overview*/
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    background: rgba(37, 99, 235, 0.15) !important;
+    background: rgba(62,140,251, 0.15) !important;
     border-radius: 10px !important;
-    color: #60a5fa !important;
+    color: var(--color-signature-blue, #3E8CFB) !important;
     font-size: 16px !important;
     flex-shrink: 0 !important;
     transition: transform 0.3s !important;
@@ -37826,7 +37775,7 @@ hero section compamny overview*/
 .odm-closing {
     text-align: center !important;
     font-size: 16px !important;
-    color: #64748b !important;
+    color: var(--color-slate-grey, #777777) !important;
     margin-top: 32px !important;
     font-weight: 500 !important;
     line-height: 1.7 !important;
@@ -37850,7 +37799,7 @@ hero section compamny overview*/
     left: 40px !important;
     right: 40px !important;
     height: 2px !important;
-    background: linear-gradient(90deg, #e2e8f0 0%, var(--color-signature-blue) 50%, #e2e8f0 100%) !important;
+    background: var(--color-signature-blue, #3E8CFB) !important;
     z-index: 1 !important;
 }
 
@@ -37871,7 +37820,7 @@ hero section compamny overview*/
     align-items: center !important;
     justify-content: center !important;
     background: #fff !important;
-    border: 2px solid #e2e8f0 !important;
+    border: 2px solid rgba(62,140,251,.22) !important;
     border-radius: 50% !important;
     color: var(--color-signature-blue) !important;
     font-size: 16px !important;
@@ -37885,7 +37834,7 @@ hero section compamny overview*/
     color: #fff !important;
     border-color: var(--color-signature-blue) !important;
     transform: scale(1.15) !important;
-    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.3) !important;
+    box-shadow: 0 8px 24px rgba(62,140,251, 0.3) !important;
 }
 
 .odm-process__num {
@@ -37893,13 +37842,13 @@ hero section compamny overview*/
     top: -24px !important;
     font-size: 11px !important;
     font-weight: 800 !important;
-    color: #94a3b8 !important;
+    color: var(--color-slate-grey, #777777) !important;
 }
 
 .odm-process__label {
     font-size: 12px !important;
     font-weight: 600 !important;
-    color: #475569 !important;
+    color: var(--color-slate-grey, #777777) !important;
     max-width: 120px !important;
     line-height: 1.4 !important;
 }
@@ -37911,7 +37860,7 @@ hero section compamny overview*/
 }
 
 .odm-faq-item {
-    border: 1px solid #e2e8f0 !important;
+    border: 1px solid rgba(62,140,251,.22) !important;
     border-radius: 12px !important;
     margin-bottom: 12px !important;
     overflow: hidden !important;
@@ -37920,7 +37869,7 @@ hero section compamny overview*/
 }
 
 .odm-faq-item:hover {
-    border-color: #cbd5e1 !important;
+    border-color: rgba(62,140,251,.22) !important;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
 }
 
@@ -37933,7 +37882,7 @@ hero section compamny overview*/
     display: flex !important;
     justify-content: space-between !important;
     align-items: center !important;
-    color: #1a1a2e !important;
+    color: var(--color-carbon-black, #0D1117) !important;
 }
 
 .odm-faq-item summary::-webkit-details-marker {
@@ -37946,7 +37895,7 @@ hero section compamny overview*/
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    background: #f1f5f9 !important;
+    background: rgba(62,140,251,.05) !important;
     border-radius: 50% !important;
     transition: all 0.3s !important;
     flex-shrink: 0 !important;
@@ -37955,36 +37904,38 @@ hero section compamny overview*/
 .odm-faq-icon::after {
     content: "+" !important;
     font-size: 16px !important;
-    color: #64748b !important;
+    color: var(--color-slate-grey, #777777) !important;
     font-weight: 600 !important;
     line-height: 1 !important;
 }
 
 .odm-faq-item[open] .odm-faq-icon {
     background: var(--color-signature-blue) !important;
-    transform: rotate(45deg) !important;
 }
 
 .odm-faq-item[open] .odm-faq-icon::after {
     color: #fff !important;
-}
+        content: "\00d7" !important;
+    }
 
 .odm-faq-item[open] summary {
-    border-bottom: 1px solid #e2e8f0 !important;
+    border-bottom: 1px solid rgba(62,140,251,.22) !important;
 }
 
 .odm-faq-item p {
     padding: 18px 24px !important;
     font-size: 15px !important;
     line-height: 1.75 !important;
-    color: #475569 !important;
+    color: var(--color-slate-grey, #777777) !important;
     margin: 0 !important;
 }
 
-/* ─── CTA ─── */
+/* ─── CTA — same band, buttons and accent as .svcx-cta on /services ─── */
+.odm-cta h2 em, .odm-cta h2 span, .odm-cta .odm-accent { color: var(--color-signature-blue) !important; font-style: normal !important; -webkit-text-fill-color: currentColor !important; background: none !important; }
+
 .odm-cta {
-    background: linear-gradient(135deg, #030712 0%, #1e3a5f 50%, #030712 100%) !important;
-    padding: 90px 0 !important;
+    background: var(--color-deep-indigo, #0C1C32) !important;
+    padding: 88px 0 !important;
     text-align: center !important;
     position: relative !important;
     overflow: hidden !important;
@@ -37994,7 +37945,7 @@ hero section compamny overview*/
     position: absolute !important;
     width: 500px !important;
     height: 500px !important;
-    background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, transparent 70%) !important;
+    background: radial-gradient(circle, rgba(62,140,251, 0.15) 0%, transparent 70%) !important;
     top: 50% !important;
     left: 50% !important;
     transform: translate(-50%, -50%) !important;
@@ -38009,19 +37960,19 @@ hero section compamny overview*/
 }
 
 .odm-cta h2 {
-    font-size: 36px !important;
-    font-weight: 800 !important;
-    color: #fff !important;
+    font-size: clamp(26px, 3.4vw, 38px) !important;
+    font-weight: 700 !important;
+    color: #FFFFFF !important;
     margin: 18px 0 14px !important;
-    line-height: 1.25 !important;
-    letter-spacing: -0.3px !important;
+    line-height: 1.24 !important;
+    letter-spacing: -0.6px !important;
 }
 
 .odm-cta p {
-    font-size: 17px !important;
-    color: rgba(255, 255, 255, 0.6) !important;
+    font-size: 16px !important;
+    color: rgba(255, 255, 255, 0.82) !important;
     margin: 0 0 32px !important;
-    line-height: 1.7 !important;
+    line-height: 28px !important;
 }
 
 .odm-cta__btns {
@@ -40778,10 +40729,7 @@ hero section compamny overview*/
 }
 
 .macs-text-accent {
-    background: linear-gradient(135deg, #3b82f6, #6366f1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--color-signature-blue, #3E8CFB);
 }
 
 /* ════════════════════════════════════
@@ -40834,12 +40782,7 @@ hero section compamny overview*/
 }
 
 .macs-hero__title-glow {
-    background: linear-gradient(135deg, #60a5fa, #a78bfa, #f472b6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: macsGlowShift 4s ease-in-out infinite;
-    background-size: 200% 200%;
+    color: var(--color-signature-blue, #3E8CFB);
 }
 
 @keyframes macsGlowShift {
@@ -41109,11 +41052,8 @@ hero section compamny overview*/
     font-size: 60px;
     font-weight: 800;
     line-height: 1;
-    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
     margin-bottom: 8px;
+    color: var(--color-signature-blue, #3E8CFB);
 }
 
 .macs-testimonial__text {
@@ -41249,11 +41189,8 @@ hero section compamny overview*/
     display: block;
     font-size: 28px;
     font-weight: 800;
-    background: linear-gradient(135deg, #3b82f6, #6366f1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
     margin-bottom: 12px;
+    color: var(--color-signature-blue, #3E8CFB);
 }
 
 .macs-why__card p {
@@ -41612,12 +41549,7 @@ hero section compamny overview*/
 }
 
 .csd-hero__title-gradient {
-    background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 40%, #f472b6 70%, #60a5fa 100%);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: csdGradientShift 6s ease-in-out infinite;
+    color: var(--color-signature-blue, #3E8CFB);
 }
 
 @keyframes csdGradientShift {
@@ -42146,12 +42078,9 @@ hero section compamny overview*/
 .csd-testimonial__quote-mark {
     font-size: 56px;
     line-height: 1;
-    background: linear-gradient(135deg, #60a5fa, #a78bfa);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
     margin-bottom: 12px;
     position: relative;
+    color: var(--color-signature-blue, #3E8CFB);
 }
 
 .csd-testimonial__text {

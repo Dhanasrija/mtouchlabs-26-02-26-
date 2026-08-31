@@ -337,10 +337,7 @@
 }
 
 .blv3-title-gradient {
-  background: linear-gradient(135deg, #6366f1, #a855f7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-signature-blue, #3E8CFB);
 }
 
 /* Meta row */
