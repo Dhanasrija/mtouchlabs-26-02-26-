@@ -737,7 +737,7 @@ export default function SoftwareDevelopmentCompanyUSA() {
           <p className="loc-ctaDesc">Turn your business idea, technology challenge, or product roadmap into software built for real-world growth. Whether you need to develop a new product, modernize an existing application, add AI capabilities, or expand your engineering capacity, mTouch Labs can help you define the right approach and move your project forward.</p>
           <div className="loc-ctaActions">
             <ExtLink href="/contact-us" className="loc-ctaBtnPrimary"><UIcon d={UI.send} s={17} />Start Your Software Project</ExtLink>
-            <ExtLink href="/request-free-quote" className="loc-ctaBtnSecondary"><UIcon d={UI.doc} s={17} />Talk to a Software Expert</ExtLink>
+            <ExtLink href="/portfolio" className="loc-ctaBtnSecondary"><UIcon d={UI.doc} s={17} />View Our work</ExtLink>
           </div>
         </div>
       </section>
