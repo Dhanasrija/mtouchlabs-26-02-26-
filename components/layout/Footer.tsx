@@ -232,7 +232,10 @@ export default function Footer() {
             {/* Col 1: Brand */}
             <div className="ft-brand-col">
               <div className="ft-logo">
-                <img width={1854} height={374} loading="lazy" decoding="async" src="/images/logo-black.svg" alt="mTouch Labs" className="ft-logo-img" />
+                {/* White lockup: the footer surface is Deep Navy, so the
+                    black logo rendered as an invisible block. Old line:
+                    src="/images/logo-black.svg" */}
+                <img width={1854} height={374} loading="lazy" decoding="async" src="/images/logo-white.svg" alt="mTouch Labs" className="ft-logo-img" />
               </div>
               <div className="ft-logo-line" />
               <p className="ft-brand-desc">

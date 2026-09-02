@@ -221,6 +221,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             body-level <style> tags. Bump ?v= when editing it. */}
         <link href="/css/component-styles.css?v=8" rel="stylesheet" />
 
+        {/* Footer surface — dark navy + diamond lattice, pinned explicitly.
+            style.css declares `.ft-main` twice and BOTH are a light lavender
+            gradient, so the dark footer was only winning by bundle order.
+            This sheet loads last so a re-run of scripts/_css_bundle.py can
+            never flip the footer back to light with dark-on-dark text.
+            See public/css/footer-pattern.css for the sampled values. */}
+        <link href="/css/footer-pattern.css?v=1" rel="stylesheet" />
+
         {/* Favicon links are emitted by the `icons` field in the metadata export above */}
       </head>
       <body suppressHydrationWarning>

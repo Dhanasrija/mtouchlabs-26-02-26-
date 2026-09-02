@@ -63,11 +63,15 @@
   margin: 0;
   padding-bottom: 4px;
 }
+/* Flat Signature Blue, not a gradient. The blue->navy blend read as
+   indigo and fought the black half of the heading. Also listed in
+   brand.css's gradient-text flatten block. */
 .pf-title span {
-  background: linear-gradient(90deg, var(--pf-brand) 0%, var(--pf-brand-dark) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  background: none;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-text-fill-color: var(--color-signature-blue, #3E8CFB);
+  color: var(--color-signature-blue, #3E8CFB);
 }
 
 /* Horizontally scrollable chip row on small screens */

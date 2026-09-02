@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300" fill="none" role="img" aria-label="Vidhana Soudha, Bengaluru">
+  <title>Vidhana Soudha, Bengaluru</title>
+  <!-- Monoline line art in the same grey weight as usa.svg / hyderabad.svg -->
+  <g stroke="#B9BDC4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- ── Central dome ── -->
+    <path d="M150 34c-1.6 0-2.8 1.3-2.8 2.9 0 1.3.8 2.3 2 2.7v4.6"/>
+    <circle cx="150" cy="30.5" r="3.2"/>
+    <!-- dome bulb -->
+    <path d="M126 78c0-15.5 10.7-28.5 24-28.5s24 13 24 28.5"/>
+    <path d="M133 78c0-12 7.6-21.8 17-21.8S167 66 167 78"/>
+    <!-- dome ribs -->
+    <path d="M150 49.5V78M138.4 53.6 145 78M161.6 53.6 155 78"/>
+    <!-- dome drum -->
+    <path d="M122 78h56v7h-56z"/>
+    <path d="M126 85h48v6h-48z"/>
+    <!-- drum arcade -->
+    <path d="M132 91v-6M141 91v-6M150 91v-6M159 91v-6M168 91v-6"/>
+
+    <!-- ── Central portico ── -->
+    <path d="M117 91h66v9h-66z"/>
+    <!-- pediment -->
+    <path d="M113 118 150 100l37 18"/>
+    <path d="M113 118h74"/>
+    <path d="M124 116 150 104l26 12"/>
+    <!-- portico columns -->
+    <path d="M118 118v46M129 118v46M140 118v46M150 118v46M160 118v46M171 118v46M182 118v46"/>
+    <!-- portico arches -->
+    <path d="M118 132a5.5 5.5 0 0 1 11 0M129 132a5.5 5.5 0 0 1 11 0M140 132a5 5 0 0 1 10 0M150 132a5 5 0 0 1 10 0M160 132a5.5 5.5 0 0 1 11 0M171 132a5.5 5.5 0 0 1 11 0"/>
+    <!-- portico base -->
+    <path d="M112 164h76v8h-76z"/>
+
+    <!-- ── Flanking domed pavilions, left ── -->
+    <circle cx="104" cy="86" r="2.4"/>
+    <path d="M104 88.4v3.6"/>
+    <path d="M92 108c0-9.7 5.4-17.6 12-17.6S116 98.3 116 108"/>
+    <path d="M89 108h30v6H89z"/>
+    <path d="M93 114v34M100 114v34M108 114v34M115 114v34"/>
+    <path d="M93 124a3.5 3.5 0 0 1 7 0M100 124a4 4 0 0 1 8 0M108 124a3.5 3.5 0 0 1 7 0"/>
+
+    <!-- ── Flanking domed pavilions, right ── -->
+    <circle cx="196" cy="86" r="2.4"/>
+    <path d="M196 88.4v3.6"/>
+    <path d="M184 108c0-9.7 5.4-17.6 12-17.6S208 98.3 208 108"/>
+    <path d="M181 108h30v6h-30z"/>
+    <path d="M185 114v34M192 114v34M200 114v34M207 114v34"/>
+    <path d="M185 124a3.5 3.5 0 0 1 7 0M192 124a4 4 0 0 1 8 0M200 124a3.5 3.5 0 0 1 7 0"/>
+
+    <!-- ── Left wing ── -->
+    <path d="M46 148h66v24H46z"/>
+    <path d="M52 148v24M61 148v24M70 148v24M79 148v24M88 148v24M97 148v24M106 148v24"/>
+    <path d="M52 158a4.5 4.5 0 0 1 9 0M61 158a4.5 4.5 0 0 1 9 0M70 158a4.5 4.5 0 0 1 9 0M79 158a4.5 4.5 0 0 1 9 0M88 158a4.5 4.5 0 0 1 9 0M97 158a4.5 4.5 0 0 1 9 0"/>
+    <!-- left corner tower -->
+    <path d="M40 138h18v10H40z"/>
+    <path d="M37 138c0-7 5-12.5 12-12.5S61 131 61 138"/>
+    <circle cx="49" cy="122" r="2"/>
+    <path d="M49 124v1.5"/>
+
+    <!-- ── Right wing ── -->
+    <path d="M188 148h66v24h-66z"/>
+    <path d="M194 148v24M203 148v24M212 148v24M221 148v24M230 148v24M239 148v24M248 148v24"/>
+    <path d="M194 158a4.5 4.5 0 0 1 9 0M203 158a4.5 4.5 0 0 1 9 0M212 158a4.5 4.5 0 0 1 9 0M221 158a4.5 4.5 0 0 1 9 0M230 158a4.5 4.5 0 0 1 9 0M239 158a4.5 4.5 0 0 1 9 0"/>
+    <!-- right corner tower -->
+    <path d="M242 138h18v10h-18z"/>
+    <path d="M239 138c0-7 5-12.5 12-12.5S263 131 263 138"/>
+    <circle cx="251" cy="122" r="2"/>
+    <path d="M251 124v1.5"/>
+
+    <!-- ── Lower storey, full width ── -->
+    <path d="M40 172h220v30H40z"/>
+    <path d="M49 172v30M60 172v30M71 172v30M82 172v30M93 172v30M104 172v30M115 172v30M126 172v30M137 172v30M150 172v30M163 172v30M174 172v30M185 172v30M196 172v30M207 172v30M218 172v30M229 172v30M240 172v30M251 172v30"/>
+    <path d="M40 186h220"/>
+
+    <!-- ── Plinth + steps ── -->
+    <path d="M36 202h228v7H36z"/>
+    <path d="M120 209h60v6h-60z"/>
+    <path d="M114 215h72v6h-72z"/>
+    <path d="M108 221h84v6h-84z"/>
+    <path d="M102 227h96v6h-96z"/>
+
+    <!-- ── Forecourt railing ── -->
+    <path d="M30 246h240"/>
+    <path d="M30 240v12M42 241v9M54 241v9M66 241v9M78 241v9M90 241v9M102 241v9M114 241v9M126 241v9M138 241v9M150 240v12M162 241v9M174 241v9M186 241v9M198 241v9M210 241v9M222 241v9M234 241v9M246 241v9M258 241v9M270 240v12"/>
+    <path d="M30 252h240"/>
+
+    <!-- ── Ground line ── -->
+    <path d="M22 266h256" stroke-width="1.3"/>
+  </g>
+</svg>

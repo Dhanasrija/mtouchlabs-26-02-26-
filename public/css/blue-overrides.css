@@ -1,0 +1,13 @@
+/* ═══════════════════════════════════════════════════════════════
+   REVERTED — this file is intentionally empty.
+
+   It briefly recoloured the blog table of contents and the portfolio
+   filter chips from Indigo/Purple to Signature Blue. That change was
+   rolled back on request, so the rules are gone and the <link> to this
+   file has been removed from app/layout.tsx. Nothing loads it.
+
+   The file itself is left here only because it cannot be deleted
+   remotely. It is safe to delete:
+
+       rm public/css/blue-overrides.css
+   ═══════════════════════════════════════════════════════════════ */
