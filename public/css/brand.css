@@ -506,7 +506,11 @@ a:focus-visible { outline: 2px solid var(--color-signature-blue); outline-offset
 .xp-glow,
 .its-section__h2 em,
 .its-hero__h1-accent,
-.sp-hero__title-grad {
+.sp-hero__title-grad,
+/* /careers  — "Build Your Career with mTouch Labs" */
+.itsc-h1-gradient,
+/* /portfolio — "Our Portfolio" */
+.pf-title span {
   background: none !important;
   background-image: none !important;
   background-size: auto !important;

@@ -1,0 +1,176 @@
+/* ═══════════════════════════════════════════════════════════════
+   mTouch Labs — Footer surface
+   Loaded LAST in app/layout.tsx, after component-styles.css.
+
+   WHY THIS FILE EXISTS
+   The footer's dark navy + diamond lattice was being produced somewhere
+   in the 17-sheet bundle, but style.css itself declares `.ft-main` TWICE
+   and both declarations are a light lavender gradient:
+
+       .ft-main { background: linear-gradient(116.72deg,#F3F0FF,#F0F6FF); }
+
+   So the dark treatment was only winning because some later sheet in the
+   concatenation happened to override it. Any re-ordering of that bundle
+   (scripts/_css_bundle.py) would have silently flipped the footer back to
+   light with dark-on-dark text. This file pins it explicitly.
+
+   The values below are sampled from the approved footer render, not
+   estimated:
+     base navy        rgb(10, 32, 79)   #0A204F
+     lattice highlight rgb(17, 39, 86)  #112756  (base + ~3% white)
+     bottom bar       rgb(248,249,252)  #F8F9FC
+
+   The lattice is two crossing repeating-linear-gradients rather than an
+   image: it stays razor sharp at any zoom or DPR, tiles seamlessly at any
+   footer height, and costs zero requests. The white is deliberately held
+   at ~0.9% per band (~1.8% where they cross) so the diamonds read as a
+   faint texture in the navy rather than a visible graphic.
+
+   `background` is set as the full shorthand with !important so it REPLACES
+   whatever the bundle declares rather than layering on top of it — that is
+   what keeps the pattern from being drawn twice.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* The surface is set on `.ft`, the footer root, NOT on `.ft-main`.
+   `.ft-presence` (Global Presence) is a SIBLING of `.ft-main`, not a
+   child of it, so anything scoped to `.ft-main` never reached it — which
+   is exactly why that block stayed light. Painting the root also means
+   the diamond lattice runs unbroken from the brand block straight through
+   Global Presence, instead of restarting at each block. */
+.ft {
+  background-color: #0A204F !important;
+  background-image:
+    repeating-linear-gradient(45deg,
+      rgba(255, 255, 255, .009) 0 96px,
+      rgba(255, 255, 255, 0) 96px 192px),
+    repeating-linear-gradient(-45deg,
+      rgba(255, 255, 255, .009) 0 96px,
+      rgba(255, 255, 255, 0) 96px 192px) !important;
+  background-repeat: repeat, repeat !important;
+  background-position: center top, center top !important;
+  background-size: auto, auto !important;
+}
+/* Both dark blocks let the root's pattern through. */
+.ft-main,
+.ft-presence { background: transparent !important; }
+
+/* The closing bar stays light, with dark text — as rendered. Its own
+   opaque fill covers the root pattern behind it. */
+.ft-bottom {
+  background: #F8F9FC !important;
+}
+
+/* Softer, larger lattice on phones: at 96px the diamonds crowd a narrow
+   viewport and start to read as noise rather than texture. */
+@media (max-width: 720px) {
+  .ft {
+    background-image:
+      repeating-linear-gradient(45deg,
+        rgba(255, 255, 255, .008) 0 64px,
+        rgba(255, 255, 255, 0) 64px 128px),
+      repeating-linear-gradient(-45deg,
+        rgba(255, 255, 255, .008) 0 64px,
+        rgba(255, 255, 255, 0) 64px 128px) !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   DARK FOOTER THEME
+   --------------------------------------------------------------
+   The rules above only changed the SURFACE. The bundle still ships
+   style.css's light-footer text colours, which were correct when
+   `.ft-main` was a lavender gradient and become invisible on navy:
+
+       .ft-brand-desc  { color: #4a5568 }
+       .ft-contact-link{ color: #0f172a !important }
+
+   Everything below re-themes the footer's contents for the dark
+   surface. `!important` appears only where the bundle already uses
+   it — matching specificity, not escalating past it.
+
+   Colours are sampled from the approved render:
+     body copy      rgba(255,255,255,.72)
+     links          rgba(255,255,255,.86) → #FFF on hover
+     column heads   rgba(255,255,255,.55)
+     region labels  #3E8CFB  (Signature Blue, from brand.css)
+     hairlines      rgba(255,255,255,.12)
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Brand column ── */
+:is(.ft-main, .ft-presence) .ft-brand-desc { color: rgba(255, 255, 255, .72) !important; }
+:is(.ft-main, .ft-presence) .ft-logo-line { background: var(--color-signature-blue, #3E8CFB) !important; }
+
+:is(.ft-main, .ft-presence) .ft-contact-info { color: #FFFFFF !important; }
+:is(.ft-main, .ft-presence) .ft-contact-link { color: #FFFFFF !important; }
+:is(.ft-main, .ft-presence) .ft-contact-link svg { color: var(--color-signature-blue, #3E8CFB) !important; }
+:is(.ft-main, .ft-presence) .ft-contact-link:hover { color: var(--color-signature-blue, #3E8CFB) !important; }
+:is(.ft-main, .ft-presence) .ft-email-text { color: #FFFFFF !important; }
+
+/* Social icons — translucent white discs, as rendered. */
+:is(.ft-main, .ft-presence) .ft-social-icon {
+  background: rgba(255, 255, 255, .10) !important;
+  border-color: rgba(255, 255, 255, .16) !important;
+  transition: background .25s ease, transform .25s ease;
+}
+:is(.ft-main, .ft-presence) .ft-social-icon:hover {
+  background: var(--color-signature-blue, #3E8CFB) !important;
+  transform: translateY(-2px);
+}
+:is(.ft-main, .ft-presence) .ft-social-icon img {
+  /* CORRECTION: an earlier version of this file claimed these PNGs were
+     already white. They are not — /images/footer/SVG (13..17).png are pure
+     black artwork (RGB 0,0,0) on transparency, so on navy they read as dark
+     smudges. `brightness(0)` flattens any colour to black, then `invert(1)`
+     takes it to pure white, and the alpha channel is left untouched. This
+     recolours the glyphs without editing five asset files. */
+  filter: brightness(0) invert(1) !important;
+}
+/* On hover the disc turns Signature Blue; the glyph stays white. */
+:is(.ft-main, .ft-presence) .ft-social-icon:hover img {
+  filter: brightness(0) invert(1) !important;
+}
+
+/* ── Link columns ── */
+:is(.ft-main, .ft-presence) .ft-col-heading {
+  color: rgba(255, 255, 255, .55) !important;
+  letter-spacing: 1.6px;
+}
+:is(.ft-main, .ft-presence) .ft-link-list a { color: rgba(255, 255, 255, .86) !important; }
+:is(.ft-main, .ft-presence) .ft-link-list a:hover { color: #FFFFFF !important; }
+
+/* ── Brochure CTA ── */
+:is(.ft-main, .ft-presence) .ft-brochure-btn {
+  background: var(--color-signature-blue, #3E8CFB) !important;
+  border-color: var(--color-signature-blue, #3E8CFB) !important;
+  color: #FFFFFF !important;
+}
+:is(.ft-main, .ft-presence) .ft-brochure-btn:hover { filter: brightness(.93); color: #FFFFFF !important; }
+
+/* ── Global Presence ──
+   These live in `.ft-presence`, which is why the selectors above are
+   written as :is(.ft-main, .ft-presence) rather than `.ft-main` alone. */
+:is(.ft-main, .ft-presence) .ft-presence-title { color: #FFFFFF !important; }
+:is(.ft-main, .ft-presence) .ft-presence-header svg,
+:is(.ft-main, .ft-presence) .ft-presence-header i { color: var(--color-signature-blue, #3E8CFB) !important; }
+:is(.ft-main, .ft-presence) .ft-region-label { color: var(--color-signature-blue, #3E8CFB) !important; }
+:is(.ft-main, .ft-presence) .ft-region-dot { background: var(--color-signature-blue, #3E8CFB) !important; }
+:is(.ft-main, .ft-presence) .ft-region-list a { color: rgba(255, 255, 255, .86) !important; }
+:is(.ft-main, .ft-presence) .ft-region-list a:hover { color: #FFFFFF !important; }
+
+/* ── Hairlines ── */
+:is(.ft-main, .ft-presence) .ft-divider,
+:is(.ft-main, .ft-presence) .ft-section-divider {
+  background: rgba(255, 255, 255, .12) !important;
+  border-color: rgba(255, 255, 255, .12) !important;
+}
+
+/* Any remaining anchor inside the dark area, as a safety net. The bundle
+   sets `.ft a:hover { color:#0074E6 }`, which is too dark on navy. */
+:is(.ft-main, .ft-presence) a:hover { color: var(--color-signature-blue, #3E8CFB) !important; }
+
+/* ── Bottom bar: light surface, dark text ── */
+.ft-bottom .ft-copyright { color: #0D1117 !important; }
+.ft-bottom .ft-copyright a { color: var(--color-slate-grey, #777777) !important; }
+.ft-bottom .ft-copyright a:hover { color: var(--color-signature-blue, #3E8CFB) !important; }
+.ft-bottom .ft-legal a { color: #0D1117 !important; }
+.ft-bottom .ft-legal a:hover { color: var(--color-signature-blue, #3E8CFB) !important; }
