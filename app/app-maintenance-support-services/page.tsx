@@ -109,7 +109,7 @@
 //                 <span className="am-stat__label">Response Time</span>
 //               </div>
 //               <div className="am-stat am-stat--dark">
-//                 <span className="am-stat__number">1500+</span>
+//                 <span className="am-stat__number">1,500+</span>
 //                 <span className="am-stat__label">Apps Maintained</span>
 //               </div>
 //               <div className="am-stat am-stat--dark">

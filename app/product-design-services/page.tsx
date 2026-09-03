@@ -52,7 +52,7 @@ export default function ProductDesignServices() {
 
       <section className="pd-whoweare"><div className="pd-container"><div className="pd-whoweare__grid">
         <div className="pd-whoweare__stats pd-animate--left">
-          <div className="pd-stat pd-stat--dark"><span className="pd-stat__number">1500+</span><span className="pd-stat__label">Products Designed</span></div>
+          <div className="pd-stat pd-stat--dark"><span className="pd-stat__number">1,500+</span><span className="pd-stat__label">Products Designed</span></div>
           <div className="pd-stat pd-stat--dark"><span className="pd-stat__number">MVP</span><span className="pd-stat__label">Rapid Validation</span></div>
           <div className="pd-stat pd-stat--dark"><span className="pd-stat__number">SaaS</span><span className="pd-stat__label">Enterprise Focus</span></div>
           <div className="pd-stat pd-stat--dark"><span className="pd-stat__number">14+</span><span className="pd-stat__label">Years Experience</span></div>
@@ -129,7 +129,7 @@ export default function ProductDesignServices() {
           </div>
         </div>
         <div className="pd-tech__stats pd-animate--right">
-          <div className="pd-stat pd-stat--dark"><span className="pd-stat__number">1500+</span><span className="pd-stat__label">Products</span></div>
+          <div className="pd-stat pd-stat--dark"><span className="pd-stat__number">1,500+</span><span className="pd-stat__label">Products</span></div>
           <div className="pd-stat pd-stat--dark"><span className="pd-stat__number">MVP</span><span className="pd-stat__label">Rapid Design</span></div>
           <div className="pd-stat pd-stat--dark"><span className="pd-stat__number">SaaS</span><span className="pd-stat__label">Expertise</span></div>
           <div className="pd-stat pd-stat--dark"><span className="pd-stat__number">14+</span><span className="pd-stat__label">Years</span></div>

@@ -4,7 +4,7 @@ import ServiceHero from "@/components/sections/ServiceHero";
 const IMG = "/images/products/ai_chatbot_development";
 
 export const metadata: Metadata = {
-  title: "AI Chatbot Development Company | Custom AI Chatbots | mTouch Labs",
+  title: { absolute: "AI Chatbot Development Company | Custom AI Chatbots | mTouch Labs" },
   description:
     "Build intelligent AI chatbots with mTouch Labs. Get custom AI chatbot development for customer support, lead generation, knowledge retrieval, and business automation.",
   keywords: [

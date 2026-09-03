@@ -4,7 +4,7 @@ import ServiceHero from "@/components/sections/ServiceHero";
 const IMG = "/images/products/ai_customer_support";
 
 export const metadata: Metadata = {
-  title: "AI Customer Support System Development | mTouch Labs",
+  title: { absolute: "AI Customer Support System Development | mTouch Labs" },
   description:
     "Build an AI customer support system with mTouch Labs to automate customer queries, assist support teams, resolve tickets, and deliver faster service.",
   keywords: [

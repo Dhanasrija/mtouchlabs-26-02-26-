@@ -103,7 +103,7 @@
 //           <div className="ma-whoweare__grid">
 //             <div className="ma-whoweare__stats ma-animate--left">
 //               <div className="ma-stat ma-stat--dark">
-//                 <span className="ma-stat__number">1500+</span>
+//                 <span className="ma-stat__number">1,500+</span>
 //                 <span className="ma-stat__label">Apps Delivered</span>
 //               </div>
 //               <div className="ma-stat ma-stat--dark">
@@ -649,7 +649,7 @@ export default function MobileAppDevelopment() {
                 <span className="ma-stat__label">API Integrations</span>
               </div>
               <div className="ma-stat ma-stat--dark">
-                <span className="ma-stat__number">1500+</span>
+                <span className="ma-stat__number">1,500+</span>
                 <span className="ma-stat__label">Apps Delivered</span>
               </div>
             </div>

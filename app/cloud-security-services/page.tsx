@@ -53,7 +53,7 @@ export default function CloudSecurityServices() {
 
       <section className="se-whoweare"><div className="se-container"><div className="se-whoweare__grid">
         <div className="se-whoweare__stats se-animate--left">
-          <div className="se-stat se-stat--dark"><span className="se-stat__number">1500+</span><span className="se-stat__label">Security Projects</span></div>
+          <div className="se-stat se-stat--dark"><span className="se-stat__number">1,500+</span><span className="se-stat__label">Security Projects</span></div>
           <div className="se-stat se-stat--dark"><span className="se-stat__number">GDPR</span><span className="se-stat__label">Compliance Ready</span></div>
           <div className="se-stat se-stat--dark"><span className="se-stat__number">24/7</span><span className="se-stat__label">Threat Monitoring</span></div>
           <div className="se-stat se-stat--dark"><span className="se-stat__number">0</span><span className="se-stat__label">Security Breaches</span></div>

@@ -95,7 +95,7 @@
 // 								is a regular job for our
 // 								dedicated website developers. mTouchlabs dedicated Web
 // 								Developers in India have
-// 								completed over 1500+ projects for our global clients. We
+// 								completed over 1,500+ projects for our global clients. We
 // 								specialize in website
 // 								development and outsourcing services and have a long
 // 								history of satisfied clients across

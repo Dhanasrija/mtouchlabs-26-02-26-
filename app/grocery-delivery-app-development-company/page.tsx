@@ -9,6 +9,7 @@
 //     "grocery delivery app development Hyderabad, grocery app development company, grocery delivery app developers, hyperlocal grocery delivery app, multi vendor grocery app development, online grocery app development",
 //   robots: "index, follow",
 //   alternates: {
+//    canonical: "https://www.mtouchlabs.com/grocery-delivery-app-development-company",
 //     canonical:
 //       "https://www.mtouchlabs.com/grocery-delivery-app-development-company-hyderabad",
 //   },

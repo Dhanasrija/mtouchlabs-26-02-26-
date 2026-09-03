@@ -144,7 +144,7 @@
 // 								solutions to startups, SMEs,
 // 								large enterprises, and eCommerce sites around the globe
 // 								since 2011. With our expert
-// 								Software Professionals and over 1500+ satisfied clients,
+// 								Software Professionals and over 1,500+ satisfied clients,
 // 								we are ready to meet your
 // 								needs.
 // 							</p>

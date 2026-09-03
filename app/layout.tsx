@@ -19,6 +19,12 @@ export const viewport: Viewport = {
   themeColor: "#3E8CFB",
 };
 
+/*
+ * Set this to the founder's name to complete the Organization schema.
+ * Left empty deliberately — see the note beside `founder` below.
+ */
+const FOUNDER_NAME = "";
+
 export const metadata = {
   metadataBase: new URL('https://www.mtouchlabs.com'),
   // NOTE: no global `alternates.canonical` here — a root-layout canonical
@@ -125,15 +131,52 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               "url": "https://www.mtouchlabs.com",
               // Google requires the logo to be ≥112×112px — favicon.png (100×100) fails that.
               "logo": "https://www.mtouchlabs.com/images/Light.png",
-              "description": "Leading software development company specializing in web and mobile app development, partnering with Telangana and Abu Dhabi Governments.",
-              "foundingDate": "2014",
+              /* Word-for-word the WHO_WE_ARE paragraph rendered on the
+                 homepage and published in public/.well-known/llms.txt.
+                 All three have to say the same thing: a figure that
+                 disagrees with itself across a site gets discounted. */
+              "description": "mTouch Labs Private Limited (trading as mTouch Labs) is a software development company incorporated on 30 August 2012 and headquartered in Hyderabad, Telangana, India, with additional offices in Bengaluru, India and Dover, Delaware, USA. It builds custom software, enterprise applications, AI-powered products, mobile apps, web platforms and SaaS products, and has delivered 1,500+ projects for 500+ clients across 12+ countries in 14+ years of operation. mTouch Labs is ISO 9001 and ISO 27001 certified and a NASSCOM member, has delivered platforms for the Government of Telangana and the Government of Abu Dhabi, and won the Digital Transformation Catalyst award at the NASSCOM SME Inspire Awards 2026.",
+              "legalName": "mTouch Labs Private Limited",
+              /* 2012, not 2014. The old value contradicted the "14+ years"
+                 claimed everywhere in the copy — 2014 would make it 12. */
+              "foundingDate": "2012-08-30",
               "address": {
                 "@type": "PostalAddress",
+                /* streetAddress was missing entirely. Google will not show
+                   a local knowledge panel without it. Value as published
+                   on /contact-us. */
+                "streetAddress": "#514, Manjeera Trinity Corporate, JNTU\u2013Hitech City Road, Kukatpally",
                 "addressLocality": "Hyderabad",
                 "addressRegion": "Telangana",
                 "postalCode": "500072",
                 "addressCountry": "IN"
               },
+              /* The award, named with its category and year. */
+              "award": [
+                "Digital Transformation Catalyst, NASSCOM SME Inspire Awards 2026"
+              ],
+              "hasCredential": ["ISO 9001", "ISO 27001"],
+              "memberOf": {
+                "@type": "Organization",
+                "name": "NASSCOM",
+                "alternateName": "National Association of Software and Service Companies",
+                "url": "https://nasscom.in/"
+              },
+              /* FOUNDER — the one field this could not be filled in for.
+                 No leadership page on the site names a person: /leadership-team
+                 lists roles only ("Founder & CEO", "Chief Technology Officer")
+                 with no names attached, so there was nothing to source and
+                 nothing was invented.
+
+                 TO COMPLETE: put the founder's name in FOUNDER_NAME at the
+                 top of this file. While it is an empty string the field is
+                 omitted from the JSON entirely, which is valid — a founder
+                 node with a placeholder name would not be. Adding the same
+                 names to /leadership-team is what makes this corroborated
+                 rather than merely asserted. */
+              ...(FOUNDER_NAME
+                ? { "founder": { "@type": "Person", "name": FOUNDER_NAME, "jobTitle": "Founder & CEO" } }
+                : {}),
               "contactPoint": [
                 { "@type": "ContactPoint", "telephone": "+91-9390683154", "contactType": "sales", "areaServed": "IN" },
                 { "@type": "ContactPoint", "telephone": "+1-551-222-0070", "contactType": "sales", "areaServed": "US" }

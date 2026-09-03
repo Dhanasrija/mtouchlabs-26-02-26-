@@ -83,7 +83,7 @@ export default function Page() {
                 <span className="co-stat__label">Years of Experience</span>
               </div>
               <div className="co-stat">
-                <span className="co-stat__number">1500+</span>
+                <span className="co-stat__number">1,500+</span>
                 <span className="co-stat__label">Projects Delivered</span>
               </div>
               <div className="co-stat">
