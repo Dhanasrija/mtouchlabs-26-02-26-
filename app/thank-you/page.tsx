@@ -2,7 +2,7 @@
 // export const metadata: Metadata = {
   // Every page declares its own canonical: app/layout.tsx sets none,
   // because a root canonical would mark every page a duplicate of "/".
-  alternates: { canonical: "https://www.mtouchlabs.com/thank-you" },
+ // alternates: { canonical: "https://www.mtouchlabs.com/thank-you" },
 //   title: "Thank You",
 //   robots: { index: false, follow: false },
 
