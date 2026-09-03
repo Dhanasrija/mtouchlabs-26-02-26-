@@ -93,7 +93,7 @@ export default function CustomCMSDevelopment() {
         <div className="cm-container">
           <div className="cm-whoweare__grid">
             <div className="cm-whoweare__stats cm-animate--left">
-              <div className="cm-stat cm-stat--dark"><span className="cm-stat__number">1500+</span><span className="cm-stat__label">CMS Projects Delivered</span></div>
+              <div className="cm-stat cm-stat--dark"><span className="cm-stat__number">1,500+</span><span className="cm-stat__label">CMS Projects Delivered</span></div>
               <div className="cm-stat cm-stat--dark"><span className="cm-stat__number">14+</span><span className="cm-stat__label">Years Experience</span></div>
               <div className="cm-stat cm-stat--dark"><span className="cm-stat__number">99.9%</span><span className="cm-stat__label">Uptime Guarantee</span></div>
               <div className="cm-stat cm-stat--dark"><span className="cm-stat__number">150+</span><span className="cm-stat__label">Expert Engineers</span></div>

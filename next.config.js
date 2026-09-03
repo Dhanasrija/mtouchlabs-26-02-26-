@@ -86,9 +86,20 @@ const nextConfig = {
         ],
       },
       {
+        // /llms.txt used to be sent with X-Robots-Tag: noindex, which defeated
+        // the entire point of the file — the crawlers it exists for were being
+        // told not to index it. It is now explicitly indexable.
         source: '/llms.txt',
         headers: [
-          { key: 'X-Robots-Tag', value: 'noindex' },
+          { key: 'X-Robots-Tag', value: 'all' },
+          { key: 'Content-Type', value: 'text/plain; charset=utf-8' },
+        ],
+      },
+      {
+        source: '/.well-known/llms.txt',
+        headers: [
+          { key: 'X-Robots-Tag', value: 'all' },
+          { key: 'Content-Type', value: 'text/plain; charset=utf-8' },
         ],
       },
       {
@@ -97,6 +108,13 @@ const nextConfig = {
           { key: 'X-Robots-Tag', value: 'noindex, nofollow' },
         ],
       },
+    ];
+  },
+
+  async rewrites() {
+    return [
+      // Crawlers look for llms.txt in both places; one generator serves both.
+      { source: '/.well-known/llms.txt', destination: '/llms.txt' },
     ];
   },
 

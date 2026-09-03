@@ -102,7 +102,7 @@
 //             <h1 className="ct-hero__title">Let&apos;s Build Something<br /><span className="ct-hero__accent">Extraordinary</span></h1>
 //             <p className="ct-hero__desc">Have a project in mind? Fill out the form and let&apos;s discuss how mTouch Labs can transform your vision into reality.</p>
 //             <div className="ct-hero__stats">
-//               <div className="ct-hero__stat"><span className="ct-hero__stat-num">1500+</span><span className="ct-hero__stat-label">Projects Delivered</span></div>
+//               <div className="ct-hero__stat"><span className="ct-hero__stat-num">1,500+</span><span className="ct-hero__stat-label">Projects Delivered</span></div>
 //               <div className="ct-hero__stat"><span className="ct-hero__stat-num">1000+</span><span className="ct-hero__stat-label">Global Clients</span></div>
 //               <div className="ct-hero__stat"><span className="ct-hero__stat-num">98%</span><span className="ct-hero__stat-label">Client Retention</span></div>
 //               <div className="ct-hero__stat"><span className="ct-hero__stat-num">24/7</span><span className="ct-hero__stat-label">Support Available</span></div>
@@ -440,7 +440,7 @@
 //             <h1 className="ct-hero__title">Let&apos;s Build Something<br /><span className="ct-hero__accent">Extraordinary</span></h1>
 //             <p className="ct-hero__desc">Have a project in mind? Fill out the form and let&apos;s discuss how mTouch Labs can transform your vision into reality.</p>
 //             <div className="ct-hero__stats">
-//               <div className="ct-hero__stat"><span className="ct-hero__stat-num">1500+</span><span className="ct-hero__stat-label">Projects Delivered</span></div>
+//               <div className="ct-hero__stat"><span className="ct-hero__stat-num">1,500+</span><span className="ct-hero__stat-label">Projects Delivered</span></div>
 //               <div className="ct-hero__stat"><span className="ct-hero__stat-num">1000+</span><span className="ct-hero__stat-label">Global Clients</span></div>
 //               <div className="ct-hero__stat"><span className="ct-hero__stat-num">98%</span><span className="ct-hero__stat-label">Client Retention</span></div>
 //               <div className="ct-hero__stat"><span className="ct-hero__stat-num">24/7</span><span className="ct-hero__stat-label">Support Available</span></div>
@@ -777,7 +777,7 @@ export default function ContactUsPage() {
             <h1 className="ct-hero__title">Let&apos;s Build Something<br /><span className="ct-hero__accent">Extraordinary</span></h1>
             <p className="ct-hero__desc">Have a project in mind? Fill out the form and let&apos;s discuss how mTouch Labs can transform your vision into reality.</p>
             <div className="ct-hero__stats">
-              <div className="ct-hero__stat"><span className="ct-hero__stat-num">1500+</span><span className="ct-hero__stat-label">Projects Delivered</span></div>
+              <div className="ct-hero__stat"><span className="ct-hero__stat-num">1,500+</span><span className="ct-hero__stat-label">Projects Delivered</span></div>
               <div className="ct-hero__stat"><span className="ct-hero__stat-num">1000+</span><span className="ct-hero__stat-label">Global Clients</span></div>
               <div className="ct-hero__stat"><span className="ct-hero__stat-num">98%</span><span className="ct-hero__stat-label">Client Retention</span></div>
               <div className="ct-hero__stat"><span className="ct-hero__stat-num">24/7</span><span className="ct-hero__stat-label">Support Available</span></div>

@@ -4,7 +4,7 @@ import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Review Us on Clutch",
-  description: "Your feedback matters! Leave mTouch Labs a review on Clutch. 14+ years of delivering enterprise software, mobile apps, and AI solutions across 20+ countries.",
+  description: "Your feedback matters! Leave mTouch Labs a review on Clutch. 14+ years of delivering enterprise software, mobile apps, and AI solutions across 12+ countries.",
   keywords: ["mTouch Labs Clutch review", "mTouch Labs rating", "software development company review", "mTouch Labs feedback", "Clutch review mTouch Labs"],
   alternates: { canonical: "https://www.mtouchlabs.com/clutch" },
   robots: { index: true, follow: true },
@@ -45,7 +45,7 @@ const clutchSchema = {
 };
 
 const stats = [
-  { number: "1500+", label: "Projects Delivered" },
+  { number: "1,500+", label: "Projects Delivered" },
   { number: "14+", label: "Years of Excellence" },
   { number: "98%", label: "Client Retention Rate" },
   { number: "4.9", label: "Average Rating" },

@@ -4,7 +4,7 @@ import ServiceHero from "@/components/sections/ServiceHero";
 const IMG = "/images/products/ai_sales_assistant";
 
 export const metadata: Metadata = {
-  title: "AI Sales Assistant Development Company | AI Sales Automation | mTouch Labs",
+  title: { absolute: "AI Sales Assistant Development Company | AI Sales Automation | mTouch Labs" },
   description:
     "Build an AI sales assistant with mTouch Labs to qualify leads, engage prospects, recommend solutions, automate sales tasks, and support your sales team.",
   keywords: [

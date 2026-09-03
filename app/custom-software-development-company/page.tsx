@@ -170,7 +170,7 @@ export default function CustomSoftwareDevelopment() {
 
       <section className="sd-whoweare"><div className="sd-container"><div className="sd-whoweare__grid">
         <div className="sd-whoweare__stats sd-animate--left">
-          <div className="sd-stat sd-stat--dark"><span className="sd-stat__number">1500+</span><span className="sd-stat__label">Projects Delivered</span></div>
+          <div className="sd-stat sd-stat--dark"><span className="sd-stat__number">1,500+</span><span className="sd-stat__label">Projects Delivered</span></div>
           <div className="sd-stat sd-stat--dark"><span className="sd-stat__number">14+</span><span className="sd-stat__label">Years Experience</span></div>
           <div className="sd-stat sd-stat--dark"><span className="sd-stat__number">ROI</span><span className="sd-stat__label">Focused Builds</span></div>
           <div className="sd-stat sd-stat--dark"><span className="sd-stat__number">Scale</span><span className="sd-stat__label">Ready Architecture</span></div>

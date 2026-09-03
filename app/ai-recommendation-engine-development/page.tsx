@@ -4,7 +4,7 @@ import ServiceHero from "@/components/sections/ServiceHero";
 const IMG = "/images/products/ai_recommendation_engine";
 
 export const metadata: Metadata = {
-  title: "AI Recommendation Engine Development Company | mTouch Labs",
+  title: { absolute: "AI Recommendation Engine Development Company | mTouch Labs" },
   description:
     "Build AI recommendation engines with mTouch Labs to personalize products, content, services, and user experiences with intelligent recommendations.",
   keywords: [

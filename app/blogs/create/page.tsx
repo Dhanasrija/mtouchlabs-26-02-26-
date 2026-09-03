@@ -3,6 +3,9 @@ import Link from 'next/link';
 import { createBlog } from '@/lib/blog-actions';
 
 export const metadata: Metadata = {
+  // Every page declares its own canonical: app/layout.tsx sets none,
+  // because a root canonical would mark every page a duplicate of "/".
+  alternates: { canonical: "https://www.mtouchlabs.com/blogs/create" },
   title: 'Create Blog | Admin',
   robots: 'noindex, nofollow',
 };

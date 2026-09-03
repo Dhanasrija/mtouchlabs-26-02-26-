@@ -41,7 +41,7 @@ export default function CloudServices() {
 
       <section className="cs-whoweare"><div className="cs-container"><div className="cs-whoweare__grid">
         <div className="cs-whoweare__stats cs-animate--left">
-          <div className="cs-stat cs-stat--dark"><span className="cs-stat__number">1500+</span><span className="cs-stat__label">Cloud Projects</span></div>
+          <div className="cs-stat cs-stat--dark"><span className="cs-stat__number">1,500+</span><span className="cs-stat__label">Cloud Projects</span></div>
           <div className="cs-stat cs-stat--dark"><span className="cs-stat__number">3</span><span className="cs-stat__label">Cloud Platforms</span></div>
           <div className="cs-stat cs-stat--dark"><span className="cs-stat__number">99.9%</span><span className="cs-stat__label">Uptime SLA</span></div>
           <div className="cs-stat cs-stat--dark"><span className="cs-stat__number">24/7</span><span className="cs-stat__label">Monitoring</span></div>

@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 };
 
 const stats = [
-  { num: "1500+", label: "Projects Delivered" },
+  { num: "1,500+", label: "Projects Delivered" },
   { num: "100+", label: "Expert Team Members" },
   { num: "14+", label: "Years of Excellence" },
   { num: "12+", label: "Countries Served" },
@@ -37,7 +37,7 @@ const stats = [
 const awards = [
   { icon: "🏆", title: "Award-Winning Designers", text: "Our design team has been recognized for creating exceptional user experiences for over 14 years, helping businesses worldwide achieve their digital goals." },
   { icon: "⭐", title: "4.9 Google Rating", text: "Consistently rated among the top mobile app development companies in Hyderabad with a 4.9-star rating across 500+ verified Google reviews." },
-  { icon: "👨‍💻", title: "70+ Dedicated Developers", text: "Our professional team has shipped 1500+ products for 80+ startups and enterprises, delivering technical excellence at every stage." },
+  { icon: "👨‍💻", title: "70+ Dedicated Developers", text: "Our professional team has shipped 1,500+ products for 80+ startups and enterprises, delivering technical excellence at every stage." },
   { icon: "⚡", title: "On-Time Delivery", text: "Known for timely project delivery and building lasting client relationships through transparent communication and agile execution." },
 ];
 
@@ -74,7 +74,7 @@ const pillars = [
 
 const faqs = [
   { q: "What does mTouch Labs specialize in?", a: "mTouch Labs specializes in mobile app development, web application development, UI/UX design, cloud services, AI solutions, Salesforce consulting, and digital marketing for businesses across 12+ countries." },
-  { q: "How long has mTouch Labs been in business?", a: "mTouch Labs was founded in 2011 and has over 14 years of experience delivering 1500+ projects for startups, enterprises, and government organizations worldwide." },
+  { q: "How long has mTouch Labs been in business?", a: "mTouch Labs was founded in 2012 and has over 14 years of experience delivering 1,500+ projects for startups, enterprises, and government organizations worldwide." },
   { q: "Where are mTouch Labs offices located?", a: "Our headquarters is in Hyderabad, India, with additional offices in Bangalore, India and Dover, Delaware, USA. We serve clients globally across 12+ countries." },
   { q: "What industries does mTouch Labs serve?", a: "We serve healthcare, fintech, eCommerce, real estate, education, logistics, SaaS, and enterprise sectors with custom digital solutions tailored to each industry." },
   { q: "How can I start a project with mTouch Labs?", a: "You can reach out through our contact page, request a quote, or call us directly. Our team will discuss your requirements, provide a consultation, and create a project plan tailored to your goals." },
@@ -100,13 +100,13 @@ export default function AboutPage() {
                 Who We <span className="abt-accent">Are</span>
               </h2>
               <p className="abt-who__text">
-                <strong>mTouch Labs</strong> is a top-tier software development company founded in 2011, providing a comprehensive range of <a href="/web-development-company" style={{ color: '#3E8CFB', textDecoration: 'none' }}>web development</a>, mobile app development, and digital transformation services from our offices in <a href="/software-development-company-hyderabad" style={{ color: '#3E8CFB', textDecoration: 'none' }}>Hyderabad</a>, Bangalore, and the USA.
+                <strong>mTouch Labs</strong> is a top-tier software development company founded in 2012, providing a comprehensive range of <a href="/web-development-company" style={{ color: '#3E8CFB', textDecoration: 'none' }}>web development</a>, mobile app development, and digital transformation services from our offices in <a href="/software-development-company-hyderabad" style={{ color: '#3E8CFB', textDecoration: 'none' }}>Hyderabad</a>, Bangalore, and the USA.
               </p>
               <p className="abt-who__text">
                 We specialize in building <a href="/custom-software-development-company" style={{ color: '#3E8CFB', textDecoration: 'none' }}>custom software solutions</a>, scalable web platforms, and enterprise-grade solutions that help businesses grow. Our team of 100+ engineers, designers, and strategists brings deep expertise across iOS, Android, Flutter, React Native, cloud infrastructure, AI, and Salesforce ecosystems.
               </p>
               <p className="abt-who__text">
-                From startups to government organizations — including Telangana and Abu Dhabi Governments — we&apos;ve delivered 1500+ products that combine technical excellence with exceptional user experience.
+                From startups to government organizations — including Telangana and Abu Dhabi Governments — we&apos;ve delivered 1,500+ products that combine technical excellence with exceptional user experience.
               </p>
             </div>
             <div className="abt-who__image-wrap">

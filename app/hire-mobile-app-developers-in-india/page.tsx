@@ -80,7 +80,7 @@
 // 									className="ree-text rt40"> Application </span> <span className="ree-text rt40"> Developers
 // 								</span> in
 // 								India</h2>
-// 							<p>With more than 1500+ mobile apps developed, Our Dedicated Mobile App Developers are
+// 							<p>With more than 1,500+ mobile apps developed, Our Dedicated Mobile App Developers are
 // 								committed
 // 								right from the initial idea of your mobile app design to its launch on the specified
 // 								platforms.
@@ -354,7 +354,7 @@
 // 								</button>
 // 								<div className="accordion-content">
 // 									<p>
-// Our developers have strong industry experience and have delivered 1500+ mobile apps across multiple domains.
+// Our developers have strong industry experience and have delivered 1,500+ mobile apps across multiple domains.
 
 // 									</p>
 // 								</div>

@@ -51,7 +51,7 @@ export default function MobileAppDesignCompany() {
 
       <section className="md-whoweare"><div className="md-container"><div className="md-whoweare__grid">
         <div className="md-whoweare__stats md-animate--left">
-          <div className="md-stat md-stat--dark"><span className="md-stat__number">1500+</span><span className="md-stat__label">Apps Designed</span></div>
+          <div className="md-stat md-stat--dark"><span className="md-stat__number">1,500+</span><span className="md-stat__label">Apps Designed</span></div>
           <div className="md-stat md-stat--dark"><span className="md-stat__number">iOS</span><span className="md-stat__label">HIG Compliant</span></div>
           <div className="md-stat md-stat--dark"><span className="md-stat__number">MD3</span><span className="md-stat__label">Material Design</span></div>
           <div className="md-stat md-stat--dark"><span className="md-stat__number">14+</span><span className="md-stat__label">Years Experience</span></div>
@@ -128,7 +128,7 @@ export default function MobileAppDesignCompany() {
           </div>
         </div>
         <div className="md-tech__stats md-animate--right">
-          <div className="md-stat md-stat--dark"><span className="md-stat__number">1500+</span><span className="md-stat__label">Apps Designed</span></div>
+          <div className="md-stat md-stat--dark"><span className="md-stat__number">1,500+</span><span className="md-stat__label">Apps Designed</span></div>
           <div className="md-stat md-stat--dark"><span className="md-stat__number">iOS</span><span className="md-stat__label">&amp; Android</span></div>
           <div className="md-stat md-stat--dark"><span className="md-stat__number">A11y</span><span className="md-stat__label">Accessible</span></div>
           <div className="md-stat md-stat--dark"><span className="md-stat__number">14+</span><span className="md-stat__label">Years Experience</span></div>

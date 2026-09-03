@@ -50,7 +50,7 @@ export default function UIUXDesignCompany() {
 
       <section className="ux-whoweare"><div className="ux-container"><div className="ux-whoweare__grid">
         <div className="ux-whoweare__stats ux-animate--left">
-          <div className="ux-stat ux-stat--dark"><span className="ux-stat__number">1500+</span><span className="ux-stat__label">Designs Delivered</span></div>
+          <div className="ux-stat ux-stat--dark"><span className="ux-stat__number">1,500+</span><span className="ux-stat__label">Designs Delivered</span></div>
           <div className="ux-stat ux-stat--dark"><span className="ux-stat__number">40%</span><span className="ux-stat__label">Avg Conversion Lift</span></div>
           <div className="ux-stat ux-stat--dark"><span className="ux-stat__number">14+</span><span className="ux-stat__label">Years Experience</span></div>
           <div className="ux-stat ux-stat--dark"><span className="ux-stat__number">A11y</span><span className="ux-stat__label">Accessibility First</span></div>

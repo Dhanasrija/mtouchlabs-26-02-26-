@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { CSSProperties } from "react";
 import Link from "next/link";
+import { sql } from "@/lib/db";
 import "./home-landing.css";
 
 /* ═══════════════════════════════════════════════════════════════
@@ -31,32 +32,18 @@ import "./home-landing.css";
    ═══════════════════════════════════════════════════════════════ */
 
 export const metadata: Metadata = {
-  // `absolute` is required: the root layout sets a title template of
-  // "%s | mTouch Labs", so a plain string would render the suffix twice.
-  title: { absolute: "Software Development Company | mTouch Labs" },
+  /* `absolute` is required. The root layout sets a title template of
+     "%s | mTouch Labs", so a plain string ending in the brand would ship
+     it twice -- which is the double-pipe problem the SEO audit flagged. */
+  title: { absolute: "Custom Software Development & AI Company | mTouch Labs" },
   description:
-    "mTouch Labs is a global software development company delivering enterprise software, custom AI, mobile apps, web applications, SaaS products, and scalable digital solutions.",
-  keywords: [
-    "software development company",
-    "custom software development company",
-    "enterprise software development",
-    "AI software development",
-    "mobile app development company",
-    "web application development",
-    "SaaS development company",
-    "software product development",
-    "offshore software development",
-    "dedicated software development team",
-  ],
-  authors: [{ name: "mTouch Labs" }],
-  creator: "mTouch Labs",
-  publisher: "mTouch Labs",
-  category: "technology",
-  // NOTE: no `alternates.canonical`. Next 14 hardcodes
-  // `pathname === "/" ? origin : href` when resolving metadata URLs, so the
-  // root canonical always loses its trailing slash and stops matching the URL
-  // the page is served at. The tag is emitted manually below — do not re-add
-  // it here or the page ships two canonicals.
+    "mTouch Labs is a Hyderabad software company building custom software, enterprise applications, mobile apps, and AI solutions for businesses worldwide.",
+  /* NOTE: no `alternates.canonical` here, deliberately. Next 14 resolves
+     metadata URLs with a hardcoded `pathname === "/" ? origin : href`, so
+     a root canonical always loses its trailing slash and stops matching
+     the URL the page is served at. It is emitted as a literal <link> in
+     the component below instead -- do not re-add it here or the page
+     ships two canonicals. */
   robots: {
     index: true,
     follow: true,
@@ -69,33 +56,31 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Software Development Company | mTouch Labs",
+    title: "Custom Software Development & AI Company | mTouch Labs",
     description:
-      "Build, modernize, and scale digital products with mTouch Labs. Enterprise software, custom AI, mobile apps, web applications, SaaS, and software solutions.",
-    url: "https://www.mtouchlabs.com",
+      "mTouch Labs is a Hyderabad software company building custom software, enterprise applications, mobile apps, and AI solutions for businesses worldwide.",
+    url: "https://www.mtouchlabs.com/",
     siteName: "mTouch Labs",
     type: "website",
     locale: "en_US",
     images: [
       {
-        // /og-image.jpg does not exist in public/ — this is the real asset the
-        // rest of the site shares. Swap both URLs together if you add one.
         url: "https://www.mtouchlabs.com/images/Light.png",
         width: 1200,
         height: 630,
-        alt: "mTouch Labs - Software Development Company",
+        alt: "mTouch Labs - Custom Software Development & AI Company",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    // A page-level `twitter` object replaces the parent's entirely, so the
-    // handles from app/layout.tsx have to be restated or they vanish.
+    /* A page-level `twitter` object replaces the parent's entirely, so
+       the handles from app/layout.tsx have to be restated or they vanish. */
     site: "@mtouchlabs",
     creator: "@mtouchlabs",
-    title: "Software Development Company | mTouch Labs",
+    title: "Custom Software Development & AI Company | mTouch Labs",
     description:
-      "Enterprise software, custom AI, mobile apps, web applications, SaaS, and digital product development by mTouch Labs.",
+      "mTouch Labs is a Hyderabad software company building custom software, enterprise applications, mobile apps, and AI solutions for businesses worldwide.",
     images: ["https://www.mtouchlabs.com/images/Light.png"],
   },
 };
@@ -126,31 +111,128 @@ const ArrowUpRight = () => (
 );
 
 
-/* Figures shown under the partner section. */
-const stats = [
-  { n: "14+", k: "Years of Experience", v: "Software engineering and digital product development" },
-  { n: "1,500+", k: "Projects Delivered", v: "Custom software and digital solutions" },
-  { n: "500+", k: "Clients Served", v: "Supporting businesses across industries" },
-  { n: "ISO", k: "Certified", v: "Structured quality and development practices" },
-  { n: "Award", k: "Recognized", v: "Recognition for technology and innovation" },
+/*
+ * THE LOCKED FACT SHEET.
+ *
+ * These are the only values allowed anywhere on the site. The audit found
+ * the same items stated differently in different sections (1.5k vs 500+
+ * clients, 2014 vs 2012, 30+ vs 12+ countries), which is what stops a
+ * search engine or a language model quoting any of them with confidence.
+ *
+ *   Brand              mTouch Labs
+ *   Legal name         mTouch Labs Private Limited
+ *   Incorporated       30 August 2012
+ *   Experience         14+ years
+ *   Projects           1,500+          (one word for it: "projects")
+ *   Clients            500+
+ *   Countries          12+
+ *   HQ                 Hyderabad, Telangana
+ *   Other offices      Bengaluru, India; Dover, Delaware, USA
+ *   Certifications     ISO 9001 + ISO 27001
+ *   Membership         NASSCOM
+ *   Public sector      Government of Telangana; Government of Abu Dhabi
+ *
+ * Anything on any page that restates one of these must quote it from
+ * lib/facts.ts, not retype it.
+ */
+import { FACTS } from "@/lib/facts";
+
+/*
+ * WHO WE ARE -- one self-contained paragraph, built from FACTS.
+ *
+ * Written to be lifted whole: a language model answering "who is mTouch
+ * Labs" can quote this without needing any surrounding context, and every
+ * claim in it is checkable on the site. The About section renders it
+ * verbatim and public/.well-known/llms.txt carries the same sentences.
+ */
+const WHO_WE_ARE =
+  `${FACTS.legalName} (trading as ${FACTS.brand}) is a software development company ` +
+  `incorporated on ${FACTS.incorporated} and headquartered in ${FACTS.hq}, India, with ` +
+  `additional offices in ${FACTS.otherOffices}. It builds custom software, enterprise ` +
+  `applications, AI-powered products, mobile apps, web platforms and SaaS products, and has ` +
+  `delivered ${FACTS.projects} projects for ${FACTS.clients} clients across ${FACTS.countries} ` +
+  `countries in ${FACTS.experience} of operation. mTouch Labs is ${FACTS.certifications} ` +
+  `certified and a ${FACTS.membership} member, has delivered platforms for the ` +
+  `${FACTS.publicSector}, and won the Digital Transformation Catalyst award at the NASSCOM ` +
+  `SME Inspire Awards 2026.`;
+
+/*
+ * The four boxes beside the "Custom software development built around
+ * real business needs" heading. Four, not six: the six differentiators
+ * live in their own section further down, and repeating them here made
+ * the two sections argue.
+ *
+ * Locations quoted from FACTS so they stay in step with the schema.
+ */
+const reasons = [
+  { k: "Hyderabad-based", v: `Engineering team headquartered in ${FACTS.hq}, with offices in Bengaluru and Delaware.` },
+  { k: "Enterprise & Government", v: "Experience delivering software for private organizations and public-sector teams." },
+  { k: "Full Product Lifecycle", v: "From discovery and UX to engineering, deployment, and ongoing support." },
+  { k: "Engineering-led", v: "Custom solutions built around your business processes rather than one-size-fits-all software." },
 ];
 
-/* The About section's proof block — rendered as the rule grid, not chips. */
-const highlights = [
-  { k: "14+ Years", v: "Software engineering and digital product development, across every stage of the lifecycle." },
-  { k: "1,500+ Projects", v: "Custom software, platforms and digital products delivered to date." },
-  { k: "500+ Clients", v: "Startups, growing businesses and enterprises across industries." },
-  { k: "Global Delivery", v: "Distributed teams supporting businesses worldwide, in your hours." },
-  { k: "ISO Certified", v: "Structured quality, security and development practices end to end." },
-  { k: "Full Lifecycle", v: "Discovery, UI/UX, architecture, engineering, QA, deployment and long-term support." },
+
+/*
+ * HOW WE BUILD -- the five delivery steps.
+ *
+ * Sits directly after Core Services: the services grid says what we
+ * build, this says how it gets built. Rendered as a horizontal track, so
+ * the sequence is legible at a glance rather than read as a list.
+ */
+const process = [
+  { n: "01", k: "Discover", v: "Understand your business goals, users, requirements, and technical needs." },
+  { n: "02", k: "Design", v: "Define the product experience, user flows, technical architecture, and development roadmap." },
+  { n: "03", k: "Build", v: "Develop the software, integrate required systems, and continuously test the product." },
+  { n: "04", k: "Launch", v: "Deploy the solution, complete final validation, and prepare it for real-world use." },
+  { n: "05", k: "Improve", v: "Monitor, maintain, optimize, and evolve the product as your business and users grow." },
 ];
+
+
+/*
+ * The hero proof band.
+ *
+ * The first three cells use Font Awesome glyphs from the sheet
+ * app/layout.tsx already loads. The last two use real images instead --
+ * the ISO mark and the NASSCOM award badge -- because a generic shield
+ * and trophy said nothing, where the actual marks are recognisable
+ * proof. Both files already exist in the project.
+ *
+ * Figures are quoted from FACTS so the band can never disagree with the
+ * schema or /llms.txt.
+ */
+const stats = [
+  { icon: "fa-solid fa-calendar-days", n: FACTS.experience, k: "Years" },
+  { icon: "fa-solid fa-cube", n: FACTS.projects, k: "Projects" },
+  /* "500+ Clients" was removed from this band. Four cells read better
+     than five at this width, and the client count is still stated in the
+     lead paragraph, in the Organization schema and in /llms.txt -- so
+     nothing is lost to a crawler by dropping it from the fold. */
+  {
+    img: "/images/iso.png",
+    imgAlt: "ISO 9001 and ISO 27001 certified",
+    n: "ISO 9001 + 27001",
+    k: "Certified",
+  },
+  {
+    img: "/images/home/honors/NascomInspire.webp",
+    imgAlt: "NASSCOM SME Inspire Awards 2026",
+    n: "NASSCOM SME",
+    k: "Inspire 2026",
+  },
+];
+
+
+
+
+
+
 
 const services = [
   {
     id: "custom-software",
     icon: "fa-solid fa-cubes",
     title: "Custom Software Development",
-    desc: "Built Around Your Business",
+    desc: "Built around your business: bespoke apps, portals and workflow automation.",
     /* Long-form copy for the JSON-LD Service entry only — the card shows
        the tagline above. */
     seo: "Custom software development services — bespoke business applications, portals, dashboards and workflow automation built around your processes.",
@@ -161,7 +243,7 @@ const services = [
     id: "enterprise-software",
     icon: "fa-solid fa-building-columns",
     title: "Enterprise Software Development",
-    desc: "Powering Complex Operations",
+    desc: "Powering complex operations with scalable, deeply integrated platforms.",
     /* Long-form copy for the JSON-LD Service entry only — the card shows
        the tagline above. */
     seo: "Enterprise software development services — scalable platforms, system integration, and ERP and CRM connectivity for complex operations.",
@@ -172,7 +254,7 @@ const services = [
     id: "ai-software",
     icon: "fa-solid fa-brain",
     title: "Custom AI Software Development",
-    desc: "Smarter Business Automation",
+    desc: "Smarter business automation — AI agents, RAG and generative AI in production.",
     /* Long-form copy for the JSON-LD Service entry only — the card shows
        the tagline above. */
     seo: "Custom AI software development services — AI agents, generative AI, RAG pipelines and intelligent process automation inside real workflows.",
@@ -183,7 +265,7 @@ const services = [
     id: "mobile-apps",
     icon: "fa-solid fa-mobile-screen-button",
     title: "Mobile App Development",
-    desc: "Apps That Drive Engagement",
+    desc: "Apps that drive engagement across native iOS, Android and Flutter.",
     /* Long-form copy for the JSON-LD Service entry only — the card shows
        the tagline above. */
     seo: "Mobile app development services — native iOS, native Android, Flutter and React Native applications with scalable backends.",
@@ -194,7 +276,7 @@ const services = [
     id: "web-apps",
     icon: "fa-solid fa-display",
     title: "Web Application Development",
-    desc: "Secure, Scalable Experiences",
+    desc: "Secure, scalable experiences built on React, Next.js and solid APIs.",
     /* Long-form copy for the JSON-LD Service entry only — the card shows
        the tagline above. */
     seo: "Web application development services — React and Next.js portals, dashboards, progressive web apps and secure business platforms.",
@@ -205,7 +287,7 @@ const services = [
     id: "saas",
     icon: "fa-solid fa-layer-group",
     title: "SaaS & Product Development",
-    desc: "From Idea to Market",
+    desc: "From idea to market: MVP, multi-tenant architecture and billing.",
     /* Long-form copy for the JSON-LD Service entry only — the card shows
        the tagline above. */
     seo: "SaaS product development services — MVP build, multi-tenant architecture, subscription billing and cloud-native continuous release.",
@@ -216,7 +298,7 @@ const services = [
     id: "cloud",
     icon: "fa-solid fa-cloud-arrow-up",
     title: "Cloud & Software Modernization",
-    desc: "Future-Ready Digital Infrastructure",
+    desc: "Future-ready infrastructure through AWS and Azure modernization.",
     /* Long-form copy for the JSON-LD Service entry only — the card shows
        the tagline above. */
     seo: "Cloud migration and application modernization services — AWS and Azure re-platforming of legacy systems toward cloud-native architecture.",
@@ -227,7 +309,7 @@ const services = [
     id: "ui-ux",
     icon: "fa-solid fa-pen-ruler",
     title: "UI/UX Design",
-    desc: "Designed for Better Experiences",
+    desc: "Designed for better experiences: research, design systems, prototypes.",
     /* Long-form copy for the JSON-LD Service entry only — the card shows
        the tagline above. */
     seo: "UI/UX design services — user research, information architecture, wireframes, design systems and interactive prototypes.",
@@ -286,174 +368,259 @@ const caseStudies = [
   },
 ];
 
+/*
+ * WHY BUSINESSES CHOOSE mTOUCH LABS -- six differentiators.
+ *
+ * Was nine icon cards. Now six, matching the themes the SEO audit
+ * recommended for this section, and rendered in the same hairline matrix
+ * as Core Services so the two read as one system.
+ *
+ * No `icon` field any more: the cards carry type only.
+ */
 const whyChoose = [
-  { icon: "fa-solid fa-calendar-check", title: "14+ Years of Engineering Experience", desc: "Experience across software and digital product development lets us approach complex technical requirements with a practical, business-focused mindset." },
-  { icon: "fa-solid fa-infinity", title: "End-to-End Product Development", desc: "From discovery and UI/UX design to development, testing, deployment and ongoing support, our teams cover the complete software development lifecycle." },
-  { icon: "fa-solid fa-sliders", title: "Custom-Built for Your Requirements", desc: "Not every business problem should be solved with the same technology. Solutions are designed around your workflows, users, integrations and objectives." },
-  { icon: "fa-solid fa-arrow-up-right-dots", title: "Scalable & Maintainable Architecture", desc: "We build with future growth in mind, considering performance, scalability, maintainability, integrations and evolving product requirements from the beginning." },
-  { icon: "fa-solid fa-microchip", title: "AI & Modern Technology Expertise", desc: "We identify practical opportunities for AI, automation, cloud and modern architectures — without adding technology that serves no real business purpose." },
-  { icon: "fa-solid fa-shield-halved", title: "Security & Quality-Focused Development", desc: "Security, testing, code quality, performance and reliability are considered throughout the lifecycle, so the software is safe to operate and evolve." },
-  { icon: "fa-solid fa-people-group", title: "Flexible Engagement Models", desc: "A complete product team, support for a specific project, or extra engineering capacity — the engagement is shaped around what you actually need." },
-  { icon: "fa-solid fa-handshake", title: "Long-Term Technology Partnership", desc: "Software doesn't stop evolving after launch. We keep supporting improvements, maintenance, optimization, integrations and new features as you grow." },
-  { icon: "fa-solid fa-comments", title: "Transparent Communication", desc: "Clear reporting, shared boards and regular demos, so you always know what is built, what is next and where a project actually stands." },
-];
-
-/* Only verifiable entries, already used elsewhere on the site. Each one
-   supplies the small list logo and the artwork shown in the phone.
-   `iso.png` is the only ISO asset in the project and it is a 48x48 mark,
-   so on that slide it renders centred at its own scale rather than being
-   upscaled into a blurry fill. */
-const awards = [
   {
-    logo: "/images/home/honors/NascomInspire.webp",
-    shot: "/images/home/honors/NascomInspire.webp",
-    alt: "NASSCOM SME Inspire Awards 2026 winner — mTouch Labs",
-    title: "NASSCOM SME Inspire Award",
-    desc: "Recognized for excellence and innovation in the technology sector.",
+    n: "01",
+    title: `${FACTS.experience} Years of Experience`,
+    desc: "Long-standing experience delivering software, mobile applications, web platforms, and AI solutions for organizations across different markets.",
   },
   {
-    logo: "/images/home/honors/OfficialNASSCOMMember.webp",
-    shot: "/images/home/honors/OfficialNASSCOMMember.webp",
-    alt: "Official NASSCOM Member — mTouch Labs",
-    title: "Official NASSCOM Member",
-    desc: "Member of India's apex technology industry body.",
+    n: "02",
+    title: "Enterprise & Government Experience",
+    desc: "Experience delivering digital solutions for private organizations and public-sector teams, including the Government of Telangana and the Government of Abu Dhabi.",
   },
   {
-    logo: "/images/iso.png",
-    shot: "/images/iso.png",
-    alt: "ISO certified quality and process standards — mTouch Labs",
-    title: "ISO Certified",
-    desc: "Established quality and process standards across our development practices.",
+    n: "03",
+    title: "Quality & Security Standards",
+    desc: "Our delivery practices are supported by ISO 9001 and ISO 27001 certifications.",
+  },
+  {
+    n: "04",
+    title: "One Team From Idea to Scale",
+    desc: "Work with one engineering partner across discovery, design, development, testing, deployment, and ongoing improvement.",
+  },
+  {
+    n: "05",
+    title: "Flexible Engagement Models",
+    desc: "Choose an engagement approach that fits your project, from end-to-end product development to dedicated engineering support.",
+  },
+  {
+    n: "06",
+    title: "Global Delivery",
+    desc: "Teams across Hyderabad, Bengaluru, and Delaware support clients across India, the US, the Gulf, and other international markets.",
   },
 ];
 
-/* The verified quotes already published on the site, with real logos. */
-const testimonials = [
+/*
+ * The three offices, with their real details.
+ *
+ * Every value here is taken from /contact-us -- the street addresses,
+ * the per-office phone numbers, the shared inbox and the Google Maps
+ * short links. Nothing is invented and nothing is scraped: these are the
+ * same constants that page renders, so the two can be diffed.
+ *
+ * Note the numbers differ per office (Hyderabad and Bengaluru have their
+ * own India numbers; Dover has the US line) -- a single number on all
+ * three would have been wrong.
+ *
+ * `map` opens Google Maps for that exact office, which is what the
+ * "Explore <city>" links used to do wrongly: they pointed at the city
+ * landing pages, which are marketing pages, not directions.
+ */
+const offices = [
   {
-    quote:
-      "We have partnered with mTouch Labs for the development of the Sacchi application, and I'm pleased to share that the project went exceptionally well from start to finish.",
-    name: "Pavan HK",
-    role: "General Manager, Sacchi",
-    flag: "/images/testimonial/testimonial_ind.webp",
-    flagAlt: "India",
-    logo: "/images/testimonial/testimonial_saachi.webp",
-    logoAlt: "Sacchi",
+    city: "Hyderabad, India",
+    role: "Headquarters & engineering hub",
+    address: `${FACTS.streetAddress}, ${FACTS.hq} ${FACTS.postalCode}`,
+    phone: "+91 9390683154",
+    phoneHref: "tel:+919390683154",
+    email: "contact@mtouchlabs.com",
+    map: "https://maps.app.goo.gl/vHVVC1vzkR2hS7Ek7",
   },
   {
-    quote:
-      "mTouch Labs transformed our parking operations with the Rahayel System. It's efficient, reliable, and perfectly suited to our needs. The team was professional and proactive.",
-    name: "Kezad Groups",
-    role: "CEO, Rahayel",
-    flag: "/images/testimonial/testimonial_abudabhi.webp",
-    flagAlt: "United Arab Emirates",
-    logo: "/images/testimonial/testimonial_rahayel.webp",
-    logoAlt: "Rahayel",
+    city: "Bengaluru, India",
+    role: "Engineering & technology delivery",
+    address:
+      "101, 4th Main Road, Gayathri Layout, Vijaya Bank Layout, Bilekahalli, Bengaluru, Karnataka 560076",
+    phone: "+91 9014793487",
+    phoneHref: "tel:+919014793487",
+    email: "contact@mtouchlabs.com",
+    map: "https://maps.app.goo.gl/WgJMfx2PzuScWZbQA",
   },
   {
-    quote:
-      "mTouch Labs made the Dr. Pick app development seamless. They understood our healthcare vision and delivered an intuitive, patient-friendly platform with great commitment and timely execution.",
-    name: "Dr. Vishnu",
-    role: "Managing Director, Dr. Pick",
-    flag: "/images/testimonial/testimonial_ind.webp",
-    flagAlt: "India",
-    logo: "/images/testimonial/drpick.webp",
-    logoAlt: "Dr. Pick",
-  },
-];
-
-const engagements = [
-  { n: "01", icon: "fa-solid fa-magnifying-glass", title: "Project-Based Development", desc: "A dedicated team designs, develops, tests and launches a defined software product or solution." },
-  { n: "02", icon: "fa-solid fa-pen-ruler", title: "Offshore Development", desc: "Extend your engineering capability with an offshore team that works as an integrated part of your product workflow." },
-  { n: "03", icon: "fa-solid fa-code", title: "Dedicated Teams", desc: "A team built around your technical requirements, product roadmap and development goals." },
-  { n: "04", icon: "fa-solid fa-circle-check", title: "Long-Term Engineering", desc: "Ongoing support to improve, scale, maintain and modernize the software you already run." },
-];
-
-/* `bengaluru.svg` is original line art drawn to match usa.svg and
-   hyderabad.svg — the project had only a night photograph of Vidhana
-   Soudha, which would not have sat in the same monoline style. */
-const locations = [
-  {
-    flag: "\uD83C\uDDFA\uD83C\uDDF8",
-    name: "United States",
-    desc: "Software development support for businesses operating in the USA.",
-    art: "/images/new-home(02-09)/usa.svg",
-    artAlt: "",
-    link: "/software-development-company-usa",
-    label: "Explore USA",
-  },
-  {
-    flag: "\uD83C\uDDEE\uD83C\uDDF3",
-    name: "Bengaluru",
-    desc: "Software engineering and product development capabilities from Bengaluru.",
-    art: "/images/new-home(02-09)/bengaluru.svg",
-    artAlt: "",
-    link: "/software-development-company-bangalore",
-    label: "Explore Bengaluru",
-  },
-  {
-    flag: "\uD83C\uDDEE\uD83C\uDDF3",
-    name: "Hyderabad",
-    desc: "Our engineering base, covering software development capabilities in Hyderabad.",
-    art: "/images/new-home(02-09)/hyderabad.svg",
-    artAlt: "",
-    link: "/software-development-company-hyderabad",
-    label: "Explore Hyderabad",
+    city: "Dover, Delaware, USA",
+    role: "US presence & client engagement",
+    address: "1111B South Governors Avenue, Suite 48193, Dover, DE 19904, United States",
+    phone: "+1 (551) 222-0070",
+    phoneHref: "tel:+15512220070",
+    email: "contact@mtouchlabs.com",
+    map: "https://maps.app.goo.gl/RUQSXXJ8hCP2RMRd7",
   },
 ];
 
-/* Client logos under the closing CTA — all already in the project. */
-const ctaLogos = [
-  { src: "/images/home/tech/kezad-logo.png", alt: "KEZAD Group" },
-  { src: "/images/home/tech/kohere.png", alt: "Kohere" },
-  { src: "/images/home/tech/aduri.png", alt: "Aduri Group" },
-  { src: "/images/home/tech/adjd.png", alt: "Abu Dhabi Judicial Department" },
-  { src: "/images/home/tech/govt.png", alt: "Government of Telangana" },
+
+/*
+ * SECTION 9 -- Industries, who we work with, and the stack.
+ *
+ * The old "Industries" and "Who We Work With" sections are merged into
+ * one here, which is what keeps the homepage from listing overlapping
+ * audiences twice.
+ *
+ * Only industries mTouch Labs actually serves are listed. Nothing was
+ * added to widen keyword coverage -- an industry the company cannot show
+ * work for is a liability in a page a model is asked to summarise.
+ */
+/*
+ * CLIENT LOGOS -- the project's own files, paginated.
+ *
+ * Was one 240 KB composite SVG (logos-work.svg) whose alt text named
+ * twelve companies that are not in this list. These are the real client
+ * logos already in public/images/home/tech, as .webp: 36 of them across
+ * three pages of twelve.
+ *
+ * .webp rather than the .png twins that sit beside them -- same artwork,
+ * roughly a quarter of the bytes. Every file below was confirmed present
+ * in that directory; nothing is guessed.
+ */
+const logoPages = [
+  [
+    { src: "/images/home/tech/govt.webp", alt: "Government of Telangana" },
+    { src: "/images/home/tech/adjd.webp", alt: "Abu Dhabi Judicial Department" },
+    { src: "/images/home/tech/kezad-logo.webp", alt: "KEZAD Group" },
+    { src: "/images/home/tech/hitech.svg", alt: "Hitech City" },
+    { src: "/images/home/tech/agrigain.webp", alt: "AgriGain" },
+    { src: "/images/home/tech/voosh.webp", alt: "Voosh" },
+    { src: "/images/home/tech/badham.webp", alt: "Badham" },
+    { src: "/images/home/tech/zefsci.webp", alt: "ZefSci" },
+    { src: "/images/home/tech/countryclub.webp", alt: "Country Club" },
+    { src: "/images/home/tech/heyman.webp", alt: "Heyman" },
+    { src: "/images/home/tech/l2r.webp", alt: "L2R" },
+    { src: "/images/home/tech/onus.webp", alt: "Onus" },
+  ],
+  [
+    { src: "/images/home/tech/aduri.webp", alt: "Aduri" },
+    { src: "/images/home/tech/Brickberry.webp", alt: "Brickberry" },
+    { src: "/images/home/tech/ricehub.webp", alt: "RiceHub" },
+    { src: "/images/home/tech/roboride.webp", alt: "RoboRide" },
+    { src: "/images/home/tech/medbuz.webp", alt: "MedBuz" },
+    { src: "/images/home/tech/drpicklogo.webp", alt: "Dr Pick" },
+    { src: "/images/home/tech/veteach.webp", alt: "VeTeach" },
+    { src: "/images/home/tech/uptick.webp", alt: "Uptick" },
+    { src: "/images/home/tech/kalp.webp", alt: "Kalp" },
+    { src: "/images/home/tech/tanyya.webp", alt: "Tanyya" },
+    { src: "/images/home/tech/omvideos.webp", alt: "OM Videos" },
+    { src: "/images/home/tech/macServices.webp", alt: "MAC Services" },
+  ],
+  [
+    { src: "/images/home/tech/paygenpro.webp", alt: "PayGen Pro" },
+    { src: "/images/home/tech/payville.webp", alt: "Payville" },
+    { src: "/images/home/tech/smartpg.webp", alt: "SmartPG" },
+    { src: "/images/home/tech/jaimaxcoin.webp", alt: "Jaimax Coin" },
+    { src: "/images/home/tech/onlyshops.webp", alt: "OnlyShops" },
+    { src: "/images/home/tech/zuppibuy.webp", alt: "ZuppiBuy" },
+    { src: "/images/home/tech/clikget.webp", alt: "ClikGet" },
+    { src: "/images/home/tech/fleuncyo.webp", alt: "Fleuncyo" },
+    { src: "/images/home/tech/revsoul.webp", alt: "RevSoul" },
+    { src: "/images/home/tech/Citzon.webp", alt: "Citzon" },
+    { src: "/images/home/tech/adify.webp", alt: "Adify" },
+    { src: "/images/home/tech/tej.webp", alt: "Tej" },
+  ],
 ];
+
+const industries = [
+  /* Icons come from the Font Awesome sheet app/layout.tsx already loads,
+     so these cost no extra request. Every glyph below is a long-standing
+     name present in the FA6 free solid set -- deliberately, after
+     fa-arrow-up-right turned out to be missing from this build and
+     rendered as nothing at all. */
+  { icon: "fa-solid fa-heart-pulse", k: "Healthcare" },
+  { icon: "fa-solid fa-building-columns", k: "Financial Services" },
+  { icon: "fa-solid fa-cart-shopping", k: "Retail & E-commerce" },
+  { icon: "fa-solid fa-graduation-cap", k: "Education" },
+  { icon: "fa-solid fa-landmark", k: "Government & Public Sector" },
+  { icon: "fa-solid fa-truck-fast", k: "Logistics & Transportation" },
+  { icon: "fa-solid fa-building", k: "Real Estate" },
+  { icon: "fa-solid fa-film", k: "Media & Entertainment" },
+];
+
+
+const audiences = [
+  /* Icons from the Font Awesome sheet the layout already loads -- no
+     extra request. Long-standing FA6 free solid names only. */
+  { icon: "fa-solid fa-rocket", k: "Startups", v: "Turn early ideas into scalable digital products, from MVP to launch." },
+  { icon: "fa-solid fa-store", k: "Small & Mid-Sized Businesses", v: "Improve operations with software built around your workflows." },
+  { icon: "fa-solid fa-sitemap", k: "Enterprises", v: "Modernize systems and build connected business applications." },
+  { icon: "fa-solid fa-landmark-dome", k: "Government Organizations", v: "Deliver secure digital solutions for public-sector needs." },
+  { icon: "fa-solid fa-boxes-stacked", k: "Product Companies", v: "Extend engineering capacity or build new digital products." },
+];
+
+
+/* Technology names as text, not logos: eighteen logo files would be
+   eighteen requests on a page that has to stay fast, and the names are
+   what a crawler and a language model can actually read. */
+const techStack = [
+  { k: "Web", v: ["React", "Next.js", "Node.js", ".NET"] },
+  { k: "Mobile", v: ["Flutter", "React Native", "iOS", "Android"] },
+  { k: "AI", v: ["Python", "ML", "Generative AI"] },
+  { k: "Cloud", v: ["AWS", "Azure", "Google Cloud"] },
+];
+
+
+
+
+
+
+
 
 /* One array feeds both the accordion and the FAQPage schema, so the two
-   can never drift apart. */
+   can never drift apart.
+
+   These are the approved answers, kept short on purpose. Note the
+   trade-off: the previous set was written long, leading each answer with
+   a concrete, quotable claim, which is what the SEO audit asked for in
+   its "make FAQ answers specific enough to cite" item. These are tighter
+   and easier to read but give a model less to lift verbatim. If ranking
+   in AI answers matters more than brevity here, the longer versions are
+   in this file's git history. */
 const faqs = [
   {
     q: "What does a software development company do?",
-    a: "A software development company helps businesses plan, design, build, test, deploy, and maintain software products and applications. This can include custom business software, enterprise platforms, mobile apps, web applications, SaaS products, AI solutions, cloud applications, and software integrations.",
+    a: "A software development company designs, builds, tests, deploys, and maintains software applications based on a business's requirements.",
   },
   {
     q: "How do I choose the right software development company?",
-    a: "Look for a software development partner with relevant technical expertise, proven project experience, a transparent development process, strong communication, scalable engineering capabilities, and an understanding of your business objectives. Reviewing case studies, client feedback, technology expertise, and engagement models can also help you evaluate the right partner.",
+    a: "Look for relevant technical expertise, experience with similar projects, clear communication, development processes, security practices, and proven results.",
   },
   {
     q: "How much does custom software development cost?",
-    a: "Custom software development costs depend on factors such as product complexity, features, integrations, technology requirements, design, security, team size, and development timeline. A more accurate estimate can be provided after understanding the project requirements and business objectives.",
+    a: "The cost depends on factors such as project scope, features, integrations, technology requirements, complexity, and ongoing support needs. A project assessment is needed to provide an accurate estimate.",
   },
   {
     q: "How long does it take to develop custom software?",
-    a: "The development timeline varies based on the scope, complexity, features, integrations, and technical requirements of the project. A smaller MVP may take less time than a complex enterprise platform. After reviewing the requirements, a suitable roadmap and delivery timeline can be established.",
+    a: "The timeline depends on the product's scope, complexity, integrations, design requirements, and development approach. A defined roadmap can provide a more accurate project timeline.",
   },
   {
-    q: "What types of software does mTouch Labs develop?",
-    a: "mTouch Labs develops custom software solutions including enterprise applications, AI-powered software, mobile applications, web applications, SaaS platforms, digital products, cloud solutions, and software integrations. Solutions are designed around the specific requirements and objectives of each business.",
+    q: "What types of software can mTouch Labs develop?",
+    a: "mTouch Labs develops custom business software, enterprise applications, AI solutions, mobile apps, web applications, SaaS products, and modernized cloud-based systems.",
   },
   {
-    q: "Does mTouch Labs provide custom software development?",
-    a: "Yes. mTouch Labs develops custom software based on business processes, users, workflows, technical requirements, integrations, and growth plans. The development approach can cover discovery, UI/UX design, architecture, development, testing, deployment, and ongoing product support.",
+    q: "What is custom software development?",
+    a: "Custom software development involves creating software specifically around an organization's business processes, requirements, users, and operational goals rather than relying entirely on off-the-shelf software.",
   },
   {
-    q: "Can mTouch Labs build AI-powered software and applications?",
-    a: "Yes. mTouch Labs develops AI-powered applications and integrates AI capabilities into digital products and existing software. Depending on the use case, solutions can include AI assistants, intelligent automation, generative AI features, data-driven applications, and AI-enabled business workflows.",
+    q: "Can mTouch Labs develop AI-powered software?",
+    a: "Yes. mTouch Labs develops AI-powered applications, generative AI solutions, AI agents, automation solutions, and AI integrations for business use cases.",
   },
   {
-    q: "Does mTouch Labs offer offshore software development?",
-    a: "Yes. mTouch Labs offers offshore software development for businesses looking to extend their engineering capabilities. Engagements can be structured around project-based development, dedicated development teams, or ongoing product engineering requirements.",
+    q: "Can you work with companies outside India?",
+    a: "Yes. mTouch Labs works with organizations globally and can collaborate remotely across different time zones and markets.",
   },
   {
-    q: "Can mTouch Labs provide a dedicated software development team?",
-    a: "Yes. A dedicated development team can be structured around your product roadmap, technical requirements, and development objectives. Depending on the project, the team can include developers, UI/UX designers, QA engineers, project managers, architects, and other specialists.",
-  },
-  {
-    q: "Can mTouch Labs modernize or migrate an existing software application?",
-    a: "Yes. mTouch Labs can help modernize existing applications, improve application architecture, migrate systems to modern environments, integrate new technologies, optimize performance, and introduce new features while considering the existing software and business requirements.",
+    q: "Do you provide ongoing software support and maintenance?",
+    a: "Yes. Software projects can be supported after launch through maintenance, monitoring, optimization, enhancements, and continued development.",
   },
 ];
+
+
 
 /* ─────────────────────────────────────────────────────────────
    STRUCTURED DATA — emitted as plain <script> tags in the
@@ -471,63 +638,43 @@ const faqSchema = {
   })),
 };
 
-const organizationSchema = {
+/*
+ * DEDUPLICATED. `organizationSchema` and `websiteSchema` used to be
+ * declared here as well as in app/layout.tsx, so every crawl of "/"
+ * received two Organization nodes and two WebSite nodes -- the exact
+ * duplication the SEO audit flagged.
+ *
+ * The single source of truth for both is now app/layout.tsx, where they
+ * belong: they describe the company and the site, not this page. That one
+ * Organization node carries @id "https://www.mtouchlabs.com/#organization",
+ * and everything below references that id instead of restating it.
+ */
+
+const professionalServiceSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://www.mtouchlabs.com/#organization",
+  "@type": "ProfessionalService",
+  "@id": "https://www.mtouchlabs.com/#professionalservice",
+  /* Same company, described as a service provider. `parentOrganization`
+     ties it back to the single Organization node in app/layout.tsx rather
+     than duplicating its fields here. */
+  parentOrganization: { "@id": "https://www.mtouchlabs.com/#organization" },
   name: "mTouch Labs",
   url: "https://www.mtouchlabs.com",
-  logo: "https://www.mtouchlabs.com/images/Light.png",
-  description:
-    "mTouch Labs is a software development company helping businesses build, modernize, and scale digital products — custom software, enterprise applications, AI-powered solutions, mobile apps, web platforms, and SaaS products.",
-  foundingDate: "2014",
-  sameAs: [
-    "https://www.linkedin.com/company/mtouchlabs",
-    "https://www.instagram.com/mtouchlabs",
-    "https://twitter.com/mtouchlabs",
-    "https://www.facebook.com/mtouchlabs",
-    "https://www.youtube.com/@mtouchlabs",
-  ],
-  areaServed: { "@type": "Place", name: "Worldwide" },
-  contactPoint: [
-    { "@type": "ContactPoint", telephone: "+91-9390683154", contactType: "sales", areaServed: "IN", availableLanguage: ["English", "Hindi", "Telugu"] },
-    { "@type": "ContactPoint", telephone: "+1-551-222-0070", contactType: "sales", areaServed: "US", availableLanguage: "English" },
-  ],
+  image: "https://www.mtouchlabs.com/images/Light.png",
+  /* The same paragraph as the Organization description in app/layout.tsx
+     and as /llms.txt. It is no longer rendered as visible copy -- this is
+     where it is read from now. */
+  description: WHO_WE_ARE,
+  priceRange: "$$",
   address: {
     "@type": "PostalAddress",
+    streetAddress: "#514, Manjeera Trinity Corporate, JNTU\u2013Hitech City Road, Kukatpally",
     addressLocality: "Hyderabad",
     addressRegion: "Telangana",
     postalCode: "500072",
     addressCountry: "IN",
   },
-  knowsAbout: services.map((s) => s.title),
-};
-
-const websiteSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: "mTouch Labs",
-  url: "https://www.mtouchlabs.com",
-  description:
-    "Software development company delivering enterprise software, custom AI, mobile apps, web applications, SaaS products, and scalable digital solutions.",
-  publisher: { "@id": "https://www.mtouchlabs.com/#organization" },
-};
-
-const professionalServiceSchema = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  name: "mTouch Labs",
-  url: "https://www.mtouchlabs.com",
-  image: "https://www.mtouchlabs.com/images/Light.png",
-  description:
-    "Software development company providing custom software, enterprise applications, AI-powered solutions, mobile apps, web platforms, SaaS products, cloud modernization, and UI/UX design.",
-  priceRange: "$$",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Hyderabad",
-    addressRegion: "Telangana",
-    addressCountry: "IN",
-  },
+  foundingDate: FACTS.foundingDateISO,
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Software Development Services",
@@ -543,77 +690,206 @@ const professionalServiceSchema = {
   },
 };
 
-export default function HomePage() {
+/**
+ * Three published posts, deliberately from three DIFFERENT categories.
+ *
+ * A plain `ORDER BY publish_date DESC LIMIT 3` returned three Software
+ * Development posts, because that is what has been published most
+ * recently -- three cards saying the same thing about the same subject.
+ *
+ * So: a window function takes the newest post in each category
+ * (ROW_NUMBER partitioned by category), then the three most recent of
+ * those. If the blog has fewer than three categories the result is
+ * topped up with the next newest posts, so the section never renders
+ * one card where it should render three.
+ *
+ * The whole thing is inside try/catch: if the database is unreachable
+ * this returns an empty array and the section drops out, rather than
+ * throwing and taking the homepage to the error boundary over three
+ * blog cards.
+ */
+type Post = { slug: string; title: string; description: string; category: string | null };
+
+async function getLatestPosts(): Promise<Post[]> {
+  const PUBLISHED = "(published = true OR status = 'published') AND (publish_date IS NULL OR publish_date <= NOW())";
+  try {
+    /* One per category, newest first. */
+    const byCategory = (await sql`
+      SELECT slug, title, description, category
+        FROM (
+              SELECT slug, title, description, category, publish_date,
+                     ROW_NUMBER() OVER (
+                       PARTITION BY category ORDER BY publish_date DESC NULLS LAST
+                     ) AS rn
+                FROM blogs
+               WHERE (published = true OR status = 'published')
+                 AND (publish_date IS NULL OR publish_date <= NOW())
+             ) t
+       WHERE rn = 1
+       ORDER BY publish_date DESC NULLS LAST
+       LIMIT 3`) as Post[];
+
+    if (byCategory.length >= 3) return byCategory;
+
+    /* Fewer than three categories exist -- top up with the newest posts
+       that are not already in the list. */
+    const seen = new Set(byCategory.map((p) => p.slug));
+    const rest = (await sql`
+      SELECT slug, title, description, category
+        FROM blogs
+       WHERE (published = true OR status = 'published')
+         AND (publish_date IS NULL OR publish_date <= NOW())
+       ORDER BY publish_date DESC NULLS LAST
+       LIMIT 8`) as Post[];
+
+    for (const p of rest) {
+      if (byCategory.length >= 3) break;
+      if (!seen.has(p.slug)) { byCategory.push(p); seen.add(p.slug); }
+    }
+    return byCategory;
+  } catch {
+    return [];
+  }
+}
+
+/* Rebuild at most once an hour: the only dynamic thing on this page is
+   the three blog cards, and they do not change more often than that. */
+export const revalidate = 3600;
+
+export default async function HomePage() {
+  const posts = await getLatestPosts();
+
   return (
     <main className="hmx">
       {/* Canonical — emitted here rather than via `alternates.canonical` so
           the trailing slash survives; see the note in the metadata export. */}
       <link rel="canonical" href="https://www.mtouchlabs.com/" />
 
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
+      {/* Organization and WebSite are emitted once, site-wide, from
+          app/layout.tsx -- they are deliberately NOT repeated here. */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      {/* ═══════════ HERO ═══════════
-          Rebuilt to the approved comp (Figma: mTouch Hero_2026): light
-          lavender→blush gradient stage, copy left, artwork right. The
-          previous Deep Indigo hero is preserved, commented, at the
-          bottom of this file. */}
+      {/* ═══════════ HERO — typographic, no artwork ═══════════
+          REDESIGN. The hero was a two-column split with hero.svg filling
+          the right half. Two reasons that is gone:
+
+          1. It was 2.5 MB of SVG AND the LCP element -- the single
+             slowest thing on the page, and it had to be loaded eager with
+             fetchPriority high precisely because it was. The hero is now
+             a text node, so LCP is something the browser paints from HTML
+             it already has. Nothing above the fold makes a request.
+          2. Giving it half the width capped the headline at ~63px. With
+             the column gone the H1 runs to 96px, and the fold finally
+             leads with the thing that should lead.
+
+          The composition is one measured column, not a full-bleed
+          stretch: the headline sets its own width, the lead is held to a
+          readable measure beneath it, and a proof rail closes the block
+          so the fold still carries evidence and not only claims.
+
+          Colour is black and Signature Blue only -- the blue lands on one
+          line of the headline and on the accents. No gradient text. */}
       <section className="hmx-hero">
+        {/* Atmosphere, drawn rather than loaded: two soft blue blooms over
+            the light stage, behind the copy at z-index 0, so the type is
+            never sitting on a hard edge. */}
+        <span className="hmx-hero-bloom hmx-hero-bloom--a" aria-hidden="true" />
+        <span className="hmx-hero-bloom hmx-hero-bloom--b" aria-hidden="true" />
+
         <div className="hmx-wrap">
           <div className="hmx-hero-inner">
-            <div>
-              <p className="hmx-eyebrow hmx-in" style={d(0)}>
-                Software Development Company
-              </p>
+            {/* Three facts, not a slogan: what the company is, where it
+                is, and how long it has been there. The separators are
+                ::before dots on the spans so there is no stray character
+                to select or translate. */}
+            {/* Plain text, no capsule: three facts -- what the company is,
+                where it is, how long it has been there. The separators are
+                ::before dots on the spans, so there is no literal
+                character to select, copy or mistranslate. */}
+            <p className="hmx-kicker hmx-in" style={d(0)}>
+              <span>Software Company</span>
+              <span>Hyderabad</span>
+              <span>Est. {FACTS.foundedYear}</span>
+            </p>
 
-              {/* Broken by hand rather than left to the measure, so the four
-                  lines land exactly as the comp sets them. */}
-              <h1 className="hmx-h1 hmx-in" style={d(1)}>
-                Enterprise Custom
-                <br />
-                AI, Mobile &amp;
-                <br />
-                Software
-                <br />
-                App Development
-              </h1>
+            {/* Two lines, broken by hand so the centred block sits as a
+                balanced pair rather than however the measure happens to
+                wrap it.
 
-              <p className="hmx-hero-sub hmx-in" style={d(2)}>
-                Software Development Company for Businesses Worldwide
-              </p>
+                `.hmx-hl` marks the keywords in flat Signature Blue --
+                never a gradient clipped to text: brand.css forbids that,
+                and a flat fill stays selectable and searchable, and still
+                renders if the webfont fails.
 
-              <div className="hmx-hero-ctas hmx-in" style={d(3)}>
-                <Link href="/contact-us" className="hmx-btn hmx-btn-primary">
-                  Start Your Project
-                  <ArrowUpRight />
-                </Link>
-                <Link href="/portfolio" className="hmx-btn-text">
-                  View Our Work
-                  <i className="fa-solid fa-arrow-right" aria-hidden="true" />
-                </Link>
-              </div>
+                Highlighted: "Custom software", "mobile apps", "AI" -- the
+                three things being sold. "built for your business" stays
+                black, so the blue marks meaning instead of decorating the
+                whole headline. Colour everything and nothing is
+                emphasised. */}
+            {/* Two lines, broken by hand. The whole first line is blue
+                and the whole second is black -- not individual keywords.
+                Splitting the emphasis by line rather than by word is what
+                makes it read as one deliberate typographic move instead
+                of a headline with words coloured in.
+
+                Flat fill, never a gradient clipped to text: brand.css
+                forbids gradient headings, and flat also stays selectable,
+                searchable, and legible if the webfont fails. */}
+            <h1 className="hmx-h1 hmx-in" style={d(1)}>
+              <span className="hmx-hl">Custom software, mobile apps &amp; AI</span>
+              <br />
+              built for your business
+            </h1>
+
+            <p className="hmx-hero-lead hmx-in" style={d(2)}>
+              mTouch Labs ships {FACTS.projects} products for startups, enterprises and
+              governments&mdash;including Telangana and Abu Dhabi&mdash;turning ideas into
+              secure, scalable software that drives real impact.
+            </p>
+
+            <div className="hmx-hero-ctas hmx-in" style={d(3)}>
+              <Link href="/contact-us" className="hmx-btn hmx-btn-primary">
+                Start a Project
+                <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+              </Link>
+              {/* Secondary: white fill, Signature Blue border, ink label --
+                  the same shape /services uses. */}
+              <Link href="/portfolio" className="hmx-btn hmx-btn-ghost">
+                View Our Work
+                <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+              </Link>
             </div>
 
-            {/* The artwork is the LCP element, so it is eager with
-                fetchPriority high — never lazy. width/height reserve the
-                box from first paint so nothing shifts while it decodes.
-                Plain <img>: next/image cannot optimise an SVG. */}
-            <div className="hmx-hero-art hmx-in" style={d(2)}>
-              <img
-                src="/images/new-home(02-09)/hero.svg"
-                alt="mTouch Labs — AI, software development, Salesforce and data intelligence capabilities, trusted by 1.5k clients"
-                width={720}
-                height={640}
-                loading="eager"
-                fetchPriority="high"
-                decoding="async"
-              />
-            </div>
+            {/* Proof rail: four facts in one bordered box, centred under
+                the actions, each split into figure and label so the number
+                is what the eye catches. Values quoted from FACTS, so this
+                row cannot drift from the schema or from llms.txt.
+
+                This is what the 2.5 MB artwork used to occupy the fold
+                with -- except it is true, readable, and free to render. */}
+            <ul className="hmx-hero-proof hmx-in" style={d(4)}>
+              {stats.map((f) => (
+                <li key={f.k}>
+                  {/* An image mark where one exists, otherwise a glyph.
+                      The two are sized to the same optical height so the
+                      five cells sit on one line. */}
+                  <span className="hmx-hp-ico" aria-hidden={f.img ? undefined : true}>
+                    {f.img ? (
+                      <img src={f.img} alt={f.imgAlt} width={40} height={40} loading="eager" decoding="async" />
+                    ) : (
+                      <i className={f.icon} />
+                    )}
+                  </span>
+                  <span className="hmx-hp-b">
+                    <span className="hmx-hp-n">{f.n}</span>
+                    <span className="hmx-hp-k">{f.k}</span>
+                  </span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-
       </section>
 
       {/* ═══════════ CLIENT LOGOS ═══════════ */}
@@ -621,22 +897,68 @@ export default function HomePage() {
         <div className="hmx-wrap">
           <div className="hmx-logos-head hmx-rv">
             <h2 className="hmx-logos-h2">
-              Trusted By <em>Clients</em>
-              <br />
-              Driven by Excellence
+              Trusted by <em>enterprises</em> and government organizations
             </h2>
+            <p className="hmx-logos-p">
+              mTouch Labs has delivered digital products and software solutions for
+              businesses and public-sector organizations across multiple markets,
+              including the Government of Telangana and the Government of Abu Dhabi.
+            </p>
           </div>
 
-          {/* One SVG for the whole wall — a single request, crisp at any DPR. */}
-          <div className="hmx-logos-art hmx-rv" style={d(1)}>
-            <img
-              src="/images/new-home(02-09)/logos-work.svg"
-              alt="Clients we work with: Sony, NEC, Apollo Tyres, Mastercard, Casenet, SRV Canada VRS, Royal Enfield, BBC Media Action, Johnson & Johnson, CBN, AGP and PwC"
-              width={1140}
-              height={380}
-              loading="lazy"
-              decoding="async"
-            />
+          {/* Paginated, with zero JavaScript.
+
+              Three hidden radios drive both which page shows and which
+              dot is active, through `:checked ~ sibling` selectors. The
+              radios have to come BEFORE both the pages and the dots in
+              source order, because the sibling combinator only looks
+              forward -- that ordering constraint is the whole reason the
+              inputs sit up here rather than beside their labels.
+
+              Page 1's images are eager; pages 2 and 3 are lazy, so the
+              two hidden pages cost nothing until someone clicks. */}
+          <div className="hmx-lw hmx-rv" style={d(1)}>
+            {logoPages.map((_, i) => (
+              <input
+                type="radio"
+                className="hmx-lw-r"
+                name="hmx-lw"
+                id={`hmx-lw-${i + 1}`}
+                key={`r-${i}`}
+                defaultChecked={i === 0}
+                aria-label={`Show client logos, page ${i + 1} of ${logoPages.length}`}
+              />
+            ))}
+
+            <div className="hmx-lw-pages">
+              {logoPages.map((page, i) => (
+                <div className="hmx-lw-page" key={`p-${i}`}>
+                  {page.map((l) => (
+                    <span className="hmx-lw-cell" key={l.src}>
+                      <img
+                        src={l.src}
+                        alt={l.alt}
+                        loading={i === 0 ? "eager" : "lazy"}
+                        decoding="async"
+                      />
+                    </span>
+                  ))}
+                </div>
+              ))}
+            </div>
+
+            <div className="hmx-lw-dots">
+              {logoPages.map((_, i) => (
+                <label
+                  className="hmx-lw-dot"
+                  htmlFor={`hmx-lw-${i + 1}`}
+                  key={`d-${i}`}
+                  title={`Page ${i + 1}`}
+                >
+                  {i + 1}
+                </label>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -644,162 +966,65 @@ export default function HomePage() {
       {/* ═══════════ PARTNER — award proof + figures ═══════════ */}
       <section className="hmx-sec hmx-sec--stone" id="partner">
         <div className="hmx-wrap">
+          {/* Copy left, four boxes right. The award photograph that used
+              to fill the right column is gone -- it is still shown, at
+              full size, in the Awards & Recognition section further down,
+              and having it here as well meant the same image twice on one
+              page.
+
+              Four boxes, not six: the six differentiators have their own
+              section below, and stating them in both places made the two
+              sections argue. */}
           <div className="hmx-partner">
             <div className="hmx-rv">
+              <p className="hmx-eyebrow hmx-eyebrow--dot">WHY mTouch Labs</p>
               <h2 className="hmx-partner-h2">
-                Your Trusted <em>Enterprise</em> Digital Solutions Partner
+                <em>Custom software development</em> built around real business needs
               </h2>
               <p className="hmx-partner-p">
-                From business applications and AI-powered products to mobile experiences
-                and enterprise platforms, mTouch Labs combines product thinking,
-                engineering expertise, and modern technology to turn ideas into scalable
-                software solutions.
+                mTouch Labs delivers scalable, high-performance digital solutions for
+                startups and enterprises, combining technology, strategy, and
+                user-centric design to drive growth. ISO-certified.
               </p>
+
               <div className="hmx-partner-cta">
                 <Link href="/contact-us" className="hmx-btn hmx-btn-primary">
-                  Get Started
+                  Talk to Our Team
                   <ArrowUpRight />
                 </Link>
               </div>
             </div>
 
-            <div className="hmx-partner-art hmx-rv" style={d(1)}>
-              <img
-                src="/images/new-home(02-09)/award-nasscom-2026.webp"
-                alt="mTouch Labs receiving the NASSCOM SME Inspire Awards 2026 Digital Transformation Catalyst award"
-                width={780}
-                height={538}
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          </div>
-
-          <div className="hmx-stats">
-            {stats.map((s, i) => (
-              <div className="hmx-rv" key={s.k} style={d(i)}>
-                <span className="hmx-stat-n">{s.n}</span>
-                <span className="hmx-stat-k">{s.k}</span>
-                <span className="hmx-stat-v">{s.v}</span>
-              </div>
-            ))}
+            <ul className="hmx-reasons hmx-rv" style={d(1)}>
+              {reasons.map((r) => (
+                <li key={r.k}>
+                  <h3>{r.k}</h3>
+                  <p>{r.v}</p>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
 
-      {/* ═══════════ AUTHORITY ═══════════ */}
-      <section className="hmx-sec" id="about">
-        <div className="hmx-wrap">
-          <div className="hmx-head hmx-rv">
-            <p className="hmx-eyebrow">About mTouch Labs</p>
-            <h2 className="hmx-h2">
-              Building digital solutions with <em>14+ years</em> of engineering experience
-            </h2>
-            <div className="hmx-auth-intro">
-              <p>
-                For more than 14 years, mTouch Labs has helped businesses turn technology
-                ideas into practical digital products. Our engineering teams work across
-                custom software, enterprise applications, AI-powered solutions, mobile apps,
-                web platforms, and SaaS products — combining technical expertise with a
-                business-focused approach to product development.
-              </p>
-              <p>
-                We work with organizations at every stage of their digital journey: building
-                a new product from the ground up, modernizing an existing application,
-                integrating new technologies, or scaling a platform that is already growing.
-              </p>
-            </div>
+      {/* The ABOUT section and the two-pillar APPROACH section that used
+          to sit here are both removed.
 
-          </div>
+          They were saying the same things three times over. About restated
+          the hero's figures as a six-cell grid (14+ years, 1,500+ projects,
+          500+ clients, 12+ countries, ISO, full lifecycle) immediately after
+          the hero's proof band had already stated four of them and the WHY
+          section had covered the rest in words. The APPROACH pillars then
+          spent two long blocks explaining a development process that the
+          services grid below and the FAQ further down both describe more
+          directly.
 
-          {/* Proof block — thick rule over the first row, hairlines after.
-              Replaces the chip rail: same facts, far more presence. */}
-          <div className="hmx-rulegrid">
-            {highlights.map((h, i) => (
-              <div className="hmx-rv" key={h.k} style={d(i % 3)}>
-                <span className="hmx-rule-n" aria-hidden="true">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3>{h.k}</h3>
-                <p>{h.v}</p>
-              </div>
-            ))}
-          </div>
+          The page now runs hero -> clients -> why -> services -> case
+          studies, which is a straight line from claim to proof with nothing
+          repeated. `highlights` and `pillars` went with them.
 
-          <p style={{ textAlign: "center", margin: "46px 0 0" }}>
-            <Link href="/about" className="hmx-btn hmx-btn-primary">
-              About Us
-              <ArrowUpRight />
-            </Link>
-          </p>
-
-        </div>
-      </section>
-
-      {/* ═══════════ APPROACH — artwork + copy, mirrored ═══════════ */}
-      {/* White ground: the two SVGs carry a near-white plate of their own,
-          so a tinted band would show as a visible box around each one. */}
-      <section className="hmx-sec" id="approach">
-        <div className="hmx-wrap">
-          <div className="hmx-approach">
-            <div className="hmx-appr hmx-rv">
-              <div className="hmx-appr-art">
-                <img
-                  src="/images/new-home(02-09)/engineering.svg"
-                  alt="Engineering lifecycle — discovery, architecture, development, quality assurance and deployment"
-                  width={620}
-                  height={470}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <div className="hmx-appr-b">
-                <span className="hmx-appr-n" aria-hidden="true">01</span>
-                <h3>Engineering Expertise Built Around Your Business</h3>
-                <p>
-                  Every software project has different objectives, users, technical
-                  requirements, and growth expectations. Our approach starts by
-                  understanding the business problem before defining the technology
-                  solution.
-                </p>
-                <p>
-                  From product discovery and architecture through development, quality
-                  assurance, deployment, and ongoing improvement, our teams support the
-                  complete software development lifecycle.
-                </p>
-              </div>
-            </div>
-
-            {/* Mirrored: copy leads, artwork follows. */}
-            <div className="hmx-appr hmx-appr--flip hmx-rv">
-              <div className="hmx-appr-art">
-                <img
-                  src="/images/new-home(02-09)/buildt-for-quality.svg"
-                  alt="Quality foundations — scalability, security, performance, maintainability, integration and reliability"
-                  width={620}
-                  height={470}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <div className="hmx-appr-b">
-                <span className="hmx-appr-n" aria-hidden="true">02</span>
-                <h3>Built for Quality, Scalability &amp; Long-Term Growth</h3>
-                <p>
-                  Our development approach focuses on software that is reliable today and
-                  adaptable tomorrow. Scalability, performance, security, maintainability,
-                  and integration requirements are considered throughout the process.
-                </p>
-                <p>
-                  A new digital product, enterprise software, an AI-powered application, or
-                  the modernization of an existing system — mTouch Labs provides the
-                  engineering expertise to move it from concept to production.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+          Both blocks survive verbatim in the commented archive at the foot
+          of this file if any of that copy is wanted elsewhere. */}
 
       {/* ═══════════ SERVICES — hairline matrix ═══════════ */}
       <section className="hmx-sec hmx-sec--stone" id="services">
@@ -807,34 +1032,77 @@ export default function HomePage() {
           <div className="hmx-head hmx-rv">
             <p className="hmx-eyebrow">Core Services</p>
             <h2 className="hmx-h2">
-              End-to-end <em>software development services</em>
+              End-to-end <em>software development services</em> for businesses
             </h2>
             <p className="hmx-lead">
-              From a new product idea to enterprise modernization, mTouch Labs combines
-              product strategy, engineering, design, AI, cloud, and quality assurance into
-              solutions designed around your objectives, technical requirements, and
-              growth plans.
+              From custom business applications to AI-powered products, we design and
+              develop digital solutions around your goals, workflows, and customers.
             </p>
           </div>
 
           <div className="hmx-matrix hmx-rv">
-            {services.map((s, i) => (
+            {services.map((s) => (
               <article className="hmx-cell" key={s.id} id={s.id}>
-                <span className="hmx-cell-n" aria-hidden="true">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span className="hmx-cell-ico" aria-hidden="true">
-                  <i className={s.icon} />
-                </span>
+                {/* No number and no icon. Both are gone: the icons were
+                    eight identical blue discs, and the numbers implied an
+                    order these eight services do not have. The cell is
+                    title, two lines, and a link. */}
                 <h3>{s.title}</h3>
                 <p>{s.desc}</p>
-                <Link href={s.link} className="hmx-arrow">
-                  {s.label}
+                {/* Arrow only. The "Explore ..." label was repeated eight
+                    times down the grid and said nothing the card title had
+                    not already said. `aria-label` carries the destination
+                    for screen readers, so nothing is lost to assistive
+                    tech by dropping the visible words. */}
+                <Link href={s.link} className="hmx-cellgo" aria-label={s.label}>
                   <i className="fa-solid fa-arrow-right" aria-hidden="true" />
                 </Link>
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ═══════════ PROCESS — horizontal delivery track ═══════════
+          Placed directly after Core Services on purpose: that grid says
+          what gets built, this says how it gets built, and the two read
+          as one answer.
+
+          Drawn as a horizontal track rather than another stack of rows.
+          A single hairline runs behind the five number chips, so the eye
+          reads left-to-right as a sequence instead of top-to-bottom as a
+          list -- which is the whole point of showing a process. The line
+          is one ::before on the track, not a border per step, so it stays
+          continuous and cannot leave a gap between chips.
+
+          No icons and no images: five numbers, five words and five
+          sentences. Zero requests. */}
+      <section className="hmx-sec" id="how-we-build">
+        <div className="hmx-wrap">
+          <div className="hmx-head hmx-rv">
+            <p className="hmx-eyebrow">How We Work</p>
+            <h2 className="hmx-h2">
+              How we build and <em>deliver your software</em>
+            </h2>
+            <p className="hmx-lead">
+              We take software products from discovery to launch through a structured
+              development process that combines strategy, design, engineering, testing,
+              and ongoing improvement.
+            </p>
+          </div>
+
+          <ol className="hmx-track hmx-rv">
+            {process.map((st) => (
+              <li className="hmx-step" key={st.n}>
+                {/* The chip sits ON the track line and carries an opaque
+                    fill, which is what punches the line's gap around each
+                    number without drawing five separate segments. */}
+                <span className="hmx-step-n" aria-hidden="true">{st.n}</span>
+                <h3>{st.k}</h3>
+                <p>{st.v}</p>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
@@ -845,12 +1113,11 @@ export default function HomePage() {
           <div className="hmx-head hmx-rv">
             <p className="hmx-eyebrow">Featured Projects</p>
             <h2 className="hmx-h2">
-              Proven software solutions for <em>real-world challenges</em>
+              Real projects. <em>Measurable results.</em>
             </h2>
             <p className="hmx-lead">
-              Successful software development is about more than delivering code. It is
-              about solving meaningful business problems and building technology that can
-              evolve as your organization grows.
+              See how we&rsquo;ve helped organizations solve complex business challenges
+              through practical digital products and technology solutions.
             </p>
           </div>
 
@@ -913,23 +1180,115 @@ export default function HomePage() {
             </div>
           </div>
 
+          {/* The closing paragraph is gone -- it restated the section's
+              own lead in different words. Just the link now. */}
           <div className="hmx-cs-outro hmx-rv">
-            <h3>From complex requirements to measurable outcomes</h3>
-            <p>
-              Every project has a different starting point. Whether the goal is to launch a
-              new product, improve an existing application, automate processes, or introduce
-              new technology, our approach connects technical decisions with measurable
-              business objectives.{" "}
-              <Link className="hmx-link" href="/case-studies">
-                View all case studies
-              </Link>
-              .
-            </p>
+            <Link href="/case-studies" className="hmx-btn hmx-btn-ghost-light">
+              View All Case Studies
+              <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+            </Link>
           </div>
         </div>
       </section>
 
       {/* ═══════════ WHY CHOOSE ═══════════ */}
+      {/* ═══════════ SECTION 9 — INDUSTRIES & WHO WE WORK WITH ═══
+          The old "Industries" and "Who We Work With" sections merged into
+          one. Separately they listed overlapping audiences twice, which is
+          exactly the repetition the audit flagged.
+
+          Three tiers of decreasing weight, so the block reads as one
+          section rather than three stacked ones:
+            - industries as a tag rail (names only, nothing to explain)
+            - audiences as a compact five-across row (name + one line)
+            - the stack as four labelled rows of technology names
+
+          Technology names are set as text, not logos. Eighteen logo files
+          would be eighteen requests on a page that has to stay fast, and
+          the names are what a crawler and a language model can read. */}
+      <section className="hmx-sec hmx-sec--stone" id="industries">
+        <div className="hmx-wrap">
+          <div className="hmx-head hmx-rv">
+            <p className="hmx-eyebrow">Industries &amp; Clients</p>
+            <h2 className="hmx-h2">
+              Software solutions for businesses <em>across industries</em>
+            </h2>
+            <p className="hmx-lead">
+              We build digital products and software solutions for organizations with
+              different operational needs, business models, and stages of growth.
+            </p>
+          </div>
+
+          {/* Names only: an industry tag that needs a sentence to justify
+              it is an industry we should not be claiming. */}
+          <ul className="hmx-inds hmx-rv">
+            {industries.map((n) => (
+              <li key={n.k}>
+                <span className="hmx-ind-ico" aria-hidden="true">
+                  <i className={n.icon} />
+                </span>
+                {n.k}
+              </li>
+            ))}
+          </ul>
+
+          <div className="hmx-aud-head hmx-rv">
+            <h3>Who we work with</h3>
+          </div>
+          <ul className="hmx-aud hmx-rv">
+            {audiences.map((a) => (
+              <li key={a.k}>
+                <span className="hmx-aud-ico" aria-hidden="true">
+                  <i className={a.icon} />
+                </span>
+                <span className="hmx-aud-k">{a.k}</span>
+                <span className="hmx-aud-v">{a.v}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div className="hmx-stack hmx-rv">
+            <div className="hmx-stack-b">
+              <h3>Built with proven technologies</h3>
+              <p>
+                We use modern frameworks, platforms, and cloud technologies to build
+                scalable digital products across web, mobile, AI, and enterprise
+                environments.
+              </p>
+              <Link href="/services" className="hmx-arrow">
+                View Our Technologies
+                <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+              </Link>
+            </div>
+
+            <dl className="hmx-stack-list">
+              {techStack.map((t) => (
+                <div className="hmx-stack-row" key={t.k}>
+                  <dt>{t.k}</dt>
+                  <dd>
+                    {t.v.map((n, i) => (
+                      <span key={n}>
+                        {i > 0 && <i aria-hidden="true">&middot;</i>}
+                        {n}
+                      </span>
+                    ))}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════ WHY BUSINESSES CHOOSE ═══════════
+          Rebuilt in the same hairline matrix as Core Services, at the
+          user's request: one 1px grid gap over a rule-coloured background
+          so the dividers are exact at any zoom, and the same restrained
+          light-grey hover. Two sections sharing one component language
+          read as a system; two sections with different card treatments
+          read as two templates stitched together.
+
+          Was nine icon cards; now the six differentiators, type only. */}
       <section className="hmx-sec" id="why-mtouch-labs">
         <div className="hmx-wrap">
           <div className="hmx-head hmx-rv">
@@ -938,247 +1297,167 @@ export default function HomePage() {
               Why businesses choose <em>mTouch Labs</em>
             </h2>
             <p className="hmx-lead">
-              The right development partner shapes how effectively a product moves from an
-              idea to a reliable, scalable solution. Eight reasons teams keep us on their
-              roadmap after the first release.
+              We combine product thinking, engineering expertise, and long-term support
+              to build software that fits the way your business operates.
             </p>
           </div>
 
-          <div className="hmx-why-grid">
-            {whyChoose.map((w, i) => (
-              <div className="hmx-why hmx-rv" key={w.title} style={d(i % 3)}>
-                <span className="hmx-why-ico" aria-hidden="true">
-                  <i className={w.icon} />
-                </span>
+          <div className="hmx-matrix hmx-matrix--3 hmx-rv">
+            {whyChoose.map((w) => (
+              <article className="hmx-cell" key={w.n}>
                 <h3>{w.title}</h3>
-                <p>{w.desc}</p>
-              </div>
+                <p className="hmx-cell-p--free">{w.desc}</p>
+              </article>
             ))}
+          </div>
+
+          <div className="hmx-why-cta hmx-rv">
+            <Link href="/contact-us" className="hmx-btn hmx-btn-ghost">
+              Talk to Our Team
+              <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* ═══════════ RECOGNITION ═══════════ */}
-      <section className="hmx-sec hmx-sec--stone" id="recognition">
+      {/* ═══════════ SECTION 13 — GLOBAL DELIVERY ═══════════
+          Replaces two sections that used to sit here: "Trusted by
+          businesses / Awards & Certifications" and the old "Global
+          Development & Delivery" block with its four engagement cards,
+          collaboration copy and three-country card row.
+
+          Between them they ran to five headings, four engagement models,
+          two paragraphs about communication practices and three location
+          cards — most of it either stated elsewhere on the page (the
+          awards are named in the hero proof band; the engagement models
+          are differentiator 05; the collaboration practices are the
+          process track) or too long to be read at that depth this far
+          down a homepage.
+
+          This is one heading, one paragraph, one statement, three
+          offices. Each office carries its real street address, so the
+          section is corroborating evidence a crawler can match against
+          the Organization schema rather than three vague place names. */}
+      <section className="hmx-sec hmx-sec--stone" id="global-delivery">
         <div className="hmx-wrap">
-          {/* Rounded Deep Indigo panel carrying the award star. */}
-          <div className="hmx-recog hmx-rv">
-            <p className="hmx-eyebrow">Recognition &amp; Client Feedback</p>
-            <img
-              className="hmx-recog-star"
-              src="/images/new-home(02-09)/star.svg"
-              alt=""
-              width={128}
-              height={128}
-              loading="lazy"
-              decoding="async"
-            />
-            <h2 className="hmx-recog-h2">
-              Trusted by businesses. Recognized for <em>Technology Excellence</em>.
+          <div className="hmx-head hmx-rv">
+            <p className="hmx-eyebrow">Global Delivery</p>
+            <h2 className="hmx-h2">
+              Serving businesses <em>worldwide from India</em>
             </h2>
-            <p className="hmx-recog-p">
-              Businesses need more than a development team — they need a partner they can
-              trust with important products, data, and digital initiatives. Our
-              certifications, industry recognition, and client relationships reflect that.
+            <p className="hmx-lead">
+              From our teams in Hyderabad, Bengaluru, and Delaware, we collaborate with
+              clients across different time zones and markets to design, develop, launch,
+              and support digital products.
             </p>
           </div>
 
-          {/* CSS-only: three hidden radios drive the active row, the phone
-              slide and the pager dots. No JavaScript on this page. */}
-          <div className="hmx-aw hmx-rv">
-            {awards.map((a, i) => (
-              <input
-                key={`awr-${i}`}
-                className="hmx-aw-r"
-                type="radio"
-                name="hmx-aw"
-                id={`hmx-aw-${i + 1}`}
-                defaultChecked={i === 0}
-              />
-            ))}
+          {/* The statement, then the markets as tags. Set apart on rules
+              rather than in a box: it is a claim, not a data point. */}
+          <div className="hmx-gd-claim hmx-rv">
+            <p className="hmx-gd-statement">Wherever you are, we can work with you.</p>
+            <ul className="hmx-gd-markets">
+              {["India", "United States", "Worldwide"].map((m) => (
+                <li key={m}>{m}</li>
+              ))}
+            </ul>
+          </div>
 
-            {/* Left column — the selectable list. */}
-            <div className="hmx-aw-col">
-              <p className="hmx-aw-eyebrow">Awards &amp; Certifications</p>
-              <h2 className="hmx-aw-h2">
-                <em>Awards</em> &amp; Certifications
-              </h2>
+          {/* Real addresses, not place names. `itemProp`-free but
+              deliberately structured as an <address> per office, which is
+              the correct element and what a parser looks for. */}
+          <div className="hmx-gd-offices hmx-rv">
+            {offices.map((o) => (
+              <article className="hmx-office" key={o.city}>
+                <p className="hmx-office-role">{o.role}</p>
+                <h3>{o.city}</h3>
+                <address>{o.address}</address>
 
-              <ul className="hmx-aw-list">
-                {awards.map((a, i) => (
-                  <li className="hmx-aw-item" key={a.title}>
-                    <label className="hmx-aw-row" htmlFor={`hmx-aw-${i + 1}`}>
-                      <span className="hmx-aw-logo">
-                        <img src={a.logo} alt="" width={52} height={52} loading="lazy" decoding="async" />
-                      </span>
-                      <span className="hmx-aw-b">
-                        <strong>{a.title}</strong>
-                        <span>{a.desc}</span>
-                      </span>
-                    </label>
+                {/* Real, working links: tel: dials, mailto: composes with
+                    the office name already in the subject, and the map
+                    link opens that exact office in Google Maps. `rel` is
+                    set on the external one because it opens in a new tab. */}
+                <ul className="hmx-office-c">
+                  <li>
+                    <i className="fa-solid fa-phone" aria-hidden="true" />
+                    <a href={o.phoneHref}>{o.phone}</a>
                   </li>
-                ))}
-              </ul>
+                  <li>
+                    <i className="fa-solid fa-envelope" aria-hidden="true" />
+                    <a href={`mailto:${o.email}?subject=${encodeURIComponent(`Enquiry - ${o.city} office`)}`}>
+                      {o.email}
+                    </a>
+                  </li>
+                </ul>
 
-              <Link href="/awards-recognition" className="hmx-arrow">
-                See all awards &amp; recognition
+                <a
+                  className="hmx-arrow hmx-office-map"
+                  href={o.map}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Get Directions
+                  <i className="fa-solid fa-arrow-up-right-from-square" aria-hidden="true" />
+                </a>
+              </article>
+            ))}
+          </div>
+
+          <div className="hmx-gd-cta hmx-rv">
+            <Link href="/contact-us" className="hmx-btn hmx-btn-primary">
+              Start a  Project
+              <ArrowUpRight />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════ INSIGHTS — three latest articles ═══════════
+          Pulled live from the blogs table, newest first, so the homepage
+          never shows a stale trio and nothing here has to be edited when
+          a post is published.
+
+          The query is wrapped in try/catch inside `getLatestPosts()`: if
+          the database is unreachable the section simply does not render,
+          rather than taking the whole homepage down with it. */}
+      {posts.length > 0 && (
+        <section className="hmx-sec" id="insights">
+          <div className="hmx-wrap">
+            <div className="hmx-head hmx-rv">
+              <p className="hmx-eyebrow">Insights</p>
+              <h2 className="hmx-h2">
+                Insights on software, <em>AI, and digital products</em>
+              </h2>
+              <p className="hmx-lead">
+                Explore practical insights, guides, and perspectives from mTouch Labs on
+                software development, artificial intelligence, mobile apps, web
+                technologies, and digital product engineering.
+              </p>
+            </div>
+
+            <div className="hmx-posts hmx-rv">
+              {posts.map((b) => (
+                <article className="hmx-post" key={b.slug}>
+                  {b.category && <p className="hmx-post-cat">{b.category}</p>}
+                  <h3>{b.title}</h3>
+                  <p className="hmx-post-x">{b.description}</p>
+                  <Link href={`/blog/${b.slug}`} className="hmx-arrow">
+                    Read Article
+                    <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+                  </Link>
+                </article>
+              ))}
+            </div>
+
+            <div className="hmx-posts-cta hmx-rv">
+              <Link href="/blog" className="hmx-btn hmx-btn-ghost">
+                View All Blogs
                 <i className="fa-solid fa-arrow-right" aria-hidden="true" />
               </Link>
             </div>
-
-            {/* Right column — phone mock. Bezel, notch and screen are
-                pure CSS; only the award artwork is an image. */}
-            <div className="hmx-phone-wrap">
-              <div className="hmx-phone">
-                <div className="hmx-phone-screen">
-                  {awards.map((a) => (
-                    <div className="hmx-slide" key={`sl-${a.title}`}>
-                      <img
-                        src={a.shot}
-                        alt={a.alt}
-                        width={218}
-                        height={218}
-                        loading="lazy"
-                        decoding="async"
-                      />
-                      <p className="hmx-slide-t">{a.title}</p>
-                    </div>
-                  ))}
-                  <div className="hmx-dots" aria-hidden="true">
-                    <span className="hmx-dot" />
-                    <span className="hmx-dot" />
-                    <span className="hmx-dot" />
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
-
-          <p className="hmx-subhead hmx-subhead--sp">What Our Clients Say</p>
-          <div className="hmx-quotes">
-            {testimonials.map((t, i) => (
-              <figure className="hmx-quote hmx-rv" key={t.name} style={d(i)}>
-                <span className="hmx-quote-mark" aria-hidden="true">&ldquo;</span>
-                <blockquote>{t.quote}</blockquote>
-                <figcaption className="hmx-quote-foot">
-                  <span className="hmx-quote-who">
-                    <img
-                      className="hmx-quote-flag"
-                      src={t.flag}
-                      alt={t.flagAlt}
-                      width={25}
-                      height={18}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                    <span>
-                      <span className="hmx-quote-name">{t.name}</span>
-                      <span className="hmx-quote-role">{t.role}</span>
-                    </span>
-                  </span>
-                  <img
-                    className="hmx-quote-logo"
-                    src={t.logo}
-                    alt={t.logoAlt}
-                    height={27}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════ GLOBAL DELIVERY ═══════════ */}
-      <section className="hmx-sec" id="global-delivery">
-        <div className="hmx-wrap">
-          <div className="hmx-head hmx-rv">
-            <p className="hmx-eyebrow">Global Development &amp; Delivery</p>
-            <h2 className="hmx-h2">
-              Software development for <em>businesses worldwide</em>
-            </h2>
-            <p className="hmx-lead">
-              Businesses need technology partners who can work across markets, time zones,
-              and changing requirements. Four ways to work with our engineering teams.
-            </p>
-          </div>
-
-          <div className="hmx-rail hmx-rv">
-            {engagements.map((e) => (
-              <div className="hmx-step" key={e.n}>
-                <span className="hmx-step-tile" aria-hidden="true">
-                  <i className={e.icon} />
-                  <span className="hmx-step-n">{Number(e.n)}</span>
-                </span>
-                <h3>{e.title}</h3>
-                <p>{e.desc}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="hmx-collab">
-            {/* Dotted world map. NOT Vector.svg — that file is a PNG with
-                an .svg extension, so it is served as image/svg+xml, fails
-                to parse, and renders nothing. world-map.webp is the same
-                artwork, correctly typed and recoloured. */}
-            <img
-              className="hmx-collab-map"
-              src="/images/new-home(02-09)/world-map.webp"
-              alt=""
-              width={1300}
-              height={675}
-              loading="lazy"
-              decoding="async"
-            />
-
-            <h3 className="hmx-collab-h hmx-rv">
-              Built for <em>Global Collaboration</em>
-            </h3>
-
-            <div className="hmx-collab-card hmx-rv">
-              <p>
-                We use collaborative development practices, transparent communication,
-                project management tools, and structured delivery processes to keep
-                distributed teams aligned throughout the software development lifecycle.
-              </p>
-              <p>
-                Whether you&apos;re launching a new product or expanding an existing
-                engineering capability, our teams adapt to your technical and business
-                requirements.
-              </p>
-            </div>
-
-            <p className="hmx-subhead hmx-subhead--sp">Where We Deliver From</p>
-
-            <div className="hmx-loc-grid">
-              {locations.map((l, i) => (
-                <div className="hmx-loc hmx-rv" key={l.name} style={d(i)}>
-                  <img
-                    className="hmx-loc-art"
-                    src={l.art}
-                    alt={l.artAlt}
-                    width={174}
-                    height={174}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <span className="hmx-loc-flag" role="img" aria-label={`${l.name} flag`}>
-                    {l.flag}
-                  </span>
-                  <h3>{l.name}</h3>
-                  <p>{l.desc}</p>
-                  <Link href={l.link} className="hmx-arrow">
-                    {l.label}
-                    <i className="fa-solid fa-arrow-right" aria-hidden="true" />
-                  </Link>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* ═══════════ FAQ ═══════════ */}
       <section className="hmx-sec hmx-sec--stone" id="faq">
@@ -1216,56 +1495,43 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════ THE ONE CTA ═══════════ */}
+      {/* ═══════════ CLOSING CTA ═══════════
+          Rebuilt to the approved copy, and stripped back to it.
+
+          Gone from this block: the second "View Our Work" button, the
+          greyscaled client-logo row, and start-your-proj-home.svg. The
+          logos already run as their own band directly under the hero, so
+          a second pass here was the same proof twice; the illustration
+          was 1.85 MB for decoration at the very bottom of the page, where
+          it can only slow the page down and cannot persuade anyone who
+          has read this far.
+
+          One heading, one paragraph, one action. A closing CTA with two
+          competing buttons splits the decision it exists to force. */}
       <section className="hmx-cta" id="start-your-project">
         <div className="hmx-wrap">
-          <div className="hmx-cta-inner">
-            <div className="hmx-rv">
-              <p className="hmx-eyebrow">Start Your Project</p>
-              <h2 className="hmx-cta-h2">Have a software idea or project to build?</h2>
-              <p className="hmx-cta-p">
-                Whether you&apos;re launching a new digital product, developing custom
-                business software, adding AI capabilities, or modernizing an existing
-                application, mTouch Labs can help you turn your requirements into a
-                scalable software solution.
-              </p>
+          <div className="hmx-cta-solo hmx-rv">
+            <p className="hmx-eyebrow">Start Your Project</p>
+            <h2 className="hmx-cta-h2">Ready to build your next digital product?</h2>
+            <p className="hmx-cta-p">
+              Tell us what you&rsquo;re looking to build, improve, or automate. Our team
+              can help you define the right approach and turn your requirements into a
+              scalable software solution.
+            </p>
 
-              <div className="hmx-cta-actions">
-                <Link href="/contact-us" className="hmx-btn hmx-btn-primary hmx-btn-badge">
-                  Start Your Project
-                  <span aria-hidden="true">
-                    <ArrowUpRight />
-                  </span>
-                </Link>
-                <Link href="/portfolio" className="hmx-btn-text">
-                  View Our Work
-                  <i className="fa-solid fa-arrow-right" aria-hidden="true" />
-                </Link>
-              </div>
-
-              {/* Client logos, greyscaled so the row reads as one band. */}
-              <div className="hmx-cta-logos">
-                {ctaLogos.map((l) => (
-                  <img
-                    key={l.src}
-                    src={l.src}
-                    alt={l.alt}
-                    height={30}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                ))}
-              </div>
-            </div>
-
-            <div className="hmx-cta-art hmx-rv" style={d(1)}>
-              <img
-                src="/images/new-home(02-09)/start-your-proj-home.svg"
-                alt="An mTouch Labs team reviewing a product on a tablet"
-                width={620}
-                height={560}
-                loading="lazy"
-                decoding="async"
-              />
+            {/* Primary, then the secondary in the page's established
+                shape: white fill, Signature Blue border, ink label -- the
+                same .hmx-btn-ghost used in the hero and on /services, so
+                the button system stays consistent. */}
+            <div className="hmx-cta-actions">
+              <Link href="/contact-us" className="hmx-btn hmx-btn-primary">
+                Start a Project
+                <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+              </Link>
+              <Link href="/portfolio" className="hmx-btn hmx-btn-ghost">
+                View Our Work
+                <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+              </Link>
             </div>
           </div>
         </div>

@@ -6,7 +6,7 @@ import ServiceHero from "@/components/sections/ServiceHero";
    METADATA (SEO-Optimized)
    ───────────────────────────────────────────────────────────── */
 export const metadata: Metadata = {
-  title: "IT Solutions Company | Custom IT Services | mTouch Labs",
+  title: { absolute: "IT Solutions Company | Custom IT Services | mTouch Labs" },
   description:
     "mTouch Labs is a trusted IT solutions company offering custom software, cloud, AI, mobile apps, and enterprise IT services worldwide.",
   keywords: [
@@ -231,7 +231,7 @@ const services = [
 
 const stats = [
   { value: "14+", label: "Years of Expertise" },
-  { value: "1500+", label: "Projects Delivered" },
+  { value: "1,500+", label: "Projects Delivered" },
   { value: "40+", label: "Global Clients" },
   { value: "99%", label: "Uptime Guarantee" },
 ];

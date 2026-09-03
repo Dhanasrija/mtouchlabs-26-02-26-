@@ -5,7 +5,7 @@ import FAQSchema from "@/components/seo/FAQSchema";
 import "./services-page.css";
 
 export const metadata: Metadata = {
-  title: "Software Development Services | mTouch Labs",
+  title: "Software Development Services",
   description:
     "Explore end-to-end software development services including AI, custom software, web, mobile, SaaS, enterprise, AWS, Salesforce, and cloud solutions.",
   keywords: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: "End-to-End Software Development Services | mTouch Labs",
+    title: "End-to-End Software Development Services",
     description:
       "Build, modernize, and scale digital products with mTouch Labs. Explore AI, custom software, web, mobile, SaaS, enterprise, AWS, Salesforce, and cloud services.",
     url: "https://www.mtouchlabs.com/services",
