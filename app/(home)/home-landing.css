@@ -172,6 +172,10 @@
 .hmx-h2 em { font-style: normal; color: var(--blue); }
 .hmx-sec--dark .hmx-h2 { color: #FFFFFF; }
 .hmx-sec--dark .hmx-h2 em { color: var(--blue); }
+/* Opt-out: an <em> that should stay the heading's own colour rather
+   than taking the Signature Blue accent. */
+.hmx-h2 em.hmx-em-plain { color: inherit; }
+.hmx-sec--dark .hmx-h2 em.hmx-em-plain { color: #FFFFFF; }
 
 .hmx-lead { font-size: 16.5px; line-height: 30px; color: var(--muted); margin: 0 auto; max-width: 74ch; }
 .hmx-sec--dark .hmx-lead { color: var(--d-body); }
@@ -385,7 +389,16 @@
      tracking set for medium looks loose on bold. */
   font-weight: 700;
   color: var(--ink);
-  letter-spacing: -2.8px;
+  /* Tracking and leading both pulled in hard.
+     -2.8px at 78px was about -0.036em; the comp is closer to -0.05em,
+     and the difference is exactly the "too much space between the
+     letters" you saw. Set in `em` rather than px so it scales with the
+     clamp instead of going loose at large sizes and cramped at small.
+     `word-spacing` is trimmed too -- letter tracking alone leaves the
+     gaps between words looking wider than the gaps inside them. */
+  letter-spacing: -.05em;
+  word-spacing: -.04em;
+  line-height: 1.02;
   margin: 0 auto 26px;
   max-width: 24ch;
   text-wrap: balance;
@@ -472,39 +485,76 @@
   z-index: 1;
 }
 
+/* NOTE: there were THREE `.hmx-hero-proof li` rules in this file --
+   this one plus two left over from earlier versions of the band, both
+   later in the source and therefore both winning. The last of them set
+   `text-align: center`, which is what re-centred the numeral inside its
+   track no matter what was written here. They are deleted. If a change
+   to this band ever appears to do nothing again, grep the file for
+   duplicate selectors before changing values.
+
+   ── THE GAP FIX ──
+   This is what every previous attempt got wrong, so it is worth stating
+   plainly.
+
+   The cell was `grid-template-columns: <fixed> minmax(0, 1fr)`. The 1fr
+   track therefore ate ALL the remaining cell width -- roughly 200px --
+   and the "14+ / YEARS" block sat CENTRED inside it. So the visible gap
+   was never the grid gutter I kept shrinking; it was ~70px of empty
+   track to the right of the mark, with the text pushed off to the middle
+   of it. Taking the gutter from 16px to 2px moved the problem by 14px
+   and left the other 70 untouched.
+
+   Both tracks are now `auto`, so each is exactly as wide as its content
+   and there is no slack for anything to float in. `justify-content:
+   start` then genuinely does something -- it packs the two content-sized
+   tracks against the left edge -- where before it was a no-op, because
+   1fr had already consumed every spare pixel.
+
+   `justify-items: start` and the explicit left alignment stop the text
+   re-centring itself: the hero sets `text-align: center` on its wrapper
+   and that inherits down into these cells. */
 .hmx-hero-proof li {
-  display: grid; grid-template-columns: 50px minmax(0, 1fr);
-  gap: 16px; align-items: center; justify-content: start;
-  padding: 34px 26px;
+  display: grid;
+  grid-template-columns: auto auto;
+  /* `center`, not `start`. Both tracks are content-sized, so the pair
+     hugs together and then the pair as a whole is centred in the cell --
+     which is what the box wants: the mark and the figure read as one
+     unit sitting in the middle, rather than jammed against the left
+     edge. */
+  justify-content: center;
+  justify-items: start;
+  align-items: center;
+  /* 18px, up from 10. At 10 the calendar's right edge was touching the
+     "1" of 14+. This is the one number that actually controls the space
+     between them now that no track can absorb it. */
+  gap: 22px;
+  padding: 34px 22px;
   border-left: 1px solid rgba(13, 17, 23, .085);
   text-align: left;
   transition: background .3s ease;
 }
+/* Only the divider goes; the padding stays symmetrical now that the
+   content is centred in the cell rather than pinned to its left edge. */
 .hmx-hero-proof li:first-child { border-left: 0; }
-/* Cells 1 and 2 sit tighter than 3 and 4.
+/* Mark sizes only. No track widths, no negative margins, no
+   justify-content overrides -- the `auto auto` grid above means the mark
+   and the text are already touching, so all of that is gone.
 
-   I first assumed the artwork had transparent padding baked in and tried
-   to fix it with `object-position`. Measuring the embedded bitmap proved
-   that wrong: the ink fills 99% of the canvas, so there was nothing
-   inside the image to claw back and no CSS on the <img> could help.
-
-   The gap was simply the grid gutter. So: a narrower track, no gap, and
-   a small negative margin that lets the mark sit a few pixels into the
-   text column. The number's own left side bearing keeps them from
-   actually touching. Only these two cells get it -- the ISO and NASSCOM
-   marks read correctly at the wider gutter, because their labels are
-   words rather than a short numeral. */
-.hmx-hero-proof li:nth-child(1),
-.hmx-hero-proof li:nth-child(2) {
-  grid-template-columns: 34px minmax(0, 1fr);
-  gap: 0;
-}
+   Cells 1 and 2 carry a larger mark than 3 and 4: the calendar and the
+   cube are flat, open shapes, where the ISO seal and the trophy are
+   dense and read heavier at the same pixel size. */
 .hmx-hero-proof li:nth-child(1) .hmx-hp-ico,
-.hmx-hero-proof li:nth-child(2) .hmx-hp-ico {
-  width: 34px; height: 34px; margin-right: -3px;
-}
+.hmx-hero-proof li:nth-child(2) .hmx-hp-ico { width: 58px; height: 58px; }
+.hmx-hero-proof li:nth-child(3) .hmx-hp-ico,
+.hmx-hero-proof li:nth-child(4) .hmx-hp-ico { width: 50px; height: 50px; }
 
-.hmx-hp-b { display: block; min-width: 0; }
+/* `text-align: left` restated here, not just on the li: the hero
+   wrapper sets `text-align: center` and legacy sheets in bundle.css
+   centre text inside sections too. This is the level the numeral and the
+   label actually read it from. */
+.hmx-hp-b { display: block; min-width: 0; text-align: left; }
+.hmx-hp-n, .hmx-hp-k { text-align: left; }
 .hmx-hp-n {
   display: block;
   font-size: 34px; line-height: 1.05; font-weight: 800;
@@ -546,18 +596,6 @@
    Dividers are left borders, not grid gaps, so no rule ever lands on the
    card's outer edge.
    ═════════════════════════════════════════════════════════════ */
-.hmx-hero-proof {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  width: 100%;
-  margin: 76px 0 0; padding: 0;
-  background: #FFFFFF;
-  border: 1px solid rgba(13, 17, 23, .07);
-  border-radius: 26px;
-  box-shadow: 0 26px 64px -34px rgba(13, 17, 23, .18);
-  list-style: none;
-  overflow: hidden;
-}
 /* ALIGNMENT FIX.
    The icons and the text were not lining up because the five marks are
    different objects at different sizes -- three Font Awesome glyphs at
@@ -570,35 +608,33 @@
    exactly the same offset in all five cells whatever the mark is, and
    `align-items: center` centres the two against each other rather than
    against a baseline the glyph and the image disagree about. */
-.hmx-hero-proof li {
-  display: grid; grid-template-columns: 46px minmax(0, 1fr);
-  gap: 14px; align-items: center; justify-content: start;
-  padding: 30px 18px;
-  border-left: 1px solid rgba(13, 17, 23, .09);
-  text-align: left;
-}
-.hmx-hero-proof li:first-child { border-left: 0; }
+/* The first cell loses its left padding entirely, so "14+ / YEARS"
+   starts at the card's own edge instead of 26px inside it. The other
+   three keep their padding -- they have a divider on the left that the
+   content needs to clear, and the first cell does not. */
 /* Cells 1 and 2 sit closer than 3 and 4.
    stat1.svg and stat2.svg carry more internal whitespace than the ISO
    and NASSCOM marks do, so at a uniform gutter their glyphs looked
    detached from the figure while the other two looked right. Trimming
    the track and the gap on just these two lines all four up optically,
    which is what matters -- geometric equality here reads as unequal. */
-.hmx-hero-proof li:nth-child(1),
-.hmx-hero-proof li:nth-child(2) {
-  grid-template-columns: 40px minmax(0, 1fr);
-  gap: 0;
-}
+/* REMOVED -- this was the actual cause of the number sitting on top of
+   the artwork. It came AFTER the `.hmx-hero-proof li` rule above and so
+   won outright: it put the 1fr track back (which centres the text inside
+   an oversized track) and set `gap: 0` (which removed the space
+   entirely). Cells 1 and 2 now use the same `auto auto` + 22px gap as
+   3 and 4. */
 /* `object-position: right` is the actual fix, not just a smaller gap.
    stat1.svg and stat2.svg have transparent padding baked into the
    artwork, so the visible glyph sat well inside its box and no amount of
    gap-trimming closed the gap -- the empty space was INSIDE the image.
    Anchoring the artwork to the right edge of its box pushes the glyph
    itself towards the figure. */
-.hmx-hero-proof li:nth-child(1) .hmx-hp-ico,
-.hmx-hero-proof li:nth-child(2) .hmx-hp-ico { width: 40px; height: 40px; }
-.hmx-hero-proof li:nth-child(1) .hmx-hp-ico img,
-.hmx-hero-proof li:nth-child(2) .hmx-hp-ico img { object-position: right center; }
+/* REMOVED -- `object-position: right center` shoved the artwork hard
+   against the right edge of its own box, straight into the figure. The
+   images do NOT have significant transparent padding (measured: ink
+   fills ~99% of the canvas), so anchoring right bought nothing and cost
+   the whole gutter. Back to centre. */
 
 /* Line-weight blue glyph, no disc behind it -- the comp draws these as
    bare outline icons. Fixed box with flex-shrink 0 so a long figure
@@ -623,27 +659,16 @@
   object-fit: contain; object-position: center;
 }
 
-.hmx-hp-b { display: block; min-width: 0; }
-.hmx-hp-n { white-space: nowrap; }
-.hmx-hp-n {
-  display: block;
-  font-size: 26px; line-height: 1.1; font-weight: 800;
-  letter-spacing: -1.1px; color: var(--ink);
-  font-variant-numeric: tabular-nums;
-  margin-bottom: 4px; white-space: nowrap;
-}
+/* `text-align: left` restated here, not just on the li: the hero
+   wrapper sets `text-align: center` and legacy sheets in bundle.css
+   centre text inside sections too. This is the level the numeral and the
+   label actually read it from. */
 /* The last two cells hold words, not numerals: they need a smaller size
    to sit on the same line, and tabular figure spacing does nothing for
    letters. */
 .hmx-hero-proof li:nth-child(4) .hmx-hp-n,
 .hmx-hero-proof li:nth-child(5) .hmx-hp-n {
   font-size: 19px; letter-spacing: -.5px; font-variant-numeric: normal;
-}
-.hmx-hp-k {
-  display: block;
-  font-size: 12.5px; line-height: 17px; font-weight: 600;
-  letter-spacing: 1.5px; text-transform: uppercase;
-  color: rgba(13, 17, 23, .5);
 }
 
 /* Kept: some markup elsewhere still uses these. */
@@ -669,71 +694,23 @@
    Dividers are left borders rather than grid gaps, so no rule ever
    lands on the outer edge.
    ═════════════════════════════════════════════════════════════ */
-.hmx-hero-proof {
-  display: grid;
-  /* Five cells now that the NASSCOM award sits here too. `auto-fit` with
-     a 150px floor rather than a hard repeat(5): at intermediate widths
-     the row drops to three-then-two by itself instead of squeezing five
-     cells until "SME Inspire 2026" breaks mid-word. */
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  width: 100%;
-  margin: 64px 0 0; padding: 0;
-  background: rgba(255, 255, 255, .74);
-  border: 1px solid rgba(13, 17, 23, .10);
-  border-radius: var(--r);
-  box-shadow: 0 24px 60px -34px rgba(13, 17, 23, .26);
-  /* Frosts whatever of the gradient shows through. Harmless where
-     unsupported — the 74% white already carries the band. */
-  -webkit-backdrop-filter: blur(7px);
-  backdrop-filter: blur(7px);
-  list-style: none;
-  overflow: hidden;
-}
-.hmx-hero-proof li {
-  padding: 32px 16px 30px;
-  border-left: 1px solid rgba(13, 17, 23, .10);
-  text-align: center;
-}
-.hmx-hero-proof li:first-child { border-left: 0; }
+/* The first cell loses its left padding entirely, so "14+ / YEARS"
+   starts at the card's own edge instead of 26px inside it. The other
+   three keep their padding -- they have a divider on the left that the
+   content needs to clear, and the first cell does not. */
 /* Cells 1 and 2 sit closer than 3 and 4.
    stat1.svg and stat2.svg carry more internal whitespace than the ISO
    and NASSCOM marks do, so at a uniform gutter their glyphs looked
    detached from the figure while the other two looked right. Trimming
    the track and the gap on just these two lines all four up optically,
    which is what matters -- geometric equality here reads as unequal. */
-.hmx-hero-proof li:nth-child(1),
-.hmx-hero-proof li:nth-child(2) {
-  grid-template-columns: 40px minmax(0, 1fr);
-  gap: 0;
-}
-/* `object-position: right` is the actual fix, not just a smaller gap.
-   stat1.svg and stat2.svg have transparent padding baked into the
-   artwork, so the visible glyph sat well inside its box and no amount of
-   gap-trimming closed the gap -- the empty space was INSIDE the image.
-   Anchoring the artwork to the right edge of its box pushes the glyph
-   itself towards the figure. */
-.hmx-hero-proof li:nth-child(1) .hmx-hp-ico,
-.hmx-hero-proof li:nth-child(2) .hmx-hp-ico { width: 40px; height: 40px; }
-.hmx-hero-proof li:nth-child(1) .hmx-hp-ico img,
-.hmx-hero-proof li:nth-child(2) .hmx-hp-ico img { object-position: right center; }
-.hmx-hp-n {
-  display: block;
-  /* Fluid so the five figures never collide at intermediate widths. */
-  font-size: clamp(26px, 2.9vw, 40px); line-height: 1.05; font-weight: 700;
-  letter-spacing: -1.6px; color: var(--ink);
-  font-variant-numeric: tabular-nums;
-  margin-bottom: 10px;
-}
-/* "NASSCOM" is a word, not a number: it needs to shrink so it does not
-   outrun its cell, and tabular figure spacing does nothing for letters. */
+/* "NASSCOM" is a word, not a number: it shrinks so it does not outrun
+   its cell. The three stray `nth-child(1)` selectors that used to be
+   glued onto the front of this list were leftovers from the deleted
+   override -- they were applying this font-size to the <li> and to the
+   icon box of cell 1. Gone. */
 .hmx-hero-proof li:last-child .hmx-hp-n {
   font-size: clamp(19px, 1.9vw, 26px); letter-spacing: -.4px;
-}
-.hmx-hp-k {
-  display: block;
-  font-size: 12px; line-height: 18px; font-weight: 600;
-  letter-spacing: 1.4px; text-transform: uppercase;
-  color: var(--muted);
 }
 
 .hmx-hero-ctas { display: flex; gap: 18px; align-items: center; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
@@ -860,17 +837,25 @@
 
 /* ── Pagination dots ── */
 .hmx-lw-dots {
-  display: flex; justify-content: center; gap: 10px; margin-top: 30px;
+  display: flex; justify-content: center; align-items: center; gap: 2px; margin-top: 26px;
 }
+/* Grey dots, not numerals. 10px circles; the active one fills
+   Signature Blue and grows slightly, which is enough state without a
+   label. The hit area is padded out to 24px with a transparent border
+   so the target stays comfortable on touch even though the dot is
+   small -- a 10px tap target would be unusable. */
 .hmx-lw-dot {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 34px; height: 34px; border-radius: 50%;
-  border: 1px solid var(--line); background: var(--paper);
-  font-size: 13px; font-weight: 700; color: var(--muted);
+  display: inline-block;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(13, 17, 23, .2);
+  border: 8px solid transparent;
+  background-clip: padding-box;
+  box-sizing: content-box;
   cursor: pointer; user-select: none;
-  transition: background .24s ease, border-color .24s ease, color .24s ease;
+  font-size: 0; line-height: 0; color: transparent;
+  transition: background .24s ease, transform .24s ease;
 }
-.hmx-lw-dot:hover { border-color: rgba(13, 17, 23, .3); color: var(--ink); }
+.hmx-lw-dot:hover { background: rgba(13, 17, 23, .38); }
 
 /* ── The wiring ──
    nth-of-type on the radios, nth-child on the targets. Written out
@@ -884,14 +869,20 @@
 .hmx-lw-r:nth-of-type(1):checked ~ .hmx-lw-dots .hmx-lw-dot:nth-child(1),
 .hmx-lw-r:nth-of-type(2):checked ~ .hmx-lw-dots .hmx-lw-dot:nth-child(2),
 .hmx-lw-r:nth-of-type(3):checked ~ .hmx-lw-dots .hmx-lw-dot:nth-child(3) {
-  background: var(--blue); border-color: var(--blue); color: #FFFFFF;
+  /* Active dot: darker grey, and the SAME SIZE as the others -- no
+     scale. Colour alone marks the current page, so the row never shifts
+     as you click through it. */
+  background: rgba(13, 17, 23, .6);
 }
 /* Focus ring driven from the radio, since the radio is what actually
    receives focus while the label is what is visible. */
+/* Focus ring is ink, not Signature Blue -- the dots carry no blue at
+   all now, in any state. Kept visible because it is the only cue a
+   keyboard user gets for which page is focused. */
 .hmx-lw-r:nth-of-type(1):focus-visible ~ .hmx-lw-dots .hmx-lw-dot:nth-child(1),
 .hmx-lw-r:nth-of-type(2):focus-visible ~ .hmx-lw-dots .hmx-lw-dot:nth-child(2),
 .hmx-lw-r:nth-of-type(3):focus-visible ~ .hmx-lw-dots .hmx-lw-dot:nth-child(3) {
-  outline: 2px solid var(--blue); outline-offset: 3px;
+  outline: 2px solid rgba(13, 17, 23, .55); outline-offset: 2px;
 }
 
 
@@ -1478,6 +1469,24 @@
   transition: background .3s ease;
 }
 .hmx-post:hover { background: #F1F3F7; }
+/* Cover image, flush to the card's top edge. Negative margins pull it
+   out of the card's own padding so it bleeds to the sides; a fixed
+   aspect-ratio plus `object-fit: cover` keeps all three cards level
+   whatever the source image's proportions are. */
+.hmx-post-img {
+  display: block;
+  margin: -34px -30px 22px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #EDEFF5;
+}
+.hmx-post-img img {
+  display: block; width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  transition: transform .5s cubic-bezier(.22, 1, .36, 1);
+}
+.hmx-post:hover .hmx-post-img img { transform: scale(1.04); }
+
 .hmx-post-cat {
   margin: 0 0 16px;
   font-size: 11px; font-weight: 800; letter-spacing: 2px;
@@ -1759,6 +1768,7 @@
      no benefit, so the line is dropped and the pillars stack full-width
      with the kicker doing the numbering. */
   /* Two columns: a plain alternating pair is already a checkerboard. */
+  .hmx-post-img { margin: -26px -22px 18px; }
   .hmx-lw-page { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .hmx-lw-cell { min-height: 82px; padding: 12px 10px; }
   .hmx-lw-cell img { max-height: 54px; }
@@ -1878,6 +1888,19 @@
 .hmx-matrix--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .hmx-why-cta { margin-top: 46px; text-align: center; }
 .hmx-posts-cta { margin-top: 44px; text-align: center; }
+
+/* Development-only notice under the Insights cards. Deliberately plain
+   and small -- it is a note to the developer, not part of the design,
+   and it is never rendered in production. */
+.hmx-diag-line {
+  margin: 22px 0 0; text-align: center;
+  font-size: 13px; line-height: 20px; color: var(--muted);
+}
+.hmx-diag-line code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px; background: rgba(13, 17, 23, .06);
+  padding: 1px 6px; border-radius: 4px; color: #8A5A00;
+}
 
 /* Placeholder for the streamed Insights section. It reserves close to
    the finished block's height so the FAQ and closing CTA below it do not
@@ -2285,7 +2308,7 @@
   .hmx-hero { padding: 96px 0 80px; }
   .hmx-h1 { letter-spacing: -1.8px; max-width: 22ch; }
   .hmx-hero-proof { margin-top: 56px; }
-  .hmx-hero-proof li { padding: 28px 20px; gap: 14px; grid-template-columns: 44px minmax(0, 1fr); }
+  .hmx-hero-proof li { padding: 28px 20px; gap: 16px; grid-template-columns: auto auto; }
   .hmx-hp-ico { width: 44px; height: 44px; }
   .hmx-hp-ico i { font-size: 25px; }
   .hmx-hp-n { font-size: 28px; }
@@ -2331,7 +2354,7 @@
      still reads as a single band. */
   .hmx-hero-proof { grid-template-columns: minmax(0, 1fr); margin-top: 42px; border-radius: 18px; }
   .hmx-hero-proof li {
-    padding: 20px 22px; grid-template-columns: 40px minmax(0, 1fr); gap: 14px;
+    padding: 20px 22px; grid-template-columns: auto auto; gap: 16px;
     border-left: 0; border-top: 1px solid rgba(13, 17, 23, .085);
   }
   .hmx-hero-proof li:first-child { border-top: 0; }

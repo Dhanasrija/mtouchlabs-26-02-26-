@@ -60,7 +60,8 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #3E8CFB, #011D80);
+  /* Flat Signature Blue -- no gradient. */
+  background: var(--color-signature-blue, #3E8CFB);
 }
 
 .cr-resume-icon {
@@ -73,8 +74,9 @@
   justify-content: center;
   font-size: 25px;
   color: #FFFFFF;
-  background: linear-gradient(135deg, #3E8CFB 0%, #011D80 100%);
-  box-shadow: 0 14px 30px -12px rgba(62, 140, 251, .7);
+  /* Flat Signature Blue -- no gradient. */
+  background: var(--color-signature-blue, #3E8CFB);
+  box-shadow: 0 14px 30px -12px rgba(62, 140, 251, .5);
 }
 
 .cr-resume-heading {
@@ -104,41 +106,22 @@
 }
 
 .cr-resume .cr-resume-btn-primary,
-.cr-resume .cr-resume-btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 15px 30px;
-  border-radius: 999px;
-  font-family: var(--font-primary, 'Poppins', sans-serif);
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1.2;
-  text-decoration: none;
-  border: 2px solid transparent;
-  transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease, border-color .25s ease;
-}
-
-.cr-resume .cr-resume-btn-primary {
-  background: linear-gradient(135deg, #3E8CFB 0%, #011D80 100%);
-  color: #FFFFFF;
-  box-shadow: 0 12px 30px -12px rgba(62, 140, 251, .8);
-}
-.cr-resume .cr-resume-btn-primary:hover {
-  transform: translateY(-2px);
-  color: #FFFFFF;
-  background: linear-gradient(135deg, #011D80 0%, #3E8CFB 100%);
-}
-
+/* White fill, Signature Blue border, INK label -- the same secondary
+   shape used in the hero, the closing CTA and on /services. It was blue
+   text on white, which made it compete with the primary; black text
+   settles the hierarchy. Hover goes to the light grey used across the
+   site, never a colour flip. */
 .cr-resume .cr-resume-btn-secondary {
   background: #FFFFFF;
-  color: #3E8CFB;
-  border-color: #3E8CFB;
+  color: var(--color-carbon-black, #0D1117);
+  border-color: var(--color-signature-blue, #3E8CFB);
 }
+.cr-resume .cr-resume-btn-secondary i { color: var(--color-signature-blue, #3E8CFB); }
 .cr-resume .cr-resume-btn-secondary:hover {
   transform: translateY(-2px);
-  background: #3E8CFB;
-  color: #FFFFFF;
+  background: rgba(62, 140, 251, .08);
+  color: var(--color-carbon-black, #0D1117);
+  border-color: var(--color-signature-blue, #3E8CFB);
 }
 
 .cr-resume-note {
@@ -153,7 +136,8 @@
   font-weight: 600;
   text-decoration: none;
 }
-.cr-resume-note a:hover { color: #011D80; }
+/* Signature Blue on hover, not Heritage Navy -- one accent blue. */
+.cr-resume-note a:hover { color: var(--color-signature-blue, #3E8CFB); filter: brightness(.9); }
 
 .cr-resume-loc {
   display: inline-flex;

@@ -188,11 +188,15 @@ const reasons = [
 /*
  * HOW WE BUILD -- the five delivery steps.
  *
+ * Named `buildSteps`, not `process`: a module-scope `const process`
+ * shadows Node's global `process` for the whole file, which silently
+ * broke `process.env.NODE_ENV` below.
+ *
  * Sits directly after Core Services: the services grid says what we
  * build, this says how it gets built. Rendered as a horizontal track, so
  * the sequence is legible at a glance rather than read as a list.
  */
-const process = [
+const buildSteps = [
   /* Supplied artwork from public/images/hero-new-work, replacing the
      numeral chips. `alt=""` throughout: the step's own heading names it,
      so described icons would double up for a screen reader. */
@@ -724,6 +728,53 @@ const professionalServiceSchema = {
   },
 };
 
+/*
+ * FALLBACK POSTS -- used only when the database is unreachable.
+ *
+ * WHY THIS EXISTS
+ * The live query is still the primary source. But `lib/db.ts` uses the
+ * Neon HTTP driver, and when it cannot reach the database it throws
+ * "fetch failed" -- which is what happens in local dev without a working
+ * DATABASE_URL. Previously that made the whole Insights section vanish.
+ * Now it falls back to these three so the section always renders.
+ *
+ * ⚠ VERIFY THESE THREE SLUGS before you ship.
+ * They are the best available guess: the first is certain (it is the post
+ * imported by import-blogs-3.mjs), and the other two are inferred from
+ * the filenames in public/images/blogs, which the import scripts name
+ * after the slug. If a slug is wrong its "Read Article" link 404s.
+ * Open /blog, copy the three real slugs, and paste them in here.
+ *
+ * These are deliberately from three different categories, which is the
+ * same rule the live query applies.
+ */
+const FALLBACK_POSTS: Post[] = [
+  {
+    slug: "software-development-process",
+    title: "Software Development Process Explained: From Idea to Deployment",
+    description:
+      "Learn the software development process from idea and planning to design, coding, testing, deployment, AI development, and ongoing maintenance.",
+    category: "Software Development",
+    image: "/images/blogs/softwaredevelopmentpractices.webp",
+  },
+  {
+    slug: "saas-architecture-explained",
+    title: "SaaS Architecture Explained: Building Multi-Tenant Products",
+    description:
+      "How multi-tenant SaaS architecture works, the trade-offs between shared and isolated data, and what to decide before you write the first line of code.",
+    category: "SaaS",
+    image: "/images/blogs/saas-architecture-explained.webp",
+  },
+  {
+    slug: "ai-app-development-guide",
+    title: "AI App Development: A Practical Guide for Businesses",
+    description:
+      "Where AI genuinely improves a product, which capabilities are worth building, and how to add intelligent features to software you already run.",
+    category: "Artificial Intelligence",
+    image: "/images/blogs/ai-app-development-guide.svg",
+  },
+];
+
 /**
  * Three published posts, from three different categories where possible.
  */
@@ -732,13 +783,16 @@ type Post = {
   title: string;
   description: string;
   category: string | null;
+  /* The card's cover image, straight from the blogs table -- the same
+     file each post shows on /blog, so the two never disagree. */
+  image: string | null;
   /* Selected only for the ORDER BY; not rendered. */
   publish_date?: string | null;
   created_at?: string | null;
   updated_at?: string | null;
 };
 
-async function getLatestPosts(): Promise<Post[]> {
+async function getLatestPosts(): Promise<{ posts: Post[]; error: string | null }> {
   /*
    * WHY THIS QUERY AND NOT A CLEVERER ONE.
    *
@@ -759,14 +813,16 @@ async function getLatestPosts(): Promise<Post[]> {
    */
   try {
     const rows = (await sql`
-      SELECT slug, title, description, category, publish_date, created_at, updated_at
+      SELECT slug, title, description, category, image, publish_date, created_at, updated_at
         FROM blogs
        WHERE (published = true OR status = 'published')
          AND (publish_date IS NULL OR publish_date <= NOW())
        ORDER BY GREATEST(updated_at, publish_date, created_at) DESC NULLS LAST
        LIMIT 40`) as Post[];
 
-    if (!Array.isArray(rows) || rows.length === 0) return [];
+    if (!Array.isArray(rows) || rows.length === 0) {
+      return { posts: [], error: "the query ran but returned 0 rows" };
+    }
 
     /* Newest first is already guaranteed by the ORDER BY, so the first
        time a category is seen is its newest post. Take one per category
@@ -790,13 +846,13 @@ async function getLatestPosts(): Promise<Post[]> {
         if (!seen.has(r.slug)) { picked.push(r); seen.add(r.slug); }
       }
     }
-    return picked;
+    return { posts: picked, error: null };
   } catch (err) {
     /* Logged, not swallowed. A silent catch is what made this invisible
        the first time -- the section vanished with nothing in the console
        to say why. In production this prints once per revalidation. */
     console.error("[homepage] Insights query failed:", err);
-    return [];
+    return { posts: [], error: err instanceof Error ? err.message : String(err) };
   }
 }
 
@@ -814,7 +870,20 @@ export default async function HomePage() {
      The footer-flash this originally worked around is handled properly
      now, by app/(home)/loading.tsx rendering a hero-shaped skeleton
      instead of null. */
-  const posts = await getLatestPosts();
+  const { posts: livePosts, error: postsError } = await getLatestPosts();
+  /* Live posts when the database answers; the static three when it does
+     not. The section therefore always renders -- which is the point:
+     an empty gap where Insights should be is worse than three slightly
+     stale cards. */
+  const posts = livePosts.length > 0 ? livePosts : FALLBACK_POSTS;
+  const usingFallback = livePosts.length === 0;
+  /* In development, a failed Insights query is shown ON THE PAGE rather
+     than only in the terminal. This section has now gone missing twice
+     with nothing visible to explain it -- once because a Suspense
+     boundary swallowed it, once because the query returned nothing --
+     and both times the silence cost a round-trip. Never rendered in
+     production. */
+  const showInsightsDiag = process.env.NODE_ENV !== "production" && usingFallback;
 
   return (
     <main className="hmx">
@@ -1009,6 +1078,10 @@ export default async function HomePage() {
               ))}
             </div>
 
+            {/* Dots, not numerals. Each label has no visible text -- the
+                page number lives in `aria-label` and `title` instead, so
+                the control still announces itself to a screen reader and
+                on hover. */}
             <div className="hmx-lw-dots">
               {logoPages.map((_, i) => (
                 <label
@@ -1016,9 +1089,8 @@ export default async function HomePage() {
                   htmlFor={`hmx-lw-${i + 1}`}
                   key={`d-${i}`}
                   title={`Page ${i + 1}`}
-                >
-                  {i + 1}
-                </label>
+                  aria-label={`Page ${i + 1}`}
+                />
               ))}
             </div>
           </div>
@@ -1177,7 +1249,7 @@ export default async function HomePage() {
           </div>
 
           <ol className="hmx-track hmx-rv">
-            {process.map((st) => (
+            {buildSteps.map((st) => (
               <li className="hmx-step" key={st.n}>
                 {/* A white rounded tile holding the icon, with the step
                     number as a blue badge clipped to its top-right
@@ -1203,7 +1275,10 @@ export default async function HomePage() {
           <div className="hmx-head hmx-rv">
             <p className="hmx-eyebrow">Featured Projects</p>
             <h2 className="hmx-h2">
-              Real projects. <em>Measurable results.</em>
+              {/* Both halves white. `.hmx-h2 em` is Signature Blue by
+                  default across the page; `hmx-h2-plain` opts this one
+                  out so the whole line reads as one statement. */}
+              Real projects. <em className="hmx-em-plain">Measurable results.</em>
             </h2>
             <p className="hmx-lead">
               See how we&rsquo;ve helped organizations solve complex business challenges
@@ -1527,6 +1602,14 @@ export default async function HomePage() {
             <div className="hmx-posts hmx-rv">
               {posts.map((b) => (
                 <article className="hmx-post" key={b.slug}>
+                  {/* Cover image. `alt=""` because the <h3> right beneath
+                      already names the article -- a described thumbnail
+                      would make a screen reader read the title twice. */}
+                  {b.image && (
+                    <span className="hmx-post-img">
+                      <img src={b.image} alt="" loading="lazy" decoding="async" />
+                    </span>
+                  )}
                   {b.category && <p className="hmx-post-cat">{b.category}</p>}
                   <h3>{b.title}</h3>
                   <p className="hmx-post-x">{b.description}</p>
@@ -1544,6 +1627,16 @@ export default async function HomePage() {
                 <i className="fa-solid fa-arrow-right" aria-hidden="true" />
               </Link>
             </div>
+
+            {/* Development-only: says these are the static three, not live
+                posts, so a stale card is never mistaken for a real one.
+                Never rendered in production. */}
+            {showInsightsDiag && (
+              <p className="hmx-diag-line" role="status">
+                Showing the static fallback posts &mdash; the live query failed:{" "}
+                <code>{postsError ?? "unknown"}</code>
+              </p>
+            )}
           </div>
         </section>
       )}
