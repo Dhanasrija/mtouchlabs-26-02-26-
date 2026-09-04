@@ -66,6 +66,32 @@
   overflow-x: clip;
 }
 .hmx *, .hmx *::before, .hmx *::after { box-sizing: border-box; }
+
+/* ── LIST RESET ─────────────────────────────────────────────────
+   THE BUG THIS FIXES: the process chips in "How we build and deliver
+   your software" had black bullet dots sitting on top of the artwork.
+
+   Every list on this page already sets `list-style: none` on the <ul>
+   or <ol> itself. That was not enough. Legacy sheets in bundle.css set
+   a marker on the `li` DIRECTLY -- and a declaration on the child always
+   beats an inherited value from the parent, no matter how specific the
+   parent's selector is. So the list said "no markers", each item said
+   "disc", and the item won. (Exactly the same mechanism as the blue
+   arrow glyph that stayed blue on a blue disc.)
+
+   Three declarations, because a marker can arrive three different ways:
+     - list-style on the li
+     - the ::marker pseudo-element
+     - a ::before carrying a bullet character
+
+   Scoped to `.hmx` so nothing outside the homepage is touched, and
+   restricted to `li::before` -- the `::before` on the LISTS themselves
+   is untouched, which matters because .hmx-track::before is the
+   connector line running behind the five chips.
+   ───────────────────────────────────────────────────────────────── */
+.hmx ul, .hmx ol, .hmx li { list-style: none !important; }
+.hmx li::marker { content: none; }
+.hmx li::before { content: none !important; }
 .hmx h1, .hmx h2, .hmx h3, .hmx h4, .hmx p, .hmx li,
 .hmx a, .hmx span, .hmx div, .hmx dt, .hmx dd, .hmx blockquote, .hmx figcaption {
   font-family: var(--font-primary, 'Poppins', sans-serif);
@@ -455,25 +481,27 @@
   transition: background .3s ease;
 }
 .hmx-hero-proof li:first-child { border-left: 0; }
-/* Light grey on hover -- the same tint used by every other cell on the
-   page. Never dark, never a grey panel. */
-.hmx-hero-proof li:hover { background: #F7F8FC; }
+/* Cells 1 and 2 sit tighter than 3 and 4.
 
-/* The mark's box is fixed, so a 28px glyph and a 50px image occupy the
-   same space and neither shifts the text beside it. */
-.hmx-hp-ico {
-  display: flex; align-items: center; justify-content: center;
-  width: 50px; height: 50px;
+   I first assumed the artwork had transparent padding baked in and tried
+   to fix it with `object-position`. Measuring the embedded bitmap proved
+   that wrong: the ink fills 99% of the canvas, so there was nothing
+   inside the image to claw back and no CSS on the <img> could help.
+
+   The gap was simply the grid gutter. So: a narrower track, no gap, and
+   a small negative margin that lets the mark sit a few pixels into the
+   text column. The number's own left side bearing keeps them from
+   actually touching. Only these two cells get it -- the ISO and NASSCOM
+   marks read correctly at the wider gutter, because their labels are
+   words rather than a short numeral. */
+.hmx-hero-proof li:nth-child(1),
+.hmx-hero-proof li:nth-child(2) {
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 0;
 }
-/* Colour on the <i> itself, not inherited: legacy sheets in bundle.css
-   colour `li i` directly, and a declaration on the child always beats an
-   inherited value from the parent however specific the parent selector. */
-.hmx-hp-ico i { font-size: 29px; color: var(--blue) !important; line-height: 1; }
-.hmx-hp-ico img {
-  display: block; width: 100%; height: 100%;
-  /* `contain`: the ISO mark and the NASSCOM badge have different aspect
-     ratios and neither should be cropped to fit a square. */
-  object-fit: contain; object-position: center;
+.hmx-hero-proof li:nth-child(1) .hmx-hp-ico,
+.hmx-hero-proof li:nth-child(2) .hmx-hp-ico {
+  width: 34px; height: 34px; margin-right: -3px;
 }
 
 .hmx-hp-b { display: block; min-width: 0; }
@@ -550,6 +578,27 @@
   text-align: left;
 }
 .hmx-hero-proof li:first-child { border-left: 0; }
+/* Cells 1 and 2 sit closer than 3 and 4.
+   stat1.svg and stat2.svg carry more internal whitespace than the ISO
+   and NASSCOM marks do, so at a uniform gutter their glyphs looked
+   detached from the figure while the other two looked right. Trimming
+   the track and the gap on just these two lines all four up optically,
+   which is what matters -- geometric equality here reads as unequal. */
+.hmx-hero-proof li:nth-child(1),
+.hmx-hero-proof li:nth-child(2) {
+  grid-template-columns: 40px minmax(0, 1fr);
+  gap: 0;
+}
+/* `object-position: right` is the actual fix, not just a smaller gap.
+   stat1.svg and stat2.svg have transparent padding baked into the
+   artwork, so the visible glyph sat well inside its box and no amount of
+   gap-trimming closed the gap -- the empty space was INSIDE the image.
+   Anchoring the artwork to the right edge of its box pushes the glyph
+   itself towards the figure. */
+.hmx-hero-proof li:nth-child(1) .hmx-hp-ico,
+.hmx-hero-proof li:nth-child(2) .hmx-hp-ico { width: 40px; height: 40px; }
+.hmx-hero-proof li:nth-child(1) .hmx-hp-ico img,
+.hmx-hero-proof li:nth-child(2) .hmx-hp-ico img { object-position: right center; }
 
 /* Line-weight blue glyph, no disc behind it -- the comp draws these as
    bare outline icons. Fixed box with flex-shrink 0 so a long figure
@@ -646,6 +695,27 @@
   text-align: center;
 }
 .hmx-hero-proof li:first-child { border-left: 0; }
+/* Cells 1 and 2 sit closer than 3 and 4.
+   stat1.svg and stat2.svg carry more internal whitespace than the ISO
+   and NASSCOM marks do, so at a uniform gutter their glyphs looked
+   detached from the figure while the other two looked right. Trimming
+   the track and the gap on just these two lines all four up optically,
+   which is what matters -- geometric equality here reads as unequal. */
+.hmx-hero-proof li:nth-child(1),
+.hmx-hero-proof li:nth-child(2) {
+  grid-template-columns: 40px minmax(0, 1fr);
+  gap: 0;
+}
+/* `object-position: right` is the actual fix, not just a smaller gap.
+   stat1.svg and stat2.svg have transparent padding baked into the
+   artwork, so the visible glyph sat well inside its box and no amount of
+   gap-trimming closed the gap -- the empty space was INSIDE the image.
+   Anchoring the artwork to the right edge of its box pushes the glyph
+   itself towards the figure. */
+.hmx-hero-proof li:nth-child(1) .hmx-hp-ico,
+.hmx-hero-proof li:nth-child(2) .hmx-hp-ico { width: 40px; height: 40px; }
+.hmx-hero-proof li:nth-child(1) .hmx-hp-ico img,
+.hmx-hero-proof li:nth-child(2) .hmx-hp-ico img { object-position: right center; }
 .hmx-hp-n {
   display: block;
   /* Fluid so the five figures never collide at intermediate widths. */
@@ -755,11 +825,16 @@
    stripes. 12n covers two full rows, so the sequence repeats correctly. */
 .hmx-lw-cell {
   display: flex; align-items: center; justify-content: center;
-  background: #FFFFFF; padding: 26px 20px; min-height: 108px;
+  /* Padding cut from 26/20 to 16/14 so the logo gets the space instead
+     of the gutter. The cell's own footprint is unchanged -- min-height
+     still 108px -- so the wall's dimensions and the checkerboard are
+     exactly as before; only the artwork inside grew. */
+  background: #FFFFFF; padding: 16px 14px; min-height: 108px;
   transition: background .3s ease;
 }
 /* Row 1 (cells 1-6): even cells grey. Row 2 (cells 7-12): odd cells
-   grey. Then repeat every 12. */
+   grey. Repeats every 12, which lands correctly on an 18-cell page too
+   (rows 1-2 from the 12n cycle, row 3 restarts it). */
 .hmx-lw-cell:nth-child(12n+2),
 .hmx-lw-cell:nth-child(12n+4),
 .hmx-lw-cell:nth-child(12n+6),
@@ -771,7 +846,13 @@
 /* Full colour, always. No greyscale filter and no opacity knock-back:
    these are the clients' own marks and they are shown as they are. */
 .hmx-lw-cell img {
-  display: block; max-width: 100%; max-height: 48px;
+  display: block;
+  /* Up from 48px. `max-height` plus `width:auto` rather than a fixed
+     height: the 36 logos have wildly different aspect ratios, and a
+     fixed height would stretch the wide ones. This lets each grow until
+     it hits either the height ceiling or the cell width, whichever comes
+     first, so none is ever distorted or clipped. */
+  max-width: 100%; max-height: 72px;
   width: auto; height: auto; object-fit: contain;
   transition: transform .3s ease;
 }
@@ -820,8 +901,9 @@
    the same height, which is what lets the reasons box finish level with
    the award image. The text column becomes a flex column so the reasons
    grid can take the slack. */
-.hmx-partner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: stretch; }
+.hmx-partner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
 .hmx-partner > div:first-child { display: flex; flex-direction: column; justify-content: center; }
+.hmx-partner-p + .hmx-partner-p { margin-top: 14px; }
 .hmx-partner-h2 {
   font-size: clamp(29px, 3.6vw, 44px);
   line-height: 1.18;
@@ -836,15 +918,48 @@
 .hmx-partner-cta { margin-top: 40px; }
 
 /* Award photo. Fixed aspect box, so no reflow while it decodes. */
+/* The award photograph, presented as a photograph and nothing else.
+
+   Everything that framed it is gone: the 16px radius, the `overflow:
+   hidden` clip, the heavy drop shadow and the hover lift. Together those
+   read as a card containing a picture rather than the picture itself,
+   which is what made it look boxed in.
+
+   No radius, no shadow, no border, no hover. Just the image at the full
+   width of its column. `height: auto` keeps its own aspect ratio, so
+   nothing reflows while it decodes. */
+/* !important on every framing property, in both the wrapper and the img.
+   Legacy sheets in bundle.css give images inside a section a card
+   treatment -- radius, border and shadow -- and they have won over this
+   file every previous time (the button borders, the arrow colour, the
+   list bullets). Stating it flatly here is the only thing that reliably
+   holds. */
 .hmx-partner-art {
-  position: relative; border-radius: 16px; overflow: hidden;
-  box-shadow: 0 26px 60px -30px rgba(13, 17, 23, .42);
-  transition: transform .38s cubic-bezier(.22, 1, .36, 1), box-shadow .38s ease;
+  position: relative;
+  background: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+  padding: 0 !important;
+  transform: none !important;
 }
-.hmx-partner-art:hover { transform: translateY(-5px); box-shadow: 0 32px 72px -32px rgba(13, 17, 23, .48); }
-/* The partner section no longer has an image column — the award photo is
-   shown once, in Awards & Recognition. No-op guards. */
-.hmx-partner-art { display: none; }
+.hmx-partner-art:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+.hmx-partner-art img {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+  max-width: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: none !important;
+  padding: 0 !important;
+  object-fit: contain;
+}
 
 /* Supporting paragraph under the clients heading — grey, centred,
    held to a readable measure. */
@@ -870,56 +985,49 @@
    The number is the logo blue — the same colour as the highlighted
    keywords in the headline, so the two are visibly the same accent.
    ═════════════════════════════════════════════════════════════ */
-/* ═══════════ WHY mTOUCH LABS — four boxes ═══════════════════
-   Four boxes filling the right column of the partner section, where the
-   award photograph used to be.
+/* ═══════════ WHY mTOUCH LABS — four cards ═══════════════════
+   Four separate rounded cards on their own full-width row beneath the
+   copy-and-photo block, centred text -- as drawn.
 
-   Built as the same hairline matrix as Core Services: a 1px grid gap over
-   a rule-coloured background, so the dividers are exactly one device
-   pixel at any zoom and cost no elements. `align-content: stretch` lets
-   the two rows share out the full column height, so the box finishes
-   level with the copy beside it without a hardcoded height that would
-   break the moment the copy changed.
+   Deliberately NOT the hairline grid used by Core Services and the
+   differentiators: those are dense information grids where a shared 1px
+   divider is right, whereas these four are a summary row and read better
+   as discrete cards with air between them.
 
-   Hover is the same light grey as the service cells — one tint, no blue,
-   nothing that could read as going dark.
+   `grid-auto-rows: 1fr` keeps all four exactly equal however the copy
+   wraps, and each card centres its own content vertically so a shorter
+   description does not leave the text stranded at the top.
    ═════════════════════════════════════════════════════════════ */
 .hmx-reasons {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  /* `1fr` rows, not `auto`. With auto rows each row sized to its own
-     tallest cell, so the four boxes came out at two different heights --
-     the descriptions are different lengths. Equal fr rows divide the
-     box's height evenly, so all four cells are identical whatever the
-     copy does. */
-  grid-template-rows: repeat(2, 1fr);
-  align-content: stretch;
-  gap: 1px;
-  margin: 0; padding: 0;
-  background: var(--line);
-  border: 1px solid var(--line);
-  border-radius: var(--r-sm);
-  overflow: hidden;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  gap: 26px;
+  margin: 84px 0 0; padding: 0;
   list-style: none;
 }
-/* `align-content: center` inside each cell, and a tighter pad. The cells
-   were 30px+ tall on their content but stretched to a taller row, so the
-   copy sat at the top with dead space beneath it. Centring the content
-   in the cell puts that slack above and below instead of all below. */
 .hmx-reasons li {
   display: flex; flex-direction: column; justify-content: center;
   background: var(--paper);
-  padding: 22px 22px 24px;
-  transition: background .34s cubic-bezier(.22, 1, .36, 1);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 34px 26px 36px;
+  text-align: center;
+  transition: background .3s ease, border-color .3s ease, transform .3s ease;
 }
-.hmx-reasons li:hover { background: #F1F3F7; }
+/* Light grey on hover, the same tint used across the page. Never dark. */
+.hmx-reasons li:hover {
+  background: #F1F3F7;
+  border-color: rgba(13, 17, 23, .18);
+  transform: translateY(-3px);
+}
 .hmx-reasons h3 {
-  margin: 0 0 8px;
-  font-size: 15.5px; line-height: 23px; font-weight: 700;
+  margin: 0 0 12px;
+  font-size: 16.5px; line-height: 25px; font-weight: 700;
   color: var(--ink); letter-spacing: -.4px;
 }
 .hmx-reasons p {
-  margin: 0; font-size: 13.5px; line-height: 22px; color: var(--muted);
+  margin: 0; font-size: 14px; line-height: 24px; color: var(--muted);
 }
 
 /* Legacy figure-row rules, no longer emitted by any markup on this
@@ -1110,6 +1218,7 @@
 /* Square marker rather than a tick glyph: no icon font to wait on, and
    nothing to render as an empty box if a glyph is missing. */
 .hmx-sp-pt-k::before {
+  /* Re-enabled after the list reset above: this is a <span>, not the li. */
   content: ""; position: absolute; left: 0; top: 9px;
   width: 6px; height: 6px; border-radius: 1.5px; background: var(--blue);
 }
@@ -1176,7 +1285,10 @@
 /* Colour set on the <i> itself, not inherited: legacy sheets in
    bundle.css colour `li i` and `a i` directly, and a declaration on the
    child always beats an inherited value from the parent. */
-.hmx-ind-ico i { font-size: 15px; color: var(--blue) !important; }
+.hmx-ind-ico img {
+  display: block; width: 22px; height: 22px;
+  object-fit: contain; object-position: center;
+}
 /* On hover the disc deepens a shade. The glyph stays blue — no fill, so
    the icon can never disappear into its own background. */
 .hmx-inds li:hover .hmx-ind-ico { background: rgba(62, 140, 251, .2); }
@@ -1328,13 +1440,21 @@
   display: grid; grid-template-columns: 18px minmax(0, 1fr);
   gap: 10px; align-items: baseline; padding: 3px 0;
 }
-.hmx-office-c li i { font-size: 12px; color: var(--blue) !important; }
+/* Black, not blue. Colour is set on the <i> itself because legacy sheets
+   in bundle.css colour `li i` directly, and a declaration on the child
+   always beats an inherited value from the parent. */
+.hmx-office-c li i { font-size: 12px; color: var(--ink) !important; }
 .hmx-office-c a {
   font-size: 14px; line-height: 23px; font-weight: 600;
-  color: var(--ink); text-decoration: none; overflow-wrap: anywhere;
+  /* !important, in both states. Legacy sheets in bundle.css style `a`
+     and `a:hover` inside this block (one sets #0074E6) and were
+     repainting the number and the address blue however specific the
+     selector here was. Same fix the footer links needed. */
+  color: var(--ink) !important; text-decoration: none; overflow-wrap: anywhere;
   transition: color .2s ease;
 }
-.hmx-office-c a:hover { color: var(--blue); }
+/* Stays black on hover too; the underline is the affordance. */
+.hmx-office-c a:hover { color: var(--ink); text-decoration: underline; }
 
 .hmx-office .hmx-arrow { margin-top: auto; align-self: flex-start; }
 .hmx-office-map i { font-size: 10px; }
@@ -1377,65 +1497,109 @@
 }
 .hmx-post .hmx-arrow { margin-top: auto; align-self: flex-start; }
 
-/* ═══════════ PROCESS — horizontal delivery track ════════════
-   Five steps across, joined by one hairline.
+/* ═══════════ PROCESS — five steps ═══════════════════════════
+   Built to the approved comp, which has a specific and slightly unusual
+   arrangement per step:
 
-   The line is a single ::before on the <ol>, sitting at the vertical
-   centre of the number chips and running the full width. Each chip
-   carries an opaque background, so the chips punch their own gaps in
-   that line -- which is why the track is drawn once rather than as four
-   separate connector segments between five steps. Nothing to keep in
-   sync, and no stray line before step 01 or after step 05.
+     - the title sits at the LEFT
+     - the icon tile sits to its RIGHT and RAISED, overlapping upward so
+       its lower edge crosses the title's line
+     - a faint grey hairline runs beneath the titles, unbroken across
+       all five columns
+     - the description sits below that line
 
-   The first and last steps trim the line back to their own chip with
-   ::after covers, so it starts and ends at a number rather than running
-   off into the gutter.
+   Two things follow from that description and drive the code below.
+
+   The tile is absolutely positioned rather than being a block in the
+   flow: it has to overlap the title's line vertically, which a normal
+   sibling cannot do without negative margins that then fight the grid.
+   `padding-top` on the step reserves the space it occupies.
+
+   The hairline is ONE rule on the track, not a border per column. The
+   five columns have different heights (their descriptions run to two,
+   three and four lines), so five per-column borders would sit at five
+   slightly different heights. Absolutely positioning a single line at a
+   fixed offset from the top of the track keeps it dead straight and
+   genuinely continuous, exactly as drawn.
    ═════════════════════════════════════════════════════════════ */
 .hmx-track {
   position: relative;
   display: grid; grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 26px; margin: 0; padding: 0; list-style: none;
+  gap: 0 30px; margin: 0; padding: 0;
 }
-.hmx-track::before {
-  content: ""; position: absolute; z-index: 0;
-  top: 23px; left: 0; right: 0; height: 1px;
-  background: var(--line);
-}
-.hmx-step { position: relative; z-index: 1; }
-/* Masks the track where it would run past the outer edge of the first
-   and last chips. Painted in the section's own ground colour. */
-.hmx-track > li:first-child::after,
-.hmx-track > li:last-child::after {
-  content: ""; position: absolute; z-index: 0;
-  top: 20px; height: 3px; width: 50%;
-  background: var(--paper);
-}
-.hmx-track > li:first-child::after { left: -26px; }
-.hmx-track > li:last-child::after { right: -26px; }
 
-.hmx-step-n {
-  position: relative; z-index: 2;
+/* The hairline. `top` is the tile's reserved height plus the title's
+   line box, so it lands just under the titles. */
+.hmx-track::after {
+  content: ""; position: absolute; z-index: 0; pointer-events: none;
+  left: 0; right: 0; top: 92px; height: 1px;
+  background: rgba(13, 17, 23, .12);
+}
+
+/* `padding-top` reserves the raised tile's space; `padding-bottom` on
+   the title clears the hairline below it. */
+.hmx-step { position: relative; padding-top: 58px; }
+
+/* ── The tile ──
+   Top-right of its column, raised. Right-inset by 10px rather than
+   flush, matching the comp -- flush right made the last tile collide
+   with the section edge. */
+.hmx-step-tile {
+  position: absolute; z-index: 2;
+  top: 0; right: 10px;
   display: inline-flex; align-items: center; justify-content: center;
-  width: 46px; height: 46px; border-radius: 50%;
-  background: var(--paper);
-  border: 1.5px solid var(--line);
-  font-size: 13px; font-weight: 800; letter-spacing: .6px;
-  color: var(--logo-blue); font-variant-numeric: tabular-nums;
-  margin-bottom: 22px;
-  transition: background .3s ease, border-color .3s ease, color .3s ease, transform .3s ease;
+  width: 72px; height: 72px;
+  border-radius: 18px;
+  background: #FFFFFF;
+  /* Two shadows: a tight contact shadow to seat the tile, and a wide
+     soft one for lift. One large blur alone reads as a grey smudge. */
+  box-shadow:
+    0 1px 2px rgba(13, 17, 23, .05),
+    0 14px 32px -14px rgba(13, 17, 23, .16);
+  transition: transform .3s cubic-bezier(.22, 1, .36, 1), box-shadow .3s ease;
 }
-/* Hovering anywhere on a step fills its chip. Nothing else moves, so the
-   track never reflows under the cursor. */
-.hmx-step:hover .hmx-step-n {
-  background: var(--logo-blue); border-color: var(--logo-blue);
-  color: #FFFFFF; transform: translateY(-2px);
+/* Icons reduced from 34px to 26px -- they were filling the tile edge to
+   edge and losing the framed look the comp has. */
+.hmx-step-tile img {
+  display: block; width: 26px; height: 26px;
+  object-fit: contain; object-position: center;
 }
+/* The whole step is the hover target, not just the tile: a 72px square
+   is a small thing to have to find with a cursor. */
+.hmx-step:hover .hmx-step-tile {
+  transform: translateY(-4px);
+  box-shadow:
+    0 1px 2px rgba(13, 17, 23, .05),
+    0 20px 38px -14px rgba(62, 140, 251, .26);
+}
+
+/* The number badge, clipped to the tile's top-right corner.
+   `translate(35%, -35%)` rather than negative top/right values, so the
+   overhang stays proportional if the badge size ever changes. */
+.hmx-step-badge {
+  position: absolute; top: 0; right: 0;
+  transform: translate(35%, -35%);
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 25px; height: 25px; padding: 0 7px;
+  border-radius: 999px;
+  background: var(--blue);
+  border: 2px solid #FFFFFF;
+  font-size: 11.5px; font-weight: 700; line-height: 1;
+  color: #FFFFFF;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Title on the left, on the same line the tile overlaps. z-index above
+   the hairline so the two never touch. */
 .hmx-step h3 {
+  position: relative; z-index: 1;
   font-size: 18px; line-height: 26px; font-weight: 700;
-  color: var(--ink); letter-spacing: -.4px; margin: 0 0 10px;
+  color: var(--ink); letter-spacing: -.4px;
+  margin: 0 0 25px;
 }
+/* Description sits under the hairline. */
 .hmx-step p {
-  font-size: 14px; line-height: 24px; color: var(--muted); margin: 0;
+  font-size: 14.5px; line-height: 30px; color: var(--muted); margin: 0;
 }
 
 /* ═══════════ CASE STUDY TABS ════════════════════════════════
@@ -1510,22 +1674,53 @@
 .hmx-panel dd.hmx-panel-result { color: #FFFFFF; font-weight: 600; }
 .hmx-panel .hmx-arrow { margin-top: auto; align-self: flex-start; }
 
+/* The project shot, presented as the image itself and nothing else.
+
+   THE BOX: this had four separate things framing it -- a hairline on the
+   left edge, a translucent white panel behind it, 30px of padding, and
+   then on the <img> a 12px radius plus a heavy drop shadow. Stacked up,
+   they read as a card that happens to contain a screenshot, which is
+   exactly the boxed look to remove.
+
+   All of it is gone. The image now fills its half of the panel edge to
+   edge. `object-fit: cover` with `height: 100%` rather than `contain`,
+   so it actually fills that half instead of letter-boxing inside it --
+   `contain` was leaving the empty margins that the panel background then
+   made visible.
+
+   !important throughout: legacy sheets in bundle.css give images inside
+   a section a card treatment, and they have overridden this file every
+   previous time. */
 .hmx-panel-art {
-  border-left: 1px solid var(--d-line-2);
-  background: rgba(255, 255, 255, .03);
-  display: flex; align-items: center; justify-content: center;
-  padding: 30px 28px;
+  display: block;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  overflow: hidden;
 }
 .hmx-panel-art img {
-  display: block; width: 100%; height: auto; max-height: 392px; object-fit: contain; border-radius: 12px;
-  box-shadow: 0 26px 60px -28px rgba(0, 0, 0, .55);
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  max-height: none !important;
+  max-width: none !important;
+  object-fit: cover;
+  object-position: center;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: none !important;
+  padding: 0 !important;
 }
 
 @media (max-width: 1100px) {
   /* Four columns: the 12n checkerboard no longer lines up with the rows,
      so it is replaced by a simple 8n pattern for a 4-wide grid. */
+  .hmx-reasons { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: 60px; }
   .hmx-lw-page { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .hmx-lw-cell { min-height: 92px; padding: 20px 16px; }
+  .hmx-lw-cell { min-height: 92px; padding: 14px 12px; }
   .hmx-lw-cell:nth-child(n) { background: #FFFFFF; }
   .hmx-lw-cell:nth-child(8n+2),
   .hmx-lw-cell:nth-child(8n+4),
@@ -1538,11 +1733,11 @@
   .hmx-stack { grid-template-columns: minmax(0, 1fr); gap: 38px; }
   .hmx-stack-b h3, .hmx-stack-b p { max-width: none; }
 
-  /* Five across becomes three, then the line stops making sense as a
-     single row -- so it is dropped and the steps read as a plain grid. */
-  .hmx-track { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 34px 26px; }
-  .hmx-track::before { display: none; }
-  .hmx-track > li:first-child::after, .hmx-track > li:last-child::after { display: none; }
+  /* Three across: the single hairline would now cut through two rows at
+     different heights, so it is dropped and each step keeps its own. */
+  .hmx-track { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 46px 26px; }
+  .hmx-track::after { display: none; }
+  .hmx-step h3 { margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid rgba(13, 17, 23, .12); }
 
   .hmx-sp { grid-template-columns: 38px minmax(0, 1fr); gap: 28px; }
   .hmx-sp + .hmx-sp { margin-top: 60px; }
@@ -1554,7 +1749,10 @@
   /* Mirroring is meaningless in one column — artwork always leads. */
   .hmx-panel { grid-template-columns: minmax(0, 1fr); }
   .hmx-panel { min-height: 0; }
-  .hmx-panel-art { border-left: 0; border-top: 1px solid var(--d-line-2); order: -1; padding: 24px 20px; }
+  /* Stacked on tablet: the image leads, at its own ratio rather than
+     stretched to a height the copy no longer sets. */
+  .hmx-panel-art { order: -1; }
+  .hmx-panel-art img { height: auto !important; max-height: 380px !important; object-fit: contain; }
 }
 @media (max-width: 720px) {
   /* On a phone the spine and its markers eat a third of the width for
@@ -1562,8 +1760,8 @@
      with the kicker doing the numbering. */
   /* Two columns: a plain alternating pair is already a checkerboard. */
   .hmx-lw-page { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .hmx-lw-cell { min-height: 80px; padding: 16px 14px; }
-  .hmx-lw-cell img { max-height: 36px; }
+  .hmx-lw-cell { min-height: 82px; padding: 12px 10px; }
+  .hmx-lw-cell img { max-height: 54px; }
   .hmx-lw-cell:nth-child(n) { background: #FFFFFF; }
   .hmx-lw-cell:nth-child(4n+2),
   .hmx-lw-cell:nth-child(4n+3) { background: #F5F6FA; }
@@ -1582,9 +1780,12 @@
   .hmx-aud li:first-child { border-top: 0; padding-top: 0; }
   .hmx-stack-row { grid-template-columns: minmax(0, 1fr); gap: 8px; }
 
-  .hmx-track { grid-template-columns: minmax(0, 1fr); gap: 26px; }
-  .hmx-step-n { width: 40px; height: 40px; margin-bottom: 16px; }
+  .hmx-track { grid-template-columns: minmax(0, 1fr); gap: 38px; }
+  .hmx-step { padding-top: 50px; }
+  .hmx-step-tile { width: 60px; height: 60px; border-radius: 15px; right: 0; }
+  .hmx-step-tile img { width: 24px; height: 24px; }
   .hmx-step h3 { font-size: 17px; }
+  .hmx-step p { line-height: 27px; }
 
   .hmx-spine::before { display: none; }
   .hmx-sp { grid-template-columns: minmax(0, 1fr); gap: 0; }
@@ -1641,31 +1842,36 @@
 .hmx-cell:hover h3 { color: var(--ink); }
 
 /* ── The arrow ──
-   Neutral in both states: a hairline disc with an ink arrow. Every trace
-   of blue is gone from it, and it no longer fills on hover — which also
-   disposes of the bug where a blue glyph vanished into a blue disc. The
-   only hover response is the border darkening and the arrow nudging
-   right, which is enough to say "this is the link". */
+   A tilted arrow in a black circle at the foot of every cell.
+
+   The arrow is the inline ArrowUpRight SVG, not a Font Awesome glyph:
+   fa-arrow-up-right is absent from this build's free set and renders as
+   literally nothing, which is how this went missing the first time.
+
+   On hover the disc fills with the same light grey the cell itself uses.
+   `currentColor` on the stroke means the arrow follows the anchor's
+   colour with no second rule to keep in sync -- and because both stay
+   black, the arrow can never vanish into its own background the way a
+   white-on-blue version did. */
 .hmx a.hmx-cellgo {
   margin-top: auto; align-self: flex-start;
   display: inline-flex; align-items: center; justify-content: center;
-  width: 44px; height: 44px; border-radius: 50%;
-  border: 1.5px solid var(--line);
+  width: 46px; height: 46px; border-radius: 50%;
+  border: 1.5px solid var(--ink);
   background: transparent;
+  color: var(--ink);
   text-decoration: none;
-  transition: border-color .28s ease, transform .28s ease;
+  transition: background .28s ease, border-color .28s ease, transform .28s ease;
 }
-/* Colour set on the <i> itself, not inherited: legacy sheets in
-   bundle.css colour `a i` directly, and a declaration on the child always
-   beats an inherited value from the parent however specific the parent
-   selector is. */
-.hmx a.hmx-cellgo i {
-  font-size: 13px; color: var(--ink) !important;
+.hmx a.hmx-cellgo svg.hmx-ar {
+  width: 15px; height: 15px; flex-shrink: 0;
   transition: transform .28s ease;
 }
-.hmx-cell:hover a.hmx-cellgo { border-color: rgba(13, 17, 23, .38); }
-.hmx-cell:hover a.hmx-cellgo i { transform: translateX(2px); }
-.hmx a.hmx-cellgo:hover { transform: translateY(-2px); border-color: var(--ink); }
+.hmx-cell:hover a.hmx-cellgo,
+.hmx a.hmx-cellgo:hover { background: #F1F3F7; border-color: var(--ink); }
+.hmx-cell:hover a.hmx-cellgo svg.hmx-ar,
+.hmx a.hmx-cellgo:hover svg.hmx-ar { transform: translate(2px, -2px); }
+.hmx a.hmx-cellgo:hover { transform: translateY(-2px); }
 .hmx a.hmx-cellgo:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
 
 /* Three across for the six differentiators, same hairline grid. */
@@ -1680,9 +1886,8 @@
    Deliberately blank rather than a shimmer: the section resolves in well
    under a second on a warm cache, and a skeleton that flashes for 200ms
    is more distracting than empty space. */
-.hmx-posts-skel { height: 520px; }
-@media (max-width: 1100px) { .hmx-posts-skel { height: 620px; } }
-@media (max-width: 720px)  { .hmx-posts-skel { height: 900px; } }
+.hmx-posts-skel { height: 0; }
+
 
 /* The old three-column timeline layout was replaced by the tab set
    below; its rules are gone. .hmx-cs-outro survives — the tabs still
@@ -1893,32 +2098,14 @@
   content: ""; position: absolute; top: 46px; left: 46px; right: 46px; height: 1px;
   background: rgba(62, 140, 251, .30);
 }
-.hmx-step { position: relative; }
-.hmx-step-tile {
-  position: relative; z-index: 1;
-  width: 92px; height: 92px; border-radius: 24px;
-  background: #FFFFFF;
-  box-shadow: 0 14px 34px -14px rgba(13, 17, 23, .22), 0 0 0 1px rgba(13, 17, 23, .05);
-  display: inline-flex; align-items: center; justify-content: center;
-  font-size: 27px; color: var(--blue);
-  margin-bottom: 32px;
-  transition: transform .32s cubic-bezier(.22, 1, .36, 1), box-shadow .32s ease;
-}
-.hmx-step:hover .hmx-step-tile {
-  transform: translateY(-5px);
-  box-shadow: 0 22px 46px -18px rgba(62, 140, 251, .40), 0 0 0 1px rgba(62, 140, 251, .22);
-}
-/* Numbered badge, clipped to the tile's top-right corner. */
-.hmx-step-n {
-  position: absolute; z-index: 2; top: -9px; right: -9px;
-  width: 27px; height: 27px; border-radius: 50%;
-  display: inline-flex; align-items: center; justify-content: center;
-  font-size: 12px; font-weight: 700; color: #FFFFFF; background: var(--blue);
-  font-variant-numeric: tabular-nums;
-  box-shadow: 0 4px 12px -4px rgba(62, 140, 251, .80);
-}
-.hmx-step h3 { font-size: 17.5px; line-height: 27px; font-weight: 700; color: var(--ink); letter-spacing: -.35px; margin: 0 0 12px; }
-.hmx-step p { font-size: 15px; line-height: 26px; color: var(--muted); margin: 0; }
+/* The .hmx-step-* rules that used to sit here are gone.
+
+   They were left behind by the old Global Delivery section (which used
+   the same class names for its engagement-model tiles) and, being later
+   in the file than the PROCESS block, they were overriding it wholesale
+   -- which is why that section never looked like the comp however the
+   real rules were written. The live definitions are in the PROCESS
+   block above; this is the only place they are defined now. */
 
 /* ─── Built for Global Collaboration ─────────────────────────
    The dotted world map is a single background image on the block,
@@ -2160,10 +2347,8 @@
   }
   .hmx-kicker span + span::before { padding: 0 8px; }
   .hmx-hero-ctas .hmx-btn { width: 100%; }
-  /* One column on a phone: two descriptions side by side is too narrow a
-     measure to read. */
-  .hmx-reasons { grid-template-columns: minmax(0, 1fr); }
-  .hmx-reasons li { padding: 24px 22px 26px; }
+  .hmx-reasons { grid-template-columns: minmax(0, 1fr); gap: 16px; margin-top: 52px; }
+  .hmx-reasons li { padding: 26px 22px 28px; }
   .hmx-matrix--3 { grid-template-columns: minmax(0, 1fr); }
   .hmx-hero-sub { max-width: none; }
   .hmx-hero-ctas { flex-direction: column; align-items: stretch; gap: 8px; }
