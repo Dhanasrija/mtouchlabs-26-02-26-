@@ -917,9 +917,9 @@ export default function HomePage() {
                 forbids gradient headings, and flat also stays selectable,
                 searchable, and legible if the webfont fails. */}
             <h1 className="hmx-h1 hmx-in" style={d(1)}>
-              <span className="hmx-hl">Custom software, mobile apps &amp; AI</span>
+              <span className="hmx-hl">Custom Software, Mobile Apps &amp; AI</span>
               <br />
-              built for your business
+              Built for Your Business
             </h1>
 
             <p className="hmx-hero-lead hmx-in" style={d(2)}>
@@ -1485,7 +1485,7 @@ export default function HomePage() {
 
           <div className="hmx-gd-cta hmx-rv">
             <Link href="/contact-us" className="hmx-btn hmx-btn-primary">
-              Start a  Project
+              Start a Project
               <ArrowUpRight />
             </Link>
           </div>
