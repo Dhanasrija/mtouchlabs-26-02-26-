@@ -272,8 +272,19 @@ const nextConfig = {
       { source: "/the-ultimate-guide-to-create-an-ecommerce-mobile-app-development", destination: "/blog/guide-to-create-an-ecommerce-mobile-application-development", permanent: true },
       { source: "/blog/the-ultimate-guide-to-create-an-ecommerce-mobile-app-development", destination: "/blog/guide-to-create-an-ecommerce-mobile-application-development", permanent: true },
       // ── 2026-06: GenAI blog re-slugged → Agentic AI / RAG / Enterprise AI ──
-      { source: "/genai-rag-ai-agents-ai-powered-solutions-mtouch-labs", destination: "/blog/agentic-ai-rag-enterprise-ai-solutions", permanent: true },
-      { source: "/blog/genai-rag-ai-agents-ai-powered-solutions-mtouch-labs", destination: "/blog/agentic-ai-rag-enterprise-ai-solutions", permanent: true },
+      /* REMOVED: the two redirects that pointed
+             /genai-rag-ai-agents-ai-powered-solutions-mtouch-labs
+             /blog/genai-rag-ai-agents-ai-powered-solutions-mtouch-labs
+         at /blog/agentic-ai-rag-enterprise-ai-solutions.
+
+         That post is being taken down entirely, so a redirect to it
+         would have sent visitors from one dead URL to another. With
+         these gone, all three URLs return 404 — which is the correct
+         signal for a page that no longer exists.
+
+         The post itself is unpublished in the `blogs` table, not here:
+         see remove-agentic-ai-post.mjs in the project root. Removing
+         these lines alone would NOT have hidden it. */
       // Root-level canonical aliases the user keeps in metadata → /blog/<slug>
       { source: "/mobile-app-development-trends", destination: "/blog/mobile-app-development-trends", permanent: true },
       { source: "/guide-to-create-an-ecommerce-mobile-application-development", destination: "/blog/guide-to-create-an-ecommerce-mobile-application-development", permanent: true },
