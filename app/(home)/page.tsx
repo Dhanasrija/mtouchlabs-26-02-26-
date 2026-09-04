@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { CSSProperties } from "react";
+import { Suspense } from "react";
 import Link from "next/link";
 import { sql } from "@/lib/db";
 import "./home-landing.css";
@@ -756,9 +757,88 @@ async function getLatestPosts(): Promise<Post[]> {
    the three blog cards, and they do not change more often than that. */
 export const revalidate = 3600;
 
-export default async function HomePage() {
+/*
+ * The Insights section, as its own async component.
+ *
+ * THIS IS THE FIX for the navigation bug. HomePage used to be `async`
+ * and awaited the blog query itself. That made the WHOLE ROUTE suspend
+ * on a database round-trip -- and app/(home)/loading.tsx deliberately
+ * returns null, so during the wait Next rendered the layout with nothing
+ * between the header and the footer. That is the footer you saw sitting
+ * under the navbar for two or three seconds before the page appeared.
+ *
+ * Isolating the await in a child component and wrapping it in
+ * <Suspense> means only this section waits. The rest of the homepage is
+ * static and paints immediately, loading.tsx never fires, and the blog
+ * cards stream in when the query returns.
+ */
+async function InsightsSection() {
   const posts = await getLatestPosts();
+  if (posts.length === 0) return null;
 
+  return (
+    <section className="hmx-sec" id="insights">
+      <div className="hmx-wrap">
+        <div className="hmx-head hmx-rv">
+          <p className="hmx-eyebrow">Insights</p>
+          <h2 className="hmx-h2">
+            Insights on software, <em>AI, and digital products</em>
+          </h2>
+          <p className="hmx-lead">
+            Explore practical insights, guides, and perspectives from mTouch Labs on
+            software development, artificial intelligence, mobile apps, web
+            technologies, and digital product engineering.
+          </p>
+        </div>
+
+        <div className="hmx-posts hmx-rv">
+          {posts.map((b) => (
+            <article className="hmx-post" key={b.slug}>
+              {b.category && <p className="hmx-post-cat">{b.category}</p>}
+              <h3>{b.title}</h3>
+              <p className="hmx-post-x">{b.description}</p>
+              <Link href={`/blog/${b.slug}`} className="hmx-arrow">
+                Read Article
+                <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+              </Link>
+            </article>
+          ))}
+        </div>
+
+        <div className="hmx-posts-cta hmx-rv">
+          <Link href="/blog" className="hmx-btn hmx-btn-ghost">
+            View All Blogs
+            <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/*
+ * An async Server Component is valid in the App Router but React 18's JSX
+ * types still type a component as returning ReactNode, not
+ * Promise<ReactNode> -- so `<InsightsSection />` fails to type-check.
+ *
+ * This one-line cast is the documented workaround and is preferred here
+ * over a `@ts-expect-error` comment: the directive has to sit in exactly
+ * the right place inside the JSX to take effect, and it suppresses
+ * whatever error happens to be on that line, not specifically this one.
+ * Delete the cast once the project moves to React 19 types.
+ */
+const InsightsSectionEl = InsightsSection as unknown as () => JSX.Element;
+
+/*
+ * The placeholder shown while the query runs. It reserves roughly the
+ * finished section's height, so the FAQ and the closing CTA below do not
+ * jump up the page when the cards arrive.
+ */
+function InsightsFallback() {
+  return <div className="hmx-posts-skel" aria-hidden="true" />;
+}
+
+export default function HomePage() {
   return (
     <main className="hmx">
       {/* Canonical — emitted here rather than via `alternates.canonical` so
@@ -1413,51 +1493,15 @@ export default async function HomePage() {
       </section>
 
       {/* ═══════════ INSIGHTS — three latest articles ═══════════
-          Pulled live from the blogs table, newest first, so the homepage
-          never shows a stale trio and nothing here has to be edited when
-          a post is published.
-
-          The query is wrapped in try/catch inside `getLatestPosts()`: if
-          the database is unreachable the section simply does not render,
-          rather than taking the whole homepage down with it. */}
-      {posts.length > 0 && (
-        <section className="hmx-sec" id="insights">
-          <div className="hmx-wrap">
-            <div className="hmx-head hmx-rv">
-              <p className="hmx-eyebrow">Insights</p>
-              <h2 className="hmx-h2">
-                Insights on software, <em>AI, and digital products</em>
-              </h2>
-              <p className="hmx-lead">
-                Explore practical insights, guides, and perspectives from mTouch Labs on
-                software development, artificial intelligence, mobile apps, web
-                technologies, and digital product engineering.
-              </p>
-            </div>
-
-            <div className="hmx-posts hmx-rv">
-              {posts.map((b) => (
-                <article className="hmx-post" key={b.slug}>
-                  {b.category && <p className="hmx-post-cat">{b.category}</p>}
-                  <h3>{b.title}</h3>
-                  <p className="hmx-post-x">{b.description}</p>
-                  <Link href={`/blog/${b.slug}`} className="hmx-arrow">
-                    Read Article
-                    <i className="fa-solid fa-arrow-right" aria-hidden="true" />
-                  </Link>
-                </article>
-              ))}
-            </div>
-
-            <div className="hmx-posts-cta hmx-rv">
-              <Link href="/blog" className="hmx-btn hmx-btn-ghost">
-                View All Blogs
-                <i className="fa-solid fa-arrow-right" aria-hidden="true" />
-              </Link>
-            </div>
-          </div>
-        </section>
-      )}
+          Streamed, not awaited by the page. See InsightsSection above for
+          why: awaiting this at the page level made the entire route
+          suspend on a database round-trip, which is what put the footer
+          under the navbar for a couple of seconds on every navigation to
+          "/". Everything outside this boundary is static and paints at
+          once. */}
+      <Suspense fallback={<InsightsFallback />}>
+        <InsightsSectionEl />
+      </Suspense>
 
       {/* ═══════════ FAQ ═══════════ */}
       <section className="hmx-sec hmx-sec--stone" id="faq">

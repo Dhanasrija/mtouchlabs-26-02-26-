@@ -1673,6 +1673,17 @@
 .hmx-why-cta { margin-top: 46px; text-align: center; }
 .hmx-posts-cta { margin-top: 44px; text-align: center; }
 
+/* Placeholder for the streamed Insights section. It reserves close to
+   the finished block's height so the FAQ and closing CTA below it do not
+   jump up the page when the blog cards arrive.
+
+   Deliberately blank rather than a shimmer: the section resolves in well
+   under a second on a warm cache, and a skeleton that flashes for 200ms
+   is more distracting than empty space. */
+.hmx-posts-skel { height: 520px; }
+@media (max-width: 1100px) { .hmx-posts-skel { height: 620px; } }
+@media (max-width: 720px)  { .hmx-posts-skel { height: 900px; } }
+
 /* The old three-column timeline layout was replaced by the tab set
    below; its rules are gone. .hmx-cs-outro survives — the tabs still
    close with it. */
