@@ -41,7 +41,15 @@ export const metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/images/Light.png",
+        /* Site-wide social card, inherited by every page that does not
+           set its own. No space in the filename -- see the note in
+           app/(home)/page.tsx.
+
+           Deliberately NOT the same file as the Organization `logo`
+           below, which stays Light.png: Google's knowledge panel wants a
+           clean square-ish mark, social platforms want a 1200x630
+           landscape card, and one file cannot serve both well. */
+        url: "/images/og-image.jpeg",
         width: 1200,
         height: 630,
         alt: "mTouch Labs Software Development Company"
@@ -54,7 +62,7 @@ export const metadata = {
     creator: "@mtouchlabs",
     title: "Software Development Company & IT Solutions | mTouch Labs",
     description: "mTouch Labs is a leading software development company providing mobile app development, web development, and digital marketing services.",
-    images: ["/images/Light.png"]
+    images: ["/images/og-image.jpeg"]
   },
   icons: {
     // Google Search only supports .ico/.png favicons — a /favicon.ico at the

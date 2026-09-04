@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import type { CSSProperties } from "react";
-import { Suspense } from "react";
 import Link from "next/link";
 import { sql } from "@/lib/db";
 import "./home-landing.css";
@@ -66,7 +65,20 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "https://www.mtouchlabs.com/images/Light.png",
+        /* The social card.
+
+           NOTE the filename. The file added to public/images is called
+           "og-image .jpeg" -- with a space before the extension. A space
+           in a URL has to be percent-encoded as %20, and several
+           scrapers (LinkedIn especially) simply fail to fetch it. This
+           points at the space-free name; rename the file to match and
+           the preview works everywhere.
+
+           Deliberately NOT the same asset as the Organization `logo`,
+           which stays /images/Light.png: Google's knowledge panel wants
+           a clean square-ish mark, social platforms want a 1200x630
+           landscape card, and one file cannot serve both well. */
+        url: "https://www.mtouchlabs.com/images/og-image.jpeg",
         width: 1200,
         height: 630,
         alt: "mTouch Labs - Custom Software Development & AI Company",
@@ -82,7 +94,7 @@ export const metadata: Metadata = {
     title: "Custom Software Development & AI Company | mTouch Labs",
     description:
       "mTouch Labs is a Hyderabad software company building custom software, enterprise applications, mobile apps, and AI solutions for businesses worldwide.",
-    images: ["https://www.mtouchlabs.com/images/Light.png"],
+    images: ["https://www.mtouchlabs.com/images/og-image.jpeg"],
   },
 };
 
@@ -181,46 +193,48 @@ const reasons = [
  * the sequence is legible at a glance rather than read as a list.
  */
 const process = [
-  { n: "01", k: "Discover", v: "Understand your business goals, users, requirements, and technical needs." },
-  { n: "02", k: "Design", v: "Define the product experience, user flows, technical architecture, and development roadmap." },
-  { n: "03", k: "Build", v: "Develop the software, integrate required systems, and continuously test the product." },
-  { n: "04", k: "Launch", v: "Deploy the solution, complete final validation, and prepare it for real-world use." },
-  { n: "05", k: "Improve", v: "Monitor, maintain, optimize, and evolve the product as your business and users grow." },
+  /* Supplied artwork from public/images/hero-new-work, replacing the
+     numeral chips. `alt=""` throughout: the step's own heading names it,
+     so described icons would double up for a screen reader. */
+  { img: "/images/hero-new-work/how_we_work_icon1.svg", n: "01", k: "Discover", v: "Understand your business goals, users, requirements, and technical needs." },
+  { img: "/images/hero-new-work/how_we_work_icon2.svg", n: "02", k: "Design", v: "Define the product experience, user flows, technical architecture, and development roadmap." },
+  { img: "/images/hero-new-work/how_we_work_icon3.svg", n: "03", k: "Build", v: "Develop the software, integrate required systems, and continuously test the product." },
+  { img: "/images/hero-new-work/how_we_work_icon4.svg", n: "04", k: "Launch", v: "Deploy the solution, complete final validation, and prepare it for real-world use." },
+  { img: "/images/hero-new-work/how_we_work_icon5.svg", n: "05", k: "Improve", v: "Monitor, maintain, optimize, and evolve the product as your business and users grow." },
 ];
+
 
 
 /*
  * The hero proof band.
  *
- * The first three cells use Font Awesome glyphs from the sheet
- * app/layout.tsx already loads. The last two use real images instead --
- * the ISO mark and the NASSCOM award badge -- because a generic shield
- * and trophy said nothing, where the actual marks are recognisable
- * proof. Both files already exist in the project.
+ * The four marks are WebP, converted from the supplied SVGs. Those files
+ * were not vector: each was a <rect> filled with a <pattern> wrapping an
+ * embedded base64 bitmap, which is why they weighed what they did --
+ * stat3.svg alone was 985 KB for a 50px icon. Converted at 2x the
+ * display size:
  *
- * Figures are quoted from FACTS so the band can never disagree with the
+ *     stat1   79 KB  ->  5.0 KB
+ *     stat2   17 KB  ->  2.5 KB
+ *     stat3  985 KB  ->  7.1 KB
+ *     stat4  707 KB  ->  4.3 KB
+ *     -----------------------------
+ *     total 1.79 MB  ->  18.9 KB   (99% smaller)
+ *
+ * That 1.77 MB was loading eagerly above the fold, on a page whose hero
+ * was deliberately stripped of its 2.5 MB illustration to make the LCP a
+ * text node. The .svg originals are still in the folder untouched.
+ *
+ * Figures are quoted from FACTS, so the band cannot disagree with the
  * schema or /llms.txt.
  */
 const stats = [
-  { icon: "fa-solid fa-calendar-days", n: FACTS.experience, k: "Years" },
-  { icon: "fa-solid fa-cube", n: FACTS.projects, k: "Projects" },
-  /* "500+ Clients" was removed from this band. Four cells read better
-     than five at this width, and the client count is still stated in the
-     lead paragraph, in the Organization schema and in /llms.txt -- so
-     nothing is lost to a crawler by dropping it from the fold. */
-  {
-    img: "/images/iso.png",
-    imgAlt: "ISO 9001 and ISO 27001 certified",
-    n: "ISO 9001 + 27001",
-    k: "Certified",
-  },
-  {
-    img: "/images/home/honors/NascomInspire.webp",
-    imgAlt: "NASSCOM SME Inspire Awards 2026",
-    n: "NASSCOM SME",
-    k: "Inspire 2026",
-  },
+  { img: "/images/hero-new-work/stat1.webp", imgAlt: "", n: FACTS.experience, k: "Years" },
+  { img: "/images/hero-new-work/stat2.webp", imgAlt: "", n: FACTS.projects, k: "Projects" },
+  { img: "/images/hero-new-work/stat3.webp", imgAlt: "ISO 9001 and ISO 27001 certified", n: "ISO 9001 + 27001", k: "Certified" },
+  { img: "/images/hero-new-work/stat4.webp", imgAlt: "NASSCOM SME Inspire Awards 2026", n: "NASSCOM SME", k: "Inspire 2026" },
 ];
+
 
 
 
@@ -325,21 +339,21 @@ const caseStudies = [
   {
     n: "01",
     title: "Enterprise Digital Solution",
-    tag: "Government · Enterprise E-Commerce Platform",
-    headline: "A state-wide digital commerce platform, built to scale",
+    tag: "Government · E-Commerce · Telangana",
+    headline: "A digital commerce platform for Telangana\u2019s Department of Handlooms",
     img: "/images/portfolio/golkonda.webp",
     imgAlt: "Telangana State Government e-commerce platform built by mTouch Labs",
     challenge:
-      "A growing organization needed a scalable digital platform to streamline operations, improve accessibility, and connect multiple business workflows.",
+      "The Department of Handlooms needed a digital platform to bring handloom products to a wider audience and support online commerce through a centralized experience.",
     solution:
-      "mTouch Labs designed and developed a customized software platform with intuitive user experiences, integrated workflows, secure data handling, and an architecture built for future expansion.",
+      "We designed and developed a digital commerce platform that brings handloom products together in one online experience, supporting product discovery and digital commerce workflows.",
     result:
       "A centralized digital solution that simplified business processes and provided a stronger foundation for continued growth.",
     link: "/portfolio/telangana-ecommerce-mobile-app-development",
   },
   {
     n: "02",
-    title: "AI-Powered Digital Product",
+    title: "AI-Powered Product",
     tag: "Public Sector · Intelligent Mobile Product",
     headline: "Intelligent capability added without complicating the experience",
     img: "/images/portfolio/ADJD-APP.webp",
@@ -471,77 +485,96 @@ const offices = [
  * work for is a liability in a page a model is asked to summarise.
  */
 /*
- * CLIENT LOGOS -- the project's own files, paginated.
+ * CLIENT LOGOS -- the project's own files, two pages of eighteen.
  *
- * Was one 240 KB composite SVG (logos-work.svg) whose alt text named
- * twelve companies that are not in this list. These are the real client
- * logos already in public/images/home/tech, as .webp: 36 of them across
- * three pages of twelve.
+ * Laid out 6 across x 3 down per page, in the exact order of the
+ * approved mock. Every path below was checked against a live listing of
+ * public/images/home/tech -- none is guessed.
  *
- * .webp rather than the .png twins that sit beside them -- same artwork,
- * roughly a quarter of the bytes. Every file below was confirmed present
- * in that directory; nothing is guessed.
+ * Filename notes, because several do not match the brand name:
+ *   badham.webp     -> Bandham
+ *   saachi.webp     -> Sacchi
+ *   v.webp          -> Vivent
+ *   classy.webp     -> Classyy
+ *   medbuz.webp     -> Medbuzz
+ *   l2r.webp        -> Learn2Read
+ *   corelynx.svg    -> CoreLynxAI
+ *   adjd.webp       -> Abu Dhabi Judicial Department
+ *
+ * TWO FILES ARE NOT IN THE FOLDER YET -- zoviyo.svg and 4wd.svg. Their
+ * slots are wired in page 2 row 2 at the exact paths above, so dropping
+ * those two files in is all that is needed; no code change follows.
+ * Until then those two cells render as broken images.
+ *
+ * `.webp` is preferred over the `.png` twin wherever both exist -- same
+ * artwork, roughly a quarter of the bytes.
  */
 const logoPages = [
   [
     { src: "/images/home/tech/govt.webp", alt: "Government of Telangana" },
     { src: "/images/home/tech/adjd.webp", alt: "Abu Dhabi Judicial Department" },
+    { src: "/images/home/tech/railcab.svg", alt: "RailCab" },
+    { src: "/images/home/tech/resqbox.svg", alt: "ResQBox Food" },
+    { src: "/images/home/tech/kohere.webp", alt: "Kohere" },
+    { src: "/images/home/tech/uptick.webp", alt: "UpTik" },
+
+    { src: "/images/home/tech/reelzify.svg", alt: "Reelzify" },
+    { src: "/images/home/tech/corelynx.svg", alt: "CoreLynxAI" },
+    { src: "/images/home/tech/anybody.svg", alt: "AnyBody" },
+    { src: "/images/home/tech/salarient.svg", alt: "Salarient" },
+    { src: "/images/home/tech/voosh.webp", alt: "vVoosh" },
+    { src: "/images/home/tech/communitykitchen.svg", alt: "Community Kitchen" },
+
+    { src: "/images/home/tech/zefsci.webp", alt: "ZefSci, a Shimadzu company" },
+    { src: "/images/home/tech/badham.webp", alt: "Bandham" },
     { src: "/images/home/tech/kezad-logo.webp", alt: "KEZAD Group" },
-    { src: "/images/home/tech/hitech.svg", alt: "Hitech City" },
-    { src: "/images/home/tech/agrigain.webp", alt: "AgriGain" },
-    { src: "/images/home/tech/voosh.webp", alt: "Voosh" },
-    { src: "/images/home/tech/badham.webp", alt: "Badham" },
-    { src: "/images/home/tech/zefsci.webp", alt: "ZefSci" },
-    { src: "/images/home/tech/countryclub.webp", alt: "Country Club" },
-    { src: "/images/home/tech/heyman.webp", alt: "Heyman" },
-    { src: "/images/home/tech/l2r.webp", alt: "L2R" },
-    { src: "/images/home/tech/onus.webp", alt: "Onus" },
+    { src: "/images/home/tech/l2r.webp", alt: "Learn2Read" },
+    { src: "/images/home/tech/medbuz.webp", alt: "Medbuzz" },
+    { src: "/images/home/tech/woqal.svg", alt: "Woqal" },
   ],
   [
-    { src: "/images/home/tech/aduri.webp", alt: "Aduri" },
-    { src: "/images/home/tech/Brickberry.webp", alt: "Brickberry" },
-    { src: "/images/home/tech/ricehub.webp", alt: "RiceHub" },
-    { src: "/images/home/tech/roboride.webp", alt: "RoboRide" },
-    { src: "/images/home/tech/medbuz.webp", alt: "MedBuz" },
-    { src: "/images/home/tech/drpicklogo.webp", alt: "Dr Pick" },
-    { src: "/images/home/tech/veteach.webp", alt: "VeTeach" },
-    { src: "/images/home/tech/uptick.webp", alt: "Uptick" },
-    { src: "/images/home/tech/kalp.webp", alt: "Kalp" },
-    { src: "/images/home/tech/tanyya.webp", alt: "Tanyya" },
-    { src: "/images/home/tech/omvideos.webp", alt: "OM Videos" },
-    { src: "/images/home/tech/macServices.webp", alt: "MAC Services" },
-  ],
-  [
-    { src: "/images/home/tech/paygenpro.webp", alt: "PayGen Pro" },
-    { src: "/images/home/tech/payville.webp", alt: "Payville" },
-    { src: "/images/home/tech/smartpg.webp", alt: "SmartPG" },
-    { src: "/images/home/tech/jaimaxcoin.webp", alt: "Jaimax Coin" },
-    { src: "/images/home/tech/onlyshops.webp", alt: "OnlyShops" },
+    { src: "/images/home/tech/ebic.svg", alt: "ebic" },
+    { src: "/images/home/tech/mytree.svg", alt: "My Tree" },
+    { src: "/images/home/tech/edhelpz.svg", alt: "EdHelpz" },
+    { src: "/images/home/tech/cenzo.svg", alt: "Cenzo" },
+    { src: "/images/home/tech/desh.svg", alt: "Desh" },
+    { src: "/images/home/tech/classy.webp", alt: "Classyy" },
+
+    /* ZuppiBuy replaces Bandham here -- Bandham is already on page 1 and
+       the same logo twice across two pages read as a mistake. */
     { src: "/images/home/tech/zuppibuy.webp", alt: "ZuppiBuy" },
-    { src: "/images/home/tech/clikget.webp", alt: "ClikGet" },
-    { src: "/images/home/tech/fleuncyo.webp", alt: "Fleuncyo" },
-    { src: "/images/home/tech/revsoul.webp", alt: "RevSoul" },
-    { src: "/images/home/tech/Citzon.webp", alt: "Citzon" },
-    { src: "/images/home/tech/adify.webp", alt: "Adify" },
-    { src: "/images/home/tech/tej.webp", alt: "Tej" },
+    { src: "/images/home/tech/myintry.svg", alt: "MyINTRY" },
+    /* AWAITING FILE: /images/home/tech/zoviyo.svg */
+    { src: "/images/home/tech/zoviyo.svg", alt: "Zoviyo" },
+    { src: "/images/home/tech/heyman.webp", alt: "Hey Man" },
+    /* AWAITING FILE: /images/home/tech/4wd.svg */
+    { src: "/images/home/tech/4wd.svg", alt: "4WD" },
+    { src: "/images/home/tech/marketchowrasta.svg", alt: "Market Chowrasta" },
+
+    { src: "/images/home/tech/olt.webp", alt: "Olt Offers" },
+    { src: "/images/home/tech/saachi.webp", alt: "Sacchi" },
+    { src: "/images/home/tech/v.webp", alt: "Vivent" },
+    { src: "/images/home/tech/hitech.svg", alt: "Hitech Shuttle" },
+    { src: "/images/home/tech/onus.webp", alt: "ONUS Robotic Hospitals" },
+    { src: "/images/home/tech/measurements.svg", alt: "Measurements" },
   ],
 ];
 
+
 const industries = [
-  /* Icons come from the Font Awesome sheet app/layout.tsx already loads,
-     so these cost no extra request. Every glyph below is a long-standing
-     name present in the FA6 free solid set -- deliberately, after
-     fa-arrow-up-right turned out to be missing from this build and
-     rendered as nothing at all. */
-  { icon: "fa-solid fa-heart-pulse", k: "Healthcare" },
-  { icon: "fa-solid fa-building-columns", k: "Financial Services" },
-  { icon: "fa-solid fa-cart-shopping", k: "Retail & E-commerce" },
-  { icon: "fa-solid fa-graduation-cap", k: "Education" },
-  { icon: "fa-solid fa-landmark", k: "Government & Public Sector" },
-  { icon: "fa-solid fa-truck-fast", k: "Logistics & Transportation" },
-  { icon: "fa-solid fa-building", k: "Real Estate" },
-  { icon: "fa-solid fa-film", k: "Media & Entertainment" },
+  /* Supplied artwork from public/images/hero-new-work, replacing the
+     Font Awesome glyphs. `alt=""` on all eight: the industry name sits
+     right beside each one. */
+  { img: "/images/hero-new-work/industries_healthcare.svg", k: "Healthcare" },
+  { img: "/images/hero-new-work/industries_financial.svg", k: "Financial Services" },
+  { img: "/images/hero-new-work/industries_retail.svg", k: "Retail & E-commerce" },
+  { img: "/images/hero-new-work/industries_education.svg", k: "Education" },
+  { img: "/images/hero-new-work/industries_government.svg", k: "Government & Public Sector" },
+  { img: "/images/hero-new-work/industries_logistics.svg", k: "Logistics & Transportation" },
+  { img: "/images/hero-new-work/industries_realestate.svg", k: "Real Estate" },
+  { img: "/images/hero-new-work/industries_media.svg", k: "Media & Entertainment" },
 ];
+
 
 
 const audiences = [
@@ -661,7 +694,7 @@ const professionalServiceSchema = {
   parentOrganization: { "@id": "https://www.mtouchlabs.com/#organization" },
   name: "mTouch Labs",
   url: "https://www.mtouchlabs.com",
-  image: "https://www.mtouchlabs.com/images/Light.png",
+  image: "https://www.mtouchlabs.com/images/og-image.jpeg",
   /* The same paragraph as the Organization description in app/layout.tsx
      and as /llms.txt. It is no longer rendered as visible copy -- this is
      where it is read from now. */
@@ -692,63 +725,77 @@ const professionalServiceSchema = {
 };
 
 /**
- * Three published posts, deliberately from three DIFFERENT categories.
- *
- * A plain `ORDER BY publish_date DESC LIMIT 3` returned three Software
- * Development posts, because that is what has been published most
- * recently -- three cards saying the same thing about the same subject.
- *
- * So: a window function takes the newest post in each category
- * (ROW_NUMBER partitioned by category), then the three most recent of
- * those. If the blog has fewer than three categories the result is
- * topped up with the next newest posts, so the section never renders
- * one card where it should render three.
- *
- * The whole thing is inside try/catch: if the database is unreachable
- * this returns an empty array and the section drops out, rather than
- * throwing and taking the homepage to the error boundary over three
- * blog cards.
+ * Three published posts, from three different categories where possible.
  */
-type Post = { slug: string; title: string; description: string; category: string | null };
+type Post = {
+  slug: string;
+  title: string;
+  description: string;
+  category: string | null;
+  /* Selected only for the ORDER BY; not rendered. */
+  publish_date?: string | null;
+  created_at?: string | null;
+  updated_at?: string | null;
+};
 
 async function getLatestPosts(): Promise<Post[]> {
-  const PUBLISHED = "(published = true OR status = 'published') AND (publish_date IS NULL OR publish_date <= NOW())";
+  /*
+   * WHY THIS QUERY AND NOT A CLEVERER ONE.
+   *
+   * The first version did the category-diversity work in SQL, with a
+   * ROW_NUMBER() OVER (PARTITION BY category) window function. It
+   * returned nothing, and the section silently disappeared -- which is
+   * how the FAQ ended up directly after Global Delivery.
+   *
+   * This is now BYTE-FOR-BYTE the same WHERE clause and ordering that
+   * app/blog/page.tsx uses, and that page works. `lib/db.ts` is the Neon
+   * HTTP driver (@neondatabase/serverless), not `pg`; it is not a
+   * general-purpose connection and it is not worth guessing which
+   * constructs it will and will not run. Reusing the proven query
+   * removes SQL from the list of things that can break here.
+   *
+   * The "three different categories" requirement is then satisfied in
+   * JavaScript below, where it is trivial and cannot fail.
+   */
   try {
-    /* One per category, newest first. */
-    const byCategory = (await sql`
-      SELECT slug, title, description, category
-        FROM (
-              SELECT slug, title, description, category, publish_date,
-                     ROW_NUMBER() OVER (
-                       PARTITION BY category ORDER BY publish_date DESC NULLS LAST
-                     ) AS rn
-                FROM blogs
-               WHERE (published = true OR status = 'published')
-                 AND (publish_date IS NULL OR publish_date <= NOW())
-             ) t
-       WHERE rn = 1
-       ORDER BY publish_date DESC NULLS LAST
-       LIMIT 3`) as Post[];
-
-    if (byCategory.length >= 3) return byCategory;
-
-    /* Fewer than three categories exist -- top up with the newest posts
-       that are not already in the list. */
-    const seen = new Set(byCategory.map((p) => p.slug));
-    const rest = (await sql`
-      SELECT slug, title, description, category
+    const rows = (await sql`
+      SELECT slug, title, description, category, publish_date, created_at, updated_at
         FROM blogs
        WHERE (published = true OR status = 'published')
          AND (publish_date IS NULL OR publish_date <= NOW())
-       ORDER BY publish_date DESC NULLS LAST
-       LIMIT 8`) as Post[];
+       ORDER BY GREATEST(updated_at, publish_date, created_at) DESC NULLS LAST
+       LIMIT 40`) as Post[];
 
-    for (const p of rest) {
-      if (byCategory.length >= 3) break;
-      if (!seen.has(p.slug)) { byCategory.push(p); seen.add(p.slug); }
+    if (!Array.isArray(rows) || rows.length === 0) return [];
+
+    /* Newest first is already guaranteed by the ORDER BY, so the first
+       time a category is seen is its newest post. Take one per category
+       until there are three. */
+    const picked: Post[] = [];
+    const usedCategories = new Set<string>();
+    for (const r of rows) {
+      if (picked.length >= 3) break;
+      const key = (r.category ?? "").trim().toLowerCase();
+      if (key && usedCategories.has(key)) continue;
+      usedCategories.add(key);
+      picked.push(r);
     }
-    return byCategory;
-  } catch {
+
+    /* Fewer than three distinct categories exist -- fill the remaining
+       slots with the next newest posts so the row is never short. */
+    if (picked.length < 3) {
+      const seen = new Set(picked.map((p) => p.slug));
+      for (const r of rows) {
+        if (picked.length >= 3) break;
+        if (!seen.has(r.slug)) { picked.push(r); seen.add(r.slug); }
+      }
+    }
+    return picked;
+  } catch (err) {
+    /* Logged, not swallowed. A silent catch is what made this invisible
+       the first time -- the section vanished with nothing in the console
+       to say why. In production this prints once per revalidation. */
+    console.error("[homepage] Insights query failed:", err);
     return [];
   }
 }
@@ -757,88 +804,18 @@ async function getLatestPosts(): Promise<Post[]> {
    the three blog cards, and they do not change more often than that. */
 export const revalidate = 3600;
 
-/*
- * The Insights section, as its own async component.
- *
- * THIS IS THE FIX for the navigation bug. HomePage used to be `async`
- * and awaited the blog query itself. That made the WHOLE ROUTE suspend
- * on a database round-trip -- and app/(home)/loading.tsx deliberately
- * returns null, so during the wait Next rendered the layout with nothing
- * between the header and the footer. That is the footer you saw sitting
- * under the navbar for two or three seconds before the page appeared.
- *
- * Isolating the await in a child component and wrapping it in
- * <Suspense> means only this section waits. The rest of the homepage is
- * static and paints immediately, loading.tsx never fires, and the blog
- * cards stream in when the query returns.
- */
-async function InsightsSection() {
+export default async function HomePage() {
+  /* Awaited directly on the page, exactly like app/blog/page.tsx does.
+     The Suspense boundary this replaces was the reason the section never
+     appeared: an async child inside <Suspense> in a statically rendered
+     route was resolving to nothing, and because the fallback rendered
+     null too, the whole block vanished with no trace.
+
+     The footer-flash this originally worked around is handled properly
+     now, by app/(home)/loading.tsx rendering a hero-shaped skeleton
+     instead of null. */
   const posts = await getLatestPosts();
-  if (posts.length === 0) return null;
 
-  return (
-    <section className="hmx-sec" id="insights">
-      <div className="hmx-wrap">
-        <div className="hmx-head hmx-rv">
-          <p className="hmx-eyebrow">Insights</p>
-          <h2 className="hmx-h2">
-            Insights on software, <em>AI, and digital products</em>
-          </h2>
-          <p className="hmx-lead">
-            Explore practical insights, guides, and perspectives from mTouch Labs on
-            software development, artificial intelligence, mobile apps, web
-            technologies, and digital product engineering.
-          </p>
-        </div>
-
-        <div className="hmx-posts hmx-rv">
-          {posts.map((b) => (
-            <article className="hmx-post" key={b.slug}>
-              {b.category && <p className="hmx-post-cat">{b.category}</p>}
-              <h3>{b.title}</h3>
-              <p className="hmx-post-x">{b.description}</p>
-              <Link href={`/blog/${b.slug}`} className="hmx-arrow">
-                Read Article
-                <i className="fa-solid fa-arrow-right" aria-hidden="true" />
-              </Link>
-            </article>
-          ))}
-        </div>
-
-        <div className="hmx-posts-cta hmx-rv">
-          <Link href="/blog" className="hmx-btn hmx-btn-ghost">
-            View All Blogs
-            <i className="fa-solid fa-arrow-right" aria-hidden="true" />
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/*
- * An async Server Component is valid in the App Router but React 18's JSX
- * types still type a component as returning ReactNode, not
- * Promise<ReactNode> -- so `<InsightsSection />` fails to type-check.
- *
- * This one-line cast is the documented workaround and is preferred here
- * over a `@ts-expect-error` comment: the directive has to sit in exactly
- * the right place inside the JSX to take effect, and it suppresses
- * whatever error happens to be on that line, not specifically this one.
- * Delete the cast once the project moves to React 19 types.
- */
-const InsightsSectionEl = InsightsSection as unknown as () => JSX.Element;
-
-/*
- * The placeholder shown while the query runs. It reserves roughly the
- * finished section's height, so the FAQ and the closing CTA below do not
- * jump up the page when the cards arrive.
- */
-function InsightsFallback() {
-  return <div className="hmx-posts-skel" aria-hidden="true" />;
-}
-
-export default function HomePage() {
   return (
     <main className="hmx">
       {/* Canonical — emitted here rather than via `alternates.canonical` so
@@ -951,15 +928,20 @@ export default function HomePage() {
             <ul className="hmx-hero-proof hmx-in" style={d(4)}>
               {stats.map((f) => (
                 <li key={f.k}>
-                  {/* An image mark where one exists, otherwise a glyph.
-                      The two are sized to the same optical height so the
-                      five cells sit on one line. */}
-                  <span className="hmx-hp-ico" aria-hidden={f.img ? undefined : true}>
-                    {f.img ? (
-                      <img src={f.img} alt={f.imgAlt} width={40} height={40} loading="eager" decoding="async" />
-                    ) : (
-                      <i className={f.icon} />
-                    )}
+                  {/* `alt=""` on the two decorative marks: the figure
+                      beside them already says "14+ Years", so a described
+                      icon would make a screen reader read it twice. The
+                      ISO and NASSCOM marks DO carry alt text, because
+                      they are evidence, not decoration. */}
+                  <span className="hmx-hp-ico">
+                    <img
+                      src={f.img}
+                      alt={f.imgAlt}
+                      width={50}
+                      height={50}
+                      loading="eager"
+                      decoding="async"
+                    />
                   </span>
                   <span className="hmx-hp-b">
                     <span className="hmx-hp-n">{f.n}</span>
@@ -1046,25 +1028,32 @@ export default function HomePage() {
       {/* ═══════════ PARTNER — award proof + figures ═══════════ */}
       <section className="hmx-sec hmx-sec--stone" id="partner">
         <div className="hmx-wrap">
-          {/* Copy left, four boxes right. The award photograph that used
-              to fill the right column is gone -- it is still shown, at
-              full size, in the Awards & Recognition section further down,
-              and having it here as well meant the same image twice on one
-              page.
+          {/* Copy left, award photo right, then the four boxes on their
+              own full-width row beneath -- as drawn.
 
-              Four boxes, not six: the six differentiators have their own
-              section below, and stating them in both places made the two
-              sections argue. */}
+              The boxes moved out of the right column because at half
+              width they were cramped two-across; full width gives four
+              equal cards with real breathing room, and the photograph
+              gets the whole column it was designed for. */}
           <div className="hmx-partner">
             <div className="hmx-rv">
               <p className="hmx-eyebrow hmx-eyebrow--dot">WHY mTouch Labs</p>
               <h2 className="hmx-partner-h2">
-                <em>Custom software development</em> built around real business needs
+                {/* Only "Custom software" is blue -- the rest of the
+                    heading stays black, so the accent marks the subject
+                    rather than colouring in half a sentence. */}
+                <em>Custom software</em> development built around real business needs
               </h2>
               <p className="hmx-partner-p">
-                mTouch Labs delivers scalable, high-performance digital solutions for
-                startups and enterprises, combining technology, strategy, and
-                user-centric design to drive growth. ISO-certified.
+                mTouch Labs is a Hyderabad-headquartered custom software company,
+                incorporated in {FACTS.foundedYear}, that builds enterprise applications,
+                mobile apps, and AI systems for private companies and government
+                organizations.
+              </p>
+              <p className="hmx-partner-p">
+                We work across the full product lifecycle&mdash;from understanding business
+                requirements and designing the solution to development, deployment, and
+                ongoing improvement.
               </p>
 
               <div className="hmx-partner-cta">
@@ -1075,15 +1064,28 @@ export default function HomePage() {
               </div>
             </div>
 
-            <ul className="hmx-reasons hmx-rv" style={d(1)}>
-              {reasons.map((r) => (
-                <li key={r.k}>
-                  <h3>{r.k}</h3>
-                  <p>{r.v}</p>
-                </li>
-              ))}
-            </ul>
+            <div className="hmx-partner-art hmx-rv" style={d(1)}>
+              <img
+                src="/images/new-home(02-09)/award-nasscom-2026.webp"
+                alt="mTouch Labs receiving the Digital Transformation Catalyst award at the NASSCOM SME Inspire Awards 2026"
+                width={780}
+                height={538}
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
           </div>
+
+          {/* Four separate cards with gaps between them, centred text --
+              not the hairline grid used elsewhere on the page. */}
+          <ul className="hmx-reasons hmx-rv">
+            {reasons.map((r) => (
+              <li key={r.k}>
+                <h3>{r.k}</h3>
+                <p>{r.v}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -1134,8 +1136,11 @@ export default function HomePage() {
                     not already said. `aria-label` carries the destination
                     for screen readers, so nothing is lost to assistive
                     tech by dropping the visible words. */}
+                {/* Tilted arrow in a circle, black. The SVG rather than a
+                    Font Awesome glyph because fa-arrow-up-right is absent
+                    from this build's free set and renders as nothing. */}
                 <Link href={s.link} className="hmx-cellgo" aria-label={s.label}>
-                  <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+                  <ArrowUpRight />
                 </Link>
               </article>
             ))}
@@ -1174,10 +1179,15 @@ export default function HomePage() {
           <ol className="hmx-track hmx-rv">
             {process.map((st) => (
               <li className="hmx-step" key={st.n}>
-                {/* The chip sits ON the track line and carries an opaque
-                    fill, which is what punches the line's gap around each
-                    number without drawing five separate segments. */}
-                <span className="hmx-step-n" aria-hidden="true">{st.n}</span>
+                {/* A white rounded tile holding the icon, with the step
+                    number as a blue badge clipped to its top-right
+                    corner. The badge is a child of the tile, not a
+                    sibling, so it travels with it at every breakpoint
+                    instead of needing its position recalculated. */}
+                <span className="hmx-step-tile">
+                  <img src={st.img} alt="" width={34} height={34} loading="lazy" decoding="async" />
+                  <span className="hmx-step-badge" aria-hidden="true">{Number(st.n)}</span>
+                </span>
                 <h3>{st.k}</h3>
                 <p>{st.v}</p>
               </li>
@@ -1304,8 +1314,8 @@ export default function HomePage() {
           <ul className="hmx-inds hmx-rv">
             {industries.map((n) => (
               <li key={n.k}>
-                <span className="hmx-ind-ico" aria-hidden="true">
-                  <i className={n.icon} />
+                <span className="hmx-ind-ico">
+                  <img src={n.img} alt="" width={26} height={26} loading="lazy" decoding="async" />
                 </span>
                 {n.k}
               </li>
@@ -1499,9 +1509,44 @@ export default function HomePage() {
           under the navbar for a couple of seconds on every navigation to
           "/". Everything outside this boundary is static and paints at
           once. */}
-      <Suspense fallback={<InsightsFallback />}>
-        <InsightsSectionEl />
-      </Suspense>
+      {posts.length > 0 && (
+        <section className="hmx-sec" id="insights">
+          <div className="hmx-wrap">
+            <div className="hmx-head hmx-rv">
+              <p className="hmx-eyebrow">Insights</p>
+              <h2 className="hmx-h2">
+                Insights on software, <em>AI, and digital products</em>
+              </h2>
+              <p className="hmx-lead">
+                Explore practical insights, guides, and perspectives from mTouch Labs on
+                software development, artificial intelligence, mobile apps, web
+                technologies, and digital product engineering.
+              </p>
+            </div>
+
+            <div className="hmx-posts hmx-rv">
+              {posts.map((b) => (
+                <article className="hmx-post" key={b.slug}>
+                  {b.category && <p className="hmx-post-cat">{b.category}</p>}
+                  <h3>{b.title}</h3>
+                  <p className="hmx-post-x">{b.description}</p>
+                  <Link href={`/blog/${b.slug}`} className="hmx-arrow">
+                    Read Article
+                    <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+                  </Link>
+                </article>
+              ))}
+            </div>
+
+            <div className="hmx-posts-cta hmx-rv">
+              <Link href="/blog" className="hmx-btn hmx-btn-ghost">
+                View All Blogs
+                <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ═══════════ FAQ ═══════════ */}
       <section className="hmx-sec hmx-sec--stone" id="faq">
