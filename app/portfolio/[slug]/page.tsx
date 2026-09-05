@@ -1,835 +1,8 @@
-// import { sql } from "@/lib/db";
-// import type { Metadata } from "next";
-// import { notFound } from "next/navigation";
-// import Link from "next/link";
-
-// export const dynamic = "force-dynamic";
-
-// // ─── DB ──────────────────────────────────────────────
-// async function getProject(slug: string) {
-//   const rows = await sql`SELECT *, faq_schema::text as faq_schema_text FROM portfolios WHERE slug = ${slug} AND published = true`;
-//   if (!rows[0]) return null;
-//   const project = rows[0];
-//   project.faq_schema = project.faq_schema_text ? JSON.parse(project.faq_schema_text) : [];
-//   return project;
-// }
-// async function getRelatedProjects(category: string, excludeId: number) {
-//   const rows = await sql`
-//     SELECT id, slug, title, subtitle, category, image, tech_stack, tags
-//     FROM portfolios WHERE category = ${category} AND id != ${excludeId} AND published = true
-//     ORDER BY created_at DESC LIMIT 3`;
-//   return rows;
-// }
-
-// // ─── HELPERS ─────────────────────────────────────────
-// function parseJSON(val: any, fb: any = []) { if (!val) return fb; if (Array.isArray(val)) return val; if (typeof val === 'object') return val; try { return JSON.parse(val) || fb; } catch { return fb; } }
-// function cleanTitle(t: string, slug?: string) {
-//   if (slug) {
-//     return slug
-//       .split('-')
-//       .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-//       .join(' ');
-//   }
-//   const words = t.split(" ");
-//   const half = Math.floor(words.length / 2);
-//   if (words.length >= 4 && words.slice(0, half).join(" ") === words.slice(half).join(" "))
-//     return words.slice(0, half).join(" ");
-//   const suffixes = ["Mobile App Development", "Web Development", "App Development"];
-//   for (const s of suffixes) {
-//     if (t.endsWith(s + " " + s)) return t.replace(s + " " + s, s);
-//   }
-//   const cleaned = words.filter((word, i) => i === 0 || word.toLowerCase() !== words[i - 1].toLowerCase());
-//   return cleaned.join(" ");
-// }
-
-// function splitTitle(t: string, slug?: string): { highlight: string; rest: string } {
-//   const clean = cleanTitle(t, slug);
-//   const words = clean.split(" ");
-
-//   // Common generic suffixes to NOT highlight
-//   const genericWords = [
-//     "mobile", "app", "application", "development", "web", "platform",
-//     "solution", "solutions", "system", "service", "services", "software",
-//     "company", "portal", "website", "online", "digital", "management",
-//   ];
-
-//   // Find where the brand name ends and generic words begin
-//   let brandEnd = words.length;
-//   for (let i = 0; i < words.length; i++) {
-//     if (genericWords.includes(words[i].toLowerCase())) {
-//       brandEnd = i;
-//       break;
-//     }
-//   }
-
-//   // If no brand found (all generic), highlight first word
-//   if (brandEnd === 0) brandEnd = 1;
-
-//   return {
-//     highlight: words.slice(0, brandEnd).join(" "),
-//     rest: words.slice(brandEnd).join(" "),
-//   };
-// }
-
-// function imgUrl(p: string | null | undefined): string {
-//   if (!p) return '';
-//   if (p.startsWith('http')) return p;
-//   if (p.startsWith('/')) return p;
-//   return `/${p}`;
-// }
-
-// // ─── SEO ─────────────────────────────────────────────
-// export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-//   const { slug } = await params;
-//   const p = await getProject(slug);
-//   if (!p) return { title: 'Project Not Found' };
-//   const tags = p.tags ? p.tags.split(',').map((t: string) => t.trim().toLowerCase()) : [];
-//   const fullImg = p.og_image || p.image ? (p.og_image || p.image).startsWith('http') ? (p.og_image || p.image) : `https://www.mtouchlabs.com${imgUrl(p.og_image || p.image)}` : '';
-//   // Strip any trailing "| mTouch Labs" so the root layout template doesn't duplicate it
-//   const stripBrand = (s?: string) => (s || '').replace(/\s*\|\s*mTouch\s*Labs\s*$/i, '').trim();
-//   // Prefer a descriptive title derived from the slug so tab titles always
-//   // match page content (fixes generic titles like "Only shop" for the
-//   // onlyshop-mobile-shopping-app-development project).
-//   const slugTitle = cleanTitle(p.title || '', slug);
-//   const dbMetaTitle = stripBrand(p.meta_title || '');
-//   const rawCleanTitle = stripBrand(p.title ? cleanTitle(p.title) : '');
-
-//   // Pick the richest title: prefer a multi-word DB meta title, otherwise use
-//   // the slug-derived descriptive title (fixes cases like "Only shop" for the
-//   // onlyshop-mobile-shopping-app-development project where both p.title and
-//   // p.meta_title are truncated).
-//   const dbWordCount = dbMetaTitle.split(' ').filter(Boolean).length;
-//   const rawWordCount = rawCleanTitle.split(' ').filter(Boolean).length;
-//   const slugWordCount = slugTitle.split(' ').filter(Boolean).length;
-
-//   let cleanMetaTitle: string;
-//   if (dbMetaTitle && dbWordCount >= 3) {
-//     cleanMetaTitle = dbMetaTitle;
-//   } else if (rawCleanTitle && rawWordCount >= 3 && rawWordCount >= slugWordCount) {
-//     cleanMetaTitle = `${rawCleanTitle} | Portfolio`;
-//   } else {
-//     cleanMetaTitle = `${slugTitle} | Portfolio`;
-//   }
-
-//   // If appending "| mTouch Labs" (Next.js root template) would make the browser
-//   // tab title longer than 60 chars (hard to read), return an absolute title
-//   // so the template is not applied.
-//   const projectedFull = `${cleanMetaTitle} | mTouch Labs`;
-//   const titleField = projectedFull.length > 60
-//     ? ({ absolute: cleanMetaTitle } as const)
-//     : cleanMetaTitle;
-
-//   return {
-//     title: titleField,
-//     description: p.meta_description || p.subtitle || `${p.title} — a ${p.category} project by mTouch Labs.`,
-//     keywords: [`${p.category} app development`, ...tags, 'mTouch Labs', 'app development Hyderabad'],
-//     openGraph: { title: p.og_title || p.title, description: p.og_description || p.subtitle, url: p.canonical_url || `/portfolio/${p.slug}`, siteName: 'mTouch Labs', type: 'article', images: fullImg ? [{ url: fullImg, width: 1200, height: 630 }] : [] },
-//     twitter: { card: 'summary_large_image', title: p.og_title || p.title, description: p.og_description || p.subtitle },
-//     alternates: { canonical: p.canonical_url || `/portfolio/${p.slug}` },
-//     robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large' as const, 'max-snippet': -1 } },
-//   };
-// }
-
-// // ─── STRUCTURED DATA ─────────────────────────────────
-// function buildSchemas(p: any) {
-//   const fullImg = p.image ? (p.image.startsWith('http') ? p.image : `https://www.mtouchlabs.com${imgUrl(p.image)}`) : '';
-//   const main: any = { '@context': 'https://schema.org', '@type': 'CreativeWork', name: p.title, description: p.about || p.subtitle, url: `https://www.mtouchlabs.com/portfolio/${p.slug}`, image: fullImg, genre: p.category, keywords: p.tags, datePublished: p.created_at, creator: { '@type': 'Organization', name: 'mTouch Labs', url: 'https://www.mtouchlabs.com' } };
-//   if (p.play_store_url) main.associatedMedia = { '@type': 'SoftwareApplication', operatingSystem: 'Android', installUrl: p.play_store_url };
-//   const bc = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.mtouchlabs.com' }, { '@type': 'ListItem', position: 2, name: 'Portfolio', item: 'https://www.mtouchlabs.com/portfolio' }, { '@type': 'ListItem', position: 3, name: p.title, item: `https://www.mtouchlabs.com/portfolio/${p.slug}` }] };
-//   const faqs = Array.isArray(p.faq_schema) ? p.faq_schema : parseJSON(p.faq_schema);
-//   const faq = faqs.length > 0 ? { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) } : null;
-//   return { main, bc, faq };
-// }
-
-// // ─── SVG ICON COMPONENTS ────────────────────────────
-// const tocIconsSvg: Record<string, string> = {
-//   'project-overview': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>',
-//   'industry-background': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>',
-//   'business-challenges': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>',
-//   'objectives-requirements': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>',
-//   'strategy-approach': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><path d="M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9-4.54-4.52-9.87-6.54-11.9-4.5-2.04 2.03-.02 7.36 4.5 11.9 4.54 4.52 9.87 6.54 11.9 4.5z"/><path d="M15.7 15.7c4.52-4.54 6.54-9.87 4.5-11.9-2.03-2.04-7.36-.02-11.9 4.5-4.52 4.54-6.54 9.87-4.5 11.9 2.03 2.04 7.36.02 11.9-4.5z"/></svg>',
-//   'technology-stack': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>',
-//   'solution-architecture': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>',
-//   'key-features': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>',
-//   'ui-ux-highlights': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>',
-//   'screens': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>',
-//   'color-palette': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="0.5"/><circle cx="17.5" cy="10.5" r="0.5"/><circle cx="8.5" cy="7.5" r="0.5"/><circle cx="6.5" cy="12.5" r="0.5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.555C21.965 6.012 17.461 2 12 2z"/></svg>',
-//   'typography': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>',
-//   'development-process': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>',
-//   'security-performance': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
-//   'results-impact': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>',
-//   'future-scope': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>',
-//   'conclusion': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>',
-//   'faq': '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>',
-// };
-
-// const featureEmojis = ['📊','🤖','💼','🎨','🔔','📤','⚡','🛡️','🔄','📈','🌐','🔍'];
-
-// function categorizeTech(stack: string[]) {
-//   const cats: Record<string, string[]> = { Frontend: [], Backend: [], Database: [], Infrastructure: [], 'AI/ML': [], Other: [] };
-//   const fe = ['react','flutter','angular','vue','ios','android','swift','kotlin','html','css','javascript','typescript','dart','tailwind','bootstrap','next','nuxt','svelte','jquery'];
-//   const be = ['node','java','php','python','laravel','.net','spring','express','django','flask','ruby','rails','go','graphql','rest','api','nest','fastapi'];
-//   const db = ['mysql','mongo','firebase','sql','redis','postgresql','dynamodb','sqlite','supabase','neon','cassandra','oracle'];
-//   const infra = ['aws','azure','gcp','docker','kubernetes','nginx','vercel','heroku','cloudflare','jenkins','github','gitlab','ci/cd','terraform'];
-//   const ai = ['tensorflow','pytorch','openai','gpt','ml','ai','machine learning','deep learning','nlp','langchain'];
-//   stack.forEach(t => {
-//     const l = t.toLowerCase();
-//     if (fe.some(k => l.includes(k))) cats.Frontend.push(t);
-//     else if (be.some(k => l.includes(k))) cats.Backend.push(t);
-//     else if (db.some(k => l.includes(k))) cats.Database.push(t);
-//     else if (infra.some(k => l.includes(k))) cats.Infrastructure.push(t);
-//     else if (ai.some(k => l.includes(k))) cats['AI/ML'].push(t);
-//     else cats.Other.push(t);
-//   });
-//   return Object.entries(cats).filter(([, v]) => v.length > 0);
-// }
-
-// // ═════════════════════════════════════════════════════
-// export default async function PortfolioDetailPage({ params }: { params: Promise<{ slug: string }> }) {
-//   const { slug } = await params;
-//   const project = await getProject(slug);
-//   if (!project) notFound();
-//   const related = await getRelatedProjects(project.category, project.id);
-
-//   const techStack = parseJSON(project.tech_stack);
-//   const features = parseJSON(project.features);
-//   const appScreens = parseJSON(project.app_screens).filter((s: string) => s);
-//   const webScreens = parseJSON(project.web_screens).filter((s: string) => s);
-//   const colorPalette = parseJSON(project.color_palette);
-//   const typography = parseJSON(project.typography, {});
-//   const faqs = Array.isArray(project.faq_schema) ? project.faq_schema : parseJSON(project.faq_schema);
-//   const allScreens = [...appScreens, ...webScreens];
-//   const techCategories = categorizeTech(techStack);
-
-//   const { main, bc, faq } = buildSchemas(project);
-//   const hasAbout = project.about?.trim() && !['nodeJS', 'Node JS'].includes(project.about.trim());
-//   const hasReq = project.requirements?.trim();
-//   const hasImpact = project.business_impact?.trim();
-
-//   const tocItems = [
-//     { id: 'project-overview', label: 'Project Overview', show: true },
-//     { id: 'industry-background', label: 'Industry Background', show: true },
-//     { id: 'business-challenges', label: 'Business Challenges', show: !!hasReq },
-//     { id: 'objectives-requirements', label: 'Objectives & Requirements', show: !!hasReq },
-//     { id: 'strategy-approach', label: 'Strategy & Approach', show: true },
-//     { id: 'technology-stack', label: 'Technology Stack', show: techStack.length > 0 },
-//     { id: 'solution-architecture', label: 'Solution Architecture', show: true },
-//     { id: 'key-features', label: 'Key Features', show: features.length > 0 },
-//     { id: 'ui-ux-highlights', label: 'UI/UX Highlights', show: allScreens.length > 0 },
-//     { id: 'screens', label: 'Screens', show: allScreens.length > 0 },
-//     { id: 'color-palette', label: 'Color Palette', show: colorPalette.length > 0 },
-//     { id: 'typography', label: 'Typography', show: !!typography?.font },
-//     { id: 'development-process', label: 'Development Process', show: true },
-//     { id: 'security-performance', label: 'Security & Performance', show: true },
-//     { id: 'results-impact', label: 'Results & Impact', show: !!hasImpact },
-//     { id: 'future-scope', label: 'Future Scope', show: true },
-//     { id: 'conclusion', label: 'Conclusion', show: true },
-//     { id: 'faq', label: 'FAQ', show: faqs.length > 0 },
-//   ];
-//   const visibleToc = tocItems.filter(t => t.show);
-
-//   const devSteps = [
-//     { title: 'Discovery & Research', desc: 'User interviews, competitive analysis, and technical feasibility assessment' },
-//     { title: 'Design & Prototyping', desc: 'Creating wireframes, design system, and interactive prototypes in Figma' },
-//     { title: 'Core Development', desc: `Building the application with ${techStack.slice(0,3).join(', ') || 'modern technologies'}` },
-//     { title: 'Integration & APIs', desc: 'Connecting services, third-party integrations, and data pipelines' },
-//     { title: 'Testing & QA', desc: 'Automated testing, performance optimization, and user acceptance testing' },
-//     { title: 'Deployment & Launch', desc: 'Production deployment, monitoring setup, and post-launch support' },
-//   ];
-
-// const titleParts = splitTitle(project.title, slug);
-
-//   return (
-//     <>
-//       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(main) }} />
-//       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(bc) }} />
-//       {faq && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }} />}
-
-// <div className="cs" style={{ backgroundColor: 'var(--ma-dark)' }}>
-//         {/* ═══ HERO — Full-width blue gradient ═══ */}
-//         <section className="cs-hero">
-//           <div className="cs-hero__inner">
-//             {/* Breadcrumb */}
-//             <nav className="cs-hero__breadcrumb" aria-label="Breadcrumb">
-//               <Link href="/">Home</Link>
-//               <span>/</span>
-//               <Link href="/portfolio">Portfolio</Link>
-//               <span>/</span>
-//               <span className="cs-hero__breadcrumb-current">{cleanTitle(project.title)}</span>
-//             </nav>
-
-//             {/* Tech stack pills */}
-//             {techStack.length > 0 && (
-//               <div className="cs-hero__pills">
-//                 {techStack.slice(0, 5).map((t: string, i: number) => (
-//                   <span key={i} className="cs-hero__pill">{t}</span>
-//                 ))}
-//               </div>
-//             )}
-
-// <h1 className="cs-hero__title"><span className="cs-hero__highlight">{titleParts.highlight}</span> {titleParts.rest}</h1>
-//             <p className="cs-hero__sub">{project.subtitle}</p>
-
-//             {/* Store buttons in hero */}
-//             {(project.play_store_url || project.app_store_url) && (
-//               <div className="cs-hero__stores">
-//                 {project.play_store_url && <a href={project.play_store_url} target="_blank" rel="noopener noreferrer" className="cs-store"><i className="fab fa-google-play"></i><div><small>GET IT ON</small><strong>Google Play</strong></div></a>}
-//                 {project.app_store_url && <a href={project.app_store_url} target="_blank" rel="noopener noreferrer" className="cs-store"><i className="fab fa-apple"></i><div><small>Download on</small><strong>App Store</strong></div></a>}
-//               </div>
-//             )}
-
-//             {/* Info cards row */}
-//             <div className="cs-hero__cards">
-//               {project.role && (
-//                 <div className="cs-hero__card">
-//                   <span className="cs-hero__card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
-//                   <span className="cs-hero__card-label">Role</span>
-//                   <span className="cs-hero__card-value">{project.role}</span>
-//                 </div>
-//               )}
-//               {project.duration && (
-//                 <div className="cs-hero__card">
-//                   <span className="cs-hero__card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
-//                   <span className="cs-hero__card-label">Duration</span>
-//                   <span className="cs-hero__card-value">{project.duration}</span>
-//                 </div>
-//               )}
-//               {project.team_size && (
-//                 <div className="cs-hero__card">
-//                   <span className="cs-hero__card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
-//                   <span className="cs-hero__card-label">Team</span>
-//                   <span className="cs-hero__card-value">{project.team_size}</span>
-//                 </div>
-//               )}
-//               <div className="cs-hero__card">
-//                 <span className="cs-hero__card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
-//                 <span className="cs-hero__card-label">Category</span>
-//                 <span className="cs-hero__card-value">{project.category}</span>
-//               </div>
-//             </div>
-//           </div>
-//         </section>
-
-//         {/* ═══ MOBILE TOC — Horizontal scrollable bar ═══ */}
-//         <nav className="cs-toc-mobile" aria-label="Table of Contents Mobile">
-//           <div className="cs-toc-mobile__scroll">
-//             {visibleToc.map((item) => (
-//               <a key={item.id} href={`#${item.id}`} className="cs-toc-mobile__link" data-section={item.id}>
-//                 {item.label}
-//               </a>
-//             ))}
-//           </div>
-//         </nav>
-
-//         {/* ═══ MAIN LAYOUT: TOC LEFT + CONTENT RIGHT ═══ */}
-//         <div className="cs-layout">
-
-//           {/* ── STICKY TOC SIDEBAR (Desktop) ── */}
-//           <aside className="cs-toc" aria-label="Table of Contents">
-//             <nav>
-//               <p className="cs-toc__heading">TABLE OF CONTENTS</p>
-//               <ul className="cs-toc__list">
-//                 {visibleToc.map((item) => (
-//                   <li key={item.id}>
-//                     <a href={`#${item.id}`} className="cs-toc__link" data-section={item.id}>
-//                       <span className="cs-toc__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg[item.id] || '' }} />
-//                       {item.label}
-//                     </a>
-//                   </li>
-//                 ))}
-//               </ul>
-//             </nav>
-//           </aside>
-
-//           {/* ── CONTENT COLUMN ── */}
-//           <div className="cs-content">
-
-//             {/* 1. PROJECT OVERVIEW */}
-//             <section id="project-overview" className="cs-sec">
-//               <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg['project-overview'] }} /> Project Overview</h2>
-//               <div className="cs-sec__text">
-//                 {hasAbout ? project.about.split('\n').filter((p: string) => p.trim()).map((para: string, i: number) => (
-//                   <p key={i}>{para.trim()}</p>
-//                 )) : <p>{project.subtitle}</p>}
-//               </div>
-//             </section>
-
-//             {/* 2. INDUSTRY BACKGROUND */}
-//             <section id="industry-background" className="cs-sec">
-//               <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg['industry-background'] }} /> About the Industry / Client Background</h2>
-//               <div className="cs-sec__text">
-//                 <p>The <strong>{project.category}</strong> industry is rapidly evolving with digital transformation at its core. Businesses in this space face increasing demand for seamless digital experiences and scalable platforms that simplify complex decision-making processes.</p>
-//                 <p>{cleanTitle(project.title)} was envisioned to address these market needs by delivering a modern, intuitive platform built with {techStack.slice(0, 3).join(', ')}.</p>
-//               </div>
-//             </section>
-
-//             {/* 3. BUSINESS CHALLENGES */}
-//             {hasReq && (
-//               <section id="business-challenges" className="cs-sec">
-//                 <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg['business-challenges'] }} /> Business Challenges</h2>
-//                 <div className="cs-challenge-list">
-//                   {project.requirements.split('\n').map((line: string, i: number) => {
-//                     const t = line.trim(); if (!t) return null;
-//                     return (
-//                       <div key={i} className="cs-challenge-card">
-//                         <span className="cs-challenge-num">{i+1}</span>
-//                         <p>{t.replace('•','').trim()}</p>
-//                       </div>
-//                     );
-//                   })}
-//                 </div>
-//               </section>
-//             )}
-
-//             {/* 4. OBJECTIVES & REQUIREMENTS */}
-//             {hasReq && (
-//               <section id="objectives-requirements" className="cs-sec">
-//                 <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg['objectives-requirements'] }} /> Objectives &amp; Requirements</h2>
-//                 <div className="cs-obj-list">
-//                   <div className="cs-obj-card"><span className="cs-obj-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span><p>Build a scalable platform with high performance and reliability</p></div>
-//                   <div className="cs-obj-card"><span className="cs-obj-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span><p>Create an intuitive, customizable interface with minimal learning curve</p></div>
-//                   <div className="cs-obj-card"><span className="cs-obj-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span><p>Integrate intelligent features for proactive insights and automation</p></div>
-//                   <div className="cs-obj-card"><span className="cs-obj-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span><p>Ensure sub-2-second load times across all devices with responsive design</p></div>
-//                 </div>
-//               </section>
-//             )}
-
-//             {/* 5. STRATEGY & APPROACH */}
-//             <section id="strategy-approach" className="cs-sec">
-//               <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg['strategy-approach'] }} /> Our Strategy &amp; Approach</h2>
-//               <div className="cs-card-blue">
-//                 <p>Our team followed an agile development methodology with continuous feedback loops. The project was broken into iterative sprints focusing on discovery &amp; research, UI/UX design, development, testing, and deployment. We prioritized the most impactful features first — then layered on advanced capabilities in subsequent iterations.</p>
-//               </div>
-//             </section>
-
-//             {/* 6. TECHNOLOGY STACK */}
-//             {techStack.length > 0 && (
-//               <section id="technology-stack" className="cs-sec">
-//                 <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg['technology-stack'] }} /> Technology Stack</h2>
-//                 <div className="cs-tech-grid">
-//                   {techCategories.map(([cat, items]) => (
-//                     <div key={cat} className="cs-tech-card">
-//                       <span className="cs-tech-card__label">{cat.toUpperCase()}</span>
-//                       <div className="cs-tech-pills">
-//                         {items.map((t: string, j: number) => <span key={j} className="cs-tech-pill">{t}</span>)}
-//                       </div>
-//                     </div>
-//                   ))}
-//                 </div>
-//               </section>
-//             )}
-
-//             {/* 7. SOLUTION ARCHITECTURE */}
-//             <section id="solution-architecture" className="cs-sec">
-//               <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg['solution-architecture'] }} /> Solution Architecture</h2>
-//               <div className="cs-card-light">
-//                 <p>The application follows a modern architecture with clear separation of concerns — a {techStack.filter((t: string) => ['React','Flutter','Angular','Vue','iOS','Android','Swift','Kotlin'].some(k => t.toLowerCase().includes(k.toLowerCase()))).join(', ') || 'modern UI'} frontend communicating with {techStack.filter((t: string) => ['Node','Java','PHP','Python','Laravel','.NET','Spring'].some(k => t.toLowerCase().includes(k.toLowerCase()))).join(', ') || 'REST APIs'} backend, powered by {techStack.filter((t: string) => ['MySQL','Mongo','Firebase','AWS','SQL','Redis','PostgreSQL'].some(k => t.toLowerCase().includes(k.toLowerCase()))).join(', ') || 'cloud databases'}.</p>
-//               </div>
-//             </section>
-
-//             {/* 8. KEY FEATURES */}
-//             {features.length > 0 && (
-//               <section id="key-features" className="cs-sec">
-//                 <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg['key-features'] }} /> Key Features &amp; Functionalities</h2>
-//                 <div className="cs-feat-grid">
-//                   {features.map((f: any, i: number) => (
-//                     <div key={i} className="cs-feat-card">
-//                       <span className="cs-feat-emoji">{featureEmojis[i % featureEmojis.length]}</span>
-//                       <h3>{f.title || f}</h3>
-//                       {f.description && <p>{f.description}</p>}
-//                     </div>
-//                   ))}
-//                 </div>
-//               </section>
-//             )}
-
-//             {/* 9. UI/UX HIGHLIGHTS */}
-//             {allScreens.length > 0 && (
-//               <section id="ui-ux-highlights" className="cs-sec">
-//                 <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg['ui-ux-highlights'] }} /> UI/UX Design Highlights</h2>
-//                 <div className="cs-uiux-list">
-//                   <div className="cs-uiux-item"><span className="cs-uiux-dot"></span><span>Drag-and-drop builder with customizable widget types</span></div>
-//                   <div className="cs-uiux-item"><span className="cs-uiux-dot"></span><span>Dark/light theme toggle with system preference detection</span></div>
-//                   <div className="cs-uiux-item"><span className="cs-uiux-dot"></span><span>Fluid animations on transitions using modern motion libraries</span></div>
-//                   <div className="cs-uiux-item"><span className="cs-uiux-dot"></span><span>Responsive layouts with virtual scrolling for large datasets</span></div>
-//                   <div className="cs-uiux-item"><span className="cs-uiux-dot"></span><span>Accessibility-first design meeting WCAG 2.1 AA standards</span></div>
-//                 </div>
-//               </section>
-//             )}
-
-//             {/* 10. SCREENS */}
-//             {allScreens.length > 0 && (
-//               <section id="screens" className="cs-sec">
-//                 <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg['screens'] }} /> Screens</h2>
-//                 {appScreens.length > 0 && (
-//                   <div className="cs-screens-block">
-//                     <h3 className="cs-screens-block__title">App Screens</h3>
-//                     <div className="cs-app-screens-scroll">
-//                       {appScreens.map((screen: string, i: number) => (
-//                         <div key={i} className="cs-app-screen-card">
-//                           <img src={imgUrl(screen)} alt={`${cleanTitle(project.title)} - Screen ${i+1}`} loading="lazy" className="cs-app-screen-img" />
-//                         </div>
-//                       ))}
-//                     </div>
-//                   </div>
-//                 )}
-//                 {webScreens.length > 0 && (
-//                   <div className="cs-screens-block" style={{marginTop: '40px'}}>
-//                     <h3 className="cs-screens-block__title">Web Screens</h3>
-//                     <div className="cs-web-screens-grid">
-//                       {webScreens.map((screen: string, i: number) => (
-//                         <div key={i} className="cs-web-screen-card">
-//                           <img src={imgUrl(screen)} alt={`${cleanTitle(project.title)} - Web ${i+1}`} loading="lazy" className="cs-web-screen-img" />
-//                         </div>
-//                       ))}
-//                     </div>
-//                   </div>
-//                 )}
-//               </section>
-//             )}
-
-//             {/* 11. COLOR PALETTE */}
-//             {colorPalette.length > 0 && (
-//               <section id="color-palette" className="cs-sec">
-//                 <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg['color-palette'] }} /> Color Palette</h2>
-//                 <div className="cs-color-row">
-//                   {colorPalette.map((c: {hex:string;name:string}, i: number) => (
-//                     <div key={i} className="cs-color-card">
-//                       <div className="cs-color-swatch" style={{backgroundColor: c.hex}}></div>
-//                       <span className="cs-color-name">{c.name}</span>
-//                       <span className="cs-color-hex">{c.hex}</span>
-//                     </div>
-//                   ))}
-//                 </div>
-//               </section>
-//             )}
-
-//             {/* 12. TYPOGRAPHY */}
-//             {typography?.font && (
-//               <section id="typography" className="cs-sec">
-//                 <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg['typography'] }} /> Typography</h2>
-//                 <div className="cs-typo-stack">
-//                   <div className="cs-typo-row">
-//                     <div className="cs-typo-meta">
-//                       <h3 className="cs-typo-font-name">{typography.font}</h3>
-//                       <span className="cs-typo-weight">Headings — Bold 700</span>
-//                     </div>
-//                     <p className="cs-typo-sample cs-typo-sample--heading">The quick brown fox jumps</p>
-//                   </div>
-//                   <div className="cs-typo-row">
-//                     <div className="cs-typo-meta">
-//                       <h3 className="cs-typo-font-name">{typography.font}</h3>
-//                       <span className="cs-typo-weight">Body — Regular 400</span>
-//                     </div>
-//                     <p className="cs-typo-sample cs-typo-sample--body">Over the lazy dog near the bank</p>
-//                   </div>
-//                 </div>
-//               </section>
-//             )}
-
-//             {/* 13. DEVELOPMENT PROCESS */}
-//             <section id="development-process" className="cs-sec">
-//               <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg['development-process'] }} /> Development Process</h2>
-//               <div className="cs-timeline">
-//                 {devSteps.map((step, i) => (
-//                   <div key={i} className="cs-timeline__item">
-//                     <span className="cs-timeline__num">{i+1}</span>
-//                     <div className="cs-timeline__content">
-//                       <h3>{step.title}</h3>
-//                       <p>{step.desc}</p>
-//                     </div>
-//                   </div>
-//                 ))}
-//               </div>
-//             </section>
-
-//             {/* 14. SECURITY & PERFORMANCE */}
-//             <section id="security-performance" className="cs-sec">
-//               <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg['security-performance'] }} /> Security &amp; Performance Optimization</h2>
-//               <div className="cs-sp-grid">
-//                 <div className="cs-sp-card"><span className="cs-sp-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><p>End-to-end encryption for all data in transit using TLS 1.3</p></div>
-//                 <div className="cs-sp-card"><span className="cs-sp-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><p>AES-256 encryption for sensitive data at rest</p></div>
-//                 <div className="cs-sp-card"><span className="cs-sp-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><p>OAuth 2.0 + MFA authentication with session management</p></div>
-//                 <div className="cs-sp-card"><span className="cs-sp-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><p>Role-based access control (RBAC) with granular permissions</p></div>
-//                 <div className="cs-sp-card"><span className="cs-sp-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><p>Regular security audits and penetration testing by third-party firms</p></div>
-//                 <div className="cs-sp-card"><span className="cs-sp-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><p>SOC 2 Type II compliance for enterprise clients</p></div>
-//               </div>
-//             </section>
-
-//             {/* 15. RESULTS & IMPACT */}
-//             {hasImpact && (
-//               <section id="results-impact" className="cs-sec">
-//                 <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg['results-impact'] }} /> Results &amp; Business Impact</h2>
-//                 <div className="cs-impact-grid">
-//                   {project.business_impact.split('\n').map((line: string, i: number) => {
-//                     const t = line.trim(); if (!t) return null;
-//                     const text = t.replace(/^[•\-\d.]+\s*/, '').trim();
-//                     if (!text) return null;
-//                     const sepMatch = text.match(/^([^:—–\n]{3,50})[:\u2014\u2013]\s*(.+)/);
-//                     const title = sepMatch ? sepMatch[1].trim() : null;
-//                     const desc = sepMatch ? sepMatch[2].trim() : text;
-//                     const icons = ['🚀','📈','💡','🎯','⚡','🔍','🛡️','🤖','📊','🌐','✨','🔔'];
-//                     return (
-//                       <div key={i} className="cs-impact-card">
-//                         <div className="cs-impact-card__icon-wrap">
-//                           <span className="cs-impact-card__icon">{icons[i % icons.length]}</span>
-//                           <span className="cs-impact-card__num">{String(i+1).padStart(2,'0')}</span>
-//                         </div>
-//                         {title && <h3 className="cs-impact-card__title">{title}</h3>}
-//                         <p className="cs-impact-card__desc">{desc}</p>
-//                       </div>
-//                     );
-//                   })}
-//                 </div>
-//               </section>
-//             )}
-
-//             {/* 16. FUTURE SCOPE */}
-//             <section id="future-scope" className="cs-sec">
-//               <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg['future-scope'] }} /> Future Scope &amp; Scalability</h2>
-//               <div className="cs-future-list">
-//                 <div className="cs-future-item"><span className="cs-future-arrow">→</span><p>AI-Powered Personalization — Smart recommendations and personalized experiences</p></div>
-//                 <div className="cs-future-item"><span className="cs-future-arrow">→</span><p>Advanced Analytics — Comprehensive dashboards for business insights</p></div>
-//                 <div className="cs-future-item"><span className="cs-future-arrow">→</span><p>Multi-Language Support — Internationalization for global reach</p></div>
-//                 <div className="cs-future-item"><span className="cs-future-arrow">→</span><p>Third-Party Integrations — API marketplace and ecosystem expansion</p></div>
-//                 <div className="cs-future-item"><span className="cs-future-arrow">→</span><p>Mobile companion app with cross-platform support</p></div>
-//               </div>
-//             </section>
-
-//             {/* 17. CONCLUSION */}
-//             <section id="conclusion" className="cs-sec">
-//               <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg['conclusion'] }} /> Conclusion</h2>
-//               <div className="cs-conclusion-card">
-//                 <p>{cleanTitle(project.title)} stands as a testament to what&apos;s possible when thoughtful design meets robust engineering. Built with {techStack.slice(0,3).join(', ')}, the project successfully addresses core challenges in the {project.category} space.</p>
-//                 <p>At mTouch Labs, we&apos;re proud to have delivered a solution that not only met but exceeded performance targets. The modular architecture ensures the platform can evolve with market demands.</p>
-//               </div>
-//             </section>
-
-//             {/* 18. FAQ */}
-//             {faqs.length > 0 && (
-//               <section id="faq" className="cs-sec">
-//                 <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg['faq'] }} /> Frequently Asked Questions</h2>
-//                 <div className="cs-faq-list">
-//                   {faqs.map((f: any, i: number) => (
-//                     <div key={i} className="cs-faq-item">
-//                       <button className="cs-faq-q" aria-expanded="false"><span>{f.question}</span><svg className="cs-faq-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></button>
-//                       <div className="cs-faq-a"><p>{f.answer}</p></div>
-//                     </div>
-//                   ))}
-//                 </div>
-//               </section>
-//             )}
-
-//             {/* ═══ DOWNLOAD APP ═══ */}
-//             {(project.play_store_url || project.app_store_url) && (
-//               <section className="cs-download">
-//                 <div className="cs-download__inner">
-//                   {appScreens.length > 0 && <div className="cs-download__phone"><img src={imgUrl(appScreens[0])} alt="App preview" loading="lazy" /></div>}
-//                   <div className="cs-download__text">
-//                     <h2>Try {cleanTitle(project.title).split(' ').slice(0,2).join(' ')} Yourself</h2>
-//                     <p>Download the app and experience it firsthand.</p>
-//                     <div className="cs-download__btns">
-//                       {project.play_store_url && <a href={project.play_store_url} target="_blank" rel="noopener noreferrer" className="cs-store cs-store--solid"><i className="fab fa-google-play"></i><div><small>GET IT ON</small><strong>Google Play</strong></div></a>}
-//                       {project.app_store_url && <a href={project.app_store_url} target="_blank" rel="noopener noreferrer" className="cs-store cs-store--solid"><i className="fab fa-apple"></i><div><small>Download on</small><strong>App Store</strong></div></a>}
-//                     </div>
-//                   </div>
-//                 </div>
-//               </section>
-//             )}
-
-//             {/* ═══ RELATED PROJECTS ═══ */}
-//             {related.length > 0 && (
-//               <section className="cs-related">
-//                 <span className="cs-tag">Explore More</span>
-//                 <h2 style={{fontSize: '24px', fontWeight: 800, color: 'var(--color-deep-indigo)', margin: '12px 0 24px'}}>More {project.category} Projects</h2>
-//                 <div className="cs-related__grid">
-//                   {related.map((rp) => {
-//                     const rpTech = parseJSON(rp.tech_stack);
-//                     return (
-//                       <article key={rp.id} className="cs-related__card">
-//                         <Link href={`/portfolio/${rp.slug}`} className="cs-related__link">
-//                           <div className="cs-related__img-wrap">
-//                             <img src={imgUrl(rp.image)} alt={rp.title} loading="lazy" className="cs-related__img" />
-//                             <div className="cs-related__hover"><span>View Project →</span></div>
-//                           </div>
-//                           <div className="cs-related__body">
-//                             <span className="cs-related__cat">{rp.category}</span>
-//                             <h3 className="cs-related__title">{cleanTitle(rp.title)}</h3>
-//                             <div className="cs-related__tags">{rpTech.slice(0,3).map((t:string,j:number)=><span key={j} className="cs-related__tag">{t}</span>)}</div>
-//                           </div>
-//                         </Link>
-//                       </article>
-//                     );
-//                   })}
-//                 </div>
-//               </section>
-//             )}
-
-//           </div>{/* end cs-content */}
-//         </div>{/* end cs-layout */}
-
-//         {/* ═══ CTA ═══ */}
-//         <section className="cs-cta">
-//           <div className="cs-cta__glow"></div>
-//           <div className="cs-container">
-//             <div className="cs-cta__inner">
-//               <span className="cs-tag cs-tag--light">Let&apos;s Work Together</span>
-//               <h2 className="cs-cta__title">Have an idea? Let&apos;s build<br/>something amazing.</h2>
-//               <p className="cs-cta__desc">We brought {cleanTitle(project.title).split(' ')[0]}&apos;s vision to life. Now it&apos;s your turn.</p>
-//               <div className="cs-cta__btns">
-//                 <Link href="/contact-us" className="cs-cta__primary">Start Your Project →</Link>
-//                 <Link href="/portfolio" className="cs-cta__ghost">Explore Portfolio</Link>
-//               </div>
-//             </div>
-//           </div>
-//         </section>
-
-//       </div>
-
-//       {/* ═══ SCRIPTS — IntersectionObserver scroll spy ═══ */}
-//       <script dangerouslySetInnerHTML={{ __html: `
-// (function initCsToc() {
-//   var desktopLinks = document.querySelectorAll('.cs-toc__link');
-//   var mobileLinks = document.querySelectorAll('.cs-toc-mobile__link');
-//   var allLinks = [].slice.call(desktopLinks).concat([].slice.call(mobileLinks));
-//   if (!allLinks.length) { setTimeout(initCsToc, 200); return; }
-
-//   var HEADER_OFFSET = 80;
-
-//   var sectionIds = [];
-//   var linkMap = {};
-//   desktopLinks.forEach(function(link) {
-//     var href = link.getAttribute('href');
-//     if (href && href.startsWith('#')) {
-//       var id = href.slice(1);
-//       if (!linkMap[id]) linkMap[id] = [];
-//       linkMap[id].push(link);
-//       if (sectionIds.indexOf(id) === -1) sectionIds.push(id);
-//     }
-//   });
-//   mobileLinks.forEach(function(link) {
-//     var href = link.getAttribute('href');
-//     if (href && href.startsWith('#')) {
-//       var id = href.slice(1);
-//       if (!linkMap[id]) linkMap[id] = [];
-//       linkMap[id].push(link);
-//       if (sectionIds.indexOf(id) === -1) sectionIds.push(id);
-//     }
-//   });
-
-//   var sectionEls = [];
-//   sectionIds.forEach(function(id) {
-//     var el = document.getElementById(id);
-//     if (el) sectionEls.push(el);
-//   });
-
-//   var currentActive = null;
-
-//   function setActive(id) {
-//     if (id === currentActive) return;
-//     allLinks.forEach(function(l) {
-//       l.classList.remove('cs-toc__link--active');
-//       l.classList.remove('cs-toc-mobile__link--active');
-//     });
-//     if (linkMap[id]) {
-//       linkMap[id].forEach(function(l) {
-//         if (l.classList.contains('cs-toc__link')) l.classList.add('cs-toc__link--active');
-//         if (l.classList.contains('cs-toc-mobile__link')) l.classList.add('cs-toc-mobile__link--active');
-//       });
-//       var mobileBar = document.querySelector('.cs-toc-mobile__scroll');
-//       if (mobileBar && linkMap[id]) {
-//         linkMap[id].forEach(function(l) {
-//           if (l.classList.contains('cs-toc-mobile__link')) {
-//             l.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-//           }
-//         });
-//       }
-//     }
-//     currentActive = id;
-//   }
-
-//   var observerOptions = {
-//     root: null,
-//     rootMargin: '-' + (HEADER_OFFSET + 40) + 'px 0px -60% 0px',
-//     threshold: 0
-//   };
-
-//   var observer = new IntersectionObserver(function(entries) {
-//     entries.forEach(function(entry) {
-//       if (entry.isIntersecting) {
-//         setActive(entry.target.id);
-//       }
-//     });
-//   }, observerOptions);
-
-//   sectionEls.forEach(function(el) { observer.observe(el); });
-
-//   allLinks.forEach(function(link) {
-//     link.addEventListener('click', function(e) {
-//       e.preventDefault();
-//       var id = this.getAttribute('href').substring(1);
-//       var el = document.getElementById(id);
-//       if (!el) return;
-//       setActive(id);
-//       var top = el.getBoundingClientRect().top + window.pageYOffset - HEADER_OFFSET - 20;
-//       window.scrollTo({ top: top, behavior: 'smooth' });
-//       history.pushState(null, '', '#' + id);
-//     });
-//   });
-
-//   window.addEventListener('scroll', function() {
-//     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100) {
-//       var lastId = sectionIds[sectionIds.length - 1];
-//       if (lastId) setActive(lastId);
-//     }
-//   });
-
-//   setTimeout(function() {
-//     var triggerLine = window.scrollY + HEADER_OFFSET + 60;
-//     for (var i = sectionEls.length - 1; i >= 0; i--) {
-//       if (sectionEls[i].offsetTop <= triggerLine) {
-//         setActive(sectionEls[i].id);
-//         break;
-//       }
-//     }
-//   }, 300);
-
-//   if (window.location.hash) {
-//     var hashEl = document.getElementById(window.location.hash.substring(1));
-//     if (hashEl) {
-//       setTimeout(function() {
-//         var top = hashEl.getBoundingClientRect().top + window.pageYOffset - HEADER_OFFSET - 20;
-//         window.scrollTo({ top: top, behavior: 'smooth' });
-//       }, 400);
-//     }
-//   }
-
-//   document.querySelectorAll('.cs-app-screens-scroll').forEach(function(el) {
-//     var d=false,sx,sl;
-//     el.addEventListener('mousedown',function(e){d=true;el.style.cursor='grabbing';sx=e.pageX-el.offsetLeft;sl=el.scrollLeft});
-//     el.addEventListener('mouseleave',function(){d=false;el.style.cursor='grab'});
-//     el.addEventListener('mouseup',function(){d=false;el.style.cursor='grab'});
-//     el.addEventListener('mousemove',function(e){if(!d)return;e.preventDefault();el.scrollLeft=sl-((e.pageX-el.offsetLeft)-sx)*1.5});
-//   });
-
-//   document.querySelectorAll('.cs-faq-q').forEach(function(btn) {
-//     btn.addEventListener('click', function() {
-//       var exp = this.getAttribute('aria-expanded') === 'true';
-//       this.setAttribute('aria-expanded', String(!exp));
-//       this.parentElement.classList.toggle('open');
-//     });
-//   });
-// })();
-//       `}} />
-//     </>
-//   );
-// }
-
-
 import { neon } from "@neondatabase/serverless";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { CASE_STUDY_CSS } from "./case-study-css";
 
 // ISR: cache rendered pages for 5 min instead of SSR on every request.
 // Faster TTFB for users and crawlers; new/edited portfolios appear within 5 min.
@@ -877,6 +50,21 @@ async function getRelatedProjects(category: string, excludeId: number) {
       ORDER BY created_at DESC
       LIMIT 3
     `;
+    /* Always three cards. Matching on category alone leaves a one-card or
+       empty row whenever a project is the only one of its kind, which
+       reads as broken rather than as "nothing related". Top up with the
+       newest other projects, skipping the ones already chosen. */
+    if (rows.length < 3) {
+      const have = [excludeId, ...rows.map((r: any) => r.id)];
+      const fill = await sql`
+        SELECT id, slug, title, subtitle, category, image, tech_stack, tags
+        FROM portfolios
+        WHERE published = true AND id != ALL(${have})
+        ORDER BY created_at DESC
+        LIMIT ${3 - rows.length}
+      `;
+      return [...rows, ...fill];
+    }
     return rows;
   } catch (err) {
     console.error("[portfolio] getRelatedProjects error:", err);
@@ -961,10 +149,15 @@ function imgUrl(p: string | null | undefined): string {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  /* Next 14, not 15: `params` is a plain object here, NOT a Promise.
+     It was typed as a Promise and awaited, which happens to work --
+     `await` on a non-thenable resolves to the value -- but it is the
+     Next 15 signature on a Next 14.2 project (see package.json), so the
+     types lied about the runtime and would break on any real upgrade. */
+  params: { slug: string };
 }): Promise<Metadata> {
   try {
-    const { slug } = await params;
+    const { slug } = params;
     const p = await getProject(slug);
     if (!p) return { title: "Project Not Found" };
 
@@ -1106,28 +299,7 @@ function buildSchemas(p: any) {
 }
 
 // ─── SVG ICONS ────────────────────────────────────────
-const tocIconsSvg: Record<string, string> = {
-  "project-overview": '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>',
-  "industry-background": '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>',
-  "business-challenges": '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>',
-  "objectives-requirements": '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>',
-  "strategy-approach": '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><path d="M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9-4.54-4.52-9.87-6.54-11.9-4.5-2.04 2.03-.02 7.36 4.5 11.9 4.54 4.52 9.87 6.54 11.9 4.5z"/><path d="M15.7 15.7c4.52-4.54 6.54-9.87 4.5-11.9-2.03-2.04-7.36-.02-11.9 4.5-4.52 4.54-6.54 9.87-4.5 11.9 2.03 2.04 7.36.02 11.9-4.5z"/></svg>',
-  "technology-stack": '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>',
-  "solution-architecture": '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>',
-  "key-features": '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>',
-  "ui-ux-highlights": '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>',
-  screens: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>',
-  "color-palette": '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="0.5"/><circle cx="17.5" cy="10.5" r="0.5"/><circle cx="8.5" cy="7.5" r="0.5"/><circle cx="6.5" cy="12.5" r="0.5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.555C21.965 6.012 17.461 2 12 2z"/></svg>',
-  typography: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>',
-  "development-process": '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>',
-  "security-performance": '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
-  "results-impact": '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>',
-  "future-scope": '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>',
-  conclusion: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>',
-  faq: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>',
-};
 
-const featureEmojis = ["📊","🤖","💼","🎨","🔔","📤","⚡","🛡️","🔄","📈","🌐","🔍"];
 
 function categorizeTech(stack: string[]) {
   const cats: Record<string, string[]> = {
@@ -1150,77 +322,179 @@ function categorizeTech(stack: string[]) {
   return Object.entries(cats).filter(([, v]) => v.length > 0);
 }
 
-// ═══════════════════════════════════════════════════════════════════
-// PAGE COMPONENT
-// ═══════════════════════════════════════════════════════════════════
+
+const featureEmojis = ["📦","🔍","📄","🛒","📱","🛠️","🔔","📊","⚡","🌐","🛡️","🔄"];
+
+/* Split a "Title — description" / "Title: description" line into its two
+   halves. Every list section in the reference design shows a bold lead
+   and a lighter body, and the em-dash / colon is how the copy carries
+   that split. A line with no separator becomes a title with no body,
+   which still renders correctly. */
+function splitLine(line: string): { title: string; desc: string } {
+  const t = line.replace(/^[•\-\d.]+\s*/, "").trim();
+  /* Only look for the separator BEFORE the first tag. Without this a line
+     like `... our <a href="https://x">link</a>` splits on the colon inside
+     the href and the heading becomes half a URL. */
+  const cut = t.indexOf("<");
+  const head = cut === -1 ? t : t.slice(0, cut);
+  const m = head.match(/^([^:—–]{3,60})[:—–]\s*/);
+  if (!m) return { title: t, desc: "" };
+  return { title: m[1].trim(), desc: t.slice(m[0].length).trim() };
+}
+
+function lines(v: any): string[] {
+  if (!v || typeof v !== "string") return [];
+  return v.split("\n").map((l) => l.trim()).filter(Boolean);
+}
+
+function paras(v: any): string[] {
+  if (!v || typeof v !== "string") return [];
+  return v.split("\n").map((p) => p.trim()).filter(Boolean);
+}
+
 export default async function PortfolioDetailPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  /* Next 14, not 15: `params` is a plain object here, NOT a Promise.
+     It was typed as a Promise and awaited, which happens to work --
+     `await` on a non-thenable resolves to the value -- but it is the
+     Next 15 signature on a Next 14.2 project (see package.json), so the
+     types lied about the runtime and would break on any real upgrade. */
+  params: { slug: string };
 }) {
-  // Await params first — required in Next.js 15
-  const { slug } = await params;
-
-  // Fetch project — getProject swallows DB errors and returns null
+  const { slug } = params;
   const project = await getProject(slug);
-
-  // Genuinely not found → show 404, not error page
   if (!project) notFound();
 
-  // Safely parse all JSON columns
   const techStack = parseJSON(project.tech_stack);
   const features = parseJSON(project.features);
   const appScreens = parseJSON(project.app_screens).filter((s: string) => s);
   const webScreens = parseJSON(project.web_screens).filter((s: string) => s);
-  const colorPalette = parseJSON(project.color_palette);
-  const typography = parseJSON(project.typography, {});
   const faqs = Array.isArray(project.faq_schema)
     ? project.faq_schema
     : parseJSON(project.faq_schema);
-  const allScreens = [...appScreens, ...webScreens];
   const techCategories = categorizeTech(techStack);
-
   const { main, bc, faq } = buildSchemas(project);
-  const hasAbout =
-    project.about?.trim() &&
-    !["nodeJS", "Node JS"].includes(project.about.trim());
-  const hasReq = project.requirements?.trim();
-  const hasImpact = project.business_impact?.trim();
 
-  const tocItems = [
-    { id: "project-overview", label: "Project Overview", show: true },
-    { id: "industry-background", label: "Industry Background", show: true },
-    { id: "business-challenges", label: "Business Challenges", show: !!hasReq },
-    { id: "objectives-requirements", label: "Objectives & Requirements", show: !!hasReq },
-    { id: "strategy-approach", label: "Strategy & Approach", show: true },
-    { id: "technology-stack", label: "Technology Stack", show: techStack.length > 0 },
-    { id: "solution-architecture", label: "Solution Architecture", show: true },
-    { id: "key-features", label: "Key Features", show: features.length > 0 },
-    { id: "ui-ux-highlights", label: "UI/UX Highlights", show: allScreens.length > 0 },
-    { id: "screens", label: "Screens", show: allScreens.length > 0 },
-    { id: "color-palette", label: "Color Palette", show: colorPalette.length > 0 },
-    { id: "typography", label: "Typography", show: !!typography?.font },
-    { id: "development-process", label: "Development Process", show: true },
-    { id: "security-performance", label: "Security & Performance", show: true },
-    { id: "results-impact", label: "Results & Impact", show: !!hasImpact },
-    { id: "future-scope", label: "Future Scope", show: true },
-    { id: "conclusion", label: "Conclusion", show: true },
-    { id: "faq", label: "FAQ", show: faqs.length > 0 },
-  ];
-  const visibleToc = tocItems.filter((t) => t.show);
-
-  const devSteps = [
-    { title: "Discovery & Research", desc: "User interviews, competitive analysis, and technical feasibility assessment" },
-    { title: "Design & Prototyping", desc: "Creating wireframes, design system, and interactive prototypes in Figma" },
-    { title: "Core Development", desc: `Building the application with ${techStack.slice(0, 3).join(", ") || "modern technologies"}` },
-    { title: "Integration & APIs", desc: "Connecting services, third-party integrations, and data pipelines" },
-    { title: "Testing & QA", desc: "Automated testing, performance optimization, and user acceptance testing" },
-    { title: "Deployment & Launch", desc: "Production deployment, monitoring setup, and post-launch support" },
-  ];
-
-  const titleParts = splitTitle(project.title, slug);
-  // Fetch related projects — also safe (returns [] on error)
+  const name = cleanTitle(project.title, slug);
+  const shortName = name.split(/[—–-]/)[0].trim();
   const related = await getRelatedProjects(project.category, project.id);
+
+  /* ── Tech grouped by tier ──────────────────────────────────────────
+     The reference design's Solution cards and Architecture diagram are
+     both "web client / mobile client / shared backend / database", so
+     both are built from the same categorisation rather than from any
+     hand-written copy. That keeps them true per project: a project with
+     no mobile stack simply renders no mobile card and no mobile flow. */
+  const byCat = (k: string): string[] =>
+    (techCategories.find(([c]) => c === k)?.[1] as string[]) || [];
+  const mobileKeys = ["flutter", "react native", "swift", "kotlin", "ios", "android", "dart"];
+  const frontAll = byCat("Frontend");
+  const mobileTech = frontAll.filter((t) => mobileKeys.some((k) => t.toLowerCase().includes(k)));
+  const webTech = frontAll.filter((t) => !mobileTech.includes(t));
+  const backTech = byCat("Backend");
+  const dbTech = byCat("Database");
+  const infraTech = byCat("Infrastructure");
+
+  const listOr = (arr: string[], fb: string) => (arr.length ? arr.join(", ") : fb);
+
+  /* ── Hero meta strip ───────────────────────────────────────────────
+     Four facts, each dropped when its column is empty, so the strip is
+     never padded out with "N/A". */
+  /* Each cell holds a SHORT keyword, never a trimmed sentence.
+     The previous helper split on any dash, which turned "4-6 Months" into
+     "4", and ellipsised anything long, which is where the "…" came from.
+     This one takes the first sentence and, if that is still too long,
+     returns nothing -- so the caller falls back to a real keyword rather
+     than showing a chopped-off phrase. */
+  const shortLabel = (v: any, max = 34): string => {
+    const t = String(v || "").trim();
+    if (!t) return "";
+    const first = t.split(". ")[0].trim().replace(/[.,;:]$/, "");
+    return first.length <= max ? first : "";
+  };
+
+  /* Solution: a keyword built from the stack tiers -- "Web + Mobile
+     Platform" -- unless `description` is short enough to BE a label.
+     `subtitle` is never used here: it is the hero's lead paragraph, and
+     a 40-word sentence in a 160px cell is what broke this strip. */
+  const stackLabel =
+    [webTech.length && "Web", mobileTech.length && "Mobile"].filter(Boolean).join(" + ");
+  const solutionLabel =
+    shortLabel(project.description) ||
+    (stackLabel ? `${stackLabel} Platform` : project.category || "Custom Software");
+
+  const heroMeta = [
+    { label: "Industry", value: shortLabel(project.category, 28) },
+    { label: "Solution", value: solutionLabel },
+    { label: "Role", value: shortLabel(project.role) },
+    { label: "Duration", value: shortLabel(project.duration, 24) },
+    { label: "Team Size", value: shortLabel(project.team_size, 24) },
+  ].filter((m) => m.value).slice(0, 4);
+
+  const snapshotRows: { label: string; value: string; href?: string }[] = [
+    { label: "Project Name", value: name },
+    { label: "Industry", value: project.category },
+    { label: "Solution", value: project.description || solutionLabel },
+    { label: "Role", value: project.role },
+    { label: "Duration", value: project.duration },
+    { label: "Team Size", value: project.team_size },
+    { label: "Technologies", value: techStack.slice(0, 6).join(", ") },
+    { label: "Development Partner", value: "mTouch Labs" },
+  ].filter((r) => r.value && String(r.value).trim());
+  if (project.live_url) {
+    snapshotRows.push({
+      label: "Official Website",
+      value: String(project.live_url).replace(/^https?:\/\//, "").replace(/\/$/, ""),
+      href: String(project.live_url),
+    });
+  }
+
+  const aboutParas = paras(project.about);
+  const aboutLead = aboutParas[0] || project.subtitle;
+  const aboutRest = aboutParas.slice(1);
+  const contextParas = paras(project.industry_background);
+
+  const challenges = lines(project.requirements).map(splitLine);
+  const objectives = lines(project.objectives).map(splitLine);
+
+  /* Solution pillars — only the ones this project's stack supports. */
+  const pillars = [
+    webTech.length && {
+      icon: "🌐",
+      title: "Web Application",
+      desc: `The primary browser experience, built with ${webTech.join(", ")}. Users explore ${shortName}, view detailed information and complete their journey through a clear, organised interface.`,
+    },
+    mobileTech.length && {
+      icon: "📱",
+      title: "Mobile Application",
+      desc: `Extends the experience to mobile users, built with ${mobileTech.join(", ")}. A convenient channel to access the platform and interact with it from any device.`,
+    },
+    (backTech.length || dbTech.length) && {
+      icon: "⚙️",
+      title: "Backend & Administration",
+      desc: `Supporting services built on ${listOr(backTech, "a REST API")}${dbTech.length ? `, with data held in ${dbTech.join(", ")}` : ""} — managing content, coordinating functionality and keeping every client in step.`,
+    },
+  ].filter(Boolean) as { icon: string; title: string; desc: string }[];
+
+  const strategyParas = paras(project.strategy_approach);
+  const archParas = paras(project.solution_architecture);
+  const uiuxItems = lines(project.ui_ux_highlights).map(splitLine);
+  const devItems = lines(project.development_process).map(splitLine);
+  const securityItems = lines(project.security_performance).map(splitLine);
+  const impactItems = lines(project.business_impact).map(splitLine);
+  const futureItems = lines(project.future_scope).map(splitLine);
+  const conclusionParas = paras(project.conclusion);
+  const serviceTags: string[] = (project.tags || "")
+    .split(",").map((t: string) => t.trim()).filter(Boolean).slice(0, 6);
+
+  /* Architecture flows: client → backend → database, one row per client. */
+  const backendNode = listOr(backTech, "Backend API");
+  const dbNode = listOr(dbTech, "Database");
+  const flows = [
+    webTech.length && { client: `${webTech[0]} Web App` },
+    mobileTech.length && { client: `${mobileTech[0]} Mobile App` },
+  ].filter(Boolean) as { client: string }[];
 
   return (
     <>
@@ -1228,888 +502,613 @@ export default async function PortfolioDetailPage({
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(bc) }} />
       {faq && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }} />}
 
-      {/* ═══ FIX: html/body have overflow-x: clip globally, which breaks
-              position: sticky on the .cs-toc. Override here so the TOC
-              is sticky through the article body. ═══ */}
-      <style dangerouslySetInnerHTML={{ __html: `
-        html, body {
-          overflow-x: visible !important;
-          overflow: visible !important;
-        }
-        .cs-toc {
-          position: -webkit-sticky !important;
-          position: sticky !important;
-          top: 100px !important;
-          align-self: flex-start !important;
-          max-height: calc(100vh - 120px) !important;
-          overflow-y: auto !important;
-          overflow-x: hidden !important;
-        }
-        .cs-layout {
-          align-items: flex-start !important;
-        }
-        .cs-sec {
-          scroll-margin-top: 110px !important;
-        }
+      {/* The stylesheet travels with the page rather than as a <link> to
+          /public -- see the note at the top of ./case-study-css.ts for why.
+          Rendered before the markup so there is never an unstyled flash. */}
+      <style dangerouslySetInnerHTML={{ __html: CASE_STUDY_CSS }} />
 
-        /* ─── Inline internal links inside section content ─── */
-        .cs-sec__text a,
-        .cs-card-blue a,
-        .cs-card-light a,
-        .cs-uiux-item a,
-        .cs-future-item a,
-        .cs-conclusion-card a,
-        .cs-impact-card__desc a,
-        .cs-challenge-card a {
-          color: #3B82F6 !important;
-          text-decoration: none !important;
-          font-weight: 600 !important;
-          transition: color 0.18s ease !important;
-        }
-        .cs-sec__text a:hover,
-        .cs-card-blue a:hover,
-        .cs-card-light a:hover,
-        .cs-uiux-item a:hover,
-        .cs-future-item a:hover,
-        .cs-conclusion-card a:hover,
-        .cs-impact-card__desc a:hover,
-        .cs-challenge-card a:hover {
-          color: #1D4ED8 !important;
-        }
-      ` }} />
-
-      <div className="cs" style={{ backgroundColor: "var(--ma-dark)" }}>
-        {/* ═══ HERO ═══ */}
+      <div className="cs">
+        {/* ═══════════ HERO ═══════════ */}
         <section className="cs-hero">
-          <div className="cs-hero__inner">
-            <nav className="cs-hero__breadcrumb" aria-label="Breadcrumb">
-              <Link href="/">Home</Link>
-              <span>/</span>
-              <Link href="/portfolio">Portfolio</Link>
-              <span>/</span>
-              <span className="cs-hero__breadcrumb-current">{cleanTitle(project.title)}</span>
+          <div className="cs-wrap">
+            <nav className="cs-crumb" aria-label="Breadcrumb">
+              <Link href="/">Home</Link><span>/</span>
+              <Link href="/portfolio">Portfolio</Link><span>/</span>
+              <span className="cs-crumb__now">{shortName}</span>
             </nav>
 
-            {techStack.length > 0 && (
-              <div className="cs-hero__pills">
-                {techStack.slice(0, 5).map((t: string, i: number) => (
-                  <span key={i} className="cs-hero__pill">{t}</span>
+            {serviceTags.length > 0 && (
+              <div className="cs-tags">
+                {serviceTags.slice(0, 4).map((t, i) => (
+                  <span key={i} className="cs-tag">{t}</span>
                 ))}
               </div>
             )}
 
-            <h1 className="cs-hero__title">
-              <span className="cs-hero__highlight">{titleParts.highlight}</span>{" "}
-              {titleParts.rest}
-            </h1>
-            <p className="cs-hero__sub">{project.subtitle}</p>
+            {/* Flat black, whole line. The two-tone split highlighted a word
+                that is often just the brand name, which made short titles
+                read as half-broken. */}
+            <h1 className="cs-h1">{name}</h1>
+            <p className="cs-lead" dangerouslySetInnerHTML={{ __html: String(project.subtitle || "") }} />
 
-            {(project.play_store_url || project.app_store_url) && (
-              <div className="cs-hero__stores">
-                {project.play_store_url && (
-                  <a href={project.play_store_url} target="_blank" rel="noopener noreferrer" className="cs-store">
-                    <i className="fab fa-google-play"></i>
-                    <div><small>GET IT ON</small><strong>Google Play</strong></div>
-                  </a>
-                )}
-                {project.app_store_url && (
-                  <a href={project.app_store_url} target="_blank" rel="noopener noreferrer" className="cs-store">
-                    <i className="fab fa-apple"></i>
-                    <div><small>Download on</small><strong>App Store</strong></div>
-                  </a>
-                )}
+            <div className="cs-acts">
+              {/* Primary: flat Signature Blue, white label, tilted arrow.
+                  The arrow is an inline SVG, not a glyph, so it can never
+                  be recoloured into invisibility by an inherited hover
+                  rule and never depends on a Font Awesome build. */}
+              <a
+                href={project.live_url || "/contact-us"}
+                {...(project.live_url ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                className="cs-btn cs-btn--primary"
+              >
+                {project.live_url ? "View Live Project" : "Start a Project"}
+                <svg className="cs-btn__ar" width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M4 12L12 4M12 4H5.5M12 4v6.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </a>
+              {/* Secondary: white plate, Signature Blue border, ink label. */}
+              <a href="#solution" className="cs-btn cs-btn--secondary">Explore Solution</a>
+            </div>
+
+            {heroMeta.length > 0 && (
+              <div className="cs-meta">
+                {heroMeta.map((m, i) => (
+                  <div key={i} className="cs-meta__item">
+                    <span className="cs-meta__k">{m.label}</span>
+                    <span className="cs-meta__v">{m.value}</span>
+                  </div>
+                ))}
               </div>
             )}
+          </div>
+        </section>
 
-            <div className="cs-hero__cards">
-              {project.role && (
-                <div className="cs-hero__card">
-                  <span className="cs-hero__card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
-                  <span className="cs-hero__card-label">Role</span>
-                  <span className="cs-hero__card-value">{project.role}</span>
+        {/* ═══════════ ABOUT THE PROJECT ═══════════ */}
+        <section className="cs-sec" id="about">
+          <div className="cs-wrap">
+            {/* The heading, the lead and the body all sit in the LEFT
+                column so Business Context starts level with the eyebrow
+                instead of below the lead paragraph. */}
+            <div className={contextParas.length ? "cs-2col cs-2col--top" : ""}>
+              <div>
+                <div className="cs-head">
+                  <span className="cs-eyebrow">About the Project</span>
+                  <h2 className="cs-h2">Inside {shortName}</h2>
                 </div>
-              )}
-              {project.duration && (
-                <div className="cs-hero__card">
-                  <span className="cs-hero__card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
-                  <span className="cs-hero__card-label">Duration</span>
-                  <span className="cs-hero__card-value">{project.duration}</span>
+                <div className="cs-prose">
+                  {/* dangerouslySetInnerHTML, not {aboutLead}: the `about`
+                      column contains real internal links. Rendered as a JSX
+                      child, React escapes the markup and the reader sees the
+                      raw <a href="..."> tag as text. */}
+                  {aboutLead && (
+                    <p className="cs-prose__lead" dangerouslySetInnerHTML={{ __html: aboutLead }} />
+                  )}
+                  {aboutRest.map((p, i) => (
+                    <p key={i} dangerouslySetInnerHTML={{ __html: p }} />
+                  ))}
                 </div>
-              )}
-              {project.team_size && (
-                <div className="cs-hero__card">
-                  <span className="cs-hero__card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
-                  <span className="cs-hero__card-label">Team</span>
-                  <span className="cs-hero__card-value">{project.team_size}</span>
-                </div>
-              )}
-              <div className="cs-hero__card">
-                <span className="cs-hero__card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
-                <span className="cs-hero__card-label">Category</span>
-                <span className="cs-hero__card-value">{project.category}</span>
               </div>
+              {contextParas.length > 0 && (
+                <div className="cs-note">
+                  <h3>Business Context</h3>
+                  {contextParas.map((p, i) => (
+                    <p key={i} dangerouslySetInnerHTML={{ __html: p }} />
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </section>
 
-        {/* ═══ MOBILE TOC ═══ */}
-        <nav className="cs-toc-mobile" aria-label="Table of Contents Mobile">
-          <div className="cs-toc-mobile__scroll">
-            {visibleToc.map((item) => (
-              <a key={item.id} href={`#${item.id}`} className="cs-toc-mobile__link" data-section={item.id}>
-                {item.label}
-              </a>
-            ))}
+        {/* ═══════════ PROJECT SNAPSHOT ═══════════ */}
+        <section className="cs-sec cs-sec--white">
+          <div className="cs-wrap">
+            <div className="cs-head">
+              <span className="cs-eyebrow">Project Snapshot</span>
+              <h2 className="cs-h2">Key project details at a glance</h2>
+            </div>
+            <table className="cs-table">
+              <tbody>
+                {snapshotRows.map((r, i) => (
+                  <tr key={i}>
+                    <th scope="row">{r.label}</th>
+                    <td>{r.href
+                      ? <a href={r.href} target="_blank" rel="noopener noreferrer">{r.value}</a>
+                      : r.value}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
-        </nav>
+        </section>
 
-        {/* ═══ LAYOUT ═══ */}
-        <div className="cs-layout">
-          {/* Sticky sidebar TOC */}
-          <aside className="cs-toc" aria-label="Table of Contents">
-            <nav>
-              <p className="cs-toc__heading">TABLE OF CONTENTS</p>
-              <ul className="cs-toc__list">
-                {visibleToc.map((item) => (
-                  <li key={item.id}>
-                    <a href={`#${item.id}`} className="cs-toc__link" data-section={item.id}>
-                      <span className="cs-toc__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg[item.id] || "" }} />
-                      {item.label}
-                    </a>
+        {/* ═══════════ CHALLENGES & OBJECTIVES ═══════════ */}
+        {(challenges.length > 0 || objectives.length > 0) && (
+          <section className="cs-sec">
+            <div className="cs-wrap">
+              <div className="cs-2col cs-2col--top">
+                {challenges.length > 0 && (
+                  <div>
+                    <div className="cs-head">
+                      <span className="cs-eyebrow">Business Challenges</span>
+                      <h2 className="cs-h2">What we set out to solve</h2>
+                    </div>
+                    <ul className="cs-checks">
+                      {challenges.map((c, i) => (
+                        <li key={i}>
+                          <span className="cs-checks__n">{i + 1}</span>
+                          <div>
+                            {c.desc ? (
+                              <>
+                                <strong dangerouslySetInnerHTML={{ __html: c.title }} />
+                                <span dangerouslySetInnerHTML={{ __html: c.desc }} />
+                              </>
+                            ) : (
+                              <span dangerouslySetInnerHTML={{ __html: c.title }} />
+                            )}
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {objectives.length > 0 && (
+                  <div>
+                    <div className="cs-head">
+                      <span className="cs-eyebrow">Project Objectives</span>
+                      <h2 className="cs-h2">What success looked like</h2>
+                    </div>
+                    <ul className="cs-checks">
+                      {objectives.map((o, i) => (
+                        <li key={i}>
+                          {/* Drawn, not the ✓ character: the glyph is missing
+                              from some system fonts and renders as a box. */}
+                          <span className="cs-checks__n cs-checks__n--tick" aria-hidden="true">
+                            <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
+                              <path d="M3.5 8.5l3 3 6-7" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                          </span>
+                          <div>
+                            {o.desc ? (
+                              <>
+                                <strong dangerouslySetInnerHTML={{ __html: o.title }} />
+                                <span dangerouslySetInnerHTML={{ __html: o.desc }} />
+                              </>
+                            ) : (
+                              <span dangerouslySetInnerHTML={{ __html: o.title }} />
+                            )}
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* ═══════════ OUR SOLUTION ═══════════ */}
+        {pillars.length > 0 && (
+          <section className="cs-sec cs-sec--white" id="solution">
+            <div className="cs-wrap">
+              <div className="cs-head">
+                <span className="cs-eyebrow">Our Solution</span>
+                <h2 className="cs-h2">A connected digital platform</h2>
+                <p className="cs-desc">
+                  mTouch Labs built {shortName} as one connected system, bringing the
+                  customer-facing experience and the supporting platform capabilities together.
+                </p>
+              </div>
+              <div className="cs-grid cs-grid--3">
+                {pillars.map((p, i) => (
+                  <div key={i} className="cs-card">
+                    <span className="cs-card__ico" aria-hidden="true">{p.icon}</span>
+                    <h3>{p.title}</h3>
+                    <p dangerouslySetInnerHTML={{ __html: p.desc }} />
+                  </div>
+                ))}
+              </div>
+              {strategyParas.length > 0 && (
+                <div className="cs-note cs-note--wide">
+                  <h3>Our Approach</h3>
+                  {strategyParas.map((p, i) => (
+                    <p key={i} dangerouslySetInnerHTML={{ __html: p }} />
+                  ))}
+                </div>
+              )}
+            </div>
+          </section>
+        )}
+
+        {/* ═══════════ PROJECT SCREENS ═══════════ */}
+        {(webScreens.length > 0 || appScreens.length > 0) && (
+          <section className="cs-sec" id="screens">
+            <div className="cs-wrap">
+              <div className="cs-head">
+                <span className="cs-eyebrow">Project Screens</span>
+                <h2 className="cs-h2">Selected interfaces from the platform</h2>
+                <p className="cs-desc">
+                  Key screens from {shortName} across its web and mobile experiences.
+                </p>
+              </div>
+
+              {webScreens.length > 0 && (
+                <>
+                  <h3 className="cs-subh">Website Screens</h3>
+                  <div className="cs-shots cs-shots--web">
+                    {webScreens.map((s: string, i: number) => (
+                      <figure key={i} className="cs-shot">
+                        <img src={imgUrl(s)} alt={`${name} — web screen ${i + 1}`} loading="lazy" />
+                      </figure>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {appScreens.length > 0 && (
+                <>
+                  <h3 className="cs-subh">Mobile App Screens</h3>
+                  <div className="cs-shots cs-shots--app">
+                    {appScreens.map((s: string, i: number) => (
+                      <figure key={i} className="cs-shot cs-shot--app">
+                        <img src={imgUrl(s)} alt={`${name} — app screen ${i + 1}`} loading="lazy" />
+                      </figure>
+                    ))}
+                  </div>
+                </>
+              )}
+            </div>
+          </section>
+        )}
+
+        {/* ═══════════ KEY FEATURES ═══════════ */}
+        {features.length > 0 && (
+          <section className="cs-sec cs-sec--white" id="features">
+            <div className="cs-wrap">
+              <div className="cs-head">
+                <span className="cs-eyebrow">Key Features</span>
+                <h2 className="cs-h2">Essential {String(project.category || "platform").toLowerCase()} capabilities</h2>
+                <p className="cs-desc">
+                  The platform brings its core features together into one coherent experience
+                  across web and mobile.
+                </p>
+              </div>
+              <div className="cs-grid cs-grid--3">
+                {features.map((f: any, i: number) => (
+                  <div key={i} className="cs-card">
+                    <span className="cs-card__ico" aria-hidden="true">{featureEmojis[i % featureEmojis.length]}</span>
+                    <h3 dangerouslySetInnerHTML={{ __html: String(f.title || f) }} />
+                    {f.description && <p dangerouslySetInnerHTML={{ __html: String(f.description) }} />}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* ═══════════ TECHNOLOGY STACK ═══════════ */}
+        {techStack.length > 0 && (
+          <section className="cs-sec" id="tech">
+            <div className="cs-wrap">
+              <div className="cs-head">
+                <span className="cs-eyebrow">Technology Stack</span>
+                <h2 className="cs-h2">Modern foundation for web, mobile &amp; backend</h2>
+                <p className="cs-desc">
+                  The platform was built on a modern stack chosen to support its web, mobile and
+                  backend requirements.
+                </p>
+              </div>
+              <div className="cs-grid cs-grid--4">
+                {techStack.slice(0, 8).map((t: string, i: number) => {
+                  const role =
+                    mobileTech.includes(t) ? "Mobile application — the experience on phones and tablets."
+                    : webTech.includes(t)  ? "Web application — the browser-based storefront and interface."
+                    : backTech.includes(t) ? "Backend layer — powers communication between the clients and platform services."
+                    : dbTech.includes(t)   ? "Database — stores and manages structured data for the platform."
+                    : infraTech.includes(t)? "Infrastructure — hosting, delivery and deployment."
+                    : "Supporting technology used across the platform.";
+                  return (
+                    <div key={i} className="cs-tech">
+                      <span className="cs-tech__mark">{t.split(/[\s.]/)[0]}</span>
+                      <h4>{t}</h4>
+                      <p>{role}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* ═══════════ SOLUTION ARCHITECTURE ═══════════ */}
+        {(flows.length > 0 || archParas.length > 0) && (
+          <section className="cs-sec cs-sec--white">
+            <div className="cs-wrap">
+              <div className="cs-head">
+                <span className="cs-eyebrow">Solution Architecture</span>
+                <h2 className="cs-h2">Shared backend, independent clients</h2>
+              </div>
+              <div className="cs-arch">
+                {flows.map((f, i) => (
+                  <div key={i} className="cs-arch__row">
+                    <span className="cs-node">{f.client}</span>
+                    <span className="cs-arrow" aria-hidden="true">→</span>
+                    <span className="cs-node cs-node--api">{backendNode}</span>
+                    <span className="cs-arrow" aria-hidden="true">→</span>
+                    <span className="cs-node cs-node--db">{dbNode}</span>
+                  </div>
+                ))}
+                <div className="cs-arch__note">
+                  {archParas.length > 0
+                    ? archParas.map((p, i) => <p key={i} dangerouslySetInnerHTML={{ __html: p }} />)
+                    : <p>
+                        Each client talks to one shared {backendNode} service, which handles
+                        requests and connects the customer-facing experience with platform data
+                        held in {dbNode}. That gives a common data foundation while keeping the
+                        presentation layers independent and separately releasable.
+                      </p>}
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* ═══════════ UI/UX + DEVELOPMENT ═══════════ */}
+        {(uiuxItems.length > 0 || devItems.length > 0) && (
+          <section className="cs-sec">
+            <div className="cs-wrap">
+              <div className="cs-2col cs-2col--top">
+                {uiuxItems.length > 0 && (
+                  <div>
+                    <div className="cs-head">
+                      <span className="cs-eyebrow">UI / UX Design</span>
+                      <h2 className="cs-h2">Consistent visual identity across platforms</h2>
+                    </div>
+                    {/* Same rows as "From design to production", with no
+                        marker -- `--plain` drops the blue dot. A line with no
+                        "Title: description" split is one sentence, so it
+                        stays grey body copy instead of being promoted to a
+                        bold black heading. */}
+                    <ul className="cs-dots cs-dots--plain">
+                      {uiuxItems.map((u, i) => (
+                        <li key={i}>
+                          <div>
+                            {u.desc ? (
+                              <>
+                                <strong dangerouslySetInnerHTML={{ __html: u.title }} />
+                                <span dangerouslySetInnerHTML={{ __html: u.desc }} />
+                              </>
+                            ) : (
+                              <span dangerouslySetInnerHTML={{ __html: u.title }} />
+                            )}
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {devItems.length > 0 && (
+                  <div>
+                    <div className="cs-head">
+                      <span className="cs-eyebrow">Development &amp; Implementation</span>
+                      <h2 className="cs-h2">From design to production</h2>
+                    </div>
+                    <ul className="cs-dots">
+                      {devItems.map((d, i) => (
+                        <li key={i}>
+                          <span className="cs-dot" aria-hidden="true"></span>
+                          <div>
+                            {d.desc ? (
+                              <>
+                                <strong dangerouslySetInnerHTML={{ __html: d.title }} />
+                                <span dangerouslySetInnerHTML={{ __html: d.desc }} />
+                              </>
+                            ) : (
+                              <span dangerouslySetInnerHTML={{ __html: d.title }} />
+                            )}
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* ═══════════ SECURITY & PERFORMANCE ═══════════ */}
+        {securityItems.length > 0 && (
+          <section className="cs-sec cs-sec--white">
+            <div className="cs-wrap">
+              <div className="cs-head">
+                <span className="cs-eyebrow">Security &amp; Performance</span>
+                <h2 className="cs-h2">Reliable operation across web and mobile</h2>
+              </div>
+              {/* Blue-dot rows -- the same component as "From design to
+                  production". */}
+              <ul className="cs-dots">
+                {securityItems.map((it, i) => (
+                  <li key={i}>
+                    <span className="cs-dot" aria-hidden="true"></span>
+                    <div>
+                      {it.desc ? (
+                        <>
+                          <strong dangerouslySetInnerHTML={{ __html: it.title }} />
+                          <span dangerouslySetInnerHTML={{ __html: it.desc }} />
+                        </>
+                      ) : (
+                        <span dangerouslySetInnerHTML={{ __html: it.title }} />
+                      )}
+                    </div>
                   </li>
                 ))}
               </ul>
-            </nav>
-          </aside>
-
-          {/* Content */}
-          <div className="cs-content">
-
-            {/* 1. PROJECT OVERVIEW */}
-            <section id="project-overview" className="cs-sec">
-              <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg["project-overview"] }} /> Project Overview</h2>
-              <div className="cs-sec__text">
-                {hasAbout
-                  ? project.about.split("\n").filter((p: string) => p.trim()).map((para: string, i: number) => <p key={i} dangerouslySetInnerHTML={{ __html: para.trim() }} />)
-                  : <p>{project.subtitle}</p>}
-              </div>
-            </section>
-
-            {/* 2. INDUSTRY BACKGROUND */}
-            <section id="industry-background" className="cs-sec">
-              <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg["industry-background"] }} /> About the Industry / Client Background</h2>
-              <div className="cs-sec__text">
-                {project.industry_background?.trim() ? (
-                  project.industry_background.split("\n").filter((p: string) => p.trim()).map((para: string, i: number) => (
-                    <p key={i} dangerouslySetInnerHTML={{ __html: para.trim() }} />
-                  ))
-                ) : (
-                  <>
-                    <p>The <strong>{project.category}</strong> industry is rapidly evolving with digital transformation at its core. Businesses in this space face increasing demand for seamless digital experiences and scalable platforms that simplify complex decision-making processes.</p>
-                    <p>{cleanTitle(project.title)} was envisioned to address these market needs by delivering a modern, intuitive platform built with {techStack.slice(0, 3).join(", ")}.</p>
-                  </>
-                )}
-              </div>
-            </section>
-
-            {/* 3. BUSINESS CHALLENGES */}
-            {hasReq && (
-              <section id="business-challenges" className="cs-sec">
-                <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg["business-challenges"] }} /> Business Challenges</h2>
-                <div className="cs-challenge-list">
-                  {project.requirements.split("\n").map((line: string, i: number) => {
-                    const t = line.trim();
-                    if (!t) return null;
-                    return (
-                      <div key={i} className="cs-challenge-card">
-                        <span className="cs-challenge-num">{i + 1}</span>
-                        <p>{t.replace("•", "").trim()}</p>
-                      </div>
-                    );
-                  })}
-                </div>
-              </section>
-            )}
-
-            {/* 4. OBJECTIVES */}
-            {hasReq && (
-              <section id="objectives-requirements" className="cs-sec">
-                <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg["objectives-requirements"] }} /> Objectives &amp; Requirements</h2>
-                <div className="cs-obj-list">
-                  {(project.objectives?.trim()
-                    ? project.objectives.split("\n").map((l: string) => l.replace(/^[•\-\d.]+\s*/, "").trim()).filter(Boolean)
-                    : [
-                        "Build a scalable platform with high performance and reliability",
-                        "Create an intuitive, customizable interface with minimal learning curve",
-                        "Integrate intelligent features for proactive insights and automation",
-                        "Ensure sub-2-second load times across all devices with responsive design",
-                      ]
-                  ).map((obj: string, i: number) => (
-                    <div key={i} className="cs-obj-card">
-                      <span className="cs-obj-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
-                      <p>{obj}</p>
-                    </div>
-                  ))}
-                </div>
-              </section>
-            )}
-
-            {/* 5. STRATEGY */}
-            <section id="strategy-approach" className="cs-sec">
-              <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg["strategy-approach"] }} /> Our Strategy &amp; Approach</h2>
-              <div className="cs-card-blue">
-                {project.strategy_approach?.trim() ? (
-                  project.strategy_approach.split("\n").filter((p: string) => p.trim()).map((para: string, i: number) => (
-                    <p key={i} dangerouslySetInnerHTML={{ __html: para.trim() }} />
-                  ))
-                ) : (
-                  <p>Our team followed an agile development methodology with continuous feedback loops. The project was broken into iterative sprints focusing on discovery &amp; research, UI/UX design, development, testing, and deployment. We prioritized the most impactful features first — then layered on advanced capabilities in subsequent iterations.</p>
-                )}
-              </div>
-            </section>
-
-            {/* 6. TECH STACK */}
-            {techStack.length > 0 && (
-              <section id="technology-stack" className="cs-sec">
-                <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg["technology-stack"] }} /> Technology Stack</h2>
-                <div className="cs-tech-grid">
-                  {techCategories.map(([cat, items]) => (
-                    <div key={cat} className="cs-tech-card">
-                      <span className="cs-tech-card__label">{cat.toUpperCase()}</span>
-                      <div className="cs-tech-pills">
-                        {items.map((t: string, j: number) => <span key={j} className="cs-tech-pill">{t}</span>)}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </section>
-            )}
-
-            {/* 7. ARCHITECTURE */}
-            <section id="solution-architecture" className="cs-sec">
-              <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg["solution-architecture"] }} /> Solution Architecture</h2>
-              <div className="cs-card-light">
-                {project.solution_architecture?.trim() ? (
-                  project.solution_architecture.split("\n").filter((p: string) => p.trim()).map((para: string, i: number) => (
-                    <p key={i} dangerouslySetInnerHTML={{ __html: para.trim() }} />
-                  ))
-                ) : (
-                  <p>The application follows a modern architecture with clear separation of concerns — a {techStack.filter((t: string) => ["React","Flutter","Angular","Vue","iOS","Android","Swift","Kotlin"].some((k) => t.toLowerCase().includes(k.toLowerCase()))).join(", ") || "modern UI"} frontend communicating with {techStack.filter((t: string) => ["Node","Java","PHP","Python","Laravel",".NET","Spring"].some((k) => t.toLowerCase().includes(k.toLowerCase()))).join(", ") || "REST APIs"} backend, powered by {techStack.filter((t: string) => ["MySQL","Mongo","Firebase","AWS","SQL","Redis","PostgreSQL"].some((k) => t.toLowerCase().includes(k.toLowerCase()))).join(", ") || "cloud databases"}.</p>
-                )}
-              </div>
-            </section>
-
-            {/* 8. KEY FEATURES */}
-            {features.length > 0 && (
-              <section id="key-features" className="cs-sec">
-                <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg["key-features"] }} /> Key Features &amp; Functionalities</h2>
-                <div className="cs-feat-grid">
-                  {features.map((f: any, i: number) => (
-                    <div key={i} className="cs-feat-card">
-                      <span className="cs-feat-emoji">{featureEmojis[i % featureEmojis.length]}</span>
-                      <h3>{f.title || f}</h3>
-                      {f.description && <p>{f.description}</p>}
-                    </div>
-                  ))}
-                </div>
-              </section>
-            )}
-
-            {/* 9. UI/UX */}
-            {allScreens.length > 0 && (
-              <section id="ui-ux-highlights" className="cs-sec">
-                <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg["ui-ux-highlights"] }} /> UI/UX Design Highlights</h2>
-                <div className="cs-uiux-list">
-                  {(project.ui_ux_highlights?.trim()
-                    ? project.ui_ux_highlights.split("\n").map((l: string) => l.replace(/^[•\-\d.]+\s*/, "").trim()).filter(Boolean)
-                    : [
-                        "Drag-and-drop builder with customizable widget types",
-                        "Dark/light theme toggle with system preference detection",
-                        "Fluid animations on transitions using modern motion libraries",
-                        "Responsive layouts with virtual scrolling for large datasets",
-                        "Accessibility-first design meeting WCAG 2.1 AA standards",
-                      ]
-                  ).map((item: string, i: number) => (
-                    <div key={i} className="cs-uiux-item">
-                      <span className="cs-uiux-dot"></span><span dangerouslySetInnerHTML={{ __html: item }} />
-                    </div>
-                  ))}
-                </div>
-              </section>
-            )}
-
-            {/* 10. SCREENS */}
-            {allScreens.length > 0 && (
-              <section id="screens" className="cs-sec">
-                <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg["screens"] }} /> Screens</h2>
-                {appScreens.length > 0 && (
-                  <div className="cs-screens-block">
-                    <h3 className="cs-screens-block__title">App Screens</h3>
-                    {/* Duplicate the list so the CSS keyframe loop
-                        (translateX 0 → -50%) cycles seamlessly. */}
-                    <div className="cs-app-screens-scroll">
-                      {[...appScreens, ...appScreens].map((screen: string, i: number) => (
-                        <div key={`app-${i}`} className="cs-app-screen-card">
-                          <img src={imgUrl(screen)} alt={`${cleanTitle(project.title)} - Screen ${(i % appScreens.length) + 1}`} loading="lazy" className="cs-app-screen-img" aria-hidden={i >= appScreens.length ? true : undefined} />
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-                {webScreens.length > 0 && (
-                  <div className="cs-screens-block" style={{ marginTop: "40px" }}>
-                    <h3 className="cs-screens-block__title">Web Screens</h3>
-                    {/* Duplicate the list so the CSS keyframe loop
-                        (translateX 0 → -50%) cycles seamlessly. */}
-                    <div className="cs-web-screens-grid">
-                      {[...webScreens, ...webScreens].map((screen: string, i: number) => (
-                        <div key={`web-${i}`} className="cs-web-screen-card">
-                          <img src={imgUrl(screen)} alt={`${cleanTitle(project.title)} - Web ${(i % webScreens.length) + 1}`} loading="lazy" className="cs-web-screen-img" aria-hidden={i >= webScreens.length ? true : undefined} />
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </section>
-            )}
-
-            {/* 11. COLOR PALETTE */}
-            {colorPalette.length > 0 && (
-              <section id="color-palette" className="cs-sec">
-                <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg["color-palette"] }} /> Color Palette</h2>
-                <div className="cs-color-row">
-                  {colorPalette.map((c: { hex: string; name: string }, i: number) => (
-                    <div key={i} className="cs-color-card">
-                      <div className="cs-color-swatch" style={{ backgroundColor: c.hex }}></div>
-                      <span className="cs-color-name">{c.name}</span>
-                      <span className="cs-color-hex">{c.hex}</span>
-                    </div>
-                  ))}
-                </div>
-              </section>
-            )}
-
-            {/* 12. TYPOGRAPHY */}
-            {typography?.font && (
-              <section id="typography" className="cs-sec">
-                <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg["typography"] }} /> Typography</h2>
-                <div className="cs-typo-stack">
-                  {[{ weight: "Headings — Bold 700", sample: "The quick brown fox jumps", cls: "cs-typo-sample--heading" },
-                    { weight: "Body — Regular 400", sample: "Over the lazy dog near the bank", cls: "cs-typo-sample--body" }].map((row, i) => (
-                    <div key={i} className="cs-typo-row">
-                      <div className="cs-typo-meta">
-                        <h3 className="cs-typo-font-name">{typography.font}</h3>
-                        <span className="cs-typo-weight">{row.weight}</span>
-                      </div>
-                      <p className={`cs-typo-sample ${row.cls}`}>{row.sample}</p>
-                    </div>
-                  ))}
-                </div>
-              </section>
-            )}
-
-            {/* 13. DEVELOPMENT PROCESS */}
-            <section id="development-process" className="cs-sec">
-              <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg["development-process"] }} /> Development Process</h2>
-              <div className="cs-timeline">
-                {(project.development_process?.trim()
-                  ? project.development_process.split("\n").map((l: string) => l.replace(/^[•\-\d.]+\s*/, "").trim()).filter(Boolean).map((line: string) => {
-                      const m = line.match(/^([^:—–]{2,60})[:—–]\s*(.+)/);
-                      return m ? { title: m[1].trim(), desc: m[2].trim() } : { title: line, desc: "" };
-                    })
-                  : devSteps
-                ).map((step: { title: string; desc: string }, i: number) => (
-                  <div key={i} className="cs-timeline__item">
-                    <span className="cs-timeline__num">{i + 1}</span>
-                    <div className="cs-timeline__content">
-                      <h3>{step.title}</h3>
-                      {step.desc && <p>{step.desc}</p>}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            {/* 14. SECURITY */}
-            <section id="security-performance" className="cs-sec">
-              <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg["security-performance"] }} /> Security &amp; Performance Optimization</h2>
-              <div className="cs-sp-grid">
-                {(project.security_performance?.trim()
-                  ? project.security_performance.split("\n").map((l: string) => l.replace(/^[•\-\d.]+\s*/, "").trim()).filter(Boolean)
-                  : [
-                      "End-to-end encryption for all data in transit using TLS 1.3",
-                      "AES-256 encryption for sensitive data at rest",
-                      "OAuth 2.0 + MFA authentication with session management",
-                      "Role-based access control (RBAC) with granular permissions",
-                      "Regular security audits and penetration testing by third-party firms",
-                      "SOC 2 Type II compliance for enterprise clients",
-                    ]
-                ).map((item: string, i: number) => (
-                  <div key={i} className="cs-sp-card">
-                    <span className="cs-sp-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
-                    <p>{item}</p>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            {/* 15. RESULTS */}
-            {hasImpact && (
-              <section id="results-impact" className="cs-sec">
-                <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg["results-impact"] }} /> Results &amp; Business Impact</h2>
-                <div className="cs-impact-grid">
-                  {project.business_impact.split("\n").map((line: string, i: number) => {
-                    const t = line.trim();
-                    if (!t) return null;
-                    const text = t.replace(/^[•\-\d.]+\s*/, "").trim();
-                    if (!text) return null;
-                    const sepMatch = text.match(/^([^:—–\n]{3,50})[:\u2014\u2013]\s*(.+)/);
-                    const title = sepMatch ? sepMatch[1].trim() : null;
-                    const desc = sepMatch ? sepMatch[2].trim() : text;
-                    const icons = ["🚀","📈","💡","🎯","⚡","🔍","🛡️","🤖","📊","🌐","✨","🔔"];
-                    return (
-                      <div key={i} className="cs-impact-card">
-                        <div className="cs-impact-card__icon-wrap">
-                          <span className="cs-impact-card__icon">{icons[i % icons.length]}</span>
-                          <span className="cs-impact-card__num">{String(i + 1).padStart(2, "0")}</span>
-                        </div>
-                        {title && <h3 className="cs-impact-card__title">{title}</h3>}
-                        <p className="cs-impact-card__desc">{desc}</p>
-                      </div>
-                    );
-                  })}
-                </div>
-              </section>
-            )}
-
-            {/* 16. FUTURE SCOPE */}
-            <section id="future-scope" className="cs-sec">
-              <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg["future-scope"] }} /> Future Scope &amp; Scalability</h2>
-              <div className="cs-future-list">
-                {(project.future_scope?.trim()
-                  ? project.future_scope.split("\n").map((l: string) => l.replace(/^[•\-\d.]+\s*/, "").trim()).filter(Boolean)
-                  : [
-                  "AI-Powered Personalization — Smart recommendations and personalized experiences",
-                  "Advanced Analytics — Comprehensive dashboards for business insights",
-                  "Multi-Language Support — Internationalization for global reach",
-                  "Third-Party Integrations — API marketplace and ecosystem expansion",
-                  "Mobile companion app with cross-platform support",
-                    ]
-                ).map((item: string, i: number) => (
-                  <div key={i} className="cs-future-item">
-                    <span className="cs-future-arrow">→</span><p dangerouslySetInnerHTML={{ __html: item }} />
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            {/* 17. CONCLUSION */}
-            <section id="conclusion" className="cs-sec">
-              <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg["conclusion"] }} /> Conclusion</h2>
-              <div className="cs-conclusion-card">
-                {project.conclusion?.trim() ? (
-                  project.conclusion.split("\n").filter((p: string) => p.trim()).map((para: string, i: number) => (
-                    <p key={i} dangerouslySetInnerHTML={{ __html: para.trim() }} />
-                  ))
-                ) : (
-                  <>
-                    <p>{cleanTitle(project.title)} stands as a testament to what&apos;s possible when thoughtful design meets robust engineering. Built with {techStack.slice(0, 3).join(", ")}, the project successfully addresses core challenges in the {project.category} space.</p>
-                    <p>At mTouch Labs, we&apos;re proud to have delivered a solution that not only met but exceeded performance targets. The modular architecture ensures the platform can evolve with market demands.</p>
-                  </>
-                )}
-              </div>
-            </section>
-
-            {/* 18. FAQ */}
-            {faqs.length > 0 && (
-              <section id="faq" className="cs-sec">
-                <h2 className="cs-sec__h"><span className="cs-sec__icon" dangerouslySetInnerHTML={{ __html: tocIconsSvg["faq"] }} /> Frequently Asked Questions</h2>
-                <div className="cs-faq-list">
-                  {faqs.map((f: any, i: number) => (
-                    <div key={i} className="cs-faq-item">
-                      <button className="cs-faq-q" aria-expanded="false">
-                        <span>{f.question}</span>
-                        <svg className="cs-faq-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                      </button>
-                      <div className="cs-faq-a"><p>{f.answer}</p></div>
-                    </div>
-                  ))}
-                </div>
-              </section>
-            )}
-
-            {/* DOWNLOAD APP */}
-            {(project.play_store_url || project.app_store_url) && (
-              <section className="cs-download">
-                <div className="cs-download__inner">
-                  {appScreens.length > 0 && (
-                    <div className="cs-download__phone">
-                      <img src={imgUrl(appScreens[0])} alt="App preview" loading="lazy" />
-                    </div>
-                  )}
-                  <div className="cs-download__text">
-                    <h2>Try {cleanTitle(project.title).split(" ").slice(0, 2).join(" ")} Yourself</h2>
-                    <p>Download the app and experience it firsthand.</p>
-                    <div className="cs-download__btns">
-                      {project.play_store_url && (
-                        <a href={project.play_store_url} target="_blank" rel="noopener noreferrer" className="cs-store cs-store--solid">
-                          <i className="fab fa-google-play"></i>
-                          <div><small>GET IT ON</small><strong>Google Play</strong></div>
-                        </a>
-                      )}
-                      {project.app_store_url && (
-                        <a href={project.app_store_url} target="_blank" rel="noopener noreferrer" className="cs-store cs-store--solid">
-                          <i className="fab fa-apple"></i>
-                          <div><small>Download on</small><strong>App Store</strong></div>
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </section>
-            )}
-
-            {/* RELATED PROJECTS */}
-            {related.length > 0 && (
-              <section className="cs-related">
-                <span className="cs-tag">Explore More</span>
-                <h2 style={{ fontSize: "24px", fontWeight: 800, color: "var(--color-deep-indigo)", margin: "12px 0 24px" }}>
-                  More {project.category} Projects
-                </h2>
-                <div className="cs-related__grid">
-                  {related.map((rp: any) => {
-                    const rpTech = parseJSON(rp.tech_stack);
-                    return (
-                      <article key={rp.id} className="cs-related__card">
-                        <Link href={`/portfolio/${rp.slug}`} className="cs-related__link">
-                          <div className="cs-related__img-wrap">
-                            <img src={imgUrl(rp.image)} alt={rp.title} loading="lazy" className="cs-related__img" />
-                            <div className="cs-related__hover"><span>View Project →</span></div>
-                          </div>
-                          <div className="cs-related__body">
-                            <span className="cs-related__cat">{rp.category}</span>
-                            <h3 className="cs-related__title">{cleanTitle(rp.title)}</h3>
-                            <div className="cs-related__tags">
-                              {rpTech.slice(0, 3).map((t: string, j: number) => (
-                                <span key={j} className="cs-related__tag">{t}</span>
-                              ))}
-                            </div>
-                          </div>
-                        </Link>
-                      </article>
-                    );
-                  })}
-                </div>
-              </section>
-            )}
-
-          </div>{/* end cs-content */}
-        </div>{/* end cs-layout */}
-
-        {/* CTA */}
-        <section className="cs-cta">
-          <div className="cs-cta__glow"></div>
-          <div className="cs-container">
-            <div className="cs-cta__inner">
-              <span className="cs-tag cs-tag--light">Let&apos;s Work Together</span>
-              <h2 className="cs-cta__title">Have an idea? Let&apos;s build<br />something amazing.</h2>
-              <p className="cs-cta__desc">We brought {cleanTitle(project.title).split(" ")[0]}&apos;s vision to life. Now it&apos;s your turn.</p>
-              <div className="cs-cta__btns">
-                <Link href="/contact-us" className="cs-cta__primary">Start Your Project →</Link>
-                <Link href="/portfolio" className="cs-cta__ghost">Explore Portfolio</Link>
-              </div>
             </div>
+          </section>
+        )}
+
+        {/* ═══════════ RESULTS & BUSINESS IMPACT ═══════════ */}
+        {impactItems.length > 0 && (
+          <section className="cs-sec" id="results">
+            <div className="cs-wrap">
+              <div className="cs-head">
+                <span className="cs-eyebrow">Results &amp; Business Impact</span>
+                <h2 className="cs-h2">What the completed platform delivers</h2>
+              </div>
+              <div className="cs-grid cs-grid--4">
+                {impactItems.map((r, i) => (
+                  <div key={i} className="cs-res">
+                    <span className="cs-res__n">{i + 1}</span>
+                    <div>
+                      {r.desc ? (
+                        <>
+                          <strong dangerouslySetInnerHTML={{ __html: r.title }} />
+                          <p dangerouslySetInnerHTML={{ __html: r.desc }} />
+                        </>
+                      ) : (
+                        <p dangerouslySetInnerHTML={{ __html: r.title }} />
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              {conclusionParas.length > 0 && (
+                <div className="cs-note cs-note--wide cs-note--plain">
+                  {conclusionParas.map((p, i) => (
+                    <p key={i} dangerouslySetInnerHTML={{ __html: p }} />
+                  ))}
+                </div>
+              )}
+            </div>
+          </section>
+        )}
+
+        {/* ═══════════ FUTURE SCOPE ═══════════ */}
+        {futureItems.length > 0 && (
+          <section className="cs-sec cs-sec--white">
+            <div className="cs-wrap">
+              <div className="cs-head">
+                <span className="cs-eyebrow">Future Scope</span>
+                <h2 className="cs-h2">Where the platform goes next</h2>
+              </div>
+              <ul className="cs-dots">
+                {futureItems.map((f, i) => (
+                  <li key={i}>
+                    <span className="cs-dot" aria-hidden="true"></span>
+                    <div>
+                      {f.desc ? (
+                        <>
+                          <strong dangerouslySetInnerHTML={{ __html: f.title }} />
+                          <span dangerouslySetInnerHTML={{ __html: f.desc }} />
+                        </>
+                      ) : (
+                        <span dangerouslySetInnerHTML={{ __html: f.title }} />
+                      )}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        )}
+
+        {/* ═══════════ MTOUCH LABS' ROLE ═══════════ */}
+        <section className="cs-sec">
+          <div className="cs-wrap">
+            <div className="cs-head">
+              <span className="cs-eyebrow">mTouch Labs&rsquo; Role</span>
+              <h2 className="cs-h2">How we contributed</h2>
+            </div>
+            <p className="cs-prose cs-prose--single">
+              mTouch Labs delivered the {shortName} platform end to end. Our work covered
+              {webTech.length ? ` the ${webTech.join(", ")} web application,` : ""}
+              {mobileTech.length ? ` the ${mobileTech.join(", ")} mobile application,` : ""}
+              {backTech.length ? ` the ${backTech.join(", ")} backend,` : ""}
+              {dbTech.length ? ` and ${dbTech.join(", ")} data integration` : " and the supporting services"}
+              {" "}— translating the approved UI/UX designs into working software connected to the
+              underlying services and data layer.
+            </p>
+            {serviceTags.length > 0 && (
+              <>
+                <h3 className="cs-subh">Related Services</h3>
+                <div className="cs-pills">
+                  {serviceTags.map((t, i) => (
+                    <span key={i} className="cs-pill">{t}</span>
+                  ))}
+                </div>
+              </>
+            )}
           </div>
         </section>
 
+        {/* ═══════════ RELATED PROJECTS ═══════════ */}
+        {related.length > 0 && (
+          <section className="cs-sec cs-sec--white">
+            <div className="cs-wrap">
+              <div className="cs-head">
+                <span className="cs-eyebrow">Related Projects</span>
+                <h2 className="cs-h2">More {String(project.category || "").toLowerCase()} solutions</h2>
+              </div>
+              <div className="cs-rels">
+                {related.map((rp: any) => (
+                  <Link key={rp.id} href={`/portfolio/${rp.slug}`} className="cs-rel">
+                    <h4>{cleanTitle(rp.title, rp.slug)}</h4>
+                    {rp.subtitle && <p dangerouslySetInnerHTML={{ __html: String(rp.subtitle) }} />}
+                    <span className="cs-rel__go">View project <span aria-hidden="true">→</span></span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* ═══════════ FAQ ═══════════ */}
+        {faqs.length > 0 && (
+          <section className="cs-sec" id="faq">
+            <div className="cs-wrap">
+              {/* Centred head and a centred 880px column of ruled rows --
+                  the same shape as the homepage FAQ. */}
+              <div className="cs-head cs-head--center">
+                <span className="cs-eyebrow">FAQ</span>
+                <h2 className="cs-h2">Frequently asked questions</h2>
+              </div>
+              <div className="cs-faqs">
+                {faqs.map((f: any, i: number) => (
+                  /* <details>, not a button + JS: the accordion works with
+                     no script at all, and the first one opens by default
+                     exactly as the reference design shows. */
+                  <details key={i} className="cs-faq" open={i === 0}>
+                    <summary>
+                      <span dangerouslySetInnerHTML={{ __html: String(f.question) }} />
+                      <span className="cs-faq__ico" aria-hidden="true"></span>
+                    </summary>
+                    <p className="cs-faq__a" dangerouslySetInnerHTML={{ __html: String(f.answer) }} />
+                  </details>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* ═══════════ CTA ═══════════ */}
+        <section className="cs-cta">
+          <div className="cs-wrap">
+            <h2>Have a project like this in mind?</h2>
+            <p>We brought {shortName} to life. Tell us what you want to build.</p>
+            <div className="cs-cta__btns">
+              <Link href="/contact-us" className="cs-btn cs-btn--white">
+                Start a Project
+                <svg className="cs-btn__ar" width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M4 12L12 4M12 4H5.5M12 4v6.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </Link>
+              <Link href="/portfolio" className="cs-btn cs-btn--ghost">Explore Portfolio</Link>
+            </div>
+          </div>
+        </section>
       </div>
-
-      {/* TOC scroll spy + pin-to-viewport + FAQ accordion */}
-      <script dangerouslySetInnerHTML={{ __html: `
-(function initCsToc() {
-  var desktopLinks = document.querySelectorAll('.cs-toc__link');
-  var mobileLinks = document.querySelectorAll('.cs-toc-mobile__link');
-  var allLinks = [].slice.call(desktopLinks).concat([].slice.call(mobileLinks));
-  if (!allLinks.length) { setTimeout(initCsToc, 200); return; }
-  var HEADER_OFFSET = 100;
-
-  // TOC Pinning DISABLED -- the floating-clone approach was overlapping
-  //    the hero and the footer. The in-flow .cs-toc is now position:
-  //    sticky in CSS, which keeps the TOC visible while reading and
-  //    naturally scopes it to the article container. Returning early
-  //    here skips clone creation and any visibility: hidden writes to
-  //    the original TOC.
-  (function pinToc() {
-    return; // disabled — sticky CSS handles it
-    // eslint-disable-next-line no-unreachable
-    var layout = document.querySelector('.cs-layout');
-    var originalToc = document.querySelector('.cs-toc');
-    if (!layout || !originalToc) return;
-
-    var PIN_TOP = 100;
-    var BOTTOM_PAD = 20;
-
-    // Create the floating clone, attach to <body>, keep hidden until needed.
-    var floatToc = originalToc.cloneNode(true);
-    floatToc.classList.add('cs-toc--float');
-    // The clone mustn't be seen by a11y tech as a second TOC.
-    floatToc.setAttribute('aria-hidden', 'true');
-    floatToc.setAttribute('role', 'presentation');
-    // Remove ids inside the clone to prevent duplicate-id warnings.
-    floatToc.querySelectorAll('[id]').forEach(function(el){ el.removeAttribute('id'); });
-
-    function setStyle(el, prop, value) {
-      el.style.setProperty(prop, value, 'important');
-    }
-
-    setStyle(floatToc, 'position', 'fixed');
-    setStyle(floatToc, 'top', PIN_TOP + 'px');
-    setStyle(floatToc, 'width', '260px');
-    setStyle(floatToc, 'max-height', 'calc(100vh - ' + (PIN_TOP + 20) + 'px)');
-    setStyle(floatToc, 'overflow-y', 'auto');
-    setStyle(floatToc, 'overflow-x', 'hidden');
-    setStyle(floatToc, 'z-index', '90');
-    setStyle(floatToc, 'background', '#fff');
-    setStyle(floatToc, 'display', 'none');
-    setStyle(floatToc, 'margin', '0');
-    setStyle(floatToc, 'padding', '0');
-    document.body.appendChild(floatToc);
-
-    // Sync clicks on the clone to the real anchors (use hash navigation).
-    floatToc.querySelectorAll('a[href^="#"]').forEach(function(a) {
-      a.addEventListener('click', function(e) {
-        e.preventDefault();
-        var id = a.getAttribute('href').substring(1);
-        var el = document.getElementById(id);
-        if (!el) return;
-        window.scrollTo({
-          top: el.getBoundingClientRect().top + window.pageYOffset - PIN_TOP - 20,
-          behavior: 'smooth'
-        });
-        history.pushState(null, '', '#' + id);
-      });
-    });
-
-    // Mirror active-class changes from the original TOC to the clone.
-    var origLinks = originalToc.querySelectorAll('.cs-toc__link');
-    var cloneLinks = floatToc.querySelectorAll('.cs-toc__link');
-    function mirrorActive() {
-      for (var i = 0; i < origLinks.length && i < cloneLinks.length; i++) {
-        if (origLinks[i].classList.contains('cs-toc__link--active')) {
-          cloneLinks[i].classList.add('cs-toc__link--active');
-        } else {
-          cloneLinks[i].classList.remove('cs-toc__link--active');
-        }
-      }
-    }
-    // Observe class changes on the original so the clone stays in sync.
-    try {
-      var mo = new MutationObserver(mirrorActive);
-      origLinks.forEach(function(l) {
-        mo.observe(l, { attributes: true, attributeFilter: ['class'] });
-      });
-    } catch (_) { /* older browsers */ }
-
-    // Use the content column (not the layout) as the pin boundary. The
-    // content ends exactly where we want the floating TOC to disappear
-    // — just before the CTA/footer begins. This is far more reliable
-    // than any height-based threshold (which breaks when the clone is
-    // display:none and its offsetHeight reads as 0).
-    var contentEl = document.querySelector('.cs-content') || layout;
-
-    function update() {
-      var isMobile = window.innerWidth < 1025;
-      if (isMobile) {
-        setStyle(floatToc, 'display', 'none');
-        originalToc.style.removeProperty('visibility');
-        return;
-      }
-      var contentRect = contentEl.getBoundingClientRect();
-      var layoutRect = layout.getBoundingClientRect();
-
-      // Measure the actual rendered height of the floating TOC so we can
-      // hide it BEFORE its bottom edge would overlap the CTA/footer. We
-      // must temporarily make it measurable if currently hidden.
-      var prevDisplay = floatToc.style.display;
-      if (prevDisplay === 'none') {
-        setStyle(floatToc, 'visibility', 'hidden');
-        setStyle(floatToc, 'display', 'block');
-      }
-      var tocHeight = floatToc.offsetHeight || 0;
-      if (prevDisplay === 'none') {
-        setStyle(floatToc, 'display', 'none');
-        floatToc.style.removeProperty('visibility');
-      }
-
-      // Active only while the content is actually on screen near the
-      // pin line: top has scrolled above the pin line, AND the bottom
-      // of the content is still below where the floating TOC would end
-      // (PIN_TOP + tocHeight + a small margin). This guarantees the
-      // TOC disappears BEFORE it would ever overlap the CTA / footer.
-      var END_BUFFER = tocHeight + 40; // TOC height + breathing room
-      var pinActive =
-        contentRect.top < PIN_TOP &&
-        contentRect.bottom > PIN_TOP + END_BUFFER &&
-        layoutRect.top < PIN_TOP &&
-        layoutRect.bottom > PIN_TOP + END_BUFFER;
-
-      if (pinActive) {
-        setStyle(floatToc, 'display', 'block');
-        setStyle(floatToc, 'left', layoutRect.left + 'px');
-        setStyle(floatToc, 'top', PIN_TOP + 'px');
-        // Hide the in-flow original so it doesn't double up visually.
-        setStyle(originalToc, 'visibility', 'hidden');
-      } else {
-        setStyle(floatToc, 'display', 'none');
-        // Restore the in-flow original.
-        originalToc.style.removeProperty('visibility');
-      }
-      mirrorActive();
-    }
-
-    var ticking = false;
-    function onScroll() {
-      if (!ticking) {
-        window.requestAnimationFrame(function() { update(); ticking = false; });
-        ticking = true;
-      }
-    }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', update, { passive: true });
-    update();
-    setTimeout(update, 100);
-    setTimeout(update, 400);
-    setTimeout(update, 1000);
-    if (document.readyState !== 'complete') {
-      window.addEventListener('load', update);
-    }
-  })();
-  var sectionIds = [], linkMap = {};
-  desktopLinks.forEach(function(link) {
-    var href = link.getAttribute('href');
-    if (href && href.startsWith('#')) {
-      var id = href.slice(1);
-      if (!linkMap[id]) linkMap[id] = [];
-      linkMap[id].push(link);
-      if (sectionIds.indexOf(id) === -1) sectionIds.push(id);
-    }
-  });
-  mobileLinks.forEach(function(link) {
-    var href = link.getAttribute('href');
-    if (href && href.startsWith('#')) {
-      var id = href.slice(1);
-      if (!linkMap[id]) linkMap[id] = [];
-      linkMap[id].push(link);
-      if (sectionIds.indexOf(id) === -1) sectionIds.push(id);
-    }
-  });
-  var sectionEls = [];
-  sectionIds.forEach(function(id) { var el = document.getElementById(id); if (el) sectionEls.push(el); });
-  if (!sectionEls.length) return;
-
-  var currentActive = null;
-  var tocContainer = document.querySelector('.cs-toc');
-  var mobileBar = document.querySelector('.cs-toc-mobile__scroll');
-
-  function setActive(id) {
-    if (id === currentActive) return;
-    allLinks.forEach(function(l) { l.classList.remove('cs-toc__link--active','cs-toc-mobile__link--active'); });
-    if (linkMap[id]) {
-      linkMap[id].forEach(function(l) {
-        if (l.classList.contains('cs-toc__link')) l.classList.add('cs-toc__link--active');
-        if (l.classList.contains('cs-toc-mobile__link')) l.classList.add('cs-toc-mobile__link--active');
-      });
-      // Keep the active desktop TOC link visible inside the sticky sidebar
-      // if the TOC itself has scrolled internally (long TOC on short screens).
-      if (tocContainer) {
-        var desk = linkMap[id].filter(function(l){ return l.classList.contains('cs-toc__link'); })[0];
-        if (desk) {
-          var cRect = tocContainer.getBoundingClientRect();
-          var lRect = desk.getBoundingClientRect();
-          if (lRect.top < cRect.top || lRect.bottom > cRect.bottom) {
-            tocContainer.scrollTo({ top: desk.offsetTop - 40, behavior: 'smooth' });
-          }
-        }
-      }
-      // Scroll mobile horizontal bar to keep active pill visible.
-      if (mobileBar) {
-        var pill = linkMap[id].filter(function(l){ return l.classList.contains('cs-toc-mobile__link'); })[0];
-        if (pill) {
-          var bRect = mobileBar.getBoundingClientRect();
-          var pRect = pill.getBoundingClientRect();
-          if (pRect.left < bRect.left || pRect.right > bRect.right) {
-            mobileBar.scrollTo({ left: pill.offsetLeft - 20, behavior: 'smooth' });
-          }
-        }
-      }
-    }
-    currentActive = id;
-  }
-
-  // Robust scroll-spy: pick the section whose top is closest-to-but-not-past
-  // the reference line (viewport top + header offset). Runs on every scroll
-  // frame via rAF. This is more reliable than IntersectionObserver for
-  // sections of varying heights.
-  var ticking = false;
-  function updateActive() {
-    ticking = false;
-    var ref = window.scrollY + HEADER_OFFSET + 40;
-    // If scrolled to the very bottom of the page, force-activate the last section.
-    if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 2)) {
-      setActive(sectionIds[sectionIds.length - 1]);
-      return;
-    }
-    var activeId = sectionIds[0];
-    for (var i = 0; i < sectionEls.length; i++) {
-      if (sectionEls[i].offsetTop <= ref) {
-        activeId = sectionEls[i].id;
-      } else {
-        break;
-      }
-    }
-    setActive(activeId);
-  }
-  function onScroll() {
-    if (!ticking) {
-      window.requestAnimationFrame(updateActive);
-      ticking = true;
-    }
-  }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll, { passive: true });
-
-  allLinks.forEach(function(link) {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      var id = this.getAttribute('href').substring(1);
-      var el = document.getElementById(id);
-      if (!el) return;
-      setActive(id);
-      window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset - HEADER_OFFSET - 20, behavior: 'smooth' });
-      history.pushState(null, '', '#' + id);
-    });
-  });
-
-  // Initial sync (after layout settles).
-  setTimeout(updateActive, 50);
-  setTimeout(updateActive, 400);
-
-  if (window.location.hash) {
-    var hashEl = document.getElementById(window.location.hash.substring(1));
-    if (hashEl) setTimeout(function() {
-      window.scrollTo({ top: hashEl.getBoundingClientRect().top + window.pageYOffset - HEADER_OFFSET - 20, behavior: 'smooth' });
-    }, 400);
-  }
-
-  document.querySelectorAll('.cs-app-screens-scroll').forEach(function(el) {
-    var d=false,sx,sl;
-    el.addEventListener('mousedown',function(e){d=true;el.style.cursor='grabbing';sx=e.pageX-el.offsetLeft;sl=el.scrollLeft});
-    el.addEventListener('mouseleave',function(){d=false;el.style.cursor='grab'});
-    el.addEventListener('mouseup',function(){d=false;el.style.cursor='grab'});
-    el.addEventListener('mousemove',function(e){if(!d)return;e.preventDefault();el.scrollLeft=sl-((e.pageX-el.offsetLeft)-sx)*1.5});
-  });
-})();
-      `}} />
     </>
   );
 }
