@@ -1066,20 +1066,31 @@ export default async function PortfolioDetailPage({
 
         {/* ═══════════ FAQ ═══════════ */}
         {faqs.length > 0 && (
-          <section className="cs-sec" id="faq">
+          <section className="cs-sec cs-sec--stone" id="faq">
             <div className="cs-wrap">
               {/* Centred head and a centred 880px column of ruled rows --
                   the same shape as the homepage FAQ. */}
               <div className="cs-head cs-head--center">
-                <span className="cs-eyebrow">FAQ</span>
-                <h2 className="cs-h2">Frequently asked questions</h2>
+                <span className="cs-eyebrow">Frequently Asked Questions</span>
+                <h2 className="cs-h2">Questions about {shortName}</h2>
+                <p className="cs-desc">
+                  What businesses ask us most often about this project and how we built it.
+                </p>
               </div>
               <div className="cs-faqs">
                 {faqs.map((f: any, i: number) => (
                   /* <details>, not a button + JS: the accordion works with
                      no script at all, and the first one opens by default
                      exactly as the reference design shows. */
-                  <details key={i} className="cs-faq" open={i === 0}>
+                  /* `name` makes these an exclusive accordion natively --
+                     opening one closes the others, with no JavaScript.
+                     Exactly what the homepage FAQ does. */
+                  <details
+                    key={i}
+                    className="cs-faq"
+                    name="cs-faq"
+                    {...(i === 0 ? { open: true } : {})}
+                  >
                     <summary>
                       <span dangerouslySetInnerHTML={{ __html: String(f.question) }} />
                       <span className="cs-faq__ico" aria-hidden="true"></span>

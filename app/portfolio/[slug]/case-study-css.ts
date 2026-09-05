@@ -222,6 +222,8 @@ export const CASE_STUDY_CSS = `
    are full-bleed because .cs-sec is full width with .cs-wrap inside. */
 .cs .cs-sec{padding:64px 0 !important;border-top:1px solid var(--s200) !important;background:transparent !important}
 .cs .cs-sec--white{background:#fff !important}
+/* The FAQ band, same as the homepage's .hmx-sec--stone. */
+.cs .cs-sec--stone{background:#F7F9FC !important;border-top:1px solid var(--s200) !important;border-bottom:1px solid var(--s200) !important}
 .cs .cs-head{margin-bottom:36px !important}
 .cs .cs-eyebrow{
   display:inline-block !important;font-size:.8rem !important;font-weight:700 !important;
