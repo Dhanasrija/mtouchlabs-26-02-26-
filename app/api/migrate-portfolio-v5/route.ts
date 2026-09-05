@@ -46,9 +46,19 @@ export async function POST() {
 
   for (const col of COLUMNS) {
     try {
-      // Identifiers cannot be parameterised, and `col` comes only from the
-      // frozen list above — never from a request — so interpolation is safe.
-      await sql(`ALTER TABLE portfolios ADD COLUMN IF NOT EXISTS ${col} TEXT`);
+      /* `sql.query(text)`, not the tagged-template form.
+         The value neon() returns is typed as a template-literal tag: its
+         only call signature takes a TemplateStringsArray, so passing a
+         plain string fails the type-check ("Argument of type 'string' is
+         not assignable to parameter of type 'TemplateStringsArray'").
+         `.query()` is the driver's own escape hatch for SQL built at
+         runtime, which is what this is -- a column name cannot be a bound
+         parameter, so the DDL has to be assembled as text.
+         `col` comes only from the frozen COLUMNS list above, never from a
+         request, so there is nothing here to inject. */
+      await sql.query(
+        `ALTER TABLE portfolios ADD COLUMN IF NOT EXISTS ${col} TEXT`
+      );
       added.push(col);
     } catch (err: any) {
       failed.push({ column: col, error: String(err?.message || err) });
@@ -59,7 +69,7 @@ export async function POST() {
   // than just "ok: true".
   let columns: string[] = [];
   try {
-    const rows = await sql(
+    const rows = await sql.query(
       `SELECT column_name FROM information_schema.columns
        WHERE table_name = 'portfolios' ORDER BY ordinal_position`
     );
