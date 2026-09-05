@@ -2,7 +2,10 @@ import { neon } from "@neondatabase/serverless";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { CASE_STUDY_CSS } from "./case-study-css";
+import {
+  CASE_STUDY_CSS, parseJSON, imgUrl, categorizeTech,
+  featureEmojis, techIcon, splitLine, paras, lines,
+} from "@/lib/case-study-shared";
 
 // ISR: cache rendered pages for 5 min instead of SSR on every request.
 // Faster TTFB for users and crawlers; new/edited portfolios appear within 5 min.
@@ -73,16 +76,6 @@ async function getRelatedProjects(category: string, excludeId: number) {
 }
 
 // ─── HELPERS ─────────────────────────────────────────
-function parseJSON(val: any, fb: any = []) {
-  if (!val) return fb;
-  if (Array.isArray(val)) return val;
-  if (typeof val === "object") return val;
-  try {
-    return JSON.parse(val) || fb;
-  } catch {
-    return fb;
-  }
-}
 
 function cleanTitle(t: string, slug?: string) {
   if (slug) {
@@ -138,12 +131,6 @@ function splitTitle(
   };
 }
 
-function imgUrl(p: string | null | undefined): string {
-  if (!p) return "";
-  if (p.startsWith("http")) return p;
-  if (p.startsWith("/")) return p;
-  return `/${p}`;
-}
 
 // ─── SEO ─────────────────────────────────────────────
 export async function generateMetadata({
@@ -301,56 +288,9 @@ function buildSchemas(p: any) {
 // ─── SVG ICONS ────────────────────────────────────────
 
 
-function categorizeTech(stack: string[]) {
-  const cats: Record<string, string[]> = {
-    Frontend: [], Backend: [], Database: [], Infrastructure: [], "AI/ML": [], Other: [],
-  };
-  const fe = ["react","flutter","angular","vue","ios","android","swift","kotlin","html","css","javascript","typescript","dart","tailwind","bootstrap","next","nuxt","svelte","jquery"];
-  const be = ["node","java","php","python","laravel",".net","spring","express","django","flask","ruby","rails","go","graphql","rest","api","nest","fastapi"];
-  const db = ["mysql","mongo","firebase","sql","redis","postgresql","dynamodb","sqlite","supabase","neon","cassandra","oracle"];
-  const infra = ["aws","azure","gcp","docker","kubernetes","nginx","vercel","heroku","cloudflare","jenkins","github","gitlab","ci/cd","terraform"];
-  const ai = ["tensorflow","pytorch","openai","gpt","ml","ai","machine learning","deep learning","nlp","langchain"];
-  stack.forEach((t) => {
-    const l = t.toLowerCase();
-    if (fe.some((k) => l.includes(k))) cats.Frontend.push(t);
-    else if (be.some((k) => l.includes(k))) cats.Backend.push(t);
-    else if (db.some((k) => l.includes(k))) cats.Database.push(t);
-    else if (infra.some((k) => l.includes(k))) cats.Infrastructure.push(t);
-    else if (ai.some((k) => l.includes(k))) cats["AI/ML"].push(t);
-    else cats.Other.push(t);
-  });
-  return Object.entries(cats).filter(([, v]) => v.length > 0);
-}
 
 
-const featureEmojis = ["📦","🔍","📄","🛒","📱","🛠️","🔔","📊","⚡","🌐","🛡️","🔄"];
 
-/* Split a "Title — description" / "Title: description" line into its two
-   halves. Every list section in the reference design shows a bold lead
-   and a lighter body, and the em-dash / colon is how the copy carries
-   that split. A line with no separator becomes a title with no body,
-   which still renders correctly. */
-function splitLine(line: string): { title: string; desc: string } {
-  const t = line.replace(/^[•\-\d.]+\s*/, "").trim();
-  /* Only look for the separator BEFORE the first tag. Without this a line
-     like `... our <a href="https://x">link</a>` splits on the colon inside
-     the href and the heading becomes half a URL. */
-  const cut = t.indexOf("<");
-  const head = cut === -1 ? t : t.slice(0, cut);
-  const m = head.match(/^([^:—–]{3,60})[:—–]\s*/);
-  if (!m) return { title: t, desc: "" };
-  return { title: m[1].trim(), desc: t.slice(m[0].length).trim() };
-}
-
-function lines(v: any): string[] {
-  if (!v || typeof v !== "string") return [];
-  return v.split("\n").map((l) => l.trim()).filter(Boolean);
-}
-
-function paras(v: any): string[] {
-  if (!v || typeof v !== "string") return [];
-  return v.split("\n").map((p) => p.trim()).filter(Boolean);
-}
 
 export default async function PortfolioDetailPage({
   params,
@@ -810,7 +750,9 @@ export default async function PortfolioDetailPage({
                     : "Supporting technology used across the platform.";
                   return (
                     <div key={i} className="cs-tech">
-                      <span className="cs-tech__mark">{t.split(/[\s.]/)[0]}</span>
+                      <span className="cs-tech__mark">
+                        <i className={techIcon(t)} aria-hidden="true" />
+                      </span>
                       <h4>{t}</h4>
                       <p>{role}</p>
                     </div>
@@ -1077,7 +1019,7 @@ export default async function PortfolioDetailPage({
                   What businesses ask us most often about this project and how we built it.
                 </p>
               </div>
-              <div className="cs-faqs">
+              <div className="cs-qa">
                 {faqs.map((f: any, i: number) => (
                   /* <details>, not a button + JS: the accordion works with
                      no script at all, and the first one opens by default
@@ -1087,15 +1029,15 @@ export default async function PortfolioDetailPage({
                      Exactly what the homepage FAQ does. */
                   <details
                     key={i}
-                    className="cs-faq"
-                    name="cs-faq"
+                    className="cs-qa__item"
+                    name="cs-portfolio-faq"
                     {...(i === 0 ? { open: true } : {})}
                   >
                     <summary>
                       <span dangerouslySetInnerHTML={{ __html: String(f.question) }} />
-                      <span className="cs-faq__ico" aria-hidden="true"></span>
+                      <span className="cs-qa__ico" aria-hidden="true"></span>
                     </summary>
-                    <p className="cs-faq__a" dangerouslySetInnerHTML={{ __html: String(f.answer) }} />
+                    <p className="cs-qa__a" dangerouslySetInnerHTML={{ __html: String(f.answer) }} />
                   </details>
                 ))}
               </div>

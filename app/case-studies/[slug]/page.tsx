@@ -1,189 +1,104 @@
-// import { sql } from "@/lib/db";
-// import { notFound } from "next/navigation";
-// import Link from "next/link";
-// import type { Metadata } from "next";
-// export const dynamic = "force-dynamic";
-// interface CS {
-//   id: number; slug: string; title: string; industry: string; platform: string;
-//   icon: string; color: string; image: string; image_alt: string;
-//   overview: string; challenge: string; challenge_points: string[];
-//   approach: string; solution: string; features: string[];
-//   technologies: { name: string; purpose: string }[];
-//   dev_process: { step: string; desc: string }[];
-//   results: string; result_points: string[]; conclusion: string;
-//   testimonial_quote: string; testimonial_role: string; testimonial_initials: string;
-//   internal_links: { url: string; text: string }[];
-//   meta_title: string; meta_description: string; keywords: string;
-//   canonical_url: string; breadcrumb_title: string;
-//   og_title: string; og_description: string; og_image: string;
-//   faq_schema: { question: string; answer: string }[];
-//   gallery_images: string[]; schema_json_ld: string; status: string; published: boolean;
-//   publish_date: string; created_at: string; updated_at: string;
-// }
-
-// export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-//   const { slug } = await params;
-//   const r = await sql`SELECT title,meta_title,meta_description,og_title,og_description,og_image,canonical_url,keywords FROM case_studies WHERE slug=${slug} AND (published=true OR status='published')`;
-//   if (r.length === 0) return { title: "Not Found" };
-//   const c = r[0]; const u = `https://www.mtouchlabs.com/case-studies/${slug}`;
-//   return {
-//     title: c.meta_title || c.title, description: c.meta_description,
-//     keywords: c.keywords || undefined,
-//     alternates: { canonical: c.canonical_url || u },
-//     openGraph: { title: c.og_title || c.title, description: c.og_description || c.meta_description, url: u, siteName: "mTouch Labs", type: "article", images: [{ url: c.og_image || "/images/Light.png", width: 1200, height: 630 }] },
-//     twitter: { card: "summary_large_image" as const, title: c.og_title || c.title, description: c.og_description || c.meta_description, images: [c.og_image || "/images/Light.png"] },
-//   };
-// }
-
-// export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
-//   const { slug } = await params;
-//   const rows = await sql`SELECT * FROM case_studies WHERE slug=${slug} AND (published=true OR status='published')` as CS[];
-//   if (rows.length === 0) notFound();
-//   const cs = rows[0];
-//   const url = `https://www.mtouchlabs.com/case-studies/${slug}`;
-
-//   const cp: string[] = Array.isArray(cs.challenge_points) ? cs.challenge_points : [];
-//   const ft: string[] = Array.isArray(cs.features) ? cs.features : [];
-//   const tc: {name:string;purpose:string}[] = Array.isArray(cs.technologies) ? cs.technologies : [];
-//   const dp: {step:string;desc:string}[] = Array.isArray(cs.dev_process) ? cs.dev_process : [];
-//   const rp: string[] = Array.isArray(cs.result_points) ? cs.result_points : [];
-//   const fq: {question:string;answer:string}[] = Array.isArray(cs.faq_schema) ? cs.faq_schema : [];
-//   const il: {url:string;text:string}[] = Array.isArray(cs.internal_links) ? cs.internal_links : [];
-//   let gi: string[] = []; try { const raw = cs.gallery_images; if (Array.isArray(raw)) gi = raw; else if (typeof raw === "string") gi = JSON.parse(raw); else if (raw && typeof raw === "object") gi = Object.values(raw) as string[]; } catch { gi = []; }
-//   const jld = { "@context": "https://schema.org", "@type": "CreativeWork", name: cs.title, description: cs.meta_description || cs.overview, author: { "@type": "Organization", name: "mTouch Labs", url: "https://www.mtouchlabs.com" }, publisher: { "@type": "Organization", name: "mTouch Labs", logo: { "@type": "ImageObject", url: "https://www.mtouchlabs.com/images/logo.png" } }, mainEntityOfPage: url };
-//   const fjld = fq.length > 0 ? { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: fq.map(f => ({ "@type": "Question", name: f.question, acceptedAnswer: { "@type": "Answer", text: f.answer } })) } : null;
-//   const shortTitle = cs.title.length > 55 ? cs.title.slice(0, 52) + '...' : cs.title;
-
-//   // Stats data from result points
-//   const statIcons = ['✓', '✓', '✓', '✓'];
-//   const statDescs = [
-//     'Delivering measurable business outcomes',
-//     'Improving operational efficiency',
-//     'Enhancing user experience across platforms',
-//     'Building scalable digital solutions',
-//   ];
-
-//   return (
-//     <div className="csx-detail">
-//       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jld) }} />
-//       {fjld && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(fjld) }} />}
-
-//       {/* HERO with breadcrumbs */}
-//       <section className="csx-hero">
-//         <div className="csx-hero__bg" style={{ backgroundImage: `url('${cs.image || "/images/healthcarebanner.svg"}')` }}></div>
-//         <div className="csx-hero__overlay"></div>
-//         <div className="csx-hero__inner">
-//           <div className="csx-hero__bread">
-//             <Link href="/">Home</Link>
-//             <span className="csx-hero__bread-sep">/</span>
-//             <Link href="/case-studies">Case Studies</Link>
-//             <span className="csx-hero__bread-sep">/</span>
-//             <span className="csx-hero__bread-current">{cs.breadcrumb_title || cs.industry || 'Details'}</span>
-//           </div>
-//           <h1 className="csx-hero__title"><span className="csx-hero__title-grad">{shortTitle}</span></h1>
-//           <p className="csx-hero__sub">by mTouch Labs &bull; {cs.industry} &bull; {cs.platform}</p>
-//         </div>
-//       </section>
-
-//       {/* OVERVIEW */}
-//       <div className="csx-detail__head">
-//         {cs.overview && <p className="csx-detail__overview">{cs.overview}</p>}
-//       </div>
-
-//       {/* BANNER IMAGE */}
-//       {cs.image && (<div className="csx-detail__banner-wrap"><img src={cs.image} alt={cs.image_alt || cs.title} /></div>)}
-
-//       {/* TWO COLUMN SPLIT */}
-//       <div className="csx-split">
-//         <aside className="csx-sidebar">
-//           <h2 className="csx-sidebar__title">What makes this project unique?</h2>
-//           <p className="csx-sidebar__label">Project Details</p>
-//           <div className="csx-pills">
-//             {cs.industry && <span className="csx-pill">{cs.industry}</span>}
-//             {cs.platform && <span className="csx-pill">{cs.platform}</span>}
-//             {tc.map((t, i) => <span key={i} className="csx-pill">{t.name}</span>)}
-//           </div>
-//           {cs.testimonial_quote && (
-//             <div className="csx-sidebar__quote">
-//               <p>&ldquo;{cs.testimonial_quote}&rdquo;</p>
-//               <span className="csx-sidebar__quote-author">{cs.testimonial_role}</span>
-//             </div>
-//           )}
-//         </aside>
-
-//         <div className="csx-content">
-//           {cs.challenge && (<><h2>Challenges that needed solving</h2><p>{cs.challenge}</p>{cp.length > 0 && <ul>{cp.map((p, i) => <li key={i}>{p}</li>)}</ul>}</>)}
-//           {cs.approach && (<><h2>Our strategic approach</h2><p>{cs.approach}</p></>)}
-//           {cs.solution && (<><h2>The solution we delivered</h2><p>{cs.solution}</p>{ft.length > 0 && <ul>{ft.map((f, i) => <li key={i}><strong>{f}</strong></li>)}</ul>}</>)}
-//           {tc.length > 0 && (<><h2>Technologies used</h2><ul>{tc.map((t, i) => <li key={i}><strong>{t.name}</strong> — {t.purpose}</li>)}</ul></>)}
-//           {dp.length > 0 && (<><h2>Development process</h2><ul>{dp.map((s, i) => <li key={i}><strong>{s.step}</strong> — {s.desc}</li>)}</ul></>)}
-//           {cs.conclusion && (<><h2>Key takeaway</h2><p>{cs.conclusion}</p></>)}
-//         </div>
-//       </div>
-
-//       {/* STATS */}
-//       {rp.length > 0 && (
-//         <div className="csx-stats">
-//           {rp.slice(0, 4).map((r, i) => (
-//             <div key={i} className="csx-stat">
-//               <div className="csx-stat__num">{statIcons[i]}</div>
-//               <div className="csx-stat__label">{r}</div>
-//               <div className="csx-stat__line"></div>
-//               <div className="csx-stat__desc">{statDescs[i]}</div>
-//             </div>
-//           ))}
-//         </div>
-//       )}
-
-//       <div className="csx-images">{(gi.length > 0 ? gi : ["/images/healthcare-dashboard.svg", "/images/healthcare-chat.svg", "/images/healthcare-booking.svg", "/images/healthcare-results.svg"]).map((img: string, i: number) => (<img key={i} src={img} alt={`${cs.title} - image ${i + 1}`} />))}</div>
-
-//       {/* SERVICES */}
-//       {il.length > 0 && (
-//         <div className="csx-services">
-//           <h3 className="csx-services__title">Related Services</h3>
-//           <div className="csx-services__links">
-//             {il.map((l, i) => <Link key={i} href={l.url || "#"} className="csx-services__link">{l.text} →</Link>)}
-//           </div>
-//         </div>
-//       )}
-
-//       {/* FAQ */}
-//       {fq.length > 0 && (
-//         <div className="csx-faq">
-//           <h2 className="csx-faq__title">Frequently Asked Questions</h2>
-//           {fq.map((f, i) => (
-//             <details key={i}>
-//               <summary>
-//                 {f.question}
-//                 <svg className="csx-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-//               </summary>
-//               <div className="csx-faq-answer">{f.answer}</div>
-//             </details>
-//           ))}
-//         </div>
-//       )}
-
-//       {/* CTA */}
-//       <div className="csx-cta">
-//         <div className="csx-cta__inner">
-//           <h2 className="csx-cta__title">Ready to build something similar?</h2>
-//           <p className="csx-cta__text">Let&apos;s discuss how mTouch Labs can build a solution for your business.</p>
-//           <Link href="/contact-us" className="csx-cta__btn">Get a Free Consultation →</Link>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
 import { sql } from "@/lib/db";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
-import TocScrollHighlight from '@/components/TocScrollHighlight';
-import ImageWithFallback from '@/components/ImageWithFallback';
-import CaseStudyGallery from '@/components/CaseStudyGallery';
-import { getCaseStudyImages } from '@/lib/caseStudyImages';
-// ISR: cache rendered pages for 5 min instead of SSR on every request.
+import {
+  CASE_STUDY_CSS, parseJSON, imgUrl, techIcon, splitLine, paras, lines,
+} from "@/lib/case-study-shared";
+
+/* ═══════════════════════════════════════════════════════════════════════
+   /case-studies/<slug>
+   ─────────────────────────────────────────────────────────────────────
+   Same design as /portfolio/<slug>: identical `.cs-*` markup, the same
+   CSS and the same helpers, both from @/lib/case-study-shared. Only the
+   data source differs -- this reads `case_studies`, that reads
+   `portfolios` -- so a change to the design moves both pages at once.
+
+   Where the two tables disagree, this file maps rather than invents:
+     overview          -> About the Project
+     approach          -> Business Context card
+     challenge_points  -> Business Challenges
+     solution          -> Our Solution
+     technologies[]    -> Technology Stack (name + purpose, real icons)
+     features[]        -> Key Features
+     dev_process[]     -> Development & Implementation
+     result_points[]   -> Results & Business Impact
+     conclusion        -> the closing note
+     gallery_images[]  -> Project Screens
+     internal_links[]  -> Related Services
+     faq_schema[]      -> FAQ
+   A field that is empty simply hides its section; nothing renders
+   placeholder copy.
+   ═══════════════════════════════════════════════════════════════════ */
+
+
+/* Pull a leading metric off a line so the challenge cards can show the
+   big blue figure the reference draws.
+     "4+ hrs — Slow first response: Average time..."
+   becomes  stat "4+ hrs", title "Slow first response", desc "Average...".
+   A line with no leading metric simply renders without one -- the card
+   still works, it just leads with its title. */
+function splitStat(line: string): { stat: string; title: string; desc: string } {
+  const t = line.replace(/^\s*(?:[•‣▪·]+\s*|[-–—]\s+|\d+[.)]\s+)/, "").trim();
+
+  /* 1. A metric with an explicit separator:
+        "4+ hrs — Slow first response: Average time..." */
+  /* Matched lazily up to the separator, so a metric containing a
+     space ("4+ hrs", "0 actions") survives intact. Only an em/en
+     dash or a colon counts as the separator here -- a plain hyphen
+     would split inside things like "24-hour". */
+  const sep = t.match(/^([<>~+\u2212-]?\d[^\u2014\u2013:]{0,14}?)\s*[\u2014\u2013:]\s*(.+)$/);
+  if (sep) {
+    const rest = splitLine(sep[2]);
+    return { stat: sep[1].trim(), title: rest.title, desc: rest.desc };
+  }
+
+  /* 2. A metric with NO separator, which is how these lines are usually
+        written: "68% of tickets resolved fully autonomously". The old
+        version required a dash or colon, so a line like this fell through
+        with no figure at all -- which is why the card showed a bare "%"
+        and no number. The leading connective ("of", "in", "to") is
+        dropped so the label reads as a caption under the figure. */
+  const lead = t.match(/^([<>~+\u2212-]?\d[\w%.,+\/\u2212-]*)\s+(.+)$/);
+  if (lead) {
+    const label = lead[2].replace(/^(of|in|to|for|on)\s+/i, "");
+    const rest = splitLine(label);
+    return { stat: lead[1].trim(), title: rest.title, desc: rest.desc };
+  }
+
+  /* 3. A metric in trailing parentheses: "Faster first response (<30s)" */
+  const trail = t.match(/^(.+?)\s*\(([<>~+\u2212-]?[\d][\w%.,+/\u2212-]*)\)\s*$/);
+  if (trail) {
+    const rest = splitLine(trail[1]);
+    return { stat: trail[2].trim(), title: rest.title, desc: rest.desc };
+  }
+
+  const rest = splitLine(t);
+  return { stat: "", title: rest.title, desc: rest.desc };
+}
+
+/* Icons for the three hero fact cards, in order. */
+const FACT_ICONS = ["fa-solid fa-building", "fa-solid fa-briefcase", "fa-solid fa-layer-group"];
+
+/* Badge labels for the challenge cards, in order, as the reference
+   draws them -- short, uppercase, with a small glyph. */
+const CHALLENGE_BADGES: [string, string][] = [
+  ["fa-regular fa-clock", "Before"],
+  ["fa-solid fa-robot", "Legacy"],
+  ["fa-solid fa-fire", "Team load"],
+  ["fa-solid fa-shield-halved", "Systems"],
+  ["fa-solid fa-chart-line", "Scale"],
+  ["fa-solid fa-triangle-exclamation", "Risk"],
+];
+
+/* Icons for the approach / solution / feature cards, in order. */
+const CARD_ICONS = [
+  "fa-solid fa-bolt", "fa-solid fa-magnifying-glass", "fa-solid fa-link",
+  "fa-solid fa-gauge-high", "fa-solid fa-comment", "fa-solid fa-file-lines",
+  "fa-solid fa-brain", "fa-solid fa-book-open", "fa-solid fa-plug",
+  "fa-solid fa-user", "fa-solid fa-shield-halved", "fa-solid fa-arrows-rotate",
+];
+
 export const revalidate = 300;
 
 const SITE_URL = "https://www.mtouchlabs.com";
@@ -203,27 +118,11 @@ interface CS {
   og_title: string; og_description: string; og_image: string;
   faq_schema: { question: string; answer: string }[];
   gallery_images: string[]; schema_json_ld: string; status: string; published: boolean;
-  publish_date: string; created_at: string; // updated_at: string;
+  publish_date: string; created_at: string;
 }
 
-// ── Helpers ──
-function highlightTitle(title: string): { before: string; highlight: string; after: string } {
-  const words = title.split(" ");
-  if (words.length > 4) {
-    const start = Math.floor(words.length * 0.3);
-    const end = Math.min(start + 3, words.length);
-    return {
-      before: words.slice(0, start).join(" ") + " ",
-      highlight: words.slice(start, end).join(" "),
-      after: " " + words.slice(end).join(" "),
-    };
-  }
-  return { before: "", highlight: title, after: "" };
-}
-
-// ── Metadata ──
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  const { slug } = await params;
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const { slug } = params;
   const r = await sql`
     SELECT title, meta_title, meta_description, og_title, og_description, og_image, canonical_url, keywords
     FROM case_studies WHERE slug=${slug} AND (published=true OR status='published')
@@ -231,11 +130,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (r.length === 0) return { title: "Not Found" };
   const c = r[0];
   const u = `${SITE_URL}/case-studies/${slug}`;
-  // Strip any trailing "| mTouch Labs" so the root layout template doesn't duplicate it
-  const stripBrand = (s?: string) => (s || '').replace(/\s*\|\s*mTouch\s*Labs\s*$/i, '').trim();
-  const cleanMetaTitle = stripBrand(c.meta_title || c.title);
+  /* Strip a trailing "| mTouch Labs" so the root layout's title template
+     does not append a second one. */
+  const stripBrand = (s?: string) => (s || "").replace(/\s*\|\s*mTouch\s*Labs\s*$/i, "").trim();
   return {
-    title: cleanMetaTitle,
+    title: stripBrand(c.meta_title || c.title),
     description: c.meta_description,
     keywords: c.keywords || undefined,
     alternates: { canonical: c.canonical_url || u },
@@ -254,381 +153,524 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-// ── Page ──
-export default async function CaseStudyDetailPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const rows = await sql`
-    SELECT * FROM case_studies
-    WHERE slug=${slug} AND (published=true OR status='published')
-  ` as CS[];
-  if (rows.length === 0) notFound();
-  const cs = rows[0];
-  const pageUrl = `${SITE_URL}/case-studies/${slug}`;
-
-  // ── Array normalisers ──
-  const cp: string[] = Array.isArray(cs.challenge_points) ? cs.challenge_points : [];
-  const ft: string[] = Array.isArray(cs.features) ? cs.features : [];
-  const tc: { name: string; purpose: string }[] = Array.isArray(cs.technologies) ? cs.technologies : [];
-  const dp: { step: string; desc: string }[] = Array.isArray(cs.dev_process) ? cs.dev_process : [];
-  const rp: string[] = Array.isArray(cs.result_points) ? cs.result_points : [];
-  const fq: { question: string; answer: string }[] = Array.isArray(cs.faq_schema) ? cs.faq_schema : [];
-  const il: { url: string; text: string }[] = Array.isArray(cs.internal_links) ? cs.internal_links : [];
-
-  let gi: string[] = [];
+async function getRelated(industry: string, excludeId: number) {
   try {
-    const raw = cs.gallery_images;
-    if (Array.isArray(raw)) gi = raw;
-    else if (typeof raw === "string") gi = JSON.parse(raw);
-    else if (raw && typeof raw === "object") gi = Object.values(raw) as string[];
-  } catch { gi = []; }
+    const rows = await sql`
+      SELECT id, slug, title, industry, meta_description, overview
+      FROM case_studies
+      WHERE industry = ${industry} AND id != ${excludeId}
+        AND (published = true OR status = 'published')
+      ORDER BY COALESCE(publish_date, created_at) DESC
+      LIMIT 3`;
+    /* Always three cards: matching on industry alone leaves a lone card
+       whenever a study is the only one of its kind, which reads as
+       broken rather than as "nothing related". */
+    if (rows.length < 3) {
+      const have = [excludeId, ...rows.map((r: any) => r.id)];
+      const fill = await sql`
+        SELECT id, slug, title, industry, meta_description, overview
+        FROM case_studies
+        WHERE (published = true OR status = 'published') AND id != ALL(${have})
+        ORDER BY COALESCE(publish_date, created_at) DESC
+        LIMIT ${3 - rows.length}`;
+      return [...rows, ...fill];
+    }
+    return rows;
+  } catch (err) {
+    console.error("[case-study] related query failed:", err);
+    return [];
+  }
+}
 
-  // Prefer the on-disk image manifest (banner / hero / 4 gallery screenshots)
-  const localImages = getCaseStudyImages(slug);
-  const heroImage = localImages?.hero || cs.image;
-  if (localImages?.gallery?.length) gi = localImages.gallery;
+export default async function CaseStudyDetailPage({ params }: { params: { slug: string } }) {
+  const { slug } = params;
 
-  // ── Dates ──
-  const displayDate = cs.publish_date || cs.created_at;
-  const publishedDate = displayDate
-    ? new Intl.DateTimeFormat("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" }).format(new Date(displayDate))
-    : "";
-  const isoDate = displayDate ? new Date(displayDate).toISOString().split("T")[0] : "";
+  const rows = (await sql`
+    SELECT * FROM case_studies
+    WHERE slug=${slug} AND (published=true OR status='published')`) as CS[];
+  if (!rows.length) notFound();
+  const cs = rows[0];
+  const url = `${SITE_URL}/case-studies/${slug}`;
 
-  // ── Tags (industry + platform) ──
-  const tagList = [cs.industry, cs.platform].filter(Boolean);
+  const arr = (v: any): any[] => (Array.isArray(v) ? v : parseJSON(v, []));
+  const challengePoints = arr(cs.challenge_points);
+  const features = arr(cs.features);
+  const technologies = arr(cs.technologies) as { name: string; purpose: string }[];
+  const devProcess = arr(cs.dev_process) as { step: string; desc: string }[];
+  const resultPoints = arr(cs.result_points);
+  const faqs = arr(cs.faq_schema) as { question: string; answer: string }[];
+  const internalLinks = arr(cs.internal_links) as { url: string; text: string }[];
+  const gallery = arr(cs.gallery_images).filter(Boolean) as string[];
 
-  // ── TOC sections ──
-  const tocSections: { id: string; label: string }[] = [];
-  if (cs.overview) tocSections.push({ id: "cs-overview", label: "Overview" });
-  if (cs.challenge) tocSections.push({ id: "cs-challenge", label: "The Challenge" });
-  if (cs.approach) tocSections.push({ id: "cs-approach", label: "Our Approach" });
-  if (cs.solution) tocSections.push({ id: "cs-solution", label: "The Solution" });
-  if (tc.length > 0) tocSections.push({ id: "cs-tech", label: "Technologies" });
-  if (dp.length > 0) tocSections.push({ id: "cs-process", label: "Dev Process" });
-  if (rp.length > 0) tocSections.push({ id: "cs-results", label: "Results" });
-  if (cs.conclusion) tocSections.push({ id: "cs-conclusion", label: "Key Takeaway" });
-  if (gi.length > 0) tocSections.push({ id: "cs-gallery", label: "Gallery" });
-  if (fq.length > 0) tocSections.push({ id: "cs-faq", label: "FAQ" });
+  const techNames = technologies.map((t) => t.name).filter(Boolean);
+  /* The stack-tier split the portfolio page uses is not needed here:
+     `technologies` already carries a purpose per item, so the Technology
+     cards read straight from the column. */
+  const name = cs.breadcrumb_title || cs.title;
+  const shortName = name.split(/[—–:-]/)[0].trim();
 
-  // ── JSON-LD ──
-  const jld = {
-    "@context": "https://schema.org", "@type": "CreativeWork",
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
     name: cs.title,
     description: cs.meta_description || cs.overview,
     author: { "@type": "Organization", name: "mTouch Labs", url: SITE_URL },
-    publisher: { "@type": "Organization", name: "mTouch Labs", logo: { "@type": "ImageObject", url: `${SITE_URL}/images/logo.png` } },
-    mainEntityOfPage: pageUrl,
+    publisher: {
+      "@type": "Organization", name: "mTouch Labs",
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/images/logo.png` },
+    },
+    mainEntityOfPage: url,
   };
-  const fjld = fq.length > 0 ? {
-    "@context": "https://schema.org", "@type": "FAQPage",
-    mainEntity: fq.map(f => ({ "@type": "Question", name: f.question, acceptedAnswer: { "@type": "Answer", text: f.answer } })),
-  } : null;
+  const faqLd = faqs.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faqs.map((f) => ({
+          "@type": "Question", name: f.question,
+          acceptedAnswer: { "@type": "Answer", text: f.answer },
+        })),
+      }
+    : null;
 
-  const titleParts = highlightTitle(cs.title);
+  const overviewParas = paras(cs.overview);
+  const overviewLead = overviewParas[0] || cs.meta_description;
+  const overviewRest = overviewParas.slice(1);
+  const contextParas = paras(cs.approach);
+
+  const challengeItems = (challengePoints.length ? challengePoints : lines(cs.challenge))
+    .map((l: any) => splitLine(String(l)));
+  const resultItems = (resultPoints.length ? resultPoints : lines(cs.results))
+    .map((l: any) => splitLine(String(l)));
+  const solutionParas = paras(cs.solution);
+  const conclusionParas = paras(cs.conclusion);
+
+  /* heroMeta / snapshotRows / pillars / flows are gone: the reference
+     replaces them with the three hero fact cards, the Project Overview
+     table, the solution card grid and the numbered step rail. */
+  const approachItems = lines(cs.approach).map(splitLine);
+  const featureItems = features.map((f: any) =>
+    typeof f === "string" ? splitLine(f) : { title: f.title || "", desc: f.description || "" }
+  );
+  const statItems = (challengePoints.length ? challengePoints : lines(cs.challenge))
+    .map((l: any) => splitStat(String(l)));
+  const kpiItems = (resultPoints.length ? resultPoints : lines(cs.results))
+    .map((l: any) => splitStat(String(l)));
+
+  const related = await getRelated(cs.industry, cs.id);
+
+  const publishedOn = cs.publish_date
+    ? new Date(cs.publish_date).toLocaleDateString("en-US", {
+        month: "long", day: "numeric", year: "numeric",
+      })
+    : "";
+
+  /* The three hero fact cards. Each is dropped when its column is empty
+     rather than shown with a placeholder value. */
+  const facts = [
+    { k: "Client", v: cs.testimonial_role || "Enterprise Client" },
+    { k: "Industry", v: cs.industry },
+    { k: "Scope", v: cs.platform },
+  ].filter((f) => f.v && String(f.v).trim());
+
+  const overviewRows: { label: string; value: string }[] = [
+    { label: "Project Type", value: cs.platform },
+    { label: "Industry", value: cs.industry },
+    { label: "Technologies", value: techNames.slice(0, 6).join(", ") },
+    { label: "Delivery Partner", value: "mTouch Labs" },
+    { label: "Primary Outcome", value: String(cs.results || "").split(". ")[0] },
+  ].filter((r) => r.value && String(r.value).trim());
 
   return (
-    <div className="blv3-page">
-      {/* Structured Data */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jld) }} />
-      {fjld && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(fjld) }} />}
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      {faqLd && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
+      )}
 
-      {/* TOC scroll highlight — client component */}
-      <TocScrollHighlight />
+      {/* The stylesheet travels with the page rather than as a <link> to
+          /public -- see the note at the top of @/lib/case-study-shared. */}
+      <style dangerouslySetInnerHTML={{ __html: CASE_STUDY_CSS }} />
 
-      {/* Breadcrumb */}
-      <nav className="blv3-breadcrumb" aria-label="Breadcrumb">
-        <div className="blv3-container">
-          <Link href="/">Home</Link>
-          <span className="blv3-breadcrumb-sep">/</span>
-          <Link href="/case-studies">Case Studies</Link>
-          <span className="blv3-breadcrumb-sep">/</span>
-          <span className="blv3-breadcrumb-current">{cs.breadcrumb_title || cs.industry || "Details"}</span>
-        </div>
-      </nav>
+      <div className="cs">
+        {/* ═══════════ HERO ═══════════ */}
+        <section className="cs-hero">
+          <div className="cs-wrap">
+            <nav className="cs-crumb" aria-label="Breadcrumb">
+              <Link href="/">Home</Link><span>/</span>
+              <Link href="/case-studies">Case Studies</Link><span>/</span>
+              <span className="cs-crumb__now">{shortName}</span>
+            </nav>
 
-      {/* Hero */}
-      <header className="blv3-hero">
-        <div className="blv3-container">
-          {tagList.length > 0 && (
-            <div className="blv3-tags">
-              {tagList.map((tag) => (
-                <span key={tag} className="blv3-tag">{tag}</span>
-              ))}
+            <div className="cs-tags">
+              {cs.industry && <span className="cs-tag">{cs.industry}</span>}
+              {cs.platform && <span className="cs-tag">{cs.platform}</span>}
+              {publishedOn && <span className="cs-tag">{publishedOn}</span>}
             </div>
-          )}
 
-          <h1 className="blv3-title">
-            {titleParts.highlight ? (
-              <>
-                {titleParts.before}
-                <span className="blv3-title-gradient">{titleParts.highlight}</span>
-                {titleParts.after}
-              </>
-            ) : (
-              cs.title
+            <h1 className="cs-h1">{cs.title}</h1>
+            {cs.meta_description && (
+              <p className="cs-lead" dangerouslySetInnerHTML={{ __html: cs.meta_description }} />
             )}
-          </h1>
 
-          <div className="blv3-meta">
-            {publishedDate && (
-              <span className="blv3-meta-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
-                </svg>
-                <time dateTime={isoDate}>{publishedDate}</time>
-              </span>
-            )}
-            {cs.platform && (
-              <span className="blv3-meta-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <rect x="2" y="3" width="20" height="14" rx="2" /><path d="M8 21h8M12 17v4" />
-                </svg>
-                {cs.platform}
-              </span>
-            )}
-            {cs.industry && (
-              <span className="blv3-meta-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" />
-                </svg>
-                {cs.industry}
-              </span>
-            )}
-          </div>
-
-          <div className="blv3-accent-bar" />
-
-          {heroImage && (
-            <div className="blv3-hero-img">
-              <ImageWithFallback src={heroImage} alt={cs.image_alt || cs.title} />
-            </div>
-          )}
-        </div>
-      </header>
-
-      {/* Content Grid */}
-      <section className="blv3-body">
-        <div className="blv3-container">
-          <div className="blv3-grid">
-
-            {/* Sticky TOC */}
-            <aside className="blv3-toc">
-              <nav>
-                <p className="blv3-toc-heading">Contents</p>
-                <ul className="blv3-toc-list">
-                  {tocSections.map((s) => (
-                    <li key={s.id}>
-                      <a href={`#${s.id}`} className="blv3-toc-link">{s.label}</a>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-
-              {/* Tech pills in sidebar */}
-              {tc.length > 0 && (
-                <div className="blv3-toc-pills" style={{ marginTop: "2rem" }}>
-                  <p className="blv3-toc-heading" style={{ marginBottom: "0.75rem" }}>Tech Stack</p>
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
-                    {tc.map((t, i) => (
-                      <span key={i} className="blv3-tag" style={{ fontSize: "0.7rem" }}>{t.name}</span>
-                    ))}
+            {facts.length > 0 && (
+              <div className="cs-facts">
+                {facts.map((f, i) => (
+                  <div key={i} className="cs-fact">
+                    <span className="cs-fact__ico">
+                      <i className={FACT_ICONS[i % FACT_ICONS.length]} aria-hidden="true" />
+                    </span>
+                    <span>
+                      <span className="cs-fact__k">{f.k}</span>
+                      <span className="cs-fact__v">{f.v}</span>
+                    </span>
                   </div>
-                </div>
-              )}
+                ))}
+              </div>
+            )}
 
-              {/* Testimonial in sidebar */}
-              {cs.testimonial_quote && (
-                <blockquote className="blv3-toc-quote" style={{ marginTop: "2rem", borderLeft: "3px solid var(--accent, #0070f3)", paddingLeft: "1rem", fontStyle: "italic", fontSize: "0.85rem", color: "var(--text-muted, #888)" }}>
-                  &ldquo;{cs.testimonial_quote}&rdquo;
+            {cs.testimonial_quote && (
+              <figure className="cs-quote">
+                <span className="cs-quote__ico">
+                  <i className="fa-solid fa-quote-right" aria-hidden="true" />
+                </span>
+                <blockquote>
+                  <p className="cs-quote__t">{cs.testimonial_quote}</p>
                   {cs.testimonial_role && (
-                    <cite style={{ display: "block", marginTop: "0.5rem", fontStyle: "normal", fontWeight: 600, fontSize: "0.75rem" }}>
-                      — {cs.testimonial_role}
-                    </cite>
+                    <figcaption className="cs-quote__r">{cs.testimonial_role}</figcaption>
                   )}
                 </blockquote>
-              )}
-            </aside>
-
-            {/* Article */}
-            <article className="blv3-article">
-
-              {/* TL;DR — Overview */}
-              {cs.overview && (
-                <div className="blv3-tldr" id="cs-overview" style={{ scrollMarginTop: 100 }}>
-                  <div className="blv3-tldr-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <circle cx="12" cy="12" r="10" /><path d="M12 16v-4M12 8h.01" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h2 className="blv3-tldr-title">Project Overview</h2>
-                    <p className="blv3-tldr-text">{cs.overview}</p>
-                  </div>
-                </div>
-              )}
-
-              {/* Challenge */}
-              {cs.challenge && (
-                <div id="cs-challenge" style={{ scrollMarginTop: 100 }}>
-                  <div className="blv3-content">
-                    <h2>The Challenge</h2>
-                    <p>{cs.challenge}</p>
-                    {cp.length > 0 && (
-                      <ul>
-                        {cp.map((p, i) => <li key={i}>{p}</li>)}
-                      </ul>
-                    )}
-                  </div>
-                </div>
-              )}
-
-              {/* Approach */}
-              {cs.approach && (
-                <div id="cs-approach" style={{ scrollMarginTop: 100 }}>
-                  <div className="blv3-content">
-                    <h2>Our Strategic Approach</h2>
-                    <p>{cs.approach}</p>
-                  </div>
-                </div>
-              )}
-
-              {/* Solution */}
-              {cs.solution && (
-                <div id="cs-solution" style={{ scrollMarginTop: 100 }}>
-                  <div className="blv3-content">
-                    <h2>The Solution We Delivered</h2>
-                    <p>{cs.solution}</p>
-                    {ft.length > 0 && (
-                      <ul>
-                        {ft.map((f, i) => <li key={i}><strong>{f}</strong></li>)}
-                      </ul>
-                    )}
-                  </div>
-                </div>
-              )}
-
-              {/* Technologies */}
-              {tc.length > 0 && (
-                <div id="cs-tech" style={{ scrollMarginTop: 100 }}>
-                  <div className="blv3-content">
-                    <h2>Technologies Used</h2>
-                    <ul>
-                      {tc.map((t, i) => (
-                        <li key={i}><strong>{t.name}</strong> — {t.purpose}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              )}
-
-              {/* Dev Process */}
-              {dp.length > 0 && (
-                <div id="cs-process" style={{ scrollMarginTop: 100 }}>
-                  <div className="blv3-content">
-                    <h2>Development Process</h2>
-                    <ol>
-                      {dp.map((s, i) => (
-                        <li key={i}><strong>{s.step}</strong> — {s.desc}</li>
-                      ))}
-                    </ol>
-                  </div>
-                </div>
-              )}
-
-              {/* Results */}
-              {rp.length > 0 && (
-                <div id="cs-results" style={{ scrollMarginTop: 100 }}>
-                  <div className="blv3-content">
-                    <h2>Results & Impact</h2>
-                    {cs.results && <p>{cs.results}</p>}
-                    <ul>
-                      {rp.map((r, i) => <li key={i}>{r}</li>)}
-                    </ul>
-                  </div>
-                </div>
-              )}
-
-              {/* Conclusion / Key Takeaway */}
-              {cs.conclusion && (
-                <div id="cs-conclusion" style={{ scrollMarginTop: 100 }}>
-                  <div className="blv3-takeaways">
-                    <h2 className="blv3-takeaways-title">🎯 Key Takeaway</h2>
-                    <p className="blv3-takeaways-text">{cs.conclusion}</p>
-                  </div>
-                </div>
-              )}
-
-              {/* Gallery */}
-              {gi.length > 0 && (
-                <div id="cs-gallery" style={{ scrollMarginTop: 100, marginTop: "2.5rem" }}>
-                  <div className="blv3-content">
-                    <h2>Project Gallery</h2>
-                  </div>
-                  <CaseStudyGallery images={gi} title={cs.title} />
-                </div>
-              )}
-
-              {/* CTA Banner */}
-              <div className="blv3-cta-banner">
-                <h3 className="blv3-cta-banner-title">Ready to Build Something Similar?</h3>
-                <p className="blv3-cta-banner-text">mTouch Labs combines AI-powered development with deep industry expertise to deliver solutions 3× faster.</p>
-                <Link href="/contact-us" className="blv3-cta-banner-btn">
-                  Get a Free Consultation
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
-                  </svg>
-                </Link>
-              </div>
-
-              {/* Related Services */}
-              {il.length > 0 && (
-                <div className="blv3-content" style={{ marginTop: "2rem" }}>
-                  <h2>Related Services</h2>
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem", marginTop: "1rem" }}>
-                    {il.map((l, i) => (
-                      <Link key={i} href={l.url || "#"} className="blv3-cta-banner-btn" style={{ fontSize: "0.85rem", padding: "0.5rem 1rem" }}>
-                        {l.text} →
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* FAQ */}
-              {fq.length > 0 && (
-                <div className="blv3-faq" id="cs-faq" style={{ scrollMarginTop: 100 }}>
-                  <h2 className="blv3-faq-heading">Frequently Asked Questions</h2>
-                  <div className="blv3-faq-list">
-                    {fq.map((f, i) => (
-                      <details key={i} className="blv3-faq-item">
-                        <summary className="blv3-faq-q">{f.question}</summary>
-                        <div className="blv3-faq-a">{f.answer}</div>
-                      </details>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Author Footer */}
-              <footer className="blv3-author-footer">
-                <p className="blv3-published-line">
-                  A case study by <strong>mTouch Labs</strong> — Building the future of custom software development.{" "}
-                  <Link href="/contact-us">Contact us</Link> to discuss your project.
-                </p>
-                <div className="blv3-author-card">
-                  <img width={41} height={41} loading="lazy" decoding="async" src="/images/logo_on.webp" alt="mTouch Labs" className="blv3-author-logo" />
-                  <div className="blv3-author-info">
-                    <p className="blv3-author-title">Have a project in mind?</p>
-                    <p className="blv3-author-sub">Let&apos;s discuss how we can help bring your ideas to life.</p>
-                  </div>
-                  <Link href="/contact-us" className="blv3-author-btn">Contact Us</Link>
-                </div>
-              </footer>
-
-            </article>
+              </figure>
+            )}
           </div>
-        </div>
-      </section>
-    </div>
+        </section>
+
+        {/* ═══════════ PROJECT OVERVIEW ═══════════ */}
+        {(overviewLead || overviewRows.length > 0) && (
+          <section className="cs-sec" id="overview">
+            <div className="cs-wrap">
+              <div className="cs-head">
+                <span className="cs-eyebrow">Project Overview</span>
+                <h2 className="cs-h2">{shortName} at a glance</h2>
+                {overviewLead && (
+                  <p className="cs-desc" dangerouslySetInnerHTML={{ __html: overviewLead }} />
+                )}
+              </div>
+              {overviewRest.length > 0 && (
+                <div className="cs-prose" style={{ marginBottom: 32 }}>
+                  {overviewRest.map((p, i) => (
+                    <p key={i} dangerouslySetInnerHTML={{ __html: p }} />
+                  ))}
+                </div>
+              )}
+              {overviewRows.length > 0 && (
+                <table className="cs-table">
+                  <tbody>
+                    {overviewRows.map((r, i) => (
+                      <tr key={i}>
+                        <th scope="row">{r.label}</th>
+                        <td dangerouslySetInnerHTML={{ __html: r.value }} />
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              )}
+            </div>
+          </section>
+        )}
+
+        {/* ═══════════ THE CHALLENGE ═══════════ */}
+        {statItems.length > 0 && (
+          <section className="cs-sec cs-sec--white" id="challenge">
+            <div className="cs-wrap">
+              <div className="cs-head">
+                <span className="cs-eyebrow">The Challenge</span>
+                <h2 className="cs-h2">What we set out to solve</h2>
+                {cs.challenge && challengePoints.length > 0 && (
+                  <p className="cs-desc" dangerouslySetInnerHTML={{ __html: cs.challenge }} />
+                )}
+              </div>
+              <div className="cs-stats">
+                {statItems.map((it, i) => {
+                  const [icon, label] = CHALLENGE_BADGES[i % CHALLENGE_BADGES.length];
+                  return (
+                    <div key={i} className="cs-stat">
+                      <span className="cs-stat__badge">
+                        <i className={icon} aria-hidden="true" />{label}
+                      </span>
+                      {it.stat && <span className="cs-stat__n">{it.stat}</span>}
+                      <span className="cs-stat__t" dangerouslySetInnerHTML={{ __html: it.title }} />
+                      {it.desc && (
+                        <p className="cs-stat__d" dangerouslySetInnerHTML={{ __html: it.desc }} />
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* ═══════════ OUR STRATEGIC APPROACH ═══════════ */}
+        {(approachItems.length > 0 || contextParas.length > 0) && (
+          <section className="cs-sec" id="approach">
+            <div className="cs-wrap">
+              <div className="cs-head">
+                <span className="cs-eyebrow">Our Strategic Approach</span>
+                <h2 className="cs-h2">How we approached it</h2>
+                {contextParas[0] && (
+                  <p className="cs-desc" dangerouslySetInnerHTML={{ __html: contextParas[0] }} />
+                )}
+              </div>
+              {approachItems.length > 1 && (
+                <div className="cs-grid cs-grid--3">
+                  {approachItems.slice(contextParas.length > 0 ? 1 : 0).map((a, i) => (
+                    <div key={i} className="cs-card">
+                      <span className="cs-card__ico">
+                        <i className={CARD_ICONS[i % CARD_ICONS.length]} aria-hidden="true" />
+                      </span>
+                      <h3 dangerouslySetInnerHTML={{ __html: a.title }} />
+                      {a.desc && <p dangerouslySetInnerHTML={{ __html: a.desc }} />}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </section>
+        )}
+
+        {/* ═══════════ THE SOLUTION WE DELIVERED ═══════════ */}
+        {(featureItems.length > 0 || solutionParas.length > 0) && (
+          <section className="cs-sec cs-sec--white" id="solution">
+            <div className="cs-wrap">
+              <div className="cs-head">
+                <span className="cs-eyebrow">The Solution We Delivered</span>
+                <h2 className="cs-h2">What we built</h2>
+                {solutionParas[0] && (
+                  <p className="cs-desc" dangerouslySetInnerHTML={{ __html: solutionParas[0] }} />
+                )}
+              </div>
+              {featureItems.length > 0 && (
+                <div className="cs-grid cs-grid--3">
+                  {featureItems.map((f, i) => (
+                    <div key={i} className="cs-card">
+                      <span className="cs-card__ico">
+                        <i className={CARD_ICONS[(i + 4) % CARD_ICONS.length]} aria-hidden="true" />
+                      </span>
+                      <h3 dangerouslySetInnerHTML={{ __html: f.title }} />
+                      {f.desc && <p dangerouslySetInnerHTML={{ __html: f.desc }} />}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </section>
+        )}
+
+        {/* ═══════════ PROJECT SCREENS — directly after the solution ═══ */}
+        {gallery.length > 0 && (
+          <section className="cs-sec" id="screens">
+            <div className="cs-wrap">
+              <div className="cs-head">
+                <span className="cs-eyebrow">Project Screens</span>
+                <h2 className="cs-h2">Selected interfaces from the platform</h2>
+              </div>
+              <div className="cs-shots cs-shots--web">
+                {gallery.map((g, i) => (
+                  <figure key={i} className="cs-shot">
+                    <img src={imgUrl(g)} alt={`${name} — screen ${i + 1}`} loading="lazy" />
+                  </figure>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* ═══════════ TECHNOLOGIES USED ═══════════ */}
+        {technologies.length > 0 && (
+          <section className="cs-sec cs-sec--white" id="tech">
+            <div className="cs-wrap">
+              <div className="cs-head">
+                <span className="cs-eyebrow">Technologies Used</span>
+                <h2 className="cs-h2">Modern stack behind {shortName}</h2>
+              </div>
+              <div className="cs-grid cs-grid--3">
+                {technologies.map((t, i) => (
+                  <div key={i} className="cs-tech cs-tech--center">
+                    <span className="cs-tech__mark">
+                      <i className={techIcon(t.name || "")} aria-hidden="true" />
+                    </span>
+                    <h4>{t.name}</h4>
+                    {t.purpose && <p dangerouslySetInnerHTML={{ __html: t.purpose }} />}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* ═══════════ DEVELOPMENT PROCESS ═══════════ */}
+        {devProcess.length > 0 && (
+          <section className="cs-sec" id="process">
+            <div className="cs-wrap">
+              <div className="cs-head">
+                <span className="cs-eyebrow">Development Process</span>
+                <h2 className="cs-h2">From discovery to rollout</h2>
+              </div>
+              <div className="cs-rail">
+                {devProcess.map((d, i) => (
+                  <div key={i} className="cs-step">
+                    <span className="cs-step__n">{i + 1}</span>
+                    <span className="cs-step__t" dangerouslySetInnerHTML={{ __html: d.step || "" }} />
+                    {d.desc && (
+                      <p className="cs-step__d" dangerouslySetInnerHTML={{ __html: d.desc }} />
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* ═══════════ RESULTS & IMPACT ═══════════ */}
+        {kpiItems.length > 0 && (
+          <section className="cs-sec cs-sec--white" id="results">
+            <div className="cs-wrap">
+              <div className="cs-head">
+                <span className="cs-eyebrow">Results &amp; Impact</span>
+                <h2 className="cs-h2">What the completed platform delivers</h2>
+                {cs.results && resultPoints.length > 0 && (
+                  <p className="cs-desc" dangerouslySetInnerHTML={{ __html: cs.results }} />
+                )}
+              </div>
+              <div className="cs-kpis">
+                {kpiItems.map((r, i) => (
+                  <div key={i} className="cs-kpi">
+                    {r.stat && <span className="cs-kpi__n">{r.stat}</span>}
+                    <span
+                      className="cs-kpi__l"
+                      dangerouslySetInnerHTML={{ __html: r.desc || r.title }}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* ═══════════ KEY TAKEAWAY ═══════════
+            Its own white band beneath the results, exactly as drawn --
+            the panel is not tacked onto the grey section above it. */}
+        {conclusionParas.length > 0 && (
+          <section className="cs-sec cs-sec--white cs-sec--tight">
+            <div className="cs-wrap">
+              <div className="cs-takeaway">
+                <span className="cs-takeaway__k">
+                  <i className="fa-regular fa-lightbulb" aria-hidden="true" />Key Takeaway
+                </span>
+                {conclusionParas.map((p, i) => (
+                  <p key={i} dangerouslySetInnerHTML={{ __html: p }} />
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* ═══════════ RELATED SERVICES ═══════════ */}
+        {internalLinks.length > 0 && (
+          <section className="cs-sec">
+            <div className="cs-wrap">
+              <div className="cs-head">
+                <span className="cs-eyebrow">Related Services</span>
+                <h2 className="cs-h2">Continue exploring</h2>
+              </div>
+              <div className="cs-links">
+                {internalLinks.map((l, i) => (
+                  <Link key={i} href={l.url} className="cs-link">
+                    <span>{l.text}</span>
+                    <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* ═══════════ RELATED CASE STUDIES ═══════════ */}
+        {related.length > 0 && (
+          <section className="cs-sec cs-sec--white">
+            <div className="cs-wrap">
+              <div className="cs-head">
+                <span className="cs-eyebrow">Related Case Studies</span>
+                <h2 className="cs-h2">More {String(cs.industry || "").toLowerCase()} work</h2>
+              </div>
+              <div className="cs-rels">
+                {related.map((r: any) => (
+                  <Link key={r.id} href={`/case-studies/${r.slug}`} className="cs-rel">
+                    <h4>{r.title}</h4>
+                    {(r.meta_description || r.overview) && (
+                      <p>{String(r.meta_description || r.overview).split(". ")[0]}.</p>
+                    )}
+                    <span className="cs-rel__go">View case study <span aria-hidden="true">→</span></span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* ═══════════ FAQ ═══════════ */}
+        {faqs.length > 0 && (
+          <section className="cs-sec cs-sec--stone" id="faq">
+            <div className="cs-wrap">
+              <div className="cs-head cs-head--center">
+                <span className="cs-eyebrow">Frequently Asked Questions</span>
+                <h2 className="cs-h2">Questions about {shortName}</h2>
+                <p className="cs-desc">
+                  What businesses ask us most often about this project and how we built it.
+                </p>
+              </div>
+              <div className="cs-qa">
+                {faqs.map((f, i) => (
+                  /* `name` makes these an exclusive accordion natively --
+                     opening one closes the others, with no JavaScript. */
+                  <details
+                    key={i}
+                    className="cs-qa__item"
+                    name="cs-casestudy-faq"
+                    {...(i === 0 ? { open: true } : {})}
+                  >
+                    <summary>
+                      <span dangerouslySetInnerHTML={{ __html: String(f.question) }} />
+                      <span className="cs-qa__ico" aria-hidden="true"></span>
+                    </summary>
+                    <p className="cs-qa__a" dangerouslySetInnerHTML={{ __html: String(f.answer) }} />
+                  </details>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* ═══════════ CTA ═══════════ */}
+        <section className="cs-cta">
+          <div className="cs-wrap">
+            <h2>Ready to build something similar?</h2>
+            <p>
+              mTouch Labs combines AI-powered development with deep industry expertise to
+              deliver solutions faster.
+            </p>
+            <div className="cs-cta__btns">
+              <Link href="/contact-us" className="cs-btn cs-btn--white">
+                Get a Free Consultation
+                <svg className="cs-btn__ar" width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M4 12L12 4M12 4H5.5M12 4v6.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </Link>
+              <Link href="/case-studies" className="cs-btn cs-btn--ghost">All Case Studies</Link>
+            </div>
+          </div>
+        </section>
+      </div>
+    </>
   );
 }

@@ -1,26 +1,174 @@
 /* ═══════════════════════════════════════════════════════════════════════
-   Portfolio detail stylesheet, as a module constant.
+   Shared case-study / portfolio UI
    ─────────────────────────────────────────────────────────────────────
-   This is the same CSS that used to live at /css/case-study-redesign.css.
-   It is injected as an inline <style> by app/portfolio/[slug]/page.tsx,
-   because the external <link> route had three separate ways to silently
-   serve stale CSS or none at all:
+   ONE design, TWO routes: /portfolio/<slug> reads the `portfolios` table
+   and /case-studies/<slug> reads `case_studies`, but both render the same
+   `.cs-*` markup and both pull their CSS and helpers from here. Change a
+   rule or a helper once and both pages move together -- which is the
+   whole point of putting this in lib/ rather than beside one page.
 
-     1. Next.js serves /public with a long-lived cache header, so the
-        browser kept the old file even through a hard page refresh --
-        new file on disk, old file in the browser.
-     2. A <link> rendered from a server component lands in the body,
-        where React 19 may hoist, dedupe or reorder it.
-     3. If the file 404s for any reason the page still renders, just
-        unstyled by us and falling back to bundle.css, with no error
-        surfaced anywhere.
-
-   Inlined, the CSS ships inside the page's own HTML. It cannot be cached
-   separately from the page, cannot 404, and cannot be reordered away. It
-   gzips to a few KB and saves a request.
-
-   To edit: change this file. There is no longer a copy in /public.
+   The CSS is a string, injected as an inline <style> by each page rather
+   than served as a file from /public. /public is sent with a long cache
+   header, so edits kept being served stale; inlined, the CSS travels with
+   the page's own HTML and cannot be cached separately from it.
    ═══════════════════════════════════════════════════════════════════ */
+
+export function parseJSON(val: any, fb: any = []) {
+  if (!val) return fb;
+  if (Array.isArray(val)) return val;
+  if (typeof val === "object") return val;
+  try {
+    return JSON.parse(val) || fb;
+  } catch {
+    return fb;
+  }
+}
+
+export function imgUrl(p: string | null | undefined): string {
+  if (!p) return "";
+  if (p.startsWith("http")) return p;
+  if (p.startsWith("/")) return p;
+  return `/${p}`;
+}
+
+export function categorizeTech(stack: string[]) {
+  const cats: Record<string, string[]> = {
+    Frontend: [], Backend: [], Database: [], Infrastructure: [], "AI/ML": [], Other: [],
+  };
+  const fe = ["react","flutter","angular","vue","ios","android","swift","kotlin","html","css","javascript","typescript","dart","tailwind","bootstrap","next","nuxt","svelte","jquery"];
+  const be = ["node","java","php","python","laravel",".net","spring","express","django","flask","ruby","rails","go","graphql","rest","api","nest","fastapi"];
+  const db = ["mysql","mongo","firebase","sql","redis","postgresql","dynamodb","sqlite","supabase","neon","cassandra","oracle"];
+  const infra = ["aws","azure","gcp","docker","kubernetes","nginx","vercel","heroku","cloudflare","jenkins","github","gitlab","ci/cd","terraform"];
+  const ai = ["tensorflow","pytorch","openai","gpt","ml","ai","machine learning","deep learning","nlp","langchain"];
+  stack.forEach((t) => {
+    const l = t.toLowerCase();
+    if (fe.some((k) => l.includes(k))) cats.Frontend.push(t);
+    else if (be.some((k) => l.includes(k))) cats.Backend.push(t);
+    else if (db.some((k) => l.includes(k))) cats.Database.push(t);
+    else if (infra.some((k) => l.includes(k))) cats.Infrastructure.push(t);
+    else if (ai.some((k) => l.includes(k))) cats["AI/ML"].push(t);
+    else cats.Other.push(t);
+  });
+  return Object.entries(cats).filter(([, v]) => v.length > 0);
+}
+
+export const featureEmojis = ["📦","🔍","📄","🛒","📱","🛠️","🔔","📊","⚡","🌐","🛡️","🔄"];
+
+/* ── Technology icons ───────────────────────────────────────────────
+   The stack cards used to show the first word of the technology set in a
+   blue tile -- a text label pretending to be a logo. These map each
+   technology to a real Font Awesome glyph instead.
+
+   The site already loads Font Awesome, so this costs nothing extra. Its
+   FREE brand set does not cover Flutter, MySQL, Mongo, Firebase,
+   Postgres, Kotlin, Dart, Express, Next or GraphQL, so anything without
+   a brand mark falls back to a solid glyph that says what KIND of thing
+   it is -- a database, a phone, a server -- which reads better than an
+   invented logo would. Longest keys are tested first so "react native"
+   is not caught by "react". */
+export const TECH_ICONS: [string, string][] = [
+  ["react native", "fa-solid fa-mobile-screen-button"],
+  ["next",         "fa-solid fa-code"],
+  ["node",         "fab fa-node-js"],
+  ["react",        "fab fa-react"],
+  ["angular",      "fab fa-angular"],
+  ["vue",          "fab fa-vuejs"],
+  ["flutter",      "fa-solid fa-mobile-screen-button"],
+  ["dart",         "fa-solid fa-mobile-screen-button"],
+  ["kotlin",       "fab fa-android"],
+  ["android",      "fab fa-android"],
+  ["swift",        "fab fa-swift"],
+  ["ios",          "fab fa-apple"],
+  ["apple",        "fab fa-apple"],
+  ["typescript",   "fa-solid fa-code"],
+  ["javascript",   "fab fa-js"],
+  ["laravel",      "fab fa-laravel"],
+  ["php",          "fab fa-php"],
+  ["python",       "fab fa-python"],
+  ["django",       "fab fa-python"],
+  ["java",         "fab fa-java"],
+  ["spring",       "fa-solid fa-leaf"],
+  [".net",         "fa-solid fa-server"],
+  ["express",      "fa-solid fa-server"],
+  ["nest",         "fa-solid fa-server"],
+  ["graphql",      "fa-solid fa-diagram-project"],
+  ["rest",         "fa-solid fa-diagram-project"],
+  ["postgres",     "fa-solid fa-database"],
+  ["mysql",        "fa-solid fa-database"],
+  ["mongo",        "fa-solid fa-database"],
+  ["redis",        "fa-solid fa-database"],
+  ["sqlite",       "fa-solid fa-database"],
+  ["firebase",     "fa-solid fa-fire"],
+  ["supabase",     "fa-solid fa-database"],
+  ["sql",          "fa-solid fa-database"],
+  ["aws",          "fab fa-aws"],
+  ["amazon",       "fab fa-aws"],
+  ["azure",        "fa-solid fa-cloud"],
+  ["gcp",          "fa-solid fa-cloud"],
+  ["google cloud", "fa-solid fa-cloud"],
+  ["vercel",       "fa-solid fa-cloud"],
+  ["docker",       "fab fa-docker"],
+  ["kubernetes",   "fa-solid fa-cubes"],
+  ["nginx",        "fa-solid fa-server"],
+  ["jenkins",      "fa-solid fa-gears"],
+  ["github",       "fab fa-github"],
+  ["gitlab",       "fab fa-gitlab"],
+  ["git",          "fab fa-git-alt"],
+  ["figma",        "fab fa-figma"],
+  ["tailwind",     "fa-solid fa-wind"],
+  ["bootstrap",    "fab fa-bootstrap"],
+  ["sass",         "fab fa-sass"],
+  ["html",         "fab fa-html5"],
+  ["css",          "fab fa-css3-alt"],
+  ["wordpress",    "fab fa-wordpress"],
+  ["shopify",      "fab fa-shopify"],
+  ["stripe",       "fab fa-stripe-s"],
+  ["razorpay",     "fa-solid fa-credit-card"],
+  ["payment",      "fa-solid fa-credit-card"],
+  ["tensorflow",   "fa-solid fa-brain"],
+  ["pytorch",      "fa-solid fa-brain"],
+  ["openai",       "fa-solid fa-brain"],
+  ["langchain",    "fa-solid fa-brain"],
+  ["socket",       "fa-solid fa-bolt"],
+  ["map",          "fa-solid fa-map-location-dot"],
+  ["twilio",       "fa-solid fa-comment-sms"],
+];
+
+export function techIcon(name: string): string {
+  const l = name.toLowerCase();
+  for (const [key, icon] of TECH_ICONS) if (l.includes(key)) return icon;
+  return "fa-solid fa-layer-group";
+}
+
+/* Split a "Title — description" / "Title: description" line into its two
+   halves. Every list section in the reference design shows a bold lead
+   and a lighter body, and the em-dash / colon is how the copy carries
+   that split. A line with no separator becomes a title with no body,
+   which still renders correctly. */
+export function splitLine(line: string): { title: string; desc: string } {
+  const t = line.replace(/^\s*(?:[•‣▪·]+\s*|[-–—]\s+|\d+[.)]\s+)/, "").trim();
+  /* Only look for the separator BEFORE the first tag. Without this a line
+     like `... our <a href="https://x">link</a>` splits on the colon inside
+     the href and the heading becomes half a URL. */
+  const cut = t.indexOf("<");
+  const head = cut === -1 ? t : t.slice(0, cut);
+  const m = head.match(/^([^:—–]{3,60})[:—–]\s*/);
+  if (!m) return { title: t, desc: "" };
+  return { title: m[1].trim(), desc: t.slice(m[0].length).trim() };
+}
+
+
+/* Split a plain string into paragraphs / lines. Both tables store the
+   long-form fields as newline-separated text. */
+export function paras(v: any): string[] {
+  if (!v || typeof v !== "string") return [];
+  return v.split("\n").map((p) => p.trim()).filter(Boolean);
+}
+
+export function lines(v: any): string[] {
+  if (!v || typeof v !== "string") return [];
+  return v.split("\n").map((l) => l.trim()).filter(Boolean);
+}
 
 export const CASE_STUDY_CSS = `
 /* ═══════════════════════════════════════════════════════════════════════
@@ -38,10 +186,26 @@ export const CASE_STUDY_CSS = `
    ═══════════════════════════════════════════════════════════════════ */
 
 .cs {
-  --b50:#eff6ff;--b100:#dbeafe;--b200:#bfdbfe;--b300:#93c5fd;
-  --b500:#3b82f6;--b600:#2563eb;--b700:#1d4ed8;--b800:#1e40af;--b900:#1e3a8a;
-  --s50:#f8fafc;--s100:#f1f5f9;--s200:#e2e8f0;--s300:#cbd5e1;--s400:#94a3b8;
-  --s500:#64748b;--s600:#475569;--s700:#334155;--s800:#1e293b;--s900:#0f172a;
+  /* Signature Blue (#3E8CFB, the same --color-signature-blue the rest of
+     the site uses) and a ramp built around it. Every blue on these pages
+     resolves through these tokens, so the whole design moves by editing
+     this one block. */
+  /* Sampled straight off the reference screenshots, not guessed:
+       #3762E3  the blue -- eyebrows, stat figures, KPI figures, icons
+       #2B4DD0  the darker blue used for badge-pill text
+       #F1F6FE  the pale blue behind badges and icon tiles
+       #101729  headings
+       #4A5567  body copy
+       #E3E8EF  card borders
+       #F9FAFC  the grey section band
+       #2842AC -> #3560E0  the Key Takeaway gradient
+     Everything on these pages resolves through these tokens. */
+  --b50:#F1F6FE;--b100:#DEE7FB;--b200:#C3D0F6;--b300:#9DB2F0;
+  --b500:#5B7FE9;--b600:#3762E3;--b700:#2B4DD0;--b800:#2842AC;--b900:#1E3382;
+
+  --s50:#F9FAFC;--s100:#F1F3F7;--s200:#E3E8EF;--s300:#CBD3E1;--s400:#98A2B3;
+  --s500:#697586;--s600:#4A5567;--s700:#364152;--s800:#202939;--s900:#101729;
+
   --r:12px;--rlg:16px;
   --sh-sm:0 1px 2px 0 rgb(0 0 0/.05);
   --sh:0 4px 6px -1px rgb(0 0 0/.07),0 2px 4px -2px rgb(0 0 0/.05);
@@ -222,6 +386,8 @@ export const CASE_STUDY_CSS = `
    are full-bleed because .cs-sec is full width with .cs-wrap inside. */
 .cs .cs-sec{padding:64px 0 !important;border-top:1px solid var(--s200) !important;background:transparent !important}
 .cs .cs-sec--white{background:#fff !important}
+/* A band that holds one panel needs less air than a full section. */
+.cs .cs-sec--tight{padding:52px 0 !important;border-top:0 !important}
 /* The FAQ band, same as the homepage's .hmx-sec--stone. */
 .cs .cs-sec--stone{background:#F7F9FC !important;border-top:1px solid var(--s200) !important;border-bottom:1px solid var(--s200) !important}
 .cs .cs-head{margin-bottom:36px !important}
@@ -358,7 +524,11 @@ export const CASE_STUDY_CSS = `
   border-radius:var(--rlg) !important;padding:28px !important;box-shadow:var(--sh-sm) !important;
   transition:border-color .2s ease,box-shadow .2s ease !important;
 }
-.cs .cs-card:hover{border-color:var(--b200) !important;box-shadow:var(--sh) !important}
+.cs .cs-card:hover{
+  border-color:var(--b600) !important;
+  background:#fff !important;background-image:none !important;
+  box-shadow:var(--sh) !important;
+}
 /* Reference draws these with the same white card treatment as the rest:
    a bold black lead line, then grey body copy. */
 .cs .cs-card--flat{box-shadow:var(--sh-sm) !important;padding:26px 28px !important}
@@ -381,7 +551,11 @@ export const CASE_STUDY_CSS = `
   border-radius:var(--r) !important;padding:24px 20px !important;text-align:center !important;
   transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease !important;
 }
-.cs .cs-tech:hover{border-color:var(--b300) !important;box-shadow:var(--sh) !important;transform:translateY(-2px) !important}
+.cs .cs-tech:hover{
+  border-color:var(--b600) !important;
+  background:#fff !important;background-image:none !important;
+  box-shadow:var(--sh) !important;transform:translateY(-2px) !important;
+}
 /* Holds a real icon now, not a truncated word. */
 .cs .cs-tech__mark{
   width:56px !important;height:56px !important;margin:0 auto 14px !important;border-radius:14px !important;
@@ -423,8 +597,9 @@ export const CASE_STUDY_CSS = `
    Real artwork from the row's web_screens / app_screens. The reference
    design drew grey placeholder boxes only because it was a static file
    with no data behind it; the card chrome is what it contributes. */
-.cs .cs-shots{display:grid !important;gap:20px !important}
-.cs .cs-shots--web{grid-template-columns:repeat(auto-fit,minmax(240px,1fr)) !important}
+.cs .cs-shots{display:grid !important;gap:24px !important}
+/* Two across, not four: at 240px the screenshots were thumbnails. */
+.cs .cs-shots--web{grid-template-columns:repeat(auto-fit,minmax(440px,1fr)) !important}
 .cs .cs-shots--app{grid-template-columns:repeat(auto-fit,minmax(180px,1fr)) !important}
 .cs .cs-shot{
   margin:0 !important;background:#fff !important;border:1px solid var(--s200) !important;
@@ -477,15 +652,22 @@ export const CASE_STUDY_CSS = `
 .cs .cs-head--center{text-align:center !important;max-width:830px !important;margin:0 auto 52px !important}
 .cs .cs-head--center .cs-desc{margin-left:auto !important;margin-right:auto !important}
 
-.cs .cs-faqs{
+.cs .cs-qa{
   max-width:880px !important;margin:0 auto !important;display:block !important;
   border-top:1px solid var(--s200) !important;
 }
-.cs .cs-faq{
+/* 'padding:0' is the important one. The rows previously used the class
+   '.cs-faq', which other sheets loaded by the root layout use as a
+   SECTION class carrying 'padding: 72px 0' -- so every question row was
+   inheriting 72px of vertical padding, and editing the summary padding
+   here could never remove it. Renamed to '.cs-qa__item', which nothing
+   else claims, and the padding is pinned to zero as a belt-and-braces. */
+.cs .cs-qa__item{
   background:transparent !important;border:0 !important;border-radius:0 !important;
-  border-bottom:1px solid var(--s200) !important;box-shadow:none !important;margin:0 !important;
+  border-bottom:1px solid var(--s200) !important;box-shadow:none !important;
+  margin:0 !important;padding:0 !important;
 }
-.cs .cs-faq summary{
+.cs .cs-qa__item summary{
   display:flex !important;justify-content:space-between !important;align-items:center !important;
   /* 15px, down from 26. With one-line questions that was leaving ~80px
      of dead space between rows. */
@@ -494,28 +676,28 @@ export const CASE_STUDY_CSS = `
   color:var(--s900) !important;letter-spacing:-.25px !important;
   transition:color .25s ease !important;
 }
-.cs .cs-faq summary:hover{color:var(--b600) !important}
-.cs .cs-faq summary::-webkit-details-marker{display:none !important}
-.cs .cs-faq summary::after{content:none !important}
-.cs .cs-faq__ico{
+.cs .cs-qa__item summary:hover{color:var(--b600) !important}
+.cs .cs-qa__item summary::-webkit-details-marker{display:none !important}
+.cs .cs-qa__item summary::after{content:none !important}
+.cs .cs-qa__ico{
   flex-shrink:0 !important;width:30px !important;height:30px !important;border-radius:50% !important;
   border:1.5px solid var(--s200) !important;color:var(--s900) !important;
   display:inline-flex !important;align-items:center !important;justify-content:center !important;
   transition:background .3s ease,color .3s ease,border-color .3s ease,transform .3s ease !important;
 }
 /* Explicit + / x swap via ::before so no icon font can force two glyphs. */
-.cs .cs-faq__ico::before{content:"+" !important;font-size:17px !important;font-weight:600 !important;line-height:1 !important}
-.cs .cs-faq[open] .cs-faq__ico::before{content:"\\00d7" !important;font-size:18px !important}
-.cs .cs-faq[open] .cs-faq__ico{
+.cs .cs-qa__ico::before{content:"+" !important;font-size:17px !important;font-weight:600 !important;line-height:1 !important}
+.cs .cs-qa__item[open] .cs-qa__ico::before{content:"\\00d7" !important;font-size:18px !important}
+.cs .cs-qa__item[open] .cs-qa__ico{
   background:var(--b600) !important;border-color:var(--b600) !important;
   color:#fff !important;transform:rotate(90deg) !important;
 }
-.cs .cs-faq__a,.cs p.cs-faq__a{
+.cs .cs-qa__a,.cs p.cs-qa__a{
   padding:0 60px 18px 0 !important;margin:0 !important;
   font-size:15.5px !important;line-height:27px !important;color:var(--s600) !important;
 }
-.cs .cs-faq[open] .cs-faq__a{animation:csFaqOpen .32s ease both !important}
-@keyframes csFaqOpen{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+.cs .cs-qa__item[open] .cs-qa__a{animation:csQaOpen .32s ease both !important}
+@keyframes csQaOpen{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
 
 /* ═══ CTA — the page's one CTA, at the bottom ═══════════════════════ */
 .cs .cs-cta{
@@ -553,6 +735,229 @@ export const CASE_STUDY_CSS = `
 .cs .cs-hero .cs-crumb a[href]:focus,
 .cs .cs-hero .cs-crumb a[href]:active{color:var(--b600) !important}
 
+
+/* ═══════════════════════════════════════════════════════════════════
+   CASE-STUDY COMPONENTS
+   ─────────────────────────────────────────────────────────────────
+   Built to the supplied reference. Everything below is additive: the
+   portfolio pages do not use these classes, so nothing there moves.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Hero fact cards: icon tile + label + value, three across ────── */
+.cs .cs-facts{
+  display:grid !important;grid-template-columns:repeat(auto-fit,minmax(260px,1fr)) !important;
+  gap:20px !important;max-width:1140px !important;margin:0 !important;
+}
+.cs .cs-fact{
+  display:flex !important;align-items:flex-start !important;gap:16px !important;
+  background:#fff !important;border:1px solid var(--s200) !important;
+  border-radius:var(--rlg) !important;padding:22px 24px !important;
+  box-shadow:var(--sh-sm) !important;
+}
+.cs .cs-fact__ico{
+  flex-shrink:0 !important;width:44px !important;height:44px !important;
+  border-radius:12px !important;background:var(--b50) !important;
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;
+}
+.cs .cs-fact__ico i{font-size:19px !important;color:var(--b600) !important;line-height:1 !important}
+.cs .cs-fact__k{
+  display:block !important;font-size:.72rem !important;font-weight:700 !important;
+  letter-spacing:.06em !important;text-transform:uppercase !important;
+  color:var(--b600) !important;margin-bottom:5px !important;
+}
+.cs .cs-fact__v{display:block !important;font-size:1rem !important;font-weight:700 !important;color:var(--s900) !important;line-height:1.35 !important}
+
+/* ── Testimonial bar under the hero ──────────────────────────────── */
+.cs .cs-quote{
+  display:flex !important;align-items:flex-start !important;gap:24px !important;
+  background:#fff !important;border:1px solid var(--s200) !important;
+  border-radius:var(--rlg) !important;padding:30px 34px !important;
+  box-shadow:var(--sh-sm) !important;margin-top:44px !important;
+}
+.cs .cs-quote__ico{
+  flex-shrink:0 !important;width:56px !important;height:56px !important;border-radius:14px !important;
+  background:var(--b700) !important;color:#fff !important;
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;
+}
+.cs .cs-quote__ico i{font-size:21px !important;color:#fff !important}
+.cs .cs-quote__t{font-size:1.15rem !important;line-height:1.55 !important;color:var(--s800) !important;margin-bottom:10px !important;font-weight:500 !important}
+.cs .cs-quote__r{font-size:.92rem !important;font-weight:700 !important;color:var(--b600) !important}
+
+/* ── Challenge stat cards: badge, big blue figure, title, body ───── */
+.cs .cs-stats{
+  display:grid !important;grid-template-columns:repeat(auto-fit,minmax(340px,1fr)) !important;
+  gap:22px !important;
+}
+.cs .cs-stat{
+  background:#fff !important;border:1px solid var(--s200) !important;
+  border-radius:var(--rlg) !important;padding:26px 28px 28px !important;
+  box-shadow:var(--sh-sm) !important;
+  transition:border-color .2s ease,box-shadow .2s ease !important;
+}
+/* Blue border on hover and nothing else. A legacy sheet paints a
+   blue-to-gold gradient on card hover; 'background' and 'background-image'
+   are both pinned here because a gradient lives in background-image and
+   setting 'background' alone does not always clear it. */
+.cs .cs-stat:hover{
+  border-color:var(--b600) !important;
+  background:#fff !important;background-image:none !important;
+  box-shadow:var(--sh) !important;
+}
+.cs .cs-stat__badge{
+  display:inline-flex !important;align-items:center !important;gap:7px !important;
+  padding:6px 14px !important;border-radius:999px !important;
+  background:var(--b50) !important;color:var(--b700) !important;
+  font-size:.7rem !important;font-weight:700 !important;
+  letter-spacing:.06em !important;text-transform:uppercase !important;
+  margin-bottom:18px !important;
+}
+.cs .cs-stat__badge i{font-size:11px !important;color:var(--b600) !important}
+.cs .cs-stat__n{
+  display:block !important;font-size:2.1rem !important;font-weight:800 !important;
+  color:var(--b600) !important;letter-spacing:-.03em !important;line-height:1.1 !important;
+  margin-bottom:12px !important;
+}
+.cs .cs-stat__t{display:block !important;font-size:1rem !important;font-weight:700 !important;color:var(--s900) !important;margin-bottom:7px !important}
+.cs .cs-stat__d{font-size:.94rem !important;line-height:1.6 !important;color:var(--s600) !important}
+
+/* ── Development process: a horizontal rail of numbered steps ───── */
+.cs .cs-rail{
+  display:grid !important;grid-auto-flow:column !important;
+  grid-auto-columns:minmax(0,1fr) !important;gap:0 !important;align-items:stretch !important;
+}
+.cs .cs-step{
+  position:relative !important;text-align:center !important;
+  background:#fff !important;border:1px solid var(--s200) !important;
+  border-radius:var(--rlg) !important;padding:26px 22px 28px !important;
+  margin:0 6px !important;
+}
+/* The connector between cards: a hairline that starts at the numeral's
+   centre line, drawn only BETWEEN steps (never off the last one). */
+.cs .cs-step + .cs-step::before{
+  content:"" !important;position:absolute !important;
+  left:-18px !important;top:47px !important;width:24px !important;height:2px !important;
+  background:var(--b200) !important;
+}
+.cs .cs-step__n{
+  width:42px !important;height:42px !important;border-radius:50% !important;
+  background:var(--b700) !important;color:#fff !important;
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;
+  font-size:1rem !important;font-weight:700 !important;line-height:1 !important;
+  font-variant-numeric:tabular-nums !important;margin-bottom:18px !important;
+}
+.cs .cs-step__t{display:block !important;font-size:.98rem !important;font-weight:700 !important;color:var(--s900) !important;margin-bottom:8px !important;line-height:1.35 !important}
+.cs .cs-step__d{font-size:.9rem !important;line-height:1.55 !important;color:var(--s600) !important}
+
+/* ── Results: a row of figure tiles ─────────────────────────────── */
+.cs .cs-kpis{
+  display:grid !important;grid-template-columns:repeat(auto-fit,minmax(180px,1fr)) !important;
+  gap:20px !important;
+}
+.cs .cs-kpi{
+  background:#fff !important;border:1px solid var(--s200) !important;
+  border-radius:var(--rlg) !important;padding:30px 20px !important;text-align:center !important;
+  box-shadow:var(--sh-sm) !important;
+}
+.cs .cs-kpi:hover{border-color:var(--b600) !important;background:#fff !important;background-image:none !important}
+.cs .cs-kpi__n{
+  display:block !important;font-size:2.3rem !important;font-weight:800 !important;
+  color:var(--b600) !important;letter-spacing:-.03em !important;line-height:1.1 !important;
+  margin-bottom:12px !important;
+}
+.cs .cs-kpi__l{font-size:.92rem !important;line-height:1.5 !important;color:var(--s600) !important}
+
+/* ── Key takeaway: the one deep-blue panel on the page ──────────── */
+/* The takeaway sits on the WHITE band below the results, as drawn --
+   its own section, not tacked onto the grey one. */
+.cs .cs-takeaway{
+  background:linear-gradient(100deg,#2842AC 0%,#3560E0 100%) !important;
+  border-radius:20px !important;padding:40px 44px !important;margin:0 !important;
+  color:#fff !important;
+}
+.cs .cs-takeaway__k{
+  display:inline-flex !important;align-items:center !important;gap:8px !important;
+  font-size:.72rem !important;font-weight:700 !important;letter-spacing:.08em !important;
+  text-transform:uppercase !important;color:rgba(255,255,255,.85) !important;
+  margin-bottom:16px !important;
+}
+.cs .cs-takeaway__k i{font-size:13px !important;color:rgba(255,255,255,.85) !important}
+.cs .cs-takeaway p{font-size:1.15rem !important;line-height:1.65 !important;color:#fff !important;margin-bottom:12px !important}
+.cs .cs-takeaway p:last-child{margin-bottom:0 !important}
+
+/* ── Related services: wide rows, title left, arrow right ───────── */
+.cs .cs-links{
+  display:grid !important;grid-template-columns:repeat(auto-fit,minmax(280px,1fr)) !important;
+  gap:20px !important;
+}
+.cs a.cs-link{
+  display:flex !important;align-items:center !important;justify-content:space-between !important;
+  gap:18px !important;background:#fff !important;border:1px solid var(--s200) !important;
+  border-radius:var(--rlg) !important;padding:22px 26px !important;
+  font-size:1rem !important;font-weight:700 !important;color:var(--s900) !important;
+  transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease !important;
+}
+.cs a.cs-link:hover{
+  border-color:var(--b300) !important;box-shadow:var(--sh-md) !important;
+  transform:translateY(-2px) !important;color:var(--s900) !important;
+}
+.cs a.cs-link i{font-size:15px !important;color:var(--b600) !important;transition:transform .2s ease !important}
+.cs a.cs-link:hover i{transform:translateX(4px) !important}
+
+/* ── Centred tech cards, as the reference draws them ────────────── */
+.cs .cs-tech--center{text-align:center !important}
+
+@media (max-width:980px){
+  /* The rail stops being a rail on narrow screens: a horizontal row of
+     five would shrink each step below a readable measure. */
+  .cs .cs-rail{grid-auto-flow:row !important;grid-auto-columns:auto !important;gap:16px !important}
+  .cs .cs-step{margin:0 !important}
+  .cs .cs-step + .cs-step::before{
+    left:50% !important;top:-10px !important;width:2px !important;height:12px !important;
+    transform:translateX(-50%) !important;
+  }
+}
+@media (max-width:860px){
+  .cs .cs-quote{flex-direction:column !important;gap:16px !important;padding:24px !important}
+  .cs .cs-takeaway{padding:28px 24px !important}
+  .cs .cs-stats{grid-template-columns:minmax(0,1fr) !important}
+}
+
+
+/* ── HOVER: border only, never a gradient ─────────────────────────
+   Legacy sheets paint a blue-to-gold gradient on card hover. A gradient
+   lives in 'background-image', and some of those rules draw it through a
+   ::before overlay rather than on the element -- so clearing 'background'
+   alone does nothing. All three are pinned here. */
+.cs .cs-stat,.cs .cs-card,.cs .cs-tech,.cs .cs-kpi,
+.cs .cs-stat:hover,.cs .cs-card:hover,.cs .cs-tech:hover,.cs .cs-kpi:hover,
+.cs .cs-stat:focus-within,.cs .cs-card:focus-within{
+  background:#FFFFFF !important;
+  background-image:none !important;
+}
+.cs .cs-stat::before,.cs .cs-stat::after,
+.cs .cs-card::before,.cs .cs-card::after,
+.cs .cs-tech::before,.cs .cs-tech::after,
+.cs .cs-kpi::before,.cs .cs-kpi::after{
+  content:none !important;background:none !important;background-image:none !important;
+}
+.cs .cs-stat:hover,.cs .cs-card:hover,.cs .cs-tech:hover,.cs .cs-kpi:hover{
+  border-color:var(--b600) !important;
+}
+
+/* ── TEXT COLOURS, pinned to the sampled values ──────────────────── */
+.cs .cs-eyebrow{color:var(--b600) !important}
+.cs .cs-h2,.cs .cs-h1{color:var(--s900) !important}
+.cs .cs-desc,.cs .cs-prose p{color:var(--s600) !important}
+.cs .cs-stat__n,.cs .cs-kpi__n{color:var(--b600) !important}
+.cs .cs-stat__t{color:var(--s900) !important}
+.cs .cs-stat__d,.cs .cs-kpi__l{color:var(--s600) !important}
+.cs .cs-stat__badge{background:var(--b50) !important;color:var(--b700) !important}
+.cs .cs-stat__badge i{color:var(--b700) !important}
+.cs .cs-card h3,.cs .cs-tech h4{color:var(--s900) !important}
+.cs .cs-card p,.cs .cs-tech p{color:var(--s600) !important}
+.cs .cs-card__ico,.cs .cs-tech__mark,.cs .cs-fact__ico{background:var(--b50) !important}
+.cs .cs-card__ico i,.cs .cs-tech__mark i,.cs .cs-fact__ico i{color:var(--b600) !important}
+
 /* ═══ RESPONSIVE ════════════════════════════════════════════════════ */
 @media (max-width:860px){
   .cs .cs-hero{padding:104px 0 52px !important}
@@ -568,8 +973,8 @@ export const CASE_STUDY_CSS = `
   .cs .cs-cta__btns{flex-direction:column !important}
   .cs .cs-panel{max-width:100% !important;padding:26px !important}
   .cs .cs-rels{grid-template-columns:minmax(0,1fr) !important}
-  .cs .cs-faq__a p{padding-right:0 !important}
-  .cs .cs-faq summary{font-size:15.5px !important;line-height:25px !important;gap:16px !important;padding:13px 0 !important}
+  .cs .cs-qa__a{padding-right:0 !important}
+  .cs .cs-qa__item summary{font-size:15.5px !important;line-height:25px !important;gap:16px !important;padding:13px 0 !important}
   .cs .cs-meta{padding:22px !important}
 }
 

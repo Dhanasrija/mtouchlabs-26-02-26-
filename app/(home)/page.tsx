@@ -1576,7 +1576,10 @@ export default async function HomePage() {
           <div className="hmx-gd-offices hmx-rv">
             {offices.map((o) => (
               <article className="hmx-office" key={o.city}>
-                <p className="hmx-office-role">{o.role}</p>
+                {/* The one-line role under each office name is removed --
+                    "Headquarters & engineering hub" and the rest were
+                    labelling the obvious. The `role` field stays on the
+                    data so it can be brought back without re-typing it. */}
                 <h3>{o.city}</h3>
                 <address>{o.address}</address>
 
