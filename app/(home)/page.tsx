@@ -353,7 +353,7 @@ const caseStudies = [
       "We designed and developed a digital commerce platform that brings handloom products together in one online experience, supporting product discovery and digital commerce workflows.",
     result:
       "A centralized digital solution that simplified business processes and provided a stronger foundation for continued growth.",
-    link: "/portfolio/telangana-ecommerce-mobile-app-development",
+    link: "/portfolio/telangana-ecommerce-mobile-app-development",  // Telangana Govt portfolio
   },
   {
     n: "02",
@@ -368,7 +368,7 @@ const caseStudies = [
       "mTouch Labs integrated AI capabilities into the product workflow, combining automation, intelligent interactions, and application-level functionality within a scalable architecture.",
     result:
       "A smarter digital experience designed to reduce manual effort and create more efficient user and business workflows.",
-    link: "/portfolio/abu-dhabi-judicial-department-mobile-app-development",
+    link: "/case-studies/ecommerce-retail-platform",
   },
   {
     n: "03",
@@ -383,7 +383,7 @@ const caseStudies = [
       "Our team developed a coordinated mobile and web platform with responsive interfaces, backend services, APIs, and integrations designed around the client's operational requirements.",
     result:
       "A unified digital experience that improved accessibility and provided a scalable foundation for ongoing product development.",
-    link: "/portfolio/multi-vendor-ecommerce-mobile-app-development",
+    link: "/case-studies/healthcare-mobile-app-development",
   },
 ];
 
@@ -513,54 +513,58 @@ const offices = [
  * `.webp` is preferred over the `.png` twin wherever both exist -- same
  * artwork, roughly a quarter of the bytes.
  */
+/* `big: true` marks the marks that read SMALL at the shared size --
+   seals, wordmarks with a lot of internal padding, and square icons.
+   They get a taller ceiling so all 36 look optically equal on the wall;
+   the cell footprint never changes, only the artwork inside it. */
 const logoPages = [
   [
-    { src: "/images/home/tech/govt.webp", alt: "Government of Telangana" },
-    { src: "/images/home/tech/adjd.webp", alt: "Abu Dhabi Judicial Department" },
+    { src: "/images/home/tech/govt.webp", alt: "Government of Telangana", big: true },
+    { src: "/images/home/tech/adjd.webp", alt: "Abu Dhabi Judicial Department", big: true },
     { src: "/images/home/tech/railcab.svg", alt: "RailCab" },
-    { src: "/images/home/tech/resqbox.svg", alt: "ResQBox Food" },
+    { src: "/images/home/tech/resqbox.svg", alt: "ResQBox Food", big: true },
     { src: "/images/home/tech/kohere.webp", alt: "Kohere" },
-    { src: "/images/home/tech/uptick.webp", alt: "UpTik" },
+    { src: "/images/home/tech/uptick.webp", alt: "UpTik", big: true },
 
     { src: "/images/home/tech/reelzify.svg", alt: "Reelzify" },
     { src: "/images/home/tech/corelynx.svg", alt: "CoreLynxAI" },
     { src: "/images/home/tech/anybody.svg", alt: "AnyBody" },
     { src: "/images/home/tech/salarient.svg", alt: "Salarient" },
     { src: "/images/home/tech/voosh.webp", alt: "vVoosh" },
-    { src: "/images/home/tech/communitykitchen.svg", alt: "Community Kitchen" },
+    { src: "/images/home/tech/communitykitchen.svg", alt: "Community Kitchen", big: true },
 
-    { src: "/images/home/tech/zefsci.webp", alt: "ZefSci, a Shimadzu company" },
-    { src: "/images/home/tech/badham.webp", alt: "Bandham" },
-    { src: "/images/home/tech/kezad-logo.webp", alt: "KEZAD Group" },
-    { src: "/images/home/tech/l2r.webp", alt: "Learn2Read" },
-    { src: "/images/home/tech/medbuz.webp", alt: "Medbuzz" },
-    { src: "/images/home/tech/woqal.svg", alt: "Woqal" },
+    { src: "/images/home/tech/zefsci.webp", alt: "ZefSci, a Shimadzu company", big: true },
+    { src: "/images/home/tech/badham.webp", alt: "Bandham", big: true },
+    { src: "/images/home/tech/kezad-logo.webp", alt: "KEZAD Group", big: true },
+    { src: "/images/home/tech/l2r.webp", alt: "Learn2Read", big: true },
+    { src: "/images/home/tech/medbuz.webp", alt: "Medbuzz", big: true },
+    { src: "/images/home/tech/woqal.svg", alt: "Woqal", big: true },
   ],
   [
     { src: "/images/home/tech/ebic.svg", alt: "ebic" },
-    { src: "/images/home/tech/mytree.svg", alt: "My Tree" },
+    { src: "/images/home/tech/mytree.svg", alt: "My Tree", big: true },
     { src: "/images/home/tech/edhelpz.svg", alt: "EdHelpz" },
-    { src: "/images/home/tech/cenzo.svg", alt: "Cenzo" },
+    { src: "/images/home/tech/cenzo.svg", alt: "Cenzo", big: true },
     { src: "/images/home/tech/desh.svg", alt: "Desh" },
-    { src: "/images/home/tech/classy.webp", alt: "Classyy" },
+    { src: "/images/home/tech/classy.webp", alt: "Classyy", big: true },
 
     /* ZuppiBuy replaces Bandham here -- Bandham is already on page 1 and
        the same logo twice across two pages read as a mistake. */
-    { src: "/images/home/tech/zuppibuy.webp", alt: "ZuppiBuy" },
-    { src: "/images/home/tech/myintry.svg", alt: "MyINTRY" },
+    { src: "/images/home/tech/zuppibuy.webp", alt: "ZuppiBuy", big: true },
+    { src: "/images/home/tech/myintry.svg", alt: "MyINTRY", big: true },
     /* AWAITING FILE: /images/home/tech/zoviyo.svg */
     { src: "/images/home/tech/zoviyo.svg", alt: "Zoviyo" },
     { src: "/images/home/tech/heyman.webp", alt: "Hey Man" },
     /* AWAITING FILE: /images/home/tech/4wd.svg */
-    { src: "/images/home/tech/4wd.svg", alt: "4WD" },
-    { src: "/images/home/tech/marketchowrasta.svg", alt: "Market Chowrasta" },
+    { src: "/images/home/tech/4wd.svg", alt: "4WD", big: true },
+    { src: "/images/home/tech/marketchowrasta.svg", alt: "Market Chowrasta", big: true },
 
     { src: "/images/home/tech/olt.webp", alt: "Olt Offers" },
-    { src: "/images/home/tech/saachi.webp", alt: "Sacchi" },
-    { src: "/images/home/tech/v.webp", alt: "Vivent" },
-    { src: "/images/home/tech/hitech.svg", alt: "Hitech Shuttle" },
-    { src: "/images/home/tech/onus.webp", alt: "ONUS Robotic Hospitals" },
-    { src: "/images/home/tech/measurements.svg", alt: "Measurements" },
+    { src: "/images/home/tech/saachi.webp", alt: "Sacchi", big: true },
+    { src: "/images/home/tech/v.webp", alt: "Vivent", big: true },
+    { src: "/images/home/tech/hitech.svg", alt: "Hitech Shuttle", big: true },
+    { src: "/images/home/tech/onus.webp", alt: "ONUS Robotic Hospitals", big: true },
+    { src: "/images/home/tech/measurements.svg", alt: "Measurements", big: true },
   ],
 ];
 
@@ -778,6 +782,21 @@ const FALLBACK_POSTS: Post[] = [
 /**
  * Three published posts, from three different categories where possible.
  */
+/* The three posts the homepage leads with, in order.
+   ─────────────────────────────────────────────────────────────────────
+   Edit this list to change the Insights row; no other change is needed.
+   A slug that does not exist, or is unpublished, is skipped silently and
+   its slot is filled from the newest posts, so a typo here degrades to
+   "latest three" rather than breaking the section.
+
+   NOTE: verify `mvp-development-guide` against the real row -- it was
+   inferred from the article title, not read from the database. */
+const PINNED_POST_SLUGS = [
+  "legacy-application-modernization",
+  "mvp-development-guide",
+  "agentic-ai-rag-enterprise-ai-solutions",
+];
+
 type Post = {
   slug: string;
   title: string;
@@ -812,6 +831,18 @@ async function getLatestPosts(): Promise<{ posts: Post[]; error: string | null }
    * JavaScript below, where it is trivial and cannot fail.
    */
   try {
+    /* Pinned first, in this order. These three are chosen for their cover
+       art (no logo burned into the image) as well as their subject. A
+       slug that is missing or unpublished is simply skipped and the slot
+       is filled from the newest posts below -- a wrong slug can never
+       empty the section. */
+    const pinned = (await sql`
+      SELECT slug, title, description, category, image, publish_date, created_at, updated_at
+        FROM blogs
+       WHERE slug = ANY(${PINNED_POST_SLUGS})
+         AND (published = true OR status = 'published')
+         AND (publish_date IS NULL OR publish_date <= NOW())`) as Post[];
+
     const rows = (await sql`
       SELECT slug, title, description, category, image, publish_date, created_at, updated_at
         FROM blogs
@@ -824,12 +855,20 @@ async function getLatestPosts(): Promise<{ posts: Post[]; error: string | null }
       return { posts: [], error: "the query ran but returned 0 rows" };
     }
 
-    /* Newest first is already guaranteed by the ORDER BY, so the first
-       time a category is seen is its newest post. Take one per category
-       until there are three. */
-    const picked: Post[] = [];
-    const usedCategories = new Set<string>();
+    /* Pinned posts lead, in the order they are listed. */
+    const picked: Post[] = PINNED_POST_SLUGS
+      .map((slug) => pinned.find((p) => p.slug === slug))
+      .filter(Boolean) as Post[];
+
+    /* Then one per unused category until there are three. Newest first is
+       already guaranteed by the ORDER BY, so the first time a category is
+       seen is its newest post. */
+    const usedCategories = new Set<string>(
+      picked.map((p) => (p.category ?? "").trim().toLowerCase())
+    );
+    const pinnedSlugs = new Set(picked.map((p) => p.slug));
     for (const r of rows) {
+      if (pinnedSlugs.has(r.slug)) continue;
       if (picked.length >= 3) break;
       const key = (r.category ?? "").trim().toLowerCase();
       if (key && usedCategories.has(key)) continue;
@@ -1065,7 +1104,10 @@ export default async function HomePage() {
               {logoPages.map((page, i) => (
                 <div className="hmx-lw-page" key={`p-${i}`}>
                   {page.map((l) => (
-                    <span className="hmx-lw-cell" key={l.src}>
+                    <span
+                      className={`hmx-lw-cell${(l as any).big ? " hmx-lw-cell--big" : ""}`}
+                      key={l.src}
+                    >
                       <img
                         src={l.src}
                         alt={l.alt}

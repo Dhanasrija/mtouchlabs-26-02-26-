@@ -353,7 +353,10 @@
    button, which invited a click that goes nowhere. */
 .hmx-kicker {
   display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
-  gap: 0; margin: 0 auto 34px; padding: 0;
+  /* Sits 30px below the top of the hero column rather than flush against
+     it -- it was crowding the header. The 18px below (down from 34) keeps
+     it reading as a label ON the headline rather than a separate line. */
+  gap: 0; margin: 30px auto 18px; padding: 0;
   background: none; border: 0; box-shadow: none;
   font-size: 13px; line-height: 20px; font-weight: 700;
   letter-spacing: 2.4px; text-transform: uppercase;
@@ -398,7 +401,11 @@
      gaps between words looking wider than the gaps inside them. */
   letter-spacing: -.05em;
   word-spacing: -.04em;
-  line-height: 1.02;
+  /* .96, down from 1.02. Two lines of 78px type at 1.02 leave a
+     visible band of air between them; below 1 the descenders of the
+     first line and the caps of the second interlock the way they do
+     in the comp. */
+  line-height: .96;
   margin: 0 auto 26px;
   max-width: 24ch;
   text-wrap: balance;
@@ -473,17 +480,9 @@
   overflow: hidden;
   position: relative;
 }
-/* A hairline of Signature Blue across the top of the card, fading out
-   at both ends. The one accent -- it ties the band to the blue line in
-   the headline above without colouring anything inside it. */
-.hmx-hero-proof::before {
-  content: ""; position: absolute; inset: 0 0 auto 0; height: 2px;
-  background: linear-gradient(90deg,
-    rgba(62, 140, 251, 0) 0%,
-    rgba(62, 140, 251, .85) 50%,
-    rgba(62, 140, 251, 0) 100%);
-  z-index: 1;
-}
+/* The Signature Blue hairline that used to run across the top of this
+   card is removed -- it read as a stray rule rather than an accent. */
+.hmx-hero-proof::before { content: none; }
 
 /* NOTE: there were THREE `.hmx-hero-proof li` rules in this file --
    this one plus two left over from earlier versions of the band, both
@@ -715,7 +714,16 @@
 
 .hmx-hero-ctas { display: flex; gap: 18px; align-items: center; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
 /* Squarer than the pill buttons elsewhere on the page, as drawn. */
-.hmx-hero-ctas .hmx-btn { border-radius: 10px; padding: 17px 32px; font-size: 16px; }
+/* Both hero actions share one width. `min-width` rather than a fixed
+   `width` so a longer label can still grow rather than being clipped;
+   at 232px neither current label reaches the cap, so the two render
+   exactly equal. `box-sizing` is restated because legacy sheets set
+   `content-box` on `a`, which would add the 32px padding on top of
+   the min-width and un-match them again. */
+.hmx-hero-ctas .hmx-btn {
+  border-radius: 10px; padding: 17px 32px; font-size: 16px;
+  box-sizing: border-box; min-width: 232px;
+}
 
 /* Bare text action — the comp's "View Our Work" carries no border. */
 .hmx a.hmx-btn-text {
@@ -829,10 +837,17 @@
      fixed height would stretch the wide ones. This lets each grow until
      it hits either the height ceiling or the cell width, whichever comes
      first, so none is ever distorted or clipped. */
-  max-width: 100%; max-height: 72px;
+  max-width: 100%; max-height: 78px;
   width: auto; height: auto; object-fit: contain;
   transition: transform .3s ease;
 }
+/* Some marks are seals, square icons or wordmarks with a lot of baked-in
+   padding -- at the shared ceiling they read half the size of the wide
+   wordmarks beside them. These get a taller ceiling and a tighter cell
+   inset so the whole wall looks optically even. The cell footprint is
+   untouched, so the grid and the checkerboard are unchanged. */
+.hmx-lw-cell--big { padding: 10px 10px; }
+.hmx-lw-cell--big img { max-height: 104px; }
 .hmx-lw-cell:hover img { transform: scale(1.05); }
 
 /* ── Pagination dots ── */
@@ -1458,53 +1473,73 @@
    card taller than its neighbours — the grid would stretch all three and
    leave two of them with dead space above the link.
    ═════════════════════════════════════════════════════════════ */
+/* Three separate boxes, not one block split by hairlines.
+   The old version was a 1px-gap grid over a grey background, which drew
+   the three posts as a single joined slab. Each card now carries its own
+   border, radius and shadow, with real space between them. */
 .hmx-posts {
   display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1px; background: var(--line);
-  border: 1px solid var(--line); border-radius: var(--r); overflow: hidden;
+  gap: 24px; background: transparent;
+  border: 0; border-radius: 0; overflow: visible;
 }
 .hmx-post {
   display: flex; flex-direction: column;
-  background: var(--paper); padding: 34px 30px 32px;
-  transition: background .3s ease;
+  background: #FFFFFF;
+  border: 1px solid var(--line); border-radius: 18px;
+  overflow: hidden;
+  /* No side padding on the card itself -- the cover image runs edge to
+     edge, and the text below carries its own 26px inset. */
+  padding: 0 0 28px;
+  box-shadow: 0 1px 2px rgba(13, 17, 23, .04);
+  transition: border-color .3s ease, box-shadow .3s ease, transform .3s ease;
 }
-.hmx-post:hover { background: #F1F3F7; }
+/* Lifts and takes a blue edge on hover -- it never goes grey. */
+.hmx-post:hover {
+  background: #FFFFFF;
+  border-color: rgba(62, 140, 251, .45);
+  box-shadow: 0 14px 34px -18px rgba(13, 17, 23, .28);
+  transform: translateY(-3px);
+}
 /* Cover image, flush to the card's top edge. Negative margins pull it
    out of the card's own padding so it bleeds to the sides; a fixed
    aspect-ratio plus `object-fit: cover` keeps all three cards level
    whatever the source image's proportions are. */
 .hmx-post-img {
   display: block;
-  margin: -34px -30px 22px;
-  aspect-ratio: 16 / 9;
+  /* Flush to the card's own edges; the card has no side padding now. */
+  margin: 0 0 22px;
+  aspect-ratio: 16 / 10;
   overflow: hidden;
   background: #EDEFF5;
 }
 .hmx-post-img img {
   display: block; width: 100%; height: 100%;
   object-fit: cover; object-position: center;
-  transition: transform .5s cubic-bezier(.22, 1, .36, 1);
 }
-.hmx-post:hover .hmx-post-img img { transform: scale(1.04); }
+/* No zoom on hover. Scaling the cover crops it -- on an image with
+   text set near the left edge, the first characters were being pushed
+   outside the frame. The card already signals "active" by lifting and
+   taking a blue edge; the picture stays exactly as shot. */
+.hmx-post:hover .hmx-post-img img { transform: none; }
 
 .hmx-post-cat {
-  margin: 0 0 16px;
+  margin: 0 0 12px; padding: 0 26px;
   font-size: 11px; font-weight: 800; letter-spacing: 2px;
   text-transform: uppercase; color: var(--blue);
 }
 .hmx-post h3 {
-  margin: 0 0 12px;
+  margin: 0 0 12px; padding: 0 26px;
   font-size: 19px; line-height: 28px; font-weight: 700;
   color: var(--ink); letter-spacing: -.4px;
 }
 .hmx-post-x {
-  margin: 0 0 26px;
+  margin: 0 0 22px; padding: 0 26px;
   font-size: 15px; line-height: 25px; color: var(--muted);
   /* Two lines, then ellipsis. */
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.hmx-post .hmx-arrow { margin-top: auto; align-self: flex-start; }
+.hmx-post .hmx-arrow { margin-top: auto; margin-left: 26px; align-self: flex-start; }
 
 /* ═══════════ PROCESS — five steps ═══════════════════════════
    Built to the approved comp, which has a specific and slightly unusual
@@ -1768,7 +1803,7 @@
      no benefit, so the line is dropped and the pillars stack full-width
      with the kicker doing the numbering. */
   /* Two columns: a plain alternating pair is already a checkerboard. */
-  .hmx-post-img { margin: -26px -22px 18px; }
+  .hmx-post-img { margin: 0 0 18px; }
   .hmx-lw-page { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .hmx-lw-cell { min-height: 82px; padding: 12px 10px; }
   .hmx-lw-cell img { max-height: 54px; }
