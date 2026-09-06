@@ -291,7 +291,16 @@
    under the navbar. */
 .hmx-hero {
   position: relative;
-  padding: 104px 0 96px;
+  /* Desktop keeps real headroom -- zeroing this entirely pulled the
+     headline up under the fixed header and clipped its first line. The
+     original 104px was too much on top of the global
+     `main { padding-top: 120px }`, but 72px still let the kicker ride up
+     against the header on a laptop -- the real header is taller than the
+     bare nav. 112px clears it with room to
+     breathe and still returns ~32px against the old layout. Mobile is
+     tightened much further at the breakpoints below, where the header
+     is shorter and the wasted band was worst. */
+  padding: 112px 0 96px;
   overflow: hidden;
   isolation: isolate;
   /* The comp's ground: a cool near-white washing to the palest lavender
@@ -434,7 +443,10 @@
 /* The whole first line, not individual words. Weight matches the black
    line exactly -- with a full line coloured there is no optical
    correction needed, unlike single highlighted words inside black text. */
-.hmx-hl { color: var(--logo-blue); font-weight: 700; }
+/* Signature Blue, as asked -- this was --logo-blue (#1668F0), a deeper
+   blue that read as a different colour beside the Signature Blue used on
+   every button and accent on the page. */
+.hmx-hl { color: var(--color-signature-blue, #3E8CFB); font-weight: 700; }
 
 /* ── The lead ──
    Grey, the same slate as every other body paragraph on the page, so it
@@ -2400,9 +2412,9 @@
 @media (max-width: 1100px) {
   .hmx-sec { padding: 84px 0; }
   .hmx-head { margin-bottom: 52px; }
-  .hmx-hero { padding: 104px 0 56px; }
+  .hmx-hero { padding: 20px 0 56px; }
   /* Already one centred column — only the measure and blooms need easing. */
-  .hmx-hero { padding: 96px 0 80px; }
+  .hmx-hero { padding: 88px 0 80px; }
   .hmx-h1 { letter-spacing: -.02em; max-width: 34ch; }
   .hmx-hero-proof { margin-top: 56px; }
   .hmx-hero-proof li { padding: 28px 20px; gap: 16px; grid-template-columns: auto auto; }
@@ -2431,8 +2443,8 @@
 @media (max-width: 720px) {
   .hmx-wrap { padding: 0 20px; }
   .hmx-sec { padding: 62px 0; }
-  .hmx-hero { padding: 88px 0 44px; }
-  .hmx-hero { padding: 82px 0 60px; }
+  .hmx-hero { padding: 8px 0 44px; }
+  .hmx-hero { padding: 12px 0 60px; }
   .hmx-h1 { letter-spacing: -.01em; max-width: none; line-height: 1.14; }
   .hmx-hero-lead { font-size: 16.5px; line-height: 29px; }
   .hmx-hero-ctas { flex-direction: column; align-items: stretch; gap: 10px; }
@@ -2600,3 +2612,16 @@
   position: relative; z-index: 2;
 }
 */
+
+
+/* ── Homepage top offset ──────────────────────────────────────────
+   `main { padding-top: 120px }` is a global rule for the fixed header.
+   It is right for interior pages, but on a phone the header is shorter,
+   so 120px leaves a visible band of nothing above the hero. Scoped with
+   :has(.hmx) so only the homepage is affected. */
+@media (max-width: 900px) {
+  main:has(.hmx) { padding-top: 92px !important; }
+}
+@media (max-width: 560px) {
+  main:has(.hmx) { padding-top: 84px !important; }
+}

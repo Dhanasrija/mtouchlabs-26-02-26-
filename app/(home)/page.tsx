@@ -543,7 +543,12 @@ const logoPages = [
     /* RailCab's artwork is 204x157 -- nearly square, with a lot of
        internal padding. At the shared 78px ceiling it read about half
        the size of the wordmarks beside it, so it is flagged `big`. */
-    { src: "/images/home/tech/railcab.svg", alt: "RailCab", big: true },
+    /* railcab.svg was a 204x204 raster embedded in a pattern fill, and the
+       PNG inside it carried an opaque white plate -- which is why the mark
+       rendered as a box on the grey checkerboard cells, most visibly on a
+       phone. This is the same artwork with the plate flood-filled to
+       transparent and the empty margin trimmed off. */
+    { src: "/images/home/tech/railcab.webp", alt: "RailCab", big: true },
     { src: "/images/home/tech/l2r.webp", alt: "Learn2Read", big: true },
     { src: "/images/home/tech/medbuz.webp", alt: "Medbuzz", big: true },
     { src: "/images/home/tech/measurements.svg", alt: "Measurements", big: true },
@@ -1019,9 +1024,9 @@ export default async function HomePage() {
                 forbids gradient headings, and flat also stays selectable,
                 searchable, and legible if the webfont fails. */}
             <h1 className="hmx-h1 hmx-in" style={d(1)}>
-              <span className="hmx-hl">Custom Software, Mobile Apps &amp; AI</span>
+              Custom Software, Mobile App
               <br />
-              Built for Your Business
+              <span className="hmx-hl">&amp; AI Development</span>
             </h1>
 
             <p className="hmx-hero-lead hmx-in" style={d(2)}>
