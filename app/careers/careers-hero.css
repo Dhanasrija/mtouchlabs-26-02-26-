@@ -60,8 +60,7 @@
   left: 0;
   right: 0;
   height: 4px;
-  /* Flat Signature Blue -- no gradient. */
-  background: var(--color-signature-blue, #3E8CFB);
+  background: linear-gradient(90deg, #3E8CFB, #011D80);
 }
 
 .cr-resume-icon {
@@ -74,9 +73,8 @@
   justify-content: center;
   font-size: 25px;
   color: #FFFFFF;
-  /* Flat Signature Blue -- no gradient. */
-  background: var(--color-signature-blue, #3E8CFB);
-  box-shadow: 0 14px 30px -12px rgba(62, 140, 251, .5);
+  background: linear-gradient(135deg, #3E8CFB 0%, #011D80 100%);
+  box-shadow: 0 14px 30px -12px rgba(62, 140, 251, .7);
 }
 
 .cr-resume-heading {
@@ -105,24 +103,66 @@
   margin-bottom: 26px;
 }
 
+/* Submit Your Resume / Talk to Our Team -- one shared box so the pair is
+   the same length and shape, matching the hero actions on the homepage.
+   `min-width` rather than a fixed width so a longer label can still grow
+   instead of being clipped, and `box-sizing` is restated because legacy
+   sheets set content-box on `a`, which would add the padding on top of
+   the min-width and un-match the two again. */
 .cr-resume .cr-resume-btn-primary,
-/* White fill, Signature Blue border, INK label -- the same secondary
-   shape used in the hero, the closing CTA and on /services. It was blue
-   text on white, which made it compete with the primary; black text
-   settles the hierarchy. Hover goes to the light grey used across the
-   site, never a colour flip. */
+.cr-resume .cr-resume-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 30px;
+  min-width: 244px;
+  box-sizing: border-box;
+  border-radius: 999px;
+  font-family: var(--font-primary, 'Poppins', sans-serif);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  border: 1.5px solid transparent;
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease, border-color .25s ease;
+}
+
+/* FLAT Signature Blue. It was a #3E8CFB -> #011D80 gradient that
+   reversed direction on hover, which is a gradient on a control and
+   reads as a different colour entirely mid-interaction. */
+.cr-resume .cr-resume-btn-primary {
+  background: #3E8CFB;
+  background-image: none;
+  border-color: #3E8CFB;
+  color: #FFFFFF;
+  box-shadow: none;
+}
+.cr-resume .cr-resume-btn-primary:hover,
+.cr-resume .cr-resume-btn-primary:focus {
+  transform: translateY(-2px);
+  color: #FFFFFF;
+  background: #0B6CF6;
+  background-image: none;
+  border-color: #0B6CF6;
+}
+
+/* Secondary KEEPS its white plate on hover. It used to fill solid blue,
+   which turned the pair into two primaries the moment you pointed at
+   one of them. */
 .cr-resume .cr-resume-btn-secondary {
   background: #FFFFFF;
-  color: var(--color-carbon-black, #0D1117);
-  border-color: var(--color-signature-blue, #3E8CFB);
+  color: #101729;
+  border-color: #3E8CFB;
 }
-.cr-resume .cr-resume-btn-secondary i { color: var(--color-signature-blue, #3E8CFB); }
-.cr-resume .cr-resume-btn-secondary:hover {
+.cr-resume .cr-resume-btn-secondary:hover,
+.cr-resume .cr-resume-btn-secondary:focus {
   transform: translateY(-2px);
-  background: rgba(62, 140, 251, .08);
-  color: var(--color-carbon-black, #0D1117);
-  border-color: var(--color-signature-blue, #3E8CFB);
+  background: #FFFFFF;
+  color: #0B6CF6;
+  border-color: #0B6CF6;
 }
+.cr-resume .cr-resume-btn-secondary:hover i { color: #0B6CF6; }
 
 .cr-resume-note {
   font-family: var(--font-primary, 'Poppins', sans-serif);
@@ -136,8 +176,7 @@
   font-weight: 600;
   text-decoration: none;
 }
-/* Signature Blue on hover, not Heritage Navy -- one accent blue. */
-.cr-resume-note a:hover { color: var(--color-signature-blue, #3E8CFB); filter: brightness(.9); }
+.cr-resume-note a:hover { color: #011D80; }
 
 .cr-resume-loc {
   display: inline-flex;

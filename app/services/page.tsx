@@ -5,7 +5,7 @@ import FAQSchema from "@/components/seo/FAQSchema";
 import "./services-page.css";
 
 export const metadata: Metadata = {
-  title: "Software Development Services",
+  title: "Software Development Services | mTouch Labs",
   description:
     "Explore end-to-end software development services including AI, custom software, web, mobile, SaaS, enterprise, AWS, Salesforce, and cloud solutions.",
   keywords: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: "End-to-End Software Development Services",
+    title: "End-to-End Software Development Services | mTouch Labs",
     description:
       "Build, modernize, and scale digital products with mTouch Labs. Explore AI, custom software, web, mobile, SaaS, enterprise, AWS, Salesforce, and cloud services.",
     url: "https://www.mtouchlabs.com/services",
@@ -548,9 +548,16 @@ export default function ServicesPage() {
               </p>
 
               <div className="svcx-hero-ctas svcx-in" style={d(4)}>
-                <Link href="/contact-us" className="svcx-btn svcx-btn-primary">
+                {/* Short label, and it opens the shared Request Quote modal
+                    in place -- the same `js-open-modal` hook the navbar and
+                    homepage use. The href is the no-JS fallback. */}
+                <Link
+                  href="/contact-us"
+                  className="svcx-btn svcx-btn-primary js-open-modal"
+                  data-open-quote="1"
+                >
                   <i className="fa-solid fa-paper-plane" aria-hidden="true" />
-                  Let&apos;s Discuss Your Project
+                  Get Quote
                 </Link>
                 <Link href="/portfolio" className="svcx-btn svcx-btn-ghost">
                   View Our Work
@@ -846,7 +853,7 @@ export default function ServicesPage() {
               </p>
               <div className="svcx-cta-actions">
                 <Link href="/contact-us" className="svcx-btn svcx-btn-primary">
-                  Let&apos;s Discuss Your Project
+                  Talk to Our Team
                   <i className="fa-solid fa-arrow-right" aria-hidden="true" />
                 </Link>
                 <Link href="/portfolio" className="svcx-btn svcx-btn-ghost">

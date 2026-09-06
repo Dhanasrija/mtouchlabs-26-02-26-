@@ -285,7 +285,7 @@ export const CASE_STUDY_CSS = `
 .cs .cs-h1{
   font-size:clamp(1.85rem,4vw,2.75rem) !important;font-weight:800 !important;
   color:var(--s900) !important;letter-spacing:-.03em !important;line-height:1.2 !important;
-  margin-bottom:16px !important;max-width:820px !important;
+  margin:0 auto 16px !important;max-width:820px !important;
 }
 /* Flat black across the whole line -- no highlighted half, no gradient.
    The margin / padding / text-align resets matter as much as the colour:
@@ -295,21 +295,33 @@ export const CASE_STUDY_CSS = `
 .cs .cs-hero h1.cs-h1,.cs .cs-hero h1.cs-h1 *{
   color:var(--s900) !important;-webkit-text-fill-color:var(--s900) !important;
 }
+/* The hero is CENTRED, matching the homepage hero: breadcrumb, tags,
+   headline, lead, the two actions and the Industry / Solution / Role
+   meta strip all share one centre line rather than one left edge. The
+   'text-align' and 'text-indent' resets still matter -- a legacy h1 rule
+   was adding an indent -- they now resolve to centre instead of left. */
 .cs .cs-hero h1.cs-h1{
-  margin:0 0 16px !important;padding:0 !important;
-  text-align:left !important;text-indent:0 !important;
+  margin:0 auto 16px !important;padding:0 !important;
+  text-align:center !important;text-indent:0 !important;
 }
 .cs .cs-hero .cs-crumb,
 .cs .cs-hero .cs-tags,
 .cs .cs-hero .cs-lead,
 .cs .cs-hero .cs-acts,
 .cs .cs-hero .cs-meta{
-  margin-left:0 !important;padding-left:0 !important;text-align:left !important;
+  margin-left:auto !important;margin-right:auto !important;
+  padding-left:0 !important;text-align:center !important;
+  justify-content:center !important;
 }
+/* The meta strip is a grid of Industry / Solution / Role. Centring the
+   BOX alone would leave the three labels ragged inside it, so the cells
+   centre their own content too. */
+.cs .cs-hero .cs-meta{justify-items:center !important}
+.cs .cs-hero .cs-meta__item{align-items:center !important;text-align:center !important}
 .cs .cs-lead{
   font-size:1.08rem !important;line-height:1.7 !important;
   color:var(--s500) !important;
-  max-width:640px !important;margin-bottom:28px !important;
+  max-width:640px !important;margin:0 auto 28px !important;
 }
 .cs .cs-acts{display:flex !important;flex-wrap:wrap !important;gap:12px !important;margin-bottom:40px !important}
 
@@ -355,10 +367,15 @@ export const CASE_STUDY_CSS = `
 .cs a.cs-btn--secondary:visited{
   background:#fff !important;color:var(--s900) !important;border-color:var(--b600) !important;
 }
+/* Hover keeps the WHITE plate. It used to lighten to blue-50, which read
+   as the button filling with colour and made the pair look like two
+   primaries mid-interaction. Only the border and label deepen. */
 .cs a.cs-btn--secondary:hover,
 .cs a.cs-btn--secondary:focus,
 .cs a.cs-btn--secondary:active{
-  background:var(--b50) !important;color:var(--b800) !important;border-color:var(--b700) !important;
+  background:#FFFFFF !important;background-image:none !important;
+  color:var(--b700) !important;border-color:var(--b700) !important;
+  transform:translateY(-1px) !important;box-shadow:var(--sh-md) !important;
 }
 
 .cs a.cs-btn--white,.cs a.cs-btn--white:link,.cs a.cs-btn--white:visited{background:#fff !important;color:var(--b800) !important;border-color:#fff !important}
@@ -394,7 +411,22 @@ export const CASE_STUDY_CSS = `
 .cs .cs-sec--tight{padding:52px 0 !important;border-top:0 !important}
 /* The FAQ band, same as the homepage's .hmx-sec--stone. */
 .cs .cs-sec--stone{background:#F7F9FC !important;border-top:1px solid var(--s200) !important;border-bottom:1px solid var(--s200) !important}
-.cs .cs-head{margin-bottom:36px !important}
+/* Every section heading block -- eyebrow, H2 and the sentence under it
+   -- is centred. This is one rule rather than a '--center' modifier on
+   each section because the page has no section that wants a left-ragged
+   heading; the modifier below is kept only so existing markup that
+   already carries it still resolves the same way. */
+.cs .cs-head{
+  margin:0 auto 36px !important;text-align:center !important;max-width:830px !important;
+}
+.cs .cs-head .cs-eyebrow,
+.cs .cs-head .cs-h2,
+.cs .cs-head .cs-desc{text-align:center !important}
+.cs .cs-head .cs-desc{margin-left:auto !important;margin-right:auto !important}
+/* Inside a two-column block the heading centres within ITS column, which
+   is what keeps Business Challenges and Project Objectives balanced
+   against each other rather than both drifting to the page centre. */
+.cs .cs-2col .cs-head{max-width:none !important}
 .cs .cs-eyebrow{
   display:inline-block !important;font-size:.8rem !important;font-weight:700 !important;
   text-transform:uppercase !important;letter-spacing:.06em !important;
@@ -749,13 +781,70 @@ export const CASE_STUDY_CSS = `
 .cs .cs-qa__item[open] .cs-qa__a{animation:csQaOpen .32s ease both !important}
 @keyframes csQaOpen{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
 
-/* ═══ CTA — the page's one CTA, at the bottom ═══════════════════════ */
-.cs .cs-cta{
-  background:linear-gradient(135deg,var(--b700) 0%,var(--b900) 100%) !important;
-  color:#fff !important;padding:56px 0 !important;text-align:center !important;
+/* A prose block that is centred with its heading rather than left-ragged
+   under it -- used by "mTouch Labs' Role". */
+.cs .cs-prose--center,
+.cs .cs-prose--center p{
+  text-align:center !important;max-width:760px !important;
+  margin-left:auto !important;margin-right:auto !important;
 }
-.cs .cs-cta h2{font-size:clamp(1.4rem,3vw,1.75rem) !important;font-weight:700 !important;margin-bottom:12px !important;letter-spacing:-.02em !important;color:#fff !important}
-.cs .cs-cta p{font-size:1.05rem !important;color:rgba(255,255,255,.9) !important;max-width:520px !important;margin:0 auto 28px !important;line-height:1.6 !important}
+
+/* ═══ SECURITY & PERFORMANCE — the one fully centred section ════════
+   Asked for explicitly: heading AND list. The rows keep their blue dot
+   on the left of each item so the list still reads as a list, but the
+   block itself is centred in the page and each row's text is centred
+   with it. */
+.cs #security .cs-dots,
+.cs .cs-dots--center{
+  max-width:760px !important;margin-left:auto !important;margin-right:auto !important;
+}
+/* The BLOCK is centred in the page; the TEXT inside each row is not.
+   Centring the row text meant every bullet started at a different x and
+   the list lost its left edge entirely -- three items, three different
+   starting points. The rows keep their dot on the left and their copy
+   ranged from one shared line, which is what makes a list read as a
+   list. */
+.cs #security .cs-dots li,
+.cs .cs-dots--center li{justify-content:flex-start !important;text-align:left !important}
+.cs #security .cs-dots li > div,
+.cs .cs-dots--center li > div{text-align:left !important}
+.cs #security .cs-dots li > div > *,
+.cs .cs-dots--center li > div > *{text-align:left !important}
+
+/* ═══ CTA — the page's one CTA, at the bottom ═══════════════════════ */
+/* LIGHT, not the blue gradient it used to be.
+   The rule on this site: a CTA that sits directly above the FOOTER is
+   light, the way the homepage's closing CTA is; a CTA that sits above a
+   Q&A block goes dark, the way /services does. On both of these
+   templates the CTA is the last section before the footer, so it is
+   light. */
+.cs .cs-cta{
+  background:#FFFFFF !important;
+  border-top:1px solid var(--s200) !important;
+  color:var(--s900) !important;padding:64px 0 !important;text-align:center !important;
+}
+.cs .cs-cta h2{font-size:clamp(1.4rem,3vw,1.75rem) !important;font-weight:700 !important;margin-bottom:12px !important;letter-spacing:-.02em !important;color:var(--s900) !important}
+.cs .cs-cta p{font-size:1.05rem !important;color:var(--s500) !important;max-width:520px !important;margin:0 auto 28px !important;line-height:1.6 !important}
+/* The CTA is light now, so the buttons revert to the page's normal
+   primary / secondary pair -- the white-on-dark variants would vanish. */
+.cs .cs-cta a.cs-btn--white,
+.cs .cs-cta a.cs-btn--white:link,
+.cs .cs-cta a.cs-btn--white:visited{
+  background:var(--b600) !important;border-color:var(--b600) !important;color:#fff !important;
+}
+.cs .cs-cta a.cs-btn--white:hover,
+.cs .cs-cta a.cs-btn--white:focus{
+  background:var(--b700) !important;border-color:var(--b700) !important;color:#fff !important;
+}
+.cs .cs-cta a.cs-btn--ghost,
+.cs .cs-cta a.cs-btn--ghost:link,
+.cs .cs-cta a.cs-btn--ghost:visited{
+  background:#fff !important;border-color:var(--b600) !important;color:var(--s900) !important;
+}
+.cs .cs-cta a.cs-btn--ghost:hover,
+.cs .cs-cta a.cs-btn--ghost:focus{
+  background:var(--b50) !important;border-color:var(--b700) !important;color:var(--s900) !important;
+}
 .cs .cs-cta__btns{display:flex !important;flex-wrap:wrap !important;gap:14px !important;justify-content:center !important}
 
 /* ═══ INLINE LINKS IN BODY COPY ═════════════════════════════════════

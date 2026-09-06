@@ -333,8 +333,7 @@ export default function QualityEngineeringTestingPage() {
           </p>
           <div className="loc-ctaActions">
             <Link href="/contact-us" className="loc-ctaBtnPrimary">
-              Get a Free QA Consultation →
-            </Link>
+              Get a Free QA Consultation</Link>
             <Link href="/portfolio" className="loc-ctaBtnSecondary">
               Explore Our Work
             </Link>

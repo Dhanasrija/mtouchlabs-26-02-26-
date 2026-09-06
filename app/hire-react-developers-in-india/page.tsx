@@ -832,16 +832,14 @@ export default function HireReactDevelopersInIndia() {
           </p>
           <div className="hma-ctaBtns">
             <Link href="/contact-us" className="hma-ctaPrimary">
-              Contact Us Today →
-            </Link>
+              Contact Us Today</Link>
             <a
               href="https://wa.me/message/H5VADFWLMPYIM1"
               target="_blank"
               rel="noopener noreferrer"
               className="hma-ctaWa"
             >
-              WhatsApp →
-            </a>
+              WhatsApp</a>
           </div>
         </div>
       </section>
