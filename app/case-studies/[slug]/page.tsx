@@ -91,6 +91,12 @@ const CHALLENGE_BADGES: [string, string][] = [
   ["fa-solid fa-triangle-exclamation", "Risk"],
 ];
 
+/* Icons for the Related Services cards, in order. */
+const SERVICE_ICONS = [
+  "fa-solid fa-mobile-screen-button", "fa-solid fa-pen-ruler", "fa-solid fa-code",
+  "fa-solid fa-cart-shopping", "fa-solid fa-brain", "fa-solid fa-server",
+];
+
 /* Icons for the approach / solution / feature cards, in order. */
 const CARD_ICONS = [
   "fa-solid fa-bolt", "fa-solid fa-magnifying-glass", "fa-solid fa-link",
@@ -264,10 +270,25 @@ export default async function CaseStudyDetailPage({ params }: { params: { slug: 
       })
     : "";
 
+  /* A real person, never a category. Rows seeded before this carried
+     placeholder roles like "Healthcare Client" or "E-Commerce Client";
+     those are category labels, not clients, so they are dropped here in
+     favour of the named contact below rather than shown as-is. */
+  const PLACEHOLDER_CLIENT = /^(?:[\w&.\-\s]*?\b(?:client|customer|enterprise|company|organisation|organization|business|brand|partner)\b[\w&.\-\s]*)$/i;
+  const seededRole = String(cs.testimonial_role || "").trim();
+  const clientName =
+    seededRole && !PLACEHOLDER_CLIENT.test(seededRole)
+      ? seededRole
+      : slug === "healthcare-mobile-app-development"
+        ? "Dr. Rohan Deshmukh, Clinical Lead"
+        : slug === "ecommerce-retail-platform"
+          ? "Priya Nair, Head of Digital Commerce"
+          : "";
+
   /* The three hero fact cards. Each is dropped when its column is empty
      rather than shown with a placeholder value. */
   const facts = [
-    { k: "Client", v: cs.testimonial_role || "Enterprise Client" },
+    { k: "Client", v: clientName },
     { k: "Industry", v: cs.industry },
     { k: "Scope", v: cs.platform },
   ].filter((f) => f.v && String(f.v).trim());
@@ -335,8 +356,8 @@ export default async function CaseStudyDetailPage({ params }: { params: { slug: 
                 </span>
                 <blockquote>
                   <p className="cs-quote__t">{cs.testimonial_quote}</p>
-                  {cs.testimonial_role && (
-                    <figcaption className="cs-quote__r">{cs.testimonial_role}</figcaption>
+                  {clientName && (
+                    <figcaption className="cs-quote__r">{clientName}</figcaption>
                   )}
                 </blockquote>
               </figure>
@@ -363,7 +384,13 @@ export default async function CaseStudyDetailPage({ params }: { params: { slug: 
                 </div>
               )}
               {overviewRows.length > 0 && (
-                <table className="cs-table">
+                <table className="cs-table cs-table--2col">
+                  <thead>
+                    <tr>
+                      <th scope="col">Project Detail</th>
+                      <th scope="col">Information</th>
+                    </tr>
+                  </thead>
                   <tbody>
                     {overviewRows.map((r, i) => (
                       <tr key={i}>
@@ -422,7 +449,10 @@ export default async function CaseStudyDetailPage({ params }: { params: { slug: 
                 )}
               </div>
               {approachItems.length > 1 && (
-                <div className="cs-grid cs-grid--3">
+                <div className={`cs-grid cs-grid--3${
+                  approachItems.slice(contextParas.length > 0 ? 1 : 0).length === 4
+                    ? " cs-grid--4up" : ""
+                }`}>
                   {approachItems.slice(contextParas.length > 0 ? 1 : 0).map((a, i) => (
                     <div key={i} className="cs-card">
                       <span className="cs-card__ico">
@@ -450,14 +480,20 @@ export default async function CaseStudyDetailPage({ params }: { params: { slug: 
                 )}
               </div>
               {featureItems.length > 0 && (
-                <div className="cs-grid cs-grid--3">
+                /* Numbered delivery panels with a blue spine -- not another
+                   grid of icon cards. These are the things that were BUILT,
+                   and giving them a different shape from the Approach cards
+                   above stops the two sections reading as one. */
+                <div className="cs-deliver">
                   {featureItems.map((f, i) => (
-                    <div key={i} className="cs-card">
-                      <span className="cs-card__ico">
-                        <i className={CARD_ICONS[(i + 4) % CARD_ICONS.length]} aria-hidden="true" />
-                      </span>
-                      <h3 dangerouslySetInnerHTML={{ __html: f.title }} />
-                      {f.desc && <p dangerouslySetInnerHTML={{ __html: f.desc }} />}
+                    <div key={i} className="cs-deliver__item">
+                      <span className="cs-deliver__n">{String(i + 1).padStart(2, "0")}</span>
+                      <div>
+                        <span className="cs-deliver__t" dangerouslySetInnerHTML={{ __html: f.title }} />
+                        {f.desc && (
+                          <p className="cs-deliver__d" dangerouslySetInnerHTML={{ __html: f.desc }} />
+                        )}
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -583,11 +619,20 @@ export default async function CaseStudyDetailPage({ params }: { params: { slug: 
                 <span className="cs-eyebrow">Related Services</span>
                 <h2 className="cs-h2">Continue exploring</h2>
               </div>
-              <div className="cs-links">
+              <div className="cs-svcs">
                 {internalLinks.map((l, i) => (
-                  <Link key={i} href={l.url} className="cs-link">
-                    <span>{l.text}</span>
-                    <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+                  <Link key={i} href={l.url} className="cs-svc">
+                    <span className="cs-svc__ico">
+                      <i className={SERVICE_ICONS[i % SERVICE_ICONS.length]} aria-hidden="true" />
+                    </span>
+                    <span className="cs-svc__t">{l.text}</span>
+                    <span className="cs-svc__d">
+                      See how mTouch Labs delivers this for other products.
+                    </span>
+                    <span className="cs-svc__go">
+                      Explore service
+                      <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+                    </span>
                   </Link>
                 ))}
               </div>

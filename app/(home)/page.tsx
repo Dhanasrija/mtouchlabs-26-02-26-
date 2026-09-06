@@ -235,7 +235,12 @@ const buildSteps = [
 const stats = [
   { img: "/images/hero-new-work/stat1.webp", imgAlt: "", n: FACTS.experience, k: "Years" },
   { img: "/images/hero-new-work/stat2.webp", imgAlt: "", n: FACTS.projects, k: "Projects" },
-  { img: "/images/hero-new-work/stat3.webp", imgAlt: "ISO 9001 and ISO 27001 certified", n: "ISO 9001 + 27001", k: "Certified" },
+  /* Just "ISO Certified". The standard numbers were doing nothing for a
+     visitor scanning a four-item proof band -- they made this tile twice
+     the width of its neighbours and read as a part number. The specific
+     certifications are still stated in full in FACTS and in the
+     Quality & Security Standards card further down the page. */
+  { img: "/images/hero-new-work/stat3.webp", imgAlt: "ISO certified", n: "ISO", k: "Certified" },
   { img: "/images/hero-new-work/stat4.webp", imgAlt: "NASSCOM SME Inspire Awards 2026", n: "NASSCOM SME", k: "Inspire 2026" },
 ];
 
@@ -357,32 +362,32 @@ const caseStudies = [
   },
   {
     n: "02",
-    title: "AI-Powered Product",
-    tag: "Public Sector · Intelligent Mobile Product",
-    headline: "Intelligent capability added without complicating the experience",
-    img: "/images/portfolio/ADJD-APP.webp",
-    imgAlt: "Abu Dhabi Judicial Department mobile application built by mTouch Labs",
+    title: "AI-Powered E-Commerce Platform",
+    tag: "E-Commerce & Retail · Headless Commerce",
+    headline: "A legacy storefront rebuilt for speed, search and personalization",
+    img: "/images/portfolio/ecommerce-platform.webp",
+    imgAlt: "AI-powered e-commerce platform built by mTouch Labs",
     challenge:
-      "The business wanted to introduce intelligent capabilities into its digital product while maintaining a simple experience for its users.",
+      "An established retailer with a 50,000+ SKU catalogue was losing customers to 6.2-second mobile page loads, a 78% cart abandonment rate, and inventory updates that took up to 24 hours to reach the storefront.",
     solution:
-      "mTouch Labs integrated AI capabilities into the product workflow, combining automation, intelligent interactions, and application-level functionality within a scalable architecture.",
+      "mTouch Labs rebuilt the storefront on a headless architecture — a Next.js front end over a Node.js commerce API — and added AI product recommendations, advanced search, real-time inventory synchronization and a one-page checkout.",
     result:
-      "A smarter digital experience designed to reduce manual effort and create more efficient user and business workflows.",
+      "Conversion rose from 1.2% to 3.7%, mobile load fell from 6.2s to 0.9s, cart abandonment dropped to 51%, and AI recommendations drove 24% of GMV within 30 days.",
     link: "/case-studies/ecommerce-retail-platform",
   },
   {
     n: "03",
-    title: "Mobile & Web Platform",
-    tag: "Retail · Multi-Vendor Marketplace",
-    headline: "One synchronized platform across mobile and web",
-    img: "/images/portfolio/khidkee.webp",
-    imgAlt: "Khidkee multi-vendor e-commerce mobile and web platform built by mTouch Labs",
+    title: "Healthcare Mobile Application",
+    tag: "Healthcare · iOS & Android",
+    headline: "Appointments, records and doctor contact in one app",
+    img: "/images/portfolio/healthcare-app.webp",
+    imgAlt: "Healthcare mobile application built by mTouch Labs",
     challenge:
-      "A business needed connected mobile and web experiences that could support users across different touchpoints while keeping information and workflows synchronized.",
+      "Patients had to move between separate processes to book an appointment, find their health information, and reach a doctor — every routine task meant starting somewhere new.",
     solution:
-      "Our team developed a coordinated mobile and web platform with responsive interfaces, backend services, APIs, and integrations designed around the client's operational requirements.",
+      "mTouch Labs built a cross-platform application in Flutter, with Node.js and Firebase behind it, bringing appointment booking, patient information, doctor communication and reminders into one place on iOS and Android.",
     result:
-      "A unified digital experience that improved accessibility and provided a scalable foundation for ongoing product development.",
+      "Routine healthcare interactions moved into a single mobile journey, cutting manual coordination for the care team and giving the organization a foundation to extend.",
     link: "/case-studies/healthcare-mobile-app-development",
   },
 ];

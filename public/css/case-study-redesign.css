@@ -7,16 +7,36 @@
    prefixed `.cs` to out-rank them and every declaration carries !important
    to win the tie. Blunt, but bundle.css cannot be edited from here.
 
-   Tokens are taken from the reference: blue-600 #2563eb accents, slate
+   Tokens are anchored on mTouch Signature Blue #3E8CFB (--color-signature-blue
+   in brand.css). The earlier ramp was sampled off a reference screenshot
+   and landed on #3762E3, an indigo that read as purple beside the rest of
+   the site. Every blue below is now a tint or shade of Signature Blue, with
+   Heritage Navy #011D80 as the darkest step. Slate
    text, white cards on a slate-50 ground, 12/16px radii, hairline rules
    between sections and alternating white bands.
    ═══════════════════════════════════════════════════════════════════ */
 
 .cs {
-  --b50:#eff6ff;--b100:#dbeafe;--b200:#bfdbfe;--b300:#93c5fd;
-  --b500:#3b82f6;--b600:#2563eb;--b700:#1d4ed8;--b800:#1e40af;--b900:#1e3a8a;
-  --s50:#f8fafc;--s100:#f1f5f9;--s200:#e2e8f0;--s300:#cbd5e1;--s400:#94a3b8;
-  --s500:#64748b;--s600:#475569;--s700:#334155;--s800:#1e293b;--s900:#0f172a;
+  /* Signature Blue (#3E8CFB, the same --color-signature-blue the rest of
+     the site uses) and a ramp built around it. Every blue on these pages
+     resolves through these tokens, so the whole design moves by editing
+     this one block. */
+  /* Sampled straight off the reference screenshots, not guessed:
+       #3E8CFB  the blue -- eyebrows, stat figures, KPI figures, icons
+       #0B6CF6  the darker blue used for badge-pill text
+       #EEF5FF  the pale blue behind badges and icon tiles
+       #101729  headings
+       #4A5567  body copy
+       #E3E8EF  card borders
+       #F9FAFC  the grey section band
+       #0754C2 -> #3E8CFB  the Key Takeaway gradient (Signature Blue)
+     Everything on these pages resolves through these tokens. */
+  --b50:#EEF5FF;--b100:#DAE9FE;--b200:#B7D4FD;--b300:#8FBCFD;
+  --b500:#62A1FC;--b600:#3E8CFB;--b700:#0B6CF6;--b800:#0754C2;--b900:#011D80;
+
+  --s50:#F9FAFC;--s100:#F1F3F7;--s200:#E3E8EF;--s300:#CBD3E1;--s400:#98A2B3;
+  --s500:#697586;--s600:#4A5567;--s700:#364152;--s800:#202939;--s900:#101729;
+
   --r:12px;--rlg:16px;
   --sh-sm:0 1px 2px 0 rgb(0 0 0/.05);
   --sh:0 4px 6px -1px rgb(0 0 0/.07),0 2px 4px -2px rgb(0 0 0/.05);
@@ -47,27 +67,72 @@
   gap:8px !important;font-size:.85rem !important;color:var(--s500) !important;
   margin-bottom:28px !important;
 }
-.cs .cs-crumb a{color:var(--s400) !important;transition:color .18s ease !important}
-.cs .cs-crumb a:hover,.cs .cs-crumb a:focus-visible{color:var(--b600) !important}
-.cs .cs-crumb > span{color:var(--s300) !important}
+/* Breadcrumb links.
+   These were coming out gold on hover: bundle.css colours anchors with a
+   rule more specific than '.cs .cs-crumb a', and !important alone does
+   not settle a tie that the other rule wins on specificity. So every
+   state is pinned here at (0,4,1) with the attribute selector, and
+   :link / :visited / :hover / :focus / :active are ALL named -- a legacy
+   sheet that styles only a:hover would otherwise still take the hover. */
+.cs .cs-hero .cs-crumb a[href],
+.cs .cs-hero .cs-crumb a[href]:link,
+.cs .cs-hero .cs-crumb a[href]:visited{
+  color:var(--s400) !important;
+  transition:color .18s ease !important;
+  text-decoration:none !important;
+}
+.cs .cs-hero .cs-crumb a[href]:hover,
+.cs .cs-hero .cs-crumb a[href]:focus,
+.cs .cs-hero .cs-crumb a[href]:focus-visible,
+.cs .cs-hero .cs-crumb a[href]:active{
+  color:var(--b600) !important;
+}
+.cs .cs-hero .cs-crumb > span{color:var(--s300) !important}
 /* The current page is not a link, so it stays grey and never turns blue. */
-.cs .cs-crumb__now{color:var(--s500) !important}
+.cs .cs-hero .cs-crumb .cs-crumb__now{color:var(--s500) !important}
 
 .cs .cs-tags{display:flex !important;flex-wrap:wrap !important;gap:8px !important;margin-bottom:16px !important}
-.cs .cs-tag{
+/* A legacy sheet puts a gold border on these on hover. Every state is
+   pinned -- including the resting border, so there is no width shift when
+   the hover border appears. */
+.cs .cs-hero .cs-tags .cs-tag,
+.cs .cs-hero .cs-tags .cs-tag:hover,
+.cs .cs-hero .cs-tags .cs-tag:focus{
   display:inline-flex !important;align-items:center !important;padding:5px 12px !important;
   font-size:.75rem !important;font-weight:600 !important;letter-spacing:.02em !important;
   text-transform:uppercase !important;border-radius:999px !important;
   background:var(--b100) !important;color:var(--b700) !important;
+  border:1.5px solid transparent !important;
+  transition:border-color .2s ease,background .2s ease !important;
+}
+.cs .cs-hero .cs-tags .cs-tag:hover,
+.cs .cs-hero .cs-tags .cs-tag:focus{
+  border-color:var(--b600) !important;background:var(--b50) !important;
 }
 .cs .cs-h1{
   font-size:clamp(1.85rem,4vw,2.75rem) !important;font-weight:800 !important;
   color:var(--s900) !important;letter-spacing:-.03em !important;line-height:1.2 !important;
   margin-bottom:16px !important;max-width:820px !important;
 }
-/* The headline is flat black across the whole line -- no highlighted
-   half, no gradient. */
-.cs .cs-h1,.cs .cs-h1 *{color:var(--s900) !important;-webkit-text-fill-color:var(--s900) !important}
+/* Flat black across the whole line -- no highlighted half, no gradient.
+   The margin / padding / text-align resets matter as much as the colour:
+   a legacy h1 rule was giving this an indent and a centred alignment, so
+   the headline started further right than the lead paragraph under it.
+   Everything in the hero now shares one left edge. */
+.cs .cs-hero h1.cs-h1,.cs .cs-hero h1.cs-h1 *{
+  color:var(--s900) !important;-webkit-text-fill-color:var(--s900) !important;
+}
+.cs .cs-hero h1.cs-h1{
+  margin:0 0 16px !important;padding:0 !important;
+  text-align:left !important;text-indent:0 !important;
+}
+.cs .cs-hero .cs-crumb,
+.cs .cs-hero .cs-tags,
+.cs .cs-hero .cs-lead,
+.cs .cs-hero .cs-acts,
+.cs .cs-hero .cs-meta{
+  margin-left:0 !important;padding-left:0 !important;text-align:left !important;
+}
 .cs .cs-lead{
   font-size:1.08rem !important;line-height:1.7 !important;
   color:var(--s500) !important;
@@ -76,38 +141,75 @@
 .cs .cs-acts{display:flex !important;flex-wrap:wrap !important;gap:12px !important;margin-bottom:40px !important}
 
 /* Buttons. Both hero actions share a min-width so they render equal. */
-.cs .cs-btn{
+/* Same shape as the buttons everywhere else on the site: 10px radius,
+   17px/32px padding, 16px label, and one shared min-width so the pair
+   renders exactly equal whatever the labels say. box-sizing is restated
+   because legacy sheets set content-box on `a`, which would add the 32px
+   padding on top of min-width and un-match them again. */
+.cs .cs-btn,.cs a.cs-btn{
   display:inline-flex !important;align-items:center !important;justify-content:center !important;
-  gap:8px !important;padding:12px 24px !important;min-width:190px !important;
-  font-size:.92rem !important;font-weight:600 !important;border-radius:8px !important;
-  transition:background .2s ease,color .2s ease,border-color .2s ease,transform .2s ease,box-shadow .2s ease !important;
+  gap:10px !important;padding:17px 32px !important;min-width:236px !important;
+  box-sizing:border-box !important;
+  font-size:16px !important;font-weight:600 !important;line-height:1.2 !important;
+  /* Pill, not a rectangle -- the same 999px the buttons use on every
+     other page. */
+  border-radius:999px !important;text-decoration:none !important;
+  border:1.5px solid transparent !important;white-space:nowrap !important;
+  transition:background .24s ease,color .24s ease,border-color .24s ease,transform .24s ease,box-shadow .24s ease !important;
 }
-.cs .cs-btn--solid{background:var(--b600) !important;color:#fff !important;border:1.5px solid var(--b600) !important}
-.cs .cs-btn--solid:hover{background:var(--b700) !important;border-color:var(--b700) !important;color:#fff !important;transform:translateY(-1px) !important;box-shadow:var(--sh-md) !important}
-/* Secondary lightens on hover — it never goes dark or grey. */
-/* House secondary: white fill, Signature Blue border, ink label.
-   Hover lightens to blue-50 -- it never goes dark or grey. */
-.cs .cs-btn--line{background:#fff !important;color:var(--s900) !important;border:1.5px solid var(--b600) !important}
-.cs .cs-btn--line:hover{background:var(--b50) !important;border-color:var(--b700) !important;color:var(--b800) !important}
-.cs .cs-btn--white{background:#fff !important;color:var(--b800) !important;border:1.5px solid #fff !important}
-.cs .cs-btn--white:hover{background:var(--b50) !important;color:var(--b900) !important;transform:translateY(-1px) !important}
-.cs .cs-btn--ghost{background:transparent !important;color:#fff !important;border:1.5px solid rgba(255,255,255,.55) !important}
-.cs .cs-btn--ghost:hover{background:rgba(255,255,255,.14) !important;border-color:#fff !important;color:#fff !important}
+.cs .cs-btn__ar{flex-shrink:0 !important;transition:transform .24s ease !important}
+.cs a.cs-btn:hover .cs-btn__ar{transform:translate(2px,-2px) !important}
+
+/* PRIMARY -- flat Signature Blue, white label. Every state is pinned so a
+   legacy `a:hover` cannot repaint the label gold or the plate grey. */
+.cs a.cs-btn--primary,
+.cs a.cs-btn--primary:link,
+.cs a.cs-btn--primary:visited{
+  background:var(--b600) !important;color:#fff !important;border-color:var(--b600) !important;
+}
+.cs a.cs-btn--primary:hover,
+.cs a.cs-btn--primary:focus,
+.cs a.cs-btn--primary:active{
+  background:var(--b700) !important;color:#fff !important;border-color:var(--b700) !important;
+  transform:translateY(-1px) !important;box-shadow:var(--sh-md) !important;
+}
+.cs a.cs-btn--primary .cs-btn__ar{color:#fff !important}
+
+/* SECONDARY -- white plate, Signature Blue border, ink label.
+   Hover lightens to blue-50; it never goes dark or grey. */
+.cs a.cs-btn--secondary,
+.cs a.cs-btn--secondary:link,
+.cs a.cs-btn--secondary:visited{
+  background:#fff !important;color:var(--s900) !important;border-color:var(--b600) !important;
+}
+.cs a.cs-btn--secondary:hover,
+.cs a.cs-btn--secondary:focus,
+.cs a.cs-btn--secondary:active{
+  background:var(--b50) !important;color:var(--b800) !important;border-color:var(--b700) !important;
+}
+
+.cs a.cs-btn--white,.cs a.cs-btn--white:link,.cs a.cs-btn--white:visited{background:#fff !important;color:var(--b800) !important;border-color:#fff !important}
+.cs a.cs-btn--white:hover,.cs a.cs-btn--white:focus{background:var(--b50) !important;color:var(--b900) !important;transform:translateY(-1px) !important}
+.cs a.cs-btn--ghost,.cs a.cs-btn--ghost:link,.cs a.cs-btn--ghost:visited{background:transparent !important;color:#fff !important;border-color:rgba(255,255,255,.55) !important}
+.cs a.cs-btn--ghost:hover,.cs a.cs-btn--ghost:focus{background:rgba(255,255,255,.14) !important;border-color:#fff !important;color:#fff !important}
 
 .cs .cs-meta{
-  display:grid !important;grid-template-columns:repeat(auto-fit,minmax(160px,1fr)) !important;
-  gap:18px !important;padding:24px !important;background:#fff !important;
+  display:grid !important;grid-template-columns:repeat(auto-fit,minmax(170px,1fr)) !important;
+  gap:22px 28px !important;
+  /* 34px of side padding: the first cell was starting hard against the
+     card's own border, so "Industry" read as clipped. */
+  padding:26px 34px !important;background:#fff !important;
   border:1px solid var(--s200) !important;border-radius:var(--rlg) !important;
-  box-shadow:var(--sh-sm) !important;max-width:860px !important;
+  box-shadow:var(--sh-sm) !important;max-width:880px !important;
 }
-.cs .cs-meta__item{display:flex !important;flex-direction:column !important;gap:4px !important}
+.cs .cs-meta__item{display:flex !important;flex-direction:column !important;gap:5px !important;min-width:0 !important}
 .cs .cs-meta__k{font-size:.75rem !important;font-weight:600 !important;text-transform:uppercase !important;letter-spacing:.04em !important;color:var(--s500) !important}
+/* One line, and nothing clipped. The old -webkit-line-clamp cropped
+   descenders and needed overflow:hidden, which is what cut the first
+   label. Values are short keywords now, so nowrap is enough. */
 .cs .cs-meta__v{
   font-size:.95rem !important;font-weight:600 !important;color:var(--s800) !important;
-  /* Hard one-line cap. Long values are trimmed server-side too, but this
-     guarantees the four cells stay the same height whatever is entered. */
-  display:-webkit-box !important;-webkit-line-clamp:1 !important;
-  -webkit-box-orient:vertical !important;overflow:hidden !important;
+  white-space:nowrap !important;overflow:visible !important;
 }
 
 /* ═══ SECTIONS ══════════════════════════════════════════════════════
@@ -115,6 +217,10 @@
    are full-bleed because .cs-sec is full width with .cs-wrap inside. */
 .cs .cs-sec{padding:64px 0 !important;border-top:1px solid var(--s200) !important;background:transparent !important}
 .cs .cs-sec--white{background:#fff !important}
+/* A band that holds one panel needs less air than a full section. */
+.cs .cs-sec--tight{padding:52px 0 !important;border-top:0 !important}
+/* The FAQ band, same as the homepage's .hmx-sec--stone. */
+.cs .cs-sec--stone{background:#F7F9FC !important;border-top:1px solid var(--s200) !important;border-bottom:1px solid var(--s200) !important}
 .cs .cs-head{margin-bottom:36px !important}
 .cs .cs-eyebrow{
   display:inline-block !important;font-size:.8rem !important;font-weight:700 !important;
@@ -137,6 +243,9 @@
 .cs .cs-2col > *{min-width:0 !important}
 
 .cs .cs-prose p{font-size:1rem !important;line-height:1.75 !important;color:var(--s600) !important;margin-bottom:16px !important}
+/* The opening paragraph carries the section, so it is set a little
+   larger than the body that follows it. */
+.cs .cs-prose .cs-prose__lead{font-size:1.05rem !important;color:var(--s600) !important}
 .cs .cs-prose p:last-child{margin-bottom:0 !important}
 .cs .cs-prose strong{color:var(--s900) !important;font-weight:700 !important}
 .cs .cs-prose--single{font-size:1rem !important;line-height:1.75 !important;color:var(--s600) !important;max-width:760px !important}
@@ -149,7 +258,9 @@
 .cs .cs-note h3{font-size:1.1rem !important;font-weight:700 !important;color:var(--b900) !important;margin-bottom:12px !important}
 .cs .cs-note p{color:var(--s700) !important;line-height:1.7 !important;margin-bottom:12px !important}
 .cs .cs-note p:last-child{margin-bottom:0 !important}
-.cs .cs-2col > .cs-note{height:100% !important;margin:0 !important}
+/* In the About block the card is the right-hand column: it starts level
+   with the eyebrow and runs to its own content height. */
+.cs .cs-2col > .cs-note{margin:0 !important;align-self:start !important}
 .cs .cs-note--wide{margin-top:32px !important;height:auto !important}
 .cs .cs-note--plain h3{display:none !important}
 
@@ -178,6 +289,30 @@
 .cs .cs-table td{font-size:.95rem !important;font-weight:500 !important;color:var(--s800) !important}
 .cs .cs-table tr:last-child th,.cs .cs-table tr:last-child td{border-bottom:0 !important}
 .cs .cs-table a{color:var(--b600) !important;font-weight:600 !important}
+
+/* --- Two-column snapshot table -------------------------------------
+   The rows were already <th>/<td> pairs, but with no header row and no
+   vertical rule the block read as a styled definition list. A real
+   header row, a divider between the columns and zebra striping make
+   the two columns unmistakable. */
+.cs .cs-table--2col thead th{
+  background:var(--b600) !important;color:#fff !important;
+  font-size:.78rem !important;font-weight:700 !important;
+  text-transform:uppercase !important;letter-spacing:.06em !important;
+  padding:14px 24px !important;border-bottom:0 !important;width:auto !important;
+}
+.cs .cs-table--2col thead th:first-child{width:38% !important}
+.cs .cs-table--2col thead th + th{border-left:1px solid rgba(255,255,255,.22) !important}
+.cs .cs-table--2col tbody th{
+  background:var(--s50) !important;color:var(--s600) !important;
+  text-transform:none !important;letter-spacing:0 !important;
+  font-size:.9rem !important;font-weight:600 !important;
+}
+.cs .cs-table--2col tbody td{border-left:1px solid var(--s200) !important}
+.cs .cs-table--2col tbody tr:nth-child(even) th{background:#fff !important}
+.cs .cs-table--2col tbody tr:nth-child(even) td{background:var(--s50) !important}
+.cs .cs-table--2col tbody tr:last-child th,
+.cs .cs-table--2col tbody tr:last-child td{border-bottom:0 !important}
 
 /* ═══ CHECK LISTS (challenges / objectives / security) ══════════════ */
 .cs .cs-checks{display:flex !important;flex-direction:column !important;gap:16px !important}
@@ -224,6 +359,9 @@
   width:6px !important;height:6px !important;border-radius:50% !important;background:var(--b600) !important;
 }
 .cs .cs-dots strong{display:block !important;font-size:.95rem !important;color:var(--s900) !important;margin-bottom:4px !important;font-weight:700 !important}
+/* `--plain` is the same row with no marker: the dot element is not
+   rendered, so the text starts at the card's own padding. */
+.cs .cs-dots--plain li{gap:0 !important}
 .cs .cs-dots span{display:block !important;font-size:.9rem !important;color:var(--s600) !important;line-height:1.55 !important}
 
 /* ═══ CARD GRIDS ════════════════════════════════════════════════════ */
@@ -241,12 +379,19 @@
   border-radius:var(--rlg) !important;padding:28px !important;box-shadow:var(--sh-sm) !important;
   transition:border-color .2s ease,box-shadow .2s ease !important;
 }
-.cs .cs-card:hover{border-color:var(--b200) !important;box-shadow:var(--sh) !important}
+.cs .cs-card:hover{
+  border-color:var(--b600) !important;
+  background:#fff !important;background-image:none !important;
+  box-shadow:var(--sh) !important;
+}
 /* Reference draws these with the same white card treatment as the rest:
    a bold black lead line, then grey body copy. */
 .cs .cs-card--flat{box-shadow:var(--sh-sm) !important;padding:26px 28px !important}
 .cs .cs-card--flat h3{font-size:1.05rem !important;font-weight:700 !important;color:var(--s900) !important;margin-bottom:8px !important}
 .cs .cs-card--flat p{font-size:.94rem !important;color:var(--s600) !important;line-height:1.65 !important}
+/* A card with no heading is a single sentence: it stays grey body copy
+   and is never promoted to bold black. */
+.cs .cs-card--flat > p:only-child{font-size:.98rem !important;color:var(--s600) !important}
 .cs .cs-card__ico{
   width:44px !important;height:44px !important;border-radius:10px !important;
   background:var(--b50) !important;display:flex !important;align-items:center !important;
@@ -261,13 +406,21 @@
   border-radius:var(--r) !important;padding:24px 20px !important;text-align:center !important;
   transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease !important;
 }
-.cs .cs-tech:hover{border-color:var(--b300) !important;box-shadow:var(--sh) !important;transform:translateY(-2px) !important}
-.cs .cs-tech__mark{
-  width:52px !important;height:52px !important;margin:0 auto 14px !important;border-radius:12px !important;
-  background:var(--b50) !important;display:flex !important;align-items:center !important;
-  justify-content:center !important;font-weight:700 !important;font-size:.8rem !important;
-  color:var(--b700) !important;overflow:hidden !important;padding:0 4px !important;
+.cs .cs-tech:hover{
+  border-color:var(--b600) !important;
+  background:#fff !important;background-image:none !important;
+  box-shadow:var(--sh) !important;transform:translateY(-2px) !important;
 }
+/* Holds a real icon now, not a truncated word. */
+.cs .cs-tech__mark{
+  width:56px !important;height:56px !important;margin:0 auto 14px !important;border-radius:14px !important;
+  background:var(--b50) !important;display:flex !important;align-items:center !important;
+  justify-content:center !important;
+}
+/* Colour on the <i> itself, not inherited: legacy sheets colour `i`
+   directly, and a declaration on the child always beats an inherited
+   value from the parent however specific that parent selector is. */
+.cs .cs-tech__mark i{font-size:24px !important;line-height:1 !important;color:var(--b600) !important}
 .cs .cs-tech h4{font-size:1rem !important;font-weight:700 !important;color:var(--s900) !important;margin-bottom:6px !important}
 .cs .cs-tech p{font-size:.85rem !important;color:var(--s500) !important;line-height:1.5 !important}
 
@@ -299,8 +452,9 @@
    Real artwork from the row's web_screens / app_screens. The reference
    design drew grey placeholder boxes only because it was a static file
    with no data behind it; the card chrome is what it contributes. */
-.cs .cs-shots{display:grid !important;gap:20px !important}
-.cs .cs-shots--web{grid-template-columns:repeat(auto-fit,minmax(240px,1fr)) !important}
+.cs .cs-shots{display:grid !important;gap:24px !important}
+/* Two across, not four: at 240px the screenshots were thumbnails. */
+.cs .cs-shots--web{grid-template-columns:repeat(auto-fit,minmax(440px,1fr)) !important}
 .cs .cs-shots--app{grid-template-columns:repeat(auto-fit,minmax(180px,1fr)) !important}
 .cs .cs-shot{
   margin:0 !important;background:#fff !important;border:1px solid var(--s200) !important;
@@ -308,7 +462,29 @@
   transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease !important;
 }
 .cs .cs-shot:hover{border-color:var(--b200) !important;box-shadow:var(--sh-md) !important;transform:translateY(-3px) !important}
-.cs .cs-shot img{width:100% !important;height:auto !important;background:var(--s50) !important}
+.cs .cs-shot img{width:100% !important;height:auto !important;background:var(--s50) !important;display:block !important}
+/* Every web screenshot card is the SAME height, whatever the source image's
+   own proportions are. Before this, the grid stretched each card to the row
+   height while the <img> kept its natural height -- a short 4th image left a
+   band of white card showing underneath it. The card now owns a fixed 16/10
+   box and the image fills that box, so the four cards match exactly and no
+   background ever shows through. */
+.cs .cs-shots--web .cs-shot{
+  aspect-ratio:16/10 !important;height:100% !important;
+  display:block !important;position:relative !important;
+  background:var(--b50) !important;padding:0 !important;
+}
+/* `cover` made the cards equal height but sliced content off the left and
+   right of any screenshot wider than the box. `contain` shows every
+   screenshot whole; the card's own tint fills whatever is left over, so the
+   four cards still line up and the leftover reads as a deliberate mat
+   rather than a strip of missing white. */
+.cs .cs-shots--web .cs-shot img{
+  position:absolute !important;inset:0 !important;
+  width:100% !important;height:100% !important;
+  object-fit:contain !important;object-position:center center !important;
+  background:transparent !important;
+}
 .cs .cs-shot--app img{aspect-ratio:9/19 !important;object-fit:cover !important;object-position:top center !important}
 
 /* ═══ RESULTS ═══════════════════════════════════════════════════════ */
@@ -346,23 +522,59 @@
 .cs .cs-rel p{font-size:.9rem !important;color:var(--s600) !important;line-height:1.55 !important;margin-bottom:14px !important}
 .cs .cs-rel__go{font-size:.85rem !important;font-weight:600 !important;color:var(--b600) !important;display:inline-flex !important;align-items:center !important;gap:4px !important}
 
-/* ═══ FAQ — pure <details>, no JavaScript ═══════════════════════════ */
-.cs .cs-faqs{display:flex !important;flex-direction:column !important;gap:12px !important}
-.cs .cs-faq{
-  background:#fff !important;border:1px solid var(--s200) !important;
-  border-radius:var(--r) !important;overflow:hidden !important;
-  transition:border-color .2s ease,box-shadow .2s ease !important;
+/* ═══ FAQ — identical to the homepage FAQ ══════════════════════════
+   Same values as .hmx-faq / .hmx-faq-item / .hmx-faq-q / .hmx-faq-ico /
+   .hmx-faq-a in app/(home)/home-landing.css, so the two read as one
+   component. Pure <details> -- no JavaScript. */
+.cs .cs-head--center{text-align:center !important;max-width:830px !important;margin:0 auto 52px !important}
+.cs .cs-head--center .cs-desc{margin-left:auto !important;margin-right:auto !important}
+
+.cs .cs-qa{
+  max-width:880px !important;margin:0 auto !important;display:block !important;
+  border-top:1px solid var(--s200) !important;
 }
-.cs .cs-faq[open]{border-color:var(--b200) !important;box-shadow:var(--sh-sm) !important}
-.cs .cs-faq summary{
-  padding:18px 22px !important;font-weight:600 !important;font-size:.95rem !important;
-  color:var(--s800) !important;cursor:pointer !important;list-style:none !important;
-  display:flex !important;justify-content:space-between !important;align-items:center !important;gap:16px !important;
+/* `padding:0` is the important one. The rows previously used the class
+   `.cs-faq`, which other sheets loaded by the root layout use as a
+   SECTION class carrying `padding: 72px 0` -- so every question row was
+   inheriting 72px of vertical padding, and editing the summary padding
+   here could never remove it. Renamed to `.cs-qa__item`, which nothing
+   else claims, and the padding is pinned to zero as a belt-and-braces. */
+.cs .cs-qa__item{
+  background:transparent !important;border:0 !important;border-radius:0 !important;
+  border-bottom:1px solid var(--s200) !important;box-shadow:none !important;
+  margin:0 !important;padding:0 !important;
 }
-.cs .cs-faq summary::-webkit-details-marker{display:none !important}
-.cs .cs-faq summary::after{content:'+' !important;font-size:1.25rem !important;font-weight:400 !important;color:var(--b500) !important;flex-shrink:0 !important}
-.cs .cs-faq[open] summary::after{content:'−' !important}
-.cs .cs-faq__a p{padding:0 22px 18px !important;font-size:.95rem !important;color:var(--s600) !important;line-height:1.65 !important}
+.cs .cs-qa__item summary{
+  display:flex !important;justify-content:space-between !important;align-items:center !important;
+  /* 15px, down from 26. With one-line questions that was leaving ~80px
+     of dead space between rows. */
+  gap:24px !important;padding:15px 0 !important;cursor:pointer !important;list-style:none !important;
+  font-size:16.5px !important;line-height:26px !important;font-weight:600 !important;
+  color:var(--s900) !important;letter-spacing:-.25px !important;
+  transition:color .25s ease !important;
+}
+.cs .cs-qa__item summary:hover{color:var(--b600) !important}
+.cs .cs-qa__item summary::-webkit-details-marker{display:none !important}
+.cs .cs-qa__item summary::after{content:none !important}
+.cs .cs-qa__ico{
+  flex-shrink:0 !important;width:30px !important;height:30px !important;border-radius:50% !important;
+  border:1.5px solid var(--s200) !important;color:var(--s900) !important;
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;
+  transition:background .3s ease,color .3s ease,border-color .3s ease,transform .3s ease !important;
+}
+/* Explicit + / x swap via ::before so no icon font can force two glyphs. */
+.cs .cs-qa__ico::before{content:"+" !important;font-size:17px !important;font-weight:600 !important;line-height:1 !important}
+.cs .cs-qa__item[open] .cs-qa__ico::before{content:"\00d7" !important;font-size:18px !important}
+.cs .cs-qa__item[open] .cs-qa__ico{
+  background:var(--b600) !important;border-color:var(--b600) !important;
+  color:#fff !important;transform:rotate(90deg) !important;
+}
+.cs .cs-qa__a,.cs p.cs-qa__a{
+  padding:0 60px 18px 0 !important;margin:0 !important;
+  font-size:15.5px !important;line-height:27px !important;color:var(--s600) !important;
+}
+.cs .cs-qa__item[open] .cs-qa__a{animation:csQaOpen .32s ease both !important}
+@keyframes csQaOpen{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
 
 /* ═══ CTA — the page's one CTA, at the bottom ═══════════════════════ */
 .cs .cs-cta{
@@ -372,6 +584,339 @@
 .cs .cs-cta h2{font-size:clamp(1.4rem,3vw,1.75rem) !important;font-weight:700 !important;margin-bottom:12px !important;letter-spacing:-.02em !important;color:#fff !important}
 .cs .cs-cta p{font-size:1.05rem !important;color:rgba(255,255,255,.9) !important;max-width:520px !important;margin:0 auto 28px !important;line-height:1.6 !important}
 .cs .cs-cta__btns{display:flex !important;flex-wrap:wrap !important;gap:14px !important;justify-content:center !important}
+
+/* ═══ INLINE LINKS IN BODY COPY ═════════════════════════════════════
+   One rule for every internal link that comes out of the database --
+   About, challenges, objectives, UI/UX, development, security, future
+   scope, results, features, FAQ answers. Signature Blue, semibold, and
+   NEVER underlined, at rest or on hover. Buttons, related-project cards
+   and the breadcrumb are excluded: they have their own treatment. */
+.cs a[href]:not(.cs-btn):not(.cs-rel):not(.cs-rel__go),
+.cs a[href]:not(.cs-btn):not(.cs-rel):not(.cs-rel__go):link,
+.cs a[href]:not(.cs-btn):not(.cs-rel):not(.cs-rel__go):visited{
+  color:var(--b600) !important;font-weight:600 !important;
+  text-decoration:none !important;border-bottom:0 !important;
+  transition:color .18s ease !important;
+}
+.cs a[href]:not(.cs-btn):not(.cs-rel):not(.cs-rel__go):hover,
+.cs a[href]:not(.cs-btn):not(.cs-rel):not(.cs-rel__go):focus,
+.cs a[href]:not(.cs-btn):not(.cs-rel):not(.cs-rel__go):active{
+  color:var(--b700) !important;text-decoration:none !important;border-bottom:0 !important;
+}
+/* The breadcrumb is grey until hovered, so it is restated AFTER the rule
+   above -- equal specificity, later in source, so it wins the tie. */
+.cs .cs-hero .cs-crumb a[href],
+.cs .cs-hero .cs-crumb a[href]:link,
+.cs .cs-hero .cs-crumb a[href]:visited{color:var(--s400) !important;font-weight:400 !important}
+.cs .cs-hero .cs-crumb a[href]:hover,
+.cs .cs-hero .cs-crumb a[href]:focus,
+.cs .cs-hero .cs-crumb a[href]:active{color:var(--b600) !important}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   CASE-STUDY COMPONENTS
+   ─────────────────────────────────────────────────────────────────
+   Built to the supplied reference. Everything below is additive: the
+   portfolio pages do not use these classes, so nothing there moves.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Hero fact cards: icon tile + label + value, three across ────── */
+.cs .cs-facts{
+  display:grid !important;grid-template-columns:repeat(auto-fit,minmax(260px,1fr)) !important;
+  gap:20px !important;max-width:1140px !important;margin:0 !important;
+}
+.cs .cs-fact{
+  display:flex !important;align-items:flex-start !important;gap:16px !important;
+  background:#fff !important;border:1px solid var(--s200) !important;
+  border-radius:var(--rlg) !important;padding:22px 24px !important;
+  box-shadow:var(--sh-sm) !important;
+}
+.cs .cs-fact__ico{
+  flex-shrink:0 !important;width:44px !important;height:44px !important;
+  border-radius:12px !important;background:var(--b50) !important;
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;
+}
+.cs .cs-fact__ico i{font-size:19px !important;color:var(--b600) !important;line-height:1 !important}
+.cs .cs-fact__k{
+  display:block !important;font-size:.72rem !important;font-weight:700 !important;
+  letter-spacing:.06em !important;text-transform:uppercase !important;
+  color:var(--b600) !important;margin-bottom:5px !important;
+}
+.cs .cs-fact__v{display:block !important;font-size:1rem !important;font-weight:700 !important;color:var(--s900) !important;line-height:1.35 !important}
+
+/* ── Testimonial bar under the hero ──────────────────────────────── */
+.cs .cs-quote{
+  display:flex !important;align-items:flex-start !important;gap:24px !important;
+  background:#fff !important;border:1px solid var(--s200) !important;
+  border-radius:var(--rlg) !important;padding:30px 34px !important;
+  box-shadow:var(--sh-sm) !important;margin-top:44px !important;
+}
+.cs .cs-quote__ico{
+  flex-shrink:0 !important;width:56px !important;height:56px !important;border-radius:14px !important;
+  background:var(--b700) !important;color:#fff !important;
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;
+}
+.cs .cs-quote__ico i{font-size:21px !important;color:#fff !important}
+.cs .cs-quote__t{font-size:1.15rem !important;line-height:1.55 !important;color:var(--s800) !important;margin-bottom:10px !important;font-weight:500 !important}
+.cs .cs-quote__r{font-size:.92rem !important;font-weight:700 !important;color:var(--b600) !important}
+
+/* ── Challenge stat cards: badge, big blue figure, title, body ───── */
+.cs .cs-stats{
+  display:grid !important;grid-template-columns:repeat(auto-fit,minmax(340px,1fr)) !important;
+  gap:22px !important;
+}
+.cs .cs-stat{
+  background:#fff !important;border:1px solid var(--s200) !important;
+  border-radius:var(--rlg) !important;padding:26px 28px 28px !important;
+  box-shadow:var(--sh-sm) !important;
+  transition:border-color .2s ease,box-shadow .2s ease !important;
+}
+/* Blue border on hover and nothing else. A legacy sheet paints a
+   blue-to-gold gradient on card hover; `background` and `background-image`
+   are both pinned here because a gradient lives in background-image and
+   setting `background` alone does not always clear it. */
+.cs .cs-stat:hover{
+  border-color:var(--b600) !important;
+  background:#fff !important;background-image:none !important;
+  box-shadow:var(--sh) !important;
+}
+.cs .cs-stat__badge{
+  display:inline-flex !important;align-items:center !important;gap:7px !important;
+  padding:6px 14px !important;border-radius:999px !important;
+  background:var(--b50) !important;color:var(--b700) !important;
+  font-size:.7rem !important;font-weight:700 !important;
+  letter-spacing:.06em !important;text-transform:uppercase !important;
+  margin-bottom:18px !important;
+}
+.cs .cs-stat__badge i{font-size:11px !important;color:var(--b600) !important}
+.cs .cs-stat__n{
+  display:block !important;font-size:2.1rem !important;font-weight:800 !important;
+  color:var(--b600) !important;letter-spacing:-.03em !important;line-height:1.1 !important;
+  margin-bottom:12px !important;
+}
+.cs .cs-stat__t{display:block !important;font-size:1rem !important;font-weight:700 !important;color:var(--s900) !important;margin-bottom:7px !important}
+.cs .cs-stat__d{font-size:.94rem !important;line-height:1.6 !important;color:var(--s600) !important}
+
+/* ── Development process: a horizontal rail of numbered steps ───── */
+.cs .cs-rail{
+  display:grid !important;grid-auto-flow:column !important;
+  grid-auto-columns:minmax(0,1fr) !important;gap:0 !important;align-items:stretch !important;
+}
+.cs .cs-step{
+  position:relative !important;text-align:center !important;
+  background:#fff !important;border:1px solid var(--s200) !important;
+  border-radius:var(--rlg) !important;padding:26px 22px 28px !important;
+  margin:0 6px !important;
+}
+/* The connector between cards: a hairline that starts at the numeral's
+   centre line, drawn only BETWEEN steps (never off the last one). */
+.cs .cs-step + .cs-step::before{
+  content:"" !important;position:absolute !important;
+  left:-18px !important;top:47px !important;width:24px !important;height:2px !important;
+  background:var(--b200) !important;
+}
+.cs .cs-step__n{
+  width:42px !important;height:42px !important;border-radius:50% !important;
+  background:var(--b700) !important;color:#fff !important;
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;
+  font-size:1rem !important;font-weight:700 !important;line-height:1 !important;
+  font-variant-numeric:tabular-nums !important;margin-bottom:18px !important;
+}
+.cs .cs-step__t{display:block !important;font-size:.98rem !important;font-weight:700 !important;color:var(--s900) !important;margin-bottom:8px !important;line-height:1.35 !important}
+.cs .cs-step__d{font-size:.9rem !important;line-height:1.55 !important;color:var(--s600) !important}
+
+/* ── Results: a row of figure tiles ─────────────────────────────── */
+.cs .cs-kpis{
+  display:grid !important;grid-template-columns:repeat(auto-fit,minmax(180px,1fr)) !important;
+  gap:20px !important;
+}
+.cs .cs-kpi{
+  background:#fff !important;border:1px solid var(--s200) !important;
+  border-radius:var(--rlg) !important;padding:30px 20px !important;text-align:center !important;
+  box-shadow:var(--sh-sm) !important;
+}
+.cs .cs-kpi:hover{border-color:var(--b600) !important;background:#fff !important;background-image:none !important}
+.cs .cs-kpi__n{
+  display:block !important;font-size:2.3rem !important;font-weight:800 !important;
+  color:var(--b600) !important;letter-spacing:-.03em !important;line-height:1.1 !important;
+  margin-bottom:12px !important;
+}
+.cs .cs-kpi__l{font-size:.92rem !important;line-height:1.5 !important;color:var(--s600) !important}
+
+/* ── Key takeaway: the one deep-blue panel on the page ──────────── */
+/* The takeaway sits on the WHITE band below the results, as drawn --
+   its own section, not tacked onto the grey one. */
+.cs .cs-takeaway{
+  background:linear-gradient(100deg,#0754C2 0%,#3E8CFB 100%) !important;
+  border-radius:20px !important;padding:40px 44px !important;margin:0 !important;
+  color:#fff !important;
+}
+.cs .cs-takeaway__k{
+  display:inline-flex !important;align-items:center !important;gap:8px !important;
+  font-size:.72rem !important;font-weight:700 !important;letter-spacing:.08em !important;
+  text-transform:uppercase !important;color:rgba(255,255,255,.85) !important;
+  margin-bottom:16px !important;
+}
+.cs .cs-takeaway__k i{font-size:13px !important;color:rgba(255,255,255,.85) !important}
+.cs .cs-takeaway p{font-size:1.15rem !important;line-height:1.65 !important;color:#fff !important;margin-bottom:12px !important}
+.cs .cs-takeaway p:last-child{margin-bottom:0 !important}
+
+/* ── Related services: wide rows, title left, arrow right ───────── */
+.cs .cs-links{
+  display:grid !important;grid-template-columns:repeat(auto-fit,minmax(280px,1fr)) !important;
+  gap:20px !important;
+}
+.cs a.cs-link{
+  display:flex !important;align-items:center !important;justify-content:space-between !important;
+  gap:18px !important;background:#fff !important;border:1px solid var(--s200) !important;
+  border-radius:var(--rlg) !important;padding:22px 26px !important;
+  font-size:1rem !important;font-weight:700 !important;color:var(--s900) !important;
+  transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease !important;
+}
+.cs a.cs-link:hover{
+  border-color:var(--b300) !important;box-shadow:var(--sh-md) !important;
+  transform:translateY(-2px) !important;color:var(--s900) !important;
+}
+.cs a.cs-link i{font-size:15px !important;color:var(--b600) !important;transition:transform .2s ease !important}
+.cs a.cs-link:hover i{transform:translateX(4px) !important}
+
+/* ── Centred tech cards, as the reference draws them ────────────── */
+.cs .cs-tech--center{text-align:center !important}
+
+@media (max-width:980px){
+  /* The rail stops being a rail on narrow screens: a horizontal row of
+     five would shrink each step below a readable measure. */
+  .cs .cs-rail{grid-auto-flow:row !important;grid-auto-columns:auto !important;gap:16px !important}
+  .cs .cs-step{margin:0 !important}
+  .cs .cs-step + .cs-step::before{
+    left:50% !important;top:-10px !important;width:2px !important;height:12px !important;
+    transform:translateX(-50%) !important;
+  }
+}
+@media (max-width:860px){
+  .cs .cs-quote{flex-direction:column !important;gap:16px !important;padding:24px !important}
+  .cs .cs-takeaway{padding:28px 24px !important}
+  .cs .cs-stats{grid-template-columns:minmax(0,1fr) !important}
+}
+
+
+/* ── HOVER: border only, never a gradient ─────────────────────────
+   Legacy sheets paint a blue-to-gold gradient on card hover. A gradient
+   lives in `background-image`, and some of those rules draw it through a
+   ::before overlay rather than on the element -- so clearing `background`
+   alone does nothing. All three are pinned here. */
+.cs .cs-stat,.cs .cs-card,.cs .cs-tech,.cs .cs-kpi,
+.cs .cs-stat:hover,.cs .cs-card:hover,.cs .cs-tech:hover,.cs .cs-kpi:hover,
+.cs .cs-stat:focus-within,.cs .cs-card:focus-within{
+  background:#FFFFFF !important;
+  background-image:none !important;
+}
+.cs .cs-stat::before,.cs .cs-stat::after,
+.cs .cs-card::before,.cs .cs-card::after,
+.cs .cs-tech::before,.cs .cs-tech::after,
+.cs .cs-kpi::before,.cs .cs-kpi::after{
+  content:none !important;background:none !important;background-image:none !important;
+}
+.cs .cs-stat:hover,.cs .cs-card:hover,.cs .cs-tech:hover,.cs .cs-kpi:hover{
+  border-color:var(--b600) !important;
+}
+
+/* ── TEXT COLOURS, pinned to the sampled values ──────────────────── */
+.cs .cs-eyebrow{color:var(--b600) !important}
+.cs .cs-h2,.cs .cs-h1{color:var(--s900) !important}
+.cs .cs-desc,.cs .cs-prose p{color:var(--s600) !important}
+.cs .cs-stat__n,.cs .cs-kpi__n{color:var(--b600) !important}
+.cs .cs-stat__t{color:var(--s900) !important}
+.cs .cs-stat__d,.cs .cs-kpi__l{color:var(--s600) !important}
+.cs .cs-stat__badge{background:var(--b50) !important;color:var(--b700) !important}
+.cs .cs-stat__badge i{color:var(--b700) !important}
+.cs .cs-card h3,.cs .cs-tech h4{color:var(--s900) !important}
+.cs .cs-card p,.cs .cs-tech p{color:var(--s600) !important}
+.cs .cs-card__ico,.cs .cs-tech__mark,.cs .cs-fact__ico{background:var(--b50) !important}
+.cs .cs-card__ico i,.cs .cs-tech__mark i,.cs .cs-fact__ico i{color:var(--b600) !important}
+
+
+/* ═══ SOLUTION DELIVERABLES ═════════════════════════════════════════
+   "The Solution We Delivered" gets its own treatment rather than reusing
+   the Approach card. Each item is a numbered panel with a Signature Blue
+   spine down its left edge -- these are the things that were BUILT, so
+   they read as a delivery list, not another set of ideas. */
+.cs .cs-deliver{
+  display:grid !important;grid-template-columns:repeat(auto-fit,minmax(400px,1fr)) !important;
+  gap:20px !important;
+}
+.cs .cs-deliver__item{
+  display:flex !important;gap:20px !important;align-items:flex-start !important;
+  background:#FFFFFF !important;background-image:none !important;
+  border:1px solid var(--s200) !important;border-left:3px solid var(--b600) !important;
+  border-radius:var(--r) !important;padding:26px 28px !important;
+  box-shadow:var(--sh-sm) !important;
+  transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease !important;
+}
+.cs .cs-deliver__item:hover{
+  border-color:var(--b600) !important;box-shadow:var(--sh-md) !important;
+  transform:translateY(-2px) !important;background:#FFFFFF !important;
+}
+.cs .cs-deliver__item::before,.cs .cs-deliver__item::after{content:none !important}
+.cs .cs-deliver__n{
+  flex-shrink:0 !important;width:34px !important;height:34px !important;border-radius:10px !important;
+  background:var(--b50) !important;color:var(--b700) !important;
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;
+  font-size:.85rem !important;font-weight:800 !important;line-height:1 !important;
+  font-variant-numeric:tabular-nums !important;margin-top:2px !important;
+}
+.cs .cs-deliver__t{display:block !important;font-size:1.05rem !important;font-weight:700 !important;color:var(--s900) !important;margin-bottom:7px !important}
+.cs .cs-deliver__d{font-size:.94rem !important;line-height:1.65 !important;color:var(--s600) !important}
+
+/* ═══ RELATED SERVICES ══════════════════════════════════════════════
+   Cards with an icon tile and an arrow that travels on hover, rather
+   than the plain text rows this section used to be. */
+.cs .cs-svcs{
+  display:grid !important;grid-template-columns:repeat(auto-fit,minmax(280px,1fr)) !important;
+  gap:20px !important;
+}
+.cs a.cs-svc{
+  display:flex !important;flex-direction:column !important;
+  background:#FFFFFF !important;background-image:none !important;
+  border:1px solid var(--s200) !important;border-radius:var(--rlg) !important;
+  padding:28px !important;box-shadow:var(--sh-sm) !important;
+  transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease !important;
+}
+.cs a.cs-svc:hover{
+  border-color:var(--b600) !important;box-shadow:var(--sh-md) !important;
+  transform:translateY(-3px) !important;background:#FFFFFF !important;
+}
+.cs .cs-svc__ico{
+  width:46px !important;height:46px !important;border-radius:12px !important;
+  background:var(--b50) !important;display:inline-flex !important;
+  align-items:center !important;justify-content:center !important;margin-bottom:18px !important;
+}
+.cs .cs-svc__ico i{font-size:19px !important;color:var(--b600) !important}
+.cs .cs-svc__t{display:block !important;font-size:1.05rem !important;font-weight:700 !important;color:var(--s900) !important;margin-bottom:8px !important}
+.cs .cs-svc__d{font-size:.92rem !important;line-height:1.6 !important;color:var(--s600) !important;margin-bottom:18px !important}
+.cs .cs-svc__go{
+  margin-top:auto !important;display:inline-flex !important;align-items:center !important;gap:8px !important;
+  font-size:.88rem !important;font-weight:700 !important;color:var(--b600) !important;
+}
+.cs .cs-svc__go i{transition:transform .2s ease !important;color:var(--b600) !important}
+.cs a.cs-svc:hover .cs-svc__go i{transform:translateX(4px) !important}
+
+/* ═══ FOUR-CARD BALANCE ═════════════════════════════════════════════
+   With exactly four cards an auto-fit 3-track grid leaves a lone card on
+   the second row at a third of the width, which is what made the fourth
+   one look shrunken. Four items lay out 2 x 2 instead, so every card is
+   the same width and the rows are the same height. */
+.cs .cs-grid--4up{grid-template-columns:repeat(auto-fit,minmax(340px,1fr)) !important}
+@media (min-width:900px){
+  .cs .cs-grid--4up{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+}
+/* Cards in a row match heights so the tiles line up. */
+.cs .cs-grid{align-items:stretch !important}
+.cs .cs-grid > *{height:100% !important}
+
+@media (max-width:860px){
+  .cs .cs-deliver{grid-template-columns:minmax(0,1fr) !important}
+}
 
 /* ═══ RESPONSIVE ════════════════════════════════════════════════════ */
 @media (max-width:860px){
@@ -388,4 +933,7 @@
   .cs .cs-cta__btns{flex-direction:column !important}
   .cs .cs-panel{max-width:100% !important;padding:26px !important}
   .cs .cs-rels{grid-template-columns:minmax(0,1fr) !important}
+  .cs .cs-qa__a{padding-right:0 !important}
+  .cs .cs-qa__item summary{font-size:15.5px !important;line-height:25px !important;gap:16px !important;padding:13px 0 !important}
+  .cs .cs-meta{padding:22px !important}
 }
