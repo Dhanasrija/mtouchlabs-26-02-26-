@@ -399,16 +399,27 @@
      clamp instead of going loose at large sizes and cramped at small.
      `word-spacing` is trimmed too -- letter tracking alone leaves the
      gaps between words looking wider than the gaps inside them. */
-  letter-spacing: -.05em;
-  word-spacing: -.04em;
-  /* .96, down from 1.02. Two lines of 78px type at 1.02 leave a
-     visible band of air between them; below 1 the descenders of the
-     first line and the caps of the second interlock the way they do
-     in the comp. */
-  line-height: .96;
+  /* Eased from -.05em. That was set when the headline was being judged
+     as a single dense block; across two hand-broken lines it read as
+     cramped, with the letters of "Custom Software" running together.
+     -.02em still reads as a tightened display face rather than default
+     body tracking. `word-spacing` is back to normal for the same reason:
+     negative word-spacing on top of negative tracking closed the gaps
+     between words to roughly the gaps inside them. */
+  letter-spacing: -.02em;
+  word-spacing: normal;
+  /* 1.06, up from .96. Below 1 the two lines interlocked -- the
+     descenders of line one sat inside the caps of line two. */
+  line-height: 1.06;
   margin: 0 auto 26px;
-  max-width: 24ch;
-  text-wrap: balance;
+  /* 34ch, up from 24ch. The headline is broken by hand into exactly two
+     lines with a <br>, but the longer of those lines is 32 characters,
+     so a 24ch measure forced it to wrap again and the "two lines"
+     rendered as three. The measure now has to clear the longest line
+     the markup actually contains. */
+  max-width: 34ch;
+  /* No `text-wrap: balance`: the break is authored in the markup, and
+     the balancer was free to re-break each segment against it. */
 }
 .hmx-h1 em { font-style: normal; color: var(--ink); }
 
@@ -568,6 +579,24 @@
 .hmx-hero-proof li:nth-child(4) .hmx-hp-n {
   font-size: 20px; letter-spacing: -.5px; font-variant-numeric: normal;
 }
+/* `white-space: nowrap` on .hmx-hp-n is right for "14+" and "1,500+",
+   which must never break -- but cells 3 and 4 hold WORDS. "NASSCOM SME"
+   on one unbreakable line is wider than its track at most viewport
+   widths, and since the text track was sized `auto` it simply ran past
+   the right edge of the box and was clipped. These cells wrap instead,
+   and the track below is allowed to shrink so the text can reflow
+   rather than overflow. */
+.hmx-hero-proof li:nth-child(3) .hmx-hp-n,
+.hmx-hero-proof li:nth-child(4) .hmx-hp-n,
+.hmx-hero-proof li:last-child .hmx-hp-n {
+  white-space: normal !important;
+  overflow-wrap: break-word;
+}
+/* `minmax(0, auto)` on the text track, not bare `auto`: an auto track
+   refuses to shrink below its max-content width, which is exactly how
+   the label came to sit outside its own cell. */
+.hmx-hero-proof li { grid-template-columns: auto minmax(0, auto) !important; }
+.hmx-hero-proof li .hmx-hp-b { min-width: 0 !important; }
 .hmx-hp-k {
   display: block;
   font-size: 12px; line-height: 17px; font-weight: 700;
@@ -724,6 +753,33 @@
   border-radius: 10px; padding: 17px 32px; font-size: 16px;
   box-sizing: border-box; min-width: 232px;
 }
+/* Both hero actions, identical box -- measured, not assumed.
+   They were already the same WIDTH (232px each) but not the same HEIGHT:
+   50px against 52px. A legacy rule in bundle.css matches [class*="btn"]
+   and flattens `border` to none, which the ghost survives because its
+   border carries !important and the primary did not -- so the primary
+   lost 1.5px top and bottom and sat 2px shorter than its neighbour.
+   Restating a transparent border of the same width on the base, then
+   only recolouring it on the primary, makes both boxes identical.
+   These selectors also carry the `a` element so they outrank
+   `.hmx a.hmx-btn` further up, which was overriding the padding and
+   radius set in the rule above. */
+.hmx-hero-ctas a.hmx-btn,
+.hmx .hmx-hero-ctas a.hmx-btn {
+  box-sizing: border-box !important;
+  min-width: 232px !important;
+  padding: 16px 34px !important;
+  border: 1.5px solid transparent !important;
+  font-size: 16px !important;
+  line-height: 1.2 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.hmx-hero-ctas a.hmx-btn-primary,
+.hmx .hmx-hero-ctas a.hmx-btn-primary { border-color: var(--blue) !important; }
+.hmx-hero-ctas a.hmx-btn-ghost,
+.hmx .hmx-hero-ctas a.hmx-btn-ghost { border-color: var(--blue) !important; }
 
 /* Bare text action — the comp's "View Our Work" carries no border. */
 .hmx a.hmx-btn-text {
@@ -2347,7 +2403,7 @@
   .hmx-hero { padding: 104px 0 56px; }
   /* Already one centred column — only the measure and blooms need easing. */
   .hmx-hero { padding: 96px 0 80px; }
-  .hmx-h1 { letter-spacing: -1.8px; max-width: 22ch; }
+  .hmx-h1 { letter-spacing: -.02em; max-width: 34ch; }
   .hmx-hero-proof { margin-top: 56px; }
   .hmx-hero-proof li { padding: 28px 20px; gap: 16px; grid-template-columns: auto auto; }
   .hmx-hp-ico { width: 44px; height: 44px; }
@@ -2377,7 +2433,7 @@
   .hmx-sec { padding: 62px 0; }
   .hmx-hero { padding: 88px 0 44px; }
   .hmx-hero { padding: 82px 0 60px; }
-  .hmx-h1 { letter-spacing: -1.2px; max-width: none; line-height: 1.12; }
+  .hmx-h1 { letter-spacing: -.01em; max-width: none; line-height: 1.14; }
   .hmx-hero-lead { font-size: 16.5px; line-height: 29px; }
   .hmx-hero-ctas { flex-direction: column; align-items: stretch; gap: 10px; }
   /* Four across is unreadable on a phone, so the band becomes a 2 x 2 --

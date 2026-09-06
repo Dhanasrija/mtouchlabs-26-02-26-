@@ -498,8 +498,8 @@ export default function HireDevelopersInIndia() {
           <h2 className="hd-ctaTitle">Have a Project in Mind?</h2>
           <p className="hd-ctaDesc">Let&apos;s connect, discuss your ideas, and turn them into impactful, user-focused solutions.</p>
           <div className="hd-ctaBtns">
-            <Link href="/contact-us" className="hd-ctaPrimary">Contact Us →</Link>
-            <a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer" className="hd-ctaWa">WhatsApp →</a>
+            <Link href="/contact-us" className="hd-ctaPrimary">Contact Us</Link>
+            <a href="https://wa.me/message/H5VADFWLMPYIM1" target="_blank" rel="noopener noreferrer" className="hd-ctaWa">WhatsApp</a>
           </div>
         </div>
       </section>

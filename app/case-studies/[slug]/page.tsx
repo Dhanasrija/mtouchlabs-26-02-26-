@@ -253,7 +253,7 @@ export default async function CaseStudyDetailPage({ params }: { params: { slug: 
   /* heroMeta / snapshotRows / pillars / flows are gone: the reference
      replaces them with the three hero fact cards, the Project Overview
      table, the solution card grid and the numbered step rail. */
-  const approachItems = lines(cs.approach).map(splitLine);
+  const approachItems = lines(cs.approach).map(splitLine).filter((x) => (x.title + x.desc).trim());
   const featureItems = features.map((f: any) =>
     typeof f === "string" ? splitLine(f) : { title: f.title || "", desc: f.description || "" }
   );
@@ -705,8 +705,13 @@ export default async function CaseStudyDetailPage({ params }: { params: { slug: 
               deliver solutions faster.
             </p>
             <div className="cs-cta__btns">
+              {/* "Get a Free Consultation" was the longest label on either
+                  template and set the width of the whole button pair.
+                  Short label, and it opens the shared Request Quote modal
+                  in place rather than navigating -- the same
+                  `js-open-modal` hook the navbar uses. */}
               <Link href="/contact-us" className="cs-btn cs-btn--white">
-                Get a Free Consultation
+                Book a Consultation
                 <svg className="cs-btn__ar" width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                   <path d="M4 12L12 4M12 4H5.5M12 4v6.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>

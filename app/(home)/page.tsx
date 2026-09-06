@@ -241,7 +241,7 @@ const stats = [
      certifications are still stated in full in FACTS and in the
      Quality & Security Standards card further down the page. */
   { img: "/images/hero-new-work/stat3.webp", imgAlt: "ISO certified", n: "ISO", k: "Certified" },
-  { img: "/images/hero-new-work/stat4.webp", imgAlt: "NASSCOM SME Inspire Awards 2026", n: "NASSCOM SME", k: "Inspire 2026" },
+  { img: "/images/hero-new-work/stat4.webp", imgAlt: "NASSCOM SME Inspire Awards 2026", n: "NASSCOM SME", k: "Inspire 2026 Award" },
 ];
 
 
@@ -526,7 +526,7 @@ const logoPages = [
   [
     { src: "/images/home/tech/govt.webp", alt: "Government of Telangana", big: true },
     { src: "/images/home/tech/adjd.webp", alt: "Abu Dhabi Judicial Department", big: true },
-    { src: "/images/home/tech/railcab.svg", alt: "RailCab" },
+    { src: "/images/home/tech/kezad-logo.webp", alt: "KEZAD Group", big: true },
     { src: "/images/home/tech/resqbox.svg", alt: "ResQBox Food", big: true },
     { src: "/images/home/tech/kohere.webp", alt: "Kohere" },
     { src: "/images/home/tech/uptick.webp", alt: "UpTik", big: true },
@@ -540,10 +540,13 @@ const logoPages = [
 
     { src: "/images/home/tech/zefsci.webp", alt: "ZefSci, a Shimadzu company", big: true },
     { src: "/images/home/tech/badham.webp", alt: "Bandham", big: true },
-    { src: "/images/home/tech/kezad-logo.webp", alt: "KEZAD Group", big: true },
+    /* RailCab's artwork is 204x157 -- nearly square, with a lot of
+       internal padding. At the shared 78px ceiling it read about half
+       the size of the wordmarks beside it, so it is flagged `big`. */
+    { src: "/images/home/tech/railcab.svg", alt: "RailCab", big: true },
     { src: "/images/home/tech/l2r.webp", alt: "Learn2Read", big: true },
     { src: "/images/home/tech/medbuz.webp", alt: "Medbuzz", big: true },
-    { src: "/images/home/tech/woqal.svg", alt: "Woqal", big: true },
+    { src: "/images/home/tech/measurements.svg", alt: "Measurements", big: true },
   ],
   [
     { src: "/images/home/tech/ebic.svg", alt: "ebic" },
@@ -556,7 +559,11 @@ const logoPages = [
     /* ZuppiBuy replaces Bandham here -- Bandham is already on page 1 and
        the same logo twice across two pages read as a mistake. */
     { src: "/images/home/tech/zuppibuy.webp", alt: "ZuppiBuy", big: true },
-    { src: "/images/home/tech/myintry.svg", alt: "MyINTRY", big: true },
+    /* Was myintry.svg. That file is a byte-for-byte copy of desh.svg
+       (identical md5), so the wall rendered Desh twice on this page --
+       the duplicate everyone kept noticing. Woqal takes the cell until
+       MyINTRY's real artwork exists. */
+    { src: "/images/home/tech/woqal.svg", alt: "Woqal", big: true },
     /* AWAITING FILE: /images/home/tech/zoviyo.svg */
     { src: "/images/home/tech/zoviyo.svg", alt: "Zoviyo" },
     { src: "/images/home/tech/heyman.webp", alt: "Hey Man" },
@@ -569,7 +576,12 @@ const logoPages = [
     { src: "/images/home/tech/v.webp", alt: "Vivent", big: true },
     { src: "/images/home/tech/hitech.svg", alt: "Hitech Shuttle", big: true },
     { src: "/images/home/tech/onus.webp", alt: "ONUS Robotic Hospitals", big: true },
-    { src: "/images/home/tech/measurements.svg", alt: "Measurements", big: true },
+    /* Measurements moved to page 1 (it took Woqal's cell), so this slot
+       needed a mark. RoboRide is one of the project's own client logos --
+       it is in /images/portfolio as a delivered project -- and was not on
+       either page. Swap it for MyINTRY the moment real MyINTRY artwork
+       lands in /images/home/tech. */
+    { src: "/images/home/tech/roboride.webp", alt: "RoboRide", big: true },
   ],
 ];
 
@@ -1019,8 +1031,19 @@ export default async function HomePage() {
             </p>
 
             <div className="hmx-hero-ctas hmx-in" style={d(3)}>
-              <Link href="/contact-us" className="hmx-btn hmx-btn-primary">
-                Start a Project
+              {/* Opens the shared Request Quote modal in place rather than
+                  navigating. `QuoteModal` is mounted in the root layout and
+                  listens on the document for a click on anything carrying
+                  `js-open-modal` or `data-open-quote="1"` -- the same hook the
+                  navbar's Request Quote button uses -- and calls
+                  preventDefault, so the href below never fires when JS is
+                  running. The href stays as the no-JS fallback. */}
+              <Link
+                href="/contact-us"
+                className="hmx-btn hmx-btn-primary js-open-modal"
+                data-open-quote="1"
+              >
+                Get Quote
                 <i className="fa-solid fa-arrow-right" aria-hidden="true" />
               </Link>
               {/* Secondary: white fill, Signature Blue border, ink label --
@@ -1817,6 +1840,52 @@ export default async function HomePage() {
         if (r.checked) requestAnimationFrame(scrollToTabs);
       });
     });
+  }
+
+})();
+
+/* Logo wall auto-advance -- its OWN IIFE.
+   It used to live at the foot of the reveal block above, which returns
+   early when the visitor has reduced motion set or the browser has no
+   IntersectionObserver. That guard is about the reveal animation, but it
+   was taking the carousel down with it. */
+(function(){
+  /* ── Logo wall: auto-advance ──────────────────────────────────
+     The wall is a CSS-only carousel -- two hidden radios drive which
+     page is displayed and which dot is lit. Rather than rebuild it as
+     a marquee (which would cost the dots, the keyboard support and the
+     ability to stop on a logo), this just ticks the radio on a timer,
+     so the existing transition, dots and focus behaviour all still
+     apply.
+
+     It pauses while the pointer is over the wall or while a dot has
+     keyboard focus, and it does nothing at all for a visitor who has
+     asked for reduced motion. */
+  var lw = document.querySelector('.hmx-lw');
+  if (lw) {
+    var lwRadios = Array.prototype.slice.call(lw.querySelectorAll('.hmx-lw-r'));
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (lwRadios.length > 1 && !reduce) {
+      var paused = false, timer = null;
+      var DELAY = 4000;
+      function advance() {
+        if (paused) return;
+        var i = 0;
+        for (var k = 0; k < lwRadios.length; k++) if (lwRadios[k].checked) { i = k; break; }
+        lwRadios[(i + 1) % lwRadios.length].checked = true;
+      }
+      function start() { stop(); timer = setInterval(advance, DELAY); }
+      function stop() { if (timer) { clearInterval(timer); timer = null; } }
+      lw.addEventListener('mouseenter', function () { paused = true; });
+      lw.addEventListener('mouseleave', function () { paused = false; });
+      lw.addEventListener('focusin', function () { paused = true; });
+      lw.addEventListener('focusout', function () { paused = false; });
+      /* A tab in the background should not keep cycling. */
+      document.addEventListener('visibilitychange', function () {
+        if (document.hidden) stop(); else start();
+      });
+      start();
+    }
   }
 })();`,
         }}

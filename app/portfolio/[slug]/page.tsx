@@ -9,6 +9,39 @@ import {
 
 // ISR: cache rendered pages for 5 min instead of SSR on every request.
 // Faster TTFB for users and crawlers; new/edited portfolios appear within 5 min.
+/* Icons for the Related Services cards, in order -- the same set the
+   case-study template uses, so the two pages read as one system. */
+const SERVICE_ICONS = [
+  "fa-solid fa-mobile-screen-button", "fa-solid fa-pen-ruler", "fa-solid fa-code",
+  "fa-solid fa-cart-shopping", "fa-solid fa-brain", "fa-solid fa-server",
+];
+
+/* A portfolio row stores its services as free text in `tags`, not as
+   {url, text} pairs the way a case study does. This maps a tag onto the
+   service page that actually covers it, so every card links somewhere
+   real; anything unrecognised falls back to the services index rather
+   than rendering a card that goes nowhere. Longest, most specific
+   patterns first -- "mobile app design" must reach UI/UX, not mobile. */
+const SERVICE_ROUTES: [RegExp, string][] = [
+  [/\bui\s*\/?\s*ux\b|\bdesign\b/i, "/ui-ux-design-company"],
+  [/\bqa\b|\btesting\b|quality assurance/i, "/quality-assurance-and-testing-services"],
+  [/\bdevops\b/i, "/devops-services"],
+  [/\bcloud\b|\baws\b|migration/i, "/cloud-migration-services"],
+  [/\bai\b|machine learning|generative/i, "/generative-ai-development-company"],
+  [/\bsaas\b/i, "/saas-development-services"],
+  [/\bseo\b|search engine/i, "/seo-services"],
+  [/digital marketing|marketing/i, "/digital-marketing-company"],
+  [/enterprise/i, "/enterprise-application-development-company"],
+  [/\bmobile\b|\bapp\b|android|\bios\b|flutter|react native/i, "/mobile-app-development-company"],
+  [/\bweb\b|website|frontend|front-end|ecommerce|e-commerce/i, "/web-development-company"],
+  [/backend|back-end|\bapi\b|node|database/i, "/custom-software-development-company"],
+  [/custom software|software development/i, "/custom-software-development-company"],
+];
+function serviceRoute(tag: string): string {
+  for (const [re, url] of SERVICE_ROUTES) if (re.test(tag)) return url;
+  return "/services";
+}
+
 export const revalidate = 300;
 
 // ─── DB — fresh connection per request (serverless-safe) ─────────────────────
@@ -401,8 +434,8 @@ export default async function PortfolioDetailPage({
   const aboutRest = aboutParas.slice(1);
   const contextParas = paras(project.industry_background);
 
-  const challenges = lines(project.requirements).map(splitLine);
-  const objectives = lines(project.objectives).map(splitLine);
+  const challenges = lines(project.requirements).map(splitLine).filter((x) => (x.title + x.desc).trim());
+  const objectives = lines(project.objectives).map(splitLine).filter((x) => (x.title + x.desc).trim());
 
   /* Solution pillars — only the ones this project's stack supports. */
   const pillars = [
@@ -425,11 +458,11 @@ export default async function PortfolioDetailPage({
 
   const strategyParas = paras(project.strategy_approach);
   const archParas = paras(project.solution_architecture);
-  const uiuxItems = lines(project.ui_ux_highlights).map(splitLine);
-  const devItems = lines(project.development_process).map(splitLine);
-  const securityItems = lines(project.security_performance).map(splitLine);
-  const impactItems = lines(project.business_impact).map(splitLine);
-  const futureItems = lines(project.future_scope).map(splitLine);
+  const uiuxItems = lines(project.ui_ux_highlights).map(splitLine).filter((x) => (x.title + x.desc).trim());
+  const devItems = lines(project.development_process).map(splitLine).filter((x) => (x.title + x.desc).trim());
+  const securityItems = lines(project.security_performance).map(splitLine).filter((x) => (x.title + x.desc).trim());
+  const impactItems = lines(project.business_impact).map(splitLine).filter((x) => (x.title + x.desc).trim());
+  const futureItems = lines(project.future_scope).map(splitLine).filter((x) => (x.title + x.desc).trim());
   const conclusionParas = paras(project.conclusion);
   const serviceTags: string[] = (project.tags || "")
     .split(",").map((t: string) => t.trim()).filter(Boolean).slice(0, 6);
@@ -876,15 +909,16 @@ export default async function PortfolioDetailPage({
 
         {/* ═══════════ SECURITY & PERFORMANCE ═══════════ */}
         {securityItems.length > 0 && (
-          <section className="cs-sec cs-sec--white">
+          <section className="cs-sec cs-sec--white" id="security">
             <div className="cs-wrap">
               <div className="cs-head">
                 <span className="cs-eyebrow">Security &amp; Performance</span>
                 <h2 className="cs-h2">Reliable operation across web and mobile</h2>
               </div>
               {/* Blue-dot rows -- the same component as "From design to
-                  production". */}
-              <ul className="cs-dots">
+                  production". `--center` because this section is centred
+                  in full, list included, not just its heading. */}
+              <ul className="cs-dots cs-dots--center">
                 {securityItems.map((it, i) => (
                   <li key={i}>
                     <span className="cs-dot" aria-hidden="true"></span>
@@ -943,13 +977,15 @@ export default async function PortfolioDetailPage({
 
         {/* ═══════════ FUTURE SCOPE ═══════════ */}
         {futureItems.length > 0 && (
-          <section className="cs-sec cs-sec--white">
+          <section className="cs-sec cs-sec--white" id="future">
             <div className="cs-wrap">
               <div className="cs-head">
                 <span className="cs-eyebrow">Future Scope</span>
                 <h2 className="cs-h2">Where the platform goes next</h2>
               </div>
-              <ul className="cs-dots">
+              {/* `--center`, same as Security & Performance: the whole
+                  block is centred, not just its heading. */}
+              <ul className="cs-dots cs-dots--center">
                 {futureItems.map((f, i) => (
                   <li key={i}>
                     <span className="cs-dot" aria-hidden="true"></span>
@@ -977,7 +1013,7 @@ export default async function PortfolioDetailPage({
               <span className="cs-eyebrow">mTouch Labs&rsquo; Role</span>
               <h2 className="cs-h2">How we contributed</h2>
             </div>
-            <p className="cs-prose cs-prose--single">
+            <p className="cs-prose cs-prose--single cs-prose--center">
               mTouch Labs delivered the {shortName} platform end to end. Our work covered
               {webTech.length ? ` the ${webTech.join(", ")} web application,` : ""}
               {mobileTech.length ? ` the ${mobileTech.join(", ")} mobile application,` : ""}
@@ -986,18 +1022,42 @@ export default async function PortfolioDetailPage({
               {" "}— translating the approved UI/UX designs into working software connected to the
               underlying services and data layer.
             </p>
-            {serviceTags.length > 0 && (
-              <>
-                <h3 className="cs-subh">Related Services</h3>
-                <div className="cs-pills">
-                  {serviceTags.map((t, i) => (
-                    <span key={i} className="cs-pill">{t}</span>
-                  ))}
-                </div>
-              </>
-            )}
           </div>
         </section>
+
+        {/* ═══════════ RELATED SERVICES ═══════════
+            Was a row of flat grey pills that went nowhere. Now the same
+            card component the case-study template uses: icon, service
+            name, one line of context, and a link into the service page
+            it names. `serviceRoute` below turns each tag into a real
+            route rather than leaving a dead card. */}
+        {serviceTags.length > 0 && (
+          <section className="cs-sec cs-sec--white">
+            <div className="cs-wrap">
+              <div className="cs-head">
+                <span className="cs-eyebrow">Related Services</span>
+                <h2 className="cs-h2">Continue exploring</h2>
+              </div>
+              <div className="cs-svcs">
+                {serviceTags.map((t, i) => (
+                  <Link key={i} href={serviceRoute(t)} className="cs-svc">
+                    <span className="cs-svc__ico">
+                      <i className={SERVICE_ICONS[i % SERVICE_ICONS.length]} aria-hidden="true" />
+                    </span>
+                    <span className="cs-svc__t">{t}</span>
+                    <span className="cs-svc__d">
+                      See how mTouch Labs delivers this for other products.
+                    </span>
+                    <span className="cs-svc__go">
+                      Explore service
+                      <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* ═══════════ RELATED PROJECTS ═══════════ */}
         {related.length > 0 && (
@@ -1065,8 +1125,15 @@ export default async function PortfolioDetailPage({
             <h2>Have a project like this in mind?</h2>
             <p>We brought {shortName} to life. Tell us what you want to build.</p>
             <div className="cs-cta__btns">
+              {/* Same hook the navbar and homepage use: QuoteModal lives in
+                  the root layout and opens on any click on `js-open-modal`
+                  / `data-open-quote`, calling preventDefault. The href is
+                  the no-JS fallback. */}
+              {/* Not "Get Quote" -- that label belongs to the hero. A
+                  closing CTA under a project story is an invitation to
+                  talk about a similar build. */}
               <Link href="/contact-us" className="cs-btn cs-btn--white">
-                Start a Project
+                Start Your Project
                 <svg className="cs-btn__ar" width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                   <path d="M4 12L12 4M12 4H5.5M12 4v6.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>

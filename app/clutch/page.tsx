@@ -4,7 +4,7 @@ import ServiceHero from "@/components/sections/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Review Us on Clutch",
-  description: "Your feedback matters! Leave mTouch Labs a review on Clutch. 14+ years of delivering enterprise software, mobile apps, and AI solutions across 12+ countries.",
+  description: "Your feedback matters! Leave mTouch Labs a review on Clutch. 14+ years of delivering enterprise software, mobile apps, and AI solutions across 20+ countries.",
   keywords: ["mTouch Labs Clutch review", "mTouch Labs rating", "software development company review", "mTouch Labs feedback", "Clutch review mTouch Labs"],
   alternates: { canonical: "https://www.mtouchlabs.com/clutch" },
   robots: { index: true, follow: true },
@@ -45,7 +45,7 @@ const clutchSchema = {
 };
 
 const stats = [
-  { number: "1,500+", label: "Projects Delivered" },
+  { number: "1500+", label: "Projects Delivered" },
   { number: "14+", label: "Years of Excellence" },
   { number: "98%", label: "Client Retention Rate" },
   { number: "4.9", label: "Average Rating" },
@@ -153,7 +153,7 @@ export default function ClutchPage() {
         <div className="clutch-cta__inner">
           <h2 className="clutch-cta__title">Ready to Start Your <span>Next Project</span>?</h2>
           <p className="clutch-cta__text">Whether you&apos;ve worked with us before or you&apos;re just getting started — we&apos;d love to hear from you.</p>
-          <a href="https://review.clutch.co/review/?provider_id=1209509" target="_blank" rel="noopener noreferrer" className="clutch-cta__btn">Review Us on Clutch →</a>
+          <a href="https://review.clutch.co/review/?provider_id=1209509" target="_blank" rel="noopener noreferrer" className="clutch-cta__btn">Review Us on Clutch</a>
         </div>
       </section>
     </>

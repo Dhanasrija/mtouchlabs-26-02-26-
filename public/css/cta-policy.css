@@ -1,0 +1,203 @@
+/* ════════════════════════════════════════════════════════════════════
+   CTA POLICY  —  structural, not a list of page classes
+   ────────────────────────────────────────────────────────────────────
+   THE RULE:
+     a CTA with a Q&A block AFTER it is DARK  (it divides two light
+       sections there, and the contrast is doing real work);
+     a CTA with nothing after it but the footer is LIGHT  (the footer is
+       dark, and a dark CTA above it merged into one unbroken band).
+
+   Written as a selector, not as a list of the class names I happened to
+   find, because this app has ~180 route folders. An earlier version of
+   this file listed classes from a 47-page sample and every page outside
+   it kept its old dark CTA. A structural rule cannot miss a page, and
+   pages added later are governed automatically.
+
+   SHAPE and ICONS are normalised for every CTA, light or dark: one box
+   (same padding, radius, 1.5px border, size, min-width; a row of two
+   lays out as equal columns), and one icon convention (PRIMARY carries a
+   trailing tilted arrow, SECONDARY carries nothing).
+
+   Selectors are doubled because brand.css paints these with
+   [class*="ctaSection"]:not(...) at (0,2,0) plus !important, which a
+   single-class selector loses to regardless of load order.
+   Loaded LAST in app/layout.tsx.
+   ════════════════════════════════════════════════════════════════════ */
+
+/* BACKGROUND — light */
+section:is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):not(:has(~ :is([class*="faq"],[class*="Faq"],[class*="FAQ"],[id*="faq"],[id*="Faq"],[id*="FAQ"]))) {
+  background:#FFFFFF !important; background-image:none !important;
+  border-top:1px solid #E3E8EF !important; color:#101729 !important;
+}
+section:is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):not(:has(~ :is([class*="faq"],[class*="Faq"],[class*="FAQ"],[id*="faq"],[id*="Faq"],[id*="FAQ"])))::before, section:is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):not(:has(~ :is([class*="faq"],[class*="Faq"],[class*="FAQ"],[id*="faq"],[id*="Faq"],[id*="FAQ"])))::after { display:none !important; }
+
+/* Decorative layers that are real ELEMENTS rather than pseudo-elements.
+   This is what left a blue wash on the on-demand CTA after the section
+   itself went white: <div class="odm-cta__glow"> is a child div, so
+   ::before / ::after rules never touched it. Same for the shape spans
+   on /careers.
+
+   Scoped to div/span/figure/canvas, NOT to any element: the on-demand
+   primary is <a class="odm-btn odm-btn--glow-white">, whose class also
+   contains "glow". An unscoped rule hid the button itself. A decorative
+   layer is never an anchor. */
+section:is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):not(:has(~ :is([class*="faq"],[class*="Faq"],[class*="FAQ"],[id*="faq"],[id*="Faq"],[id*="FAQ"]))) :is(div,span,figure,canvas):not(a):not(button):is([class*="glow"],[class*="shape"],[class*="blob"],[class*="overlay"],[class*="grain"],[class*="pattern"],[class*="halo"],[class*="orb"]), [class*="cta"] [class*="-shapes"] { display:none !important; }
+
+/* The inner wrapper frequently carries the gradient rather than the
+   section — contact-us paints .ent-cta-banner__inner, not the banner.
+   Only the named wrapper elements are cleared, so cards or panels
+   inside a CTA keep their own surfaces. */
+section:is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):not(:has(~ :is([class*="faq"],[class*="Faq"],[class*="FAQ"],[id*="faq"],[id*="Faq"],[id*="FAQ"]))) > div, section:is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):not(:has(~ :is([class*="faq"],[class*="Faq"],[class*="FAQ"],[id*="faq"],[id*="Faq"],[id*="FAQ"]))) :is([class*="__inner"],[class*="-inner"],[class*="__content"],[class*="-content"],[class*="container"]) {
+  background:transparent !important; background-image:none !important; box-shadow:none !important;
+}
+
+/* Written white-on-dark, so the type has to come back to ink. */
+section:is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):not(:has(~ :is([class*="faq"],[class*="Faq"],[class*="FAQ"],[id*="faq"],[id*="Faq"],[id*="FAQ"]))) :is(h1,h2,h3,h4) { color:#101729 !important; -webkit-text-fill-color:#101729 !important; }
+section:is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):not(:has(~ :is([class*="faq"],[class*="Faq"],[class*="FAQ"],[id*="faq"],[id*="Faq"],[id*="FAQ"]))) :is(h1,h2,h3,h4) :is(em,span,strong,b) {
+  color:#3E8CFB !important; -webkit-text-fill-color:#3E8CFB !important;
+  background:none !important; background-image:none !important; font-style:normal !important;
+}
+section:is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):not(:has(~ :is([class*="faq"],[class*="Faq"],[class*="FAQ"],[id*="faq"],[id*="Faq"],[id*="FAQ"]))) :is(p,li) { color:#4A5567 !important; -webkit-text-fill-color:#4A5567 !important; }
+section:is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):not(:has(~ :is([class*="faq"],[class*="Faq"],[class*="FAQ"],[id*="faq"],[id*="Faq"],[id*="FAQ"]))) :is(span:not([class*="btn"]):not([class*="Btn"])) { color:#4A5567 !important; }
+
+/* ALIGNMENT — every CTA is centred. /services was the one left ragged. */
+section:is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]) { text-align:center !important; }
+section:is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]) :is(h1,h2,h3,p) { margin-left:auto !important; margin-right:auto !important; text-align:center !important; }
+section:is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]) p { max-width:640px !important; }
+
+/* SHAPE — every CTA */
+section:is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]) :is(a[class*="btn"],a[class*="Btn"],a[class*="cta"],a[class*="Cta"],button[class*="btn"],button[class*="Btn"]) {
+  display:inline-flex !important; align-items:center !important; justify-content:center !important;
+  gap:10px !important; padding:16px 32px !important; min-width:236px !important;
+  box-sizing:border-box !important; border-radius:999px !important;
+  border-width:1.5px !important; border-style:solid !important;
+  font-size:15px !important; font-weight:600 !important; line-height:1.2 !important;
+  letter-spacing:.1px !important; text-decoration:none !important; white-space:nowrap !important;
+  box-shadow:none !important;
+  transition:background .24s ease,color .24s ease,border-color .24s ease,transform .24s ease !important;
+}
+section:is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]) :is([class*="cta-actions"],[class*="ctaActions"],[class*="cta__btns"],[class*="cta-btns"],[class*="ctaBtns"],[class*="cta__actions"],[class*="ctaButtons"],[class*="cta-buttons"]) {
+  display:flex !important; flex-wrap:wrap !important; gap:14px !important;
+  justify-content:center !important; align-items:center !important;
+}
+/* A row of two lays out as equal columns, so the pair always matches. */
+section:is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]) :is([class*="cta-actions"],[class*="ctaActions"],[class*="cta__btns"],[class*="cta-btns"],[class*="ctaBtns"],[class*="cta__actions"],[class*="ctaButtons"],[class*="cta-buttons"]):has(> :is(a,button) + :is(a,button)) {
+  display:grid !important; grid-auto-flow:column !important; grid-auto-columns:1fr !important;
+  max-width:620px !important; margin-left:auto !important; margin-right:auto !important;
+}
+section:is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]) :is([class*="cta-actions"],[class*="ctaActions"],[class*="cta__btns"],[class*="cta-btns"],[class*="ctaBtns"],[class*="cta__actions"],[class*="ctaButtons"],[class*="cta-buttons"]):has(> :is(a,button) + :is(a,button)) :is(a[class*="btn"],a[class*="Btn"],a[class*="cta"],a[class*="Cta"],button[class*="btn"],button[class*="Btn"]) { width:100% !important; min-width:0 !important; }
+
+/* ICONS */
+section:is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]) :is(a[class*="btn"],a[class*="Btn"],a[class*="cta"],a[class*="Cta"],button[class*="btn"],button[class*="Btn"]) :is(i,svg) { display:none !important; }
+/* The arrow goes on anything that is NOT a secondary, rather than on a
+   list of "primary-looking" class names — contact-us calls its primary
+   .ent-cta-banner__btn, which matched no such list and so lost its
+   arrow while its sibling kept the pairing. U+2197 rather than an SVG:
+   no markup change on 180 pages, and it cannot 404 like a Font Awesome
+   glyph missing from a build. */
+section:is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]) :is(a[class*="btn"],a[class*="Btn"],a[class*="cta"],a[class*="Cta"],button[class*="btn"],button[class*="Btn"]):not(:is([class*="secondary"],[class*="Secondary"],[class*="ghost"],[class*="Ghost"],[class*="outline"],[class*="Outline"],[class*="second"],[class*="Wa"]))::after {
+  content:"\2197" !important; font-size:1.02em !important; line-height:1 !important;
+  font-style:normal !important; transition:transform .24s ease !important;
+}
+section:is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]) :is(a[class*="btn"],a[class*="Btn"],a[class*="cta"],a[class*="Cta"],button[class*="btn"],button[class*="Btn"]):not(:is([class*="secondary"],[class*="Secondary"],[class*="ghost"],[class*="Ghost"],[class*="outline"],[class*="Outline"],[class*="second"],[class*="Wa"])):hover::after { transform:translate(2px,-2px) !important; }
+section:is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]) :is(a[class*="btn"],a[class*="Btn"],a[class*="cta"],a[class*="Cta"],button[class*="btn"],button[class*="Btn"]):is([class*="secondary"],[class*="Secondary"],[class*="ghost"],[class*="Ghost"],[class*="outline"],[class*="Outline"],[class*="second"],[class*="Wa"])::after { content:none !important; }
+
+/* Button colour — light */
+section:is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):not(:has(~ :is([class*="faq"],[class*="Faq"],[class*="FAQ"],[id*="faq"],[id*="Faq"],[id*="FAQ"]))) :is(a[class*="btn"],a[class*="Btn"],a[class*="cta"],a[class*="Cta"],button[class*="btn"],button[class*="Btn"]) {
+  background:#3E8CFB !important; background-image:none !important; border-color:#3E8CFB !important;
+  color:#FFFFFF !important; -webkit-text-fill-color:#FFFFFF !important;
+}
+section:is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):not(:has(~ :is([class*="faq"],[class*="Faq"],[class*="FAQ"],[id*="faq"],[id*="Faq"],[id*="FAQ"]))) :is(a[class*="btn"],a[class*="Btn"],a[class*="cta"],a[class*="Cta"],button[class*="btn"],button[class*="Btn"]):hover {
+  background:#0B6CF6 !important; border-color:#0B6CF6 !important;
+  color:#FFFFFF !important; -webkit-text-fill-color:#FFFFFF !important; transform:translateY(-2px) !important;
+}
+/* Secondary keeps its WHITE plate on hover — it used to fill solid blue,
+   which made the pair read as two primaries mid-interaction. */
+section:is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):not(:has(~ :is([class*="faq"],[class*="Faq"],[class*="FAQ"],[id*="faq"],[id*="Faq"],[id*="FAQ"]))) :is(a[class*="btn"],a[class*="Btn"],a[class*="cta"],a[class*="Cta"],button[class*="btn"],button[class*="Btn"]):is([class*="secondary"],[class*="Secondary"],[class*="ghost"],[class*="Ghost"],[class*="outline"],[class*="Outline"],[class*="second"],[class*="Wa"]) {
+  background:#FFFFFF !important; background-image:none !important; border-color:#3E8CFB !important;
+  color:#101729 !important; -webkit-text-fill-color:#101729 !important;
+}
+section:is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):not(:has(~ :is([class*="faq"],[class*="Faq"],[class*="FAQ"],[id*="faq"],[id*="Faq"],[id*="FAQ"]))) :is(a[class*="btn"],a[class*="Btn"],a[class*="cta"],a[class*="Cta"],button[class*="btn"],button[class*="Btn"]):is([class*="secondary"],[class*="Secondary"],[class*="ghost"],[class*="Ghost"],[class*="outline"],[class*="Outline"],[class*="second"],[class*="Wa"]):hover {
+  background:#FFFFFF !important; border-color:#0B6CF6 !important;
+  color:#0B6CF6 !important; -webkit-text-fill-color:#0B6CF6 !important; transform:translateY(-2px) !important;
+}
+
+/* Button colour — dark */
+section:is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):has(~ :is([class*="faq"],[class*="Faq"],[class*="FAQ"],[id*="faq"],[id*="Faq"],[id*="FAQ"])) :is(a[class*="btn"],a[class*="Btn"],a[class*="cta"],a[class*="Cta"],button[class*="btn"],button[class*="Btn"]) {
+  background:#FFFFFF !important; background-image:none !important; border-color:#FFFFFF !important;
+  color:#101729 !important; -webkit-text-fill-color:#101729 !important;
+}
+section:is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):has(~ :is([class*="faq"],[class*="Faq"],[class*="FAQ"],[id*="faq"],[id*="Faq"],[id*="FAQ"])) :is(a[class*="btn"],a[class*="Btn"],a[class*="cta"],a[class*="Cta"],button[class*="btn"],button[class*="Btn"]):hover { background:#EEF5FF !important; border-color:#EEF5FF !important; transform:translateY(-2px) !important; }
+section:is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):has(~ :is([class*="faq"],[class*="Faq"],[class*="FAQ"],[id*="faq"],[id*="Faq"],[id*="FAQ"])) :is(a[class*="btn"],a[class*="Btn"],a[class*="cta"],a[class*="Cta"],button[class*="btn"],button[class*="Btn"]):is([class*="secondary"],[class*="Secondary"],[class*="ghost"],[class*="Ghost"],[class*="outline"],[class*="Outline"],[class*="second"],[class*="Wa"]) {
+  background:transparent !important; border-color:rgba(255,255,255,.55) !important;
+  color:#FFFFFF !important; -webkit-text-fill-color:#FFFFFF !important;
+}
+section:is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):has(~ :is([class*="faq"],[class*="Faq"],[class*="FAQ"],[id*="faq"],[id*="Faq"],[id*="FAQ"])) :is(a[class*="btn"],a[class*="Btn"],a[class*="cta"],a[class*="Cta"],button[class*="btn"],button[class*="Btn"]):is([class*="secondary"],[class*="Secondary"],[class*="ghost"],[class*="Ghost"],[class*="outline"],[class*="Outline"],[class*="second"],[class*="Wa"]):hover {
+  background:rgba(255,255,255,.14) !important; border-color:#FFFFFF !important;
+  color:#FFFFFF !important; -webkit-text-fill-color:#FFFFFF !important;
+}
+
+@media (max-width:560px) {
+  section:is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]) :is([class*="cta-actions"],[class*="ctaActions"],[class*="cta__btns"],[class*="cta-btns"],[class*="ctaBtns"],[class*="cta__actions"],[class*="ctaButtons"],[class*="cta-buttons"]), section:is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]) :is([class*="cta-actions"],[class*="ctaActions"],[class*="cta__btns"],[class*="cta-btns"],[class*="ctaBtns"],[class*="cta__actions"],[class*="ctaButtons"],[class*="cta-buttons"]):has(> :is(a,button) + :is(a,button)) { display:flex !important; flex-direction:column !important; }
+  section:is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]):is([class*="cta"],[class*="Cta"],[class*="CTA"],[id*="cta"]) :is(a[class*="btn"],a[class*="Btn"],a[class*="cta"],a[class*="Cta"],button[class*="btn"],button[class*="Btn"]) { min-width:0 !important; width:100% !important; }
+}
+
+/* ── /case-studies — the hero action pair ──────────────────────────
+   These live in the HERO, not in a CTA section, so the structural rule
+   does not reach them. Same pair as everywhere else. */
+.itsc-ctas { display:flex !important; gap:14px !important; flex-wrap:wrap !important; align-items:center !important; }
+.itsc-ctas :is(a,button) {
+  display:inline-flex !important; align-items:center !important; justify-content:center !important;
+  gap:10px !important; padding:16px 32px !important; min-width:236px !important;
+  box-sizing:border-box !important; border-radius:999px !important;
+  border-width:1.5px !important; border-style:solid !important;
+  font-size:15px !important; font-weight:600 !important; line-height:1.2 !important;
+  text-decoration:none !important; white-space:nowrap !important; box-shadow:none !important;
+  transition:background .24s ease,color .24s ease,border-color .24s ease,transform .24s ease !important;
+}
+.itsc-ctas :is(a,button) :is(i,svg) { display:none !important; }
+.itsc-ctas a.itsc-btn-primary,
+.itsc-ctas a.itsc-btn-primary:link,
+.itsc-ctas a.itsc-btn-primary:visited {
+  background:#3E8CFB !important; background-image:none !important; border-color:#3E8CFB !important;
+  color:#FFFFFF !important; -webkit-text-fill-color:#FFFFFF !important;
+}
+.itsc-ctas a.itsc-btn-primary::after {
+  content:"\2197" !important; font-size:1.02em !important; line-height:1 !important; transition:transform .24s ease !important;
+}
+.itsc-ctas a.itsc-btn-primary:hover {
+  background:#0B6CF6 !important; border-color:#0B6CF6 !important; transform:translateY(-2px) !important;
+}
+.itsc-ctas a.itsc-btn-primary:hover::after { transform:translate(2px,-2px) !important; }
+.itsc-ctas a.itsc-btn-ghost,
+.itsc-ctas a.itsc-btn-ghost:link,
+.itsc-ctas a.itsc-btn-ghost:visited {
+  background:#FFFFFF !important; background-image:none !important; border-color:#3E8CFB !important;
+  color:#101729 !important; -webkit-text-fill-color:#101729 !important;
+}
+.itsc-ctas a.itsc-btn-ghost::after { content:none !important; }
+.itsc-ctas a.itsc-btn-ghost:hover {
+  background:#FFFFFF !important; border-color:#0B6CF6 !important;
+  color:#0B6CF6 !important; -webkit-text-fill-color:#0B6CF6 !important; transform:translateY(-2px) !important;
+}
+
+/* ── /careers — the resume block ──────────────────────────────────
+   "Talk to Our Team" is the secondary of that pair: white plate,
+   Signature Blue border, stays white on hover. */
+.cr-resume a.cr-resume-btn-secondary {
+  background:#FFFFFF !important; background-image:none !important;
+  border:1.5px solid #3E8CFB !important;
+  color:#101729 !important; -webkit-text-fill-color:#101729 !important;
+}
+.cr-resume a.cr-resume-btn-secondary:hover {
+  background:#FFFFFF !important; border-color:#0B6CF6 !important;
+  color:#0B6CF6 !important; -webkit-text-fill-color:#0B6CF6 !important;
+}
+
+/* ── /contact-us ──────────────────────────────────────────────────
+   "Extraordinary" sits on the DARK hero, so it stays white — it was the
+   one word picking up an accent colour. */
+.ct-hero .ct-hero__title .ct-hero__accent, .ct-hero .ct-hero__accent {
+  color:#FFFFFF !important; -webkit-text-fill-color:#FFFFFF !important;
+  background:none !important; background-image:none !important;
+}
