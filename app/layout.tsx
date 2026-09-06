@@ -1,11 +1,6 @@
 
 import '../public/css/brand.css';
 import "../public/css/case-study.css";
-/* Loaded LAST of the global sheets on purpose. cta-policy.css states one
-   site-wide rule -- a CTA above the footer is light, a CTA above a Q&A is
-   dark -- and it has to outrank each page's own CTA styling without
-   editing twenty separate stylesheets. Order is what gives it that. */
-import "../public/css/cta-policy.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ChatWidget from "@/components/layout/ChatWidget";
@@ -178,7 +173,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <script
           id="openai-pixel"
           dangerouslySetInnerHTML={{
-            __html: `!function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");oaiq("init",{pixelId:"9YggQeUSmz7yJiNTG2JR8q",debug:true});`,
+            __html: `!function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");oaiq("init",{pixelId:"XkTs5t254B6aDStvju9EF3",debug:true});`,
           }}
         />
 

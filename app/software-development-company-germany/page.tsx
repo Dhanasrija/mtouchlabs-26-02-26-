@@ -75,6 +75,7 @@ export default function SoftwareDevelopmentCompanyGermany() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(locationBreadcrumb) }} />
       {/* ═══ HERO ═══ */}
       <ServiceHero
+        leadForm="Germany"
         badge="mTouch Labs · Germany"
         titleLead="Software Development"
         titleAccent="Company in"

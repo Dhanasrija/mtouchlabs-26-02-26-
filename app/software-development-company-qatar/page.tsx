@@ -75,6 +75,7 @@ export default function SoftwareDevelopmentCompanyQatar() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(locationBreadcrumb) }} />
       {/* ═══ HERO ═══ */}
       <ServiceHero
+        leadForm="Qatar"
         badge="Software Development"
         titleLead="Software Development Company in"
         titleAccent="Qatar"

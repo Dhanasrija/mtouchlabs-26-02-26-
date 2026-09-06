@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ReactNode } from "react";
+import HeroLeadForm from "@/components/locations/HeroLeadForm";
 
 /**
  * ServiceHero
@@ -36,6 +37,18 @@ export interface ServiceHeroProps {
   secondaryLabel?: string;
   /** Render the secondary CTA as a filled (primary-style) button instead of the ghost outline */
   secondaryAsPrimary?: boolean;
+  /**
+   * Location name, e.g. "Canada". When set, the hero switches from the
+   * centred single-column layout to the two-column one used on
+   * /software-development-company-usa: copy on the left, lead capture
+   * form on the right. The value is what the lead is attributed to, so
+   * a Canada enquiry does not arrive tagged as a USA one.
+   *
+   * Opt-in rather than automatic: ServiceHero is shared with the
+   * homepage and the service pages, and none of those want a form in
+   * the hero.
+   */
+  leadForm?: string;
 }
 
 export default function ServiceHero({
@@ -50,6 +63,7 @@ export default function ServiceHero({
   secondaryHref = "/portfolio",
   secondaryLabel = "View Case Studies",
   secondaryAsPrimary = false,
+  leadForm,
 }: ServiceHeroProps) {
   return (
     <>
@@ -259,12 +273,40 @@ export default function ServiceHero({
   .svc-hero-h1 { font-size: 34px; line-height: 44px; }
   .svc-hero-sub { font-size: 16px; line-height: 26px; }
 }
+
+/* ═════ Lead-form variant ═════
+   Copy left, form right — the layout /software-development-company-usa
+   already used. Only the container changes: the badge, H1, sub-copy and
+   CTAs are the same elements, re-ranged left instead of centred, so
+   there is one hero component rather than two that drift apart. */
+.svc-hero--form .svc-hero-content {
+  max-width: 1240px;
+  text-align: left;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+  gap: 3.25rem;
+  align-items: start;
+}
+.svc-hero--form .svc-hero-copy { min-width: 0; }
+.svc-hero--form .svc-hero-formcol { min-width: 0; }
+.svc-hero--form .svc-hero-h1,
+.svc-hero--form .svc-hero-sub { margin-left: 0; margin-right: 0; text-align: left; }
+.svc-hero--form .svc-hero-sub { max-width: 56ch; }
+.svc-hero--form .svc-hero-ctas { justify-content: flex-start; }
+/* The rule under the headline, as on the USA page. */
+.svc-hero--form .svc-hero-rule {
+  width: 74px; height: 4px; border-radius: 999px;
+  background: var(--brand); margin: 0 0 1.5rem;
+}
+@media (max-width: 1000px) {
+  .svc-hero--form .svc-hero-content { grid-template-columns: minmax(0, 1fr); gap: 2.5rem; }
+}
 `,
         }}
       />
 
       <div className="svc-hero-wrap">
-        <section className="svc-hero">
+        <section className={`svc-hero${leadForm ? " svc-hero--form" : ""}`}>
           <div className="svc-hero-grid" aria-hidden="true" />
           <div className="svc-blob svc-blob-a" aria-hidden="true" />
           <div className="svc-blob svc-blob-b" aria-hidden="true" />
@@ -272,6 +314,7 @@ export default function ServiceHero({
 
           <div className="svc-hero-container">
             <div className="svc-hero-content">
+              <div className={leadForm ? "svc-hero-copy" : undefined}>
               {imageBadge ? (
                 <div className="svc-hero-imgbadge">
                   <img src={imageBadge.src} alt={imageBadge.alt} loading="eager" />
@@ -288,6 +331,8 @@ export default function ServiceHero({
                 <span className="svc-hero-h1-accent">{titleAccent}</span>
                 {titleTail ? <> {titleTail}</> : null}
               </h1>
+
+              {leadForm ? <div className="svc-hero-rule" aria-hidden="true" /> : null}
 
               <p className="svc-hero-sub">{description}</p>
 
@@ -327,6 +372,16 @@ export default function ServiceHero({
                   </svg>
                 </Link>
               </div>
+              </div>
+
+              {/* The form column. Rendered only for the lead-form
+                  variant, so the homepage and the service pages are
+                  untouched by this component gaining a second layout. */}
+              {leadForm ? (
+                <div className="svc-hero-formcol">
+                  <HeroLeadForm location={leadForm} />
+                </div>
+              ) : null}
             </div>
           </div>
         </section>

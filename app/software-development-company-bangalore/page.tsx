@@ -59,6 +59,7 @@ export default function SoftwareDevelopmentCompanyBangalore() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(locationBreadcrumb) }} />
       {/* ═══ HERO ═══ */}
       <ServiceHero
+        leadForm="Bangalore"
         badge="mTouch Labs · Bangalore"
         titleLead="Software Development Company in"
         titleAccent="Bangalore"

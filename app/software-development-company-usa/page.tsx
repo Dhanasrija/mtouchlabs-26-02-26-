@@ -3,7 +3,10 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { Sora, Inter } from "next/font/google";
 import FAQSchema from "@/components/seo/FAQSchema";
-import HeroLeadForm from "./HeroLeadForm";
+/* The shared component, not the page-local copy that used to live at
+   ./HeroLeadForm. Every location hero now renders this same form, so
+   keeping a second copy here would guarantee the two drift apart. */
+import HeroLeadForm from "@/components/locations/HeroLeadForm";
 import { Icon, type IconName, LOC_CSS } from "@/components/locations/LocationKit";
 
 /* ════════════════════════════════════════════════════════════
@@ -472,7 +475,7 @@ export default function SoftwareDevelopmentCompanyUSA() {
 
           </div>
 
-          <HeroLeadForm />
+          <HeroLeadForm location="USA" />
         </div>
       </section>
 

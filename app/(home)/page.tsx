@@ -1025,9 +1025,9 @@ export default async function HomePage() {
             </h1>
 
             <p className="hmx-hero-lead hmx-in" style={d(2)}>
-              mTouch Labs ships {FACTS.projects} products for startups, enterprises and
-              governments&mdash;including Telangana and Abu Dhabi&mdash;turning ideas into
-              secure, scalable software that drives real impact.
+              mTouch Labs delivers digital products for startups, enterprises, and
+              governments, including projects for Telangana and Abu Dhabi. We turn ideas
+              into secure, scalable software built for real-world impact.
             </p>
 
             <div className="hmx-hero-ctas hmx-in" style={d(3)}>
@@ -1208,7 +1208,7 @@ export default async function HomePage() {
 
             <div className="hmx-partner-art hmx-rv" style={d(1)}>
               <img
-                src="/images/new-home(02-09)/award-nasscom-2026.webp"
+                src="/images/hero-new-work/NASSCOM.webp"
                 alt="mTouch Labs receiving the Digital Transformation Catalyst award at the NASSCOM SME Inspire Awards 2026"
                 width={780}
                 height={538}
@@ -1840,52 +1840,6 @@ export default async function HomePage() {
         if (r.checked) requestAnimationFrame(scrollToTabs);
       });
     });
-  }
-
-})();
-
-/* Logo wall auto-advance -- its OWN IIFE.
-   It used to live at the foot of the reveal block above, which returns
-   early when the visitor has reduced motion set or the browser has no
-   IntersectionObserver. That guard is about the reveal animation, but it
-   was taking the carousel down with it. */
-(function(){
-  /* ── Logo wall: auto-advance ──────────────────────────────────
-     The wall is a CSS-only carousel -- two hidden radios drive which
-     page is displayed and which dot is lit. Rather than rebuild it as
-     a marquee (which would cost the dots, the keyboard support and the
-     ability to stop on a logo), this just ticks the radio on a timer,
-     so the existing transition, dots and focus behaviour all still
-     apply.
-
-     It pauses while the pointer is over the wall or while a dot has
-     keyboard focus, and it does nothing at all for a visitor who has
-     asked for reduced motion. */
-  var lw = document.querySelector('.hmx-lw');
-  if (lw) {
-    var lwRadios = Array.prototype.slice.call(lw.querySelectorAll('.hmx-lw-r'));
-    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (lwRadios.length > 1 && !reduce) {
-      var paused = false, timer = null;
-      var DELAY = 4000;
-      function advance() {
-        if (paused) return;
-        var i = 0;
-        for (var k = 0; k < lwRadios.length; k++) if (lwRadios[k].checked) { i = k; break; }
-        lwRadios[(i + 1) % lwRadios.length].checked = true;
-      }
-      function start() { stop(); timer = setInterval(advance, DELAY); }
-      function stop() { if (timer) { clearInterval(timer); timer = null; } }
-      lw.addEventListener('mouseenter', function () { paused = true; });
-      lw.addEventListener('mouseleave', function () { paused = false; });
-      lw.addEventListener('focusin', function () { paused = true; });
-      lw.addEventListener('focusout', function () { paused = false; });
-      /* A tab in the background should not keep cycling. */
-      document.addEventListener('visibilitychange', function () {
-        if (document.hidden) stop(); else start();
-      });
-      start();
-    }
   }
 })();`,
         }}

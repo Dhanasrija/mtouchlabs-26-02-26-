@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import FAQSchema from "@/components/seo/FAQSchema";
 import { Icon, type IconName, LOC_CSS, STATE_CSS, LocationStyles, LocBreadcrumb, StateSchema, stateSchema, US_CONTACT } from "@/components/locations/LocationKit";
+import HeroLeadForm from "@/components/locations/HeroLeadForm";
 
 /* ════════════════════════════════════════════════════════════
    TEXAS
@@ -114,13 +115,11 @@ export default function SoftwareDevelopmentCompanyTexas() {
               <Link href="/portfolio" className="st-btnB">See Our Work</Link>
             </div>
           </div>
-          <div className="loc-introStats">{STATS.map((s) => (
-            <div className="loc-statCard" key={s.l}>
-              <span className="loc-statIcon"><Icon name={s.i} size={19} /></span>
-              <div className="loc-statNum">{s.n}</div>
-              <div className="loc-statLabel">{s.l}</div>
-            </div>
-          ))}</div>
+          {/* The right column holds the lead form, matching
+              /software-development-company-usa. It was a stat grid; the
+              USA hero has no stats, and the brief is that every location
+              hero matches that one. */}
+          <HeroLeadForm location="Texas" />
         </div>
       </section>
 

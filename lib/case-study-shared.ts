@@ -416,13 +416,31 @@ export const CASE_STUDY_CSS = `
    each section because the page has no section that wants a left-ragged
    heading; the modifier below is kept only so existing markup that
    already carries it still resolves the same way. */
+/* LEFT, and using the full measure — only the hero is centred.
+   The centred version stacked eyebrow / H2 / sentence in one narrow
+   830px column, which left a wide empty gutter on the right of every
+   section. This lays the heading out across the whole wrap: the eyebrow
+   and H2 hold the left column, and the supporting sentence fills the
+   space beside them instead of sitting under them. */
 .cs .cs-head{
-  margin:0 auto 36px !important;text-align:center !important;max-width:830px !important;
+  margin:0 0 36px !important;text-align:left !important;max-width:none !important;
+  display:grid !important;
+  grid-template-columns:minmax(0,1.05fr) minmax(0,1fr) !important;
+  gap:10px 56px !important;align-items:start !important;
 }
-.cs .cs-head .cs-eyebrow,
-.cs .cs-head .cs-h2,
-.cs .cs-head .cs-desc{text-align:center !important}
-.cs .cs-head .cs-desc{margin-left:auto !important;margin-right:auto !important}
+.cs .cs-head .cs-eyebrow{grid-column:1 !important;grid-row:1 !important;text-align:left !important}
+.cs .cs-head .cs-h2{grid-column:1 !important;grid-row:2 !important;text-align:left !important;margin-bottom:0 !important}
+.cs .cs-head .cs-desc{
+  grid-column:2 !important;grid-row:1 / span 2 !important;
+  text-align:left !important;margin:0 !important;max-width:56ch !important;align-self:center !important;
+}
+/* A heading with no supporting sentence collapses to one column rather
+   than leaving an empty track beside it. */
+.cs .cs-head:not(:has(.cs-desc)){display:block !important}
+@media (max-width:900px){
+  .cs .cs-head{display:block !important}
+  .cs .cs-head .cs-h2{margin-bottom:12px !important}
+}
 /* Inside a two-column block the heading centres within ITS column, which
    is what keeps Business Challenges and Project Objectives balanced
    against each other rather than both drifting to the page centre. */
@@ -727,6 +745,20 @@ export const CASE_STUDY_CSS = `
 .cs .cs-rel p{font-size:.9rem !important;color:var(--s600) !important;line-height:1.55 !important;margin-bottom:14px !important}
 .cs .cs-rel__go{font-size:.85rem !important;font-weight:600 !important;color:var(--b600) !important;display:inline-flex !important;align-items:center !important;gap:4px !important}
 
+/* The FAQ is the one section that stays CENTRED. Every other heading on
+   these pages is ranged left across the full wrap; a Q&A reads better
+   with its heading over the centre of the accordion, which is also how
+   the homepage FAQ is set. */
+.cs #faq .cs-head{
+  display:block !important;text-align:center !important;
+  max-width:830px !important;margin:0 auto 36px !important;
+}
+.cs #faq .cs-head .cs-eyebrow,
+.cs #faq .cs-head .cs-h2,
+.cs #faq .cs-head .cs-desc{text-align:center !important}
+.cs #faq .cs-head .cs-desc{margin-left:auto !important;margin-right:auto !important}
+.cs #faq .cs-qa{margin-left:auto !important;margin-right:auto !important}
+
 /* ═══ FAQ — identical to the homepage FAQ ══════════════════════════
    Same values as .hmx-faq / .hmx-faq-item / .hmx-faq-q / .hmx-faq-ico /
    .hmx-faq-a in app/(home)/home-landing.css, so the two read as one
@@ -783,20 +815,25 @@ export const CASE_STUDY_CSS = `
 
 /* A prose block that is centred with its heading rather than left-ragged
    under it -- used by "mTouch Labs' Role". */
+/* Left, full measure — matches every other body block on the page. */
 .cs .cs-prose--center,
 .cs .cs-prose--center p{
-  text-align:center !important;max-width:760px !important;
-  margin-left:auto !important;margin-right:auto !important;
+  text-align:left !important;max-width:none !important;
+  margin-left:0 !important;margin-right:0 !important;
 }
 
-/* ═══ SECURITY & PERFORMANCE — the one fully centred section ════════
-   Asked for explicitly: heading AND list. The rows keep their blue dot
+/* ═══ SECURITY & PERFORMANCE / FUTURE SCOPE ════════════════════════
+   Ranged left across the full wrap, like every other section. The rows
+   keep their blue dot
    on the left of each item so the list still reads as a list, but the
    block itself is centred in the page and each row's text is centred
    with it. */
 .cs #security .cs-dots,
+/* Full width, ranged left. These were boxed into a 760px centred column,
+   which left the right third of the section empty while the rows inside
+   wrapped earlier than they needed to. */
 .cs .cs-dots--center{
-  max-width:760px !important;margin-left:auto !important;margin-right:auto !important;
+  max-width:none !important;margin-left:0 !important;margin-right:0 !important;
 }
 /* The BLOCK is centred in the page; the TEXT inside each row is not.
    Centring the row text meant every bullet started at a different x and
