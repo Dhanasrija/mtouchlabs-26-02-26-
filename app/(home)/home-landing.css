@@ -827,7 +827,13 @@
 .hmx-lw-cell:nth-child(12n+9),
 .hmx-lw-cell:nth-child(12n+11) { background: #F5F6FA; }
 
-.hmx-lw-cell:hover { background: #EDEFF6; }
+/* NO background change on hover, deliberately.
+   The wall is a white / #F5F6FA checkerboard, and a number of these marks
+   are supplied as opaque artwork with their own white plate baked in. On a
+   white cell that plate is invisible; the moment hover repainted the cell
+   #EDEFF6 the plate appeared as a hard white square around the logo. The
+   scale on the image below is the whole hover affordance -- the cell keeps
+   whatever checkerboard colour it started with. */
 /* Full colour, always. No greyscale filter and no opacity knock-back:
    these are the clients' own marks and they are shown as they are. */
 .hmx-lw-cell img {

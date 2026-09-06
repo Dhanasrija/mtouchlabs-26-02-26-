@@ -316,7 +316,13 @@ export default async function PortfolioDetailPage({
   const techCategories = categorizeTech(techStack);
   const { main, bc, faq } = buildSchemas(project);
 
-  const name = cleanTitle(project.title, slug);
+  /* The stored title, verbatim -- not the slug title-cased.
+     `cleanTitle(title, slug)` rebuilds the name from the URL, which turns
+     "Golkonda Handicrafts – Telangana E-Commerce Website & Mobile App"
+     into "Telangana Ecommerce Mobile App Development". The slug form is
+     still used for the breadcrumb and card labels, where a short name
+     reads better. */
+  const name = String(project.title || cleanTitle(project.title, slug)).trim();
   const shortName = name.split(/[—–-]/)[0].trim();
   const related = await getRelatedProjects(project.category, project.id);
 
@@ -547,7 +553,15 @@ export default async function PortfolioDetailPage({
               <span className="cs-eyebrow">Project Snapshot</span>
               <h2 className="cs-h2">Key project details at a glance</h2>
             </div>
-            <table className="cs-table">
+            <table className="cs-table cs-table--2col">
+              {/* An explicit header row: without it the block read as a
+                  styled definition list rather than a two-column table. */}
+              <thead>
+                <tr>
+                  <th scope="col">Project Detail</th>
+                  <th scope="col">Information</th>
+                </tr>
+              </thead>
               <tbody>
                 {snapshotRows.map((r, i) => (
                   <tr key={i}>

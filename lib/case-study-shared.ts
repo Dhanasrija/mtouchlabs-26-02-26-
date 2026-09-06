@@ -180,7 +180,11 @@ export const CASE_STUDY_CSS = `
    prefixed '.cs' to out-rank them and every declaration carries !important
    to win the tie. Blunt, but bundle.css cannot be edited from here.
 
-   Tokens are taken from the reference: blue-600 #2563eb accents, slate
+   Tokens are anchored on mTouch Signature Blue #3E8CFB (--color-signature-blue
+   in brand.css). The earlier ramp was sampled off a reference screenshot
+   and landed on #3762E3, an indigo that read as purple beside the rest of
+   the site. Every blue below is now a tint or shade of Signature Blue, with
+   Heritage Navy #011D80 as the darkest step. Slate
    text, white cards on a slate-50 ground, 12/16px radii, hairline rules
    between sections and alternating white bands.
    ═══════════════════════════════════════════════════════════════════ */
@@ -191,17 +195,17 @@ export const CASE_STUDY_CSS = `
      resolves through these tokens, so the whole design moves by editing
      this one block. */
   /* Sampled straight off the reference screenshots, not guessed:
-       #3762E3  the blue -- eyebrows, stat figures, KPI figures, icons
-       #2B4DD0  the darker blue used for badge-pill text
-       #F1F6FE  the pale blue behind badges and icon tiles
+       #3E8CFB  the blue -- eyebrows, stat figures, KPI figures, icons
+       #0B6CF6  the darker blue used for badge-pill text
+       #EEF5FF  the pale blue behind badges and icon tiles
        #101729  headings
        #4A5567  body copy
        #E3E8EF  card borders
        #F9FAFC  the grey section band
-       #2842AC -> #3560E0  the Key Takeaway gradient
+       #0754C2 -> #3E8CFB  the Key Takeaway gradient (Signature Blue)
      Everything on these pages resolves through these tokens. */
-  --b50:#F1F6FE;--b100:#DEE7FB;--b200:#C3D0F6;--b300:#9DB2F0;
-  --b500:#5B7FE9;--b600:#3762E3;--b700:#2B4DD0;--b800:#2842AC;--b900:#1E3382;
+  --b50:#EEF5FF;--b100:#DAE9FE;--b200:#B7D4FD;--b300:#8FBCFD;
+  --b500:#62A1FC;--b600:#3E8CFB;--b700:#0B6CF6;--b800:#0754C2;--b900:#011D80;
 
   --s50:#F9FAFC;--s100:#F1F3F7;--s200:#E3E8EF;--s300:#CBD3E1;--s400:#98A2B3;
   --s500:#697586;--s600:#4A5567;--s700:#364152;--s800:#202939;--s900:#101729;
@@ -459,6 +463,30 @@ export const CASE_STUDY_CSS = `
 .cs .cs-table tr:last-child th,.cs .cs-table tr:last-child td{border-bottom:0 !important}
 .cs .cs-table a{color:var(--b600) !important;font-weight:600 !important}
 
+/* --- Two-column snapshot table -------------------------------------
+   The rows were already <th>/<td> pairs, but with no header row and no
+   vertical rule the block read as a styled definition list. A real
+   header row, a divider between the columns and zebra striping make
+   the two columns unmistakable. */
+.cs .cs-table--2col thead th{
+  background:var(--b600) !important;color:#fff !important;
+  font-size:.78rem !important;font-weight:700 !important;
+  text-transform:uppercase !important;letter-spacing:.06em !important;
+  padding:14px 24px !important;border-bottom:0 !important;width:auto !important;
+}
+.cs .cs-table--2col thead th:first-child{width:38% !important}
+.cs .cs-table--2col thead th + th{border-left:1px solid rgba(255,255,255,.22) !important}
+.cs .cs-table--2col tbody th{
+  background:var(--s50) !important;color:var(--s600) !important;
+  text-transform:none !important;letter-spacing:0 !important;
+  font-size:.9rem !important;font-weight:600 !important;
+}
+.cs .cs-table--2col tbody td{border-left:1px solid var(--s200) !important}
+.cs .cs-table--2col tbody tr:nth-child(even) th{background:#fff !important}
+.cs .cs-table--2col tbody tr:nth-child(even) td{background:var(--s50) !important}
+.cs .cs-table--2col tbody tr:last-child th,
+.cs .cs-table--2col tbody tr:last-child td{border-bottom:0 !important}
+
 /* ═══ CHECK LISTS (challenges / objectives / security) ══════════════ */
 .cs .cs-checks{display:flex !important;flex-direction:column !important;gap:16px !important}
 .cs .cs-checks li{
@@ -607,7 +635,29 @@ export const CASE_STUDY_CSS = `
   transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease !important;
 }
 .cs .cs-shot:hover{border-color:var(--b200) !important;box-shadow:var(--sh-md) !important;transform:translateY(-3px) !important}
-.cs .cs-shot img{width:100% !important;height:auto !important;background:var(--s50) !important}
+.cs .cs-shot img{width:100% !important;height:auto !important;background:var(--s50) !important;display:block !important}
+/* Every web screenshot card is the SAME height, whatever the source image's
+   own proportions are. Before this, the grid stretched each card to the row
+   height while the <img> kept its natural height -- a short 4th image left a
+   band of white card showing underneath it. The card now owns a fixed 16/10
+   box and the image fills that box, so the four cards match exactly and no
+   background ever shows through. */
+.cs .cs-shots--web .cs-shot{
+  aspect-ratio:16/10 !important;height:100% !important;
+  display:block !important;position:relative !important;
+  background:var(--b50) !important;padding:0 !important;
+}
+/* 'cover' made the cards equal height but sliced content off the left and
+   right of any screenshot wider than the box. 'contain' shows every
+   screenshot whole; the card's own tint fills whatever is left over, so the
+   four cards still line up and the leftover reads as a deliberate mat
+   rather than a strip of missing white. */
+.cs .cs-shots--web .cs-shot img{
+  position:absolute !important;inset:0 !important;
+  width:100% !important;height:100% !important;
+  object-fit:contain !important;object-position:center center !important;
+  background:transparent !important;
+}
 .cs .cs-shot--app img{aspect-ratio:9/19 !important;object-fit:cover !important;object-position:top center !important}
 
 /* ═══ RESULTS ═══════════════════════════════════════════════════════ */
@@ -870,7 +920,7 @@ export const CASE_STUDY_CSS = `
 /* The takeaway sits on the WHITE band below the results, as drawn --
    its own section, not tacked onto the grey one. */
 .cs .cs-takeaway{
-  background:linear-gradient(100deg,#2842AC 0%,#3560E0 100%) !important;
+  background:linear-gradient(100deg,#0754C2 0%,#3E8CFB 100%) !important;
   border-radius:20px !important;padding:40px 44px !important;margin:0 !important;
   color:#fff !important;
 }
@@ -957,6 +1007,89 @@ export const CASE_STUDY_CSS = `
 .cs .cs-card p,.cs .cs-tech p{color:var(--s600) !important}
 .cs .cs-card__ico,.cs .cs-tech__mark,.cs .cs-fact__ico{background:var(--b50) !important}
 .cs .cs-card__ico i,.cs .cs-tech__mark i,.cs .cs-fact__ico i{color:var(--b600) !important}
+
+
+/* ═══ SOLUTION DELIVERABLES ═════════════════════════════════════════
+   "The Solution We Delivered" gets its own treatment rather than reusing
+   the Approach card. Each item is a numbered panel with a Signature Blue
+   spine down its left edge -- these are the things that were BUILT, so
+   they read as a delivery list, not another set of ideas. */
+.cs .cs-deliver{
+  display:grid !important;grid-template-columns:repeat(auto-fit,minmax(400px,1fr)) !important;
+  gap:20px !important;
+}
+.cs .cs-deliver__item{
+  display:flex !important;gap:20px !important;align-items:flex-start !important;
+  background:#FFFFFF !important;background-image:none !important;
+  border:1px solid var(--s200) !important;border-left:3px solid var(--b600) !important;
+  border-radius:var(--r) !important;padding:26px 28px !important;
+  box-shadow:var(--sh-sm) !important;
+  transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease !important;
+}
+.cs .cs-deliver__item:hover{
+  border-color:var(--b600) !important;box-shadow:var(--sh-md) !important;
+  transform:translateY(-2px) !important;background:#FFFFFF !important;
+}
+.cs .cs-deliver__item::before,.cs .cs-deliver__item::after{content:none !important}
+.cs .cs-deliver__n{
+  flex-shrink:0 !important;width:34px !important;height:34px !important;border-radius:10px !important;
+  background:var(--b50) !important;color:var(--b700) !important;
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;
+  font-size:.85rem !important;font-weight:800 !important;line-height:1 !important;
+  font-variant-numeric:tabular-nums !important;margin-top:2px !important;
+}
+.cs .cs-deliver__t{display:block !important;font-size:1.05rem !important;font-weight:700 !important;color:var(--s900) !important;margin-bottom:7px !important}
+.cs .cs-deliver__d{font-size:.94rem !important;line-height:1.65 !important;color:var(--s600) !important}
+
+/* ═══ RELATED SERVICES ══════════════════════════════════════════════
+   Cards with an icon tile and an arrow that travels on hover, rather
+   than the plain text rows this section used to be. */
+.cs .cs-svcs{
+  display:grid !important;grid-template-columns:repeat(auto-fit,minmax(280px,1fr)) !important;
+  gap:20px !important;
+}
+.cs a.cs-svc{
+  display:flex !important;flex-direction:column !important;
+  background:#FFFFFF !important;background-image:none !important;
+  border:1px solid var(--s200) !important;border-radius:var(--rlg) !important;
+  padding:28px !important;box-shadow:var(--sh-sm) !important;
+  transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease !important;
+}
+.cs a.cs-svc:hover{
+  border-color:var(--b600) !important;box-shadow:var(--sh-md) !important;
+  transform:translateY(-3px) !important;background:#FFFFFF !important;
+}
+.cs .cs-svc__ico{
+  width:46px !important;height:46px !important;border-radius:12px !important;
+  background:var(--b50) !important;display:inline-flex !important;
+  align-items:center !important;justify-content:center !important;margin-bottom:18px !important;
+}
+.cs .cs-svc__ico i{font-size:19px !important;color:var(--b600) !important}
+.cs .cs-svc__t{display:block !important;font-size:1.05rem !important;font-weight:700 !important;color:var(--s900) !important;margin-bottom:8px !important}
+.cs .cs-svc__d{font-size:.92rem !important;line-height:1.6 !important;color:var(--s600) !important;margin-bottom:18px !important}
+.cs .cs-svc__go{
+  margin-top:auto !important;display:inline-flex !important;align-items:center !important;gap:8px !important;
+  font-size:.88rem !important;font-weight:700 !important;color:var(--b600) !important;
+}
+.cs .cs-svc__go i{transition:transform .2s ease !important;color:var(--b600) !important}
+.cs a.cs-svc:hover .cs-svc__go i{transform:translateX(4px) !important}
+
+/* ═══ FOUR-CARD BALANCE ═════════════════════════════════════════════
+   With exactly four cards an auto-fit 3-track grid leaves a lone card on
+   the second row at a third of the width, which is what made the fourth
+   one look shrunken. Four items lay out 2 x 2 instead, so every card is
+   the same width and the rows are the same height. */
+.cs .cs-grid--4up{grid-template-columns:repeat(auto-fit,minmax(340px,1fr)) !important}
+@media (min-width:900px){
+  .cs .cs-grid--4up{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+}
+/* Cards in a row match heights so the tiles line up. */
+.cs .cs-grid{align-items:stretch !important}
+.cs .cs-grid > *{height:100% !important}
+
+@media (max-width:860px){
+  .cs .cs-deliver{grid-template-columns:minmax(0,1fr) !important}
+}
 
 /* ═══ RESPONSIVE ════════════════════════════════════════════════════ */
 @media (max-width:860px){

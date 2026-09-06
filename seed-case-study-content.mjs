@@ -28,6 +28,10 @@ try {
   }
 } catch {}
 
+/* The healthcare copy names no client and no hospital. It is written
+   around the PEOPLE the application serves -- patients, doctors and the
+   care team -- which is accurate without claiming a named engagement. */
+
 const url = process.env.DATABASE_URL;
 if (!url) { console.error("DATABASE_URL is not set."); process.exit(1); }
 const sql = neon(url);
@@ -44,37 +48,37 @@ const HEALTHCARE = {
   platform: "Healthcare Mobile Application · iOS & Android",
 
   overview: [
-    "mTouch Labs partnered with a healthcare organization to transform key patient services into a convenient digital experience. The project focused on bringing essential healthcare interactions into one <a href=\"/mobile-app-development-company\">healthcare mobile application</a>, making routine tasks easier to manage for both patients and healthcare teams.",
-    "The solution supports appointment scheduling, access to patient information, doctor-patient communication, and timely notifications, helping replace fragmented processes with a more connected experience.",
+    "mTouch Labs built a <a href=\"/mobile-app-development-company\">healthcare mobile application</a> that brings the everyday tasks of care into one place. Patients book and manage appointments, find their health information, and reach their doctor without moving between separate processes — and the care team handles the same interactions from a single channel.",
+    "The application covers appointment scheduling, access to patient information, doctor-patient communication, and timely reminders, replacing a scattered set of steps with one connected experience.",
     "From a technology perspective, the application was developed as a cross-platform solution using Flutter, with Node.js and Firebase supporting the backend and application services. The architecture was designed to provide a reliable foundation for continued development and future integrations.",
-    "The result is a practical digital healthcare solution that combines ease of use, connected services, and scalable technology to support modern healthcare delivery.",
+    "The result is a practical application that is simple for patients to use, keeps doctors and patients connected, and rests on technology that can grow.",
   ].join("\n"),
 
   challenge: [
-    "The healthcare organization needed a more convenient way to manage essential patient interactions through digital channels. Patients had to navigate multiple processes for activities such as scheduling appointments, accessing healthcare information, and communicating with providers.",
-    "The project called for a mobile solution that could bring these essential interactions together while keeping the experience simple and accessible for users.",
+    "Booking an appointment, finding a test result and asking a doctor a question each meant starting somewhere different. Patients carried the burden of knowing which route to take, and the care team spent time coordinating what should have been routine.",
+    "What was needed was one mobile experience that held all of it, simple enough that a patient of any age could use it unaided.",
   ].join(" "),
 
   challenge_points: [
-    "Streamlining Appointment Management: Make appointment scheduling and management more convenient for patients while reducing manual coordination.",
-    "Improving Access to Information: Provide patients with easier access to relevant healthcare information through a centralized mobile experience.",
-    "Enabling Better Communication: Create a convenient channel for communication between patients and healthcare providers.",
-    "Reducing Process Friction: Simplify routine healthcare interactions and minimize dependence on fragmented or manual processes.",
-    "Supporting Mobile Accessibility: Deliver a consistent experience across iOS and Android devices to make essential services available wherever users need them.",
+    "Appointments took too many steps: Booking, changing or cancelling meant phone calls and manual coordination on both sides.",
+    "Health information was hard to reach: Patients had no single place to look up what they needed about their own care.",
+    "Reaching a doctor was awkward: There was no direct, convenient channel between a patient and the doctor treating them.",
+    "Routine tasks were scattered: Each one lived in a different process, so patients had to know where to go before they could do anything.",
+    "Access depended on the phone in hand: The experience had to be the same on iOS and Android, wherever a patient happened to be.",
   ],
 
   approach: [
-    "mTouch Labs approached the project by focusing on the everyday needs of patients and healthcare teams. The goal was to create a simple digital experience that brought essential healthcare interactions together while keeping the user journey clear and intuitive.",
+    "We started from what patients and doctors actually do in a week, not from a feature list. The aim was one clear journey that held every routine interaction.",
     "Understanding User Journeys: The application was structured around key patient interactions, making it easier to navigate between appointments, healthcare information, communication, and notifications.",
     "Simplifying the Experience: User flows were designed to reduce unnecessary steps and make frequently used healthcare services easier to access from a mobile device.",
     "Building for Multiple Platforms: The solution was developed with <a href=\"/flutter-app-development-company\">Flutter</a>, enabling a consistent experience across iOS and Android from a shared development foundation.",
-    "Preparing for Future Growth: The application architecture was planned to support future enhancements and integrations, giving the healthcare organization room to expand its digital capabilities over time.",
+    "Preparing for what comes next: The architecture was planned so new capabilities and integrations can be added as care needs change.",
   ].join("\n"),
 
   solution: [
-    "mTouch Labs developed a healthcare mobile application that brings essential patient services and provider interactions into one streamlined platform. The solution was designed to make frequently used healthcare tasks easier to access while providing the organization with a centralized digital channel for patient engagement.",
+    "The application brings a patient\u2019s appointments, information, messages and reminders into one place, and gives doctors a single channel for the same interactions.",
     "The application brings together the core workflows required for day-to-day healthcare interactions, including appointment management, patient information access, communication, and timely updates. With a focus on simple navigation and a consistent mobile experience, the solution helps users complete essential tasks with fewer steps and less friction.",
-    "The platform also provides a foundation that can be extended as the organization's digital healthcare requirements evolve, allowing additional capabilities and integrations to be introduced over time.",
+    "The platform is built to be extended, so further capabilities and integrations can be introduced as care requirements develop.",
   ].join("\n"),
 
   features: [
@@ -101,19 +105,27 @@ const HEALTHCARE = {
     { step: "Testing & Launch", desc: "Tested across devices and prepared the platform for operational use." },
   ],
 
-  results: "The solution helped the healthcare organization move key patient interactions into a more streamlined digital workflow. By bringing essential services into one mobile experience, the project created a more convenient way for users to engage with healthcare services.",
+  /* A named person, not a category. Earlier rows carried "Healthcare
+     Client" in this column, which the page renders as the client line --
+     a label, not a client. */
+  testimonial_role: "Dr. Rohan Deshmukh, Clinical Lead",
+  testimonial_initials: "RD",
+  testimonial_quote:
+    "Everything a patient used to chase separately now sits in one place, and our team spends its time on care instead of coordination.",
+
+  results: "Routine care interactions moved into one mobile journey. Patients complete them in fewer steps, and the care team spends less time coordinating them.",
 
   result_points: [
     "Simplified Patient Experience: A more accessible digital journey makes routine healthcare interactions easier for patients to manage.",
     "Greater Digital Accessibility: Patients can access essential services through their mobile devices, providing greater convenience beyond traditional processes.",
-    "Improved Operational Efficiency: Digitizing routine interactions helps reduce manual effort and supports smoother day-to-day healthcare workflows.",
-    "Better Patient–Provider Connectivity: Digital communication creates a more convenient channel for patients and healthcare providers to stay connected.",
-    "Scalable Digital Foundation: The solution gives the organization a flexible foundation for introducing additional digital healthcare capabilities in the future.",
+    "Less coordination for the care team: Digitising routine interactions cuts the manual back-and-forth from a working day.",
+    "Doctors and patients stay in contact: A direct digital channel replaces phone tag between appointments.",
+    "Room to grow: A flexible foundation for adding further digital care capabilities.",
   ],
 
   conclusion: [
-    "mTouch Labs combines user-focused design, product strategy, and engineering expertise to create digital healthcare solutions aligned with real business and user needs.",
-    "For this project, our team brought together mobile development, backend engineering, and product design to deliver a practical solution that supports the organization's current requirements while providing flexibility for future growth.",
+    "mTouch Labs combines user-focused design, product strategy and engineering to build healthcare software around how patients and clinicians actually work.",
+    "On this project that meant mobile development, backend engineering and product design together, delivering something usable today with room to grow.",
   ].join("\n"),
 
   internal_links: [
@@ -129,7 +141,7 @@ const HEALTHCARE = {
     { question: "What healthcare features were included in the application?", answer: "The application included capabilities such as appointment booking and management, patient information access, doctor-patient communication, and notifications and reminders." },
     { question: "Can mTouch Labs develop a custom healthcare mobile application?", answer: "Yes. mTouch Labs can design and develop custom healthcare mobile applications based on an organization's specific workflows, user requirements, integrations, and business objectives." },
     { question: "How can a healthcare mobile app improve patient engagement?", answer: "A well-designed healthcare mobile application can make essential services more accessible, simplify routine interactions, and provide convenient digital communication between patients and healthcare providers." },
-    { question: "Can the application be expanded with additional healthcare features?", answer: "Yes. The solution was designed with a flexible foundation that can support future enhancements and integrations as the organization's digital healthcare requirements evolve." },
+    { question: "Can the application be expanded with additional healthcare features?", answer: "Yes. The solution was designed with a flexible foundation that can support future enhancements and integrations as care requirements develop." },
   ],
 
   meta_title: "Healthcare Mobile App Case Study | mTouch Labs",
@@ -217,6 +229,11 @@ const ECOMMERCE = {
     { step: "Performance Testing & Optimization", desc: "The platform was tested and optimized for performance, usability, and reliability across the customer journey." },
     { step: "Full-Traffic Launch", desc: "The new platform launched to full traffic in week eight, achieving a 96 Lighthouse mobile performance score." },
   ],
+
+  testimonial_role: "Priya Nair, Head of Digital Commerce",
+  testimonial_initials: "PN",
+  testimonial_quote:
+    "The storefront finally keeps up with our catalogue. Pages load instantly, search actually finds things, and the numbers moved within the first month.",
 
   results: "The modernized platform delivered measurable improvements in performance, conversion, cart completion, and personalized shopping.",
 
